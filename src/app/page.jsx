@@ -4,23 +4,21 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Loading from "@/components/animations/Loading";
 import Banner from "@/components/home/Banner";
+import Projects from "@/components/home/Projects";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-between">
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {loading && <Loading onComplete={() => setLoading(false)} />}
-      </AnimatePresence>
+      </AnimatePresence> */}
 
-      <div className="w-full flex-1 flex flex-col items-center justify-center ">
+      <div className="w-full flex-1 flex flex-col">
         {/* Main home page content goes here */}
-        {!loading && (
-
-          <Banner />
-
-        )}
+        <Banner />
+        <Projects />
       </div>
     </main>
   );
