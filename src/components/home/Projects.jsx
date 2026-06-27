@@ -25,6 +25,17 @@ const projectsData = [
     logo: "/images/projects/logo-nazr.svg",
     link: "/projects/two",
   },
+  {
+    id: 3,
+    bgText: "BUILDING TRUST",
+    bgColor: "#FFFAEE",
+    title: "Project Two",
+    description:
+      "An innovative digital experience focusing on seamless user interactions, dynamic content delivery, and state-of-the-art visual design principles.",
+    image: "/images/projects/neela.png",
+    logo: "/images/projects/logo-neela.svg",
+    link: "/projects/two",
+  },
 ];
 
 export default function Projects() {

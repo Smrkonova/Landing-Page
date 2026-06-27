@@ -1,9 +1,33 @@
 "use client";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useEffect } from "react";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 
 export default function Banner() {
   const bannerRef = useRef(null);
+
+  // Mouse tracking for background parallax effect
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // High damping for a slow, smooth movement
+  const springX = useSpring(mouseX, { stiffness: 40, damping: 30 });
+  const springY = useSpring(mouseY, { stiffness: 40, damping: 30 });
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = (e.clientY / window.innerHeight) * 2 - 1;
+      // Gentle displacement
+      mouseX.set(x * 20);
+      mouseY.set(y * 15);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
+
+  // Background parallax layers
+  const bgX = useTransform(springX, v => v * -1);
+  const bgY = useTransform(springY, v => v * -1);
 
   // Track scroll progress within the banner
   const { scrollYProgress } = useScroll({
@@ -26,9 +50,81 @@ export default function Banner() {
       viewport={{ amount: 0.1 }}
       className="relative w-full h-screen bg-transparent text-[#212121] overflow-hidden font-mono selection:bg-[#212121]/20"
     >
+      {/* Noir Noise Overlay */}
+      <style>{`
+        @keyframes noise-anim {
+          0%, 100% { transform: translate(0, 0); }
+          10% { transform: translate(-5%, -5%); }
+          20% { transform: translate(-10%, 5%); }
+          30% { transform: translate(5%, -10%); }
+          40% { transform: translate(-5%, 15%); }
+          50% { transform: translate(-10%, 5%); }
+          60% { transform: translate(15%, 0); }
+          70% { transform: translate(0, 15%); }
+          80% { transform: translate(5%, 5%); }
+          90% { transform: translate(-10%, 10%); }
+        }
+        .animate-noise {
+          animation: noise-anim 0.4s infinite steps(1);
+        }
+      `}</style>
+      <motion.div style={{ opacity: fadeOutOpacity }} className="absolute inset-0 z-[100] pointer-events-none overflow-hidden">
+        <div
+          className="absolute -inset-[150%] animate-noise opacity-[0.07] mix-blend-difference"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+          }}
+        />
+      </motion.div>
+
+      {/* Bottom Banner Image - Noir Effect */}
+      <motion.div style={{ opacity: fadeOutOpacity }} className="absolute bottom-0 left-0 w-full pointer-events-none z-0 mix-blend-multiply flex items-end justify-center">
+        <motion.img
+          style={{ x: bgX, y: bgY, scale: 1.05 }}
+          src="/images/home/banner-bg.png"
+          alt=""
+          className="w-full h-auto object-cover opacity-90 origin-bottom grayscale contrast-125"
+        />
+      </motion.div>
+
+      {/* Interactive Cloud Smoke Layers - Noir Effect */}
+      <motion.div style={{ opacity: fadeOutOpacity }} className="absolute inset-0 pointer-events-none overflow-hidden z-10 opacity-80 grayscale contrast-[1.1]">
+
+        {/* Cloud 1 */}
+        <motion.div
+          animate={{ x: ["-50%", "0%"] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute -bottom-10 left-0 w-[200%] h-[40vh] flex"
+        >
+          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-70 blur-[1px]" />
+          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-70 blur-[1px]" />
+        </motion.div>
+
+        {/* Cloud 2 */}
+        <motion.div
+          animate={{ x: ["-50%", "0%"] }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          className="absolute -bottom-5 left-0 w-[240%] h-[45vh] flex"
+        >
+          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-80 blur-[2px] scale-x-[-1]" />
+          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-80 blur-[2px] scale-x-[-1]" />
+        </motion.div>
+
+        {/* Cloud 3 */}
+        <motion.div
+          animate={{ x: ["-50%", "0%"] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-5 left-0 w-[180%] h-[30vh] flex"
+        >
+          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-60" />
+          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-60" />
+        </motion.div>
+
+      </motion.div>
+
       <motion.div
         style={{ opacity: fadeOutOpacity, y: slideUpY }}
-        className="w-full h-full relative"
+        className="w-full h-full relative z-20"
       >
         {/* Decorative Corners */}
         {/* Top Left */}
@@ -105,16 +201,21 @@ export default function Banner() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="flex flex-col items-center gap-8"
+            className="flex flex-col items-center"
           >
-            <span className="text-[10px] tracking-[0.3em] uppercase text-[#212121]/70">
-              THE PRESENT
-            </span>
-
-            <h1 className="text-3xl md:text-5xl lg:text-[4rem] font-sans font-medium text-[#212121] text-center uppercase tracking-wide leading-tight max-w-5xl px-4">
-              WE ARE A DIGITAL CONSULTANCY<br />
-              HELPING BUSINESSES GROW GLOBALLY
+            <h1 className="text-6xl md:text-8xl lg:text-[8rem] font-good-times font-black text-[#212121] text-center uppercase tracking-wider leading-none">
+              THE PEAK
             </h1>
+
+            <h2 className="text-lg md:text-2xl lg:text-3xl font-sans font-light text-[#212121] text-center uppercase tracking-[0.2em] mt-6">
+              ISN'T FOUND. IT'S ENGINEERED.
+            </h2>
+
+            <p className="text-sm md:text-base font-sans font-medium text-[#212121]/80 text-center leading-relaxed max-w-lg mt-8">
+              We Build Full-Scale Digital Products. Designed.<br />
+              Developed. Engineered to Scale Modern<br />
+              Businesses.
+            </p>
           </motion.div>
 
           {/* Scroll to discover - Circular Text */}
@@ -126,7 +227,7 @@ export default function Banner() {
           >
             <div className="relative w-28 h-28 flex items-center justify-center">
               {/* Center Dot */}
-              <div className="w-1.5 h-1.5 bg-[#212121]/50 rounded-full" />
+              <div className="w-1.5 h-1.5 bg-[#212121]/80 rounded-full" />
 
               {/* Circular Text SVG */}
               <motion.div
@@ -134,15 +235,15 @@ export default function Banner() {
                 transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
                 className="absolute inset-0"
               >
-                <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible opacity-70">
+                <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible opacity-80">
                   <path
                     id="circlePath"
                     d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
                     fill="transparent"
                   />
-                  <text className="text-[7.5px] tracking-[0.2em] uppercase font-mono" fill="#212121">
+                  <text className="text-[8.5px] tracking-[0.2em] font-semibold uppercase font-sans" fill="#212121">
                     <textPath href="#circlePath" startOffset="0%">
-                      SCROLL TO DISCOVER • SCROLL TO DISCOVER •
+                      START YOUR SYSTEM • START YOUR SYSTEM •
                     </textPath>
                   </text>
                 </svg>
