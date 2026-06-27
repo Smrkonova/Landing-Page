@@ -112,7 +112,7 @@ export default function Banner() {
         <motion.div
           animate={{ x: ["-50%", "0%"] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[60%] -translate-y-1/2 left-0 w-[200%] h-[40vh] flex"
+          className="absolute top-[60%] -translate-y-1/2 left-0 w-[200%] h-[25vh] flex"
         >
           <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-70 blur-[1px]" />
           <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-70 blur-[1px]" />
@@ -122,7 +122,7 @@ export default function Banner() {
         <motion.div
           animate={{ x: ["-50%", "0%"] }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[60%] -translate-y-1/2 left-0 w-[240%] h-[45vh] flex"
+          className="absolute top-[60%] -translate-y-1/2 left-0 w-[240%] h-[30vh] flex"
         >
           <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-80 blur-[2px] scale-x-[-1]" />
           <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-80 blur-[2px] scale-x-[-1]" />
@@ -132,7 +132,7 @@ export default function Banner() {
         <motion.div
           animate={{ x: ["-50%", "0%"] }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[60%] -translate-y-1/2 left-0 w-[180%] h-[30vh] flex"
+          className="absolute top-[60%] -translate-y-1/2 left-0 w-[180%] h-[20vh] flex"
         >
           <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-60" />
           <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-60" />
