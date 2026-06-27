@@ -2,8 +2,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import CustomCursor from "@/components/animations/CustomCursor";
-import SmoothScrolling from "@/components/animations/SmoothScrolling";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,17 +15,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <SmoothScrolling>
-          <CustomCursor />
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </SmoothScrolling>
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
