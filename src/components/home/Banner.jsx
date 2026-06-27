@@ -2,6 +2,15 @@
 import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 
+const SNOWFLAKES = Array.from({ length: 50 }).map((_, i) => ({
+  id: i,
+  left: `${(i * 13.7) % 100}%`,
+  animationDuration: `${6 + (i % 8)}s`,
+  animationDelay: `-${(i * 2.3) % 10}s`,
+  opacity: 0.3 + ((i % 5) * 0.1),
+  size: `${2 + (i % 3)}px`,
+}));
+
 export default function Banner() {
   const bannerRef = useRef(null);
 
@@ -67,6 +76,15 @@ export default function Banner() {
         .animate-noise {
           animation: noise-anim 0.4s infinite steps(1);
         }
+        @keyframes snow-fall {
+          0% { transform: translateY(-10vh) translateX(0px); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateY(110vh) translateX(20px); opacity: 0; }
+        }
+        .animate-snow {
+          animation: snow-fall linear infinite;
+        }
       `}</style>
       <motion.div style={{ opacity: fadeOutOpacity }} className="absolute inset-0 z-[100] pointer-events-none overflow-hidden">
         <div
@@ -78,12 +96,12 @@ export default function Banner() {
       </motion.div>
 
       {/* Bottom Banner Image - Noir Effect */}
-      <motion.div style={{ opacity: fadeOutOpacity }} className="absolute bottom-0 left-0 w-full pointer-events-none z-0 mix-blend-multiply flex items-end justify-center">
+      <motion.div style={{ opacity: fadeOutOpacity }} className="absolute bottom-0 left-0 w-full pointer-events-none z-0  flex items-end justify-center">
         <motion.img
           style={{ x: bgX, y: bgY, scale: 1.05 }}
-          src="/images/home/banner-bg.png"
+          src="/images/home/bg.png"
           alt=""
-          className="w-full h-auto object-cover opacity-90 origin-bottom grayscale contrast-125"
+          className="w-full h-auto object-cover origin-bottom "
         />
       </motion.div>
 
@@ -94,7 +112,7 @@ export default function Banner() {
         <motion.div
           animate={{ x: ["-50%", "0%"] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-10 left-0 w-[200%] h-[40vh] flex"
+          className="absolute top-[60%] -translate-y-1/2 left-0 w-[200%] h-[40vh] flex"
         >
           <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-70 blur-[1px]" />
           <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-70 blur-[1px]" />
@@ -104,7 +122,7 @@ export default function Banner() {
         <motion.div
           animate={{ x: ["-50%", "0%"] }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-5 left-0 w-[240%] h-[45vh] flex"
+          className="absolute top-[60%] -translate-y-1/2 left-0 w-[240%] h-[45vh] flex"
         >
           <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-80 blur-[2px] scale-x-[-1]" />
           <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-80 blur-[2px] scale-x-[-1]" />
@@ -114,12 +132,30 @@ export default function Banner() {
         <motion.div
           animate={{ x: ["-50%", "0%"] }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-5 left-0 w-[180%] h-[30vh] flex"
+          className="absolute top-[60%] -translate-y-1/2 left-0 w-[180%] h-[30vh] flex"
         >
           <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-60" />
           <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-60" />
         </motion.div>
 
+      </motion.div>
+
+      {/* Snow Falling Animation */}
+      <motion.div style={{ opacity: fadeOutOpacity }} className="absolute inset-0 z-[15] pointer-events-none overflow-hidden">
+        {SNOWFLAKES.map((flake) => (
+          <div
+            key={flake.id}
+            className="absolute -top-10 rounded-full bg-white animate-snow"
+            style={{
+              left: flake.left,
+              width: flake.size,
+              height: flake.size,
+              opacity: flake.opacity,
+              animationDuration: flake.animationDuration,
+              animationDelay: flake.animationDelay,
+            }}
+          />
+        ))}
       </motion.div>
 
       <motion.div
@@ -203,17 +239,17 @@ export default function Banner() {
             transition={{ duration: 1, ease: "easeOut" }}
             className="flex flex-col items-center"
           >
-            <h1 className="text-6xl md:text-8xl lg:text-[8rem] font-good-times font-black text-[#212121] text-center uppercase tracking-wider leading-none">
+            <h1 className="text-6xl md:text-8xl lg:text-[6rem] font-good-times font-black text-[#212121] text-center uppercase tracking-wider leading-none">
               THE PEAK
             </h1>
 
             <h2 className="text-lg md:text-2xl lg:text-3xl font-sans font-light text-[#212121] text-center uppercase tracking-[0.2em] mt-6">
-              ISN'T FOUND. IT'S ENGINEERED.
+              ISN'T FOUND. IT'S ENGINEERED
             </h2>
 
-            <p className="text-sm md:text-base font-sans font-medium text-[#212121]/80 text-center leading-relaxed max-w-lg mt-8">
+            <p className="text-sm md:text-sm font-sans font-medium text-[#212121]/80 text-center leading-relaxed  mt-8">
               We Build Full-Scale Digital Products. Designed.<br />
-              Developed. Engineered to Scale Modern<br />
+              Developed. Engineered to Scale Modern
               Businesses.
             </p>
           </motion.div>
