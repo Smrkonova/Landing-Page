@@ -16,7 +16,7 @@ const projectsData = [
   {
     id: 2,
     bgText: "YOU ARE SAFE",
-    bgColor: "#F80090", // dark blue/gray
+    bgColor: "#F80090",
     title: "Project Two",
     description:
       "An innovative digital experience focusing on seamless user interactions, dynamic content delivery, and state-of-the-art visual design principles.",
