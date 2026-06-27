@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import Loading from "@/components/animations/Loading";
 import Banner from "@/components/home/Banner";
+import Manifesto from "@/components/home/Manifesto";
 import Projects from "@/components/home/Projects";
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
       <div className="w-full flex-1 flex flex-col">
         {/* Main home page content goes here */}
         <Banner />
+        <Manifesto />
         <Projects />
       </div>
     </main>

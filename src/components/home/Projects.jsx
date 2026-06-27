@@ -65,6 +65,14 @@ export default function Projects() {
   });
 
   const updateState = (latest) => {
+    if (latest <= 0) {
+      setActiveIndex(-1);
+      if (typeof document !== "undefined") {
+        document.body.style.backgroundColor = "#ffffff";
+      }
+      return;
+    }
+
     const total = projectsData.length;
     let newIndex = Math.floor(latest * total);
     newIndex = Math.max(0, Math.min(newIndex, total - 1));
@@ -96,11 +104,6 @@ export default function Projects() {
         ref={containerRef}
         className="relative w-full z-10 bg-transparent"
         style={{ height: `${projectsData.length * 150}vh` }}
-        onViewportEnter={() => {
-          if (typeof document !== "undefined") {
-            document.body.style.backgroundColor = projectsData[0].bgColor;
-          }
-        }}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
         viewport={{ amount: 0.1 }}
