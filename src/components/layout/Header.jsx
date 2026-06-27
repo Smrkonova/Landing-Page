@@ -56,7 +56,7 @@ export default function Header() {
             </span> */}
             <button
               onClick={() => setIsOpen(true)}
-              className="hover:opacity-70 transition-opacity"
+              className="border border-black px-5 py-2 hover:bg-black hover:text-white transition-all duration-300"
             >
               MENU
             </button>
