@@ -37,6 +37,8 @@ export default function Banner() {
   // Background parallax layers
   const bgX = useTransform(springX, v => v * -1);
   const bgY = useTransform(springY, v => v * -1);
+  const eagleX = useTransform(springX, v => v * 1.5);
+  const eagleY = useTransform(springY, v => v * 1.5);
 
   // Track scroll progress within the banner
   const { scrollYProgress } = useScroll({
@@ -105,6 +107,23 @@ export default function Banner() {
         />
       </motion.div>
 
+      {/* Eagle Flying GIF */}
+      <motion.div style={{ opacity: fadeOutOpacity, x: eagleX, y: eagleY }} className="absolute inset-0 pointer-events-none overflow-hidden z-[110]">
+        <motion.img
+          src="/images/home/eagle.gif"
+          alt="Eagle"
+          className="absolute top-[65%] left-0 w-24 md:w-32 h-auto opacity-100"
+          animate={{
+            x: ["-20vw", "120vw"],
+            y: [0, -40, 10, -30, 0],
+          }}
+          transition={{
+            x: { duration: 40, repeat: Infinity, ease: "linear" },
+            y: { duration: 40, repeat: Infinity, ease: "easeInOut" },
+          }}
+        />
+      </motion.div>
+
       {/* Interactive Cloud Smoke Layers - Noir Effect */}
       <motion.div style={{ opacity: fadeOutOpacity }} className="absolute inset-0 pointer-events-none overflow-hidden z-10 opacity-80 grayscale contrast-[1.1]">
 
@@ -136,6 +155,26 @@ export default function Banner() {
         >
           <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-60" />
           <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-60" />
+        </motion.div>
+
+        {/* Bottom Cloud 1 */}
+        <motion.div
+          animate={{ x: ["-50%", "0%"] }}
+          transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+          className="absolute -bottom-10 left-0 w-[220%] h-[25vh] flex"
+        >
+          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-90 blur-[1px]" />
+          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-90 blur-[1px]" />
+        </motion.div>
+
+        {/* Bottom Cloud 2 */}
+        <motion.div
+          animate={{ x: ["-50%", "0%"] }}
+          transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+          className="absolute -bottom-5 left-0 w-[200%] h-[20vh] flex"
+        >
+          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-70 blur-[2px] scale-x-[-1]" />
+          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-70 blur-[2px] scale-x-[-1]" />
         </motion.div>
 
       </motion.div>
