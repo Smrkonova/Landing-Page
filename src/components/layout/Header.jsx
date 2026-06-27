@@ -1,14 +1,27 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [time, setTime] = useState("");
   const [tz, setTz] = useState("LOCAL");
+
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isAudioPlaying) {
+        audioRef.current.play().catch(e => console.log("Audio play failed: ", e));
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isAudioPlaying]);
 
   useEffect(() => {
     const updateTime = () => {
@@ -35,6 +48,10 @@ export default function Header() {
 
   return (
     <>
+      <audio ref={audioRef} loop preload="auto">
+        <source src="/audio/background.mpeg" type="audio/mpeg" />
+      </audio>
+
       <header className="absolute top-0 left-0 w-full z-40 px-6 py-8 md:px-12 flex justify-center  pointer-events-none">
         <div className="w-full max-w-7xl flex items-center justify-between">
           {/* Left: Logo */}
@@ -49,16 +66,37 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Right: Time & Menu */}
-          <div className="flex items-center gap-12 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase  pointer-events-auto">
-            {/* <span className="hidden md:inline-block opacity-70 ">
-              ( {tz} ) {time || "00:00"}
-            </span> */}
+          {/* Right: Audio & Menu Buttons */}
+          <div className="flex items-center gap-4 pointer-events-auto">
+            {/* Audio Equalizer Button */}
+            <button
+              onClick={() => setIsAudioPlaying(!isAudioPlaying)}
+              className="w-12 h-12 border border-[#212121]/30 flex items-center justify-center gap-[3px] hover:border-[#212121] transition-colors"
+            >
+              {[...Array(5)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  animate={{ scaleY: isAudioPlaying ? [0.4, 1.2, 0.5, 1, 0.4] : 0.5 }}
+                  transition={{ 
+                    duration: 0.8, 
+                    repeat: Infinity, 
+                    repeatType: "mirror", 
+                    ease: "easeInOut", 
+                    delay: i * 0.15 
+                  }}
+                  className="w-px h-5 bg-[#212121] origin-center"
+                />
+              ))}
+            </button>
+
+            {/* Hamburger Menu Button */}
             <button
               onClick={() => setIsOpen(true)}
-              className="border border-black px-5 py-2 hover:bg-black hover:text-white transition-all duration-300"
+              className="w-12 h-12 border border-[#212121]/30 flex flex-col items-center justify-center gap-1.5 hover:border-[#212121] transition-colors"
             >
-              MENU
+              <div className="w-5 h-px bg-[#212121]" />
+              <div className="w-5 h-px bg-[#212121]" />
+              <div className="w-5 h-px bg-[#212121]" />
             </button>
           </div>
         </div>
