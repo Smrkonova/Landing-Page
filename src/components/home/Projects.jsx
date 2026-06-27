@@ -50,7 +50,17 @@ export default function Projects() {
   });
 
   return (
-    <div ref={containerRef} className="relative w-full z-10 bg-transparent" style={{ height: `${projectsData.length * 150}vh` }}>
+    <motion.div 
+      ref={containerRef} 
+      className="relative w-full z-10 bg-transparent" 
+      style={{ height: `${projectsData.length * 150}vh` }}
+      onViewportEnter={() => {
+        if (typeof document !== "undefined") {
+          document.body.style.backgroundColor = projectsData[0].bgColor;
+        }
+      }}
+      viewport={{ amount: 0.1 }}
+    >
       <div className="sticky top-0 left-0 w-full h-screen overflow-hidden">
         {projectsData.map((project, index) => {
           let state = "upcoming";
@@ -60,7 +70,7 @@ export default function Projects() {
           return <ProjectSlide key={project.id} project={project} state={state} />;
         })}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

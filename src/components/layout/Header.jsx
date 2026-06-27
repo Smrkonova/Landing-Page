@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [time, setTime] = useState("");
+  const [tz, setTz] = useState("LOCAL");
 
   useEffect(() => {
     const updateTime = () => {
@@ -19,6 +20,13 @@ export default function Header() {
           hour12: false,
         })
       );
+      try {
+        const timeString = new Intl.DateTimeFormat('en-US', { timeZoneName: 'short' }).format(now);
+        const tzAbbr = timeString.split(' ').pop();
+        if (tzAbbr) setTz(tzAbbr);
+      } catch (e) {
+        setTz("LOCAL");
+      }
     };
     updateTime();
     const interval = setInterval(updateTime, 1000);
@@ -27,30 +35,32 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-40 px-6 py-8 md:px-12 flex items-center justify-between text-white mix-blend-difference pointer-events-none">
-        {/* Left: Logo */}
-        <Link href="/" className="pointer-events-auto hover:opacity-70 transition-opacity">
-          <div className="relative w-32 h-8">
-            <Image
-              src="/images/logo.svg"
-              alt="SMRKONOVA"
-              fill
-              className="object-contain object-left"
-            />
-          </div>
-        </Link>
+      <header className="absolute top-0 left-0 w-full z-40 px-6 py-8 md:px-12 flex justify-center  pointer-events-none">
+        <div className="w-full max-w-7xl flex items-center justify-between">
+          {/* Left: Logo */}
+          <Link href="/" className="pointer-events-auto hover:opacity-70 transition-opacity">
+            <div className="relative w-48 h-10 md:w-56 md:h-12">
+              <Image
+                src="/images/logo.svg"
+                alt="SMRKONOVA"
+                fill
+                className="object-contain object-left"
+              />
+            </div>
+          </Link>
 
-        {/* Right: Time & Menu */}
-        <div className="flex items-center gap-12 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase font-mono pointer-events-auto">
-          <span className="hidden md:inline-block opacity-70 font-mono">
-            ( IND ) {time || "00:00"}
-          </span>
-          <button
-            onClick={() => setIsOpen(true)}
-            className="hover:opacity-70 transition-opacity"
-          >
-            MENU
-          </button>
+          {/* Right: Time & Menu */}
+          <div className="flex items-center gap-12 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase  pointer-events-auto">
+            {/* <span className="hidden md:inline-block opacity-70 ">
+              ( {tz} ) {time || "00:00"}
+            </span> */}
+            <button
+              onClick={() => setIsOpen(true)}
+              className="hover:opacity-70 transition-opacity"
+            >
+              MENU
+            </button>
+          </div>
         </div>
       </header>
 
@@ -80,7 +90,7 @@ export default function Header() {
               <div className="flex justify-end w-full">
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase font-mono hover:opacity-50 transition-opacity"
+                  className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase  hover:opacity-50 transition-opacity"
                 >
                   CLOSE
                 </button>
@@ -92,14 +102,14 @@ export default function Header() {
                 <MenuLink href="/about" title="ABOUT US" onClick={() => setIsOpen(false)} />
                 <MenuLink href="/services" title="SERVICES" onClick={() => setIsOpen(false)} />
                 <MenuLink href="/projects" title="PROJECTS" onClick={() => setIsOpen(false)} />
-                
+
                 <div className="mt-16">
                   <MenuLink href="/contact" title="JOIN US" onClick={() => setIsOpen(false)} />
                 </div>
               </div>
 
               {/* Overlay Footer */}
-              <div className="flex flex-col md:flex-row items-start md:items-center justify-between text-[8px] md:text-[9px] font-mono uppercase tracking-[0.1em] text-gray-400 mt-16 gap-4">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between text-[8px] md:text-[9px]  uppercase tracking-[0.1em] text-gray-400 mt-16 gap-4">
                 <div className="flex flex-wrap gap-4 md:gap-6">
                   <span>© 2026 SMRKONOVA.COM</span>
                   <Link href="#" className="hover:text-black transition-colors">Terms & Conditions</Link>
@@ -119,7 +129,7 @@ export default function Header() {
 function MenuLink({ href, title, active, onClick }) {
   return (
     <Link href={href} onClick={onClick} className="group flex items-center gap-6 w-fit">
-      <span className="text-[10px] font-mono text-black/50">
+      <span className="text-[10px]  text-black/50">
         ( {active ? "●" : "○"} )
       </span>
       <span className={`text-4xl md:text-6xl font-black uppercase tracking-tighter transition-colors duration-400 font-sans ${active ? "text-black" : "text-black/30 group-hover:text-black/60"}`}>

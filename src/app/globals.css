@@ -23,3 +23,7 @@ body {
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
   transition: background-color 0.8s ease-in-out;
 }
+
+button {
+  cursor: pointer;
+}

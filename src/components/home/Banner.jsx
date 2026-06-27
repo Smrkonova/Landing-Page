@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Banner() {
   const bannerRef = useRef(null);
-  
+
   // Track scroll progress within the banner
   const { scrollYProgress } = useScroll({
     target: bannerRef,
@@ -16,7 +16,7 @@ export default function Banner() {
   const slideUpY = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
 
   return (
-    <motion.div 
+    <motion.div
       ref={bannerRef}
       onViewportEnter={() => {
         if (typeof document !== "undefined") {
@@ -26,13 +26,13 @@ export default function Banner() {
       viewport={{ amount: 0.1 }}
       className="relative w-full h-screen bg-transparent text-[#212121] overflow-hidden font-mono selection:bg-[#212121]/20"
     >
-      <motion.div 
+      <motion.div
         style={{ opacity: fadeOutOpacity, y: slideUpY }}
         className="w-full h-full relative"
       >
         {/* Decorative Corners */}
         {/* Top Left */}
-        <div className="absolute top-12 left-12 flex flex-col gap-10 opacity-60 text-xs z-0">
+        <div className="absolute top-24 left-12 flex flex-col gap-10 opacity-60 text-xs z-0">
           <div className="w-2 h-2 border border-[#212121]" />
           <div className="flex text-[#212121] tracking-widest">
             <span className="text-[14px]">79</span>
@@ -41,7 +41,7 @@ export default function Banner() {
         </div>
 
         {/* Top Right */}
-        <div className="absolute top-12 right-12 flex flex-col items-end gap-10 opacity-60 text-xs z-0">
+        <div className="absolute top-24 right-12 flex flex-col items-end gap-10 opacity-60 text-xs z-0">
           <div className="w-2 h-2 border border-[#212121]" />
           <div className="flex text-[#212121] tracking-widest">
             <span className="text-[14px]">19</span>
@@ -50,7 +50,7 @@ export default function Banner() {
         </div>
 
         {/* Bottom Left */}
-        <div className="absolute bottom-12 left-12 flex text-xs opacity-60 z-0">
+        <div className="absolute bottom-24 left-12 flex text-xs opacity-60 z-0">
           <div className="flex text-[#212121] tracking-widest">
             <span className="text-[20px] leading-none">32</span>
             <span className="text-[10px] leading-none pt-1">75</span>
@@ -58,7 +58,7 @@ export default function Banner() {
         </div>
 
         {/* Bottom Right */}
-        <div className="absolute bottom-12 right-12 flex text-xs opacity-60 z-0">
+        <div className="absolute bottom-24 right-12 flex text-xs opacity-60 z-0">
           <div className="flex text-[#212121] tracking-widest">
             <span className="text-[20px] leading-none">14</span>
             <span className="text-[10px] leading-none pt-1">36</span>
@@ -100,8 +100,8 @@ export default function Banner() {
 
         {/* Center Content */}
         <div className="relative z-10 w-full h-full flex flex-col items-center justify-center">
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
