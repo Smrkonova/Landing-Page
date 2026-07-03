@@ -92,7 +92,7 @@ export default function NazrProjectPage() {
 
 
       {/* Custom 3-Column Dark Section */}
-      <section className="relative w-full bg-[#111111] text-white pt-12 md:pt-30 flex justify-center overflow-hidden z-20 h-[100vh]">
+      <section className="relative w-full bg-[#111111] text-white pt-12 md:pt-30 px-6 md:px-12 flex justify-center overflow-hidden z-20 min-h-[100vh] h-auto pb-24 md:pb-0">
         <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
           {/* Left Column Metadata (Top Aligned) */}
@@ -163,7 +163,7 @@ export default function NazrProjectPage() {
       </section>
 
       {/* About / Ecosystem Section */}
-      <section className="relative w-full bg-[#111111] text-white py-24 md:py-32 flex justify-center overflow-hidden z-20">
+      <section className="relative w-full bg-[#111111] text-white py-24 md:py-32 px-6 md:px-12 flex justify-center overflow-hidden z-20">
         <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
           {/* Left: Image */}
@@ -574,8 +574,8 @@ export default function NazrProjectPage() {
       </section>
 
       {/* Timeline Section */}
-      <section className="relative w-full bg-[#111111] px-4 md:px-12 py-16 md:py-32 z-20 overflow-hidden">
-        <div ref={timelineRef} className="relative w-full max-w-7xl mx-auto bg-[#FAF6F0] rounded-[48px] md:rounded-[64px] py-24 md:py-32 flex flex-col items-center shadow-2xl">
+      <section className="relative w-full bg-[#111111] px-4 md:px-12 py-12 md:py-20 z-20 overflow-hidden">
+        <div ref={timelineRef} className="relative w-full max-w-7xl mx-auto bg-[#FAF6F0] rounded-[48px] md:rounded-[64px] py-16 md:py-24 flex flex-col items-center shadow-2xl">
         
         {/* Section Title */}
         <div className="text-center mb-32 z-10">
@@ -606,13 +606,13 @@ export default function NazrProjectPage() {
             const lineProgress = useTransform(smoothTimelineScroll, [lineStart, lineEnd], [0, 1]);
             
             return (
-              <div key={index} className="relative w-full flex justify-between items-center mb-20 last:mb-0">
+              <div key={index} className="relative w-full flex justify-between items-center mb-16 md:mb-20 last:mb-0">
                 
                 {/* Connecting Line to Next Node */}
                 {index < arr.length - 1 && (
                   <svg 
                     className="absolute left-0 top-[50%] w-full z-0 pointer-events-none" 
-                    style={{ height: 'calc(100% + 5rem)' }} 
+                    style={{ height: 'calc(100% + 4rem)' }} 
                     preserveAspectRatio="none" 
                     viewBox="0 0 100 100"
                   >
@@ -638,13 +638,13 @@ export default function NazrProjectPage() {
                 )}
 
                 {/* Left Area */}
-                <div className={`w-1/2 pr-8 md:pr-16 flex ${isLeft ? 'justify-end' : 'justify-end opacity-0 pointer-events-none'}`}>
+                <div className={`w-1/2 pr-3 md:pr-16 flex ${isLeft ? 'justify-end' : 'justify-end opacity-0 pointer-events-none'}`}>
                   {isLeft && (
-                    <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 w-max">
-                      <img src="/images/projects/nazr/mobile.png" alt="Mobile" className="w-[140px] md:w-[220px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.2)] rounded-[24px] md:rounded-[32px]" />
-                      <div className="max-w-[200px] md:max-w-[280px]">
-                        <h3 className="text-xl md:text-3xl font-black uppercase mb-3 text-[#111111] tracking-tight">{item.title}</h3>
-                        <p className="text-xs md:text-sm font-medium text-gray-700 leading-relaxed">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                    <div className="flex flex-col md:flex-row items-end md:items-center gap-2 md:gap-10 w-max text-right md:text-left">
+                      <img src="/images/projects/nazr/mobile.png" alt="Mobile" className="w-[80px] sm:w-[100px] md:w-[220px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.2)] rounded-[12px] md:rounded-[32px]" />
+                      <div className="max-w-[120px] sm:max-w-[160px] md:max-w-[280px]">
+                        <h3 className="text-[11px] sm:text-[14px] md:text-3xl font-black uppercase mb-1 md:mb-3 text-[#111111] tracking-tight leading-tight">{item.title}</h3>
+                        <p className="text-[8px] sm:text-[10px] md:text-sm font-medium text-gray-700 leading-tight md:leading-relaxed">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                       </div>
                     </div>
                   )}
@@ -654,26 +654,26 @@ export default function NazrProjectPage() {
                 <div className={`absolute top-1/2 -translate-y-1/2 z-10 flex items-center justify-center transition-all duration-700 ${isLeft ? 'left-[55%] -translate-x-1/2' : 'left-[45%] -translate-x-1/2'}`}>
                   <div className="relative flex items-center justify-center">
                     {/* Active Concentric Rings (Only on Current Node) */}
-                    <div className={`absolute w-[90px] h-[90px] md:w-[120px] md:h-[120px] border-[1px] border-[#F80090]/60 rounded-full transition-opacity duration-500 ${isCurrent ? 'opacity-100' : 'opacity-0'}`} />
-                    <div className={`absolute w-[110px] h-[110px] md:w-[150px] md:h-[150px] border-[1px] border-[#F80090]/30 rounded-full transition-opacity duration-500 ${isCurrent ? 'opacity-100' : 'opacity-0'}`} />
-                    <div className={`absolute w-[130px] h-[130px] md:w-[180px] md:h-[180px] border-[1px] border-[#F80090]/10 rounded-full transition-opacity duration-500 ${isCurrent ? 'opacity-100' : 'opacity-0'}`} />
+                    <div className={`absolute w-[60px] h-[60px] md:w-[120px] md:h-[120px] border-[1px] border-[#F80090]/60 rounded-full transition-opacity duration-500 ${isCurrent ? 'opacity-100' : 'opacity-0'}`} />
+                    <div className={`absolute w-[80px] h-[80px] md:w-[150px] md:h-[150px] border-[1px] border-[#F80090]/30 rounded-full transition-opacity duration-500 ${isCurrent ? 'opacity-100' : 'opacity-0'}`} />
+                    <div className={`absolute w-[100px] h-[100px] md:w-[180px] md:h-[180px] border-[1px] border-[#F80090]/10 rounded-full transition-opacity duration-500 ${isCurrent ? 'opacity-100' : 'opacity-0'}`} />
                     
                     {/* Main Circle */}
-                    <div className={`w-14 h-14 md:w-20 md:h-20 rounded-full flex flex-col items-center justify-center text-white text-[10px] md:text-sm font-black shadow-xl transition-all duration-500 z-10 ${isActive ? 'bg-[#F80090] scale-110 shadow-[0_0_30px_rgba(248,0,144,0.5)]' : 'bg-[#111111] scale-100'}`}>
-                      <span className="leading-none text-center mb-[2px]">SOS</span>
-                      <span className="text-[8px] md:text-[10px] leading-none text-center">TAP</span>
+                    <div className={`w-10 h-10 md:w-20 md:h-20 rounded-full flex flex-col items-center justify-center text-white text-[8px] md:text-sm font-black shadow-xl transition-all duration-500 z-10 ${isActive ? 'bg-[#F80090] scale-110 shadow-[0_0_20px_rgba(248,0,144,0.5)]' : 'bg-[#111111] scale-100'}`}>
+                      <span className="leading-none text-center mb-[1px]">SOS</span>
+                      <span className="text-[6px] md:text-[10px] leading-none text-center">TAP</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Right Area */}
-                <div className={`w-1/2 pl-8 md:pl-16 flex ${!isLeft ? 'justify-start' : 'justify-start opacity-0 pointer-events-none'}`}>
+                <div className={`w-1/2 pl-3 md:pl-16 flex ${!isLeft ? 'justify-start' : 'justify-start opacity-0 pointer-events-none'}`}>
                   {!isLeft && (
-                    <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 w-max">
-                      <img src="/images/projects/nazr/mobile.png" alt="Mobile" className="w-[140px] md:w-[220px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.2)] rounded-[24px] md:rounded-[32px]" />
-                      <div className="max-w-[200px] md:max-w-[280px]">
-                        <h3 className="text-xl md:text-3xl font-black uppercase mb-3 text-[#111111] tracking-tight">{item.title}</h3>
-                        <p className="text-xs md:text-sm font-medium text-gray-700 leading-relaxed">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                    <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-10 w-max text-left">
+                      <img src="/images/projects/nazr/mobile.png" alt="Mobile" className="w-[80px] sm:w-[100px] md:w-[220px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.2)] rounded-[12px] md:rounded-[32px]" />
+                      <div className="max-w-[120px] sm:max-w-[160px] md:max-w-[280px]">
+                        <h3 className="text-[11px] sm:text-[14px] md:text-3xl font-black uppercase mb-1 md:mb-3 text-[#111111] tracking-tight leading-tight">{item.title}</h3>
+                        <p className="text-[8px] sm:text-[10px] md:text-sm font-medium text-gray-700 leading-tight md:leading-relaxed">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                       </div>
                     </div>
                   )}
