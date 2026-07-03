@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 
 const SNOWFLAKES = Array.from({ length: 50 }).map((_, i) => ({
@@ -13,6 +13,11 @@ const SNOWFLAKES = Array.from({ length: 50 }).map((_, i) => ({
 
 export default function Banner() {
   const bannerRef = useRef(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Mouse tracking for background parallax effect
   const mouseX = useMotionValue(0);
@@ -88,7 +93,7 @@ export default function Banner() {
           animation: snow-fall linear infinite;
         }
       `}</style>
-      <motion.div style={{ opacity: fadeOutOpacity }} className="absolute inset-0 z-[100] pointer-events-none overflow-hidden">
+      <motion.div style={isMounted ? { opacity: fadeOutOpacity } : { opacity: 1 }} className="absolute inset-0 z-[100] pointer-events-none overflow-hidden">
         <div
           className="absolute -inset-[150%] animate-noise opacity-[0.07] mix-blend-difference"
           style={{
@@ -102,7 +107,7 @@ export default function Banner() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        style={{ opacity: fadeOutOpacity }}
+        style={isMounted ? { opacity: fadeOutOpacity } : { opacity: 1 }}
         className="absolute top-[30%] left-0 w-full flex justify-center pointer-events-none z-[-1]"
       >
         <h1 className="text-[6rem] md:text-[12rem] lg:text-[8rem] xl:text-[10rem] font-good-times font-black text-[#a8a8a8] text-center uppercase tracking-wider leading-none">
@@ -111,9 +116,9 @@ export default function Banner() {
       </motion.div>
 
       {/* Bottom Banner Image - Noir Effect */}
-      <motion.div style={{ opacity: fadeOutOpacity }} className="absolute bottom-0 left-0 w-full pointer-events-none z-0 flex items-end justify-center">
+      <motion.div style={isMounted ? { opacity: fadeOutOpacity } : { opacity: 1 }} className="absolute bottom-0 left-0 w-full pointer-events-none z-0 flex items-end justify-center">
         <motion.img
-          style={{ x: bgX, y: bgY, scale: 1.05 }}
+          style={isMounted ? { x: bgX, y: bgY, scale: 1.05 } : { scale: 1.05 }}
           src="/images/home/bg.png"
           alt=""
           className="w-full h-auto object-cover origin-bottom"
@@ -121,7 +126,7 @@ export default function Banner() {
       </motion.div>
 
       {/* Eagle Flying GIF */}
-      <motion.div style={{ opacity: fadeOutOpacity, x: eagleX, y: eagleY }} className="absolute inset-0 pointer-events-none overflow-hidden z-[110]">
+      <motion.div style={isMounted ? { opacity: fadeOutOpacity, x: eagleX, y: eagleY } : { opacity: 1 }} className="absolute inset-0 pointer-events-none overflow-hidden z-[110]">
         <motion.img
           src="/images/home/eagle.gif"
           alt="Eagle"
@@ -138,7 +143,7 @@ export default function Banner() {
       </motion.div>
 
       {/* Interactive Cloud Smoke Layers - Noir Effect */}
-      <motion.div style={{ opacity: fadeOutOpacity }} className="absolute inset-0 pointer-events-none overflow-hidden z-10 opacity-80 grayscale contrast-[1.1]">
+      <motion.div style={isMounted ? { opacity: fadeOutOpacity } : { opacity: 1 }} className="absolute inset-0 pointer-events-none overflow-hidden z-10 opacity-80 grayscale contrast-[1.1]">
 
         {/* Cloud 1 */}
         <motion.div
@@ -193,7 +198,7 @@ export default function Banner() {
       </motion.div>
 
       {/* Snow Falling Animation */}
-      <motion.div style={{ opacity: fadeOutOpacity }} className="absolute inset-0 z-[15] pointer-events-none overflow-hidden">
+      <motion.div style={isMounted ? { opacity: fadeOutOpacity } : { opacity: 1 }} className="absolute inset-0 z-[15] pointer-events-none overflow-hidden">
         {SNOWFLAKES.map((flake) => (
           <div
             key={flake.id}
@@ -211,7 +216,7 @@ export default function Banner() {
       </motion.div>
 
       <motion.div
-        style={{ opacity: fadeOutOpacity, y: slideUpY }}
+        style={isMounted ? { opacity: fadeOutOpacity, y: slideUpY } : { opacity: 1 }}
         className="w-full h-full relative z-20"
       >
         {/* Decorative Corners */}
