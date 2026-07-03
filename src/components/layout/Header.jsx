@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { X } from "lucide-react";
 
 export default function Header() {
   const pathname = usePathname();
@@ -22,6 +23,20 @@ export default function Header() {
   const [tz, setTz] = useState("LOCAL");
 
   const audioRef = useRef(null);
+
+  // Disable body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -81,6 +96,7 @@ export default function Header() {
           <div className="flex items-center gap-4 pointer-events-auto">
             {/* Audio Equalizer Button */}
             <button
+              suppressHydrationWarning
               onClick={() => setIsAudioPlaying(!isAudioPlaying)}
               className={`w-12 h-12 border flex items-center justify-center gap-[3px] transition-colors duration-300 ${borderColor}`}
             >
@@ -102,6 +118,7 @@ export default function Header() {
 
             {/* Hamburger Menu Button */}
             <button
+              suppressHydrationWarning
               onClick={() => setIsOpen(true)}
               className={`w-12 h-12 border flex flex-col items-center justify-center gap-1.5 transition-colors duration-300 ${borderColor}`}
             >
@@ -127,21 +144,39 @@ export default function Header() {
               className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60]"
             />
 
-            {/* Sidebar Overlay */}
+            {/* Sidebar Overlay Wrapper (Handles animation, no clipping) */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-              className="fixed top-0 right-0 w-full md:w-[55vw] lg:w-[45vw] h-screen bg-[#ffffff] z-[70] flex flex-col justify-between p-8 md:p-12 text-black overflow-y-auto"
+              className="fixed top-0 right-0 w-full md:w-[55vw] lg:w-[45vw] h-screen z-[70]"
             >
-              {/* Overlay Header */}
-              <div className="flex justify-end w-full">
-                <button
+              {/* Floating Close Button (Matches ContactDrawer entrance) */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 30 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="absolute top-1/2 -left-20 -translate-y-1/2 z-10 hidden sm:flex"
+              >
+                <button 
                   onClick={() => setIsOpen(false)}
-                  className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase  hover:opacity-50 transition-opacity"
+                  className="w-14 h-14 bg-[#111111] flex items-center justify-center rounded-[12px] shadow-2xl border border-white/5 hover:bg-[#222] hover:scale-105 transition-all duration-300"
                 >
-                  CLOSE
+                  <X className="w-6 h-6 text-white" />
+                </button>
+              </motion.div>
+              
+              {/* Inner Scrolling Content Area */}
+              <div className="w-full h-full bg-[#ffffff] flex flex-col justify-between p-8 md:p-12 text-black overflow-y-auto relative">
+                {/* Mobile Close Button (Inside) */}
+              <div className="flex sm:hidden justify-end w-full">
+                <button 
+                  onClick={() => setIsOpen(false)}
+                  className="w-10 h-10 bg-[#f0f0f0] flex items-center justify-center rounded-full text-black hover:bg-[#e0e0e0] transition-colors"
+                >
+                  <X className="w-5 h-5" />
                 </button>
               </div>
 
@@ -166,6 +201,7 @@ export default function Header() {
                   <Link href="#" className="hover:text-black transition-colors">Cookies</Link>
                 </div>
                 <span>Site by SMRKONOVA.</span>
+              </div>
               </div>
             </motion.div>
           </>

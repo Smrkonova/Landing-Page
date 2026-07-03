@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ContactCTA from "@/components/layout/ContactCTA";
 import GlobalAudio from "@/components/layout/GlobalAudio";
 
 const inter = Inter({
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         <GlobalAudio />
         <Header />
         <main>{children}</main>
+        <ContactCTA />
         <Footer />
       </body>
     </html>
