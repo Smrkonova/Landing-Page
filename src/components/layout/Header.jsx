@@ -4,8 +4,18 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
+  const isNazrPage = pathname === '/projects/nazr';
+  const logoFilter = isNazrPage 
+    ? 'brightness(0) saturate(100%) invert(23%) sepia(91%) saturate(7355%) hue-rotate(320deg) brightness(98%) contrast(109%)' 
+    : 'none';
+  const iconColor = isNazrPage ? "bg-white/70" : "bg-[#212121]";
+  const borderColor = isNazrPage ? "border-white/20 hover:border-white/40" : "border-[#212121]/30 hover:border-[#212121]";
+  const bottomBorder = isNazrPage ? "border-white/10" : "border-[#212121]/10";
+
   const [isOpen, setIsOpen] = useState(false);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [time, setTime] = useState("");
@@ -53,7 +63,7 @@ export default function Header() {
       </audio>
 
       <header className="absolute top-0 left-0 w-full z-40 px-6 py-8 md:px-12 flex justify-center  pointer-events-none">
-        <div className="w-full max-w-7xl flex items-center justify-between border-b border-[#212121]/10 pb-6">
+        <div className={`w-full max-w-7xl flex items-center justify-between border-b ${bottomBorder} pb-6 transition-colors duration-300`}>
           {/* Left: Logo */}
           <Link href="/" className="pointer-events-auto hover:opacity-70 transition-opacity">
             <div className="relative w-48 h-10 md:w-56 md:h-12">
@@ -61,7 +71,8 @@ export default function Header() {
                 src="/images/logo.svg"
                 alt="SMRKONOVA"
                 fill
-                className="object-contain object-left"
+                className="object-contain object-left transition-all duration-300"
+                style={{ filter: logoFilter }}
               />
             </div>
           </Link>
@@ -71,7 +82,7 @@ export default function Header() {
             {/* Audio Equalizer Button */}
             <button
               onClick={() => setIsAudioPlaying(!isAudioPlaying)}
-              className="w-12 h-12 border border-[#212121]/30 flex items-center justify-center gap-[3px] hover:border-[#212121] transition-colors"
+              className={`w-12 h-12 border flex items-center justify-center gap-[3px] transition-colors duration-300 ${borderColor}`}
             >
               {[...Array(5)].map((_, i) => (
                 <motion.div
@@ -84,7 +95,7 @@ export default function Header() {
                     ease: "easeInOut",
                     delay: i * 0.15
                   }}
-                  className="w-px h-5 bg-[#212121] origin-center"
+                  className={`w-px h-5 origin-center transition-colors duration-300 ${iconColor}`}
                 />
               ))}
             </button>
@@ -92,11 +103,11 @@ export default function Header() {
             {/* Hamburger Menu Button */}
             <button
               onClick={() => setIsOpen(true)}
-              className="w-12 h-12 border border-[#212121]/30 flex flex-col items-center justify-center gap-1.5 hover:border-[#212121] transition-colors"
+              className={`w-12 h-12 border flex flex-col items-center justify-center gap-1.5 transition-colors duration-300 ${borderColor}`}
             >
-              <div className="w-5 h-px bg-[#212121]" />
-              <div className="w-5 h-px bg-[#212121]" />
-              <div className="w-5 h-px bg-[#212121]" />
+              <div className={`w-5 h-px transition-colors duration-300 ${iconColor}`} />
+              <div className={`w-5 h-px transition-colors duration-300 ${iconColor}`} />
+              <div className={`w-5 h-px transition-colors duration-300 ${iconColor}`} />
             </button>
           </div>
         </div>
