@@ -6,6 +6,7 @@ import Loading from "@/components/animations/Loading";
 import Banner from "@/components/home/Banner";
 import Manifesto from "@/components/home/Manifesto";
 import Projects from "@/components/home/Projects";
+import StoryExperience from "@/components/animations/StoryExperience";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -29,6 +30,7 @@ export default function Home() {
         <Banner />
         <Manifesto />
         <Projects />
+        <StoryExperience />
       </div>
     </main>
   );
