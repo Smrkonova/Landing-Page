@@ -97,13 +97,26 @@ export default function Banner() {
         />
       </motion.div>
 
+      {/* Background Text: THE PEAK */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        style={{ opacity: fadeOutOpacity }}
+        className="absolute top-[30%] left-0 w-full flex justify-center pointer-events-none z-[-1]"
+      >
+        <h1 className="text-[6rem] md:text-[12rem] lg:text-[8rem] xl:text-[10rem] font-good-times font-black text-[#a8a8a8] text-center uppercase tracking-wider leading-none">
+          THE PEAK
+        </h1>
+      </motion.div>
+
       {/* Bottom Banner Image - Noir Effect */}
-      <motion.div style={{ opacity: fadeOutOpacity }} className="absolute bottom-0 left-0 w-full pointer-events-none z-0  flex items-end justify-center">
+      <motion.div style={{ opacity: fadeOutOpacity }} className="absolute bottom-0 left-0 w-full pointer-events-none z-0 flex items-end justify-center">
         <motion.img
           style={{ x: bgX, y: bgY, scale: 1.05 }}
           src="/images/home/bg.png"
           alt=""
-          className="w-full h-auto object-cover origin-bottom "
+          className="w-full h-auto object-cover origin-bottom"
         />
       </motion.div>
 
@@ -272,25 +285,19 @@ export default function Banner() {
         {/* Center Content */}
         <div className="relative z-10 w-full h-full flex flex-col items-center justify-center">
 
+          {/* Subheading Split */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="flex flex-col items-center"
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            className="absolute top-[55%] w-full max-w-[60rem] px-8 flex justify-between items-center pointer-events-none"
           >
-            <h1 className="text-6xl md:text-8xl lg:text-[6rem] font-good-times font-black text-[#212121] text-center uppercase tracking-wider leading-none">
-              THE PEAK
-            </h1>
-
-            <h2 className="text-lg md:text-2xl lg:text-3xl font-sans font-light text-[#212121] text-center uppercase tracking-[0.2em] mt-6">
-              ISN'T FOUND. IT'S ENGINEERED
+            <h2 className="text-sm md:text-lg lg:text-xl font-sans font-light text-[#212121] uppercase tracking-[0.15em]">
+              ISN'T FOUND
             </h2>
-
-            <p className="text-sm md:text-sm font-sans font-medium text-[#212121]/80 text-center leading-relaxed  mt-8">
-              We Build Full-Scale Digital Products. Designed.<br />
-              Developed. Engineered to Scale Modern
-              Businesses.
-            </p>
+            <h2 className="text-sm md:text-lg lg:text-xl font-sans font-light text-[#212121] uppercase tracking-[0.15em]">
+              IT'S ENGINEERED
+            </h2>
           </motion.div>
 
           {/* Scroll to discover - Circular Text */}
@@ -298,9 +305,9 @@ export default function Banner() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="absolute bottom-[20%] mt-20"
+            className="absolute top-[65%] -translate-y-1/2 mt-12"
           >
-            <div className="relative w-28 h-28 flex items-center justify-center">
+            <div className="relative w-32 h-32 flex items-center justify-center">
               {/* Center Logo */}
               <img src="/images/small-logo.svg" alt="Small Logo" className="w-8 h-8 object-contain" />
 
@@ -318,11 +325,37 @@ export default function Banner() {
                   />
                   <text className="text-[8.5px] tracking-[0.2em] font-semibold uppercase font-sans" fill="#212121">
                     <textPath href="#circlePath" startOffset="0%">
-                      START YOUR SYSTEM • START YOUR SYSTEM •
+                      • START YOUR SYSTEM • START YOUR SYSTEM •
                     </textPath>
                   </text>
                 </svg>
               </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Bottom Texts and Animation */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
+            className="absolute bottom-8 flex flex-col items-center"
+          >
+            <p className="text-xs md:text-sm font-sans font-medium text-[#212121]/80 text-center leading-relaxed max-w-md">
+              We Build Full-Scale Digital Products. Designed.<br />
+              Developed. Engineered to Scale Modern Businesses.
+            </p>
+
+            <div className="mt-8 flex flex-col items-center gap-4">
+              <span className="text-[10px] md:text-xs uppercase tracking-[0.1em] font-semibold text-[#212121]/80">
+                SEE HOW IT WORKS
+              </span>
+              <div className="relative h-10 w-px flex flex-col items-center justify-start overflow-hidden">
+                <motion.div
+                  animate={{ y: ["-100%", "100%"] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                  className="w-px h-full bg-[#212121]"
+                />
+              </div>
             </div>
           </motion.div>
 
