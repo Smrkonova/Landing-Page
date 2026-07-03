@@ -301,8 +301,8 @@ export default function Banner() {
             className="absolute bottom-[20%] mt-20"
           >
             <div className="relative w-28 h-28 flex items-center justify-center">
-              {/* Center Dot */}
-              <div className="w-1.5 h-1.5 bg-[#212121]/80 rounded-full" />
+              {/* Center Logo */}
+              <img src="/images/small-logo.svg" alt="Small Logo" className="w-8 h-8 object-contain" />
 
               {/* Circular Text SVG */}
               <motion.div

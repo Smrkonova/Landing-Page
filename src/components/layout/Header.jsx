@@ -53,7 +53,7 @@ export default function Header() {
       </audio>
 
       <header className="absolute top-0 left-0 w-full z-40 px-6 py-8 md:px-12 flex justify-center  pointer-events-none">
-        <div className="w-full max-w-7xl flex items-center justify-between">
+        <div className="w-full max-w-7xl flex items-center justify-between border-b border-[#212121]/10 pb-6">
           {/* Left: Logo */}
           <Link href="/" className="pointer-events-auto hover:opacity-70 transition-opacity">
             <div className="relative w-48 h-10 md:w-56 md:h-12">
@@ -77,12 +77,12 @@ export default function Header() {
                 <motion.div
                   key={i}
                   animate={{ scaleY: isAudioPlaying ? [0.4, 1.2, 0.5, 1, 0.4] : 0.5 }}
-                  transition={{ 
-                    duration: 0.8, 
-                    repeat: Infinity, 
-                    repeatType: "mirror", 
-                    ease: "easeInOut", 
-                    delay: i * 0.15 
+                  transition={{
+                    duration: 0.8,
+                    repeat: Infinity,
+                    repeatType: "mirror",
+                    ease: "easeInOut",
+                    delay: i * 0.15
                   }}
                   className="w-px h-5 bg-[#212121] origin-center"
                 />
