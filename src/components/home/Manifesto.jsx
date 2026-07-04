@@ -12,6 +12,9 @@ export default function Manifesto() {
     offset: ["start center", "end center"],
   });
 
+  // Fade out the entire container before it unpins (unpins at 0.75)
+  const containerOpacity = useTransform(scrollYProgress, [0.65, 0.74], [1, 0]);
+
   return (
     <motion.div
       ref={containerRef}
@@ -23,7 +26,7 @@ export default function Manifesto() {
       className="relative w-full h-[200vh] bg-transparent flex items-start justify-center z-10"
     >
       <div className="sticky top-0 w-full h-screen flex items-center justify-center px-4 md:px-16 overflow-hidden">
-        
+
         {/* Subtle Background noise matching Banner */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
           <div
@@ -35,14 +38,16 @@ export default function Manifesto() {
         </div>
 
         {/* Text Container */}
-        <div className="max-w-7xl w-full flex flex-wrap justify-center gap-x-4 gap-y-2 md:gap-x-8 md:gap-y-4">
+        <motion.div style={{ opacity: containerOpacity }} className="max-w-7xl w-full flex flex-wrap justify-center gap-x-4 gap-y-2 md:gap-x-8 md:gap-y-4">
           {words.map((word, i) => {
-            const start = i / words.length;
-            const end = start + (1 / words.length);
-            
+            // Container pins at 0.25 and unpins at 0.75
+            // Light up words between 0.25 and 0.55
+            const mappedStart = 0.25 + (i / words.length) * 0.30;
+            const mappedEnd = mappedStart + (0.30 / words.length);
+
             // eslint-disable-next-line react-hooks/rules-of-hooks
-            const opacity = useTransform(scrollYProgress, [start, end], [0.1, 1]);
-            
+            const opacity = useTransform(scrollYProgress, [mappedStart, mappedEnd], [0.1, 1]);
+
             return (
               <motion.span
                 key={i}
@@ -53,7 +58,7 @@ export default function Manifesto() {
               </motion.span>
             );
           })}
-        </div>
+        </motion.div>
 
       </div>
     </motion.div>
