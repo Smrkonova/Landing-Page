@@ -2,9 +2,10 @@ export const projectsData = [
   {
     id: 1,
     slug: "hiroguild",
-    bgText: "GAMIFIED",
-    bgColor: "#212121",
-    title: "HiroGuild",
+    bgText: "LEVEL UP",
+    bgColor: "#111111",
+    theme: "dark",
+    title: "Hiroguild",
     description:
       "A custom-built platform designed with dual-user architecture, gamification logic, and reward-driven engagement systems to increase user retention and activity.",
     image: "/images/projects/heroguild.png",
@@ -16,6 +17,7 @@ export const projectsData = [
     slug: "nazr",
     bgText: "YOU ARE SAFE",
     bgColor: "#F80090",
+    theme: "dark",
     title: "Nazr",
     description:
       "An innovative digital experience focusing on seamless user interactions, dynamic content delivery, and state-of-the-art visual design principles.",
@@ -28,6 +30,7 @@ export const projectsData = [
     slug: "neela",
     bgText: "BUILDING TRUST",
     bgColor: "#FFFAEE",
+    theme: "light",
     title: "Neela",
     description:
       "An innovative digital experience focusing on seamless user interactions, dynamic content delivery, and state-of-the-art visual design principles.",

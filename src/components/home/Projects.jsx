@@ -123,7 +123,7 @@ function ProjectSlide({ project, state }) {
             visible: { opacity: 1, y: 0, transition: { duration: 1.2, delay: 0.3, ease: "easeOut" } },
             hidden: { opacity: 0, y: -100, transition: { duration: 0.8, ease: "easeInOut" } }
           }}
-          className="text-center text-[18vw] md:text-[13vw] font-bold font-good-times text-[#ffffff] opacity-[0.03] leading-none m-0 p-0 tracking-tight select-none"
+          className={`text-center text-[18vw] md:text-[13vw] font-bold font-good-times leading-none m-0 p-0 tracking-tight select-none ${project.theme === 'light' ? 'text-black opacity-[0.05]' : 'text-[#ffffff] opacity-[0.03]'}`}
         >
           {project.bgText}
         </motion.h2>
@@ -165,7 +165,7 @@ function ProjectSlide({ project, state }) {
 
         {/* Description */}
         <div className="w-full md:w-2/3 md:pl-12">
-          <p className="text-gray-300 text-sm md:text-base font-sans leading-relaxed">
+          <p className={`text-sm md:text-base font-sans leading-relaxed ${project.theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
             {project.description}
           </p>
         </div>
