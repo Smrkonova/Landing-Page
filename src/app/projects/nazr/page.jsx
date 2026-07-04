@@ -381,10 +381,14 @@ export default function NazrProjectPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full max-w-5xl rounded-[32px] md:rounded-[40px] border border-[#3b82f6]/40 overflow-hidden relative shadow-[0_0_40px_rgba(59,130,246,0.1)]"
+          className="w-full max-w-5xl rounded-[32px] md:rounded-[40px] border border-[#3b82f6]/40 overflow-hidden relative shadow-[0_0_40px_rgba(59,130,246,0.1)] aspect-[4/3] md:aspect-video bg-white"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/projects/nazr/product.png" alt="Nazr Product Ecosystem" className="w-full h-auto object-cover" />
+          <iframe 
+            src="https://www.nazrco.in/" 
+            title="Nazr Website" 
+            className="w-full h-full absolute inset-0"
+            style={{ border: 'none' }}
+          />
         </motion.div>
 
       </section>
