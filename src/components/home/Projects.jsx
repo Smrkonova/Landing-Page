@@ -69,7 +69,7 @@ export default function Projects() {
       <motion.div
         ref={containerRef}
         className="relative w-full z-10 bg-transparent"
-        style={{ height: `${projectsData.length * 150}vh` }}
+        style={{ height: `${projectsData.length * 300}vh` }}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
         viewport={{ amount: 0.1 }}
