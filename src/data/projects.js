@@ -62,6 +62,6 @@ export const projectsData = [
       "An innovative digital experience focusing on seamless user interactions, dynamic content delivery, and state-of-the-art visual design principles.",
     image: "/images/projects/readingelf.png",
     logo: "/images/projects/logo-readingelf.webp",
-    link: "/projects/readingelf",
+    link: "/projects/reading-elf",
   },
 ];
