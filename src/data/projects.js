@@ -38,4 +38,30 @@ export const projectsData = [
     logo: "/images/projects/logo-neela.svg",
     link: "/projects/neela",
   },
+  {
+    id: 4,
+    slug: "cineartery",
+    bgText: "CRAFTING STORIES",
+    bgColor: "#111111",
+    theme: "dark",
+    title: "Cineartery",
+    description:
+      "An innovative digital experience focusing on seamless user interactions, dynamic content delivery, and state-of-the-art visual design principles.",
+    image: "/images/projects/cineartery.png",
+    logo: "/images/projects/logo-cineartery.svg",
+    link: "/projects/cineartery",
+  },
+  {
+    id: 5,
+    slug: "reading-elf",
+    bgText: "PLAYFUL READING",
+    bgColor: "#B4E4D5",
+    theme: "light",
+    title: "Reading Elf",
+    description:
+      "An innovative digital experience focusing on seamless user interactions, dynamic content delivery, and state-of-the-art visual design principles.",
+    image: "/images/projects/readingelf.png",
+    logo: "/images/projects/logo-readingelf.webp",
+    link: "/projects/readingelf",
+  },
 ];
