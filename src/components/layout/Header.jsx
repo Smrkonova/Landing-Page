@@ -10,12 +10,20 @@ import { X } from "lucide-react";
 export default function Header() {
   const pathname = usePathname();
   const isNazrPage = pathname === '/projects/nazr';
-  const logoFilter = isNazrPage 
-    ? 'brightness(0) saturate(100%) invert(23%) sepia(91%) saturate(7355%) hue-rotate(320deg) brightness(98%) contrast(109%)' 
-    : 'none';
-  const iconColor = isNazrPage ? "bg-white/70" : "bg-[#212121]";
-  const borderColor = isNazrPage ? "border-white/20 hover:border-white/40" : "border-[#212121]/30 hover:border-[#212121]";
-  const bottomBorder = isNazrPage ? "border-white/10" : "border-[#212121]/10";
+  const isCineArteryPage = pathname === '/projects/cineartery';
+  const isDarkPage = isNazrPage || isCineArteryPage;
+  
+  let logoFilter = 'none';
+  if (isNazrPage) {
+    logoFilter = 'brightness(0) saturate(100%) invert(23%) sepia(91%) saturate(7355%) hue-rotate(320deg) brightness(98%) contrast(109%)';
+  } else if (isCineArteryPage) {
+    // Filter to turn black logo into yellow (#EAB308)
+    logoFilter = 'brightness(0) saturate(100%) invert(73%) sepia(61%) saturate(541%) hue-rotate(352deg) brightness(102%) contrast(101%)';
+  }
+
+  const iconColor = isDarkPage ? "bg-white/70" : "bg-[#212121]";
+  const borderColor = isDarkPage ? "border-white/20 hover:border-white/40" : "border-[#212121]/30 hover:border-[#212121]";
+  const bottomBorder = isDarkPage ? "border-white/10" : "border-[#212121]/10";
 
   const [isOpen, setIsOpen] = useState(false);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
