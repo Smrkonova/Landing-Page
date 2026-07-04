@@ -201,10 +201,10 @@ export default function NazrProjectPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 pt-4">
-              <button className="px-8 py-4 bg-[#F80090] text-white rounded-[4px] font-medium text-sm hover:bg-[#d00078] transition-colors duration-300 shadow-[0_0_20px_rgba(248,0,144,0.2)]">
+              <button suppressHydrationWarning className="px-8 py-4 bg-[#F80090] text-white rounded-[4px] font-medium text-sm hover:bg-[#d00078] transition-colors duration-300 shadow-[0_0_20px_rgba(248,0,144,0.2)]">
                 Explore the Ecosystem
               </button>
-              <button className="px-8 py-4 border border-[#F80090]/50 text-white rounded-[4px] font-medium text-sm flex items-center justify-center gap-4 hover:bg-[#F80090]/10 transition-colors duration-300">
+              <button suppressHydrationWarning className="px-8 py-4 border border-[#F80090]/50 text-white rounded-[4px] font-medium text-sm flex items-center justify-center gap-4 hover:bg-[#F80090]/10 transition-colors duration-300">
                 <div className="w-5 h-5 bg-[#F80090] flex items-center justify-center rounded-[2px]">
                   <span className="w-0 h-0 border-t-[4px] border-t-transparent border-l-[6px] border-l-white border-b-[4px] border-b-transparent ml-[2px]"></span>
                 </div>
