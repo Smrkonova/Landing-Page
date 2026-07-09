@@ -11,7 +11,8 @@ export default function Header() {
   const pathname = usePathname();
   const isNazrPage = pathname === '/projects/nazr';
   const isCineArteryPage = pathname === '/projects/cineartery';
-  const isDarkPage = isNazrPage || isCineArteryPage;
+  const isIndustryPage = pathname?.startsWith('/industries/');
+  const isDarkPage = isNazrPage || isCineArteryPage || isIndustryPage;
   
   let logoFilter = 'none';
   if (isNazrPage) {
@@ -19,6 +20,9 @@ export default function Header() {
   } else if (isCineArteryPage) {
     // Filter to turn black logo into yellow (#EAB308)
     logoFilter = 'brightness(0) saturate(100%) invert(73%) sepia(61%) saturate(541%) hue-rotate(352deg) brightness(102%) contrast(101%)';
+  } else if (isIndustryPage) {
+    // Filter to turn black logo into white
+    logoFilter = 'brightness(0) invert(1)';
   }
 
   const iconColor = isDarkPage ? "bg-white/70" : "bg-[#212121]";

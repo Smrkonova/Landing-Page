@@ -7,7 +7,7 @@ export default function Page() {
             >
 
                 <section className="relative min-h-screen overflow-hidden pt-28">
-                    <div className="absolute inset-0"><img src="../assets/img/industries/manufacturing/banner.jpg" alt=""
+                    <div className="absolute inset-0"><img src="/images/industries/banner.jpg" alt=""
                         className="h-full w-full object-cover opacity-60" />
                         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black"></div>
                     </div>
@@ -52,7 +52,7 @@ export default function Page() {
                                     <span>02</span><span className="h-px w-8 bg-white/30"></span><span>The Shift</span>
                                 </div>
                                 <h2 className="mt-6 text-4xl leading-[1] tracking-tight md:text-6xl"
-                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Manufacturing Doesn't Need More Machines. It Needs Better Digital Systems.
+                                >Manufacturing Doesn't Need More Machines. It Needs Better Digital Systems.
                                 </h2>
                             </div>
                             <div className="space-y-6 text-lg text-white/70 lg:col-span-6 lg:col-start-7">
@@ -74,7 +74,7 @@ export default function Page() {
                             <span>03</span><span className="h-px w-8 bg-white/30"></span><span>How Modern Manufacturing Buyers Make Decisions</span>
                         </div>
                         <h2 className="mt-6 max-w-3xl text-4xl leading-[1] tracking-tight md:text-6xl"
-                            style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Eleven moments. One decision.</h2>
+                        >Eleven moments. One decision.</h2>
                         <div className="mt-16 grid gap-3 md:grid-cols-3 lg:grid-cols-9">
                             <div
                                 className="group relative rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition hover:border-white/40 hover:bg-white/[0.06]">
@@ -151,7 +151,7 @@ export default function Page() {
                             </div>
                         </div>
                         <p className="mt-16 text-2xl text-white/80 md:text-3xl"><span className="text-white/40">Where does your
-                            factory</span> <span style={{ "fontFamily": "'Space Grotesk', sans-serif" }} className="italic">lose
+                            factory</span> <span className="italic">lose
                                 buyers?</span></p>
                     </div>
                 </section>
@@ -162,7 +162,7 @@ export default function Page() {
                             <span>12</span><span className="h-px w-8 bg-white/30"></span><span>The Data</span>
                         </div>
                         <h2 className="mt-6 text-4xl leading-[1] tracking-tight md:text-6xl"
-                            style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Manufacturing Is Becoming Digital</h2>
+                        >Manufacturing Is Becoming Digital</h2>
                         <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                             <div className="border border-white/10 p-8 rounded-3xl">
                                 <div className="text-3xl font-bold tracking-tight mb-4">Global Buyers</div>
@@ -190,13 +190,13 @@ export default function Page() {
                             <span>04</span><span className="h-px w-8 bg-white/30"></span><span>Challenges Manufacturing Companies Face</span>
                         </div>
                         <h2 className="mt-6 max-w-3xl text-4xl leading-[1] tracking-tight text-black md:text-6xl"
-                            style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Ten quiet failures costing you contracts every day.
+                        >Ten quiet failures costing you contracts every day.
                         </h2>
                         <div className="mt-16 grid gap-px overflow-hidden rounded-3xl bg-black/10 md:grid-cols-2 lg:grid-cols-5">
                             <div className="group relative bg-white p-8 transition hover:bg-black hover:text-white">
                                 <div className="font-mono text-[11px] text-black/40 group-hover:text-white/50">Problem 01
                                 </div>
-                                <div className="mt-8 text-xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Booking
+                                <div className="mt-8 text-xl leading-tight"  >Booking
                                     friction</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">buyers can't book appointments
                                     easily.</p>
@@ -204,7 +204,7 @@ export default function Page() {
                             <div className="group relative bg-white p-8 transition hover:bg-black hover:text-white">
                                 <div className="font-mono text-[11px] text-black/40 group-hover:text-white/50">Problem 02
                                 </div>
-                                <div className="mt-8 text-xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Outdated
+                                <div className="mt-8 text-xl leading-tight"  >Outdated
                                     design</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">factory websites look ten years
                                     old.</p>
@@ -212,7 +212,7 @@ export default function Page() {
                             <div className="group relative bg-white p-8 transition hover:bg-black hover:text-white">
                                 <div className="font-mono text-[11px] text-black/40 group-hover:text-white/50">Problem 03
                                 </div>
-                                <div className="mt-8 text-xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-8 text-xl leading-tight"  >
                                     Invisible engineers</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">engineers don't appear on Google.
                                 </p>
@@ -220,7 +220,7 @@ export default function Page() {
                             <div className="group relative bg-white p-8 transition hover:bg-black hover:text-white">
                                 <div className="font-mono text-[11px] text-black/40 group-hover:text-white/50">Problem 04
                                 </div>
-                                <div className="mt-8 text-xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>No
+                                <div className="mt-8 text-xl leading-tight"  >No
                                     reminders</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">No WhatsApp or SMS follow-ups.
                                 </p>
@@ -228,7 +228,7 @@ export default function Page() {
                             <div className="group relative bg-white p-8 transition hover:bg-black hover:text-white">
                                 <div className="font-mono text-[11px] text-black/40 group-hover:text-white/50">Problem 05
                                 </div>
-                                <div className="mt-8 text-xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Zero
+                                <div className="mt-8 text-xl leading-tight"  >Zero
                                     retention</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">No system for buyer loyalty.
                                 </p>
@@ -236,7 +236,7 @@ export default function Page() {
                             <div className="group relative bg-white p-8 transition hover:bg-black hover:text-white">
                                 <div className="font-mono text-[11px] text-black/40 group-hover:text-white/50">Problem 06
                                 </div>
-                                <div className="mt-8 text-xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Silo'd
+                                <div className="mt-8 text-xl leading-tight"  >Silo'd
                                     teams</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Departments work in isolation.
                                 </p>
@@ -244,14 +244,14 @@ export default function Page() {
                             <div className="group relative bg-white p-8 transition hover:bg-black hover:text-white">
                                 <div className="font-mono text-[11px] text-black/40 group-hover:text-white/50">Problem 07
                                 </div>
-                                <div className="mt-8 text-xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Ad-only
+                                <div className="mt-8 text-xl leading-tight"  >Ad-only
                                     marketing</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Focus on ads, not on trust.</p>
                             </div>
                             <div className="group relative bg-white p-8 transition hover:bg-black hover:text-white">
                                 <div className="font-mono text-[11px] text-black/40 group-hover:text-white/50">Problem 08
                                 </div>
-                                <div className="mt-8 text-xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Poor
+                                <div className="mt-8 text-xl leading-tight"  >Poor
                                     reviews</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Google reviews left unmanaged.
                                 </p>
@@ -259,7 +259,7 @@ export default function Page() {
                             <div className="group relative bg-white p-8 transition hover:bg-black hover:text-white">
                                 <div className="font-mono text-[11px] text-black/40 group-hover:text-white/50">Problem 09
                                 </div>
-                                <div className="mt-8 text-xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>No brand
+                                <div className="mt-8 text-xl leading-tight"  >No brand
                                 </div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">No cohesive manufacturing identity.
                                 </p>
@@ -267,7 +267,7 @@ export default function Page() {
                             <div className="group relative bg-white p-8 transition hover:bg-black hover:text-white">
                                 <div className="font-mono text-[11px] text-black/40 group-hover:text-white/50">Problem 10
                                 </div>
-                                <div className="mt-8 text-xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>No
+                                <div className="mt-8 text-xl leading-tight"  >No
                                     analytics</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Decisions made without data.</p>
                             </div>
@@ -283,7 +283,7 @@ export default function Page() {
                                     <span>05</span><span className="h-px w-8 bg-white/30"></span><span>The Biggest Mistake</span>
                                 </div>
                                 <h2 className="mt-6 text-4xl leading-[1] tracking-tight md:text-6xl"
-                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Most factories invest in the wrong three
+                                >Most factories invest in the wrong three
                                     things.</h2>
                                 <div className="mt-12 space-y-4 text-lg">
                                     <div className="flex items-center gap-4 border-b border-white/10 pb-4"><span
@@ -315,7 +315,7 @@ export default function Page() {
                                     className="absolute -bottom-6 -left-6 rounded-2xl border border-white/10 bg-black p-6 shadow-2xl">
                                     <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40">Reality Check
                                     </div>
-                                    <div className="mt-2 text-3xl" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>73%</div>
+                                    <div className="mt-2 text-3xl"  >73%</div>
                                     <div className="text-sm text-white/60">of buyers research online first.</div>
                                 </div>
                             </div>
@@ -329,7 +329,7 @@ export default function Page() {
                                 <span>06</span><span className="h-px w-8 bg-white/30"></span><span>How Smrkonova Thinks</span>
                             </div>
                             <h2 className="mt-6 text-4xl leading-[1] tracking-tight md:text-6xl"
-                                style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>We engineer manufacturing systems — not isolated
+                            >We engineer manufacturing systems — not isolated
                                 services.</h2>
                         </div>
                         <div className="mt-16 grid gap-8 lg:grid-cols-12">
@@ -376,19 +376,19 @@ export default function Page() {
                                 </p>
                                 <div className="mt-10 grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
                                     <div>
-                                        <div className="text-4xl md:text-5xl" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>120+
+                                        <div className="text-4xl md:text-5xl"  >120+
                                         </div>
                                         <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-white/40">
                                             Manufacturing projects</div>
                                     </div>
                                     <div>
-                                        <div className="text-4xl md:text-5xl" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>3.4x
+                                        <div className="text-4xl md:text-5xl"  >3.4x
                                         </div>
                                         <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-white/40">Avg.
                                             booking lift</div>
                                     </div>
                                     <div>
-                                        <div className="text-4xl md:text-5xl" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>9 mo.
+                                        <div className="text-4xl md:text-5xl"  >9 mo.
                                         </div>
                                         <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-white/40">Median
                                             payback</div>
@@ -409,7 +409,7 @@ export default function Page() {
                                         manufacturing</span>
                                 </div>
                                 <h2 className="mt-6 max-w-3xl text-4xl leading-[1] tracking-tight md:text-6xl"
-                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Twenty Manufacturing verticals. One
+                                >Twenty Manufacturing verticals. One
                                     engineering partner.</h2>
                             </div>
                             <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-black/50">20 verticals
@@ -421,7 +421,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">01</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Automotive Manufacturers</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Showcasing precision engineering and global supply chain capabilities.</p>
                             </div>
@@ -430,7 +430,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">02</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Precision Engineering</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Digital catalogs and specification portals for complex components.</p>
                             </div>
@@ -439,7 +439,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">03</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     CNC Machining</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Attracting high-value contracts through technically accurate digital presence.</p>
                             </div>
@@ -448,7 +448,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">04</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Steel Manufacturers</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Corporate branding and investor relations platforms for large-scale operations.</p>
                             </div>
@@ -457,7 +457,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">05</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Metal Fabrication</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Highlighting bespoke capabilities and industrial capacity online.</p>
                             </div>
@@ -466,7 +466,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">06</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Industrial Machinery</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Interactive digital showrooms and ROI calculators for heavy equipment.</p>
                             </div>
@@ -475,7 +475,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">07</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Packaging Manufacturers</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">B2B portals connecting global brands with sustainable packaging solutions.</p>
                             </div>
@@ -484,7 +484,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">08</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Food Processing</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Emphasizing hygiene, scale, and compliance through transparent digital storytelling.</p>
                             </div>
@@ -493,7 +493,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">09</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Pharmaceutical Mfg</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Strictly compliant, trust-driven platforms for API and formulation suppliers.</p>
                             </div>
@@ -502,7 +502,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">10</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Chemical Manufacturers</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Safety-first branding and robust technical data sheet distribution systems.</p>
                             </div>
@@ -511,7 +511,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">11</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Electrical Equipment</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">E-catalogs and specification finders for massive product inventories.</p>
                             </div>
@@ -520,7 +520,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">12</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Electronics Manufacturers</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Highlighting innovation, R&D, and production capacity for global OEMs.</p>
                             </div>
@@ -529,7 +529,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">13</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Textile Manufacturers</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Visually rich B2B platforms connecting mills with international fashion brands.</p>
                             </div>
@@ -538,7 +538,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">14</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Furniture Manufacturers</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Digital showrooms, 3D configurators, and bulk ordering portals.</p>
                             </div>
@@ -547,7 +547,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">15</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Plastic Products</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Scaling distribution networks through localized and global SEO.</p>
                             </div>
@@ -556,7 +556,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">16</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Medical Equipment</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Highly technical, compliant, and trust-focused digital architectures.</p>
                             </div>
@@ -565,7 +565,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">17</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Rubber Industries</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Connecting specialized industrial buyers with custom compounding solutions.</p>
                             </div>
@@ -574,7 +574,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">18</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Construction Materials</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Streamlining dealer networks and large-scale procurement portals.</p>
                             </div>
@@ -583,7 +583,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">19</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     OEM Suppliers</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Positioning as the silent powerhouse behind global brands.</p>
                             </div>
@@ -592,7 +592,7 @@ export default function Page() {
                                     <div className="font-mono text-[10px] text-black/40 group-hover:text-white/40">20</div><span
                                         className="text-black/30 transition group-hover:translate-x-1 group-hover:text-white">→</span>
                                 </div>
-                                <div className="mt-10 text-2xl leading-tight" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>
+                                <div className="mt-10 text-2xl leading-tight"  >
                                     Export Manufacturing</div>
                                 <p className="mt-3 text-sm text-black/60 group-hover:text-white/60">Building international trust and accelerating cross-border lead generation.</p>
                             </div>
@@ -608,7 +608,7 @@ export default function Page() {
                                     <span>08</span><span className="h-px w-8 bg-white/30"></span><span>Solutions We Build</span>
                                 </div>
                                 <h2 className="mt-6 text-4xl leading-[1] tracking-tight md:text-6xl"
-                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Digital Systems We Build.</h2>
+                                >Digital Systems We Build.</h2>
                                 <p className="mt-6 max-w-md text-white/60">Everything below plugs into the same brand, data layer
                                     and buyer CRM — engineered together, not stitched later.</p>
                                 <div className="mt-10 overflow-hidden rounded-3xl border border-white/10"><img
@@ -738,7 +738,7 @@ export default function Page() {
                             <span>09</span><span className="h-px w-8 bg-white/30"></span><span>Manufacturing Services</span>
                         </div>
                         <h2 className="mt-6 max-w-3xl text-4xl leading-[1] tracking-tight md:text-6xl"
-                            style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Services We Offer.</h2>
+                        >Services We Offer.</h2>
                         <div className="mt-16 flex flex-wrap gap-3">
                             <div
                                 className="rounded-full border border-white/15 px-6 py-3 text-sm text-white/80 transition hover:border-white hover:text-white">
@@ -785,7 +785,7 @@ export default function Page() {
                                     <span>10</span><span className="h-px w-8 bg-white/30"></span><span>Where We Work</span>
                                 </div>
                                 <h2 className="mt-6 text-4xl leading-[1] tracking-tight md:text-6xl"
-                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Supporting Manufacturers Across India's Industrial Hubs.</h2>
+                                >Supporting Manufacturers Across India's Industrial Hubs.</h2>
                                 <p className="mt-4 max-w-md text-white/60">Neither should the systems behind it. We partner with
                                     manufacturing organisations across India's leading industrial hubs.</p>
                             </div>
@@ -795,57 +795,57 @@ export default function Page() {
                                         <div className="flex items-center gap-6"><span
                                             className="font-mono text-[11px] text-white/40">01</span><span
                                                 className="text-3xl md:text-4xl"
-                                                style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Bangalore</span></div><span
-                                                    className="text-white/30 group-hover:text-white">→</span>
+                                            >Bangalore</span></div><span
+                                                className="text-white/30 group-hover:text-white">→</span>
                                     </li>
                                     <li className="group flex items-center justify-between py-6 transition hover:pl-4">
                                         <div className="flex items-center gap-6"><span
                                             className="font-mono text-[11px] text-white/40">02</span><span
                                                 className="text-3xl md:text-4xl"
-                                                style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Mumbai</span></div><span
-                                                    className="text-white/30 group-hover:text-white">→</span>
+                                            >Mumbai</span></div><span
+                                                className="text-white/30 group-hover:text-white">→</span>
                                     </li>
                                     <li className="group flex items-center justify-between py-6 transition hover:pl-4">
                                         <div className="flex items-center gap-6"><span
                                             className="font-mono text-[11px] text-white/40">03</span><span
                                                 className="text-3xl md:text-4xl"
-                                                style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Hyderabad</span></div><span
-                                                    className="text-white/30 group-hover:text-white">→</span>
+                                            >Hyderabad</span></div><span
+                                                className="text-white/30 group-hover:text-white">→</span>
                                     </li>
                                     <li className="group flex items-center justify-between py-6 transition hover:pl-4">
                                         <div className="flex items-center gap-6"><span
                                             className="font-mono text-[11px] text-white/40">04</span><span
                                                 className="text-3xl md:text-4xl"
-                                                style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Chennai</span></div><span
-                                                    className="text-white/30 group-hover:text-white">→</span>
+                                            >Chennai</span></div><span
+                                                className="text-white/30 group-hover:text-white">→</span>
                                     </li>
                                     <li className="group flex items-center justify-between py-6 transition hover:pl-4">
                                         <div className="flex items-center gap-6"><span
                                             className="font-mono text-[11px] text-white/40">05</span><span
                                                 className="text-3xl md:text-4xl"
-                                                style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Pune</span></div><span
-                                                    className="text-white/30 group-hover:text-white">→</span>
+                                            >Pune</span></div><span
+                                                className="text-white/30 group-hover:text-white">→</span>
                                     </li>
                                     <li className="group flex items-center justify-between py-6 transition hover:pl-4">
                                         <div className="flex items-center gap-6"><span
                                             className="font-mono text-[11px] text-white/40">06</span><span
                                                 className="text-3xl md:text-4xl"
-                                                style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Delhi</span></div><span
-                                                    className="text-white/30 group-hover:text-white">→</span>
+                                            >Delhi</span></div><span
+                                                className="text-white/30 group-hover:text-white">→</span>
                                     </li>
                                     <li className="group flex items-center justify-between py-6 transition hover:pl-4">
                                         <div className="flex items-center gap-6"><span
                                             className="font-mono text-[11px] text-white/40">07</span><span
                                                 className="text-3xl md:text-4xl"
-                                                style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Ahmedabad</span></div><span
-                                                    className="text-white/30 group-hover:text-white">→</span>
+                                            >Ahmedabad</span></div><span
+                                                className="text-white/30 group-hover:text-white">→</span>
                                     </li>
                                     <li className="group flex items-center justify-between py-6 transition hover:pl-4">
                                         <div className="flex items-center gap-6"><span
                                             className="font-mono text-[11px] text-white/40">08</span><span
                                                 className="text-3xl md:text-4xl"
-                                                style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Kochi</span></div><span
-                                                    className="text-white/30 group-hover:text-white">→</span>
+                                            >Kochi</span></div><span
+                                                className="text-white/30 group-hover:text-white">→</span>
                                     </li>
                                 </ul>
                             </div>
@@ -858,60 +858,60 @@ export default function Page() {
                             <span>11</span><span className="h-px w-8 bg-white/30"></span><span>Our Process</span>
                         </div>
                         <h2 className="mt-6 max-w-3xl text-4xl leading-[1] tracking-tight md:text-6xl"
-                            style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Our Process.</h2>
+                        >Our Process.</h2>
                         <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                             <div
                                 className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-8">
                                 <div className="flex items-center justify-between"><span className="text-5xl text-white/20"
-                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>01</span><img
+                                >01</span><img
                                         src="/assets/smrkonova-logo-lDAEyAm1.svg" alt="" className="h-3 w-auto opacity-30 invert" />
                                 </div>
-                                <div className="mt-8 text-2xl" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Discover</div>
+                                <div className="mt-8 text-2xl"  >Discover</div>
                                 <p className="mt-2 text-sm text-white/60">Understand your buyers, market and gaps.</p>
                             </div>
                             <div
                                 className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-8">
                                 <div className="flex items-center justify-between"><span className="text-5xl text-white/20"
-                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>02</span><img
+                                >02</span><img
                                         src="/assets/smrkonova-logo-lDAEyAm1.svg" alt="" className="h-3 w-auto opacity-30 invert" />
                                 </div>
-                                <div className="mt-8 text-2xl" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Research</div>
+                                <div className="mt-8 text-2xl"  >Research</div>
                                 <p className="mt-2 text-sm text-white/60">Audit competitors, keywords, funnel leaks.</p>
                             </div>
                             <div
                                 className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-8">
                                 <div className="flex items-center justify-between"><span className="text-5xl text-white/20"
-                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>03</span><img
+                                >03</span><img
                                         src="/assets/smrkonova-logo-lDAEyAm1.svg" alt="" className="h-3 w-auto opacity-30 invert" />
                                 </div>
-                                <div className="mt-8 text-2xl" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Engineer</div>
+                                <div className="mt-8 text-2xl"  >Engineer</div>
                                 <p className="mt-2 text-sm text-white/60">Design systems, flows and brand architecture.</p>
                             </div>
                             <div
                                 className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-8">
                                 <div className="flex items-center justify-between"><span className="text-5xl text-white/20"
-                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>04</span><img
+                                >04</span><img
                                         src="/assets/smrkonova-logo-lDAEyAm1.svg" alt="" className="h-3 w-auto opacity-30 invert" />
                                 </div>
-                                <div className="mt-8 text-2xl" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Develop</div>
+                                <div className="mt-8 text-2xl"  >Develop</div>
                                 <p className="mt-2 text-sm text-white/60">Ship websites, apps, CRMs and integrations.</p>
                             </div>
                             <div
                                 className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-8">
                                 <div className="flex items-center justify-between"><span className="text-5xl text-white/20"
-                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>05</span><img
+                                >05</span><img
                                         src="/assets/smrkonova-logo-lDAEyAm1.svg" alt="" className="h-3 w-auto opacity-30 invert" />
                                 </div>
-                                <div className="mt-8 text-2xl" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Launch</div>
+                                <div className="mt-8 text-2xl"  >Launch</div>
                                 <p className="mt-2 text-sm text-white/60">Go live with SEO, ads and content in place.</p>
                             </div>
                             <div
                                 className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-8">
                                 <div className="flex items-center justify-between"><span className="text-5xl text-white/20"
-                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>06</span><img
+                                >06</span><img
                                         src="/assets/smrkonova-logo-lDAEyAm1.svg" alt="" className="h-3 w-auto opacity-30 invert" />
                                 </div>
-                                <div className="mt-8 text-2xl" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Scale</div>
+                                <div className="mt-8 text-2xl"  >Scale</div>
                                 <p className="mt-2 text-sm text-white/60">Iterate on data. Grow contracts, retain partners.</p>
                             </div>
                         </div>
@@ -927,7 +927,7 @@ export default function Page() {
                                         Work</span>
                                 </div>
                                 <h2 className="mt-6 text-4xl leading-[1] tracking-tight md:text-6xl"
-                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Featured Projects.</h2>
+                                >Featured Projects.</h2>
                             </div><a href="#"
                                 className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/60 hover:text-white">All work
                                 →</a>
@@ -940,7 +940,7 @@ export default function Page() {
                                 loading="lazy" /></div>
                             <div className="p-6">
                                 <div className="flex items-start justify-between">
-                                    <div className="text-2xl" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>NAZR</div><span
+                                    <div className="text-2xl"  >NAZR</div><span
                                         className="text-white/40 group-hover:text-white">→</span>
                                 </div>
                                 <p className="mt-1 text-sm text-white/60">Medical SaaS platform</p>
@@ -955,7 +955,7 @@ export default function Page() {
                                     loading="lazy" /></div>
                                 <div className="p-6">
                                     <div className="flex items-start justify-between">
-                                        <div className="text-2xl" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Global Manufacturing Co.
+                                        <div className="text-2xl"  >Global Manufacturing Co.
                                         </div><span className="text-white/40 group-hover:text-white">→</span>
                                     </div>
                                     <p className="mt-1 text-sm text-white/60">Multi-speciality website</p>
@@ -970,7 +970,7 @@ export default function Page() {
                                     loading="lazy" /></div>
                                 <div className="p-6">
                                     <div className="flex items-start justify-between">
-                                        <div className="text-2xl" style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>FactoryConnect</div>
+                                        <div className="text-2xl"  >FactoryConnect</div>
                                         <span className="text-white/40 group-hover:text-white">→</span>
                                     </div>
                                     <p className="mt-1 text-sm text-white/60">buyer booking portal</p>
@@ -989,7 +989,7 @@ export default function Page() {
                                     <span>13</span><span className="h-px w-8 bg-black/30"></span><span>FAQs</span>
                                 </div>
                                 <h2 className="mt-6 text-4xl leading-[1] tracking-tight md:text-5xl"
-                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Frequently Asked Questions</h2>
+                                >Frequently Asked Questions</h2>
                                 <p className="mt-6 max-w-sm text-black/60">The questions factory owners, marketing heads and
                                     founders ask us every week.</p>
                             </div>
@@ -1000,7 +1000,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">01</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>How much does a factory
+                                                >How much does a factory
                                                     website cost?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1011,7 +1011,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">02</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Why does a factory need
+                                                >Why does a factory need
                                                     SEO?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1022,7 +1022,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">03</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Can you build HIPAA /
+                                                >Can you build HIPAA /
                                                     GDPR-compliant platforms?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1033,7 +1033,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">04</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Do you build appointment
+                                                >Do you build appointment
                                                     systems?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1044,7 +1044,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">05</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Can you integrate WhatsApp
+                                                >Can you integrate WhatsApp
                                                     booking?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1055,7 +1055,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">06</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>How long does a factory app
+                                                >How long does a factory app
                                                     take?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1066,7 +1066,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">07</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Can you redesign an existing
+                                                >Can you redesign an existing
                                                     factory website?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1077,7 +1077,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">08</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Do you work with small
+                                                >Do you work with small
                                                     facilities too?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1088,7 +1088,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">09</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Can you integrate our
+                                                >Can you integrate our
                                                     existing HIS / EMR?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1099,7 +1099,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">10</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Do you offer telemedicine
+                                                >Do you offer telemedicine
                                                     platforms?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1110,7 +1110,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">11</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Can you handle Google Ads
+                                                >Can you handle Google Ads
                                                     and performance marketing?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1121,7 +1121,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">12</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Do you manage Google
+                                                >Do you manage Google
                                                     reviews?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1132,7 +1132,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">13</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Do you offer
+                                                >Do you offer
                                                     branding?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1143,7 +1143,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">14</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Can you build a buyer app
+                                                >Can you build a buyer app
                                                     in Flutter?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1154,7 +1154,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">15</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>What analytics do you set
+                                                >What analytics do you set
                                                     up?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1165,7 +1165,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">16</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Do you offer hosting and
+                                                >Do you offer hosting and
                                                     maintenance?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1176,7 +1176,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">17</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Can you help us launch a new
+                                                >Can you help us launch a new
                                                     factory?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1187,7 +1187,7 @@ export default function Page() {
                                             <div className="flex items-start gap-6"><span
                                                 className="font-mono text-[11px] text-black/40">18</span><span
                                                     className="text-lg md:text-xl"
-                                                    style={{ "fontFamily": "'Space Grotesk', sans-serif" }}>Do you work outside
+                                                >Do you work outside
                                                     India?</span></div><span
                                                         className="mt-1 text-black/40 transition group-open:rotate-45">+</span>
                                         </summary>
@@ -1198,25 +1198,7 @@ export default function Page() {
                         </div>
                     </div>
                 </section>
-                <section id="contact" className="relative overflow-hidden">
-                    <div className="absolute inset-0"><img src="../assets/img/industries/manufacturing/contact.jpg" alt=""
-                        className="h-full w-full object-cover" />
-                        <div className="absolute inset-0 bg-black/50"></div>
-                    </div>
-                    <div
-                        className="relative mx-auto flex min-h-[85vh] max-w-6xl flex-col items-center justify-center px-6 py-32 text-center">
-                        <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-white/70">Ready to build something</p>
-                        <h2 className="mt-4 text-balance text-6xl leading-[0.95] tracking-tight text-white md:text-8xl lg:text-9xl">
-                            Great products deserve greater visibility.</h2>
-                        <div className="mx-auto mt-8 flex items-center gap-3 text-white/60"><span
-                            className="h-px w-20 bg-white/30"></span><img src="/assets/smrkonova-logo-lDAEyAm1.svg" alt=""
-                                className="h-3 w-auto invert opacity-70" /><span className="h-px w-20 bg-white/30"></span></div>
-                        <p className="mt-8 max-w-xl text-lg text-white/80 md:text-xl">Every client deserves a better digital
-                            experience.<br />Let's engineer it together.</p><button
-                                className="mt-10 inline-flex items-center gap-3 rounded-full bg-white/10 px-8 py-4 text-sm text-white backdrop-blur-md ring-1 ring-white/30 transition hover:bg-white hover:text-black"><span>✈</span>
-                            Get in touch</button>
-                    </div>
-                </section>
+
 
             </div>
 
