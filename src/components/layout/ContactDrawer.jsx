@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, User, Mail, MessageSquare } from 'lucide-react';
+import { X, User, Mail, MessageSquare, Phone } from 'lucide-react';
 
 export default function ContactDrawer({ isOpen, onClose }) {
   // Disable body scroll when drawer is open
@@ -50,47 +50,37 @@ export default function ContactDrawer({ isOpen, onClose }) {
             <h2 className="text-4xl md:text-5xl font-black uppercase text-white mb-12 font-good-times tracking-tight">Get in touch</h2>
 
           <form className="flex flex-col flex-1 gap-8">
-            <div className="flex flex-col md:flex-row gap-8">
-              <div className="flex-1 flex flex-col gap-3">
-                <label className="text-[10px] md:text-xs text-white uppercase tracking-widest flex items-center gap-2 font-mono">
-                  <User className="w-4 h-4" /> Name*
-                </label>
-                <input 
-                  type="text" 
-                  placeholder="Full Name" 
-                  className="w-full bg-[#1a1a1a] border border-white/5 p-4 text-gray-400 text-xs font-mono focus:outline-none focus:border-white/20 transition-colors"
-                />
-              </div>
-              <div className="flex-1 flex flex-col gap-3">
-                <label className="text-[10px] md:text-xs text-white uppercase tracking-widest flex items-center gap-2 font-mono">
-                  <Mail className="w-4 h-4" /> Email*
-                </label>
-                <input 
-                  type="email" 
-                  placeholder="exemple@mail.com" 
-                  className="w-full bg-[#1a1a1a] border border-white/5 p-4 text-gray-400 text-xs font-mono focus:outline-none focus:border-white/20 transition-colors"
-                />
-              </div>
+            <div className="flex flex-col gap-3">
+              <label className="text-[10px] md:text-xs text-white uppercase tracking-widest flex items-center gap-2 font-mono">
+                <User className="w-4 h-4" /> Name*
+              </label>
+              <input 
+                type="text" 
+                placeholder="Full Name" 
+                className="w-full bg-[#1a1a1a] border border-white/5 p-4 text-gray-400 text-xs font-mono focus:outline-none focus:border-white/20 transition-colors"
+              />
             </div>
 
             <div className="flex flex-col gap-3">
               <label className="text-[10px] md:text-xs text-white uppercase tracking-widest flex items-center gap-2 font-mono">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                Services needed*
+                <Mail className="w-4 h-4" /> Email*
               </label>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {['Design', 'Webflow', 'Design + Webflow', 'Other'].map(service => (
-                  <label key={service} className="flex items-center gap-4 p-4 bg-[#1a1a1a] border border-white/5 cursor-pointer hover:bg-[#222] transition-colors group">
-                    <div className="relative flex items-center justify-center">
-                      <input type="radio" name="service" className="peer sr-only" />
-                      <div className="w-4 h-4 rounded-full border border-gray-600 peer-checked:border-white transition-colors flex items-center justify-center">
-                        <div className="w-2 h-2 rounded-full bg-white opacity-0 peer-checked:opacity-100 transition-opacity" />
-                      </div>
-                    </div>
-                    <span className="text-xs text-gray-400 font-mono group-hover:text-white transition-colors">{service}</span>
-                  </label>
-                ))}
-              </div>
+              <input 
+                type="email" 
+                placeholder="exemple@mail.com" 
+                className="w-full bg-[#1a1a1a] border border-white/5 p-4 text-gray-400 text-xs font-mono focus:outline-none focus:border-white/20 transition-colors"
+              />
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <label className="text-[10px] md:text-xs text-white uppercase tracking-widest flex items-center gap-2 font-mono">
+                <Phone className="w-4 h-4" /> Phone*
+              </label>
+              <input 
+                type="tel" 
+                placeholder="+1 234 567 8900" 
+                className="w-full bg-[#1a1a1a] border border-white/5 p-4 text-gray-400 text-xs font-mono focus:outline-none focus:border-white/20 transition-colors"
+              />
             </div>
 
             <div className="flex flex-col gap-3">
@@ -104,7 +94,7 @@ export default function ContactDrawer({ isOpen, onClose }) {
               />
             </div>
 
-            <button type="button" className="w-full mt-4 p-4 border border-white/10 hover:bg-white hover:text-black transition-colors text-xs font-bold tracking-widest uppercase">
+            <button type="button" className="w-full mt-4 p-4 bg-white text-black hover:bg-gray-200 transition-colors text-xs font-bold tracking-widest uppercase">
               Send Message
             </button>
 
