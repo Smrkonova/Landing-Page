@@ -11,7 +11,7 @@ export default function ContactDrawer({ isOpen, onClose }) {
     e.preventDefault();
     setStatus('loading');
     try {
-      const res = await fetch('/zeptomail.php', {
+      const res = await fetch('https://www.smrkonova.com/zeptomail.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
