@@ -34,22 +34,22 @@ export default function ServicesScroll() {
   return (
     <section ref={containerRef} className="relative w-full bg-black h-[600vh]">
       {/* Sticky container stays on screen while we scroll through the 600vh */}
-      <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden pt-[120px]">
+      <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden pt-20 lg:pt-[120px]">
 
         {/* Background "WHAT WE DO" Text */}
-        <div className="absolute top-[5%] left-0 w-full flex justify-center items-center pointer-events-none z-0">
-          <h2 className=" leading-none tracking-tighter flex gap-6 md:gap-12 opacity-80">
-            <span className="text-grey text-[96px] font-thin">WHAT</span>
-            <span className="bg-gradient-to-br from-[#1a2b5f] to-[#0a1128] bg-clip-text text-transparent text-[12vw] fonr-bold">WE</span>
-            <span className="text-[#111] text-[12vw] font-bold">DO</span>
+        <div className="absolute top-[8%] md:top-[5%] left-0 w-full flex justify-center items-center pointer-events-none z-0">
+          <h2 className="leading-none tracking-tighter flex gap-3 md:gap-6 lg:gap-12 opacity-80">
+            <span className="text-[#333] text-[16vw] lg:text-[96px] font-thin">WHAT</span>
+            <span className="bg-gradient-to-br from-[#1a2b5f] to-[#0a1128] bg-clip-text text-transparent text-[16vw] lg:text-[12vw] font-bold">WE</span>
+            <span className="text-[#111] text-[16vw] lg:text-[12vw] font-bold">DO</span>
           </h2>
         </div>
 
         {/* Foreground Content */}
-        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 h-full">
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10 h-full">
 
           {/* Left Side: Text List */}
-          <div className="flex flex-col space-y-6 md:space-y-8 relative z-20 h-[300px] justify-center gap-6">
+          <div className="flex flex-col space-y-4 md:space-y-6 relative z-20 h-[180px] md:h-[250px] lg:h-[300px] justify-center gap-4">
             {services.map((service, index) => {
               const offset = index - activeIndex;
               // Only show the active item, one above, and one below
@@ -62,14 +62,14 @@ export default function ServicesScroll() {
                   animate={{
                     opacity: isVisible ? 1 : 0,
                     height: isVisible ? "auto" : 0,
-                    marginBottom: isVisible ? 0 : -24, // counter space-y
+                    marginBottom: isVisible ? 0 : -16, // counter space-y
                     scale: offset === 0 ? 1 : 0.9,
                   }}
                   transition={{ duration: 0.5 }}
                   className="relative origin-left overflow-hidden"
                 >
                   <h3
-                    className={`text-xl md:text-2xl lg:text-3xl font-bold uppercase tracking-wider cursor-pointer transition-colors duration-500 ${offset === 0 ? "text-white" : "text-[#444]"
+                    className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold uppercase tracking-wider cursor-pointer transition-colors duration-500 ${offset === 0 ? "text-white" : "text-[#444]"
                       }`}
                   >
                     {service.title}
@@ -80,7 +80,7 @@ export default function ServicesScroll() {
           </div>
 
           {/* Right Side: Stacked Image Cards */}
-          <div className="relative w-full h-[300px] md:h-[500px] lg:h-[600px] flex justify-end items-center perspective-[1200px]">
+          <div className="relative w-full h-[280px] md:h-[400px] lg:h-[600px] flex justify-center lg:justify-end items-center perspective-[1200px]">
             {services.map((service, index) => {
               // Calculate relative position to active index
               const offset = index - activeIndex;
@@ -94,15 +94,15 @@ export default function ServicesScroll() {
 
               if (offset < 0) {
                 // Passed cards animate up and out
-                scale = 1.1;
-                y = -30;
+                scale = 1.05;
+                y = -80;
                 zIndex = 40;
                 opacity = 0;
                 rotateX = -10;
               } else if (offset === 0) {
                 // Active Card
                 scale = 1;
-                y = 80;
+                y = 0; // Centered
                 zIndex = 30;
                 opacity = 1;
                 rotateX = -5; // Slight tilt towards viewer
@@ -110,7 +110,7 @@ export default function ServicesScroll() {
               } else if (offset === 1) {
                 // Second Card
                 scale = 0.9;
-                y = 60; // Shifted up relative to active
+                y = -40; // Shifted up behind active
                 zIndex = 20;
                 opacity = 0.8;
                 rotateX = 0;
@@ -118,7 +118,7 @@ export default function ServicesScroll() {
               } else if (offset === 2) {
                 // Third Card
                 scale = 0.8;
-                y = 0; // Shifted further up relative to active
+                y = -80; // Shifted further up behind active
                 zIndex = 10;
                 opacity = 0.4;
                 rotateX = 5;
@@ -126,7 +126,7 @@ export default function ServicesScroll() {
               } else {
                 // Future cards (hidden in the back)
                 scale = 0.7;
-                y = -60;
+                y = -120;
                 zIndex = 0;
                 opacity = 0;
                 rotateX = 10;
@@ -149,7 +149,7 @@ export default function ServicesScroll() {
                     duration: 0.6,
                     ease: [0.32, 0.72, 0, 1], // Custom spring-like easing
                   }}
-                  className="absolute right-0 w-[90%] md:w-[80%] lg:w-[100%] h-[250px] md:h-[400px] lg:h-[480px] rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform-style-3d origin-bottom"
+                  className="absolute lg:right-0 w-[95%] sm:w-[80%] lg:w-[100%] h-[200px] md:h-[350px] lg:h-[480px] rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform-style-3d origin-bottom"
                 >
                   <Image
                     src="/images/industries/manufacturing/service/1.png"

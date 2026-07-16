@@ -61,7 +61,7 @@ export default function ProcessScroll() {
         </div>
 
         {/* Left Glass Panel */}
-        <div className="relative z-10 w-full md:w-[50%] h-full bg-gradient-to-r from-black/60 via-black/40 to-transparent backdrop-blur-xs flex flex-col justify-center p-12 md:p-24 border-r border-white/10">
+        <div className="relative z-10 w-full xl:w-[50%] h-full bg-gradient-to-r from-black/60 via-black/40 to-transparent backdrop-blur-xs flex flex-col justify-center p-12 md:p-24 xl:border-r border-white/10">
 
           {/* Top Label */}
           <div className="absolute top-12 left-12 md:top-16 md:left-24">
@@ -115,7 +115,7 @@ export default function ProcessScroll() {
         </div>
 
         {/* Right Clear Panel (Empty, just to allow image to show) */}
-        <div className="hidden md:block relative z-10 w-[50%] h-full"></div>
+        <div className="hidden xl:block relative z-10 w-[50%] h-full"></div>
 
       </div>
     </section>

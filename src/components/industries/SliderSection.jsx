@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -16,6 +16,14 @@ const items = [
 
 export default function SliderSection() {
   const [activeIndex, setActiveIndex] = useState(3);
+
+  // Auto-play interval for continuous movement
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % items.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % items.length);
@@ -39,7 +47,7 @@ export default function SliderSection() {
 
         {/* Slider Container */}
         <motion.div 
-          className="relative w-full h-[400px] md:h-[500px] flex justify-center items-center perspective-[1000px] cursor-grab active:cursor-grabbing"
+          className="relative w-full h-[450px] md:h-[500px] flex justify-center items-center perspective-[1000px] cursor-grab active:cursor-grabbing"
           onPanEnd={(e, info) => {
             if (info.offset.x < -50) {
               handleNext();
@@ -62,15 +70,15 @@ export default function SliderSection() {
 
             // Styling calculations based on offset
             const scale = isCenter ? 1 : Math.max(0.6, 1 - absOffset * 0.15);
-            // Decrease the x-offset for further items to prevent gaps caused by scale-floor
-            const x = Math.sign(offset) * (absOffset * 65 - (absOffset > 1 ? (absOffset - 1) * 15 : 0));
+            // Increase the x-offset to prevent overlapping too much on mobile
+            const x = Math.sign(offset) * (absOffset * 85 - (absOffset > 1 ? (absOffset - 1) * 20 : 0));
             const zIndex = 20 - absOffset;
-            const opacity = absOffset > 3 ? 0 : 1;
+            const opacity = absOffset > 2 ? 0 : 1; // Hide cards further than 2 slots away to keep mobile clean
             
             return (
               <motion.div
                 key={item.id}
-                className="absolute w-[200px] sm:w-[280px] md:w-[350px] h-[280px] sm:h-[350px] md:h-[450px] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl"
+                className="absolute w-[240px] sm:w-[280px] md:w-[350px] h-[340px] sm:h-[350px] md:h-[450px] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl"
                 animate={{
                   x: `${x}%`,
                   scale: scale,
@@ -78,8 +86,8 @@ export default function SliderSection() {
                   opacity: opacity,
                 }}
                 transition={{
-                  duration: 0.6,
-                  ease: [0.32, 0.72, 0, 1],
+                  duration: 1.2,
+                  ease: "easeInOut",
                 }}
                 onClick={() => setActiveIndex(index)}
               >
@@ -93,17 +101,25 @@ export default function SliderSection() {
                     e.currentTarget.src = "/images/industries/manufacturing/service/1.png";
                   }}
                 />
+
+                {/* Dim overlay for inactive cards */}
+                <motion.div
+                  className="absolute inset-0 bg-black pointer-events-none"
+                  animate={{ opacity: isCenter ? 0 : 0.5 }}
+                  transition={{ duration: 0.4 }}
+                />
                 
-                {/* Center Glass Overlay */}
+                {/* Center Glass Label (Bottom) */}
                 <motion.div 
-                  className="absolute inset-0 bg-white/20 backdrop-blur-md flex flex-col justify-center items-center text-center p-6 border border-white/40 pointer-events-none"
+                  className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 bg-white/20 backdrop-blur-md rounded-xl flex flex-col justify-center items-center text-center p-4 border border-white/40 pointer-events-none shadow-lg"
                   initial={false}
                   animate={{
                     opacity: isCenter ? 1 : 0,
+                    y: isCenter ? 0 : 20
                   }}
                   transition={{ duration: 0.4 }}
                 >
-                  <p className="text-white font-bold text-xs md:text-sm tracking-wider uppercase whitespace-pre-line drop-shadow-md">
+                  <p className="text-white font-bold text-[11px] md:text-sm tracking-widest uppercase whitespace-pre-line drop-shadow-md">
                     {item.title}
                   </p>
                 </motion.div>

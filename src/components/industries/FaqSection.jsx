@@ -57,8 +57,8 @@ export default function FaqSection() {
                 key={index}
                 initial={false}
                 animate={{
-                  marginLeft: isOpen ? -32 : 0,
-                  marginRight: isOpen ? -32 : 0,
+                  marginLeft: isOpen ? -12 : 0,
+                  marginRight: isOpen ? -12 : 0,
                 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 className="bg-[#69696900] border border-[#e2e2e2] rounded-[20px] overflow-hidden"

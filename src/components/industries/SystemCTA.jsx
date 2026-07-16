@@ -23,6 +23,7 @@ export default function SystemCTA() {
         {/* Headline */}
         <h2 className="text-[24px] md:text-[32px] lg:text-[40px] font-light text-[#111] leading-[1.2] uppercase tracking-tight mb-8">
           We <span className="font-black">DESIGN</span> and build <span className="font-black">SYSTEMS</span>
+          <span className="md:hidden"> </span>
           <br className="hidden md:block" />
           <span className="font-black">THAT HELP</span> companies <span className="font-black">GROW</span>
         </h2>
@@ -36,11 +37,11 @@ export default function SystemCTA() {
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-wrap justify-center gap-4">
-          <button className="bg-[#111] text-white px-8 py-4 text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-black transition-colors">
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <button className="bg-[#111] text-white px-8 py-4 text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-black transition-colors w-full sm:w-auto">
             Build epic systems
           </button>
-          <button className="bg-transparent text-[#111] border border-[#111] px-8 py-4 text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-white/20 transition-colors">
+          <button className="bg-transparent text-[#111] border border-[#111] px-8 py-4 text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-white/20 transition-colors w-full sm:w-auto">
             See what we build
           </button>
         </div>
