@@ -16,16 +16,16 @@ export default function SolutionsGrid() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
 
         {/* Header Content */}
-        <div className="max-w-3xl mb-16 md:mb-20 space-y-4 md:space-y-6">
+        <div className="max-w-3xl mb-16 md:mb-20 space-y-4 md:space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
           <h4 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#888]">
             SOLUTIONS WE BUILD
           </h4>
           <h2 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-[4rem] font-light text-[#222] leading-[1.1] tracking-tight">
-            BUT WINNING A CUSTOMER IS<br />
-            <span className="font-extrabold text-black">ONLY THE BEGINNING</span>
+            BUT WINNING A CUSTOMER IS<br className="hidden sm:block" />
+            <span className="font-extrabold text-black"> ONLY THE BEGINNING</span>
           </h2>
           <p className="text-xs md:text-sm text-[#444] font-medium tracking-wide max-w-sm mt-4 md:mt-6 leading-relaxed uppercase">
-            GROWTH SOLUTIONS DESIGNED FOR EVERY<br />STAGE OF BUSINESS OPERATIONS
+            GROWTH SOLUTIONS DESIGNED FOR EVERY<br className="hidden sm:block" /> STAGE OF BUSINESS OPERATIONS
           </p>
         </div>
 

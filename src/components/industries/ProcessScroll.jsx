@@ -72,20 +72,20 @@ export default function ProcessScroll() {
         </div>
 
         {/* Left Glass Panel */}
-        <div
-          className="relative z-10 w-full xl:w-[50%] h-full bg-gradient-to-r from-black/60 via-black/40 to-transparent flex flex-col justify-center p-12 md:p-24 xl:border-r xl:border-[#E2E2E2]"
+        <div 
+          className="relative z-10 w-full xl:w-[50%] h-full bg-gradient-to-r from-black/60 via-black/40 to-transparent flex flex-col justify-center p-12 md:p-24 xl:border-r xl:border-[#E2E2E2] items-center md:items-start text-center md:text-left"
           style={{ backdropFilter: "blur(4px) url(#liquid-glass-distortion)" }}
         >
 
           {/* Top Label */}
-          <div className="absolute top-12 left-12 md:top-16 md:left-24">
+          <div className="absolute top-12 left-0 right-0 md:left-24 md:right-auto">
             <h4 className="text-sm font-medium text-white/60 tracking-[0.2em] uppercase">
               OUR PROCESS
             </h4>
           </div>
 
           {/* Scrolling Text List */}
-          <div className="flex flex-col justify-center space-y-8 h-[400px]">
+          <div className="flex flex-col justify-center space-y-8 h-[400px] items-center md:items-start w-full">
             {processes.map((process, index) => {
               const offset = index - activeIndex;
               const isVisible = Math.abs(offset) <= 1;

@@ -22,10 +22,10 @@ export default function LocationsMarquee() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-0 flex flex-col md:flex-row items-center">
 
         {/* Left Content */}
-        <div className="w-full md:w-[45%] mb-16 md:mb-0 pr-0 md:pr-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.3] text-[#111] mb-8 uppercase tracking-wide">
-            Supporting<br />
-            Manufacturers across<br />
+        <div className="w-full md:w-[45%] mb-16 md:mb-0 pr-0 md:pr-12 flex flex-col items-center md:items-start text-center md:text-left">
+          <h2 className="text-[28px] sm:text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.3] text-[#111] mb-8 uppercase tracking-wide">
+            Supporting <br className="hidden sm:block" />
+            Manufacturers across <br className="hidden sm:block" />
             India's industrial hubs
           </h2>
           <p className="text-[#666] text-sm md:text-base max-w-md mb-12 leading-relaxed">
@@ -57,7 +57,7 @@ export default function LocationsMarquee() {
           <motion.div
             animate={{ y: [0, "-50%"] }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 w-full flex flex-col items-end md:items-center"
+            className="absolute top-0 w-full flex flex-col items-center"
           >
             {marqueeItems.map((city, i) => (
               <div
@@ -80,7 +80,7 @@ export default function LocationsMarquee() {
             <motion.div
               animate={{ y: [0, "-50%"] }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute top-0 w-full flex flex-col items-end md:items-center"
+              className="absolute top-0 w-full flex flex-col items-center"
             >
               {marqueeItems.map((city, i) => (
                 <div

@@ -14,11 +14,11 @@ export default function Page() {
     return (
         <main className="w-full">
             {/* Banner Section */}
-            <div className="relative min-h-screen bg-black text-white flex items-center pt-32 md:pt-40 pb-12 lg:pt-20 lg:pb-0">
+            <div className="relative min-h-screen bg-black text-white flex items-center pt-48 sm:pt-56 md:pt-64 pb-12 lg:pt-20 lg:pb-0">
                 <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center relative z-10">
 
                     {/* Left Content (60%) */}
-                    <div className="flex flex-col space-y-6 md:space-y-8 lg:col-span-3 max-w-2xl">
+                    <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-6 md:space-y-8 lg:col-span-3 max-w-2xl">
                         <div className="space-y-2 md:space-y-4">
                             <h1 className="text-[2.5rem] sm:text-5xl md:text-[5rem] font-extrabold tracking-wider leading-none text-white uppercase break-words">
                                 It Worked...
@@ -37,18 +37,18 @@ export default function Page() {
                             company, you need to think further ahead of your customers.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                        <div className="flex flex-col sm:flex-row gap-3 pt-4 w-full md:w-auto">
                             <Link
                                 href="#build"
-                                className="px-6 py-4 bg-white text-black text-[11px] font-bold tracking-widest uppercase hover:bg-neutral-200 transition-colors text-center"
+                                className="px-6 py-4 bg-white text-black text-[11px] font-bold tracking-widest uppercase hover:bg-neutral-200 transition-colors text-center w-full md:w-auto"
                             >
                                 Build Your System
                             </Link>
                             <Link
-                                href="#see"
-                                className="px-6 py-4 bg-transparent border border-[#555] text-white text-[11px] font-bold tracking-widest uppercase hover:border-white transition-colors text-center"
+                                href="#process"
+                                className="px-6 py-4 bg-transparent border border-white text-white text-[11px] font-bold tracking-widest uppercase hover:bg-white/10 transition-colors text-center w-full md:w-auto"
                             >
-                                See What We Build
+                                See Our Process
                             </Link>
                         </div>
                     </div>
@@ -74,18 +74,18 @@ export default function Page() {
                 <div className="max-w-7xl mx-auto space-y-12">
 
                     {/* Top Heading */}
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4.5rem] leading-[1.2] md:leading-[1.1] tracking-normal uppercase text-[#111]">
-                        <span className="font-extrabold">BUILD</span> <span className="font-light text-[#777]">360-DEGREE</span> <span className="font-extrabold">SYSTEMS</span><br />
-                        <span className="font-extrabold">THAT</span> <span className="font-light text-[#777]">NURTURE AND</span> <span className="font-extrabold">GROW YOUR</span><br />
+                    <h2 className="text-center md:text-left text-3xl sm:text-4xl md:text-5xl lg:text-[4.5rem] leading-[1.3] md:leading-[1.1] tracking-normal uppercase text-[#111]">
+                        <span className="font-extrabold">BUILD</span> <span className="font-light text-[#777]">360-DEGREE</span> <span className="font-extrabold">SYSTEMS</span><br className="hidden md:block" />
+                        <span className="font-extrabold">THAT</span> <span className="font-light text-[#777]">NURTURE AND</span> <span className="font-extrabold">GROW YOUR</span><br className="hidden md:block" />
                         <span className="font-light text-[#777]">MANUFACTURING</span> <span className="font-extrabold">BUSINESS</span>
                     </h2>
                     {/* Middle Content Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-start pt-4 md:pt-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-start pt-4 md:pt-8 text-center md:text-left">
                         <div className="text-2xl md:text-3xl lg:text-[2.5rem] leading-[1.3] font-light text-[#999] uppercase tracking-wide">
                             SCALE SYSTEMS THAT<br />RUN YOUR BUSINESS.
                         </div>
 
-                        <div className="flex flex-col space-y-4 md:space-y-6 max-w-sm pt-2">
+                        <div className="flex flex-col items-center md:items-start space-y-4 md:space-y-6 max-w-sm mx-auto md:mx-0 pt-2">
                             <h3 className="text-[10px] font-bold uppercase tracking-widest text-black">
                                 HOW SMRKONOVA THINKS
                             </h3>
@@ -121,12 +121,9 @@ export default function Page() {
                 <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
                     {/* Left Text Content */}
-                    <div className="lg:col-span-7 flex flex-col space-y-8 md:space-y-12 z-10 relative pr-0 md:pr-4 lg:pr-12">
+                    <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8 md:space-y-12 z-10 relative pr-0 md:pr-4 lg:pr-12">
                         <h2 className="text-4xl sm:text-5xl md:text-[4.5rem] lg:text-[64px] font-light tracking-[0.1em] md:tracking-[0.2em] leading-[1.2] md:leading-tight text-[#111] uppercase break-words">
-                            <span className="block">MEET</span>
-                            <span className="block">YOUR</span>
-                            <span className="block">EXTENDED</span>
-                            <span className="block">WING</span>
+                            Meet your extended wing
                         </h2>
                         <p className="text-[13px] md:text-[14px] text-[#666] leading-[2] font-normal">
                             Once your business is on-board, we will study it, begin building seamless systems for enterprises, ERP planners among others. With Smrkonova, build brand specific operational systems for your business, keeping your customers' needs right on the top. We don't just build factory websites, we engineer digital business systems using:

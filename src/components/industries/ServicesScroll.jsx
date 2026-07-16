@@ -49,7 +49,7 @@ export default function ServicesScroll() {
         <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10 h-full">
 
           {/* Left Side: Text List */}
-          <div className="flex flex-col space-y-4 md:space-y-6 relative z-20 h-[180px] md:h-[250px] lg:h-[300px] justify-center gap-4">
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-4 md:space-y-6 relative z-20 h-[180px] md:h-[250px] lg:h-[300px] justify-center gap-4 w-full">
             {services.map((service, index) => {
               const offset = index - activeIndex;
               // Only show the active item, one above, and one below
@@ -66,7 +66,7 @@ export default function ServicesScroll() {
                     scale: offset === 0 ? 1 : 0.9,
                   }}
                   transition={{ duration: 0.5 }}
-                  className="relative origin-left overflow-hidden"
+                  className="relative origin-center lg:origin-left overflow-hidden w-full lg:w-auto"
                 >
                   <h3
                     className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold uppercase tracking-wider cursor-pointer transition-colors duration-500 ${offset === 0 ? "text-white" : "text-[#444]"
