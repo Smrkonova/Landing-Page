@@ -37,10 +37,10 @@ export default function LocationsMarquee() {
             relationships that already drive their business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-[#111] text-white px-8 py-4 text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-black transition-colors w-full sm:w-auto">
+            <button suppressHydrationWarning className="bg-[#111] text-white px-8 py-4 text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-black transition-colors w-full sm:w-auto">
               Build your system
             </button>
-            <button className="bg-transparent text-[#111] border border-[#111] px-8 py-4 text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-gray-50 transition-colors w-full sm:w-auto">
+            <button suppressHydrationWarning className="bg-transparent text-[#111] border border-[#111] px-8 py-4 text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-gray-50 transition-colors w-full sm:w-auto">
               See what we build
             </button>
           </div>

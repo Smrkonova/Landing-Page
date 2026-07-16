@@ -64,6 +64,7 @@ export default function FaqSection() {
                 className="bg-[#69696900] border border-[#e2e2e2] rounded-[20px] overflow-hidden"
               >
                 <button
+                  suppressHydrationWarning
                   onClick={() => toggleFaq(index)}
                   className="w-full flex justify-between items-center p-6 md:px-10 text-left focus:outline-none"
                 >

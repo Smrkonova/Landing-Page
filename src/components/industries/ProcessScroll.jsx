@@ -32,6 +32,17 @@ export default function ProcessScroll() {
 
   return (
     <section ref={containerRef} className="relative w-full h-[600vh]">
+      {/* Liquid Glass SVG Filter Def */}
+      <svg width="0" height="0" style={{ position: "absolute" }}>
+        <defs>
+          <filter id="liquid-glass-distortion" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.005 0.005" numOctaves="2" seed="9" result="noise" />
+            <feGaussianBlur in="noise" stdDeviation="1" result="blurred" />
+            <feDisplacementMap in="SourceGraphic" in2="blurred" scale="10" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+      </svg>
+
       {/* Sticky container */}
       <div className="sticky top-0 h-screen w-full flex overflow-hidden">
 
@@ -61,7 +72,10 @@ export default function ProcessScroll() {
         </div>
 
         {/* Left Glass Panel */}
-        <div className="relative z-10 w-full xl:w-[50%] h-full bg-gradient-to-r from-black/60 via-black/40 to-transparent backdrop-blur-xs flex flex-col justify-center p-12 md:p-24 xl:border-r xl:border-[#E2E2E2]">
+        <div
+          className="relative z-10 w-full xl:w-[50%] h-full bg-gradient-to-r from-black/60 via-black/40 to-transparent flex flex-col justify-center p-12 md:p-24 xl:border-r xl:border-[#E2E2E2]"
+          style={{ backdropFilter: "blur(4px) url(#liquid-glass-distortion)" }}
+        >
 
           {/* Top Label */}
           <div className="absolute top-12 left-12 md:top-16 md:left-24">

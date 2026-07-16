@@ -64,6 +64,16 @@ export default function AutomationCarousel() {
 
   return (
     <div className="relative w-[100vw] max-w-[150vw] md:w-[100vw] lg:w-[80vw] xl:w-[70vw] perspective-[1000px]">
+      {/* Liquid Glass SVG Filter Def for Automation Carousel */}
+      <svg width="0" height="0" style={{ position: "absolute" }}>
+        <defs>
+          <filter id="liquid-glass-distortion-auto" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.005 0.005" numOctaves="2" seed="9" result="noise" />
+            <feGaussianBlur in="noise" stdDeviation="1" result="blurred" />
+            <feDisplacementMap in="SourceGraphic" in2="blurred" scale="10" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+      </svg>
       {/* Background Circular Glow */}
       <div className="absolute top-1/2 left-[40%] -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] lg:w-[700px] lg:h-[700px] bg-[#ffb466] rounded-full blur-[100px] opacity-30 pointer-events-none z-0"></div>
 
@@ -85,7 +95,10 @@ export default function AutomationCarousel() {
                     }`}
                 >
                   {/* Glass Card */}
-                  <div className="bg-white/50 backdrop-blur-xl border border-white/60 rounded-[1.5rem] p-8 lg:p-10  flex flex-col h-[500px] lg:h-[634px] relative group">
+                  <div 
+                    className="bg-white/50 border border-white/60 rounded-[1.5rem] p-8 lg:p-10 flex flex-col h-[500px] lg:h-[634px] relative group"
+                    style={{ backdropFilter: "blur(24px) url(#liquid-glass-distortion-auto)" }}
+                  >
 
                     {/* Image Container */}
                     <div className="relative w-[120%] h-[280px] lg:h-[400px] -ml-[15%] -mt-4 mb-8 z-20">
