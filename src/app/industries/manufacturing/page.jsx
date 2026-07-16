@@ -9,6 +9,7 @@ import LocationsMarquee from "@/components/industries/LocationsMarquee";
 import SystemCTA from "@/components/industries/SystemCTA";
 import CaseStudiesSlider from "@/components/industries/CaseStudiesSlider";
 import FaqSection from "@/components/industries/FaqSection";
+import ManufacturingScrollCanvas from "@/components/industries/ManufacturingScrollCanvas";
 
 export default function Page() {
     return (
@@ -69,51 +70,10 @@ export default function Page() {
                 </div>
             </div>
 
-            {/* Next Section: About / Systems */}
-            <div className="bg-white text-black py-16 md:py-24 px-6 md:px-12 lg:px-16 w-full">
-                <div className="max-w-7xl mx-auto space-y-12">
 
-                    {/* Top Heading */}
-                    <h2 className="text-center md:text-left text-3xl sm:text-4xl md:text-5xl lg:text-[4.5rem] leading-[1.3] md:leading-[1.1] tracking-normal uppercase text-[#111]">
-                        <span className="font-extrabold">BUILD</span> <span className="font-light text-[#777]">360-DEGREE</span> <span className="font-extrabold">SYSTEMS</span><br className="hidden md:block" />
-                        <span className="font-extrabold">THAT</span> <span className="font-light text-[#777]">NURTURE AND</span> <span className="font-extrabold">GROW YOUR</span><br className="hidden md:block" />
-                        <span className="font-light text-[#777]">MANUFACTURING</span> <span className="font-extrabold">BUSINESS</span>
-                    </h2>
-                    {/* Middle Content Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-start pt-4 md:pt-8 text-center md:text-left">
-                        <div className="text-2xl md:text-3xl lg:text-[2.5rem] leading-[1.3] font-light text-[#999] uppercase tracking-wide">
-                            SCALE SYSTEMS THAT<br />RUN YOUR BUSINESS.
-                        </div>
-
-                        <div className="flex flex-col items-center md:items-start space-y-4 md:space-y-6 max-w-sm mx-auto md:mx-0 pt-2">
-                            <h3 className="text-[10px] font-bold uppercase tracking-widest text-black">
-                                HOW SMRKONOVA THINKS
-                            </h3>
-                            <div className="text-[12px] md:text-[13px] text-[#666] leading-loose">
-                                Replace disconnected processes with systems<br />
-                                that gives every team, from marketing to<br />
-                                manufacturing teams the clarity to<br />
-                                <span className="block mt-4 font-medium text-black">
-                                    execute<br />
-                                    analyze<br />
-                                    improve<br />
-                                    and scale.
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Bottom Image */}
-                    <div className="w-full relative h-[30vh] md:h-[50vh] lg:h-[80vh] flex justify-center">
-                        <Image
-                            src="/images/industries/manufacturing/about.png"
-                            alt="360 Degree Manufacturing Systems"
-                            fill
-                            className="object-contain"
-                        />
-                    </div>
-
-                </div>
+            {/* Full-width Scroll Animation Section */}
+            <div className="w-full bg-white relative">
+                <ManufacturingScrollCanvas />
             </div>
 
             {/* Automation Carousel Section */}
