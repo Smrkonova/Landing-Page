@@ -1,0 +1,12 @@
+<svg width="1027" height="1058" viewBox="0 0 1027 1058" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_f_628_18)">
+<g clip-path="url(#paint0_angular_628_18_clip_path)" data-figma-skip-parse="true"><g transform="matrix(0.0229263 0.251163 -0.269047 0.0214024 551.5 529)"><foreignObject x="-1359.78" y="-1359.78" width="2719.56" height="2719.56"><div xmlns="http://www.w3.org/1999/xhtml" style="background:conic-gradient(from 90deg,rgba(255, 85, 117, 0.5407) 0deg,rgba(255, 0, 255, 0) 126.346deg,rgba(255, 157, 0, 1) 252.692deg,rgba(255, 85, 117, 0.5407) 360deg);height:100%;width:100%;opacity:1"></div></foreignObject></g></g><ellipse cx="551.5" cy="529" rx="338.5" ry="316" data-figma-gradient-fill="{&#34;type&#34;:&#34;GRADIENT_ANGULAR&#34;,&#34;stops&#34;:[{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.0,&#34;b&#34;:1.0,&#34;a&#34;:0.0},&#34;position&#34;:0.35096153616905212},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.61666667461395264,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.70192307233810425}],&#34;stopsVar&#34;:[{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.0,&#34;b&#34;:1.0,&#34;a&#34;:0.0},&#34;position&#34;:0.35096153616905212},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.61666667461395264,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.70192307233810425}],&#34;transform&#34;:{&#34;m00&#34;:45.852603912353516,&#34;m01&#34;:-538.09362792968750,&#34;m02&#34;:797.62048339843750,&#34;m10&#34;:502.32669067382812,&#34;m11&#34;:42.804794311523438,&#34;m12&#34;:256.43426513671875},&#34;opacity&#34;:1.0,&#34;blendMode&#34;:&#34;NORMAL&#34;,&#34;visible&#34;:true}"/>
+</g>
+<defs>
+<filter id="filter0_f_628_18" x="0" y="0" width="1103" height="1058" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="106.5" result="effect1_foregroundBlur_628_18"/>
+</filter>
+<clipPath id="paint0_angular_628_18_clip_path"><ellipse cx="551.5" cy="529" rx="338.5" ry="316"/></clipPath></defs>
+</svg>
