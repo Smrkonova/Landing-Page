@@ -61,7 +61,7 @@ export default function ProcessScroll() {
         </div>
 
         {/* Left Glass Panel */}
-        <div className="relative z-10 w-full xl:w-[50%] h-full bg-gradient-to-r from-black/60 via-black/40 to-transparent backdrop-blur-xs flex flex-col justify-center p-12 md:p-24 xl:border-r border-white/10">
+        <div className="relative z-10 w-full xl:w-[50%] h-full bg-gradient-to-r from-black/60 via-black/40 to-transparent backdrop-blur-xs flex flex-col justify-center p-12 md:p-24 xl:border-r xl:border-[#E2E2E2]">
 
           {/* Top Label */}
           <div className="absolute top-12 left-12 md:top-16 md:left-24">

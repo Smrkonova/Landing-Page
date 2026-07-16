@@ -54,7 +54,7 @@ export default function SolutionsGrid() {
           </motion.div>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-16 md:gap-y-12 relative z-10 mt-8 md:mt-12">
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-16 md:gap-y-12 relative z-10 mt-8 md:mt-12">
             {solutions.map((item) => (
               <div
                 key={item.id}
