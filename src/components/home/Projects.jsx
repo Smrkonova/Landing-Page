@@ -1,12 +1,9 @@
 "use client";
-import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useMotionValueEvent, useMotionValue, useSpring } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
+import Image from 'next/image';
 
-import { projectsData } from "@/data/projects";
-
-export default function Projects() {
-  const containerRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+const Projects = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   // Mouse tracking for custom cursor
@@ -25,65 +22,340 @@ export default function Projects() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [cursorX, cursorY]);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const updateState = (latest) => {
-    if (latest <= 0) {
-      setActiveIndex(-1);
-      if (typeof document !== "undefined") {
-        document.body.style.backgroundColor = "#ffffff";
-      }
-      return;
-    }
-
-    const total = projectsData.length;
-    let newIndex = Math.floor(latest * total);
-    newIndex = Math.max(0, Math.min(newIndex, total - 1));
-
-    setActiveIndex(newIndex);
-
-    if (typeof document !== "undefined") {
-      document.body.style.backgroundColor = projectsData[newIndex].bgColor;
-    }
-  };
-
-  useMotionValueEvent(scrollYProgress, "change", updateState);
-
-  // Fix for browser back button / scroll restore
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const latest = scrollYProgress.get();
-      // If we are scrolled into the projects section, restore state immediately
-      if (latest > 0) {
-        updateState(latest);
-      }
-    }, 100);
-    return () => clearTimeout(timer);
-  }, [scrollYProgress]);
-
   return (
-    <>
-      <motion.div
-        ref={containerRef}
-        className="relative w-full z-10 bg-transparent"
-        style={{ height: `${projectsData.length * 300}vh` }}
+    <div className="w-full flex flex-col">
+      {/* Nazr Project Section */}
+      <div
+        className="relative w-full min-h-screen overflow-hidden flex items-center justify-center font-sans"
+        style={{
+          background: 'radial-gradient(104.83% 101.86% at 51.9% 100%, #FF3EAE 0%, #FF1D9D 82.43%, #CD0074 100%)'
+        }}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
-        viewport={{ amount: 0.1 }}
       >
-        <div className="sticky top-0 left-0 w-full h-screen overflow-hidden">
-          {projectsData.map((project, index) => {
-            let state = "upcoming";
-            if (index === activeIndex) state = "visible";
-            else if (index < activeIndex) state = "hidden";
-
-            return <ProjectSlide key={project.id} project={project} state={state} />;
-          })}
+        {/* Giant Background Text */}
+        <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
+          <h1
+            className="text-center text-[18vw] md:text-[12vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
+            style={{ color: '#FFFFFF4D' }}
+          >
+            YOU ARE<br />SAFE
+          </h1>
         </div>
-      </motion.div>
+
+        {/* Main Content Container */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-8 py-24 flex flex-col md:flex-row items-center justify-center h-full">
+
+          {/* Left Side: Product Images */}
+          <div className="relative w-full md:w-1/2 h-[500px] md:h-[700px] flex items-center justify-center mb-12 md:mb-0">
+            <motion.div
+              initial={{ opacity: 0, y: 50, rotate: -15 }}
+              animate={{ opacity: 1, y: 0, rotate: -5 }}
+              transition={{ duration: 1, type: "spring" }}
+              className="absolute w-[70%] md:w-[60%] left-0 md:left-[5%] z-30 drop-shadow-2xl"
+            >
+              <Image
+                src="/images/project/nazr/left.png"
+                alt="Nazr Mobile App"
+                width={600}
+                height={800}
+                className="w-full h-auto object-contain"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 50, rotate: 15 }}
+              animate={{ opacity: 1, y: 0, rotate: 5 }}
+              transition={{ duration: 1, delay: 0.2, type: "spring" }}
+              className="absolute w-[60%] md:w-[70%] right-[-5%] md:-right-[10%] z-40 drop-shadow-2xl"
+            >
+              <Image
+                src="/images/project/nazr/right.png"
+                alt="Nazr Pepper Spray"
+                width={600}
+                height={700}
+                className=" object-contain"
+              />
+            </motion.div>
+          </div>
+
+          {/* Right Side: Description */}
+          <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-16">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col"
+            >
+              {/* Logo */}
+              <div className=" mb-6">
+                <Image
+                  src="/images/projects/logo-nazr.svg"
+                  alt="NAZR"
+                  width={140}
+                  height={40}
+                  className=" object-contain brightness-0 invert"
+
+                />
+              </div>
+
+              {/* Paragraph */}
+              <p className="text-sm  font-medium leading-relaxed text-white/90 max-w-md">
+                A custom-built platform designed with dual-user architecture, gamification logic, and reward-driven engagement systems to increase user retention and activity.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Bottom Footer Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="absolute bottom-10 left-8 right-8 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end z-20 gap-8"
+        >
+          <div className="text-[10px] md:text-xs tracking-widest text-white/70 uppercase font-bold">
+            CONSTRUCTION COMPANY IN BENGALURU
+          </div>
+
+          <div className="flex gap-8 md:gap-16">
+            {[
+              { value: "72%", label: "higher\nengagement" },
+              { value: "4X", label: "higher\nengagement" },
+              { value: "60%", label: "higher\nengagement" }
+            ].map((stat, i) => (
+              <div key={i} className="flex flex-col">
+                <span className="text-xl md:text-2xl font-bold text-white mb-1 leading-none">{stat.value}</span>
+                <span className="text-[10px] md:text-xs text-white/60 whitespace-pre-line leading-tight">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Bottom Curve Image */}
+        <Image
+          src="/images/project/nazr/bottom.svg"
+          alt="Bottom curve"
+          width={1920}
+          height={300}
+          className="absolute bottom-0 left-0 w-full h-auto z-1 pointer-events-none"
+        />
+      </div>
+
+      {/* Neelachandra Project Section */}
+      <div
+        className="relative w-full min-h-screen overflow-hidden flex flex-col justify-end font-sans"
+        style={{
+          background: 'radial-gradient(104.83% 101.86% at 51.9% 100%, #FFA700 0%, #FF7F00 82.43%, #CC5200 100%)'
+        }}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+      >
+        {/* Giant Background Text */}
+        <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
+          <h1
+            className="text-center text-[18vw] md:text-[12vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
+            style={{ color: '#FFFFFF4D' }}
+          >
+            BUILDING<br />TRUST
+          </h1>
+        </div>
+
+        {/* Main Content Container */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-8 pb-32 pt-24 flex flex-col md:flex-row items-end justify-between h-full mt-auto">
+          {/* Left Side: Center Image */}
+          <div className="relative w-full md:w-1/2 flex items-end justify-center mb-12 md:mb-0">
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 1, type: "spring" }}
+              className="relative w-[100%] md:w-[110%] z-30 drop-shadow-2xl md:-ml-[10%]"
+            >
+              <Image
+                src="/images/project/neelachandra/center.png"
+                alt="Neelachandra"
+                width={1000}
+                height={800}
+                className="w-full h-auto object-contain"
+              />
+            </motion.div>
+          </div>
+
+          {/* Right Side: Description */}
+          <div className="w-full md:w-1/2 flex flex-col justify-end md:pl-16 pb-12">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col"
+            >
+              {/* Logo */}
+              <div className="mb-6">
+                <Image
+                  src="/images/projects/logo-neela.svg"
+                  alt="NEELACHANDRA"
+                  width={200}
+                  height={60}
+                  className="object-contain brightness-0 invert"
+                />
+              </div>
+
+              {/* Paragraph */}
+              <p className="text-sm font-medium leading-relaxed text-white/90 max-w-md">
+                A custom-built platform designed with dual-user architecture, gamification logic, and reward-driven engagement systems to increase user retention and activity.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Bottom Footer Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="absolute bottom-10 left-8 right-8 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end z-20 gap-8"
+        >
+          <div className="text-[10px] md:text-xs tracking-widest text-white/70 uppercase font-bold">
+            CONSTRUCTION COMPANY IN BENGALURU
+          </div>
+
+          <div className="flex gap-8 md:gap-16">
+            {[
+              { value: "72%", label: "higher\nengagement" },
+              { value: "4X", label: "higher\nengagement" },
+              { value: "60%", label: "higher\nengagement" }
+            ].map((stat, i) => (
+              <div key={i} className="flex flex-col">
+                <span className="text-xl md:text-2xl font-bold text-white mb-1 leading-none">{stat.value}</span>
+                <span className="text-[10px] md:text-xs text-white/60 whitespace-pre-line leading-tight">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Bottom Curve Image */}
+        <Image
+          src="/images/project/neelachandra/bottom.svg"
+          alt="Bottom curve"
+          width={1920}
+          height={300}
+          className="absolute bottom-0 left-0 w-full h-auto z-1 pointer-events-none"
+        />
+      </div>
+
+      {/* Hiro Project Section */}
+      <div
+        className="relative w-full min-h-screen overflow-hidden flex items-center justify-center font-sans"
+        style={{
+          background: 'radial-gradient(104.83% 101.86% at 51.9% 100%, #1E1E1E 0%, #1E1E1E 82.43%, #121212 100%)'
+        }}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+      >
+        {/* Giant Background Text */}
+        <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
+          <h1
+            className="text-center text-[18vw] md:text-[14vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
+            style={{ color: '#FFFFFF4D' }}
+          >
+            GAMIFIED
+          </h1>
+        </div>
+
+        {/* Main Content Container */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-8 py-24 flex flex-col md:flex-row items-center justify-center h-full">
+          {/* Left Side: Product Images */}
+          <div className="relative w-full md:w-1/2 h-[500px] md:h-[700px] flex items-center justify-center mb-12 md:mb-0">
+            <motion.div
+              initial={{ opacity: 0, y: 50, rotate: -15 }}
+              animate={{ opacity: 1, y: 0, rotate: -5 }}
+              transition={{ duration: 1, type: "spring" }}
+              className="absolute w-[70%] md:w-[60%] left-0 md:left-[5%] z-40 drop-shadow-2xl"
+            >
+              <Image
+                src="/images/project/hiro/left.png"
+                alt="Hiro Mobile App"
+                width={600}
+                height={800}
+                className="w-full h-auto object-contain"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 50, rotate: 15 }}
+              animate={{ opacity: 1, y: 0, rotate: 5 }}
+              transition={{ duration: 1, delay: 0.2, type: "spring" }}
+              className="absolute w-[60%] md:w-[50%] right-[-5%] md:right-[5%] z-30 drop-shadow-2xl"
+            >
+              <Image
+                src="/images/project/hiro/right.png"
+                alt="Hiro App Screen"
+                width={500}
+                height={700}
+                className="w-full h-auto object-contain"
+              />
+            </motion.div>
+          </div>
+
+          {/* Right Side: Description */}
+          <div className="w-full md:w-1/2 flex flex-col justify-center pt-12 md:pl-16">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col"
+            >
+              {/* Logo */}
+              <div className="mb-6">
+                <Image
+                  src="/images/projects/logo-hero.svg"
+                  alt="HiroGuild"
+                  width={180}
+                  height={60}
+                  className="object-contain"
+                />
+              </div>
+
+              {/* Paragraph */}
+              <p className="text-sm font-medium leading-relaxed text-white/90 max-w-md">
+                A custom-built platform designed with dual-user architecture, gamification logic, and reward-driven engagement systems to increase user retention and activity.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Bottom Footer Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="absolute bottom-10 left-8 right-8 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end z-20 gap-8"
+        >
+          <div className="text-[10px] md:text-xs tracking-widest text-white/70 uppercase font-bold">
+            CONSTRUCTION COMPANY IN BENGALURU
+          </div>
+
+          <div className="flex gap-8 md:gap-16">
+            {[
+              { value: "72%", label: "higher\nengagement" },
+              { value: "4X", label: "higher\nengagement" },
+              { value: "60%", label: "higher\nengagement" }
+            ].map((stat, i) => (
+              <div key={i} className="flex flex-col">
+                <span className="text-xl md:text-2xl font-bold text-white mb-1 leading-none">{stat.value}</span>
+                <span className="text-[10px] md:text-xs text-white/60 whitespace-pre-line leading-tight">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Bottom Curve Image */}
+        <Image
+          src="/images/project/hiro/bottom.svg"
+          alt="Bottom curve"
+          width={1920}
+          height={300}
+          className="absolute bottom-0 left-0 w-full h-auto z-1 pointer-events-none"
+        />
+      </div>
 
       {/* Custom Glass Cursor */}
       <motion.div
@@ -97,79 +369,14 @@ export default function Projects() {
           x: springX,
           y: springY,
         }}
-        className="fixed top-0 left-0 w-32 h-32 rounded-full border border-white/50 bg-white/10 backdrop-blur-[4px] shadow-[0_8px_32px_0_rgba(0,0,0,0.2)] pointer-events-none z-[100] flex flex-col items-center justify-center text-white"
+        className="fixed top-0 left-0 w-32 h-32 rounded-full border border-white/40 bg-white/10 backdrop-blur-md shadow-[0_8px_32px_0_rgba(255,255,255,0.15)] pointer-events-none z-[100] flex items-center justify-center text-white"
       >
-        <span className="text-4xl mb-1 font-light leading-none">↗</span>
-        <span className="text-[11px] font-bold tracking-widest text-center uppercase">Learn<br />More</span>
+        <span className="text-[12px] font-bold tracking-widest text-center uppercase leading-tight">
+          See<br />More
+        </span>
       </motion.div>
-    </>
+    </div>
   );
-}
+};
 
-function ProjectSlide({ project, state }) {
-  return (
-    <motion.div
-      initial={false}
-      animate={state}
-      onClick={() => window.open(project.link, '_blank', 'noopener,noreferrer')}
-      className={`absolute inset-0 w-full h-full flex flex-col items-center justify-center py-24 ${state === "visible" ? "pointer-events-auto z-10" : "pointer-events-none z-0"
-        }`}
-    >
-      {/* Giant Background Text */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center z-0">
-        <motion.h2
-          variants={{
-            upcoming: { opacity: 0, y: 150 },
-            visible: { opacity: 1, y: 0, transition: { duration: 1.2, delay: 0.3, ease: "easeOut" } },
-            hidden: { opacity: 0, y: -100, transition: { duration: 0.8, ease: "easeInOut" } }
-          }}
-          className={`text-center text-[18vw] md:text-[13vw] font-bold font-good-times leading-none m-0 p-0 tracking-tight select-none ${project.theme === 'light' ? 'text-black opacity-[0.05]' : 'text-[#ffffff] opacity-[0.03]'}`}
-        >
-          {project.bgText}
-        </motion.h2>
-      </div>
-
-      {/* Center Image Placeholder */}
-      <motion.div
-        variants={{
-          upcoming: { opacity: 0, y: 150, scale: 0.9 },
-          visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 1, delay: 0.5, type: "spring", bounce: 0.2 } },
-          hidden: { opacity: 0, y: -100, scale: 0.95, transition: { duration: 0.8, ease: "easeInOut" } }
-        }}
-        className="relative z-10 flex-1 flex items-center justify-center w-full max-w-3xl px-8 mb-16"
-      >
-        <div className="relative w-full max-w-[300px] md:max-w-[500px] aspect-square flex items-center justify-center overflow-hidden">
-          <img src={project.image} className=" h-full object-cover" alt="" />
-        </div>
-      </motion.div>
-
-      {/* Bottom Info Section */}
-      <motion.div
-        variants={{
-          upcoming: { opacity: 0, y: 100 },
-          visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.6, type: "spring", bounce: 0.2 } },
-          hidden: { opacity: 0, y: -50, transition: { duration: 0.8, ease: "easeInOut" } }
-        }}
-        className="relative z-10 w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between px-8 gap-8 mt-auto"
-      >
-        {/* Logo Area */}
-        <div className="flex items-center w-full md:w-1/3">
-          <div className="h-12 rounded-sm flex items-center justify-start overflow-hidden">
-            {project.logo ? (
-              <img src={project.logo} alt={`${project.title} logo`} className="h-full w-auto object-contain" />
-            ) : (
-              <span className="text-black font-bold text-xs bg-[#FFD700] px-4 h-full flex items-center justify-center">Logo</span>
-            )}
-          </div>
-        </div>
-
-        {/* Description */}
-        <div className="w-full md:w-2/3 md:pl-12">
-          <p className={`text-sm md:text-base font-sans leading-relaxed ${project.theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
-            {project.description}
-          </p>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-}
+export default Projects;
