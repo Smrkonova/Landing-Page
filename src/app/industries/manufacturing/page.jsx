@@ -15,7 +15,7 @@ export default function Page() {
     return (
         <main className="w-full">
             {/* Banner Section */}
-            <div className="relative min-h-screen bg-black text-white flex items-center pt-48 sm:pt-56 md:pt-64 pb-12 lg:pt-20 lg:pb-0">
+            <div className="relative min-h-screen bg-black text-white flex items-center pt-48 sm:pt-56 md:pt-64 pb-12 lg:pt-20 lg:pb-0 overflow-hidden">
                 <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center relative z-10">
 
                     {/* Left Content (60%) */}
@@ -55,8 +55,8 @@ export default function Page() {
                     </div>
 
                     {/* Right Content - Image (40%) */}
-                    <div className="relative w-full h-[40vh] md:h-[60vh] lg:h-[85vh] lg:col-span-2 flex justify-center items-center mt-8 lg:mt-0">
-                        <div className="absolute inset-0 z-0 scale-110 lg:scale-125">
+                    <div className="relative w-full h-[40vh] md:h-[60vh] lg:h-[85vh] lg:col-span-2 flex justify-center items-center mt-8 lg:mt-0 pb-12 lg:pb-0">
+                        <div className="absolute inset-0 z-0 scale-100 md:scale-110 lg:scale-125">
                             <Image
                                 src="/images/industries/manufacturing/banner.png"
                                 alt="Manufacturing System"

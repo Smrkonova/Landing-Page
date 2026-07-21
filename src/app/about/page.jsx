@@ -1,57 +1,78 @@
 import React from "react";
 import Image from "next/image";
+import AboutBanner from "@/components/about/AboutBanner";
 
 export default function AboutPage() {
     return (
         <main className="w-full bg-[#f8f9fa] min-h-screen">
-            {/* Banner Section */}
-            <section className="relative w-full h-[80vh] md:h-screen min-h-[600px] flex items-center pt-20">
-                {/* Background Image */}
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/images/about/banner.png"
-                        alt="About Smrkonova - Mountain Ridge"
-                        fill
-                        priority
-                        className="object-cover object-center"
-                    />
-                </div>
+            {/* Banner Section with Scroll Sequence */}
+            <AboutBanner />
+            {/* Growth Studio Section */}
+            <section className="w-full bg-white text-black py-24 md:py-32 overflow-hidden">
+                <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-0 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
 
-                {/* Content Container */}
-                <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-0 relative z-10 flex flex-col justify-center">
-                    <div className="max-w-2xl lg:max-w-3xl mt-12 md:mt-0">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4.5rem] font-black text-[#111] leading-[1.1] tracking-tight uppercase mb-6 md:mb-8">
-                            SMRKONOVA TAKES THE FLIGHT FIRST<br className="hidden md:block" />
-                            TO GROW THE WAY FORWARD.
-                        </h1>
-                        <p className="text-[#444] text-sm md:text-base lg:text-lg leading-relaxed md:leading-[1.8] font-medium max-w-xl lg:max-w-2xl">
-                            We work with businesses to understand their operations, marketing,
-                            and digital presence, creating a unified growth system that brings
-                            together strategy, design, engineering, marketing, and technology. By
-                            building connected products, experiences, and scalable systems, we
-                            help businesses move faster, adapt with confidence, and grow with
-                            intention.
-                        </p>
+                    {/* Left: Text Content */}
+                    <div className="flex flex-col space-y-12 lg:col-span-6 xl:col-span-5 z-10">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.1] text-[#111] uppercase tracking-tight whitespace-nowrap">
+                            <span className="font-black">WE ARE A </span>
+                            <span className="font-light">BUSINESS-FORWARD</span><br />
+                            <span className="font-black">GROWTH STUDIO</span><br />
+                            <span className="font-black">CREATING </span>
+                            <span className="font-light">LONG-TERM</span><br />
+                            <span className="font-black">VALUE</span>
+                        </h2>
+
+                        <div className="space-y-6 text-[#555] text-[10px] md:text-xs leading-relaxed md:leading-[1.8] font-medium max-w-sm">
+                            <p>
+                                Smrkonova is a boutique growth agency led by tech solutions.
+                                We specialise in holistic brand growth for brands across healthcare,
+                                manufacturing, e-commerce, real estate, education among other
+                                industries. We specialise in branding, brand marketing, marketing
+                                strategy and operational growth.
+                            </p>
+                            <p>
+                                Our mission at Smrkonova is to help iconic brands grow efficiently,
+                                sustainably and ultimately profitably leading to growth from the
+                                operational and marketing front.
+                            </p>
+                            <p>
+                                We make it easy for our clients to grow and create meaningful
+                                connections.
+                            </p>
+                        </div>
                     </div>
+
+                    {/* Right: Image */}
+                    <div className="relative w-full h-[300px] md:h-[400px] lg:h-[550px] lg:col-span-6 xl:col-span-7 mt-12 lg:mt-0 z-0 flex items-end justify-end">
+                        <div className="relative w-full h-full lg:w-[110%] lg:h-[110%]">
+                            <Image
+                                src="/images/about/about.png"
+                                alt="Smrkonova Growth Studio Cityscape"
+                                fill
+                                className="object-contain object-right-bottom"
+                            />
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
             {/* Founder Section */}
-            <section className="w-full bg-white text-black py-24 md:py-32">
-                <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-0 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <section className="w-full bg-white text-black pt-24 md:pt-32 overflow-hidden">
+                <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-0 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-end">
 
                     {/* Left: Image */}
                     <div className="relative w-full h-[500px] md:h-[700px]">
                         <Image
-                            src="/images/about/mohit.png"
+                            src="/images/about/mohitr.png"
                             alt="Mohit Ravindran"
                             fill
-                            className="object-cover lg:object-contain object-left"
+                            className="object-cover lg:object-contain object-bottom lg:object-left-bottom"
                         />
                     </div>
 
                     {/* Right: Text Content */}
-                    <div className="flex flex-col space-y-8">
+                    <div className="flex flex-col space-y-8 pb-24 md:pb-32">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] font-light leading-[1.2] text-[#111] uppercase tracking-wide">
                             REAL PROGRESS IS
                             ENGINEERED WITH
@@ -86,6 +107,63 @@ export default function AboutPage() {
                         </div>
                     </div>
 
+                </div>
+            </section>
+            {/* Journey CTA Section */}
+            <section className="relative w-full py-24 md:py-32 lg:py-48 flex items-center justify-center h-[500px] overflow-hidden">
+                {/* SVG Filter Definition */}
+                <svg width="0" height="0" style={{ position: "absolute" }}>
+                    <defs>
+                        <filter id="journey-glass-distortion" x="-20%" y="-20%" width="140%" height="140%">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.005 0.005" numOctaves="2" seed="9" result="noise" />
+                            <feGaussianBlur in="noise" stdDeviation="1" result="blurred" />
+                            <feDisplacementMap in="SourceGraphic" in2="blurred" scale="10" xChannelSelector="R" yChannelSelector="G" />
+                        </filter>
+                    </defs>
+                </svg>
+
+                {/* Background Image */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/images/about/journey-bg.png"
+                        alt="Forest Landscape with Eagle"
+                        fill
+                        className="object-cover object-center"
+                    />
+                </div>
+
+                {/* Glass Card Container */}
+                <div className="relative z-10 w-[90%] max-w-3xl mx-auto rounded-3xl p-[1px] overflow-hidden group h-[408px] flex flex-col justify-center">
+
+                    {/* Glass Backdrop with Distortion */}
+                    <div
+                        className="absolute inset-0 z-0 rounded-3xl"
+                        style={{
+                            backdropFilter: 'url(#journey-glass-distortion) blur(4px)',
+                            WebkitBackdropFilter: 'url(#journey-glass-distortion) blur(4px)',
+                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                            border: '1px solid rgba(255,255,255,0.3)',
+                        }}
+                    ></div>
+
+                    {/* Content */}
+                    <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 md:px-16 space-y-6">
+                        <h2 className="text-[40px] sm:text-[48px] md:text-[56px] lg:text-[64px] font-black text-white tracking-widest uppercase leading-[1.2]">
+                            THE JOURNEY<br />CONTINUES.
+                        </h2>
+
+                        <p className="text-[12px] text-gray-200 max-w-lg mx-auto font-medium leading-[1.8] tracking-wide">
+                            Each challenge sharpens our thinking. Every solution expands our
+                            understanding, revealing a better path forward. Get to the vantage
+                            point for your next climb.
+                        </p>
+
+                        <div className="pt-4">
+                            <button suppressHydrationWarning className="px-8 py-4 bg-transparent border border-white text-white text-xs font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-colors duration-300">
+                                TALK TO THE TEAM
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
