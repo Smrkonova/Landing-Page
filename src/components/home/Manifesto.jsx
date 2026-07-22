@@ -25,7 +25,7 @@ export default function Manifesto() {
       }}
       className="relative w-full h-[200vh] bg-transparent flex items-start justify-center z-10"
     >
-      <div className="sticky top-0 w-full h-screen flex items-center justify-center px-4 md:px-16 overflow-hidden">
+      <motion.div style={{ opacity: containerOpacity }} className="sticky top-0 w-full h-screen flex items-center justify-center px-4 md:px-16 overflow-hidden bg-white">
 
         {/* Subtle Background noise matching Banner */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
@@ -38,7 +38,7 @@ export default function Manifesto() {
         </div>
 
         {/* Text Container */}
-        <motion.div style={{ opacity: containerOpacity }} className="max-w-7xl w-full flex flex-wrap justify-center gap-x-4 gap-y-2 md:gap-x-8 md:gap-y-4">
+        <div className="max-w-7xl w-full flex flex-wrap justify-center gap-x-4 gap-y-2 md:gap-x-8 md:gap-y-4">
           {words.map((word, i) => {
             // Container pins at 0.25 and unpins at 0.75
             // Light up words between 0.25 and 0.55
@@ -58,9 +58,9 @@ export default function Manifesto() {
               </motion.span>
             );
           })}
-        </motion.div>
+        </div>
 
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
