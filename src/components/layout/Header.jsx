@@ -14,7 +14,7 @@ export default function Header() {
   const isIndustryPage = pathname?.startsWith('/industries/');
   const isCustomWebDevPage = pathname === '/services/custom-web-development';
   const isDarkPage = isNazrPage || isCineArteryPage || isIndustryPage || isCustomWebDevPage;
-  
+
   let logoFilter = 'none';
   if (isNazrPage) {
     logoFilter = 'brightness(0) saturate(100%) invert(23%) sepia(91%) saturate(7355%) hue-rotate(320deg) brightness(98%) contrast(109%)';
@@ -44,7 +44,7 @@ export default function Header() {
     } else {
       document.body.style.overflow = 'unset';
     }
-    
+
     // Cleanup on unmount
     return () => {
       document.body.style.overflow = 'unset';
@@ -173,48 +173,48 @@ export default function Header() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="absolute top-1/2 -left-20 -translate-y-1/2 z-10 hidden sm:flex"
               >
-                <button 
+                <button
                   onClick={() => setIsOpen(false)}
                   className="w-14 h-14 bg-[#111111] flex items-center justify-center rounded-[12px] shadow-2xl border border-white/5 hover:bg-[#222] hover:scale-105 transition-all duration-300"
                 >
                   <X className="w-6 h-6 text-white" />
                 </button>
               </motion.div>
-              
+
               {/* Inner Scrolling Content Area */}
               <div className="w-full h-full bg-[#ffffff] flex flex-col justify-between p-8 md:p-12 text-black overflow-y-auto relative">
                 {/* Mobile Close Button (Inside) */}
-              <div className="flex sm:hidden justify-end w-full">
-                <button 
-                  onClick={() => setIsOpen(false)}
-                  className="w-10 h-10 bg-[#f0f0f0] flex items-center justify-center rounded-full text-black hover:bg-[#e0e0e0] transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Menu Links */}
-              <div className="flex flex-col gap-6 mt-24 mb-auto">
-                <MenuLink href="/" title="HOME" active onClick={() => setIsOpen(false)} />
-                <MenuLink href="/about" title="ABOUT US" onClick={() => setIsOpen(false)} />
-                <MenuLink href="/services" title="SERVICES" onClick={() => setIsOpen(false)} />
-                <MenuLink href="/projects" title="PROJECTS" onClick={() => setIsOpen(false)} />
-
-                <div className="mt-16">
-                  <MenuLink href="/contact" title="JOIN US" onClick={() => setIsOpen(false)} />
+                <div className="flex sm:hidden justify-end w-full">
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="w-10 h-10 bg-[#f0f0f0] flex items-center justify-center rounded-full text-black hover:bg-[#e0e0e0] transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
                 </div>
-              </div>
 
-              {/* Overlay Footer */}
-              <div className="flex flex-col md:flex-row items-start md:items-center justify-between text-[8px] md:text-[9px]  uppercase tracking-[0.1em] text-gray-400 mt-16 gap-4">
-                <div className="flex flex-wrap gap-4 md:gap-6">
-                  <span>© 2026 SMRKONOVA.COM</span>
-                  <Link href="#" className="hover:text-black transition-colors">Terms & Conditions</Link>
-                  <Link href="#" className="hover:text-black transition-colors">Privacy Policy</Link>
-                  <Link href="#" className="hover:text-black transition-colors">Cookies</Link>
+                {/* Menu Links */}
+                <div className="flex flex-col gap-6 mt-24 mb-auto">
+                  <MenuLink href="/" title="HOME" active onClick={() => setIsOpen(false)} />
+                  <MenuLink href="/about" title="ABOUT US" onClick={() => setIsOpen(false)} />
+                  <MenuLink href="/services/custom-web-development" title="SERVICES" onClick={() => setIsOpen(false)} />
+                  <MenuLink href="/projects" title="PROJECTS" onClick={() => setIsOpen(false)} />
+
+                  <div className="mt-16">
+                    <MenuLink href="/contact" title="JOIN US" onClick={() => setIsOpen(false)} />
+                  </div>
                 </div>
-                <span>Site by SMRKONOVA.</span>
-              </div>
+
+                {/* Overlay Footer */}
+                <div className="flex flex-col md:flex-row items-start md:items-center justify-between text-[8px] md:text-[9px]  uppercase tracking-[0.1em] text-gray-400 mt-16 gap-4">
+                  <div className="flex flex-wrap gap-4 md:gap-6">
+                    <span>© 2026 SMRKONOVA.COM</span>
+                    <Link href="#" className="hover:text-black transition-colors">Terms & Conditions</Link>
+                    <Link href="#" className="hover:text-black transition-colors">Privacy Policy</Link>
+                    <Link href="#" className="hover:text-black transition-colors">Cookies</Link>
+                  </div>
+                  <span>Site by SMRKONOVA.</span>
+                </div>
               </div>
             </motion.div>
           </>
