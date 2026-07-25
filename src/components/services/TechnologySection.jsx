@@ -17,10 +17,10 @@ const techList = [
 export default function TechnologySection() {
     return (
         <section className="w-full bg-white py-20 md:py-32 px-4 md:px-12 flex justify-center overflow-hidden">
-            
+
             {/* Main Rounded Card Container */}
-            <div className="relative w-full max-w-7xl min-h-[900px] md:min-h-[1100px] bg-white rounded-[40px] md:rounded-[60px] ">
-                
+            <div className="relative w-full max-w-7xl min-h-[900px] md:min-h-[1540px] bg-white rounded-[40px] md:rounded-[60px] ">
+
                 {/* --- BACKGROUND GRAPHICS & GLOWS --- */}
                 {/* Center VR Image */}
                 <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
@@ -120,7 +120,7 @@ export default function TechnologySection() {
                     </div>
 
                     {/* Bottom Section: Text & Typography Block */}
-                    <div className="flex flex-col lg:flex-row justify-between items-end mt-40 lg:mt-auto relative z-20">
+                    <div className="flex flex-col lg:flex-row justify-between items-start mt-40 lg:mt-auto relative z-20">
 
                         {/* Bottom Left Text */}
                         <div className="max-w-[320px] mb-12 lg:mb-0">
