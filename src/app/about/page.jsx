@@ -1,171 +1,497 @@
-import React from "react";
+"use client";
+
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import AboutBanner from "@/components/about/AboutBanner";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 export default function AboutPage() {
+    const containerRef = useRef(null);
+    const wrapperRef = useRef(null);
+    const [activeSlide, setActiveSlide] = useState(0);
+
+    const roadmapItems = [
+        { label: "WHY WE CLIMB", index: 0 },
+        { label: "THE WAY", index: 1 },
+        { label: "THE VIEW", index: 2 },
+        { label: "THE GUIDE", index: 3 },
+        { label: "PEOPLE BEHIND", index: 4 }
+    ];
+
+    useGSAP(() => {
+        if (!wrapperRef.current) return;
+
+        const slides = gsap.utils.toArray(".slide-panel");
+        const amount = slides.length - 1;
+        if (amount <= 0) return;
+
+        const totalUnits = amount + 2; // 4 standard scroll units + 2 extra units for internal slides
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: wrapperRef.current,
+                pin: true,
+                scrub: 1,
+                snap: {
+                    snapTo: 1 / totalUnits,
+                    duration: { min: 0.2, max: 0.5 },
+                    delay: 0.1,
+                    ease: "power1.inOut"
+                },
+                end: () => `+=${wrapperRef.current ? wrapperRef.current.offsetWidth * totalUnits : 6000}`,
+                onUpdate: (self) => {
+                    // Update active slide based on scroll progress (0 to 1 over 6 units)
+                    const p = self.progress * totalUnits;
+                    let slideIndex = 0;
+                    if (p < 0.5) slideIndex = 0;
+                    else if (p < 1.5) slideIndex = 1;
+                    else if (p < 2.5) slideIndex = 2;
+                    else if (p < 4.5) slideIndex = 3; // covers units 3 and 4 (internal animations)
+                    else slideIndex = 4;
+                    
+                    setActiveSlide(slideIndex);
+                }
+            }
+        });
+
+        // 1. Move horizontally to Slide 4 (THE GUIDE) over 3 units
+        tl.to(slides, {
+            xPercent: -100 * 3,
+            ease: "none",
+            duration: 3
+        }, 0);
+
+        // 2. Fade out Person 1, fade in Person 2 (Unit 3 to 4)
+        tl.to(".person-1", { opacity: 0, ease: "none", duration: 0.5 }, 3)
+          .to(".person-2", { opacity: 1, ease: "none", duration: 0.5 }, 3.5);
+
+        // 3. Fade out Person 2, fade in Person 3 (Unit 4 to 5)
+        tl.to(".person-2", { opacity: 0, ease: "none", duration: 0.5 }, 4)
+          .to(".person-3", { opacity: 1, ease: "none", duration: 0.5 }, 4.5);
+
+        // 4. Move horizontally to Slide 5 (PEOPLE BEHIND) over 1 unit
+        tl.to(slides, {
+            xPercent: -100 * 4,
+            ease: "none",
+            duration: 1
+        }, 5);
+
+        return () => {
+            tl.kill();
+        };
+    }, { scope: wrapperRef });
+
+    const scrollToSlide = (index) => {
+        const slides = document.querySelectorAll(".slide-panel");
+        const amount = slides.length - 1;
+        if (amount <= 0) return;
+
+        const totalUnits = amount + 2;
+
+        const wrapper = wrapperRef.current;
+        if (!wrapper) return;
+
+        const scrollAmount = wrapper.offsetWidth * totalUnits;
+        const targetMap = [0, 1, 2, 3, 6]; // Map 5 roadmap steps to the 6 timeline units
+        const targetScroll = wrapper.offsetTop + (scrollAmount * (targetMap[index] / totalUnits));
+
+        window.scrollTo({
+            top: targetScroll,
+            behavior: "smooth"
+        });
+    };
+
     return (
-        <main className="w-full bg-[#f8f9fa] min-h-screen">
-            {/* Banner Section with Scroll Sequence */}
-            <AboutBanner />
-            {/* Growth Studio Section */}
-            <section className="w-full bg-white text-black py-24 md:py-32 overflow-hidden">
-                <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-0 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
-
-                    {/* Left: Text Content */}
-                    <div className="flex flex-col space-y-12 lg:col-span-6 xl:col-span-5 z-10">
-                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.1] text-[#111] uppercase tracking-tight whitespace-nowrap">
-                            <span className="font-black">WE ARE A </span>
-                            <span className="font-light">BUSINESS-FORWARD</span><br />
-                            <span className="font-black">GROWTH STUDIO</span><br />
-                            <span className="font-black">CREATING </span>
-                            <span className="font-light">LONG-TERM</span><br />
-                            <span className="font-black">VALUE</span>
-                        </h2>
-
-                        <div className="space-y-6 text-[#555] text-[10px] md:text-xs leading-relaxed md:leading-[1.8] font-medium max-w-sm">
-                            <p>
-                                Smrkonova is a boutique growth agency led by tech solutions.
-                                We specialise in holistic brand growth for brands across healthcare,
-                                manufacturing, e-commerce, real estate, education among other
-                                industries. We specialise in branding, brand marketing, marketing
-                                strategy and operational growth.
-                            </p>
-                            <p>
-                                Our mission at Smrkonova is to help iconic brands grow efficiently,
-                                sustainably and ultimately profitably leading to growth from the
-                                operational and marketing front.
-                            </p>
-                            <p>
-                                We make it easy for our clients to grow and create meaningful
-                                connections.
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Right: Image */}
-                    <div className="relative w-full h-[300px] md:h-[400px] lg:h-[550px] lg:col-span-6 xl:col-span-7 mt-12 lg:mt-0 z-0 flex items-end justify-end">
-                        <div className="relative w-full h-full lg:w-[110%] lg:h-[110%]">
-                            <Image
-                                src="/images/about/about.png"
-                                alt="Smrkonova Growth Studio Cityscape"
-                                fill
-                                className="object-contain object-right-bottom"
-                            />
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            {/* Founder Section */}
-            <section className="w-full bg-white text-black pt-24 md:pt-32 overflow-hidden">
-                <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-0 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-end">
-
-                    {/* Left: Image */}
-                    <div className="relative w-full h-[500px] md:h-[700px]">
+        <div ref={wrapperRef} className="relative w-full h-screen overflow-hidden bg-black text-white font-sans">
+            <div
+                ref={containerRef}
+                className="flex w-max h-full"
+            >
+                {/* SLIDE 1: WHY WE CLIMB (WE) */}
+                <div className="slide-panel relative w-screen h-full flex flex-col items-center justify-center shrink-0">
+                    {/* Background Image */}
+                    <div className="absolute inset-0 w-full h-full z-0">
                         <Image
-                            src="/images/about/mohitr.png"
-                            alt="Mohit Ravindran"
+                            src="/images/about/we/banner.jpg"
+                            alt="Mission Background"
                             fill
-                            className="object-cover lg:object-contain object-bottom lg:object-left-bottom"
+                            className="object-cover object-center"
+                            priority
+                        />
+                        {/* Overlay for readability */}
+                        <div className="absolute inset-0 bg-black/30"></div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative z-10 flex flex-col items-center text-center max-w-4xl px-6">
+                        <h2 className="text-sm md:text-lg tracking-[0.3em] uppercase mb-2 font-light">It is our</h2>
+                        <h1 className="text-6xl md:text-9xl font-light tracking-widest mb-6 uppercase">Mission</h1>
+                        <h3 className="text-xl md:text-2xl font-light mb-8">TO PAVE THE PATH FOR YOUR BUSINESS.</h3>
+
+                        <p className="max-w-xl text-sm md:text-base leading-relaxed font-light text-gray-200">
+                            Smrkonova builds connected strategies, experiences and technologies that continuously attract new customers, strengthen relationships with existing ones, and improve performance at every stage of growth.
+                        </p>
+                    </div>
+                </div>
+
+                {/* SLIDE 2: THE WAY */}
+                <div className="slide-panel relative w-screen h-full shrink-0 flex items-center">
+                    {/* Background Image */}
+                    <div className="absolute inset-0 w-full h-full z-0">
+                        <Image
+                            src="/images/about/way/banner.jpg"
+                            alt="The Way Background"
+                            fill
+                            className="object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40"></div>
+                    </div>
+
+                    {/* Right Cloud */}
+                    <div className="absolute right-0 bottom-0 w-full md:w-1/2 h-[80vh] z-[5] pointer-events-none opacity-80">
+                        <Image
+                            src="/images/about/way/right-cloud.png"
+                            alt="Cloud Overlay"
+                            fill
+                            className="object-contain object-bottom right-0"
+                        />
+                    </div>
+                    <div className="absolute left-0 bottom-0 w-full md:w-1/2 h-[100vh] z-[5] pointer-events-none">
+                        <Image
+                            src="/images/about/way/abstract.png"
+                            alt="Cloud Overlay"
+                            fill
+                            className="object-contain object-bottom right-0"
                         />
                     </div>
 
-                    {/* Right: Text Content */}
-                    <div className="flex flex-col space-y-8 pb-24 md:pb-32">
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] font-light leading-[1.2] text-[#111] uppercase tracking-wide">
-                            REAL PROGRESS IS
-                            ENGINEERED WITH
-                            SYSTEMS.
-                        </h2>
+                    {/* Content Container */}
+                    <div className="relative z-10 w-full max-w-7xl mx-auto px-8 flex flex-col md:flex-row items-center justify-between gap-12">
 
-                        <div className="space-y-1">
-                            <h3 className="text-sm md:text-base font-bold text-[#111] uppercase tracking-wider">
-                                MOHIT RAVINDRAN
-                            </h3>
-                            <p className="text-xs md:text-sm text-[#666] font-medium tracking-wide">
-                                Founder & Product Designer
-                            </p>
+                        {/* Left side / Abstract Image */}
+                        <div className="w-full md:w-5/12 relative aspect-square md:aspect-[4/5] rounded-sm overflow-hidden shadow-2xl">
+                            <Image
+                                src="/images/about/way/mount.png"
+                                alt="Abstract Peak"
+                                fill
+                                className="object-cover"
+                            />
                         </div>
 
-                        <div className="space-y-6 text-[#555] text-sm md:text-base leading-relaxed md:leading-[1.8]">
-                            <p>
-                                Mohit is the strategic force behind every project, combining product thinking,
-                                business strategy, and design to solve complex challenges. Having collaborated
-                                on more than a hundred digital products across healthcare, fintech, ecommerce,
-                                and enterprise software, he brings a deep understanding of what it takes to
-                                build products that succeed in the real world.
-                            </p>
-                            <p>
-                                Working closely with founders, developers, and business leaders, Mohit
-                                approaches every project with a systems mindset aligning business goals with
-                                user needs to create experiences that are intuitive, scalable, and commercially
-                                effective. He believes great products aren't just designed, they're engineered to
-                                deliver measurable value, adapt over time, and become the foundation for
-                                business growth.
-                            </p>
+                        {/* Right side Text */}
+                        <div className="w-full md:w-6/12 flex flex-col text-left">
+                            <h2 className="text-sm md:text-base tracking-[0.4em] uppercase mb-4 font-light">Getting to</h2>
+                            <h1 className="text-6xl md:text-8xl font-light tracking-wider mb-10 uppercase">The Peak</h1>
+
+                            <div className="flex flex-col md:flex-row gap-8">
+                                <p className="flex-1 text-sm md:text-base leading-relaxed font-light text-gray-300">
+                                    Every decision is made with one goal in mind: building a business that is resilient, efficient, and designed for sustainable growth, innovatively. Rather than chasing short-term wins, we focus on creating a foundation that evolves with your business, helping you adapt to change, seize new opportunities, and scale with confidence.
+                                </p>
+                                <p className="flex-1 text-sm md:text-base leading-relaxed font-normal tracking-wide text-white uppercase">
+                                    Every line of strategy, design decision, line of code, campaign are built to surprise the consumer.
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                </div>
-            </section>
-            {/* Journey CTA Section */}
-            <section className="relative w-full py-24 md:py-32 lg:py-48 flex items-center justify-center h-[500px] overflow-hidden">
-                {/* SVG Filter Definition */}
-                <svg width="0" height="0" style={{ position: "absolute" }}>
-                    <defs>
-                        <filter id="journey-glass-distortion" x="-20%" y="-20%" width="140%" height="140%">
-                            <feTurbulence type="fractalNoise" baseFrequency="0.005 0.005" numOctaves="2" seed="9" result="noise" />
-                            <feGaussianBlur in="noise" stdDeviation="1" result="blurred" />
-                            <feDisplacementMap in="SourceGraphic" in2="blurred" scale="10" xChannelSelector="R" yChannelSelector="G" />
-                        </filter>
-                    </defs>
-                </svg>
-
-                {/* Background Image */}
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/images/about/journey-bg.png"
-                        alt="Forest Landscape with Eagle"
-                        fill
-                        className="object-cover object-center"
-                    />
-                </div>
-
-                {/* Glass Card Container */}
-                <div className="relative z-10 w-[90%] max-w-3xl mx-auto rounded-3xl p-[1px] overflow-hidden group h-[408px] flex flex-col justify-center">
-
-                    {/* Glass Backdrop with Distortion */}
-                    <div
-                        className="absolute inset-0 z-0 rounded-3xl"
-                        style={{
-                            backdropFilter: 'url(#journey-glass-distortion) blur(4px)',
-                            WebkitBackdropFilter: 'url(#journey-glass-distortion) blur(4px)',
-                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                            border: '1px solid rgba(255,255,255,0.3)',
-                        }}
-                    ></div>
-
-                    {/* Content */}
-                    <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 md:px-16 space-y-6">
-                        <h2 className="text-[40px] sm:text-[48px] md:text-[56px] lg:text-[64px] font-black text-white tracking-widest uppercase leading-[1.2]">
-                            THE JOURNEY<br />CONTINUES.
-                        </h2>
-
-                        <p className="text-[12px] text-gray-200 max-w-lg mx-auto font-medium leading-[1.8] tracking-wide">
-                            Each challenge sharpens our thinking. Every solution expands our
-                            understanding, revealing a better path forward. Get to the vantage
-                            point for your next climb.
-                        </p>
-
-                        <div className="pt-4">
-                            <button suppressHydrationWarning className="px-8 py-4 bg-transparent border border-white text-white text-xs font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-colors duration-300">
-                                TALK TO THE TEAM
-                            </button>
-                        </div>
                     </div>
                 </div>
-            </section>
-        </main>
+
+                {/* SLIDE 3: THE VIEW */}
+                <div className="slide-panel relative w-screen h-full shrink-0 flex items-center">
+                    {/* Background Image */}
+                    <div className="absolute inset-0 w-full h-full z-0">
+                        <Image
+                            src="/images/about/view/banner.png"
+                            alt="The View Background"
+                            fill
+                            className="object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/40"></div>
+                    </div>
+
+                    {/* Left Cloud */}
+                    <div className="absolute left-0 bottom-0 w-full md:w-1/2 h-[60vh] z-[5] pointer-events-none opacity-80">
+                        <Image
+                            src="/images/about/view/left-cloud.png"
+                            alt="Left Cloud Overlay"
+                            fill
+                            className="object-contain object-bottom left-0"
+                        />
+                    </div>
+
+                    {/* Right Cloud */}
+                    <div className="absolute right-0 bottom-0 w-full md:w-1/2 h-[60vh] z-[5] pointer-events-none opacity-80">
+                        <Image
+                            src="/images/about/view/right-cloud.png"
+                            alt="Right Cloud Overlay"
+                            fill
+                            className="object-contain object-bottom right-0"
+                        />
+                    </div>
+
+                    {/* Content Container */}
+                    <div className="relative z-10 w-full max-w-7xl mx-auto px-8 flex flex-col md:flex-row items-start justify-between gap-12 pt-0 pb-32">
+
+                        {/* Left side Text */}
+                        <div className="w-full md:w-5/12 flex flex-col text-left">
+                            <h1 className="text-4xl md:text-5xl lg:text-5xl font-light tracking-widest uppercase leading-snug mb-8">
+                                We are a<br />
+                                business-forward<br />
+                                growth studio<br />
+                                creating long-term<br />
+                                value
+                            </h1>
+
+                            <p className="text-sm md:text-base leading-relaxed tracking-wider font-normal text-white uppercase max-w-sm">
+                                Smrkonova is a boutique growth agency led by tech solutions.
+                            </p>
+                        </div>
+
+                        {/* Right side Text */}
+                        <div className="w-full md:w-6/12 flex flex-col text-left mt-4 md:mt-0">
+                            <h2 className="text-sm md:text-base tracking-[0.4em] uppercase mb-8 font-light">We specialise in</h2>
+
+                            <div className="flex flex-col gap-6 mb-12">
+                                <p className="text-xs md:text-sm leading-relaxed font-light text-gray-200">
+                                    holistic brand growth for brands across healthcare, manufacturing, e-commerce, real estate, education among other industries. We specialise in branding, brand marketing, marketing strategy and operational growth.
+                                </p>
+                                <p className="text-xs md:text-sm leading-relaxed font-light text-gray-200">
+                                    Our mission at Smrkonova is to help iconic brands grow efficiently, sustainably and ultimately profitably leading to growth from the operational and marketing front.
+                                </p>
+                                <p className="text-xs md:text-sm leading-relaxed font-light text-gray-200">
+                                    We make it easy for our clients to grow and create meaningful connections.
+                                </p>
+                            </div>
+
+                            {/* Pills */}
+                            <div className="flex flex-wrap gap-4">
+                                <div className="px-6 py-2 rounded-full border border-white/50 bg-white/10 backdrop-blur-md text-xs md:text-sm tracking-wide text-white/90 font-light hover:bg-white/20 transition-colors">
+                                    Digital marketing
+                                </div>
+                                <div className="px-6 py-2 rounded-full border border-white/50 bg-white/10 backdrop-blur-md text-xs md:text-sm tracking-wide text-white/90 font-light hover:bg-white/20 transition-colors">
+                                    operational development
+                                </div>
+                                <div className="px-6 py-2 rounded-full border border-white/50 bg-white/10 backdrop-blur-md text-xs md:text-sm tracking-wide text-white/90 font-light hover:bg-white/20 transition-colors">
+                                    App development
+                                </div>
+                                <div className="px-6 py-2 rounded-full border border-white/50 bg-white/10 backdrop-blur-md text-xs md:text-sm tracking-wide text-white/90 font-light hover:bg-white/20 transition-colors">
+                                    Branding
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                {/* SLIDE 4: THE GUIDE */}
+                <div className="slide-panel relative w-screen h-full shrink-0 flex items-center justify-center">
+                    {/* Background Image */}
+                    <div className="absolute inset-0 w-full h-full z-0">
+                        <Image
+                            src="/images/about/guide/banner.jpg"
+                            alt="The Guide Background"
+                            fill
+                            className="object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-black/30"></div>
+                    </div>
+
+                    {/* Container for the 3 persons */}
+                    <div className="relative z-10 w-full max-w-7xl mx-auto px-8 h-full flex items-center justify-center">
+                        
+                        {/* Person 1 (Mohit) */}
+                        <div className="person-1 absolute inset-0 w-full h-full flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 px-8 pt-20 md:pt-32 pb-40 md:pb-48">
+                            {/* Left Side: Profile */}
+                            <div className="w-full md:w-5/12 flex flex-col items-center md:items-end md:pr-12">
+                                <div className="relative w-48 h-64 md:w-80 md:h-[400px] mb-6 rounded-[2rem] border border-white/20 bg-white/5 backdrop-blur-sm overflow-hidden flex items-end justify-center pt-8 shadow-2xl">
+                                    <Image
+                                        src="/images/about/guide/mohit.png"
+                                        alt="Mohit Ravindran"
+                                        fill
+                                        className="object-cover object-top scale-105"
+                                    />
+                                    <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                                </div>
+                                <div className="text-center md:text-left w-64 md:w-80">
+                                    <h3 className="text-lg md:text-xl tracking-[0.15em] font-light uppercase mb-2">Mohit Ravindran</h3>
+                                    <p className="text-[10px] md:text-xs tracking-wider text-white/70 font-medium">Founder & Product Designer</p>
+                                </div>
+                            </div>
+                            {/* Right Side: Text */}
+                            <div className="w-full md:w-7/12 flex flex-col lg:flex-row gap-6 md:gap-8">
+                                <div className="w-full lg:w-5/12 shrink-0">
+                                    <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-light tracking-widest uppercase leading-snug">
+                                        Real<br />Progress is<br />Engineered<br />With<br />Systems.
+                                    </h2>
+                                </div>
+                                <div className="w-full lg:w-7/12 flex flex-col gap-4 md:gap-6 text-[11px] md:text-xs font-light text-gray-300 leading-relaxed lg:pr-8">
+                                    <p>
+                                        Mohit is the strategic force behind every project, combining product thinking, business strategy, and design to solve complex challenges. Having collaborated on more than a hundred digital products across healthcare, fintech, ecommerce, and enterprise software, he brings a deep understanding of what it takes to build products that succeed in the real world.
+                                    </p>
+                                    <p>
+                                        Working closely with founders, developers, and business leaders, Mohit approaches every project with a systems mindset aligning business goals with user needs to create experiences that are intuitive, scalable, and commercially effective. He believes great products aren't just designed, they're engineered to deliver measurable value, adapt over time, and become the foundation for business growth.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Person 2 (Placeholder) */}
+                        <div className="person-2 absolute inset-0 w-full h-full flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 px-8 pt-20 md:pt-32 pb-40 md:pb-48 opacity-0">
+                            {/* Left Side: Profile */}
+                            <div className="w-full md:w-5/12 flex flex-col items-center md:items-end md:pr-12">
+                                <div className="relative w-48 h-64 md:w-80 md:h-[400px] mb-6 rounded-[2rem] border border-white/20 bg-white/5 backdrop-blur-sm overflow-hidden flex items-end justify-center pt-8 shadow-2xl">
+                                    <Image
+                                        src="/images/about/guide/mohit.png"
+                                        alt="Person 2 Placeholder"
+                                        fill
+                                        className="object-cover object-top scale-105"
+                                    />
+                                    <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                                </div>
+                                <div className="text-center md:text-left w-64 md:w-80">
+                                    <h3 className="text-lg md:text-xl tracking-[0.15em] font-light uppercase mb-2">Person 2 Name</h3>
+                                    <p className="text-[10px] md:text-xs tracking-wider text-white/70 font-medium">Role & Title</p>
+                                </div>
+                            </div>
+                            {/* Right Side: Text */}
+                            <div className="w-full md:w-7/12 flex flex-col lg:flex-row gap-6 md:gap-8">
+                                <div className="w-full lg:w-5/12 shrink-0">
+                                    <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-light tracking-widest uppercase leading-snug">
+                                        Real<br />Progress is<br />Engineered<br />With<br />Systems.
+                                    </h2>
+                                </div>
+                                <div className="w-full lg:w-7/12 flex flex-col gap-4 md:gap-6 text-[11px] md:text-xs font-light text-gray-300 leading-relaxed lg:pr-8">
+                                    <p>
+                                        Mohit is the strategic force behind every project, combining product thinking, business strategy, and design to solve complex challenges. Having collaborated on more than a hundred digital products across healthcare, fintech, ecommerce, and enterprise software, he brings a deep understanding of what it takes to build products that succeed in the real world.
+                                    </p>
+                                    <p>
+                                        Working closely with founders, developers, and business leaders, Mohit approaches every project with a systems mindset aligning business goals with user needs to create experiences that are intuitive, scalable, and commercially effective. He believes great products aren't just designed, they're engineered to deliver measurable value, adapt over time, and become the foundation for business growth.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Person 3 (Placeholder) */}
+                        <div className="person-3 absolute inset-0 w-full h-full flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 px-8 pt-20 md:pt-32 pb-40 md:pb-48 opacity-0">
+                            {/* Left Side: Profile */}
+                            <div className="w-full md:w-5/12 flex flex-col items-center md:items-end md:pr-12">
+                                <div className="relative w-48 h-64 md:w-80 md:h-[400px] mb-6 rounded-[2rem] border border-white/20 bg-white/5 backdrop-blur-sm overflow-hidden flex items-end justify-center pt-8 shadow-2xl">
+                                    <Image
+                                        src="/images/about/guide/mohit.png"
+                                        alt="Person 3 Placeholder"
+                                        fill
+                                        className="object-cover object-top scale-105"
+                                    />
+                                    <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                                </div>
+                                <div className="text-center md:text-left w-64 md:w-80">
+                                    <h3 className="text-lg md:text-xl tracking-[0.15em] font-light uppercase mb-2">Person 3 Name</h3>
+                                    <p className="text-[10px] md:text-xs tracking-wider text-white/70 font-medium">Role & Title</p>
+                                </div>
+                            </div>
+                            {/* Right Side: Text */}
+                            <div className="w-full md:w-7/12 flex flex-col lg:flex-row gap-6 md:gap-8">
+                                <div className="w-full lg:w-5/12 shrink-0">
+                                    <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-light tracking-widest uppercase leading-snug">
+                                        Real<br />Progress is<br />Engineered<br />With<br />Systems.
+                                    </h2>
+                                </div>
+                                <div className="w-full lg:w-7/12 flex flex-col gap-4 md:gap-6 text-[11px] md:text-xs font-light text-gray-300 leading-relaxed lg:pr-8">
+                                    <p>
+                                        Mohit is the strategic force behind every project, combining product thinking, business strategy, and design to solve complex challenges. Having collaborated on more than a hundred digital products across healthcare, fintech, ecommerce, and enterprise software, he brings a deep understanding of what it takes to build products that succeed in the real world.
+                                    </p>
+                                    <p>
+                                        Working closely with founders, developers, and business leaders, Mohit approaches every project with a systems mindset aligning business goals with user needs to create experiences that are intuitive, scalable, and commercially effective. He believes great products aren't just designed, they're engineered to deliver measurable value, adapt over time, and become the foundation for business growth.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                {/* SLIDE 5: PEOPLE BEHIND (Placeholder) */}
+                <div className="slide-panel relative w-screen h-full shrink-0 flex items-center justify-center">
+                    <div className="relative z-10 text-center">
+                        <h2 className="text-sm md:text-base tracking-[0.4em] uppercase mb-4 font-light">Meet The</h2>
+                        <h1 className="text-6xl md:text-8xl font-light tracking-wider mb-10 uppercase">People Behind</h1>
+                    </div>
+                </div>
+            </div>
+
+            {/* Roadmap Navigation Slider */}
+            <div className="fixed bottom-0 left-0 w-full z-50 px-4 md:px-12 pb-12 pointer-events-none">
+                <div className="relative w-full max-w-3xl mx-auto h-[120px] md:h-[200px] pointer-events-auto">
+                    {/* SVG Line connecting the nodes */}
+                    <svg viewBox="0 0 1000 200" className="absolute inset-0 w-full h-full preserve-3d" preserveAspectRatio="none">
+                        {/* Dimmed background line */}
+                        <path
+                            d="M 50 180 L 200 130 L 400 150 L 600 100 L 750 100 L 900 40"
+                            fill="none"
+                            stroke="rgba(255,255,255,0.3)"
+                            strokeWidth="3"
+                        />
+                        {/* Active progress line using strokeDasharray (simplified animation) */}
+                        <path
+                            d="M 50 180 L 200 130 L 400 150 L 600 100 L 750 100 L 900 40"
+                            fill="none"
+                            stroke="#ffffff"
+                            strokeWidth="3"
+                            className="transition-all duration-500 ease-out"
+                            style={{
+                                strokeDasharray: 1000,
+                                strokeDashoffset: 1000 - (activeSlide / 4) * 1000 // Very rough approximation for progress
+                            }}
+                        />
+                    </svg>
+
+                    {/* Nodes placed absolutely over the SVG coordinates */}
+                    {/* Since viewBox is 0 0 1000 200, left % is x/10, top % is y/2 */}
+                    {[
+                        { label: "WHY WE CLIMB", index: 0, x: 20, y: 65, pos: "top" },
+                        { label: "THE WAY", index: 1, x: 40, y: 75, pos: "bottom" },
+                        { label: "THE VIEW", index: 2, x: 60, y: 50, pos: "top" },
+                        { label: "THE GUIDE", index: 3, x: 75, y: 50, pos: "bottom" },
+                        { label: "PEOPLE BEHIND", index: 4, x: 90, y: 20, pos: "top" }
+                    ].map((item, index) => (
+                        <div
+                            key={index}
+                            className="absolute flex flex-col items-center cursor-pointer group"
+                            style={{
+                                left: `${item.x}%`,
+                                top: `${item.y}%`,
+                                transform: 'translate(-50%, -50%)'
+                            }}
+                            onClick={() => scrollToSlide(index)}
+                        >
+                            {/* Label Top */}
+                            {item.pos === "top" && (
+                                <span className={`absolute bottom-full mb-4 text-[9px] md:text-sm tracking-widest uppercase transition-colors duration-300 whitespace-nowrap ${activeSlide === index ? 'text-white font-medium' : 'text-white/60 group-hover:text-white'}`}>
+                                    {item.label}
+                                </span>
+                            )}
+
+                            {/* Glass Node */}
+                            <div className={`relative w-8 h-8 md:w-10 md:h-10 rounded-full border transition-all duration-300 flex items-center justify-center backdrop-blur-md ${activeSlide >= index ? 'border-white/80 bg-white/20' : 'border-white/40 bg-white/5 group-hover:bg-white/10'}`}>
+                                {/* Inner dot */}
+                                <div className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full transition-all duration-300 ${activeSlide >= index ? 'bg-white shadow-[0_0_10px_rgba(255,255,255,1)]' : 'bg-white/50'}`} />
+                            </div>
+
+                            {/* Label Bottom */}
+                            {item.pos === "bottom" && (
+                                <span className={`absolute top-full mt-4 text-[9px] md:text-sm tracking-widest uppercase transition-colors duration-300 whitespace-nowrap ${activeSlide === index ? 'text-white font-medium' : 'text-white/60 group-hover:text-white'}`}>
+                                    {item.label}
+                                </span>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
     );
 }
