@@ -1,419 +1,475 @@
-"use client";
-
-import { motion, useScroll, useTransform } from "framer-motion";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import { useRef, useState } from "react";
+import React from 'react';
+import Image from 'next/image';
+import CrewSlider from './CrewSlider';
 
 export default function CineArteryProjectPage() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-  const parallaxY = useTransform(scrollYProgress, [0, 1], [80, -80]);
-
-  // Collage Section Hooks
-  const textRef = useRef(null);
-  const { scrollYProgress: textProgress } = useScroll({
-    target: textRef,
-    offset: ["start end", "center center"]
-  });
-
-  const c1 = useTransform(textProgress, [0, 0.2], ["#d1d5db", "#111111"]);
-  const c2 = useTransform(textProgress, [0.2, 0.4], ["#d1d5db", "#E91E63"]);
-  const c3 = useTransform(textProgress, [0.4, 0.6], ["#d1d5db", "#111111"]);
-  const c4 = useTransform(textProgress, [0.6, 0.8], ["#d1d5db", "#EAB308"]);
-
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const handleMouseMove = (e) => {
-    const { clientX, clientY } = e;
-    const { innerWidth, innerHeight } = window;
-    const x = (clientX / innerWidth - 0.5) * 2;
-    const y = (clientY / innerHeight - 0.5) * 2;
-    setMousePos({ x, y });
-  };
-  
-  const mX1 = mousePos.x * 20;
-  const mY1 = mousePos.y * 20;
-  const mX2 = mousePos.x * -30;
-  const mY2 = mousePos.y * -30;
-  const mX3 = mousePos.x * 40;
-  const mY3 = mousePos.y * 40;
-
-  const marqueeItemsRow1 = [
-    { img: "/images/projects/cineartery/1.png", bold: "CINEMA", light: "STRATEGY" },
-    { img: "/images/projects/cineartery/5.png", bold: "DIGITAL", light: "PLATFORM" },
-    { img: "/images/projects/cineartery/banner.png", bold: "MOTION", light: "DESIGN" },
-    { img: "/images/projects/cineartery/mobile.png", bold: "CREATIVE", light: "DIRECTION" },
-  ];
-  
-  const marqueeItemsRow2 = [
-    { img: "/images/projects/cineartery/4.png", bold: "USER", light: "EXPERIENCE" },
-    { img: "/images/projects/cineartery/2.png", bold: "BRAND", light: "IDENTITY" },
-    { img: "/images/projects/cineartery/3.png", bold: "WEB", light: "DEVELOPMENT" },
-    { img: "/images/projects/cineartery/1.png", bold: "3D", light: "ANIMATION" },
-    { img: "/images/projects/cineartery/5.png", bold: "UI/UX", light: "DESIGN" },
-  ];
-
   return (
-    <main className="relative min-h-screen flex flex-col bg-[#111111] overflow-hidden selection:bg-[#EAB308]/20">
-      
-      {/* Page Entry Transition */}
-      <motion.div
-        initial={{ scaleY: 1 }}
-        animate={{ scaleY: 0 }}
-        transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
-        className="fixed inset-0 z-[60] origin-top bg-[#EAB308]"
-      />
-
-      {/* Main 3-Column Section */}
-      <section className="relative w-full bg-[#111111] text-white pt-12 md:pt-30 px-6 md:px-12 flex justify-center overflow-hidden z-20 min-h-[100vh] h-auto pb-24 md:pb-0">
-        
-        <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-
-          {/* Left Column Metadata */}
-          <div className="lg:col-span-2 flex flex-col gap-12 justify-start pt-16">
-            <div className="flex flex-col gap-2">
-              <span className="text-[#a0a0a0] font-medium text-sm">UX/UI</span>
-              <span className="text-[#666666] text-[10px] uppercase tracking-widest font-bold">WEBSITE & MOTION</span>
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-[#a0a0a0] font-medium text-sm">Category</span>
-              <span className="text-[#666666] text-[10px] uppercase tracking-widest font-bold">FILM & DIGITAL</span>
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-[#a0a0a0] font-medium text-sm">Duration</span>
-              <span className="text-[#666666] text-[10px] uppercase tracking-widest font-bold">6 MONTHS</span>
-            </div>
-          </div>
-
-          {/* Center Column (Hero Image) */}
-          <div ref={containerRef} className="lg:col-span-7 w-full flex items-center justify-center">
-            <motion.div
-              style={{ y: parallaxY }}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="w-full aspect-[16/11] md:aspect-[16/14] rounded-[32px] md:rounded-[40px] border border-[#EAB308]/40 overflow-hidden relative shadow-[0_0_40px_rgba(234,179,8,0.15)] p-6 md:p-10 flex items-center justify-center"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img 
-                src="/images/projects/cineartery/banner.png" 
-                alt="CineArtery Website Mockup" 
-                className="w-full h-full object-contain rounded-[16px] md:rounded-[24px]" 
-              />
-            </motion.div>
-          </div>
-
-          {/* Right Column (Features List) */}
-          <div className="lg:col-span-3 flex flex-col gap-10 justify-end pb-12">
-            
-            {[
-              "Cinematic storytelling",
-              "Motion design",
-              "Scroll animations",
-              "Film grain effects"
-            ].map((feature, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-center gap-6 group cursor-pointer"
-              >
-                {/* Custom Bullet Point (Animated concentric rings) */}
-                <div className="relative w-12 h-12 md:w-14 md:h-14 flex items-center justify-center shrink-0">
-                  {/* Outer Rippling Ring */}
-                  <motion.div
-                    animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
-                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
-                    className="absolute w-full h-full rounded-full border border-[#E91E63]/40"
-                  />
-                  {/* Middle Ring */}
-                  <div className="absolute w-8 h-8 md:w-9 md:h-9 rounded-full border-[1.5px] border-[#E91E63] group-hover:scale-110 transition-transform duration-300" />
-                  {/* Inner Yellow Dot */}
-                  <div className="absolute w-3 h-3 md:w-3.5 md:h-3.5 bg-[#EAB308] rounded-full group-hover:scale-110 transition-transform duration-300 shadow-[0_0_8px_rgba(234,179,8,0.6)]" />
+    <main className="min-h-screen bg-[#111111] text-white">
+      <section className="relative overflow-hidden font-sans flex items-center min-h-screen">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 flex flex-col md:flex-row items-stretch w-full min-h-[80vh]">
+          
+          {/* Left Column - Details */}
+          <div className="w-full md:w-1/5 pr-8 flex flex-col justify-center py-10">
+            <div className="space-y-12">
+              <div>
+                <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase mb-4 text-[#a3a3a3]">Case Study 1</h4>
+                <div className="relative w-32 h-8">
+                   <img 
+                      src="/images/projects/cineartery/logo.png" 
+                      alt="CineArtery Logo" 
+                      className="object-contain object-left w-full h-full"
+                   />
                 </div>
-                {/* Feature Text */}
-                <span className="text-[#a0a0a0] font-light text-sm tracking-wide group-hover:text-white transition-colors duration-300">
-                  {feature}
-                </span>
-              </motion.div>
-            ))}
+              </div>
 
-          </div>
+              <div>
+                <h4 className="text-[10px] font-bold tracking-[0.2em] mb-3 text-[#a3a3a3] capitalize">Industry</h4>
+                <span className="inline-block bg-[#222222] px-3 py-1.5 text-[11px] font-semibold rounded-sm text-white">Women safety</span>
+              </div>
 
-        </div>
+              <div>
+                <h4 className="text-[10px] font-bold tracking-[0.2em] mb-3 text-[#a3a3a3] capitalize">Duration</h4>
+                <span className="inline-block bg-[#222222] px-3 py-1.5 text-[11px] font-semibold rounded-sm text-white">Ongoing</span>
+              </div>
 
-      </section>
-
-      {/* About / Ecosystem Section */}
-      <section className="relative w-full bg-[#111111] text-white py-24 md:py-32 px-6 md:px-12 flex justify-center overflow-hidden z-20">
-        <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-
-          {/* Left: Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="w-full flex justify-center lg:justify-start"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/projects/cineartery/mobile.png" alt="CineArtery Mobile View" className="w-full max-w-[500px] object-contain drop-shadow-2xl" />
-          </motion.div>
-
-          {/* Right: Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col gap-8"
-          >
-            <div className="flex flex-col gap-6">
-              <h2 className="text-4xl md:text-5xl lg:text-[56px] leading-[1.1] font-black uppercase tracking-tight">
-                WHERE CINEMA<br />MEETS CODE.
-              </h2>
-              <h3 className="text-lg md:text-xl lg:text-2xl text-[#a0a0a0] font-light uppercase tracking-wide leading-relaxed">
-                WHERE STORYTELLING<br />MEETS TECHNOLOGY.
-              </h3>
-            </div>
-
-            <p className="text-[#808080] text-sm md:text-base leading-[1.8] max-w-xl font-light">
-              Cineartery wasn't built to launch another website.<br className="hidden md:block" />
-              It was built to create a cinematic digital platform where storytelling,<br className="hidden md:block" />
-              technology, motion design and creative engineering come together<br className="hidden md:block" />
-              to elevate the world of film.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-6 pt-4">
-              <button suppressHydrationWarning className="px-8 py-4 bg-[#EAB308] text-[#111111] rounded-[4px] font-semibold text-sm hover:bg-[#FACC15] transition-colors duration-300 shadow-[0_0_20px_rgba(234,179,8,0.2)]">
-                Explore the Platform
-              </button>
-              <button suppressHydrationWarning className="px-8 py-4 border border-[#E91E63]/50 text-[#a0a0a0] hover:text-white rounded-[4px] font-medium text-sm flex items-center justify-center gap-4 hover:bg-[#E91E63]/10 transition-colors duration-300">
-                <div className="w-5 h-5 bg-[#E91E63] flex items-center justify-center rounded-[2px]">
-                  <span className="w-0 h-0 border-t-[4px] border-t-transparent border-l-[6px] border-l-white border-b-[4px] border-b-transparent ml-[2px]"></span>
+              <div>
+                <h4 className="text-[10px] font-bold tracking-[0.2em] mb-3 text-[#a3a3a3] capitalize">Platforms</h4>
+                <div className="flex flex-col gap-2 items-start">
+                  <span className="inline-block bg-[#222222] px-3 py-1.5 text-[11px] font-semibold rounded-sm text-white">Website</span>
+                  <span className="inline-block bg-[#222222] px-3 py-1.5 text-[11px] font-semibold rounded-sm text-white">Shopify</span>
+                  <span className="inline-block bg-[#222222] px-3 py-1.5 text-[11px] font-semibold rounded-sm text-white">Flutter</span>
+                  <span className="inline-block bg-[#222222] px-3 py-1.5 text-[11px] font-semibold rounded-sm text-white">Backend</span>
                 </div>
-                Watch the Trailer
-              </button>
+              </div>
             </div>
-          </motion.div>
+          </div>
+
+          {/* Center Column - Banner Image */}
+          <div className="w-full md:w-3/5 flex justify-center py-4 relative px-4">
+            {/* The outer container with the blue border */}
+            <div className="relative rounded-[1.5rem] border-[1.5px] border-[#3a5a7b] w-full h-full min-h-[500px] p-[2px] shadow-sm overflow-hidden">
+              {/* Inner container for image */}
+              <div className="relative rounded-[1.4rem] overflow-hidden w-full h-full bg-[#0a0a0a]">
+                <img
+                  src="/images/projects/cineartery/banner.png"
+                  alt="CineArtery Banner"
+                  className="absolute inset-0 w-full h-full object-cover opacity-80"
+                />
+                
+                {/* Dark overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+
+                <div className="absolute inset-0 flex flex-col items-start justify-end text-white px-8 md:px-12 pb-12 md:pb-16 lg:pb-20">
+                  <h1 className="text-3xl md:text-4xl lg:text-[44px] font-light uppercase tracking-wide leading-tight drop-shadow-lg text-white/80">
+                    The Heartbeat
+                  </h1>
+                  <h1 className="text-3xl md:text-4xl lg:text-[44px] font-light uppercase tracking-wide leading-tight drop-shadow-lg text-white/80">
+                    Of <span className="font-bold text-white">Creative</span>
+                  </h1>
+                  <h1 className="text-3xl md:text-4xl lg:text-[44px] font-bold uppercase tracking-wide leading-tight drop-shadow-lg text-white">
+                    Collaboration
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Navigation/Services list */}
+          <div className="w-full md:w-1/5 pl-8 flex flex-col justify-center items-start text-[#a3a3a3] py-10">
+            <div className="space-y-4 text-[10px] md:text-[11px] tracking-widest uppercase font-medium">
+              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full"></span> Motion Website</p>
+              <p className="pl-3">Development</p>
+              <p className="flex items-center gap-2 mt-4"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full"></span> Cinematic Web</p>
+              <p className="pl-3">Design</p>
+              <p className="flex items-center gap-2 mt-4"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full"></span> Next.js Development</p>
+              <p className="flex items-center gap-2 mt-4"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full"></span> GSAP Animations</p>
+              <p className="flex items-center gap-2 mt-4"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full"></span> Responsive Website</p>
+              <p className="pl-3">Design</p>
+              <p className="flex items-center gap-2 mt-4"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full"></span> Interactive Digital</p>
+              <p className="pl-3">Experiences1</p>
+              <p className="flex items-center gap-2 mt-4"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full"></span> Film Industry</p>
+              <p className="pl-3">Platform</p>
+            </div>
+          </div>
 
         </div>
       </section>
-
-      {/* Collage Section */}
-      <section
-        onMouseMove={handleMouseMove}
-        className="relative w-full bg-[#111111] pb-24 md:pb-32 px-6 md:px-12 flex justify-center z-20"
-      >
-        <div className="w-full max-w-7xl bg-[#FAF6EC] rounded-[40px] px-8 md:px-16 lg:px-24 py-16 md:py-24 flex flex-col items-center gap-16 md:gap-24">
-          <div ref={textRef} className="w-full">
-            <h2 className="text-4xl md:text-5xl lg:text-[64px] leading-[1.1] font-black uppercase tracking-tight">
-              <motion.span style={{ color: c1 }}>THEY SETTLE</motion.span><br />
-              <motion.span style={{ color: c1 }}>FOR STREAMING.</motion.span><br />
-              <motion.span style={{ color: c2 }}>CINEARTERY</motion.span><br />
-              <motion.span style={{ color: c3 }}>CAME TO</motion.span><br />
-              <motion.span style={{ color: c4 }}>REWIRE CINEMA.</motion.span>
-            </h2>
-          </div>
-
-          <div className="relative w-full max-w-[900px] aspect-[4/3] md:aspect-[16/9] flex items-center justify-center mt-8 md:mt-12">
-
-            {/* Left Image */}
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute z-10 w-[40%] md:w-[28%] left-[0%] md:left-[2%] top-[0%]"
-            >
-              <motion.div style={{ x: mX1, y: mY1 }} className="w-full">
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  viewport={{ once: true }}
-                  className="w-full drop-shadow-xl"
-                >
-                  <img src="/images/projects/cineartery/1.png" alt="CineArtery Graphic 1" className="w-full h-auto object-contain" />
-                </motion.div>
-              </motion.div>
-            </motion.div>
-
-            {/* Right Image */}
-            <motion.div
-              animate={{ y: [0, 15, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute z-20 w-[40%] md:w-[28%] right-[0%] md:right-[2%] top-[0%]"
-            >
-              <motion.div style={{ x: mX2, y: mY2 }} className="w-full">
-                <motion.div
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  viewport={{ once: true }}
-                  className="w-full drop-shadow-xl"
-                >
-                  <img src="/images/projects/cineartery/5.png" alt="CineArtery Graphic 5" className="w-full h-auto object-contain" />
-                </motion.div>
-              </motion.div>
-            </motion.div>
-
-            {/* Center Orb */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-              className="absolute z-30 w-[22%] md:w-[16%] top-[10%] md:top-[12%] left-[39%] md:left-[42%]"
-            >
-              <motion.div style={{ x: mX3, y: mY3 }} className="w-full">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.6 }}
-                  viewport={{ once: true }}
-                  className="w-full"
-                >
-                  <img src="/images/projects/cineartery/2.png" alt="CineArtery Graphic 2" className="w-full h-auto object-contain drop-shadow-xl" />
-                </motion.div>
-              </motion.div>
-            </motion.div>
-
-            {/* Bottom Squiggle */}
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute z-20 w-[38%] md:w-[30%] bottom-[-5%] md:-bottom-[10%] left-[25%] md:left-[28%]"
-            >
-              <motion.div style={{ x: mX1, y: mY1 }} className="w-full">
-                <motion.div
-                  initial={{ opacity: 0, rotate: -20 }}
-                  whileInView={{ opacity: 1, rotate: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
-                  viewport={{ once: true }}
-                  className="w-full"
-                >
-                  <img src="/images/projects/cineartery/3.png" alt="CineArtery Graphic 3" className="w-full h-auto object-contain drop-shadow-lg" />
-                </motion.div>
-              </motion.div>
-            </motion.div>
-
-            {/* Bottom Ring */}
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
-              className="absolute z-20 w-[26%] md:w-[18%] bottom-[5%] md:bottom-[0%] right-[22%] md:right-[28%]"
-            >
-              <motion.div style={{ x: mX2, y: mY2 }} className="w-full">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                  viewport={{ once: true }}
-                  className="w-full"
-                >
-                  <img src="/images/projects/cineartery/4.png" alt="CineArtery Graphic 4" className="w-full h-auto object-contain drop-shadow-xl" />
-                </motion.div>
-              </motion.div>
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Product Section */}
-      <section className="relative w-full bg-[#111111] pb-24 md:pb-32 px-6 md:px-12 flex flex-col items-center z-20">
-
-        {/* Section Heading */}
-        <div className="text-center mb-12 md:mb-16">
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-2xl md:text-3xl lg:text-[40px] font-light text-[#808080] uppercase tracking-[0.1em] mb-2 md:mb-4"
-          >
-            CINEMATIC DIGITAL
-          </motion.h3>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-[80px] font-black text-[#FAF6EC] uppercase tracking-tight leading-none"
-          >
-            EXPERIENCE
-          </motion.h2>
-        </div>
-
-        {/* Product Image Container */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full max-w-5xl rounded-[32px] md:rounded-[40px] border border-[#3b82f6]/40 overflow-hidden relative shadow-[0_0_40px_rgba(59,130,246,0.1)] aspect-[4/3] md:aspect-video bg-white"
-        >
-          <iframe 
-            src="https://www.cineartery.com/" 
-            title="CineArtery Website" 
-            className="w-full h-full absolute inset-0"
-            style={{ border: 'none' }}
+      {/* Back Story / Rolling Section */}
+      <section className="relative w-full min-h-[90vh] flex flex-col justify-center items-center py-20 bg-[#111111] overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center">
+          <img 
+            src="/images/projects/cineartery/rolling.png" 
+            alt="Rolling Background" 
+            className="w-full h-full object-cover object-center opacity-40 mix-blend-lighten"
           />
-        </motion.div>
+          {/* Gradient overlays to fade out edges if needed */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#111111] via-transparent to-[#111111]"></div>
+        </div>
 
+        {/* Content Container */}
+        <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center px-4 mt-8">
+          
+          <p className="text-[11px] md:text-[12px] text-[#888888] font-medium tracking-wide mb-6">
+            Back story
+          </p>
+          
+          <p className="text-[#999999] text-[11px] md:text-[13px] max-w-[420px] mx-auto leading-[1.8] mb-20 text-center font-light">
+            The vision was already there, Smrkonova<br/>
+            stepped in to translate it into an<br/>
+            experience that people could see, feel<br/>
+            and enjoy interacting with. Every<br/>
+            animation, transition, motion and<br/>
+            interaction was engineered to strengthen<br/>
+            the story behind the brand.
+          </p>
+
+          <h2 className="text-[#cccccc] text-2xl md:text-3xl lg:text-[34px] font-light tracking-[0.1em] uppercase leading-[1.4] mb-8">
+            THE VISION WAS ALIVE.<br/>
+            THE EXPERIENCE IS
+          </h2>
+
+          <h1 className="text-[100px] md:text-[160px] lg:text-[220px] font-black uppercase tracking-tight text-[#222222] leading-[0.8] select-none w-full text-center drop-shadow-2xl opacity-95">
+            ROLLING
+          </h1>
+        </div>
       </section>
 
-      {/* What Smrkonova Did Section */}
-      <section className="relative w-full bg-[#111111] py-24 md:py-32 flex flex-col items-center overflow-hidden z-20">
+      {/* Hand Section */}
+      <section className="relative w-full min-h-[100vh] lg:min-h-[120vh] flex flex-col justify-center items-center bg-[#0a0a0a] overflow-hidden">
+        {/* Background Hand Image */}
+        <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center">
+          <img 
+            src="/images/projects/cineartery/hand.png" 
+            alt="Hands Framing" 
+            className="w-[120%] md:w-[110%] lg:w-full h-full object-contain object-center opacity-90 scale-110 md:scale-105"
+          />
+          {/* Subtle gradient to blend edges into background */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#111111] via-transparent to-[#0a0a0a]"></div>
+        </div>
+
+        {/* Text Overlay centered between hands */}
+        <div className="relative z-10 w-full max-w-lg mx-auto flex flex-col items-center text-center px-4 -mt-[10%]">
+          <h3 className="text-[#d1d1d1] text-sm md:text-base lg:text-lg font-bold tracking-[0.25em] uppercase mb-2 drop-shadow-md">
+            CREATIVITY
+          </h3>
+          <p className="text-[#777777] text-xs md:text-sm lg:text-base font-light tracking-[0.2em] uppercase mb-6">
+            SET THE DIRECTION.
+          </p>
+          <h3 className="text-[#d1d1d1] text-sm md:text-base lg:text-lg font-bold tracking-[0.25em] uppercase mb-2 drop-shadow-md">
+            TECHNOLOGY
+          </h3>
+          <p className="text-[#777777] text-xs md:text-sm lg:text-base font-light tracking-[0.2em] uppercase">
+            BROUGHT IT TO LIFE.
+          </p>
+        </div>
+      </section>
+
+      {/* Cine Section */}
+      <section className="relative w-full py-24 flex flex-col justify-center items-center bg-[#111111] overflow-hidden">
+        <div className="w-full max-w-6xl px-4 md:px-8">
+          <div className="relative w-full aspect-[16/10] md:aspect-video rounded-[2rem] overflow-hidden shadow-2xl">
+            <img 
+              src="/images/projects/cineartery/cine.png" 
+              alt="Cineartery Concept" 
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+            
+            {/* Overlays Container */}
+            <div className="absolute inset-0 w-full h-full text-[8px] md:text-[10px] lg:text-xs font-medium text-white/90">
+              
+              {/* Node 1 */}
+              <div className="absolute bottom-[15%] md:bottom-[20%] left-[10%] md:left-[18%] flex items-end gap-3">
+                <div className="text-right leading-tight">
+                  <span className="font-bold text-white text-[10px] md:text-sm">The brand is already<br/>established.</span>
+                </div>
+                <div className="w-10 h-5 md:w-16 md:h-8 rounded-t-full bg-white/20 backdrop-blur-sm border-t border-white/10 shadow-lg mb-1"></div>
+              </div>
+
+              {/* Node 2 */}
+              <div className="absolute bottom-[38%] md:bottom-[45%] left-[20%] md:left-[30%] flex items-end gap-3">
+                <div className="text-right leading-tight">
+                  It has to work beautifully<br/>across every screen.
+                </div>
+                <div className="w-6 h-3 md:w-10 md:h-5 rounded-t-full bg-white/20 backdrop-blur-sm border-t border-white/10 shadow-lg mb-1"></div>
+              </div>
+
+              {/* Node 3 */}
+              <div className="absolute top-[40%] md:top-[38%] left-[38%] md:left-[45%] flex items-end gap-3">
+                <div className="text-right leading-tight">
+                  Motion should tell the<br/>story, not distract from it.
+                </div>
+                <div className="w-7 h-3.5 md:w-10 md:h-5 rounded-t-full bg-white/20 backdrop-blur-sm border-t border-white/10 shadow-lg mb-1"></div>
+              </div>
+
+              {/* Node 4 */}
+              <div className="absolute bottom-[28%] md:bottom-[32%] left-[40%] md:left-[48%] flex items-end gap-3">
+                <div className="text-right leading-tight">
+                  The website should be<br/>simple yet cinematic.
+                </div>
+                <div className="w-8 h-4 md:w-12 md:h-6 rounded-t-full bg-white/20 backdrop-blur-sm border-t border-white/10 shadow-lg mb-1"></div>
+              </div>
+
+              {/* Node 5 */}
+              <div className="absolute top-[48%] md:top-[50%] left-[58%] md:left-[62%] flex items-end gap-3">
+                <div className="text-right leading-tight">
+                  Can we make it feel<br/>cinematic without<br/>slowing it down?
+                </div>
+                <div className="w-7 h-3.5 md:w-10 md:h-5 rounded-t-full bg-white/20 backdrop-blur-sm border-t border-white/10 shadow-lg mb-1"></div>
+              </div>
+
+              {/* Node 6 */}
+              <div className="absolute top-[28%] md:top-[30%] left-[62%] md:left-[68%] flex items-end gap-3">
+                <div className="text-right leading-tight">
+                  Build something<br/>cinematic, tell the story<br/>we're proud to grow on.
+                </div>
+                <div className="w-6 h-3 md:w-8 md:h-4 rounded-t-full bg-white/20 backdrop-blur-sm border-t border-white/10 shadow-lg mb-1"></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Crew Slider Section */}
+      <CrewSlider />
+
+      {/* Connection / Iframe Section */}
+      <section className="relative w-full py-24 md:py-32 flex flex-col justify-center items-center bg-[#111111] overflow-hidden">
         
-        {/* Heading */}
-        <h2 className="text-3xl md:text-4xl lg:text-[40px] font-light text-white uppercase tracking-[0.2em] mb-16 md:mb-24 text-center">
-          WHAT SMRKONOVA DID
-        </h2>
-
-        {/* Marquee Row 1 */}
-        <div className="relative w-full flex overflow-hidden mb-4 md:mb-6">
-          <motion.div
-            className="flex gap-4 md:gap-6 w-max"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          >
-            {[...marqueeItemsRow1, ...marqueeItemsRow1].map((item, i) => (
-              <div key={i} className="relative group w-[280px] h-[220px] md:w-[400px] md:h-[320px] rounded-[16px] md:rounded-[24px] overflow-hidden cursor-pointer shrink-0">
-                <img src={item.img} alt={item.bold} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-[#EAB308]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                  <span className="font-black text-3xl md:text-4xl tracking-tight uppercase leading-none">{item.bold}</span>
-                  <span className="font-light text-2xl md:text-3xl uppercase tracking-widest leading-tight">{item.light}</span>
-                </div>
-              </div>
-            ))}
-          </motion.div>
+        {/* Header Text */}
+        <div className="text-center mb-16 flex flex-col items-center px-4">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-light uppercase tracking-wide leading-tight mb-8">
+            <span className="text-[#a3a3a3]">Before "Action"</span><br/>
+            <span className="font-bold text-white">There's connection</span>
+          </h2>
+          <p className="text-[#888888] text-sm md:text-base max-w-sm leading-relaxed text-center font-light">
+            A responsive website that<br/>
+            combines storytelling with<br/>
+            interaction design
+          </p>
         </div>
 
-        {/* Marquee Row 2 (Reverse) */}
-        <div className="relative w-full flex overflow-hidden">
-          <motion.div
-            className="flex gap-4 md:gap-6 w-max"
-            animate={{ x: ["-50%", "0%"] }}
-            transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-          >
-            {[...marqueeItemsRow2, ...marqueeItemsRow2].map((item, i) => (
-              <div key={i} className="relative group w-[280px] h-[220px] md:w-[400px] md:h-[320px] rounded-[16px] md:rounded-[24px] overflow-hidden cursor-pointer shrink-0">
-                <img src={item.img} alt={item.bold} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-[#EAB308]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                  <span className="font-black text-3xl md:text-4xl tracking-tight uppercase leading-none">{item.bold}</span>
-                  <span className="font-light text-2xl md:text-3xl uppercase tracking-widest leading-tight">{item.light}</span>
+        {/* Iframe Container */}
+        <div className="w-full max-w-6xl px-4 md:px-8">
+          <div className="relative w-full aspect-[4/3] md:aspect-[16/10] lg:aspect-video rounded-[1.5rem] md:rounded-[2rem] border-[1.5px] border-[#3a5a7b] p-[2px] shadow-2xl overflow-hidden bg-[#0a0a0a]">
+            <div className="relative w-full h-full rounded-[1.4rem] md:rounded-[1.9rem] overflow-hidden bg-black">
+              <iframe 
+                src="https://www.cineartery.com/" 
+                title="Cineartery Live Website"
+                className="w-full h-full border-none pointer-events-auto"
+                loading="lazy"
+                sandbox="allow-scripts allow-same-origin"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+
+      {/* Phone Showcase Section */}
+      <section className="relative w-full py-24 md:py-32 bg-[#111111] overflow-hidden">
+        <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-12 lg:gap-16 items-start">
+            
+            {/* Left Column */}
+            <div className="flex flex-col justify-between h-full min-h-[600px] order-2 lg:order-1 pt-8">
+              {/* Top Title */}
+              <div>
+                <h2 className="text-4xl md:text-5xl lg:text-[52px] font-thin uppercase text-[#e0e0e0] leading-[1.1] mb-1 tracking-wide">
+                  Building<br/>
+                  Foundation<br/>
+                  With
+                </h2>
+                <h2 className="text-4xl md:text-5xl lg:text-[56px] font-black uppercase text-white leading-[1.1] tracking-wide">
+                  High-Quality<br/>
+                  Output
+                </h2>
+              </div>
+              
+              {/* Bottom Text */}
+              <div className="flex flex-col items-start lg:items-end text-left lg:text-right mt-auto pb-12">
+                <p className="text-[#a3a3a3] text-[10px] md:text-[11px] max-w-[280px] leading-relaxed mb-10 font-medium">
+                  Cineartery now has a scalable architecture, intuitive<br className="hidden lg:block"/>
+                  user experience, and a premium digital presence<br className="hidden lg:block"/>
+                  designed to increase engagement, encourage loyalty,<br className="hidden lg:block"/>
+                  and adapt as the platform expands.
+                </p>
+                <div className="text-xs md:text-sm font-semibold tracking-widest text-[#d1d1d1] uppercase leading-[1.8]">
+                  Creative<br/>
+                  Technology<br/>
+                  For Entertainment
                 </div>
               </div>
+            </div>
+
+            {/* Center Column - Image */}
+            <div className="relative w-full lg:w-[380px] flex justify-center items-start order-1 lg:order-2 mt-8 lg:mt-24">
+              {/* SVG Background Glow */}
+              <img 
+                src="/images/projects/cineartery/glow.svg" 
+                alt="Background Glow" 
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180%] max-w-[900px] object-contain pointer-events-none z-0 opacity-90"
+              />
+              
+              <img 
+                src="/images/projects/cineartery/phone.png" 
+                alt="Phone Mockup" 
+                className="relative z-10 w-[80%] lg:w-full h-auto object-contain drop-shadow-2xl"
+              />
+            </div>
+
+            {/* Right Column - List */}
+            <div className="flex flex-col gap-7 justify-start lg:pl-8 order-3 pt-8">
+              {[
+                'Digital Transformation', 
+                'Website Redesign', 
+                'Website Modernization', 
+                'Brand Enhancement', 
+                'Technology Partner', 
+                'Digital Product Design', 
+                'Interactive Web Experiences', 
+                'Enterprise Web Development', 
+                'Digital Innovation'
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-6">
+                  <span className="flex flex-shrink-0 items-center justify-center w-8 h-8 rounded-full bg-white/5 text-[#777777] text-xs font-semibold shadow-inner">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-[10px] md:text-xs text-[#d1d1d1] uppercase tracking-[0.15em] font-medium">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Film Reel Auto Slide Section */}
+      <section className="relative w-full py-24 bg-[#111111] overflow-hidden flex flex-col items-center justify-center">
+        <style>{`
+          @keyframes slide-left {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-slide-left {
+            animation: slide-left 25s linear infinite;
+          }
+          .animate-slide-left:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+        
+        <div className="w-full max-w-[1920px] mx-auto bg-[#181818] shadow-2xl py-4 flex flex-col">
+          
+          {/* Top Film Track */}
+          <div className="w-full overflow-hidden flex gap-4 px-2 py-3 border-y border-[#2a2a2a] bg-[#151515]">
+            {[...Array(60)].map((_, i) => (
+              <div key={i} className="w-3 h-4 md:w-5 md:h-6 rounded-[2px] bg-[#333333] flex-shrink-0 opacity-50"></div>
             ))}
-          </motion.div>
+          </div>
+
+          {/* Marquee Container */}
+          <div className="w-full overflow-hidden py-8">
+            <div className="flex w-max animate-slide-left gap-8 px-4">
+              
+              {/* We duplicate the set of 3 items multiple times to ensure seamless infinite scroll */}
+              {[...Array(4)].map((_, setIndex) => (
+                <React.Fragment key={setIndex}>
+                  
+                  {/* Slide 1 */}
+                  <div className="w-[300px] md:w-[450px] lg:w-[550px] aspect-[16/10] md:aspect-video rounded-xl overflow-hidden shadow-xl flex-shrink-0 border border-white/5">
+                    <img 
+                      src="/images/projects/cineartery/slide-1.png" 
+                      alt="Cineartery Slide 1" 
+                      className="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-500"
+                    />
+                  </div>
+
+                  {/* Text Block */}
+                  <div className="w-[300px] md:w-[450px] lg:w-[550px] aspect-[16/10] md:aspect-video rounded-xl shadow-xl flex-shrink-0 border border-white/10 bg-[#111111] flex items-center justify-center p-8 md:p-12 text-center transition-all duration-500 hover:border-white/20">
+                    <p className="text-lg md:text-xl lg:text-3xl font-light text-[#a3a3a3] leading-relaxed">
+                      To <span className="font-semibold text-white">start a brand</span> is one thing. <span className="font-semibold text-white">Smrkonova</span> elevated the brand experience. A whole new conversation <span className="font-semibold text-white">we can handle</span>.
+                    </p>
+                  </div>
+
+                  {/* Slide 2 */}
+                  <div className="w-[300px] md:w-[450px] lg:w-[550px] aspect-[16/10] md:aspect-video rounded-xl overflow-hidden shadow-xl flex-shrink-0 border border-white/5">
+                    <img 
+                      src="/images/projects/cineartery/slide-2.png" 
+                      alt="Cineartery Slide 2" 
+                      className="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-500"
+                    />
+                  </div>
+                  
+                </React.Fragment>
+              ))}
+              
+            </div>
+          </div>
+
+          {/* Bottom Film Track */}
+          <div className="w-full overflow-hidden flex gap-4 px-2 py-3 border-y border-[#2a2a2a] bg-[#151515]">
+            {[...Array(60)].map((_, i) => (
+              <div key={i} className="w-3 h-4 md:w-5 md:h-6 rounded-[2px] bg-[#333333] flex-shrink-0 opacity-50"></div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* Cave / Final Section */}
+      <section className="relative w-full min-h-screen py-24 flex flex-col justify-center items-center bg-[#0a0a0a] overflow-hidden">
+        
+        {/* Background Cave Image with Fade */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1069px] h-[70%] lg:h-[80%] z-0">
+          <img 
+            src="/images/projects/cineartery/cave.png" 
+            alt="Cave Perspective" 
+            className="w-full h-full object-cover object-center opacity-80"
+          />
+          {/* Gradient fade to blend image into the dark background */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/40 to-[#0a0a0a]"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center mt-32 md:mt-48">
+          
+          <h2 className="text-4xl md:text-5xl lg:text-[64px] font-thin uppercase tracking-wide text-white leading-[1.2] mb-12">
+            A Foundation<br/>
+            For <span className="font-bold">What's Next</span>
+          </h2>
+
+          <div className="flex flex-col gap-8 text-[#888888] text-[11px] md:text-xs lg:text-sm font-light max-w-xl mx-auto leading-[1.8] mb-16">
+            <p>
+              The project was not limited to motion graphics and about<br className="hidden md:block"/>
+              building the digital experience of Cineartery.
+            </p>
+            <p>
+              Today, the platform has a scalable technical architecture, a<br className="hidden md:block"/>
+              seamless user experience, and is designed to grow<br className="hidden md:block"/>
+              alongside the business—supporting future features,<br className="hidden md:block"/>
+              increasing engagement, and strengthening user trust with<br className="hidden md:block"/>
+              every interaction.
+            </p>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 w-full max-w-md justify-center">
+            <button className="w-full sm:w-auto px-10 py-4 bg-[#333333] hover:bg-[#444444] text-white text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase rounded-[4px] transition-colors duration-300">
+              Create Yours
+            </button>
+            <button className="w-full sm:w-auto px-10 py-4 bg-transparent border border-[#444444] hover:border-white text-white text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase rounded-[4px] transition-colors duration-300">
+              Next Project
+            </button>
+          </div>
+
         </div>
 
       </section>
-
     </main>
   );
 }
