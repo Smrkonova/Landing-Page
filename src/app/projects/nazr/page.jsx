@@ -1,713 +1,846 @@
-"use client";
-
-import { motion, useScroll, useTransform, useMotionValue, useSpring, useMotionValueEvent } from "framer-motion";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import { useRef, useEffect, useState } from "react";
+import React from 'react';
 
 export default function NazrProjectPage() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-  const parallaxY = useTransform(scrollYProgress, [0, 1], [80, -80]);
-
-  // Mouse Parallax for Collage
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const springConfig = { damping: 25, stiffness: 150 };
-  const smoothX = useSpring(mouseX, springConfig);
-  const smoothY = useSpring(mouseY, springConfig);
-
-  const mX1 = useTransform(smoothX, [-0.5, 0.5], [20, -20]);
-  const mY1 = useTransform(smoothY, [-0.5, 0.5], [20, -20]);
-
-  const mX2 = useTransform(smoothX, [-0.5, 0.5], [-35, 35]);
-  const mY2 = useTransform(smoothY, [-0.5, 0.5], [-35, 35]);
-
-  const mX3 = useTransform(smoothX, [-0.5, 0.5], [45, -45]);
-  const mY3 = useTransform(smoothY, [-0.5, 0.5], [45, -45]);
-
-  const handleMouseMove = (e) => {
-    const { clientX, clientY } = e;
-    const { innerWidth, innerHeight } = window;
-    mouseX.set((clientX / innerWidth) - 0.5);
-    mouseY.set((clientY / innerHeight) - 0.5);
-  };
-
-  // Text Reveal Scroll
-  const textRef = useRef(null);
-  const { scrollYProgress: textScroll } = useScroll({
-    target: textRef,
-    offset: ["start 85%", "center 50%"]
-  });
-
-  const c1 = useTransform(textScroll, [0, 0.25], ["#d1d5db", "#111111"]);
-  const c2 = useTransform(textScroll, [0.25, 0.5], ["#d1d5db", "#111111"]);
-  const c3 = useTransform(textScroll, [0.5, 0.75], ["#d1d5db", "#111111"]);
-  const c4 = useTransform(textScroll, [0.75, 1], ["#d1d5db", "#111111"]);
-
-  // Marquee Scroll
-  const marqueeRef = useRef(null);
-  const { scrollYProgress: marqueeScroll } = useScroll({
-    target: marqueeRef,
-    offset: ["start end", "end start"]
-  });
-
-  const smoothMarqueeScroll = useSpring(marqueeScroll, { stiffness: 60, damping: 20, mass: 1.5 });
-
-  const marqX1 = useTransform(smoothMarqueeScroll, [0, 1], ["-10%", "-20%"]);
-  const marqX2 = useTransform(smoothMarqueeScroll, [0, 1], ["-20%", "-10%"]);
-  const marqX3 = useTransform(smoothMarqueeScroll, [0, 1], ["-10%", "-20%"]);
-
-  // Timeline Scroll
-  const timelineRef = useRef(null);
-  const { scrollYProgress: timelineScroll } = useScroll({
-    target: timelineRef,
-    offset: ["start center", "end center"]
-  });
-  const smoothTimelineScroll = useSpring(timelineScroll, { stiffness: 40, damping: 20, mass: 1 });
-  
-  const [activeNode, setActiveNode] = useState(0);
-
-  useMotionValueEvent(smoothTimelineScroll, "change", (latest) => {
-    if (latest < 0.38) setActiveNode(0);
-    else if (latest < 0.56) setActiveNode(1);
-    else if (latest < 0.74) setActiveNode(2);
-    else if (latest < 0.92) setActiveNode(3);
-    else setActiveNode(4);
-  });
-
   return (
-    <main className="relative min-h-screen flex flex-col bg-[#111111] overflow-hidden selection:bg-[#F80090]/20">
-      {/* Page Entry Transition tailored to Nazr */}
-      <motion.div
-        initial={{ scaleY: 1 }}
-        animate={{ scaleY: 0 }}
-        transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
-        className="fixed inset-0 z-[60] origin-top bg-[#F80090]"
-      />
+    <main className="min-h-screen bg-[#111111] text-white selection:bg-[#F80090]/20 flex flex-col font-sans">
+      {/* Hero Section */}
+      <section className="relative w-full min-h-screen pt-24 pb-12 px-6 md:px-12 flex justify-center items-center">
+        <div className="w-full max-w-[1440px] grid grid-cols-1 lg:grid-cols-[1fr_3fr_1fr] gap-8 xl:gap-12 h-full">
 
-
-      {/* Custom 3-Column Dark Section */}
-      <section className="relative w-full bg-[#111111] text-white pt-12 md:pt-30 px-6 md:px-12 flex justify-center overflow-hidden z-20 min-h-[100vh] h-auto pb-24 md:pb-0">
-        <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-
-          {/* Left Column Metadata (Top Aligned) */}
-          <div className="lg:col-span-2 flex flex-col gap-12 justify-start pt-16">
-            <div className="flex flex-col gap-2">
-              <span className="text-[#a0a0a0] font-medium text-sm">UX/UI</span>
-              <span className="text-[#606060] text-[10px] uppercase tracking-widest font-bold">WEBSITE & APP</span>
+          {/* Left Column - Metadata */}
+          <div className="flex flex-col gap-10 pt-4 xl:pt-12">
+            <div>
+              <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest mb-4">CASE STUDY 1</p>
+              <h2 className="text-sm md:text-base font-bold uppercase tracking-wide text-gray-200">NAZR</h2>
+              <p className="text-xs md:text-sm text-gray-400">Women safety Ecosystem</p>
             </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-[#a0a0a0] font-medium text-sm">Category</span>
-              <span className="text-[#606060] text-[10px] uppercase tracking-widest font-bold">WOMEN ECOSYSTEM</span>
+
+            <div className="flex flex-col gap-3">
+              <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest">Industry</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1.5 bg-[#222] text-xs font-semibold rounded-md text-gray-300">Women safety</span>
+              </div>
             </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-[#a0a0a0] font-medium text-sm">Duration</span>
-              <span className="text-[#606060] text-[10px] uppercase tracking-widest font-bold">4 MONTHS</span>
+
+            <div className="flex flex-col gap-3">
+              <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest">Duration</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1.5 bg-[#222] text-xs font-semibold rounded-md text-gray-300">Ongoing</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest">Platforms</p>
+              <div className="flex flex-col items-start gap-2">
+                <span className="px-3 py-1.5 bg-[#222] text-xs font-semibold rounded-md text-gray-300">Website</span>
+                <span className="px-3 py-1.5 bg-[#222] text-xs font-semibold rounded-md text-gray-300">Shopify</span>
+                <span className="px-3 py-1.5 bg-[#222] text-xs font-semibold rounded-md text-gray-300">Flutter</span>
+                <span className="px-3 py-1.5 bg-[#222] text-xs font-semibold rounded-md text-gray-300">Backend</span>
+              </div>
             </div>
           </div>
 
-          {/* Center Image Container */}
-          <div ref={containerRef} className="lg:col-span-7 w-full flex items-center justify-center">
-            <motion.div
-              style={{ y: parallaxY }}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="w-full aspect-[16/14] rounded-[40px] border border-[#3b82f6]/40 overflow-hidden relative shadow-[0_0_40px_rgba(59,130,246,0.1)] p-2"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/projects/nazr/banner.png" alt="Nazr Banner" className="w-full h-full object-contain" />
-            </motion.div>
+          {/* Center Column - Banner */}
+          <div className="w-full aspect-[904/587] relative rounded-[2rem] border-[1.5px] border-[#3b82f6]/40 overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.15)] flex flex-col justify-end">
+            <img
+              src="/images/projects/nazr/banner.png"
+              alt="Nazr Banner"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            {/* Gradient Overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+            <div className="relative z-10 w-full flex flex-col md:flex-row justify-between items-end gap-6 p-8 md:p-12 xl:p-16">
+              {/* Left Text */}
+              <h1 className="w-full md:w-[55%] text-4xl md:text-5xl xl:text-[64px] font-black text-white uppercase leading-[0.9] tracking-tighter">
+                IT IS A LONG<br />ESTABLISHED FACT<br />THAT A READER
+              </h1>
+
+              {/* Right Text & Button */}
+              <div className="w-full md:w-[40%] flex flex-col items-start gap-6">
+                <p className="text-lg md:text-xl lg:text-2xl font-semibold text-white leading-tight">
+                  It is a long established<br />
+                  fact that a reader will<br />
+                  be distracted
+                </p>
+                <button className="flex items-center gap-2 bg-white hover:bg-gray-200 transition-colors text-black px-5 py-2.5 rounded-lg text-sm font-semibold">
+                  <img src="/images/projects/nazr/owl.svg" alt="Owl Icon" className="w-5 h-5 object-contain" />
+                  Join Ecosystem
+                </button>
+              </div>
+            </div>
           </div>
 
-          {/* Right Column Features (Bottom Aligned) */}
-          <div className="lg:col-span-3 flex flex-col gap-10 justify-end pb-12">
-            {[
-              "Smart technology",
-              "Instant alerts",
-              "Live tracking",
-              "Emergency network"
-            ].map((feature, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="flex items-center gap-6 group cursor-pointer"
-              >
-                <div className="relative w-12 h-12 md:w-14 md:h-14 flex items-center justify-center">
-                  {/* Outer Rippling Ring */}
-                  <motion.div
-                    animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
-                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }}
-                    className="absolute w-full h-full rounded-full border border-[#F80090]/50"
-                  />
-                  {/* Middle Ring */}
-                  <div className="absolute w-8 h-8 md:w-9 md:h-9 rounded-full border-[1.5px] border-[#F80090] group-hover:scale-110 transition-transform duration-300" />
-                  {/* Inner Dot */}
-                  <div className="absolute w-3 h-3 md:w-3.5 md:h-3.5 bg-[#F80090] rounded-full group-hover:scale-110 transition-transform duration-300" />
-                </div>
-                <span className="text-[#808080] text-sm font-medium group-hover:text-white transition-colors duration-300 whitespace-nowrap">{feature}</span>
-              </motion.div>
-            ))}
+          {/* Right Column - Services */}
+          <div className="flex flex-col justify-end pb-8 xl:pb-16 pl-0 lg:pl-12">
+            <ul className="flex flex-col gap-4 text-xs md:text-sm tracking-widest text-gray-500 font-medium uppercase">
+              <li className="hover:text-white transition-colors cursor-default">Strategy</li>
+              <li className="hover:text-white transition-colors cursor-default">UX/UI</li>
+              <li className="hover:text-white transition-colors cursor-default">Development</li>
+              <li className="hover:text-white transition-colors cursor-default">Brand</li>
+            </ul>
           </div>
 
         </div>
       </section>
 
-      {/* About / Ecosystem Section */}
-      <section className="relative w-full bg-[#111111] text-white py-24 md:py-32 px-6 md:px-12 flex justify-center overflow-hidden z-20">
-        <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-
-          {/* Left: Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="w-full flex justify-center lg:justify-start"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/projects/nazr/about.png" alt="Nazr Ecosystem" className="w-full max-w-[500px] object-contain drop-shadow-2xl" />
-          </motion.div>
-
-          {/* Right: Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col gap-8"
-          >
-            <div className="flex flex-col gap-6">
-              <h2 className="text-4xl md:text-5xl lg:text-[56px] leading-[1.1] font-black uppercase tracking-tight">
-                MORE THAN <span className="font-light text-gray-300">PROTECTION.</span>
-              </h2>
-              <h3 className="text-lg md:text-xl lg:text-2xl text-[#a0a0a0] font-light uppercase tracking-wide leading-relaxed">
-                ENGINEERING INDIA'S<br />WOMEN'S SAFETY ECOSYSTEM.
-              </h3>
-            </div>
-
-            <p className="text-[#808080] text-base md:text-lg leading-relaxed max-w-xl font-light">
-              Nazr wasn't built to sell a pepper spray.<br />
-              It was built to create an ecosystem where technology, products, emergency response and digital experiences work together to protect women every day.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-6 pt-4">
-              <button suppressHydrationWarning className="px-8 py-4 bg-[#F80090] text-white rounded-[4px] font-medium text-sm hover:bg-[#d00078] transition-colors duration-300 shadow-[0_0_20px_rgba(248,0,144,0.2)]">
-                Explore the Ecosystem
-              </button>
-              <button suppressHydrationWarning className="px-8 py-4 border border-[#F80090]/50 text-white rounded-[4px] font-medium text-sm flex items-center justify-center gap-4 hover:bg-[#F80090]/10 transition-colors duration-300">
-                <div className="w-5 h-5 bg-[#F80090] flex items-center justify-center rounded-[2px]">
-                  <span className="w-0 h-0 border-t-[4px] border-t-transparent border-l-[6px] border-l-white border-b-[4px] border-b-transparent ml-[2px]"></span>
-                </div>
-                Watch Product Demo
-              </button>
-            </div>
-          </motion.div>
-
-        </div>
-      </section>
-
-      {/* Collage Section */}
-      <section
-        onMouseMove={handleMouseMove}
-        className="relative w-full bg-[#111111] pb-24 md:pb-32 px-6 md:px-12 flex justify-center z-20"
-      >
-        <div className="w-full max-w-7xl bg-[#FAF6EC] rounded-[40px] px-8 md:px-16 lg:px-24 py-16 md:py-24 flex flex-col items-center gap-16 md:gap-24">
-          <div ref={textRef} className="w-full">
-            <h2 className="text-4xl md:text-5xl lg:text-[64px] leading-[1.1] font-black uppercase tracking-tight">
-              <motion.span style={{ color: c1 }}>MOST SAFETY BRANDS</motion.span><br />
-              <motion.span style={{ color: c2 }}>STOP AT PRODUCTS.</motion.span><br />
-              <span className="text-[#F80090]">NAZR</span> <motion.span style={{ color: c3 }}>SET OUT TO BUILD</motion.span><br />
-              <motion.span style={{ color: c4 }}>SOMETHING MUCH BIGGER.</motion.span>
-            </h2>
-          </div>
-
-          <div className="relative w-full max-w-[900px] aspect-[4/3] md:aspect-[16/9] flex items-center justify-center mt-8 md:mt-12">
-
-            {/* Center Main Image */}
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute z-10 w-[55%] md:w-[45%] h-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            >
-              <motion.div style={{ x: mX1, y: mY1 }} className="w-full h-full">
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  viewport={{ once: true }}
-                  className="w-full h-full rounded-[20px] overflow-hidden shadow-2xl"
-                >
-                  <img src="/images/projects/nazr/banner.png" alt="Center" className="w-full h-full object-cover" />
-                </motion.div>
-              </motion.div>
-            </motion.div>
-
-            {/* Top Left Icon (Globe) */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute z-20 top-0 left-[15%] w-16 h-16 md:w-24 md:h-24"
-            >
-              <motion.div style={{ x: mX2, y: mY2 }} className="w-full h-full">
-                <motion.div
-                  initial={{ opacity: 0, rotate: -45 }}
-                  whileInView={{ opacity: 1, rotate: -12 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  viewport={{ once: true }}
-                  className="w-full h-full"
-                >
-                  <img src="/images/projects/nazr/banner.png" alt="Globe" className="w-full h-full object-contain drop-shadow-lg" />
-                </motion.div>
-              </motion.div>
-            </motion.div>
-
-            {/* Middle Left Image */}
-            <motion.div
-              animate={{ y: [0, 15, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute z-20 top-[35%] left-[2%] md:left-[5%] w-[35%] md:w-[28%] aspect-[4/3]"
-            >
-              <motion.div style={{ x: mX3, y: mY3 }} className="w-full h-full">
-                <motion.div
-                  initial={{ opacity: 0, x: -50, rotate: -20 }}
-                  whileInView={{ opacity: 1, x: 0, rotate: -6 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                  viewport={{ once: true }}
-                  className="w-full h-full rounded-[12px] overflow-hidden shadow-xl border-4 border-white/10"
-                >
-                  <img src="/images/projects/nazr/banner.png" alt="Left" className="w-full h-full object-cover" />
-                </motion.div>
-              </motion.div>
-            </motion.div>
-
-            {/* Middle Right Image */}
-            <motion.div
-              animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-              className="absolute z-20 top-[25%] right-[2%] md:right-[8%] w-[35%] md:w-[28%] aspect-[4/3]"
-            >
-              <motion.div style={{ x: mX2, y: mY2 }} className="w-full h-full">
-                <motion.div
-                  initial={{ opacity: 0, x: 50, rotate: 20 }}
-                  whileInView={{ opacity: 1, x: 0, rotate: 6 }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
-                  viewport={{ once: true }}
-                  className="w-full h-full rounded-[12px] overflow-hidden shadow-xl border-4 border-white/10"
-                >
-                  <img src="/images/projects/nazr/banner.png" alt="Right" className="w-full h-full object-cover" />
-                </motion.div>
-              </motion.div>
-            </motion.div>
-
-            {/* Bottom Left Image */}
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-              className="absolute z-20 bottom-[5%] left-[25%] md:left-[30%] w-[30%] md:w-[22%] aspect-[4/3]"
-            >
-              <motion.div style={{ x: mX1, y: mY1 }} className="w-full h-full">
-                <motion.div
-                  initial={{ opacity: 0, rotate: -10 }}
-                  whileInView={{ opacity: 1, rotate: 3 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                  viewport={{ once: true }}
-                  className="w-full h-full rounded-[12px] overflow-hidden shadow-xl border-4 border-white/10"
-                >
-                  <img src="/images/projects/nazr/banner.png" alt="Bottom" className="w-full h-full object-cover" />
-                </motion.div>
-              </motion.div>
-            </motion.div>
-
-            {/* Bottom Right Icon (Face) */}
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
-              className="absolute z-20 bottom-[10%] right-[20%] md:right-[25%] w-20 h-20 md:w-28 md:h-28"
-            >
-              <motion.div style={{ x: mX3, y: mY3 }} className="w-full h-full">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1, rotate: 12 }}
-                  transition={{ duration: 0.5, delay: 0.9, type: "spring" }}
-                  viewport={{ once: true }}
-                  className="w-full h-full"
-                >
-                  <img src="/images/projects/nazr/banner.png" alt="Face" className="w-full h-full object-contain drop-shadow-xl" />
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Product Section */}
-      <section className="relative w-full bg-[#111111] pb-24 md:pb-32 px-6 md:px-12 flex flex-col items-center z-20">
-
-        {/* Section Heading */}
-        <div className="text-center mb-12 md:mb-16">
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-2xl md:text-3xl lg:text-[40px] font-light text-[#808080] uppercase tracking-[0.1em] mb-2 md:mb-4"
-          >
-            Building an entire
-          </motion.h3>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-[80px] font-black text-white uppercase tracking-tight leading-none"
-          >
-            Safety Ecosystem
-          </motion.h2>
-        </div>
-
-        {/* Product Image Container */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full max-w-5xl rounded-[32px] md:rounded-[40px] border border-[#3b82f6]/40 overflow-hidden relative shadow-[0_0_40px_rgba(59,130,246,0.1)] aspect-[4/3] md:aspect-video bg-white"
-        >
-          <iframe 
-            src="https://www.nazrco.in/" 
-            title="Nazr Website" 
-            className="w-full h-full absolute inset-0"
-            style={{ border: 'none' }}
+      {/* Already Existed Section */}
+      <section className="relative w-full min-h-screen flex justify-center items-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/projects/nazr/eyes.png"
+            alt="Eyes background"
+            className="w-full h-full object-cover object-center"
           />
-        </motion.div>
+          {/* Subtle dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
 
-      </section>
+        {/* Content Container */}
+        <div className="relative z-10 w-full max-w-[1440px] px-6 md:px-12 lg:px-20 py-24 min-h-screen flex items-center justify-between">
 
-      {/* Marquee Section */}
-      <section ref={marqueeRef} className="relative w-full h-[70vh] md:h-[95vh] bg-[#111111] overflow-hidden flex flex-col items-center justify-center">
-
-        {/* Tilted Container */}
-        <div className="absolute flex flex-col justify-center items-center w-[120%] -left-[10%]">
-
-          {/* Top Pink Band */}
-          <div className="w-full h-[120px] md:h-[204px] bg-[#F80090] z-10 flex items-center overflow-hidden" style={{ transform: 'rotate(-1.94deg)' }}>
-            <motion.div
-              style={{ x: marqX1 }}
-              className="flex whitespace-nowrap items-center w-max"
-            >
-              {[...Array(12)].map((_, i) => (
-                <div key={i} className="flex items-center shrink-0">
-                  <span className="text-[100px] md:text-[180px] font-black text-[#111111] uppercase tracking-tighter leading-[0.8] mt-4 shrink-0">BURI NAZR</span>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/projects/nazr/owl.svg" alt="Owl" className="h-[70px] md:h-[140px] object-contain mx-8 md:mx-16 shrink-0" />
-                </div>
-              ))}
-            </motion.div>
+          {/* Left Column */}
+          <div className="flex flex-col gap-16 md:gap-24 text-right w-[40%] md:w-[35%] lg:w-[30%]">
+            <div className="flex flex-col gap-1">
+              <span className="text-[10px] md:text-sm font-semibold text-gray-300">Pepper sprays</span>
+              <span className="text-lg md:text-2xl lg:text-3xl font-bold uppercase tracking-wide text-pink-200 drop-shadow-lg">ALREADY EXISTED</span>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-[10px] md:text-sm font-semibold text-gray-300">Emergency helplines</span>
+              <span className="text-lg md:text-2xl lg:text-3xl font-bold uppercase tracking-wide text-pink-200 drop-shadow-lg">ALREADY EXISTED</span>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-[10px] md:text-sm font-semibold text-gray-300">Safety apps</span>
+              <span className="text-lg md:text-2xl lg:text-3xl font-bold uppercase tracking-wide text-pink-200 drop-shadow-lg">ALREADY EXISTED</span>
+            </div>
           </div>
 
-          {/* Middle Blue Band */}
-          <div className="w-full h-[120px] md:h-[204px] bg-[#3b82f6] z-20 flex items-center overflow-hidden relative mt-4 md:mt-8" style={{ transform: 'rotate(2.14deg)' }}>
-            <motion.div
-              style={{ x: marqX2 }}
-              className="flex whitespace-nowrap items-center w-max"
-            >
-              {[...Array(12)].map((_, i) => (
-                <div key={i} className="flex items-center shrink-0">
-                  <span className="text-[100px] md:text-[180px] font-black text-[#111111] uppercase tracking-tighter leading-[0.8] mt-4 shrink-0">BURI NAZR</span>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/projects/nazr/owl.svg" alt="Owl" className="h-[70px] md:h-[140px] object-contain mx-8 md:mx-16 shrink-0" />
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Bottom Green Band */}
-          <div className="w-full h-[120px] md:h-[204px] bg-[#49b57b] z-10 flex items-center overflow-hidden mt-4 md:mt-8" style={{ transform: 'rotate(-1.94deg)' }}>
-            <motion.div
-              style={{ x: marqX3 }}
-              className="flex whitespace-nowrap items-center w-max"
-            >
-              {[...Array(12)].map((_, i) => (
-                <div key={i} className="flex items-center shrink-0">
-                  <span className="text-[100px] md:text-[180px] font-black text-[#111111] uppercase tracking-tighter leading-[0.8] mt-4 shrink-0">BURI NAZR</span>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/projects/nazr/owl.svg" alt="Owl" className="h-[70px] md:h-[140px] object-contain mx-8 md:mx-16 shrink-0" />
-                </div>
-              ))}
-            </motion.div>
+          {/* Right Column */}
+          <div className="flex flex-col gap-16 md:gap-24 text-left w-[40%] md:w-[35%] lg:w-[30%]">
+            <div className="flex flex-col gap-1">
+              <span className="text-[10px] md:text-sm font-semibold text-gray-300">Self-defence classes</span>
+              <span className="text-lg md:text-2xl lg:text-3xl font-bold uppercase tracking-wide text-gray-300 md:text-pink-100 lg:text-pink-200 drop-shadow-lg">ALREADY EXISTED</span>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-[10px] md:text-sm font-semibold text-gray-300">CCTV</span>
+              <span className="text-lg md:text-2xl lg:text-3xl font-bold uppercase tracking-wide text-gray-300 md:text-pink-100 lg:text-pink-200 drop-shadow-lg">ALREADY EXISTED</span>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-[10px] md:text-sm font-semibold text-gray-300">Laws</span>
+              <span className="text-lg md:text-2xl lg:text-3xl font-bold uppercase tracking-wide text-gray-300 md:text-pink-100 lg:text-pink-200 drop-shadow-lg">ALREADY EXISTED</span>
+            </div>
           </div>
 
         </div>
-
       </section>
 
-      {/* What Smrkonova Did Section */}
-      <section className="relative w-full bg-[#111111] py-24 md:py-32 flex flex-col items-center z-20">
-        
-        {/* Section Title */}
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-white text-4xl md:text-5xl lg:text-[64px] font-light tracking-wide mb-16 md:mb-24 text-center"
-        >
-          WHAT <span className="font-bold text-[#3b82f6]">SMRKONOVA</span> DID
-        </motion.h2>
+      {/* Stay Quiet Marquee Section */}
+      <section className="relative w-full h-[40vh] min-h-[300px] bg-[#111111] flex flex-col items-center justify-center overflow-hidden">
+        <style>{`
+          @keyframes marquee-left-right {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0%); }
+          }
+          @keyframes marquee-right-left {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee-lr {
+            animation: marquee-left-right 25s linear infinite;
+          }
+          .animate-marquee-rl {
+            animation: marquee-right-left 25s linear infinite;
+          }
+        `}</style>
 
-        {/* Image Marquees */}
-        <div className="w-full flex flex-col gap-4 md:gap-6 mt-10 overflow-hidden">
-          
-          {/* Row 1 (Left to Right) */}
-          <motion.div 
-            animate={{ x: ["-50%", "0%"] }}
-            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-            className="flex whitespace-nowrap w-max gap-4 md:gap-6"
-          >
-            {[...Array(4)].map((_, i) => (
-              <div key={i} className="flex gap-4 md:gap-6 shrink-0">
-                {/* Item 1 */}
-                <div className="w-[300px] md:w-[450px] h-[300px] md:h-[450px] rounded-[24px] md:rounded-[32px] overflow-hidden relative group shrink-0">
-                  <img src="/images/projects/nazr/banner.png" alt="Brand Strategy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-[#F80090]/80 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-95 group-hover:scale-100">
-                    <h3 className="text-white text-center flex flex-col items-center">
-                      <span className="font-black text-4xl md:text-5xl lg:text-6xl tracking-tight leading-none mb-1">BRAND</span>
-                      <span className="font-light text-2xl md:text-3xl lg:text-4xl tracking-[0.15em] leading-none">STRATEGY</span>
-                    </h3>
-                  </div>
-                </div>
+        {/* Container for angled strips */}
+        <div className="absolute w-[110%] md:w-[120%] flex flex-col justify-center items-center">
 
-                {/* Item 2 */}
-                <div className="w-[300px] md:w-[450px] h-[300px] md:h-[450px] rounded-[24px] md:rounded-[32px] overflow-hidden relative group shrink-0">
-                  <img src="/images/projects/nazr/about.png" alt="Creative" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-[#F80090]/80 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-95 group-hover:scale-100">
-                    <h3 className="text-white text-center flex flex-col items-center">
-                      <span className="font-black text-4xl md:text-5xl lg:text-6xl tracking-tight leading-none mb-1">CREATIVE</span>
-                      <span className="font-light text-2xl md:text-3xl lg:text-4xl tracking-[0.15em] leading-none">DIRECTION</span>
-                    </h3>
-                  </div>
+          {/* First Strip: Left to Right */}
+          <div className="w-full bg-[#1a1a1a] py-4 md:py-5 flex overflow-hidden z-10 shadow-2xl" style={{ transform: 'rotate(4deg)' }}>
+            <div className="flex w-max animate-marquee-lr">
+              {[1, 2].map((groupIndex) => (
+                <div key={groupIndex} className="flex shrink-0 items-center gap-4 md:gap-8 px-2 md:px-4">
+                  {[...Array(6)].map((_, i) => (
+                    <React.Fragment key={i}>
+                      <span className="text-white font-bold tracking-widest uppercase text-2xl md:text-4xl whitespace-nowrap shrink-0">STAY QUIET</span>
+                      <img src="/images/projects/nazr/quit.png" alt="Quiet" className="h-12 md:h-16 object-contain shrink-0" />
+                      <span className="text-gray-500 font-light tracking-widest uppercase text-2xl md:text-4xl whitespace-nowrap shrink-0">STAY QUIET</span>
+                      <img src="/images/projects/nazr/quit.png" alt="Quiet" className="h-12 md:h-16 object-contain shrink-0" />
+                    </React.Fragment>
+                  ))}
                 </div>
+              ))}
+            </div>
+          </div>
 
-                {/* Item 3 */}
-                <div className="w-[300px] md:w-[450px] h-[300px] md:h-[450px] rounded-[24px] md:rounded-[32px] overflow-hidden relative group shrink-0">
-                  <img src="/images/projects/nazr/product.png" alt="UI/UX" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-[#F80090]/80 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-95 group-hover:scale-100">
-                    <h3 className="text-white text-center flex flex-col items-center">
-                      <span className="font-black text-4xl md:text-5xl lg:text-6xl tracking-tight leading-none mb-1">UI/UX</span>
-                      <span className="font-light text-2xl md:text-3xl lg:text-4xl tracking-[0.15em] leading-none">DESIGN</span>
-                    </h3>
-                  </div>
+          {/* Second Strip: Right to Left */}
+          <div className="w-full bg-[#1a1a1a] py-4 md:py-5 flex overflow-hidden z-0 -mt-16 md:-mt-24 shadow-xl" style={{ transform: 'rotate(-4deg)' }}>
+            <div className="flex w-max animate-marquee-rl">
+              {[1, 2].map((groupIndex) => (
+                <div key={groupIndex} className="flex shrink-0 items-center gap-4 md:gap-8 px-2 md:px-4">
+                  {[...Array(6)].map((_, i) => (
+                    <React.Fragment key={i}>
+                      <span className="text-white font-bold tracking-widest uppercase text-2xl md:text-4xl whitespace-nowrap shrink-0">STAY QUIET</span>
+                      <img src="/images/projects/nazr/quit.png" alt="Quiet" className="h-12 md:h-16 object-contain shrink-0" />
+                      <span className="text-gray-500 font-light tracking-widest uppercase text-2xl md:text-4xl whitespace-nowrap shrink-0">STAY QUIET</span>
+                      <img src="/images/projects/nazr/quit.png" alt="Quiet" className="h-12 md:h-16 object-contain shrink-0" />
+                    </React.Fragment>
+                  ))}
                 </div>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Row 2 (Right to Left) */}
-          <motion.div 
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-            className="flex whitespace-nowrap w-max gap-4 md:gap-6"
-          >
-            {[...Array(4)].map((_, i) => (
-              <div key={i} className="flex gap-4 md:gap-6 shrink-0">
-                {/* Item 4 */}
-                <div className="w-[300px] md:w-[450px] h-[300px] md:h-[450px] rounded-[24px] md:rounded-[32px] overflow-hidden relative group shrink-0">
-                  <img src="/images/projects/nazr/banner.png" alt="Social" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-[#F80090]/80 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-95 group-hover:scale-100">
-                    <h3 className="text-white text-center flex flex-col items-center">
-                      <span className="font-black text-4xl md:text-5xl lg:text-6xl tracking-tight leading-none mb-1">SOCIAL</span>
-                      <span className="font-light text-2xl md:text-3xl lg:text-4xl tracking-[0.15em] leading-none">MEDIA</span>
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Item 5 */}
-                <div className="w-[300px] md:w-[450px] h-[300px] md:h-[450px] rounded-[24px] md:rounded-[32px] overflow-hidden relative group shrink-0">
-                  <img src="/images/projects/nazr/about.png" alt="Content" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-[#F80090]/80 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-95 group-hover:scale-100">
-                    <h3 className="text-white text-center flex flex-col items-center">
-                      <span className="font-black text-4xl md:text-5xl lg:text-6xl tracking-tight leading-none mb-1">CONTENT</span>
-                      <span className="font-light text-2xl md:text-3xl lg:text-4xl tracking-[0.15em] leading-none">CREATION</span>
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Item 6 */}
-                <div className="w-[300px] md:w-[450px] h-[300px] md:h-[450px] rounded-[24px] md:rounded-[32px] overflow-hidden relative group shrink-0">
-                  <img src="/images/projects/nazr/product.png" alt="Web" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-[#F80090]/80 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-95 group-hover:scale-100">
-                    <h3 className="text-white text-center flex flex-col items-center">
-                      <span className="font-black text-4xl md:text-5xl lg:text-6xl tracking-tight leading-none mb-1">WEB</span>
-                      <span className="font-light text-2xl md:text-3xl lg:text-4xl tracking-[0.15em] leading-none">DEVELOPMENT</span>
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Item 7 */}
-                <div className="w-[300px] md:w-[450px] h-[300px] md:h-[450px] rounded-[24px] md:rounded-[32px] overflow-hidden relative group shrink-0">
-                  <img src="/images/projects/nazr/banner.png" alt="SEO" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-[#F80090]/80 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-95 group-hover:scale-100">
-                    <h3 className="text-white text-center flex flex-col items-center">
-                      <span className="font-black text-4xl md:text-5xl lg:text-6xl tracking-tight leading-none mb-1">SEO</span>
-                      <span className="font-light text-2xl md:text-3xl lg:text-4xl tracking-[0.15em] leading-none">OPTIMIZATION</span>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </motion.div>
+              ))}
+            </div>
+          </div>
 
         </div>
-
       </section>
 
-      {/* Timeline Section */}
-      <section className="relative w-full bg-[#111111] px-4 md:px-12 py-12 md:py-20 z-20 overflow-hidden">
-        <div ref={timelineRef} className="relative w-full max-w-7xl mx-auto bg-[#FAF6F0] rounded-[48px] md:rounded-[64px] py-16 md:py-24 flex flex-col items-center shadow-2xl">
+      {/* The Problem Section */}
+      <section className="relative w-full min-h-[80vh] bg-[#111111] flex justify-center items-center py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
+        <div className="w-full max-w-[1440px] grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+          {/* Left: Paper Images */}
+          <div className="w-full flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-[550px] xl:max-w-[700px] aspect-[4/3] mt-8 lg:mt-0">
+              {/* Working Women (Top Left) */}
+              <img
+                src="/images/projects/nazr/paper/working-women.png"
+                alt="Working women article"
+                className="absolute top-[0%] left-[0%] w-[42%] object-contain drop-shadow-xl z-10 hover:scale-105 hover:z-40 transition-transform duration-300"
+              />
+              {/* Hyderabad Techie (Top Right) */}
+              <img
+                src="/images/projects/nazr/paper/hyderabad-techie.png"
+                alt="Hyderabad techie article"
+                className="absolute top-[5%] right-[5%] w-[55%] object-contain drop-shadow-xl z-20 hover:scale-105 hover:z-40 transition-transform duration-300"
+              />
+              {/* Two Minor (Bottom Left) */}
+              <img
+                src="/images/projects/nazr/paper/two-minor.png"
+                alt="Two minor article"
+                className="absolute bottom-[10%] left-[5%] w-[42%] object-contain drop-shadow-xl z-20 hover:scale-105 hover:z-40 transition-transform duration-300"
+              />
+              {/* Working Women Duplicate (Bottom Right) */}
+              <img
+                src="/images/projects/nazr/paper/working-women.png"
+                alt="Working women article duplicate"
+                className="absolute bottom-[0%] right-[10%] w-[35%] object-contain drop-shadow-xl z-10 hover:scale-105 transition-transform duration-300 opacity-95"
+              />
+              {/* Women Stabbed (Center / Front) */}
+              <img
+                src="/images/projects/nazr/paper/women-stabbed.png"
+                alt="Women stabbed article"
+                className="absolute top-[30%] left-[18%] w-[65%] object-contain drop-shadow-2xl z-30 hover:scale-105 hover:z-40 transition-transform duration-300"
+              />
+            </div>
+          </div>
+
+          {/* Right: Text Content */}
+          <div className="w-full flex flex-col items-start text-left max-w-[550px]">
+            <h2 className="text-3xl md:text-4xl lg:text-[40px] font-light text-gray-200 tracking-[0.15em] uppercase leading-snug mb-12">
+              The problem was<br />
+              never the product
+            </h2>
+
+            <div className="flex flex-col gap-6 text-gray-300 text-sm md:text-base font-light leading-relaxed">
+              <p>
+                The problem was that every solution existed separately. One app shared locations. Another called contacts. Another sold products.
+              </p>
+              <p className="text-pink-600 font-normal">
+                Nothing worked together.
+              </p>
+              <p>
+                Safety had become fragmented. Instead of solving one feature, NAZR wanted to solve the entire experience.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Protection Connected System Section */}
+      <section className="relative w-full bg-[#111111] flex flex-col items-center pt-16 pb-24 overflow-hidden">
         
-        {/* Section Title */}
-        <div className="text-center mb-32 z-10">
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-light tracking-wide text-[#111111]">
-            DESIGNING FOR<br/>
-            <span className="font-black tracking-tighter">EMERGENCIES</span>
+        {/* Title */}
+        <div className="text-center z-20 px-4 mb-8">
+          <h2 className="text-3xl md:text-5xl lg:text-[64px] font-thin text-gray-200 tracking-widest uppercase leading-[1.2]">
+            Protection isn't a product<br />
+            it's a <span className="font-black text-[#F80090]">connected system</span>
           </h2>
         </div>
 
-        {/* Timeline Container */}
-        <div className="relative w-full max-w-[1200px] mx-auto px-6 mt-16">
+        {/* Complex Layout Container - Fixed Aspect Ratio (1440x850) */}
+        <div className="relative w-full max-w-[1440px] aspect-[1440/850] mt-8 text-white hidden md:block">
           
-          {/* Timeline Items */}
-          {[
-            { title: "TRIGGER", pos: "left" },
-            { title: "CANCEL WINDOW", pos: "right" },
-            { title: "BROADCAST FIRES", pos: "left" },
-            { title: "GUARDIANS ALERTED", pos: "right" },
-            { title: "TAKE ACTION", pos: "left" }
-          ].map((item, index, arr) => {
-            const isActive = activeNode >= index;
-            const isCurrent = activeNode === index;
-            const isLeft = item.pos === "left";
-            
-            const lineStart = index * 0.18 + 0.2;
-            const lineEnd = lineStart + 0.18;
-            // eslint-disable-next-line react-hooks/rules-of-hooks
-            const lineProgress = useTransform(smoothTimelineScroll, [lineStart, lineEnd], [0, 1]);
-            
-            return (
-              <div key={index} className="relative w-full flex justify-between items-center mb-16 md:mb-20 last:mb-0">
-                
-                {/* Connecting Line to Next Node */}
-                {index < arr.length - 1 && (
-                  <svg 
-                    className="absolute left-0 top-[50%] w-full z-0 pointer-events-none" 
-                    style={{ height: 'calc(100% + 4rem)' }} 
-                    preserveAspectRatio="none" 
-                    viewBox="0 0 100 100"
-                  >
-                    {/* Dotted background line */}
-                    <path 
-                      d={`M ${isLeft ? 55 : 45} 0 L ${isLeft ? 55 : 45} 40 L ${!isLeft ? 55 : 45} 60 L ${!isLeft ? 55 : 45} 100`} 
-                      stroke="#9ca3af" 
-                      strokeWidth="2" 
-                      strokeDasharray="4 4" 
-                      fill="none" 
-                      vectorEffect="non-scaling-stroke"
-                    />
-                    {/* Solid active line */}
-                    <motion.path 
-                      d={`M ${isLeft ? 55 : 45} 0 L ${isLeft ? 55 : 45} 40 L ${!isLeft ? 55 : 45} 60 L ${!isLeft ? 55 : 45} 100`} 
-                      stroke="#F80090" 
-                      strokeWidth="4" 
-                      fill="none" 
-                      vectorEffect="non-scaling-stroke"
-                      style={{ pathLength: lineProgress }}
-                    />
-                  </svg>
-                )}
+          {/* Background Girl */}
+          <div className="absolute top-0 left-0 w-[50%] h-full z-0 opacity-60 mix-blend-lighten pointer-events-none">
+            <img 
+              src="/images/projects/nazr/protect/girl.png" 
+              alt="Girl" 
+              className="w-full h-full object-cover object-left-top"
+            />
+          </div>
 
-                {/* Left Area */}
-                <div className={`w-1/2 pr-3 md:pr-16 flex ${isLeft ? 'justify-end' : 'justify-end opacity-0 pointer-events-none'}`}>
-                  {isLeft && (
-                    <div className="flex flex-col md:flex-row items-end md:items-center gap-2 md:gap-10 w-max text-right md:text-left">
-                      <img src="/images/projects/nazr/mobile.png" alt="Mobile" className="w-[80px] sm:w-[100px] md:w-[220px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.2)] rounded-[12px] md:rounded-[32px]" />
-                      <div className="max-w-[120px] sm:max-w-[160px] md:max-w-[280px]">
-                        <h3 className="text-[11px] sm:text-[14px] md:text-3xl font-black uppercase mb-1 md:mb-3 text-[#111111] tracking-tight leading-tight">{item.title}</h3>
-                        <p className="text-[8px] sm:text-[10px] md:text-sm font-medium text-gray-700 leading-tight md:leading-relaxed">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                      </div>
-                    </div>
-                  )}
+          {/* NAZR Text Behind Everything */}
+          <div className="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none w-full text-center">
+            <span className="text-[140px] lg:text-[220px] font-black italic text-[#2563eb] opacity-80 drop-shadow-2xl tracking-tighter" style={{ fontFamily: 'cursive' }}>
+              NAZR
+            </span>
+          </div>
+
+          {/* --- Images --- */}
+          {/* Mobile Phone */}
+          <img 
+            src="/images/projects/nazr/protect/sos-mobile.png" 
+            alt="Mobile App" 
+            className="absolute top-[18%] left-[14%] w-[22%] object-contain z-30 rotate-[8deg] drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+          />
+
+          {/* Pink Box */}
+          <img 
+            src="/images/projects/nazr/protect/pink.png" 
+            alt="Pink Box" 
+            className="absolute top-[8%] left-[54%] w-[18%] object-contain z-20 -rotate-[12deg] drop-shadow-2xl"
+          />
+
+          {/* Blue Box */}
+          <img 
+            src="/images/projects/nazr/protect/blue.png" 
+            alt="Blue Box" 
+            className="absolute top-[20%] left-[68%] w-[18%] object-contain z-20 rotate-[14deg] drop-shadow-2xl"
+          />
+
+          {/* Spray */}
+          <img 
+            src="/images/projects/nazr/protect/spray.png" 
+            alt="Pepper Spray" 
+            className="absolute top-[45%] left-[48%] w-[10%] object-contain z-30 rotate-[12deg] drop-shadow-2xl"
+          />
+
+          {/* --- Text Labels & Connecting Lines --- */}
+          
+          {/* Software */}
+          <div className="absolute top-[22%] left-[4%] z-40">
+            <div className="flex items-start gap-2">
+              <div className="flex flex-col text-left">
+                <h4 className="text-[#F80090] font-bold text-[1.1vw] tracking-widest uppercase mb-1">Software</h4>
+                <p className="text-gray-300 text-[0.75vw] leading-relaxed">
+                  Intelligent app that<br/>anticipates, alerts<br/>and protects.
+                </p>
+              </div>
+              <div className="relative mt-1">
+                <div className="w-1.5 h-1.5 bg-[#F80090] rounded-full shadow-[0_0_10px_#F80090]" />
+                {/* Connecting Line (Right then Down) */}
+                <div className="absolute top-[3px] left-[3px] w-[5vw] h-[4vw] border-t border-r border-[#F80090] rounded-tr-xl opacity-60 pointer-events-none" />
+              </div>
+            </div>
+          </div>
+
+          {/* Features list next to mobile */}
+          <div className="absolute top-[55%] left-[6%] z-40 flex flex-col gap-[2vw] text-right text-[0.8vw] text-gray-300">
+            {['Real time\nLocation', 'Smart\nAlerts', 'Voice\nDetection', 'Trusted\nCircle', 'One-tap\nEmergency'].map((text, i) => (
+              <div key={i} className="flex items-center justify-end gap-2">
+                <span className="whitespace-pre-line leading-tight">{text}</span>
+                <div className="relative flex items-center">
+                  <div className="w-1.5 h-1.5 bg-[#F80090] rounded-full shadow-[0_0_10px_#F80090] z-10" />
+                  {/* Horizontal Connecting Line */}
+                  <div className="absolute top-[3px] left-[3px] w-[2.5vw] border-t border-[#F80090] opacity-60 pointer-events-none" />
                 </div>
+              </div>
+            ))}
+          </div>
 
-                {/* Center Node */}
-                <div className={`absolute top-1/2 -translate-y-1/2 z-10 flex items-center justify-center transition-all duration-700 ${isLeft ? 'left-[55%] -translate-x-1/2' : 'left-[45%] -translate-x-1/2'}`}>
-                  <div className="relative flex items-center justify-center">
-                    {/* Active Concentric Rings (Only on Current Node) */}
-                    <div className={`absolute w-[60px] h-[60px] md:w-[120px] md:h-[120px] border-[1px] border-[#F80090]/60 rounded-full transition-opacity duration-500 ${isCurrent ? 'opacity-100' : 'opacity-0'}`} />
-                    <div className={`absolute w-[80px] h-[80px] md:w-[150px] md:h-[150px] border-[1px] border-[#F80090]/30 rounded-full transition-opacity duration-500 ${isCurrent ? 'opacity-100' : 'opacity-0'}`} />
-                    <div className={`absolute w-[100px] h-[100px] md:w-[180px] md:h-[180px] border-[1px] border-[#F80090]/10 rounded-full transition-opacity duration-500 ${isCurrent ? 'opacity-100' : 'opacity-0'}`} />
-                    
-                    {/* Main Circle */}
-                    <div className={`w-10 h-10 md:w-20 md:h-20 rounded-full flex flex-col items-center justify-center text-white text-[8px] md:text-sm font-black shadow-xl transition-all duration-500 z-10 ${isActive ? 'bg-[#F80090] scale-110 shadow-[0_0_20px_rgba(248,0,144,0.5)]' : 'bg-[#111111] scale-100'}`}>
-                      <span className="leading-none text-center mb-[1px]">SOS</span>
-                      <span className="text-[6px] md:text-[10px] leading-none text-center">TAP</span>
+          {/* Hardware */}
+          <div className="absolute top-[8%] left-[40%] z-40">
+            <div className="flex items-start gap-2">
+              <div className="flex flex-col text-left">
+                <h4 className="text-[#F80090] font-bold text-[1.1vw] tracking-widest uppercase mb-1">Hardware</h4>
+                <p className="text-gray-300 text-[0.75vw] leading-relaxed">
+                  Intelligent app that<br/>anticipates, alerts<br/>and protects.
+                </p>
+              </div>
+              <div className="relative mt-1">
+                <div className="w-1.5 h-1.5 bg-[#F80090] rounded-full shadow-[0_0_10px_#F80090]" />
+                {/* Connecting Line (Right then Down) */}
+                <div className="absolute top-[3px] left-[3px] w-[8vw] h-[5vw] border-t border-r border-[#F80090] rounded-tr-xl opacity-60 pointer-events-none" />
+              </div>
+            </div>
+          </div>
+
+          {/* Trusted Circle (Pointing to bottom of phone) */}
+          <div className="absolute top-[85%] left-[28%] z-40">
+            <div className="flex items-start gap-2">
+              <div className="relative mt-1">
+                <div className="w-1.5 h-1.5 bg-[#F80090] rounded-full shadow-[0_0_10px_#F80090]" />
+                {/* Connecting Line (Left then Up) */}
+                <div className="absolute bottom-[3px] right-[3px] w-[3vw] h-[5vw] border-b border-l border-[#F80090] rounded-bl-xl opacity-60 pointer-events-none" />
+              </div>
+              <div className="flex flex-col text-left">
+                <h4 className="text-[#F80090] font-bold text-[1.1vw] tracking-widest uppercase mb-1">Trusted Circle</h4>
+                <p className="text-gray-300 text-[0.75vw] leading-relaxed">
+                  Intelligent app that<br/>anticipates, alerts<br/>and protects.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Text Block */}
+          <div className="absolute top-[50%] right-[8%] w-[25%] z-40 flex flex-col gap-6 text-left">
+            <h3 className="text-[1.5vw] text-gray-300 leading-snug tracking-wide">
+              Hardware<br/>
+              Software<br/>
+              Network<br/>
+              All working as<br/>
+              <span className="text-[#F80090] font-bold">ONE</span>
+            </h3>
+            <p className="text-[0.85vw] text-gray-400 leading-loose">
+              The founders approached Smrkonova with one ambitious idea. The goal wasn't another eCommerce site. It wasn't another mobile app. The goal was to engineer India's next women's safety ecosystem — where hardware, software, emergency communication, technology and trust all work together.
+            </p>
+          </div>
+
+        </div>
+
+        {/* Mobile Fallback - Stacks neatly on small screens */}
+        <div className="w-full flex flex-col items-center gap-12 mt-8 px-6 md:hidden">
+          <img src="/images/projects/nazr/protect/sos-mobile.png" className="w-[60%] rotate-6 drop-shadow-2xl" />
+          <div className="text-center">
+            <h4 className="text-[#F80090] font-bold text-lg mb-2">Software</h4>
+            <p className="text-gray-300 text-sm">Intelligent app that anticipates,<br/>alerts and protects.</p>
+          </div>
+          
+          <div className="flex gap-4">
+            <img src="/images/projects/nazr/protect/pink.png" className="w-[45%] -rotate-6 drop-shadow-xl" />
+            <img src="/images/projects/nazr/protect/blue.png" className="w-[45%] rotate-6 drop-shadow-xl" />
+          </div>
+          <div className="text-center">
+            <h4 className="text-[#F80090] font-bold text-lg mb-2">Hardware</h4>
+            <p className="text-gray-300 text-sm">Intelligent app that anticipates,<br/>alerts and protects.</p>
+          </div>
+
+          <img src="/images/projects/nazr/protect/spray.png" className="w-[20%] rotate-12 drop-shadow-2xl" />
+          <div className="text-center">
+            <h4 className="text-[#F80090] font-bold text-lg mb-2">Trusted Circle</h4>
+            <p className="text-gray-300 text-sm">Intelligent app that anticipates,<br/>alerts and protects.</p>
+          </div>
+
+          <div className="text-center mt-10">
+            <h3 className="text-2xl text-gray-300 leading-snug tracking-wide mb-6">
+              Hardware<br/>Software<br/>Network<br/>All working as <span className="text-[#F80090] font-bold">ONE</span>
+            </h3>
+            <p className="text-xs text-gray-400 leading-loose">
+              The founders approached Smrkonova with one ambitious idea...
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+      {/* Product Strategy Section */}
+      <section className="relative w-full bg-[#111111] px-4 md:px-8 py-10 md:py-20">
+        <div className="w-full max-w-[1440px] mx-auto bg-[#e2e3e5] rounded-[40px] md:rounded-[60px] p-8 md:p-16 lg:p-24 overflow-hidden">
+          
+          {/* Top Half: Sticky Notes Flowchart */}
+          <div className="relative w-full aspect-[1440/800] hidden md:block border-b border-gray-300 pb-20 mb-20">
+            
+            {/* Title */}
+            <div className="absolute top-0 left-0 z-30 pointer-events-none">
+              <h2 className="text-4xl lg:text-[64px] font-light text-gray-800 leading-[1.1] tracking-tight">
+                BUILD A BRAND<br/>
+                WOMEN RELY ON<br/>
+                <span className="font-black text-[#F80090]">EVERY DAY</span><br/>
+                NOT ONLY EMERGENCIES
+              </h2>
+            </div>
+
+            {/* SVG Connecting Arrows */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 1440 800" preserveAspectRatio="none">
+              <defs>
+                <marker id="pink-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                  <path d="M 0 0 L 8 4 L 0 8 z" fill="#F80090" />
+                </marker>
+              </defs>
+              {/* Shopify to Mobile App */}
+              <path d="M 340 460 Q 370 460 400 460" stroke="#F80090" strokeWidth="2.5" fill="none" markerEnd="url(#pink-arrow)" />
+              
+              {/* Guardian to Tracking */}
+              <path d="M 570 660 Q 590 680 610 680" stroke="#F80090" strokeWidth="2.5" fill="none" markerEnd="url(#pink-arrow)" />
+              
+              {/* Mobile App to SOS */}
+              <path d="M 700 470 Q 740 470 780 470" stroke="#F80090" strokeWidth="2.5" fill="none" markerEnd="url(#pink-arrow)" />
+              
+              {/* Pepper Spray to Website */}
+              <path d="M 940 270 Q 960 300 1010 330" stroke="#F80090" strokeWidth="2.5" fill="none" markerEnd="url(#pink-arrow)" />
+              
+              {/* Tracking to Future Products */}
+              <path d="M 850 670 Q 900 680 950 650" stroke="#F80090" strokeWidth="2.5" fill="none" markerEnd="url(#pink-arrow)" />
+            </svg>
+
+            {/* Sticky Notes */}
+            <img src="/images/projects/nazr/build/shopify.png" className="absolute top-[42%] left-[6%] w-[18%] drop-shadow-xl z-20 hover:scale-105 transition-transform" alt="Shopify" />
+            <img src="/images/projects/nazr/build/mobile-app.png" className="absolute top-[38%] left-[28%] w-[21%] drop-shadow-xl z-20 hover:scale-105 transition-transform" alt="Mobile App" />
+            
+            <img src="/images/projects/nazr/build/guardian.png" className="absolute top-[64%] left-[22%] w-[18%] drop-shadow-2xl z-30 hover:scale-105 transition-transform" alt="Guardian Network" />
+            <img src="/images/projects/nazr/build/tracking.png" className="absolute top-[70%] left-[42%] w-[18%] drop-shadow-2xl z-30 hover:scale-105 transition-transform" alt="Tracking" />
+            
+            <img src="/images/projects/nazr/build/sos.png" className="absolute top-[44%] left-[55%] w-[18%] drop-shadow-xl z-20 hover:scale-105 transition-transform" alt="SOS" />
+            <img src="/images/projects/nazr/build/pepper-spray.png" className="absolute top-[5%] left-[56%] w-[18%] drop-shadow-xl z-20 hover:scale-105 transition-transform" alt="Pepper Spray" />
+            
+            <img src="/images/projects/nazr/build/website.png" className="absolute top-[22%] left-[74%] w-[18%] drop-shadow-xl z-20 hover:scale-105 transition-transform" alt="Website" />
+            <img src="/images/projects/nazr/build/future.png" className="absolute top-[62%] left-[70%] w-[20%] drop-shadow-xl z-20 hover:scale-105 transition-transform" alt="Future Products" />
+          </div>
+
+          {/* Mobile Fallback for top half */}
+          <div className="md:hidden flex flex-col gap-6 mb-16 border-b border-gray-300 pb-16">
+            <h2 className="text-3xl font-light text-gray-800 leading-[1.1] tracking-tight mb-8">
+              BUILD A BRAND<br/>
+              WOMEN RELY ON<br/>
+              <span className="font-black text-[#F80090]">EVERY DAY</span><br/>
+              NOT ONLY EMERGENCIES
+            </h2>
+            <div className="grid grid-cols-2 gap-4">
+              <img src="/images/projects/nazr/build/shopify.png" className="w-full drop-shadow-lg" />
+              <img src="/images/projects/nazr/build/mobile-app.png" className="w-full drop-shadow-lg" />
+              <img src="/images/projects/nazr/build/sos.png" className="w-full drop-shadow-lg" />
+              <img src="/images/projects/nazr/build/tracking.png" className="w-full drop-shadow-lg" />
+              <img src="/images/projects/nazr/build/pepper-spray.png" className="w-full drop-shadow-lg" />
+              <img src="/images/projects/nazr/build/website.png" className="w-full drop-shadow-lg" />
+            </div>
+          </div>
+
+          {/* Bottom Half: Turning Insights Into Product Strategy */}
+          <div className="w-full mt-10 md:mt-0">
+            <h2 className="text-3xl md:text-5xl lg:text-[56px] font-thin text-gray-800 mb-12 md:mb-16 leading-[1.1] uppercase tracking-wide">
+              Turning Insights Into<br/>
+              <span className="font-black text-[#F80090]">Product Strategy</span>
+            </h2>
+            
+            <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+              
+              {/* Left Column */}
+              <div className="w-full lg:w-[45%] flex flex-col gap-10">
+                <p className="text-gray-700 text-sm md:text-[15px] leading-relaxed">
+                  Before writing a single line of code or designing a single screen, we focused on understanding how women actually experience unsafe situations — before panic, during panic, and after.
+                </p>
+                <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                  Over <span className="font-bold text-[#F80090]">10-15 iterations</span> were completed across documentation, UX, product architecture, and user journeys before moving into development.
+                </p>
+                
+                {/* 2x2 Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10 mt-6">
+                  {['DISCOVERY WORKSHOPS', 'RESEARCH', 'USER INTERVIEWS', 'COMPETITOR ANALYSIS'].map((title, i) => (
+                    <div key={i} className="border-l-[3px] border-[#F80090] pl-4">
+                      <h4 className="font-bold text-gray-800 text-xs tracking-widest mb-3">{title}</h4>
+                      <p className="text-[11px] text-gray-600 leading-relaxed pr-4">
+                        Multiple strategy sessions with founders to understand vision, technical feasibility, and roadmap.
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Right Column (Numbered List) */}
+              <div className="w-full lg:w-[45%] flex flex-col gap-6">
+                {[
+                  "PRODUCT REQUIREMENT DOCUMENT",
+                  "INFORMATION ARCHITECTURE",
+                  "WEBSITE SITEMAP",
+                  "USER FLOWS",
+                  "WIREFRAMES",
+                  "FEATURE PRIORITISATION",
+                  "BRAND STRATEGY",
+                  "TECHNICAL PLANNING",
+                  "DEVELOPMENT ROADMAP"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center gap-6">
+                    <div className="w-9 h-9 shrink-0 rounded-full bg-[#d5d5d5] flex items-center justify-center text-gray-500 font-medium text-xs">
+                      {String(index + 1).padStart(2, '0')}
+                    </div>
+                    <span className="text-gray-800 font-bold uppercase text-[13px] tracking-widest">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Features Real Situations Section (Sticky Cards) */}
+      <section className="relative w-full bg-[#111111] pt-32 pb-40 px-4 md:px-8 overflow-visible">
+        
+        {/* Title */}
+        <div className="text-center mb-24 relative z-10">
+          <h2 className="text-3xl md:text-5xl lg:text-[64px] font-thin text-gray-300 tracking-widest uppercase leading-[1.2]">
+            FEATURES DESIGNED AROUND<br/>
+            <span className="font-black text-[#F80090]">REAL SITUATIONS</span>
+          </h2>
+        </div>
+
+        {/* Sticky Cards Container */}
+        <div className="relative w-full max-w-[1200px] mx-auto flex flex-col">
+          {[
+            {
+              num: 1,
+              title: "A WOMAN IS WALKING HOME\nAFTER WORK.",
+              desc: "Shield Mode continuously checks whether she is safe. If she doesn't respond, guardians are automatically alerted.",
+              align: "left"
+            },
+            {
+              num: 2,
+              title: "TRAVELLING\nALONE IN A CAB",
+              desc: "Shield Mode continuously checks whether she is safe. If she doesn't respond, guardians are automatically alerted.",
+              align: "right"
+            },
+            {
+              num: 3,
+              title: "UNABLE TO\nUNLOCK THE PHONE",
+              desc: "Shield Mode continuously checks whether she is safe. If she doesn't respond, guardians are automatically alerted.",
+              align: "left"
+            },
+            {
+              num: 4,
+              title: "DON'T KNOW\nWHAT'S HAPPENING",
+              desc: "Shield Mode continuously checks whether she is safe. If she doesn't respond, guardians are automatically alerted.",
+              align: "right"
+            }
+          ].map((card, i) => (
+            <div 
+              key={card.num} 
+              className="sticky w-full transition-all duration-500 rounded-[30px] md:rounded-[50px] shadow-[0_-10px_40px_rgba(0,0,0,0.6)] border border-gray-800 overflow-hidden aspect-[4/5] md:aspect-[16/9] lg:aspect-[2/1]"
+              style={{ 
+                top: `${12 + i * 4}vh`, 
+                marginBottom: '50vh', 
+                zIndex: 20 + i 
+              }}
+            >
+              {/* Background Image */}
+              <img 
+                src={`/images/projects/nazr/features/${card.num}.png`} 
+                className="absolute inset-0 w-full h-full object-cover z-0" 
+                alt={`Feature Scenario ${card.num}`} 
+              />
+              
+              {/* Dark Gradient Overlay for Text Readability */}
+              <div className={`absolute inset-0 z-10 ${card.align === 'left' ? 'bg-gradient-to-r from-black/80 via-black/40 to-transparent' : 'bg-gradient-to-l from-black/80 via-black/40 to-transparent'}`} />
+
+              {/* Text Content Container */}
+              <div className="absolute inset-0 z-20 w-full h-full p-8 md:p-16 lg:p-24 flex flex-col justify-center">
+                <div className={`w-full md:w-[50%] flex flex-col gap-6 ${card.align === 'right' ? 'ml-auto' : ''}`}>
+                  
+                  <h3 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white uppercase leading-[1.1] whitespace-pre-line">
+                    {card.title}
+                  </h3>
+                  
+                  <p className="text-sm md:text-[15px] text-gray-300 leading-relaxed max-w-[420px]">
+                    {card.desc}
+                  </p>
+                  
+                  {/* Bottom Stats / Process */}
+                  <div className="flex flex-wrap gap-8 md:gap-12 mt-6 md:mt-10">
+                    <div className="flex flex-col gap-1">
+                      <span className="text-[10px] md:text-xs text-gray-400 font-medium tracking-widest uppercase">Checking</span>
+                      <span className="text-[10px] md:text-xs text-white font-medium tracking-widest uppercase">Safety</span>
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-[10px] md:text-xs text-gray-400 font-medium tracking-widest uppercase">No Response</span>
+                      <span className="text-[10px] md:text-xs text-white font-medium tracking-widest uppercase">Detected</span>
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-[10px] md:text-xs text-gray-400 font-medium tracking-widest uppercase">Guardians</span>
+                      <span className="text-[10px] md:text-xs text-white font-medium tracking-widest uppercase">Alerted</span>
                     </div>
                   </div>
-                </div>
 
-                {/* Right Area */}
-                <div className={`w-1/2 pl-3 md:pl-16 flex ${!isLeft ? 'justify-start' : 'justify-start opacity-0 pointer-events-none'}`}>
-                  {!isLeft && (
-                    <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-10 w-max text-left">
-                      <img src="/images/projects/nazr/mobile.png" alt="Mobile" className="w-[80px] sm:w-[100px] md:w-[220px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.2)] rounded-[12px] md:rounded-[32px]" />
-                      <div className="max-w-[120px] sm:max-w-[160px] md:max-w-[280px]">
-                        <h3 className="text-[11px] sm:text-[14px] md:text-3xl font-black uppercase mb-1 md:mb-3 text-[#111111] tracking-tight leading-tight">{item.title}</h3>
-                        <p className="text-[8px] sm:text-[10px] md:text-sm font-medium text-gray-700 leading-tight md:leading-relaxed">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                      </div>
-                    </div>
-                  )}
                 </div>
-
               </div>
-            );
-          })}
+
+            </div>
+          ))}
         </div>
+        
+      </section>
+
+      {/* Connected Ecosystem Section */}
+      <section className="relative w-full bg-[#111111] px-4 md:px-8 py-10 pb-32">
+        <div className="w-full max-w-[1440px] mx-auto bg-[#e2e3e5] rounded-[40px] md:rounded-[60px] p-8 md:p-16 lg:p-24 overflow-hidden flex flex-col items-center">
+          
+          {/* Header */}
+          <div className="text-center mb-16 relative z-30">
+            <h2 className="text-5xl md:text-7xl lg:text-[90px] font-black text-gray-800 tracking-tighter uppercase leading-[0.9]">
+              CONNECTED<br/>
+              <span className="text-[#F80090]">ECOSYSTEM</span>
+            </h2>
+          </div>
+
+          {/* Center Graphic Layout */}
+          <div className="relative w-full max-w-[1100px] h-[700px] flex justify-center items-center mb-20 mt-10">
+            
+            {/* Images */}
+            {/* Middle Phone */}
+            <img 
+              src="/images/projects/nazr/ecosystem/sos.png" 
+              className="absolute w-[30%] z-20 drop-shadow-2xl left-1/2 -translate-x-1/2 top-0" 
+              alt="Mobile SOS App" 
+            />
+            
+            {/* Pink Spray */}
+            <img 
+              src="/images/projects/nazr/ecosystem/pink.png" 
+              className="absolute w-[14%] left-[28%] top-[52%] z-30 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] rotate-[-12deg] hover:scale-105 transition-transform" 
+              alt="Pink Pepper Spray" 
+            />
+            
+            {/* White Spray */}
+            <img 
+              src="/images/projects/nazr/ecosystem/white.png" 
+              className="absolute w-[13%] left-[56%] top-[68%] z-30 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] rotate-[15deg] hover:scale-105 transition-transform" 
+              alt="White Pepper Spray" 
+            />
+
+            {/* Annotations (Dashed Ellipses) */}
+            
+            {/* 1. Volume Button SOS */}
+            <div className="absolute left-[5%] top-[30%] w-[260px] h-[140px] border-[1.5px] border-dashed border-gray-400 rounded-[50%] flex flex-col justify-center items-center text-center px-10 z-10">
+              <div className="absolute -top-3 left-[20%] bg-[#F80090] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</div>
+              <h4 className="font-bold text-gray-800 text-xs mb-2">Volume Button SOS</h4>
+              <p className="text-[10px] text-gray-600 leading-tight">Press your volume button three times to instantly trigger SOS.</p>
+            </div>
+
+            {/* 2. In-App SOS Button */}
+            <div className="absolute right-[5%] top-[10%] w-[260px] h-[140px] border-[1.5px] border-dashed border-gray-400 rounded-[50%] flex flex-col justify-center items-center text-center px-10 z-10">
+              <div className="absolute -top-3 left-[20%] bg-[#F80090] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</div>
+              <h4 className="font-bold text-gray-800 text-xs mb-2">In-App SOS Button</h4>
+              <p className="text-[10px] text-gray-600 leading-tight">Tap the SOS button in the NAZR app to alert your support network.</p>
+            </div>
+
+            {/* 3. Home Screen SOS Widget */}
+            <div className="absolute right-[3%] top-[48%] w-[260px] h-[140px] border-[1.5px] border-dashed border-gray-400 rounded-[50%] flex flex-col justify-center items-center text-center px-10 z-10">
+              <div className="absolute -top-3 left-[20%] bg-[#F80090] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</div>
+              <h4 className="font-bold text-gray-800 text-xs mb-2">Home Screen SOS Widget</h4>
+              <p className="text-[10px] text-gray-600 leading-tight">Trigger SOS directly from your home screen without opening the app.</p>
+            </div>
+
+            {/* Left Checklists */}
+            <div className="absolute left-[2%] bottom-[5%] flex flex-col gap-4 z-30">
+              {["LARGE TOUCH TARGETS", "MINIMAL DISTRACTIONS", "RELIABLE NAVIGATION"].map((text, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <svg className="w-5 h-5 text-[#F80090] shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="font-black text-gray-900 text-xs tracking-widest">{text}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Right Checklists */}
+            <div className="absolute right-[8%] bottom-[5%] flex flex-col gap-4 z-30">
+              {["HIGH CONTRAST", "FAST INTERACTION", "SIMPLE LANGUAGE"].map((text, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <svg className="w-5 h-5 text-[#F80090] shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="font-black text-gray-900 text-xs tracking-widest">{text}</span>
+                </div>
+              ))}
+            </div>
+
+          </div>
+
+          {/* Iframe to NAZR website */}
+          <div className="w-full max-w-[1000px] aspect-video border-[6px] md:border-[10px] border-gray-400 rounded-2xl md:rounded-[40px] overflow-hidden shadow-2xl mb-24 relative bg-black">
+             <iframe src="https://www.nazrco.in/" className="w-full h-full" title="NAZR Website" />
+          </div>
+
+          {/* Footer Typography */}
+          <div className="text-center max-w-[800px] mb-20 relative">
+             <p className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-tight">
+               <span className="text-[#F80090]">Launching NAZR wasn't limited to<br/>publishing an application.</span> Smrkonova<br/>supported the complete technical<br/>launch, ensuring every moving part<br/>worked together.
+             </p>
+          </div>
+
+          {/* Grid of 15 Flutter Applications */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-10 gap-x-6 w-full max-w-[1200px]">
+             {[...Array(15)].map((_, i) => (
+                <div key={i} className="border-l-[3px] border-[#F80090] pl-3 py-1">
+                  <h4 className="font-bold text-gray-900 text-[9px] md:text-[10px] tracking-widest uppercase mb-1.5 leading-tight">FLUTTER<br/>APPLICATION</h4>
+                  <p className="text-[8px] md:text-[9px] text-gray-600 leading-tight">Multiple strategy sessions with<br/>founders to understand vision</p>
+                </div>
+             ))}
+          </div>
+
         </div>
       </section>
 
-      {/* Next Project Footer (Hardcoded to Neela) */}
-      <section className="relative w-full min-h-[50vh] flex flex-col items-center justify-center overflow-hidden cursor-pointer group bg-[#FFFAEE]">
-        <Link href="/projects/neela" className="absolute inset-0 z-10" />
-
-        <span className="relative z-10 text-black/40 text-xs md:text-sm tracking-[0.3em] font-bold uppercase mb-4 md:mb-8 group-hover:-translate-y-2 transition-transform duration-500">
-          Next Project
-        </span>
-
-        <h2 className="relative z-10 text-5xl md:text-8xl lg:text-[10vw] font-black text-[#212121] uppercase tracking-tighter group-hover:scale-105 transition-transform duration-700 ease-out text-center">
-          Neela
-        </h2>
-
-        {/* Hover image preview overlay */}
-        <div className="absolute inset-0 w-full h-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/projects/neela.png" alt="" className="object-cover w-full h-full scale-110 group-hover:scale-100 transition-transform duration-1000 opacity-20" />
+      {/* The Journey Section */}
+      <section className="relative w-full bg-[#111111] pt-32 pb-0 flex flex-col items-center">
+        
+        {/* Huge Typography */}
+        <div className="text-center px-4 mb-16">
+          <h2 className="text-6xl md:text-8xl lg:text-[140px] font-black text-white tracking-tighter uppercase leading-[0.9]">
+            THE<br/>
+            JOURNEY<br/>
+            HAS<br/>
+            ONLY <span className="text-[#F80090]">BEGUN</span>
+          </h2>
         </div>
+
+        {/* Small Paragraphs */}
+        <div className="flex flex-col gap-6 text-center max-w-[600px] px-6 text-[11px] md:text-sm text-gray-400 mb-16">
+          <p>NAZR started with a simple question. How can technology make women feel safer?</p>
+          <p>Today it has become a foundation for a growing ecosystem that connects products, software, emergency response, and community into one unified experience.</p>
+          <p>And for Smrkonova, this is exactly why we exist.</p>
+          <p>Not to build websites. Not to design applications. But to partner with ambitious founders, solve meaningful problems, and engineer digital systems that continue growing long after launch.</p>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-6 mb-32 w-full max-w-[500px] px-6">
+          <button className="flex-1 bg-[#F80090] text-white font-bold py-4 px-6 rounded-[4px] tracking-widest text-xs hover:bg-pink-600 transition-colors">
+            CREATE YOURS
+          </button>
+          <button className="flex-1 bg-transparent border-[1.5px] border-gray-600 text-white font-bold py-4 px-6 rounded-[4px] tracking-widest text-xs hover:bg-white/5 transition-colors">
+            NEXT PROJECT
+          </button>
+        </div>
+
+        {/* Infinite Marquee Banner */}
+        <style>{`
+          @keyframes bottom-marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-bottom-marquee {
+            animation: bottom-marquee 15s linear infinite;
+          }
+        `}</style>
+        
+        <div className="w-full bg-[#111111] border-y border-gray-900 py-6 overflow-hidden flex whitespace-nowrap">
+          <div className="flex items-center gap-10 animate-bottom-marquee w-max">
+             {/* Repeat contents enough times to ensure seamless loop */}
+             {[...Array(6)].map((_, i) => (
+               <div key={i} className="flex items-center gap-10">
+                 {/* NAZR Item */}
+                 <div className="flex items-center gap-4">
+                   <svg className="w-8 h-8 text-[#F80090]" viewBox="0 0 24 24" fill="currentColor">
+                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-9.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5zm6 0c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5zM12 16c-1.86 0-3.41-1.28-3.86-3h7.72c-.45 1.72-2 3-3.86 3z" />
+                   </svg>
+                   <span className="font-black text-2xl tracking-widest text-white">NAZR</span>
+                 </div>
+                 {/* SMRKONOVA Item */}
+                 <div className="flex items-center gap-4">
+                   <svg className="w-8 h-8 text-[#F80090]" viewBox="0 0 24 24" fill="currentColor">
+                     <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                   </svg>
+                   <span className="font-black text-2xl tracking-widest text-white">SMRKONOVA</span>
+                 </div>
+               </div>
+             ))}
+          </div>
+        </div>
+
       </section>
+
     </main>
   );
 }
