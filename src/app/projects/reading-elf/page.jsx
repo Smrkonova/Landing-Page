@@ -1,282 +1,350 @@
 "use client";
 
-import { motion, useScroll, useTransform, useMotionValue, useSpring, useMotionValueEvent } from "framer-motion";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function ReadingElfProjectPage() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-  const parallaxY = useTransform(scrollYProgress, [0, 1], [80, -80]);
-
-  const marqueeRef = useRef(null);
-  const { scrollYProgress: marqueeScroll } = useScroll({
-    target: marqueeRef,
-    offset: ["start end", "end start"]
-  });
-  const smoothMarqueeScroll = useSpring(marqueeScroll, { stiffness: 60, damping: 20, mass: 1.5 });
-  const marqX1 = useTransform(smoothMarqueeScroll, [0, 1], ["0%", "-50%"]);
-  const marqX2 = useTransform(smoothMarqueeScroll, [0, 1], ["-50%", "0%"]);
-
   return (
-    <main className="relative min-h-screen flex flex-col bg-[#FDF5E6] overflow-hidden selection:bg-[#3B82F6]/20">
-      {/* Page Entry Transition tailored to Nazr */}
-      <motion.div
-        initial={{ scaleY: 1 }}
-        animate={{ scaleY: 0 }}
-        transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
-        className="fixed inset-0 z-[60] origin-top bg-[#3B82F6]"
-      />
+    <main className="min-h-screen bg-[#FDFCEE] pt-24 flex flex-col justify-center overflow-hidden">
+      <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 pb-12 flex flex-col xl:flex-row items-stretch gap-6 xl:gap-8">
 
+        {/* Left Sidebar */}
+        <div className="hidden xl:flex flex-col w-[220px] shrink-0 justify-between py-12">
+          <div>
+            <h4 className="text-[11px] text-gray-500 font-bold uppercase tracking-widest mb-3">CASE STUDY 1</h4>
+            <h2 className="text-[14px] font-black text-gray-800 uppercase tracking-widest leading-relaxed w-[90%]">READING ELF<br />CHILDREN'S LIBRARY</h2>
+          </div>
 
-      {/* Custom 3-Column Dark Section */}
-      <section className="relative w-full bg-[#FDF5E6] text-[#333333] pt-12 md:pt-30 px-6 md:px-12 flex justify-center overflow-hidden z-20 min-h-[100vh] h-auto pb-24 md:pb-0">
-
-        {/* Full Page Floating Clouds */}
-        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-          <motion.img animate={{ y: [-15, 15, -15], x: [-10, 10, -10] }} transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }} src="/images/projects/reading-elf/cloud-1.png" alt="" className="absolute top-[5%] left-[30%] w-32 md:w-56 opacity-80" />
-          <motion.img animate={{ y: [15, -15, 15], x: [10, -10, 10] }} transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }} src="/images/projects/reading-elf/cloud-2.png" alt="" className="absolute top-[10%] right-[10%] w-40 md:w-64 opacity-90" />
-          <motion.img animate={{ y: [-20, 20, -20], x: [-5, 5, -5] }} transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }} src="/images/projects/reading-elf/cloud-1.png" alt="" className="absolute top-[40%] -left-[5%] w-48 md:w-72 opacity-70" />
-          <motion.img animate={{ y: [20, -20, 20], x: [5, -5, 5] }} transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }} src="/images/projects/reading-elf/cloud-2.png" alt="" className="absolute top-[50%] right-[0%] w-36 md:w-60 opacity-80" />
-          <motion.img animate={{ y: [-10, 10, -10], x: [-15, 15, -15] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }} src="/images/projects/reading-elf/cloud-1.png" alt="" className="absolute bottom-[10%] left-[15%] w-32 md:w-56 opacity-90" />
-          <motion.img animate={{ y: [10, -10, 10], x: [15, -15, 15] }} transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }} src="/images/projects/reading-elf/cloud-2.png" alt="" className="absolute bottom-[5%] right-[25%] w-40 md:w-64 opacity-70" />
+          <div className="flex flex-col gap-10 mt-16">
+            <div>
+              <h4 className="text-[13px] text-gray-400 tracking-wider mb-3">Industry</h4>
+              <span className="bg-[#EFEFDE] text-gray-900 font-bold text-[11px] px-3 py-1.5 rounded-sm">education</span>
+            </div>
+            <div>
+              <h4 className="text-[13px] text-gray-400 tracking-wider mb-3">Duration</h4>
+              <span className="bg-[#EFEFDE] text-gray-900 font-bold text-[11px] px-3 py-1.5 rounded-sm">3 months</span>
+            </div>
+            <div>
+              <h4 className="text-[13px] text-gray-400 tracking-wider mb-3">Platforms</h4>
+              <div className="flex flex-col gap-2 items-start">
+                {["Social Media", "Website", "GMB Optimisation", "Digital Advertising"].map((item, i) => (
+                  <span key={i} className="bg-[#EFEFDE] text-gray-900 font-bold text-[11px] px-3 py-1.5 rounded-sm">{item}</span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 relative z-10">
+        {/* Center Image */}
+        <div className="flex-1 w-full border-[1.5px] border-[#F29F58] rounded-[30px] md:rounded-[40px] p-1.5 relative overflow-hidden flex items-stretch">
+          <div className="w-full relative rounded-[26px] md:rounded-[34px] overflow-hidden aspect-[4/3] md:aspect-[16/10] xl:aspect-auto xl:h-full min-h-[60vh]">
+            {/* Background Image */}
+            <img
+              src="/images/projects/reading-elf/banner.png"
+              alt="Magical Den Banner"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
 
-          {/* Left Column Metadata (Top Aligned) */}
-          <div className="lg:col-span-2 flex flex-col gap-12 justify-start pt-16">
-            <div className="flex flex-col gap-2">
-              <span className="text-[#666666] font-medium text-sm">UX/UI</span>
-              <span className="text-[#555555] text-[10px] uppercase tracking-widest font-bold">WEBSITE & APP</span>
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-[#666666] font-medium text-sm">Category</span>
-              <span className="text-[#555555] text-[10px] uppercase tracking-widest font-bold">WOMEN ECOSYSTEM</span>
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-[#666666] font-medium text-sm">Duration</span>
-              <span className="text-[#555555] text-[10px] uppercase tracking-widest font-bold">4 MONTHS</span>
+            {/* Overlay Text */}
+            <div className="absolute inset-0 flex flex-col justify-end items-center pb-16 md:pb-24 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+              <p className="text-white/90 text-[10px] md:text-xs tracking-[0.2em] uppercase mb-1">TURNING A MOTHER & SON'S</p>
+              <p className="text-white/90 text-[10px] md:text-xs tracking-[0.2em] uppercase mb-3">DREAM INTO A</p>
+              <h1 className="text-4xl md:text-6xl lg:text-[72px] font-bold text-white tracking-widest mt-1">MAGICAL DEN</h1>
             </div>
           </div>
+        </div>
 
-          {/* Center Image Container */}
-          <div ref={containerRef} className="lg:col-span-7 w-full flex items-center justify-center">
-            <motion.div
-              style={{ y: parallaxY }}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="w-full aspect-[16/14] rounded-[40px] border border-[#3b82f6]/40 overflow-hidden relative shadow-[0_0_40px_rgba(59,130,246,0.1)] p-2"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/projects/reading-elf/banner.png" alt="Reading Elf Banner" className="w-full h-full object-contain relative z-10" />
-
-            </motion.div>
-          </div>
-
-          {/* Right Column Features (Bottom Aligned) */}
-          <div className="lg:col-span-3 flex flex-col gap-10 justify-end pb-12">
-            {[
-              "Smart technology",
-              "Instant alerts",
-              "Live tracking",
-              "Emergency network"
-            ].map((feature, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="flex items-center gap-6 group cursor-pointer"
-              >
-                <div className="relative w-12 h-12 md:w-14 md:h-14 flex items-center justify-center">
-                  {/* Outer Rippling Ring */}
-                  <motion.div
-                    animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
-                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }}
-                    className="absolute w-full h-full rounded-full border border-[#3B82F6]/50"
-                  />
-                  {/* Middle Ring */}
-                  <div className="absolute w-8 h-8 md:w-9 md:h-9 rounded-full border-[1.5px] border-[#3B82F6] group-hover:scale-110 transition-transform duration-300" />
-                  {/* Inner Dot */}
-                  <div className="absolute w-3 h-3 md:w-3.5 md:h-3.5 bg-[#3B82F6] rounded-full group-hover:scale-110 transition-transform duration-300" />
-                </div>
-                <span className="text-[#666666] text-sm font-medium group-hover:text-[#333333] transition-colors duration-300 whitespace-nowrap">{feature}</span>
-              </motion.div>
+        {/* Right Sidebar */}
+        <div className="hidden xl:flex flex-col w-[180px] shrink-0 justify-end py-16 pl-6">
+          <ul className="flex flex-col gap-3.5">
+            {["AI video production", "UX/UI", "Development", "Brand"].map((service, i) => (
+              <li key={i} className="text-[12px] font-bold text-gray-500 tracking-wider">{service}</li>
             ))}
+          </ul>
+        </div>
+
+        {/* Mobile View Metadata (Visible only on small screens) */}
+        <div className="xl:hidden w-full flex flex-wrap gap-8 mt-6 pb-12">
+          <div className="w-full">
+            <h4 className="text-[11px] text-gray-500 font-bold uppercase tracking-widest mb-1">CASE STUDY 1</h4>
+            <h2 className="text-[16px] font-black text-gray-800 uppercase tracking-widest">READING ELF CHILDREN'S LIBRARY</h2>
           </div>
-
-        </div>
-      </section>
-
-      {/* Every Great Story Section */}
-      <section className="relative w-full bg-[#FDF5E6] flex flex-col items-center justify-center px-6 md:px-12 z-20 pt-24">
-
-        {/* Headings */}
-        <div className="flex flex-col items-center text-center mb-8 md:mb-12 z-10">
-          <h2 className="text-4xl md:text-6xl font-black text-[#DD6B4D] uppercase tracking-wide">
-            EVERY GREAT STORY
-          </h2>
-          <h3 className="text-3xl md:text-5xl font-light text-[#DD6B4D] uppercase mt-2 md:mt-4 tracking-wide">
-            BEGINS WITH ONE IDEA
-          </h3>
-        </div>
-
-        {/* Book Image */}
-        <div className="w-full max-w-3xl mx-auto flex justify-center items-center relative z-10">
-          <img
-            src="/images/projects/reading-elf/book.png"
-            alt="Magical Open Book"
-            className="w-full h-auto object-contain"
-          />
-        </div>
-
-        {/* Description Text */}
-        <div className="max-w-2xl mx-auto text-center mt-8 md:mt-12 mb-10 z-10">
-          <p className="text-[#888888] text-xs md:text-sm leading-[1.8] font-medium">
-            Reading Elf is more than a bookstore—it's a magical reading experience where<br className="hidden md:block" />
-            stories spark imagination and every child discovers the joy of books. We<br className="hidden md:block" />
-            partnered with Reading Elf to design a complete digital ecosystem that inspires<br className="hidden md:block" />
-            families, builds trust, and supports long-term growth.
-          </p>
-        </div>
-
-        {/* Button */}
-        <div className="flex justify-center pb-24 md:pb-32 z-10">
-          <button suppressHydrationWarning className="px-10 md:px-12 py-3 md:py-4 bg-[#FACC15] text-[#333333] border-[3px] border-[#DD6B4D] rounded-[12px] font-normal text-lg md:text-xl hover:bg-[#FDE047] transition-all hover:scale-105 shadow-sm">
-            Explore The Story
-          </button>
-        </div>
-
-      </section>
-
-      {/* Digital Growth Strategy Section */}
-      <section ref={marqueeRef} className="relative w-full bg-[#FDF5E6] px-4 md:px-12 py-12 md:py-24 z-20">
-        <div className="w-full max-w-7xl mx-auto bg-[#F6DECA] rounded-[40px] md:rounded-[60px] flex flex-col items-center justify-center py-20 md:py-28 overflow-hidden relative shadow-sm">
-          
-          {/* Title */}
-          <div className="flex flex-col items-center text-center mb-16 z-10 relative">
-            <div className="absolute -top-12 -left-12 opacity-80 pointer-events-none w-32 h-32">
-              <img src="/images/projects/reading-elf/book.png" alt="" className="w-full h-full object-contain" />
+          <div className="flex gap-8 flex-wrap">
+            <div className="flex flex-col gap-2">
+              <h4 className="text-[13px] text-gray-400 tracking-wider">Industry</h4>
+              <span className="bg-[#EFEFDE] text-gray-900 font-bold text-[11px] px-3 py-1.5 rounded-sm self-start">education</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-light text-[#DD6B4D] uppercase tracking-wide">
-              BUILDING A
-            </h2>
-            <h3 className="text-4xl md:text-6xl font-black text-[#DD6B4D] uppercase mt-1 md:mt-2 tracking-wide">
-              DIGITAL GROWTH<br/>STRATEGY
-            </h3>
+            <div className="flex flex-col gap-2">
+              <h4 className="text-[13px] text-gray-400 tracking-wider">Duration</h4>
+              <span className="bg-[#EFEFDE] text-gray-900 font-bold text-[11px] px-3 py-1.5 rounded-sm self-start">3 months</span>
+            </div>
+          </div>
+          <div className="w-full">
+            <h4 className="text-[13px] text-gray-400 tracking-wider mb-2">Platforms</h4>
+            <div className="flex flex-wrap gap-2 items-start">
+              {["Social Media", "Website", "GMB Optimisation", "Digital Advertising"].map((item, i) => (
+                <span key={i} className="bg-[#EFEFDE] text-gray-900 font-bold text-[11px] px-3 py-1.5 rounded-sm">{item}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Transformed Vision & Dream Section */}
+      <section className="relative w-full overflow-hidden flex flex-col items-center pt-32 pb-40">
+
+        {/* Background Image */}
+        <img
+          src="/images/projects/reading-elf/transform-bg.png"
+          alt="Dreamy Background"
+          className="absolute inset-0 w-full h-full object-cover  z-0"
+        />
+
+        {/* Content Container */}
+        <div className="relative w-full max-w-[1200px] mx-auto z-10 flex flex-col items-center px-6 md:px-12">
+
+          {/* Top Header */}
+          <div className="text-center mb-16 mt-10 md:mt-20">
+            <h4 className="text-[10px] md:text-xs text-gray-700 font-bold tracking-[0.2em] uppercase mb-4">WORKING ALONGSIDE EAST THEORY,</h4>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 uppercase tracking-widest leading-[1.2]">WE TRANSFORMED<br />THE FOUNDER'S VISION</h2>
           </div>
 
-          {/* Marquee Rows */}
-          <div className="w-full flex flex-col gap-6 md:gap-8 overflow-visible">
-            {/* Top Row - scrolls left */}
-            <motion.div 
-              animate={{ x: ["0%", "-50%"] }} 
-              transition={{ repeat: Infinity, ease: "linear", duration: 35 }} 
-              className="flex whitespace-nowrap w-max"
-            >
-              {[...Array(12)].map((_, i) => (
-                <div key={`top-${i}`} className="w-[280px] h-[200px] md:w-[400px] md:h-[280px] mr-6 md:mr-8 rounded-[24px] overflow-hidden shrink-0 bg-[#E8DCCB] shadow-sm relative group cursor-pointer">
-                  <img src="/images/projects/reading-elf/banner.png" alt="" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                  
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-[#0076CE]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-                    <span className="text-white text-2xl md:text-3xl font-black uppercase tracking-wider">WEBSITE</span>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* Bottom Row - scrolls right */}
-            <motion.div 
-              animate={{ x: ["-50%", "0%"] }} 
-              transition={{ repeat: Infinity, ease: "linear", duration: 35 }} 
-              className="flex whitespace-nowrap w-max mt-6 md:mt-8"
-            >
-              {[...Array(12)].map((_, i) => (
-                <div key={`bottom-${i}`} className="w-[280px] h-[200px] md:w-[400px] md:h-[280px] mr-6 md:mr-8 rounded-[24px] overflow-hidden shrink-0 bg-[#D4C3AC] shadow-sm relative group cursor-pointer">
-                  <img src="/images/projects/reading-elf/book.png" alt="" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                  
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-[#0076CE]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-                    <span className="text-white text-2xl md:text-3xl font-black uppercase tracking-wider">WEBSITE</span>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
+          {/* Open Book Graphic */}
+          <div className="w-full max-w-4xl flex justify-center mb-16 md:mb-24 drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform duration-700">
+            <img
+              src="/images/projects/reading-elf/open-book.png"
+              alt="Magical Open Book"
+              className="w-full h-auto object-contain"
+            />
           </div>
 
-          {/* Description Text */}
-          <div className="max-w-3xl mx-auto text-center mt-16 md:mt-24 px-6 z-10">
-            <p className="text-[#888888] text-sm md:text-base leading-relaxed font-medium">
-              Every illustration, animation, and interaction was designed to reflect<br className="hidden md:block"/>
-              the magic children experience when opening a book. Our visual<br className="hidden md:block"/>
-              language transformed digital experiences into playful moments that<br className="hidden md:block"/>
-              feel welcoming, memorable, and full of imagination.
+          {/* Small Paragraph */}
+          <div className="max-w-[400px] text-center mb-24 md:mb-32">
+            <p className="text-[10px] md:text-[11px] text-gray-800/80 leading-relaxed font-bold tracking-wide">
+              Smrkonova brought the founder's dream to the table, gave it shape and started building
             </p>
           </div>
 
+          {/* Second Header */}
+          <div className="text-center mb-16">
+            <h4 className="text-[10px] md:text-xs text-gray-700 font-bold tracking-[0.2em] uppercase mb-4">A BRAND THAT COULD BE</h4>
+            <h2 className="text-2xl md:text-4xl font-black text-gray-800 uppercase tracking-widest leading-snug">SEEN, EXPERIENCED<br />AND DISCOVERED.</h2>
+          </div>
+
+          {/* Flying Book Graphic */}
+          <div className="w-full max-w-[180px] md:max-w-[220px] flex justify-center mb-40 md:mb-64 drop-shadow-xl hover:-translate-y-4 transition-transform duration-500">
+            <img
+              src="/images/projects/reading-elf/fly-book.png"
+              alt="Flying Book"
+              className="w-full h-auto object-contain"
+            />
+          </div>
+
+          {/* Understanding the Dream Grid */}
+          <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center mb-40 mt-10">
+
+            {/* Left Text Content */}
+            <div className="flex flex-col gap-6 lg:pr-12">
+              <div>
+                <h2 className="text-3xl md:text-5xl lg:text-[56px] font-light text-gray-800 uppercase tracking-widest leading-[1.1]">UNDERSTANDING</h2>
+                <h2 className="text-3xl md:text-5xl lg:text-[56px] font-black text-gray-800 uppercase tracking-widest leading-[1.1] mt-1">THE DREAM FIRST</h2>
+              </div>
+
+              <div className="flex flex-col gap-5 mt-4">
+                <p className="text-[11px] md:text-[13px] text-gray-800/90 leading-relaxed font-medium">
+                  Reading Elf is a magical space where parents and children bond over stories, discover books together, and nurture a lifelong love for reading. Through books, workshops, and shared experiences, every visit is designed to spark curiosity and imagination.
+                </p>
+                <p className="text-[11px] md:text-[13px] text-gray-800/90 leading-relaxed font-medium">
+                  Our role was to translate that vision into a cohesive brand experience by crafting the visual identity, website, and digital ecosystem that brought Reading Elf's world to life before visiting the library.
+                </p>
+              </div>
+
+              <h3 className="text-xl md:text-2xl font-light text-gray-800 mt-10 md:mt-16 tracking-wide">
+                The first piece was already there.
+              </h3>
+            </div>
+
+            {/* Right Image - Torn Paper Dream Drawing */}
+            <div className="flex justify-center lg:justify-end">
+              <img
+                src="/images/projects/reading-elf/dream.png"
+                alt="Original Child's Drawing on Torn Paper"
+                className="w-[85%] max-w-[450px] rotate-[6deg] drop-shadow-2xl hover:rotate-[0deg] transition-transform duration-500"
+              />
+            </div>
+
+          </div>
+
+          {/* Logo and Final Paragraph */}
+          <div className="w-full flex flex-col items-center mt-12 md:mt-24 pb-20">
+
+            {/* Circular Badge Logo */}
+            <div className="w-48 md:w-64 h-48 md:h-64 mb-12 drop-shadow-2xl hover:scale-105 transition-transform duration-500 bg-white rounded-full p-2 flex items-center justify-center">
+              <img
+                src="/images/projects/reading-elf/logo.png"
+                alt="The Reading Elf Logo"
+                className="w-full h-full object-contain rounded-full"
+              />
+            </div>
+
+            {/* Bottom Summary Text */}
+            <div className="max-w-[700px] text-center px-4">
+              <p className="text-[11px] md:text-[13px] text-gray-900 leading-relaxed font-medium mb-4">
+                The logo carried the heart of Reading Elf, <span className="font-bold">a child's drawing transformed into a symbol of imagination.</span>
+              </p>
+              <p className="text-[11px] md:text-[13px] text-gray-900 leading-relaxed font-medium">
+                Smrkonova's role was to solve the rest of the puzzle. Keeping the logo as our foundation, we built a cohesive brand around it through colour, illustrations, digital experiences, campaigns, and every customer touchpoint. Piece by piece, the magical world the founder, also a mom and her child had imagined together began to take shape.
+              </p>
+            </div>
+
+          </div>
+
         </div>
       </section>
 
-      {/* Bringing the Story Online Section */}
-      <section className="relative w-full bg-[#FDF5E6] flex flex-col items-center justify-center py-24 md:py-32 px-6 md:px-12 z-20">
+      {/* Book Showcase Section */}
+      <section className="relative w-full flex flex-col items-center pb-24 md:pb-40 z-20">
+
+        {/* Background Image */}
+        <img
+          src="/images/projects/reading-elf/book/book-bg.png"
+          alt="Book Showcase Background"
+          className="absolute inset-0 w-full h-full object-cover  z-0"
+        />
+
+        {/* Books Stack Container - Using negative margin to overlap previous section */}
+        <div className="relative w-full max-w-[900px] mx-auto z-10 flex flex-col items-center px-4 md:px-8 gap-10 md:gap-16 -mt-24 md:-mt-48">
+          {[1, 2, 3, 4, 5, 6].map((num) => (
+            <div
+              key={num}
+              className="w-full drop-shadow-[0_25px_50px_rgba(0,0,0,0.35)] hover:scale-105 transition-transform duration-500"
+            >
+              <img
+                src={`/images/projects/reading-elf/book/book-${num}.png`}
+                alt={`Reading Elf Brand Book Page ${num}`}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Details & Fanned Cards Container */}
+        <div className="relative w-full max-w-[1200px] mx-auto z-10 flex flex-col px-6 md:px-12 mt-32 md:mt-48">
+          
+          {/* Top Part: Left Book & Right Text */}
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-24 mb-32">
+            {/* Left Book */}
+            <div className="w-full md:w-1/2 flex justify-center md:justify-end drop-shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:scale-105 transition-transform duration-500">
+              <img 
+                src="/images/projects/reading-elf/left-book.png" 
+                alt="Reading Elf Digital Story" 
+                className="w-[85%] max-w-[400px] h-auto object-contain"
+              />
+            </div>
+            {/* Right Text */}
+            <div className="w-full md:w-1/2 flex flex-col justify-center pt-0 md:pt-20 text-center md:text-left">
+              <h3 className="text-2xl md:text-3xl font-light text-gray-800 leading-snug tracking-wide">
+                Bringing the<br/>stories to life<br/>digitally
+              </h3>
+            </div>
+          </div>
+
+          {/* Center Text */}
+          <div className="max-w-[550px] mx-auto text-center mb-32 md:mb-48">
+            <p className="text-[13px] md:text-[15px] text-gray-800 leading-relaxed font-medium">
+              A cohesive brand building effort to serve <span className="font-bold">one purpose,</span> to make Reading Elf feel magical before a child even walks through the door.
+            </p>
+          </div>
+
+          {/* Fanned Cards */}
+          <div className="relative w-full h-[350px] md:h-[450px] flex justify-center items-center mb-48 md:mb-64">
+            
+            {/* Left Card 2 */}
+            <div className="absolute z-10 w-[180px] md:w-[240px] aspect-[3/4] bg-white/20 backdrop-blur-md rounded-2xl md:rounded-[32px] border border-white/40 shadow-lg flex flex-col items-center justify-center p-6 -translate-x-[85%] md:-translate-x-[90%] rotate-[-24deg] opacity-70 hover:opacity-100 hover:rotate-[-20deg] transition-all duration-500">
+            </div>
+
+            {/* Left Card 1 */}
+            <div className="absolute z-20 w-[180px] md:w-[240px] aspect-[3/4] bg-white/30 backdrop-blur-md rounded-2xl md:rounded-[32px] border border-white/50 shadow-xl flex flex-col items-center justify-center p-6 -translate-x-[45%] md:-translate-x-[48%] rotate-[-12deg] hover:-translate-y-4 hover:rotate-[-8deg] transition-all duration-500">
+              <div className="w-20 h-20 opacity-90 drop-shadow-xl">
+                 {/* Using placeholder since icons weren't provided */}
+                 <img src="/images/projects/reading-elf/fly-book.png" alt="Icon" className="w-full h-full object-contain" />
+              </div>
+            </div>
+
+            {/* Center Card (Highlighted) */}
+            <div className="absolute z-30 w-[200px] md:w-[260px] aspect-[3/4] bg-gradient-to-b from-[#F3EFE9] to-[#EBDCCC] rounded-2xl md:rounded-[32px] border-[3px] border-white/80 shadow-[0_30px_60px_rgba(0,0,0,0.15)] flex flex-col items-center justify-start p-6 text-center hover:-translate-y-6 transition-transform duration-500 cursor-pointer">
+              <div className="w-16 h-16 md:w-20 md:h-20 mb-6 mt-4 drop-shadow-xl">
+                {/* Using placeholder since lantern wasn't provided */}
+                <img src="/images/projects/reading-elf/logo.png" alt="Brand Strategy" className="w-full h-full object-contain" />
+              </div>
+              <h4 className="text-[10px] md:text-[11px] font-black text-gray-800 uppercase tracking-widest mb-3 leading-tight">BRAND STRATEGY</h4>
+              <p className="text-[9px] md:text-[10px] text-gray-700/80 leading-relaxed font-bold px-2">
+                Defined the brand experience and digital direction around the Founder's vision.
+              </p>
+            </div>
+
+            {/* Right Card 1 */}
+            <div className="absolute z-20 w-[180px] md:w-[240px] aspect-[3/4] bg-white/30 backdrop-blur-md rounded-2xl md:rounded-[32px] border border-white/50 shadow-xl flex flex-col items-center justify-center p-6 translate-x-[45%] md:translate-x-[48%] rotate-[12deg] hover:-translate-y-4 hover:rotate-[8deg] transition-all duration-500">
+              <div className="w-20 h-20 opacity-90 drop-shadow-xl">
+                 <img src="/images/projects/reading-elf/open-book.png" alt="Icon" className="w-full h-full object-contain" />
+              </div>
+            </div>
+
+            {/* Right Card 2 */}
+            <div className="absolute z-10 w-[180px] md:w-[240px] aspect-[3/4] bg-white/20 backdrop-blur-md rounded-2xl md:rounded-[32px] border border-white/40 shadow-lg flex flex-col items-center justify-center p-6 translate-x-[85%] md:translate-x-[90%] rotate-[24deg] opacity-70 hover:opacity-100 hover:rotate-[20deg] transition-all duration-500">
+            </div>
+
+          </div>
+
+          {/* Final Typography & CTA */}
+          <div className="flex flex-col items-center text-center mt-20 mb-12 md:mb-24 z-10 relative">
+            
+            {/* Glowing Aura Effect behind text */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-white/20 blur-[100px] rounded-full pointer-events-none z-0"></div>
+            
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-[42px] font-black text-white uppercase tracking-widest mb-1 drop-shadow-lg">
+                BRANDS ARE BUILT
+              </h2>
+              <h2 className="text-3xl md:text-[42px] font-light text-white uppercase tracking-widest mb-8 drop-shadow-lg">
+                IN THE DETAILS.
+              </h2>
+              <p className="text-[10px] md:text-xs text-white/95 leading-[1.8] max-w-[450px] mx-auto mb-12 font-medium tracking-wide drop-shadow-md">
+                A child had already imagined Reading Elf. The founders had already believed in it. Our job was to remove every barrier between that idea and the families it was meant to reach.
+              </p>
+              <div className="flex items-center justify-center gap-4">
+                <button className="bg-[#E48744] hover:bg-[#d67b3a] text-white text-[10px] md:text-xs font-bold uppercase tracking-widest px-8 md:px-10 py-3 md:py-4 rounded-sm transition-all shadow-lg hover:scale-105">
+                  CREATE YOURS
+                </button>
+                <button className="border-2 border-white/60 hover:bg-white/10 text-white text-[10px] md:text-xs font-bold uppercase tracking-widest px-8 md:px-10 py-3 md:py-4 rounded-sm transition-all shadow-md hover:scale-105">
+                  NEXT PROJECT
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
         
-        {/* Title */}
-        <div className="flex flex-col items-center text-center mb-16 z-10 relative">
-          <h2 className="text-3xl md:text-5xl font-light text-[#DD6B4D] uppercase tracking-wide">
-            BRINGING THE
-          </h2>
-          <h3 className="text-4xl md:text-6xl font-black text-[#DD6B4D] uppercase mt-1 md:mt-2 tracking-wide">
-            STORY ONLINE
-          </h3>
-        </div>
-
-        {/* Website Embed */}
-        <div className="w-full max-w-6xl mx-auto rounded-[24px] md:rounded-[40px] overflow-hidden shadow-2xl border border-gray-200/50 bg-white aspect-[4/3] md:aspect-video relative">
-          <iframe 
-            src="https://thereadingelf.in/" 
-            title="Reading Elf Website" 
-            className="w-full h-full absolute inset-0"
-            style={{ border: 'none' }}
-          />
-        </div>
-
       </section>
 
-      {/* Every Great Brand Section */}
-      <section className="relative w-full bg-[#DD6B4D] flex flex-col items-center justify-center py-24 md:py-32 px-6 md:px-12 z-20 mt-12 md:mt-24">
-        
-        {/* Floating Logo Badge */}
-        <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 md:w-32 md:h-32 rounded-full border-[6px] border-[#FDF5E6] bg-white flex items-center justify-center overflow-hidden shadow-sm z-30">
-          {/* We're using book.png as a placeholder for the logo since it has the mushroom house */}
-          <img 
-            src="/images/projects/reading-elf/book.png" 
-            alt="Reading Elf Logo" 
-            className="w-full h-full object-cover scale-[1.3] -translate-y-2" 
-          />
+      {/* Footer Marquee */}
+      <div className="w-full bg-[#E48744] py-3 md:py-4 overflow-hidden relative z-30">
+        <div className="flex whitespace-nowrap animate-marquee">
+          {/* We duplicate the content to create the infinite loop effect */}
+          {[...Array(20)].map((_, i) => (
+            <div key={i} className="flex items-center text-white font-black text-[10px] md:text-[11px] uppercase tracking-widest mx-3">
+              <span className="mx-3">SMRKONOVA</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="opacity-90">
+                <path d="M12 2L15 8L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L9 8L12 2Z"/>
+              </svg>
+              <span className="mx-3">READING ELF</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="opacity-90">
+                <path d="M12 2L15 8L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L9 8L12 2Z"/>
+              </svg>
+            </div>
+          ))}
         </div>
-
-        {/* Text Content */}
-        <div className="max-w-4xl mx-auto text-center flex flex-col gap-6 md:gap-8 mt-4 md:mt-8">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-wide leading-tight">
-            EVERY GREAT BRAND<br/>BEGINS WITH A STORY.
-          </h2>
-          <p className="text-white/90 text-xs md:text-sm lg:text-base tracking-[0.15em] font-medium uppercase leading-loose max-w-2xl mx-auto">
-            LET'S BUILD YOURS WITH STRATEGY,<br className="hidden md:block"/>
-            CREATIVITY, AND EXPERIENCES THAT<br className="hidden md:block"/>
-            PEOPLE REMEMBER.
-          </p>
-        </div>
-
-      </section>
+      </div>
 
     </main>
   );
