@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function ReadingElfProjectPage() {
   return (
-    <main className="min-h-screen bg-[#FDFCEE] pt-24 flex flex-col justify-center overflow-hidden">
+    <main className="min-h-screen bg-[#FDFCEE] pt-32 md:pt-40 flex flex-col justify-center overflow-hidden">
       <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 pb-12 flex flex-col xl:flex-row items-stretch gap-6 xl:gap-8">
 
         {/* Left Sidebar */}
