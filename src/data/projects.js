@@ -23,7 +23,7 @@ export const projectsData = [
       "A custom-built platform designed with dual-user architecture, gamification logic, and reward-driven engagement systems to increase user retention and activity.",
     image: "/images/projects/heroguild.png",
     logo: "/images/projects/logo-hero.svg",
-    link: "/projects/hiroguild",
+    link: "/projects/hiro-guild",
   },
   {
     id: 3,
