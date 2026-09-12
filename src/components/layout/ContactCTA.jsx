@@ -9,7 +9,7 @@ export default function ContactCTA() {
 
   return (
     <>
-      <section className="sticky top-0 z-0 w-full h-[100vh] flex items-center justify-center overflow-hidden bg-black">
+      <section className="sticky top-0 z-0 w-full max-w-full h-[100vh] flex items-center justify-center overflow-hidden bg-black">
         {/* Background Video */}
         <video
           autoPlay
@@ -25,13 +25,13 @@ export default function ContactCTA() {
         <div className="absolute inset-0 bg-black/20" />
 
         {/* Content Area */}
-        <div className="relative z-10 flex flex-col items-center text-center px-4 -mt-20">
+        <div className="relative z-10 flex flex-col items-center text-center px-4 -mt-20 max-w-full">
 
           <p className="text-white text-sm md:text-lg tracking-[0.2em] md:tracking-[0.3em] uppercase font-light mb-2 drop-shadow-md">
             Ready to build something
           </p>
 
-          <h2 className="text-white text-3xl md:text-7xl lg:text-[100px] font-good-times font-black uppercase tracking-tight mb-8 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
+          <h2 className="text-white text-3xl sm:text-5xl md:text-7xl lg:text-[100px] font-good-times font-black uppercase tracking-tight mb-8 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] break-words max-w-full">
             Extraordinary?
           </h2>
 

@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <GlobalAudio />
         <Header />
-        <main>{children}</main>
+        <main className="w-full max-w-full overflow-x-clip flex-grow">{children}</main>
         <ContactCTA />
         <Footer />
       </body>

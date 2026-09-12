@@ -5,12 +5,13 @@ import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-
 import Image from "next/image";
 
 const processes = [
-  { id: 1, title: "RESEARCH", desc: "Market, customers,\ncompetitors", img: "/images/industries/manufacturing/process/1.png" },
-  { id: 2, title: "ENGINEER", desc: "Architect the right system", img: "/images/industries/manufacturing/process/2.png" },
-  { id: 3, title: "DEVELOP", desc: "Build with precision and\npurpose", img: "/images/industries/manufacturing/process/3.png" },
-  { id: 4, title: "TEST", desc: "Rigorous quality assurance", img: "/images/industries/manufacturing/process/1.png" },
-  { id: 5, title: "DEPLOY", desc: "Seamless launch execution", img: "/images/industries/manufacturing/process/1.png" },
-  { id: 6, title: "SCALE", desc: "Expand and optimize operations", img: "/images/industries/manufacturing/process/1.png" },
+  { id: 1, title: "UNDERSTAND",  img: "/images/industries/manufacturing/process/1.png" },
+  { id: 2, title: "PLAN",img: "/images/industries/manufacturing/process/2.png" },
+  { id: 3, title: "DESIGN", img: "/images/industries/manufacturing/process/3.png" },
+  { id: 4, title: "DEVELOP",  img: "/images/industries/manufacturing/process/1.png" },
+  { id: 5, title: "TEST", img: "/images/industries/manufacturing/process/2.png" },
+  { id: 6, title: "LAUNCH",  img: "/images/industries/manufacturing/process/3.png" },
+  { id: 7, title: "SUPPORT",  img: "/images/industries/manufacturing/process/1.png" },
 ];
 
 export default function ProcessScroll() {
@@ -31,7 +32,7 @@ export default function ProcessScroll() {
   });
 
   return (
-    <section ref={containerRef} className="relative w-full h-[600vh]">
+    <section ref={containerRef} className="relative w-full max-w-full h-[600vh]">
       {/* Liquid Glass SVG Filter Def */}
       <svg width="0" height="0" style={{ position: "absolute" }}>
         <defs>
@@ -44,7 +45,7 @@ export default function ProcessScroll() {
       </svg>
 
       {/* Sticky container */}
-      <div className="sticky top-0 h-screen w-full flex overflow-hidden">
+      <div className="sticky top-0 h-screen w-full max-w-full flex overflow-hidden">
 
         {/* Background Images (Crossfading) */}
         <div className="absolute inset-0 z-0">
@@ -73,19 +74,19 @@ export default function ProcessScroll() {
 
         {/* Left Glass Panel */}
         <div 
-          className="relative z-10 w-full xl:w-[50%] h-full bg-gradient-to-r from-black/60 via-black/40 to-transparent flex flex-col justify-center p-12 md:p-24 xl:border-r xl:border-[#E2E2E2] items-center md:items-start text-center md:text-left"
+          className="relative z-10 w-full max-w-full xl:w-[50%] h-full bg-gradient-to-r from-black/60 via-black/40 to-transparent flex flex-col justify-center p-6 sm:p-12 md:p-24 xl:border-r xl:border-[#E2E2E2] items-center md:items-start text-center md:text-left overflow-hidden"
           style={{ backdropFilter: "blur(4px) url(#liquid-glass-distortion)" }}
         >
 
           {/* Top Label */}
-          <div className="absolute top-12 left-0 right-0 md:left-24 md:right-auto">
-            <h4 className="text-sm font-medium text-white/60 tracking-[0.2em] uppercase">
+          <div className="absolute top-8 sm:top-12 left-0 right-0 md:left-24 md:right-auto">
+            <h4 className="text-xs sm:text-sm font-medium text-white/60 tracking-[0.2em] uppercase">
               OUR PROCESS
             </h4>
           </div>
 
           {/* Scrolling Text List */}
-          <div className="flex flex-col justify-center space-y-8 h-[400px] items-center md:items-start w-full">
+          <div className="flex flex-col justify-center space-y-8 h-[400px] items-center md:items-start w-full max-w-full">
             {processes.map((process, index) => {
               const offset = index - activeIndex;
               const isVisible = Math.abs(offset) <= 1;
@@ -102,10 +103,10 @@ export default function ProcessScroll() {
                     marginBottom: isVisible ? (isCenter ? 16 : 0) : -16,
                   }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="overflow-hidden flex flex-col justify-center origin-left"
+                  className="overflow-hidden flex flex-col justify-center origin-left w-full max-w-full"
                 >
                   <h2
-                    className="font-black tracking-tight uppercase transition-all duration-500 text-[50px] sm:text-[48px] md:text-[64px] leading-[1.1] text-white"
+                    className="font-black tracking-tight uppercase transition-all duration-500 text-[32px] sm:text-[48px] md:text-[64px] leading-[1.1] text-white break-words"
                   >
                     {process.title}
                   </h2>

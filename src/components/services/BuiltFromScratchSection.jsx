@@ -24,24 +24,26 @@ export default function BuiltFromScratchSection() {
     }, [cards.length]);
 
     return (
-        <section className="w-full bg-white text-black pt-24 md:pt-32 pb-40 md:pb-56 lg:pb-64 overflow-hidden relative">
-            <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-0 flex flex-col lg:flex-row items-center justify-between gap-16">
+        <section className="w-full max-w-full bg-white text-black pt-24 md:pt-32 pb-40 md:pb-56 lg:pb-64 overflow-hidden relative">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-0 flex flex-col lg:flex-row items-center justify-between gap-16 overflow-hidden">
 
                 {/* Left Side: Text */}
                 <div className="flex-1 w-full flex flex-col justify-center">
-                    <h2 className="text-[50px] md:text-[70px] lg:text-[80px] leading-[1.05] font-light text-gray-800 tracking-tight mb-8">
+                    <h2 className="text-[32px] sm:text-[50px] md:text-[70px] lg:text-[80px] leading-[1.05] font-light text-gray-800 tracking-tight mb-8">
                         EVERY WEBSITE IS<br />
                         <span className="font-bold tracking-normal">BUILT FROM SCRATCH.</span>
                     </h2>
 
                     <p className="text-gray-500 text-lg md:text-xl max-w-lg mb-10 leading-relaxed font-light">
-                        We don't use templates. We analyze your brand, research your audience, and build a custom digital experience designed specifically to achieve your business goals.
+                       We don't start with templates.<br/>
+                        Every project starts by understanding your business, your customers and your goals before a single screen is designed.
+
                     </p>
 
                 </div>
 
                 {/* Right Side: Rebuilt UI Graphic */}
-                <div className="flex-1 w-full relative flex justify-center lg:justify-end items-center min-h-[500px]">
+                <div className="flex-1 w-full max-w-full relative flex justify-center lg:justify-end items-center min-h-[420px] md:min-h-[500px] overflow-hidden">
                     <style>{`
                         @keyframes pulseScale {
                             0% { transform: scale(1.1); }
@@ -118,7 +120,7 @@ export default function BuiltFromScratchSection() {
                     </div>
 
                     {/* Hand Image Overlay */}
-                    <div className="absolute z-30 left-[15%] lg:-left-[5%] top-[40%] lg:top-[45%] -translate-x-[20%] lg:-translate-x-[50%] w-[350px] md:w-[450px] lg:w-[500px] aspect-square pointer-events-none">
+                    <div className="absolute z-30 left-[15%] lg:-left-[5%] top-[40%] lg:top-[45%] -translate-x-[20%] lg:-translate-x-[50%] w-[260px] sm:w-[350px] md:w-[450px] lg:w-[500px] aspect-square pointer-events-none">
                         <Image
                             src="/images/services/website/hand.png"
                             alt="Hand interacting with UI"

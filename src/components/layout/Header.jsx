@@ -12,9 +12,9 @@ export default function Header() {
   const isNazrPage = pathname === '/projects/nazr';
   const isCineArteryPage = pathname === '/projects/cineartery';
   const isIndustryPage = pathname?.startsWith('/industries/');
-  const isCustomWebDevPage = pathname === '/services/custom-web-development';
+  const isServiceDetailPage = pathname?.startsWith('/services/') && pathname !== '/services';
   const isAboutPage = pathname === '/about';
-  const isDarkPage = isNazrPage || isCineArteryPage || isIndustryPage || isCustomWebDevPage || isAboutPage;
+  const isDarkPage = isNazrPage || isCineArteryPage || isIndustryPage || isServiceDetailPage || isAboutPage;
 
   let logoFilter = 'none';
   if (isNazrPage) {
@@ -22,7 +22,7 @@ export default function Header() {
   } else if (isCineArteryPage) {
     // Filter to turn black logo into yellow (#EAB308)
     logoFilter = 'brightness(0) saturate(100%) invert(73%) sepia(61%) saturate(541%) hue-rotate(352deg) brightness(102%) contrast(101%)';
-  } else if (isIndustryPage || isCustomWebDevPage || isAboutPage) {
+  } else if (isIndustryPage || isServiceDetailPage || isAboutPage) {
     // Filter to turn black logo into white
     logoFilter = 'brightness(0) invert(1)';
   }
@@ -196,13 +196,13 @@ export default function Header() {
 
                 {/* Menu Links */}
                 <div className="flex flex-col gap-6 mt-24 mb-auto">
-                  <MenuLink href="/" title="HOME" active onClick={() => setIsOpen(false)} />
-                  <MenuLink href="/about" title="ABOUT US" onClick={() => setIsOpen(false)} />
-                  <MenuLink href="/services/custom-web-development" title="SERVICES" onClick={() => setIsOpen(false)} />
-                  <MenuLink href="/projects" title="PROJECTS" onClick={() => setIsOpen(false)} />
+                  <MenuLink href="/" title="HOME" active={pathname === "/"} onClick={() => setIsOpen(false)} />
+                  <MenuLink href="/about" title="ABOUT US" active={pathname === "/about"} onClick={() => setIsOpen(false)} />
+                  <MenuLink href="/services" title="SERVICES" active={pathname?.startsWith("/services")} onClick={() => setIsOpen(false)} />
+                  <MenuLink href="/projects" title="PROJECTS" active={pathname?.startsWith("/projects")} onClick={() => setIsOpen(false)} />
 
                   <div className="mt-16">
-                    <MenuLink href="/contact" title="JOIN US" onClick={() => setIsOpen(false)} />
+                    <MenuLink href="/contact" title="JOIN US" active={pathname === "/contact"} onClick={() => setIsOpen(false)} />
                   </div>
                 </div>
 

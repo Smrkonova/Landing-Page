@@ -34,16 +34,16 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="relative w-full py-24 md:py-32 bg-[#fafafa] overflow-hidden">
+    <section className="relative w-full max-w-full py-24 md:py-32 bg-[#fafafa] overflow-hidden">
 
       {/* Background Colorful Blurs */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-pink-300 rounded-full mix-blend-multiply filter blur-[120px] opacity-40 pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
-      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-orange-300 rounded-full mix-blend-multiply filter blur-[120px] opacity-50 pointer-events-none translate-x-1/4"></div>
+      <div className="absolute top-0 right-0 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-pink-300 rounded-full mix-blend-multiply filter blur-[60px] md:blur-[120px] opacity-40 pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+      <div className="absolute top-1/2 right-0 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-orange-300 rounded-full mix-blend-multiply filter blur-[60px] md:blur-[120px] opacity-50 pointer-events-none translate-x-1/4"></div>
 
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
 
         {/* Title */}
-        <h2 className="text-4xl md:text-5xl font-light text-[#111] text-center mb-16 uppercase tracking-wide">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-[#111] text-center mb-12 md:mb-16 uppercase tracking-wide">
           Answers Before You Ask
         </h2>
 
@@ -57,11 +57,10 @@ export default function FaqSection() {
                 key={index}
                 initial={false}
                 animate={{
-                  marginLeft: isOpen ? -12 : 0,
-                  marginRight: isOpen ? -12 : 0,
+                  boxShadow: isOpen ? "0 10px 30px rgba(0,0,0,0.06)" : "0 0px 0px rgba(0,0,0,0)",
                 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="bg-[#69696900] border border-[#e2e2e2] rounded-[20px] overflow-hidden"
+                className={`bg-[#69696900] border border-[#e2e2e2] rounded-[20px] overflow-hidden transition-colors ${isOpen ? 'bg-white/80' : ''}`}
               >
                 <button
                   suppressHydrationWarning

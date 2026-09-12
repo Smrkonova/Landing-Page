@@ -11,7 +11,7 @@ import FaqSection from '@/components/services/FaqSection';
 
 export default function CustomWebDevelopmentPage() {
     return (
-        <main>
+        <div className="w-full max-w-full overflow-x-clip">
             <div
                 className="min-h-screen w-full relative overflow-hidden flex flex-col justify-between font-sans"
                 style={{ background: 'linear-gradient(67.52deg, #004496 -0.39%, #FFD861 49.92%, #009BFB 93.89%)' }}
@@ -28,29 +28,28 @@ export default function CustomWebDevelopmentPage() {
                 </svg>
 
                 {/* Background SVG Images and Effects */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
-                    {/* Glow behind text */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 overflow-hidden">
+                    {/* Ambient Glow on Laptop Screen */}
                     <div
-                        className="absolute w-full max-w-[400px] lg:max-w-[300px] aspect-square rounded-full -translate-x-24 lg:-translate-x-[350px] -translate-y-12 lg:-translate-y-12 z-10"
+                        className="absolute w-[360px] lg:w-[440px] h-[300px] rounded-full translate-x-8 lg:translate-x-24 -translate-y-6 lg:-translate-y-10 z-15 pointer-events-none"
                         style={{
-                            background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.05) 100%)',
-                            border: '1px solid rgba(255,255,255,0.18)',
-                            backdropFilter: 'blur(40px) url(#liquid-glass-distortion-cta)',
-                            WebkitBackdropFilter: 'blur(40px) url(#liquid-glass-distortion-cta)'
+                            background: 'radial-gradient(circle, rgba(255, 235, 150, 0.35) 0%, rgba(42, 164, 255, 0.2) 45%, rgba(255, 255, 255, 0) 70%)',
+                            filter: 'blur(45px)',
+                            WebkitFilter: 'blur(45px)',
                         }}
                     />
 
-                    {/* Glow behind eagle */}
+                    {/* Warm Luminous Glow Behind Eagle */}
                     <div
-                        className="absolute w-full max-w-[300px] lg:max-w-[300px] aspect-square rounded-full translate-x-32 -translate-y-16 lg:translate-x-48 lg:-translate-y-24"
+                        className="absolute w-[320px] md:w-[380px] lg:w-[440px] aspect-square rounded-full translate-x-24 md:translate-x-44 lg:translate-x-60 -translate-y-16 lg:-translate-y-20 z-20 pointer-events-none"
                         style={{
-                            background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.05) 100%)',
-                            border: '1px solid rgba(255,255,255,0.18)',
-                            backdropFilter: 'blur(40px) url(#liquid-glass-distortion-cta)',
-                            WebkitBackdropFilter: 'blur(40px) url(#liquid-glass-distortion-cta)'
+                            background: 'radial-gradient(circle, rgba(255, 245, 190, 0.8) 0%, rgba(255, 216, 97, 0.45) 40%, rgba(255, 216, 97, 0) 70%)',
+                            filter: 'blur(50px)',
+                            WebkitFilter: 'blur(50px)',
                         }}
                     />
 
+                    {/* Laptop Showcase Base Graphic */}
                     <Image
                         src="/images/services/website/banner.svg"
                         alt="Custom web development showcase"
@@ -59,6 +58,8 @@ export default function CustomWebDevelopmentPage() {
                         className="w-full max-w-[800px] object-contain translate-x-8 translate-y-12 lg:translate-x-30 lg:translate-y-16 relative z-10"
                         priority
                     />
+
+                    {/* Flying Eagle */}
                     <Image
                         src="/images/services/website/eagle.png"
                         alt="Flying Eagle"
@@ -70,14 +71,20 @@ export default function CustomWebDevelopmentPage() {
                 </div>
 
                 {/* Main Content Area */}
-                <div className="relative z-40 w-full max-w-7xl mx-auto px-4 md:px-0 pt-24 md:pt-32 flex justify-between flex-grow">
+                <div className="relative z-40 w-full max-w-7xl mx-auto px-4 md:px-0 pt-28 md:pt-32 flex justify-between flex-grow">
                     {/* Left Column */}
-                    <div className="flex flex-col text-white max-w-3xl h-full">
+                    <div className="flex flex-col  text-white max-w-3xl h-full">
                         <div>
-                            <h1 className="text-[90px] md:text-[120px] lg:text-[150px] font-[200] leading-[1.05] tracking-tight mb-8">
-                                READY <br /> TO FLY?
+                            <h1 className="text-[34px] sm:text-[60px] md:text-[100px] lg:text-[80px] font-[200] leading-[0.95] tracking-tight mb-8 ">
+                                Custom Web Development
                             </h1>
-                            <div className="flex flex-wrap gap-4 mb-16">
+                            <p className="text-sm md:text-[15px] font-medium leading-[1.9] max-w-[450px] uppercase tracking-[0.05em] text-white mb-10">
+                                Whether you're launching a new business,<br />
+                                modernising an existing website, or building <br />
+                                a large digital platform, we create websites <br />
+                                that are fast, scalable and built specifically <br /> for your goals.
+                            </p>
+                            <div className="flex flex-wrap gap-4 mt-16">
                                 <button suppressHydrationWarning className="bg-[#f0f0f0] text-black px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-white transition-colors">
                                     CREATE YOUR CUSTOM WEBSITE
                                 </button>
@@ -111,12 +118,7 @@ export default function CustomWebDevelopmentPage() {
                 <div className="relative z-20 w-full max-w-7xl mx-auto px-4 md:px-0 pb-12 flex flex-col lg:flex-row items-end justify-between gap-12 lg:gap-8">
                     {/* Bottom Left Text */}
                     <div className="flex-shrink-0 lg:w-[35%] mb-4 lg:mb-0">
-                        <p className="text-sm md:text-[15px] font-medium leading-[1.9] max-w-[450px] uppercase tracking-[0.05em] text-white">
-                            Every business is different.<br />
-                            Your website should be too —<br />
-                            engineered from zero,<br />
-                            not stitched from templates.
-                        </p>
+
                     </div>
 
                     {/* Bottom Stats Bar */}
@@ -155,6 +157,6 @@ export default function CustomWebDevelopmentPage() {
             <ProcessScroll />
             <EngagementSliderSection />
             <FaqSection />
-        </main>
+        </div>
     );
 }

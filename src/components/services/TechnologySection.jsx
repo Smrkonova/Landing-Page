@@ -10,8 +10,16 @@ const checkIcon = (
     </svg>
 );
 
-const techList = [
-    "Next.js", "React", "HTML", "CSS", "Javascript", "Next.js", "Next.js", "Next.js", "Next.js"
+const fonttechList = [
+    "Next.js", "React", "HTML", "CSS", "Javascript", "TailwindCSS"
+];
+
+const backendtechList = [
+   "Node.js","Larvel","firebase","superbase"
+];
+
+const cmstechList = [
+   "WordPress","Sanity","Shopify","Custom CMS"
 ];
 
 export default function TechnologySection() {
@@ -19,7 +27,7 @@ export default function TechnologySection() {
         <section className="w-full bg-white py-20 md:py-32 px-4 md:px-12 flex justify-center overflow-hidden">
 
             {/* Main Rounded Card Container */}
-            <div className="relative w-full max-w-7xl min-h-[900px] md:min-h-[1540px] bg-white rounded-[40px] md:rounded-[60px] ">
+            <div className="relative w-full max-w-7xl min-h-[900px] md:min-h-[1540px] bg-white rounded-[40px] md:rounded-[60px] overflow-hidden">
 
                 {/* --- BACKGROUND GRAPHICS & GLOWS --- */}
                 {/* Center VR Image */}
@@ -76,26 +84,29 @@ export default function TechnologySection() {
                     </div>
 
                     {/* Middle Section: Tech Lists */}
-                    <div className="flex flex-col lg:flex-row justify-between mt-16 md:mt-24 lg:mt-32 px-0 lg:px-4">
+                    <div className="flex flex-col lg:flex-row justify-between mt-20 md:mt-24 lg:mt-32 px-0 lg:px-4">
                         {/* Left Lists (Frontend & Backend) */}
-                        <div className="flex gap-12 md:gap-24">
+                        <div className="flex gap-12 md:gap-4">
                             {/* Frontend */}
                             <div>
                                 <h4 className="text-sm md:text-base font-bold tracking-widest uppercase mb-6 text-gray-900">FRONTEND</h4>
+                                  <p className="text-sm md:text-[12px] tracking-widest uppercase mb-6 text-gray-600">The part visitors interact with.</p>
                                 <ul className="space-y-3">
-                                    {techList.map((item, idx) => (
+                                    {fonttechList.map((item, idx) => (
                                         <li key={`frontend-${idx}`} className="flex items-start gap-3 text-[13px] md:text-[14px] text-gray-500 font-medium">
                                             {checkIcon}
                                             {item}
                                         </li>
                                     ))}
                                 </ul>
+                              
                             </div>
                             {/* Backend */}
                             <div>
                                 <h4 className="text-sm md:text-base font-bold tracking-widest uppercase mb-6 text-gray-900">BACKEND</h4>
+                                 <p className="text-sm md:text-[12px] tracking-widest uppercase mb-6 text-gray-600">The engine behind your website.</p>
                                 <ul className="space-y-3">
-                                    {techList.map((item, idx) => (
+                                    {backendtechList.map((item, idx) => (
                                         <li key={`backend-${idx}`} className="flex items-start gap-3 text-[13px] md:text-[14px] text-gray-500 font-medium">
                                             {checkIcon}
                                             {item}
@@ -106,10 +117,11 @@ export default function TechnologySection() {
                         </div>
 
                         {/* Right List (CMS) */}
-                        <div className="mt-12 lg:mt-0 lg:mr-24">
+                        <div className="mt-12 lg:mt-0 lg:mr-20">
                             <h4 className="text-sm md:text-base font-bold tracking-widest uppercase mb-6 text-gray-900">CMS</h4>
+                            <p className="text-sm md:text-[12px] tracking-widest uppercase mb-6 text-gray-600">Manage your own content.</p>
                             <ul className="space-y-3">
-                                {techList.map((item, idx) => (
+                                {cmstechList.map((item, idx) => (
                                     <li key={`cms-${idx}`} className="flex items-start gap-3 text-[13px] md:text-[14px] text-gray-500 font-medium">
                                         {checkIcon}
                                         {item}
@@ -120,23 +132,24 @@ export default function TechnologySection() {
                     </div>
 
                     {/* Bottom Section: Text & Typography Block */}
-                    <div className="flex flex-col lg:flex-row justify-between items-start mt-40 lg:mt-auto relative z-20">
+                    <div className="w-full max-w-full overflow-hidden flex flex-col lg:flex-row justify-between items-start mt-40 lg:mt-auto relative z-20">
 
                         {/* Bottom Left Text */}
                         <div className="max-w-[320px] mb-12 lg:mb-0">
-                            <h3 className="text-[40px] md:text-[55px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-6">
+                            <h3 className="text-[32px] sm:text-[40px] md:text-[55px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-6">
                                 <span className="block font-black">CONNECT</span>
                                 <span className="block font-black">EVERYTHING</span>
                                 <span className="block font-light text-gray-600">TOGETHER</span>
                             </h3>
                             <p className="text-gray-600 text-[13px] md:text-[14px] font-medium leading-relaxed">
-                                We don't start with templates. Every project starts by understanding your business, your customers and your goals before a single screen is designed.
+                                Your website shouldn't work alone.
+                                We connect it with the tools your business already uses.
                             </p>
                         </div>
 
                         {/* Bottom Right Vertical Scrolling Typography */}
                         <div
-                            className="h-[400px] md:h-[500px] overflow-hidden flex flex-col justify-center text-right pointer-events-none relative"
+                            className="w-full lg:w-auto max-w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden flex flex-col justify-center text-center lg:text-right pointer-events-none relative"
                             style={{
                                 WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)',
                                 maskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)'
@@ -146,8 +159,8 @@ export default function TechnologySection() {
                                 {/* Duplicated list for seamless infinite scroll */}
                                 {[...Array(2)].map((_, i) => (
                                     <React.Fragment key={i}>
-                                        {["PAYMENT", "WHATSAPP", "MAPS", "CRM", "BOOKING", "EMAIL", "ANALYTICS", "SHIPPING", "SOCIAL"].map((word, j) => (
-                                            <span key={`${i}-${j}`} className="text-[50px] md:text-[80px] lg:text-[100px] font-black leading-[0.9] uppercase text-white drop-shadow-md">
+                                        {["PAYMENT GATEWAYS", "WHATSAPP", "GOOGLE MAPS", "CRM", "BOOKING SYSTEMS", "EMAIL MARKETING", "ANALYTICS", "SHIPPING", "SOCIAL MEDIA" , "ERP"].map((word, j) => (
+                                            <span key={`${i}-${j}`} className="text-[32px] sm:text-[44px] md:text-[80px] lg:text-[100px] font-black leading-[0.95] uppercase text-white drop-shadow-md">
                                                 {word}
                                             </span>
                                         ))}
