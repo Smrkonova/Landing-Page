@@ -15,11 +15,7 @@ export default function Header() {
   const isIndustryPage = pathname?.startsWith('/industries/');
   const isServiceDetailPage = pathname?.startsWith('/services/') && pathname !== '/services';
   const isAboutPage = pathname === '/about';
-<<<<<<< HEAD
-  const isDarkPage = isNazrPage || isCineArteryPage || isIndustryPage || isServiceDetailPage || isAboutPage;
-=======
-  const isDarkPage = isNazrPage || isCineArteryPage || isHiroGuildPage || isIndustryPage || isCustomWebDevPage || isAboutPage;
->>>>>>> bb57c7797c3e8556920ca87d239ef3fcada19ae1
+  const isDarkPage = isNazrPage || isCineArteryPage || isHiroGuildPage || isIndustryPage || isServiceDetailPage || isAboutPage;
 
   let logoFilter = 'none';
   if (isNazrPage) {
@@ -27,11 +23,7 @@ export default function Header() {
   } else if (isCineArteryPage) {
     // Filter to turn black logo into yellow (#EAB308)
     logoFilter = 'brightness(0) saturate(100%) invert(73%) sepia(61%) saturate(541%) hue-rotate(352deg) brightness(102%) contrast(101%)';
-<<<<<<< HEAD
-  } else if (isIndustryPage || isServiceDetailPage || isAboutPage) {
-=======
-  } else if (isHiroGuildPage || isIndustryPage || isCustomWebDevPage || isAboutPage) {
->>>>>>> bb57c7797c3e8556920ca87d239ef3fcada19ae1
+  } else if (isHiroGuildPage || isIndustryPage || isServiceDetailPage || isAboutPage) {
     // Filter to turn black logo into white
     logoFilter = 'brightness(0) invert(1)';
   }
