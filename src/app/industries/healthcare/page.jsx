@@ -23,7 +23,7 @@ export default function Page() {
                                 <span>01</span><span className="h-px w-8 bg-white/30"></span><span>Industry · Healthcare</span>
                             </div>
                             <h1
-                                className="mt-6 max-w-5xl text-balance text-5xl leading-[0.95] uppercase tracking-tight md:text-7xl lg:text-[6rem]">
+                                className="mt-6 max-w-5xl text-balance text-5xl leading-[1.15] md:leading-[0.95] uppercase tracking-tight md:text-7xl lg:text-[6rem]">
                                 Patients no longer walk into
                                 hospitals first.<span className="text-white/40"> They search.</span></h1>
                             <p className="mt-8 max-w-2xl text-lg text-white/70 md:text-xl">We engineer end-to-end digital systems

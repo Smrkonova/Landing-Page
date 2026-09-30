@@ -34,7 +34,7 @@ export const projectsData = [
     title: "Nazr",
     description:
       "An innovative digital experience focusing on seamless user interactions, dynamic content delivery, and state-of-the-art visual design principles.",
-    image: "/images/projects/nazr.png",
+    image: "/images/project/nazr/Frame3.png",
     logo: "/images/projects/logo-nazr.svg",
     link: "/projects/nazr",
   },

@@ -4,6 +4,7 @@ import React, { useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import FeatureCardMockup from '../FeatureCardMockup';
 
 const features = [
     {
@@ -116,27 +117,9 @@ export default function FeaturesSliderSection() {
                                 className={`relative w-full h-[450px] md:h-[500px] rounded-[30px] p-8 flex flex-col items-center justify-between transition-transform duration-300 hover:-translate-y-2 shadow-sm hover:shadow-xl ${feature.gradient}`}
                                 style={{ cursor: "url('/images/services/website/cursor.svg'), pointer" }}
                             >
-                                {/* UI Mockup Graphic */}
-                                <div className="w-full mt-8 flex flex-col items-center gap-4">
-                                    {/* Mockup Lines */}
-                                    <div className="w-full flex flex-col gap-3">
-                                        {feature.lines.map((lineWidth, i) => (
-                                            <div 
-                                                key={i} 
-                                                className={`h-3 rounded-full ${feature.gradient.includes('0ea5e9') ? 'bg-white/40' : 'bg-gray-200/60'} ${
-                                                    lineWidth === 4 ? 'w-full' : 
-                                                    lineWidth === 3 ? 'w-3/4' : 'w-1/2'
-                                                }`}
-                                            ></div>
-                                        ))}
-                                    </div>
-
-                                    {/* Mockup Button */}
-                                    <div className="mt-4 bg-white shadow-sm w-full py-3 rounded-sm flex items-center justify-center">
-                                        <span className="text-[10px] font-bold text-black tracking-widest uppercase">
-                                            {feature.buttonText}
-                                        </span>
-                                    </div>
+                                {/* Self-Filling Video-Like Card Animation Graphic */}
+                                <div className="w-full flex flex-col items-center mt-2">
+                                    <FeatureCardMockup feature={feature} />
                                 </div>
 
                                 {/* Title */}

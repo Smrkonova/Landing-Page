@@ -20,10 +20,10 @@ const backendTechList = [
 
 export default function TechnologySection() {
     return (
-        <section className="w-full max-w-full bg-white py-20 md:py-32 px-4 md:px-12 flex justify-center overflow-hidden">
+        <section className="w-full max-w-full bg-white py-8 sm:py-16 md:py-32 px-4 md:px-12 flex justify-center overflow-hidden">
 
             {/* Main Rounded Card Container */}
-            <div className="relative w-full max-w-7xl min-h-[900px] md:min-h-[1540px] bg-white rounded-[40px] md:rounded-[60px] overflow-hidden">
+            <div className="relative w-full max-w-7xl min-h-[500px] sm:min-h-[620px] md:min-h-[1540px] bg-white rounded-[28px] sm:rounded-[40px] md:rounded-[60px] overflow-hidden flex flex-col justify-between">
 
                 {/* --- BACKGROUND GRAPHICS & GLOWS --- */}
                 {/* Center VR Image */}
@@ -33,23 +33,30 @@ export default function TechnologySection() {
                         alt="Mobile Technology"
                         className="w-full h-full object-cover md:object-contain opacity-90 scale-110 md:scale-180"
                     />
+                    <div className="absolute inset-0 bg-white/40 md:hidden pointer-events-none"></div>
                 </div>
 
                 {/* Cyan/Blue Glows over the image */}
-                <div className="absolute bottom-[10%] right-[10%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full blur-[120px] pointer-events-none z-0"></div>
-                <div className="absolute bottom-[5%] left-[20%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] rounded-full blur-[140px] pointer-events-none z-0"></div>
+                <div className="absolute bottom-[10%] right-[10%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full blur-[100px] sm:blur-[120px] pointer-events-none z-0"></div>
+                <div className="absolute bottom-[5%] left-[20%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] rounded-full blur-[100px] sm:blur-[140px] pointer-events-none z-0"></div>
 
                 {/* Glass Circle Effect at the bottom of the technology image */}
                 <style>{`
                     .tech-glass-circle {
                         position: absolute;
                         width: 100%;
-                        height: 350px;
+                        height: 140px;
                         left: 0;
                         bottom: 0;
                         background: rgba(0, 0, 0, 0);
                         pointer-events: none;
                         z-index: 10;
+                    }
+
+                    @media (min-width: 768px) {
+                        .tech-glass-circle {
+                            height: 350px;
+                        }
                     }
 
                     .tech-glass-circle__frost {
@@ -69,41 +76,41 @@ export default function TechnologySection() {
                 </div>
 
                 {/* --- FOREGROUND CONTENT --- */}
-                <div className="relative z-10 w-full h-full flex flex-col justify-between">
+                <div className="relative z-10 w-full flex-grow flex flex-col justify-between p-5 sm:p-10 md:p-14 lg:p-16">
 
                     {/* Top Heading */}
                     <div>
-                        <h2 className="text-[32px] sm:text-[45px] md:text-[60px] lg:text-[70px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
+                        <h2 className="text-[28px] sm:text-[44px] md:text-[60px] lg:text-[70px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
                             <span className="block font-light">TECHNOLOGY</span>
                             <span className="block font-black">WE WORK WITH</span>
                         </h2>
                     </div>
 
                     {/* Middle Section: Tech Lists */}
-                    <div className="flex flex-col lg:flex-row justify-between mt-16 md:mt-24 lg:mt-32 px-0 lg:px-4 gap-12 lg:gap-8">
+                    <div className="flex flex-col lg:flex-row justify-between mt-6 sm:mt-12 md:mt-24 lg:mt-32 gap-6 lg:gap-8">
                         {/* Left Lists (Mobile Dev & Backend) */}
-                        <div className="flex flex-col sm:flex-row gap-12 md:gap-20">
+                        <div className="grid grid-cols-2 sm:flex sm:flex-row justify-start gap-4 sm:gap-12 md:gap-20">
                             {/* Mobile Development */}
                             <div>
-                                <h4 className="text-sm md:text-base font-bold tracking-widest uppercase mb-6 text-gray-900">MOBILE DEVELOPMENT</h4>
-                                <ul className="space-y-3">
+                                <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900">MOBILE DEV</h4>
+                                <ul className="space-y-1.5 sm:space-y-3">
                                     {mobileTechList.map((item, idx) => (
-                                        <li key={`mobile-${idx}`} className="flex items-start gap-3 text-[13px] md:text-[14px] text-gray-500 font-medium">
+                                        <li key={`mobile-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 md:text-gray-500 font-medium">
                                             {checkIcon}
-                                            {item}
+                                            <span>{item}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
                             {/* Backend */}
                             <div>
-                                <h4 className="text-sm md:text-base font-bold tracking-widest uppercase mb-2 text-gray-900">BACKEND</h4>
-                                <p className="text-xs md:text-[12px] tracking-wide text-gray-500 mb-6">The engine behind your application.</p>
-                                <ul className="space-y-3">
+                                <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-2 text-gray-900">BACKEND</h4>
+                                <p className="hidden sm:block text-[11px] sm:text-xs tracking-wide text-gray-500 mb-4 sm:mb-6">The engine behind your application.</p>
+                                <ul className="space-y-1.5 sm:space-y-3">
                                     {backendTechList.map((item, idx) => (
-                                        <li key={`backend-${idx}`} className="flex items-start gap-3 text-[13px] md:text-[14px] text-gray-500 font-medium">
+                                        <li key={`backend-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 md:text-gray-500 font-medium">
                                             {checkIcon}
-                                            {item}
+                                            <span>{item}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -111,17 +118,17 @@ export default function TechnologySection() {
                         </div>
 
                         {/* Right Section: Admin Dashboards */}
-                        <div className="lg:max-w-[340px] lg:mr-12">
-                            <h4 className="text-sm md:text-base font-bold tracking-widest uppercase mb-2 text-gray-900">ADMIN DASHBOARDS</h4>
-                            <p className="text-xs md:text-[12px] tracking-wide text-gray-500 mb-4">Every app needs a control centre.</p>
-                            <p className="text-[13px] md:text-[14px] text-gray-500 font-normal leading-relaxed">
+                        <div className="lg:max-w-[340px] lg:mr-12 mt-2 sm:mt-6 lg:mt-0">
+                            <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-1.5 sm:mb-2 text-gray-900">ADMIN DASHBOARDS</h4>
+                            <p className="hidden sm:block text-[11px] sm:text-xs tracking-wide text-gray-500 mb-3 sm:mb-4">Every app needs a control centre.</p>
+                            <p className="text-[12px] sm:text-[13px] md:text-[14px] text-gray-600 md:text-gray-500 font-normal leading-relaxed line-clamp-3 sm:line-clamp-none">
                                 We develop custom admin panels to manage users, content, products, reports and business operations.
                             </p>
                         </div>
                     </div>
 
-                    {/* Bottom Section: Text & Typography Block */}
-                    <div className="w-full max-w-full overflow-hidden flex flex-col lg:flex-row justify-between items-start mt-40 lg:mt-auto relative z-20">
+                    {/* Bottom Section: Text & Typography Block (Hidden on mobile) */}
+                    <div className="hidden md:flex w-full max-w-full overflow-hidden flex-col lg:flex-row justify-between items-start mt-16 sm:mt-20 lg:mt-auto relative z-20">
 
                         {/* Bottom Left Text */}
                         <div className="max-w-[320px] mb-12 lg:mb-0">

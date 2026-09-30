@@ -137,17 +137,21 @@ export default function EngagementSliderSection() {
             {/* Embla Carousel Viewport */}
             <div className="w-full max-w-full overflow-hidden cursor-grab active:cursor-grabbing py-4 md:py-8" ref={emblaRef}>
                 <div className="flex gap-4 md:gap-6 items-center pl-4 sm:pl-6 md:pl-12">
-                    {slideCards.map((card, idx) => (
-                        <div
-                            key={`${card.id}-${idx}`}
-                            className="flex-[0_0_220px] sm:flex-[0_0_260px] md:flex-[0_0_280px] lg:flex-[0_0_300px] min-w-0 py-6 md:py-8 px-1.5 md:px-2"
-                        >
+                    {slideCards.map((card, idx) => {
+                        const isEven = idx % 2 === 0;
+                        const rotateClass = isEven ? "-rotate-[6deg]" : "rotate-[6deg]";
+                        const yClass = isEven ? "translate-y-2 md:translate-y-3" : "-translate-y-1 md:-translate-y-2";
+                        return (
                             <div
-                                className={`group relative w-full h-[340px] md:h-[380px] lg:h-[400px] rounded-3xl p-7 flex flex-col items-center justify-center transition-all duration-500 ease-out 
-                                hover:rotate-0 hover:-translate-y-5 hover:scale-105 hover:z-30 
-                                shadow-[0_15px_35px_rgba(0,0,0,0.06)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.12)] border border-white/80 backdrop-blur-2xl 
-                                ${card.gradient} ${card.rotate} ${card.y}`}
+                                key={`${card.id}-${idx}`}
+                                className="flex-[0_0_220px] sm:flex-[0_0_260px] md:flex-[0_0_280px] lg:flex-[0_0_300px] min-w-0 py-6 md:py-8 px-1.5 md:px-2"
                             >
+                                <div
+                                    className={`group relative w-full h-[340px] md:h-[380px] lg:h-[400px] rounded-3xl p-7 flex flex-col items-center justify-center transition-all duration-500 ease-out 
+                                    hover:rotate-0 hover:-translate-y-5 hover:scale-105 hover:z-30 
+                                    shadow-[0_15px_35px_rgba(0,0,0,0.08),0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.15)] border border-gray-200 hover:border-gray-300 backdrop-blur-2xl 
+                                    ${card.gradient} ${rotateClass} ${yClass}`}
+                                >
                                 {/* Soft Blurred Glow Behind */}
                                 <div className={`absolute inset-0 -z-10 ${card.gradient} scale-[1.15] blur-[30px] opacity-70 rounded-3xl group-hover:opacity-100 group-hover:scale-[1.25] transition-all duration-500`}></div>
 
@@ -169,7 +173,8 @@ export default function EngagementSliderSection() {
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    );
+                })}
                 </div>
             </div>
 

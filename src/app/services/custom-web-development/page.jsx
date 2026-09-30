@@ -71,24 +71,24 @@ export default function CustomWebDevelopmentPage() {
                 </div>
 
                 {/* Main Content Area */}
-                <div className="relative z-40 w-full max-w-7xl mx-auto px-4 md:px-0 pt-28 md:pt-32 flex justify-between flex-grow">
+                <div className="relative z-40 w-full max-w-7xl mx-auto px-4 md:px-0 pt-36 sm:pt-44 md:pt-32 flex justify-between flex-grow">
                     {/* Left Column */}
-                    <div className="flex flex-col  text-white max-w-3xl h-full">
-                        <div>
-                            <h1 className="text-[34px] sm:text-[60px] md:text-[100px] lg:text-[80px] font-[200] leading-[0.95] tracking-tight mb-8 ">
+                    <div className="flex flex-col justify-end md:justify-start text-white max-w-3xl h-full pb-2 md:pb-0 text-center md:text-left items-center md:items-start w-full">
+                        <div className="mt-auto md:mt-0 w-full flex flex-col items-center md:items-start">
+                            <h1 className="text-[44px] sm:text-[60px] md:text-[100px] lg:text-[80px] font-[200] leading-[1.1] sm:leading-[0.95] tracking-tight mb-6 sm:mb-8 text-center md:text-left">
                                 Custom Web Development
                             </h1>
-                            <p className="text-sm md:text-[15px] font-medium leading-[1.9] max-w-[450px] uppercase tracking-[0.05em] text-white mb-10">
+                            <p className="hidden md:block text-sm md:text-[15px] font-medium leading-[1.9] max-w-[450px] uppercase tracking-[0.05em] text-white mb-10 text-left">
                                 Whether you're launching a new business,<br />
                                 modernising an existing website, or building <br />
                                 a large digital platform, we create websites <br />
                                 that are fast, scalable and built specifically <br /> for your goals.
                             </p>
-                            <div className="flex flex-wrap gap-4 mt-16">
-                                <button suppressHydrationWarning className="bg-[#f0f0f0] text-black px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-white transition-colors">
+                            <div className="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-3 sm:gap-4 mt-3 sm:mt-4 md:mt-16 w-full sm:w-auto">
+                                <button suppressHydrationWarning className="w-auto bg-[#f0f0f0] text-black px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-white transition-colors text-center whitespace-nowrap">
                                     CREATE YOUR CUSTOM WEBSITE
                                 </button>
-                                <button suppressHydrationWarning className="border border-white/60 text-white px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-white/10 transition-colors">
+                                <button suppressHydrationWarning className="w-auto border border-white/60 text-white px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-white/10 transition-colors text-center whitespace-nowrap">
                                     SEE OUR WORK
                                 </button>
                             </div>
@@ -115,14 +115,12 @@ export default function CustomWebDevelopmentPage() {
                 </div>
 
                 {/* Bottom Row Area */}
-                <div className="relative z-20 w-full max-w-7xl mx-auto px-4 md:px-0 pb-12 flex flex-col lg:flex-row items-end justify-between gap-12 lg:gap-8">
+                <div className="relative z-20 w-full max-w-7xl mx-auto px-4 md:px-0 mt-6 sm:mt-0 pb-8 lg:pb-12 flex flex-col lg:flex-row items-end justify-between gap-4 lg:gap-8">
                     {/* Bottom Left Text */}
-                    <div className="flex-shrink-0 lg:w-[35%] mb-4 lg:mb-0">
-
-                    </div>
+                    <div className="hidden lg:block lg:w-[35%]"></div>
 
                     {/* Bottom Stats Bar */}
-                    <div className="flex-grow w-full lg:w-[65%] border border-white/20 rounded-3xl px-8 md:px-12 py-8 flex flex-wrap md:flex-nowrap items-center justify-between backdrop-blur-md bg-white/5 shadow-2xl">
+                    <div className="flex-grow w-full lg:w-[65%] border border-white/20 rounded-3xl px-8 md:px-12 py-6 sm:py-8 flex flex-wrap md:flex-nowrap items-center justify-between backdrop-blur-md bg-white/5 shadow-2xl">
                         <div className="flex flex-col items-start w-1/2 md:w-auto mb-6 md:mb-0">
                             <span className="text-4xl lg:text-[44px] font-[200] text-white mb-1 tracking-tight">120+</span>
                             <span className="text-white/60 text-xs font-medium tracking-wide">Projects</span>

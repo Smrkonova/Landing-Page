@@ -60,10 +60,10 @@ const scrollWords = [
 
 export default function TechnologySection() {
     return (
-        <section className="w-full max-w-full bg-white py-20 md:py-32 px-4 md:px-12 flex justify-center overflow-hidden">
+        <section className="w-full max-w-full bg-white py-8 sm:py-16 md:py-32 px-4 md:px-12 flex justify-center overflow-hidden">
 
             {/* Main Rounded Card Container */}
-            <div className="relative w-full max-w-7xl min-h-[900px] md:min-h-[1440px] bg-white rounded-[40px] md:rounded-[60px] overflow-hidden">
+            <div className="relative w-full max-w-7xl min-h-[500px] sm:min-h-[620px] md:min-h-[1440px] bg-white rounded-[28px] sm:rounded-[40px] md:rounded-[60px] overflow-hidden flex flex-col justify-between">
 
                 {/* --- BACKGROUND GRAPHICS & GLOWS --- */}
                 <div className="absolute w-full inset-0 z-0 flex items-center justify-center pointer-events-none">
@@ -74,21 +74,30 @@ export default function TechnologySection() {
                     />
                 </div>
 
+                {/* Mobile overlay to ensure readability */}
+                <div className="absolute inset-0 bg-white/40 md:hidden pointer-events-none z-0"></div>
+
                 {/* Cyan/Indigo Ambient Glows */}
-                <div className="absolute bottom-[10%] right-[10%] w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[160px] pointer-events-none z-0"></div>
-                <div className="absolute bottom-[5%] left-[20%] w-[400px] h-[400px] bg-indigo-100/30 rounded-full blur-[170px] pointer-events-none z-0"></div>
+                <div className="absolute bottom-[10%] right-[10%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-blue-100/40 rounded-full blur-[100px] sm:blur-[160px] pointer-events-none z-0"></div>
+                <div className="absolute bottom-[5%] left-[20%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-indigo-100/30 rounded-full blur-[100px] sm:blur-[170px] pointer-events-none z-0"></div>
 
                 {/* Glass Circle Effect */}
                 <style>{`
                     .tech-glass-circle {
                         position: absolute;
                         width: 100%;
-                        height: 350px;
+                        height: 140px;
                         left: 0;
                         bottom: 0;
                         background: rgba(0, 0, 0, 0);
                         pointer-events: none;
                         z-index: 10;
+                    }
+
+                    @media (min-width: 768px) {
+                        .tech-glass-circle {
+                            height: 350px;
+                        }
                     }
 
                     .tech-glass-circle__frost {
@@ -106,26 +115,26 @@ export default function TechnologySection() {
                 </div>
 
                 {/* --- FOREGROUND CONTENT --- */}
-                <div className="relative z-10 w-full h-full flex flex-col justify-between p-6 sm:p-10 md:p-14 lg:p-16">
+                <div className="relative z-10 w-full flex-grow flex flex-col justify-between p-5 sm:p-10 md:p-14 lg:p-16">
 
                     {/* Top Heading */}
                     <div>
-                        <h2 className="text-[36px] sm:text-[50px] md:text-[65px] lg:text-[72px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
+                        <h2 className="text-[28px] sm:text-[44px] md:text-[60px] lg:text-[72px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
                             <span className="block font-light">MARKETING</span>
                             <span className="block font-black">INFRASTRUCTURE</span>
                         </h2>
                     </div>
 
                     {/* Middle Section: 4 Infrastructure Lists */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-8 mt-14 md:mt-20 lg:mt-28">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 md:gap-10 lg:gap-8 mt-6 sm:mt-12 md:mt-20 lg:mt-28">
                         {/* Google Setup */}
                         <div>
-                            <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase mb-6 text-gray-900">
+                            <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">
                                 GOOGLE SETUP
                             </h4>
-                            <ul className="space-y-3">
+                            <ul className="space-y-1.5 sm:space-y-3">
                                 {googleSetup.map((item, idx) => (
-                                    <li key={`google-${idx}`} className="flex items-start gap-2.5 text-[13px] md:text-[14px] text-gray-700 font-medium">
+                                    <li key={`google-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 font-medium">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -135,12 +144,12 @@ export default function TechnologySection() {
 
                         {/* Meta Setup */}
                         <div>
-                            <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase mb-6 text-gray-900">
+                            <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">
                                 META SETUP
                             </h4>
-                            <ul className="space-y-3">
+                            <ul className="space-y-1.5 sm:space-y-3">
                                 {metaSetup.map((item, idx) => (
-                                    <li key={`meta-${idx}`} className="flex items-start gap-2.5 text-[13px] md:text-[14px] text-gray-700 font-medium">
+                                    <li key={`meta-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 font-medium">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -150,12 +159,12 @@ export default function TechnologySection() {
 
                         {/* Tracking & Reporting */}
                         <div>
-                            <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase mb-6 text-gray-900">
+                            <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">
                                 TRACKING & REPORTING
                             </h4>
-                            <ul className="space-y-3">
+                            <ul className="space-y-1.5 sm:space-y-3">
                                 {trackingReporting.map((item, idx) => (
-                                    <li key={`tracking-${idx}`} className="flex items-start gap-2.5 text-[13px] md:text-[14px] text-gray-700 font-medium">
+                                    <li key={`tracking-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 font-medium">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -165,12 +174,12 @@ export default function TechnologySection() {
 
                         {/* Email & CRM */}
                         <div>
-                            <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase mb-6 text-gray-900">
+                            <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">
                                 EMAIL & CRM
                             </h4>
-                            <ul className="space-y-3">
+                            <ul className="space-y-1.5 sm:space-y-3">
                                 {emailCrm.map((item, idx) => (
-                                    <li key={`crm-${idx}`} className="flex items-start gap-2.5 text-[13px] md:text-[14px] text-gray-700 font-medium">
+                                    <li key={`crm-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 font-medium">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -179,8 +188,8 @@ export default function TechnologySection() {
                         </div>
                     </div>
 
-                    {/* Bottom Section: Text & Typography Block */}
-                    <div className="w-full max-w-full overflow-hidden flex flex-col lg:flex-row justify-between items-start mt-32 lg:mt-auto relative z-20">
+                    {/* Bottom Section: Text & Typography Block (Hidden on mobile) */}
+                    <div className="hidden md:flex w-full max-w-full overflow-hidden flex-col lg:flex-row justify-between items-start mt-16 sm:mt-20 lg:mt-auto relative z-20">
 
                         {/* Bottom Left Text */}
                         <div className="max-w-[340px] mb-12 lg:mb-0">

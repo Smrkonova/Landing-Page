@@ -50,28 +50,28 @@ export default function CreativeStudioPage() {
                         </div>
         
                         {/* Main Content Area */}
-                        <div className="relative z-40 w-full max-w-7xl mx-auto px-4 md:px-0 pt-28 md:pt-32 flex justify-between  flex-grow">
+                        <div className="relative z-40 w-full max-w-7xl mx-auto px-4 md:px-0 pt-36 sm:pt-44 md:pt-32 flex justify-between flex-grow">
                             {/* Left Column */}
-                            <div className="flex flex-col text-white max-w-3xl h-full text-left">
-                                <div>
-                                    <h1 className="text-[34px] sm:text-[60px] md:text-[80px] uppercase lg:text-[80px] font-[200] leading-[1.0] tracking-tight mb-8">
+                            <div className="flex flex-col justify-end md:justify-start text-white max-w-3xl h-full pb-2 md:pb-0 text-center md:text-left items-center md:items-start w-full">
+                                <div className="mt-auto md:mt-0 w-full flex flex-col items-center md:items-start">
+                                    <h1 className="text-[44px] sm:text-[60px] md:text-[80px] uppercase lg:text-[80px] font-[200] leading-[1.1] sm:leading-[1.0] tracking-tight mb-6 sm:mb-8 text-center md:text-left">
                                        Creative <br/> 
                                        studio
                                     </h1>
-        
-                                    <p className="text-[14px] sm:text-[15px] md:text-[16px] font-[300] leading-relaxed text-white/80 max-w-xl text-left mb-4">
+
+                                    <p className="hidden md:block text-[14px] sm:text-[15px] md:text-[16px] font-[300] leading-relaxed text-white/80 max-w-xl text-left mb-4">
                                       From product animations and interactive website <br/>
                                       experiences to corporate videos and social media <br/>
                                       content, we create visuals that help businesses <br/>
                                       communicate, engage and leave lasting impressions.
                                     </p>
         
-                                    <div className="flex flex-wrap gap-4 mt-16 ">
-                                        <button suppressHydrationWarning className="bg-[#f0f0f0] text-black px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-white transition-colors">
+                                    <div className="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-3 sm:gap-4 mt-3 sm:mt-4 md:mt-16 w-full sm:w-auto">
+                                        <button suppressHydrationWarning className="w-auto bg-[#f0f0f0] text-black px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-white transition-colors text-center whitespace-nowrap">
                                            Start Your Creative Project
                                         </button>
-                                        <button suppressHydrationWarning className="border border-white/60 text-white px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-white/10 transition-colors">
-                                          View Our Creative Work
+                                        <button suppressHydrationWarning className="w-auto border border-white/60 text-white px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-white/10 transition-colors text-center whitespace-nowrap">
+                                           View Our Creative Work
                                         </button>
                                     </div>
                                 </div>
@@ -97,14 +97,12 @@ export default function CreativeStudioPage() {
                             </div>
                         </div>
                         {/* Bottom Stats Bar */}
-                        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 md:px-0 pb-12 flex flex-col lg:flex-row items-end justify-between gap-12 lg:gap-8">
+                        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 md:px-0 mt-6 sm:mt-0 pb-8 lg:pb-12 flex flex-col lg:flex-row items-end justify-between gap-4 lg:gap-8">
                             {/* Bottom Left Text */}
-                            <div className="flex-shrink-0 lg:w-[35%] mb-4 lg:mb-0">
-        
-                            </div>
+                            <div className="hidden lg:block lg:w-[35%]"></div>
         
                             {/* Bottom Stats Bar */}
-                            <div className="flex-grow w-full lg:w-[65%] border border-white/20 rounded-3xl px-8 md:px-12 py-8 flex flex-wrap md:flex-nowrap items-center justify-between backdrop-blur-md bg-white/5 shadow-2xl">
+                            <div className="flex-grow w-full lg:w-[65%] border border-white/20 rounded-3xl px-8 md:px-12 py-6 sm:py-8 flex flex-wrap md:flex-nowrap items-center justify-between backdrop-blur-md bg-white/5 shadow-2xl">
                                 <div className="flex flex-col items-start w-1/2 md:w-auto mb-6 md:mb-0">
                                     <span className="text-4xl lg:text-[44px] font-[200] text-white mb-1 tracking-tight">120+</span>
                                     <span className="text-white/60 text-xs font-medium tracking-wide">Projects</span>

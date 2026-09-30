@@ -5,16 +5,102 @@ export default function RayaraTamaraProject() {
   return (
     <main>
       <section className="min-h-screen bg-[#E3D6CA] relative overflow-hidden font-sans flex items-center">
-      {/* Background Side Abstract Image */}
-      <div className="absolute right-0 top-0 bottom-0 h-full w-1/3 pointer-events-none flex justify-end">
+      {/* Background Side Abstract Image - Desktop Only */}
+      <div className="hidden md:flex absolute right-0 top-0 bottom-0 h-full w-1/3 pointer-events-none justify-end">
         <img
-          src="/images/projects/rayara-tamara/side-abstract.png"
+          src="/images/projects/rayara-tamara/Layer_1.png"
           alt="Side Abstract"
-          className="h-full object-cover object-right"
+          className="h-full object-cover object-right opacity-60"
         />
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 flex flex-col md:flex-row items-stretch w-full min-h-[80vh]">
+      {/* MOBILE VIEW (matches exact mobile design) */}
+      <div className="block md:hidden w-full px-5 py-10 relative z-10 mt-18">
+        {/* 1. Header / Case Study Title */}
+        <div className="block md:hidden  absolute flex right-0 top-0 bottom-0 h- w-1/3 pointer-events-none justify-end">
+        <img
+          src="/images/projects/rayara-tamara/vector.png"
+          alt="Side Abstract"
+          className="h-full object-cover object-right opacity-60"
+        />
+      </div>
+        <div className="mb-6">
+          <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-[#7d7566] mb-2">Case Study 1</h4>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-wider uppercase text-[#443e2f] mb-1">RAYARA TAMARA</h1>
+          <p className="text-sm font-normal text-[#7d7566]">Ancient roots, timeless taste</p>
+        </div>
+
+        {/* 2. Banner Card with Outer Rounded Border */}
+        <div className="w-full p-2 sm:p-2.5 rounded-[32px] sm:rounded-[36px] border border-[#5c564b]/30 shadow-lg">
+          <div className="relative w-full aspect-[4/5] rounded-[24px] sm:rounded-[28px] overflow-hidden">
+            <img
+              src="/images/projects/rayara-tamara/banner.png"
+              alt="Rayara Tamara Banner"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+
+            <div className="absolute bottom-6 left-5 right-5 text-white">
+              <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-wider mb-1.5 drop-shadow-md">
+                Evoking a feeling
+              </h2>
+              <h3 className="text-sm sm:text-base font-light uppercase tracking-wider text-white/85 drop-shadow-md leading-relaxed">
+                Before it even<br />looks beautiful
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        {/* 3. Industry & Duration */}
+        <div className="mt-8 grid grid-cols-2 gap-4">
+          <div>
+            <h4 className="text-sm font-normal text-[#7d7566] mb-2">Industry</h4>
+            <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 text-xs font-semibold rounded shadow-xs text-[#5c564b]">
+              Restaurant
+            </span>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-normal text-[#7d7566] mb-2">Duration</h4>
+            <span className="inline-block bg-[#c5baa9] px-4 py-1.5 text-xs font-semibold rounded shadow-xs text-[#5c564b]">
+              Ongoing
+            </span>
+          </div>
+        </div>
+
+        {/* 4. Platforms */}
+        <div className="mt-6">
+          <h4 className="text-sm font-normal text-[#7d7566] mb-2">Platforms</h4>
+          <div className="flex flex-wrap gap-2 items-center">
+            <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 text-xs font-semibold rounded shadow-xs text-[#5c564b]">Website</span>
+            <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 text-xs font-semibold rounded shadow-xs text-[#5c564b]">Shopify</span>
+            <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 text-xs font-semibold rounded shadow-xs text-[#5c564b]">Flutter</span>
+            <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 text-xs font-semibold rounded shadow-xs text-[#5c564b]">Backend</span>
+          </div>
+        </div>
+
+        {/* 5. Divider Line */}
+        <div className="w-full border-t border-[#5c564b]/20 my-8"></div>
+
+        {/* 6. Disciplines + Counter */}
+        <div>
+          <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-[#7d7566] mb-4">
+            Disciplines
+          </h4>
+          <div className="flex justify-between items-end">
+            <div className="space-y-3 font-semibold text-sm tracking-wide text-[#5c564b]">
+              <p className="hover:text-[#383327] transition-colors cursor-pointer">Strategy</p>
+              <p className="hover:text-[#383327] transition-colors cursor-pointer">UX/UI</p>
+              <p className="hover:text-[#383327] transition-colors cursor-pointer">Development</p>
+              <p className="hover:text-[#383327] transition-colors cursor-pointer">Brand</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* DESKTOP VIEW */}
+      <div className="hidden md:flex max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 flex-row items-stretch w-full min-h-[80vh]">
 
         {/* Left Column - Details */}
         <div className="w-full md:w-1/5 pr-8 text-[#5c564b] flex flex-col justify-between py-10">
@@ -33,7 +119,7 @@ export default function RayaraTamaraProject() {
 
             <div>
               <h4 className="text-xs font-semibold tracking-widest uppercase mb-3 text-[#8b8273]">Duration</h4>
-              <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 text-xs font-bold rounded shadow-sm text-[#5c564b]">Ongoing</span>
+              <span className="inline-block bg-[#c5baa9] px-4 py-1.5 text-xs font-bold rounded shadow-sm text-[#5c564b]">Ongoing</span>
             </div>
 
             <div>
@@ -51,18 +137,20 @@ export default function RayaraTamaraProject() {
 
         {/* Center Column - Banner Image */}
         <div className="w-full md:w-3/5 flex justify-center py-4 relative px-4">
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#5c564b]/30 w-full h-full min-h-[500px]">
-            <img
-              src="/images/projects/rayara-tamara/banner.png"
-              alt="Rayara Tamara Banner"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            {/* Dark overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div className="p-2 sm:p-2.5 rounded-[36px] border border-[#5c564b]/30 shadow-2xl w-full h-full min-h-[500px]">
+            <div className="relative rounded-[28px] overflow-hidden w-full h-full min-h-[500px]">
+              <img
+                src="/images/projects/rayara-tamara/banner.png"
+                alt="Rayara Tamara Banner"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              {/* Dark overlay for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
-            <div className="absolute bottom-12 left-10 text-white right-10">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-wider mb-2 drop-shadow-lg">Evoking a feeling</h1>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-light uppercase tracking-wider text-white/80 drop-shadow-lg">Before it even<br />looks beautiful</h2>
+              <div className="absolute bottom-12 left-10 text-white right-10">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-wider mb-2 drop-shadow-lg">Evoking a feeling</h1>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-light uppercase tracking-wider text-white/80 drop-shadow-lg">Before it even<br />looks beautiful</h2>
+              </div>
             </div>
           </div>
         </div>

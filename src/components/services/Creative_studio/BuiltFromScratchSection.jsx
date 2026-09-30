@@ -60,80 +60,84 @@ export default function BuiltFromScratchSection() {
                     `}</style>
 
 
-                    {/* UI Element Graphic (with built.svg background) */}
-                    <div className="relative w-full max-w-[600px] h-[450px] z-10 flex flex-col items-center justify-center overflow-hidden rounded-3xl">
+                    {/* Graphic & Hand Wrapper */}
+                    <div className="relative w-full max-w-[600px] h-[450px] flex items-center justify-center">
 
-                        {/* Background SVG Window */}
-                        <Image
-                            src="/images/services/website/built.svg"
-                            alt="UX UI Design Window"
-                            fill
-                            className="object-contain pointer-events-none z-10"
-                        />
+                        {/* UI Element Graphic (with built.svg background) */}
+                        <div className="relative w-full h-full z-10 flex flex-col items-center justify-center overflow-hidden rounded-3xl">
 
-                        {/* Glow Effect from Figma */}
-                        <div
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] max-w-[300px] h-[250px] z-0 pointer-events-none"
-                            style={{
-                                background: 'conic-gradient(from 180deg at 50% 50%, #FF00FF 0deg, #FF9D00 180deg, #FF00FF 360deg)',
-                                filter: 'blur(100px)',
-                                opacity: 0.5
-                            }}
-                        ></div>
+                            {/* Background SVG Window */}
+                            <Image
+                                src="/images/services/website/built.svg"
+                                alt="UX UI Design Window"
+                                fill
+                                className="object-contain pointer-events-none z-10"
+                            />
 
-                        {/* Cards Container */}
-                        <div className="absolute inset-0 top-[-10%] bottom-[-10%] flex items-center justify-center overflow-hidden z-20">
-                            {/* Top Fade Overlay */}
-                            <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white via-white/80 to-transparent z-40 pointer-events-none"></div>
-                            {/* Bottom Fade Overlay */}
-                            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white via-white/80 to-transparent z-40 pointer-events-none"></div>
+                            {/* Glow Effect from Figma */}
+                            <div
+                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] max-w-[300px] h-[250px] z-0 pointer-events-none"
+                                style={{
+                                    background: 'conic-gradient(from 180deg at 50% 50%, #FF00FF 0deg, #FF9D00 180deg, #FF00FF 360deg)',
+                                    filter: 'blur(100px)',
+                                    opacity: 0.5
+                                }}
+                            ></div>
 
-                            {/* Cards List (React State Driven Infinite Carousel) */}
-                            <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
-                                {cards.map((text, i) => {
-                                    // Calculate shortest distance in a circular array
-                                    let distance = i - activeIndex;
-                                    if (distance < -2) distance += cards.length;
-                                    if (distance > 2) distance -= cards.length;
+                            {/* Cards Container */}
+                            <div className="absolute inset-0 top-[-10%] bottom-[-10%] flex items-center justify-center overflow-hidden z-20">
+                                {/* Top Fade Overlay */}
+                                <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white via-white/80 to-transparent z-40 pointer-events-none"></div>
+                                {/* Bottom Fade Overlay */}
+                                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white via-white/80 to-transparent z-40 pointer-events-none"></div>
 
-                                    const isActive = distance === 0;
-                                    const isVisible = Math.abs(distance) <= 1;
-                                    const translateY = distance * 141;
+                                {/* Cards List (React State Driven Infinite Carousel) */}
+                                <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
+                                    {cards.map((text, i) => {
+                                        // Calculate shortest distance in a circular array
+                                        let distance = i - activeIndex;
+                                        if (distance < -2) distance += cards.length;
+                                        if (distance > 2) distance -= cards.length;
 
-                                    return (
-                                        <div
-                                            key={text}
-                                            className={`absolute flex items-center justify-center w-[80%] max-w-[335px] h-[100px] md:h-[129px] rounded-[24px] backdrop-blur-md transition-all duration-[1000ms] border ${isActive
-                                                ? 'bg-white/60 border-white/80 shadow-[0_24px_48px_rgba(0,0,0,0.08)] scale-100 z-30 opacity-100'
-                                                : 'bg-white/30 border-white/40 shadow-sm opacity-80 scale-95 z-20'
-                                                }`}
-                                            style={{
-                                                transform: `translateY(${translateY}px) scale(${isActive ? 1 : 0.95})`,
-                                                opacity: isVisible ? (isActive ? 1 : 0.8) : 0,
-                                                zIndex: isVisible ? (isActive ? 30 : 20) : 10,
-                                            }}
-                                        >
-                                            <span className={`text-[13px] md:text-[15px] font-medium tracking-[0.2em] uppercase transition-colors duration-[1000ms] ${isActive ? 'text-black' : 'text-gray-700'}`}>
-                                                {text}
-                                            </span>
-                                        </div>
-                                    );
-                                })}
+                                        const isActive = distance === 0;
+                                        const isVisible = Math.abs(distance) <= 1;
+                                        const translateY = distance * 141;
+
+                                        return (
+                                            <div
+                                                key={text}
+                                                className={`absolute flex items-center justify-center w-[80%] max-w-[335px] h-[100px] md:h-[129px] rounded-[24px] backdrop-blur-md transition-all duration-[1000ms] border ${isActive
+                                                    ? 'bg-white/60 border-white/80 shadow-[0_24px_48px_rgba(0,0,0,0.08)] scale-100 z-30 opacity-100'
+                                                    : 'bg-white/30 border-white/40 shadow-sm opacity-80 scale-95 z-20'
+                                                    }`}
+                                                style={{
+                                                    transform: `translateY(${translateY}px) scale(${isActive ? 1 : 0.95})`,
+                                                    opacity: isVisible ? (isActive ? 1 : 0.8) : 0,
+                                                    zIndex: isVisible ? (isActive ? 30 : 20) : 10,
+                                                }}
+                                            >
+                                                <span className={`text-[13px] md:text-[15px] font-medium tracking-[0.2em] uppercase transition-colors duration-[1000ms] ${isActive ? 'text-black' : 'text-gray-700'}`}>
+                                                    {text}
+                                                </span>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    {/* Hand Image Overlay */}
-                    <div className="absolute z-30 left-[15%] lg:-left-[5%] top-[40%] lg:top-[45%] -translate-x-[20%] lg:-translate-x-[50%] w-[350px] md:w-[450px] lg:w-[500px] aspect-square pointer-events-none">
-                        <Image
-                            src="/images/services/website/hand.png"
-                            alt="Hand interacting with UI"
-                            fill
-                            className="object-contain"
-                            style={{
-                                filter: 'drop-shadow(42px 116px 128px rgba(79, 127, 217, 0.25))'
-                            }}
-                        />
+                        {/* Hand Image Overlay */}
+                        <div className="absolute z-30 left-1/2 top-[44%] sm:top-[46%] -translate-x-[92%] w-[360px] sm:w-[420px] md:w-[460px] lg:w-[480px] aspect-square pointer-events-none">
+                            <Image
+                                src="/images/services/website/hand.png"
+                                alt="Hand interacting with UI"
+                                fill
+                                className="object-contain"
+                                style={{
+                                    filter: 'drop-shadow(42px 116px 128px rgba(79, 127, 217, 0.25))'
+                                }}
+                            />
+                        </div>
                     </div>
 
                     {/* Glass Circle Effect at the base of the hand */}
