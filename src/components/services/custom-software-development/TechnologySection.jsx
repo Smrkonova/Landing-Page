@@ -76,7 +76,7 @@ export default function TechnologySection() {
 
                     {/* Top Heading */}
                     <div>
-                        <h2 className="text-[28px] sm:text-[44px] md:text-[60px] lg:text-[70px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
+                        <h2 className="text-[clamp(1.75rem,4vw+0.5rem,4.25rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
                             <span className="block font-light">TECHNOLOGY</span>
                             <span className="block font-black">WE WORK WITH</span>
                         </h2>
@@ -88,16 +88,16 @@ export default function TechnologySection() {
                         <div className="grid grid-cols-2 sm:flex sm:flex-row justify-start gap-4 sm:gap-10 md:gap-20 lg:gap-24">
                             {/* Frontend */}
                             <div>
-                                <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900">MOBILE DEV</h4>
+                                <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900">MOBILE DEV</h4>
                                 <ul className="space-y-1.5 sm:space-y-3">
                                     {techList.slice(0, 5).map((item, idx) => (
-                                        <li key={`frontend-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 md:text-gray-500 font-medium">
+                                        <li key={`frontend-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 md:text-gray-500 font-medium">
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
                                     ))}
                                     {techList.slice(5).map((item, idx) => (
-                                        <li key={`frontend-extra-${idx}`} className="hidden sm:flex items-start gap-2 sm:gap-3 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 md:text-gray-500 font-medium">
+                                        <li key={`frontend-extra-${idx}`} className="hidden sm:flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 md:text-gray-500 font-medium">
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
@@ -106,16 +106,16 @@ export default function TechnologySection() {
                             </div>
                             {/* Backend */}
                             <div>
-                                <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900">BACKEND</h4>
+                                <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900">BACKEND</h4>
                                 <ul className="space-y-1.5 sm:space-y-3">
                                     {techList.slice(0, 5).map((item, idx) => (
-                                        <li key={`backend-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 md:text-gray-500 font-medium">
+                                        <li key={`backend-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 md:text-gray-500 font-medium">
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
                                     ))}
                                     {techList.slice(5).map((item, idx) => (
-                                        <li key={`backend-extra-${idx}`} className="hidden sm:flex items-start gap-2 sm:gap-3 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 md:text-gray-500 font-medium">
+                                        <li key={`backend-extra-${idx}`} className="hidden sm:flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 md:text-gray-500 font-medium">
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
@@ -126,16 +126,16 @@ export default function TechnologySection() {
 
                         {/* Right List (CMS) */}
                         <div className="mt-4 sm:mt-8 lg:mt-0 lg:mr-24">
-                            <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900">CMS</h4>
+                            <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900">CMS</h4>
                             <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 sm:block sm:space-y-3">
                                 {techList.slice(0, 4).map((item, idx) => (
-                                    <li key={`cms-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 md:text-gray-500 font-medium">
+                                    <li key={`cms-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 md:text-gray-500 font-medium">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
                                 ))}
                                 {techList.slice(4).map((item, idx) => (
-                                    <li key={`cms-extra-${idx}`} className="hidden sm:flex items-start gap-2 sm:gap-3 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 md:text-gray-500 font-medium">
+                                    <li key={`cms-extra-${idx}`} className="hidden sm:flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 md:text-gray-500 font-medium">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -153,7 +153,7 @@ export default function TechnologySection() {
                                 <h3 className="text-[40px] md:text-[55px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-6">
                                     <span className="block font-black">Integrations</span>
                                 </h3>
-                                <p className="text-gray-600 text-[13px] md:text-[14px] font-medium leading-relaxed">
+                                <p className="text-gray-600 text-[clamp(11px,0.4vw+6px,14px)] font-medium leading-relaxed">
                                     Modern mobile apps need to work with other systems. We integrate applications with.
                                 </p>
                             </div>
@@ -161,7 +161,7 @@ export default function TechnologySection() {
                                 <h3 className="text-[40px] md:text-[55px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-6">
                                     admin dashboards
                                 </h3>
-                                <p className="text-gray-600 text-[13px] md:text-[14px] font-medium leading-relaxed">
+                                <p className="text-gray-600 text-[clamp(11px,0.4vw+6px,14px)] font-medium leading-relaxed">
                                     Every app needs a control centre.
                                     We develop custom admin panels to manage users, content, products, reports and business operations.
                                 </p>

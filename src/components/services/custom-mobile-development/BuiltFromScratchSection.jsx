@@ -32,12 +32,12 @@ export default function BuiltFromScratchSection() {
 
                 {/* Left Side: Text */}
                 <div className="flex-1 w-full flex flex-col justify-center">
-                    <h2 className="text-[32px] sm:text-[50px] md:text-[70px] lg:text-[80px] leading-[1.05] font-light text-gray-800 tracking-tight mb-8">
+                    <h2 className="text-[clamp(1.75rem,4vw+0.5rem,4.5rem)] leading-[1.05] font-light text-gray-800 tracking-tight mb-8">
                         Built<br />
                         <span className="font-bold tracking-normal">Around Your Business.</span>
                     </h2>
 
-                    <p className="text-gray-500 text-lg md:text-xl max-w-lg mb-10 leading-relaxed font-light">
+                    <p className="text-gray-500 text-[clamp(1rem,0.8vw+0.65rem,1.25rem)] max-w-lg mb-10 leading-relaxed font-light">
                        Every application starts with understanding how your business works before writing a single line of code.
                     </p>
 
@@ -113,7 +113,7 @@ export default function BuiltFromScratchSection() {
                                                     zIndex: isVisible ? (isActive ? 30 : 20) : 10,
                                                 }}
                                             >
-                                                <span className={`text-[13px] md:text-[15px] font-medium tracking-[0.2em] uppercase transition-colors duration-[1000ms] ${isActive ? 'text-black' : 'text-gray-700'}`}>
+                                                <span className={`text-[clamp(11px,0.4vw+7px,14px)] font-medium tracking-[0.2em] uppercase transition-colors duration-[1000ms] ${isActive ? 'text-black' : 'text-gray-700'}`}>
                                                     {text}
                                                 </span>
                                             </div>

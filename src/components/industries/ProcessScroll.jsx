@@ -79,7 +79,7 @@ export default function ProcessScroll() {
 
           {/* Top Label */}
           <div className="absolute top-12 left-0 right-0 md:left-24 md:right-auto">
-            <h4 className="text-sm font-medium text-white/60 tracking-[0.2em] uppercase">
+            <h4 className="text-[clamp(11px,0.4vw+6px,14px)] font-medium text-white/60 tracking-[0.2em] uppercase">
               OUR PROCESS
             </h4>
           </div>
@@ -105,7 +105,7 @@ export default function ProcessScroll() {
                   className="overflow-hidden flex flex-col justify-center origin-left"
                 >
                   <h2
-                    className="font-black tracking-tight uppercase transition-all duration-500 text-[50px] sm:text-[48px] md:text-[64px] leading-[1.1] text-white"
+                    className="font-black tracking-tight uppercase transition-all duration-500 text-[clamp(2.5rem,5.5vw+0.5rem,4rem)] leading-[1.1] text-white"
                   >
                     {process.title}
                   </h2>
@@ -117,7 +117,7 @@ export default function ProcessScroll() {
                       height: isCenter ? "auto" : 0,
                       marginTop: isCenter ? 8 : 0,
                     }}
-                    className="text-white/60 text-sm md:text-sm tracking-wide font-medium whitespace-pre-line"
+                    className="text-white/60 text-[clamp(0.8125rem,0.4vw+0.65rem,0.95rem)] tracking-wide font-medium whitespace-pre-line"
                   >
                     {process.desc}
                   </motion.p>

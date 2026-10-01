@@ -20,12 +20,12 @@ export default function ModernExperiencesSection() {
 
                     {/* Left Content Area */}
                     <div className="flex-1 flex flex-col justify-center z-20 w-full">
-                        <h2 className="text-[34px] sm:text-[50px] md:text-[70px] lg:text-[85px] leading-[1.05] tracking-tight text-[#1a1a1a] mb-6 sm:mb-8">
+                        <h2 className="text-[clamp(2rem,4.5vw+0.5rem,5rem)] leading-[1.05] tracking-tight text-[#1a1a1a] mb-6 sm:mb-8">
                             <span className="block font-black uppercase">Design</span>
                             <span className="block font-light text-gray-500 uppercase">Deliverables.</span>
                         </h2>
 
-                        <p className="text-gray-600 text-[14px] sm:text-[15px] md:text-[17px] font-medium leading-relaxed max-w-[420px]">
+                        <p className="text-gray-600 text-[clamp(0.875rem,0.6vw+0.65rem,1.0625rem)] font-medium leading-relaxed max-w-[420px]">
                             Every project is different. We craft user research, interface designs, scalable systems, and developer-ready specifications.
                         </p>
                     </div>
@@ -89,7 +89,7 @@ export default function ModernExperiencesSection() {
                         {[0, 1].map((copyIdx) => (
                             <p 
                                 key={copyIdx} 
-                                className="text-[12px] sm:text-[14px] font-medium text-gray-500 tracking-wider whitespace-nowrap shrink-0 pr-8"
+                                className="text-[clamp(11px,0.4vw+4px,13px)] font-medium text-gray-500 tracking-wider whitespace-nowrap shrink-0 pr-8"
                             >
                                 User Research &nbsp;·&nbsp; Competitor Analysis &nbsp;·&nbsp; Product Strategy &nbsp;·&nbsp; Feature Prioritisation &nbsp;·&nbsp; User Flows &nbsp;·&nbsp; Information Architecture &nbsp;·&nbsp; Journey Mapping &nbsp;·&nbsp; Wireframes &nbsp;·&nbsp; High-Fidelity UI &nbsp;·&nbsp; Responsive Layouts &nbsp;·&nbsp; Mobile Design &nbsp;·&nbsp; Desktop Design &nbsp;·&nbsp; Tablet Design &nbsp;·&nbsp; Design System &nbsp;·&nbsp; UI Components &nbsp;·&nbsp; Typography &nbsp;·&nbsp; Colour System &nbsp;·&nbsp; Icons &nbsp;·&nbsp; Spacing Guidelines &nbsp;·&nbsp; Figma Files &nbsp;·&nbsp; Design Specifications &nbsp;·&nbsp; Assets &nbsp;·&nbsp; Documentation &nbsp;·&nbsp;
                             </p>

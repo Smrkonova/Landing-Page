@@ -12,28 +12,28 @@ export default function NeelachandraProjectPage() {
           <div className="w-full md:w-1/5 pr-8 flex flex-col justify-between py-10">
             <div className="space-y-10">
               <div>
-                <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase mb-3 text-[#a3a3a3]">Case Study 1</h4>
-                <h2 className="text-[13px] font-bold tracking-widest uppercase text-[#333333] mb-1">NEELACHANDRA</h2>
-                <p className="text-[11px] text-[#777777] font-medium">construction company in 'luru</p>
+                <h4 className="text-[clamp(9px,0.6vw+4px,11px)] font-bold tracking-[0.2em] uppercase mb-3 text-[#a3a3a3]">Case Study 1</h4>
+                <h2 className="text-[clamp(12px,0.7vw+5px,14px)] font-bold tracking-widest uppercase text-[#333333] mb-1">NEELACHANDRA</h2>
+                <p className="text-[clamp(10px,0.6vw+4px,12px)] text-[#777777] font-medium">construction company in 'luru</p>
               </div>
 
               <div>
-                <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase mb-3 text-[#a3a3a3]">Industry</h4>
-                <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[11px] font-bold rounded-sm text-[#333333] leading-tight">real estate<br />construction</span>
+                <h4 className="text-[clamp(9px,0.6vw+4px,11px)] font-bold tracking-[0.2em] uppercase mb-3 text-[#a3a3a3]">Industry</h4>
+                <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-bold rounded-sm text-[#333333] leading-tight">real estate<br />construction</span>
               </div>
 
               <div>
-                <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase mb-3 text-[#a3a3a3]">Duration</h4>
-                <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[11px] font-bold rounded-sm text-[#333333]">Ongoing</span>
+                <h4 className="text-[clamp(9px,0.6vw+4px,11px)] font-bold tracking-[0.2em] uppercase mb-3 text-[#a3a3a3]">Duration</h4>
+                <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-bold rounded-sm text-[#333333]">Ongoing</span>
               </div>
 
               <div>
-                <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase mb-3 text-[#a3a3a3]">Platforms</h4>
+                <h4 className="text-[clamp(9px,0.6vw+4px,11px)] font-bold tracking-[0.2em] uppercase mb-3 text-[#a3a3a3]">Platforms</h4>
                 <div className="flex flex-col gap-2 items-start">
-                  <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[11px] font-bold rounded-sm text-[#333333]">Branding</span>
-                  <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[11px] font-bold rounded-sm text-[#333333]">Website</span>
-                  <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[11px] font-bold rounded-sm text-[#333333]">GMB Optimisation</span>
-                  <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[11px] font-bold rounded-sm text-[#333333]">Backend</span>
+                  <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-bold rounded-sm text-[#333333]">Branding</span>
+                  <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-bold rounded-sm text-[#333333]">Website</span>
+                  <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-bold rounded-sm text-[#333333]">GMB Optimisation</span>
+                  <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-bold rounded-sm text-[#333333]">Backend</span>
                 </div>
               </div>
             </div>
@@ -55,13 +55,13 @@ export default function NeelachandraProjectPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
                 <div className="absolute inset-0 flex flex-col items-center justify-end text-white px-4 md:px-8 text-center pb-12 md:pb-16 lg:pb-20">
-                  <p className="text-[8px] md:text-[10px] lg:text-xs font-light tracking-[0.15em] uppercase mb-2 text-white/80 leading-relaxed">
+                  <p className="text-[clamp(9px,0.7vw+4px,12px)] font-light tracking-[0.15em] uppercase mb-2 text-white/80 leading-relaxed">
                     The company trusted to<br />build lasting structures
                   </p>
-                  <h1 className="text-2xl md:text-3xl lg:text-[40px] font-bold uppercase tracking-widest mb-2 drop-shadow-lg">
+                  <h1 className="text-[clamp(1.5rem,2.5vw+0.5rem,2.5rem)] font-bold uppercase tracking-widest mb-2 drop-shadow-lg">
                     Chose us to build
                   </h1>
-                  <p className="text-sm md:text-lg lg:text-[22px] font-light tracking-[0.15em] uppercase text-white/90 drop-shadow-md leading-tight">
+                  <p className="text-[clamp(0.875rem,1.2vw+0.5rem,1.375rem)] font-light tracking-[0.15em] uppercase text-white/90 drop-shadow-md leading-tight">
                     Their digital<br />foundation.
                   </p>
                 </div>
@@ -71,7 +71,7 @@ export default function NeelachandraProjectPage() {
 
           {/* Right Column - Navigation/Services list */}
           <div className="w-full md:w-1/5 pl-4 flex flex-col justify-end items-end text-[#5c564b] py-10">
-            <div className="mt-auto space-y-3 font-semibold text-[11px] md:text-xs tracking-widest text-[#777777] uppercase">
+            <div className="mt-auto space-y-3 font-semibold text-[clamp(10px,0.6vw+4px,12px)] tracking-widest text-[#777777] uppercase">
               <p className="hover:text-[#333333] transition-colors cursor-pointer text-right">Strategy</p>
               <p className="hover:text-[#333333] transition-colors cursor-pointer text-right">UX/UI</p>
               <p className="hover:text-[#333333] transition-colors cursor-pointer text-right">Development</p>
@@ -108,19 +108,19 @@ export default function NeelachandraProjectPage() {
 
           {/* Top text floating over the white fade */}
           <div className="w-full text-center pt-8 md:pt-12 px-4">
-            <h2 className="text-[#F48120] text-lg md:text-2xl lg:text-[28px] font-medium tracking-[0.02em] uppercase leading-snug">
+            <h2 className="text-[#F48120] text-[clamp(1.125rem,1.5vw+0.5rem,1.75rem)] font-medium tracking-[0.02em] uppercase leading-snug">
               The real estate company<br />had a great network but,
             </h2>
           </div>
 
           {/* Bottom Solid Orange Content Area */}
           <div className="w-full text-center text-white max-w-4xl mx-auto flex flex-col items-center pb-48 px-4">
-            <h3 className="text-2xl md:text-4xl lg:text-[44px] font-light tracking-widest uppercase leading-tight mb-8">
+            <h3 className="text-[clamp(1.5rem,2.5vw+0.5rem,2.75rem)] font-light tracking-widest uppercase leading-tight mb-8">
               Nobody knew them beyond.<br />
               So we started<br />
               <span className="font-bold">Building the foundation.</span>
             </h3>
-            <p className="text-[10px] md:text-xs font-medium opacity-90 max-w-[340px] leading-relaxed">
+            <p className="text-[clamp(10px,0.6vw+4px,12px)] font-medium opacity-90 max-w-[340px] leading-relaxed">
               Smrkonova immediately identified a gap in the real estate<br />
               company's presence, turning it into an immediate to-do.
             </p>
@@ -161,13 +161,13 @@ export default function NeelachandraProjectPage() {
 
           {/* Text Content */}
           <div className="mb-20 md:mb-32">
-            <h2 className="text-5xl md:text-6xl lg:text-[72px] font-thin uppercase tracking-tight leading-[1.1] text-[#222222]">
+            <h2 className="text-[clamp(2.5rem,4.5vw+0.5rem,4.5rem)] font-thin uppercase tracking-tight leading-[1.1] text-[#222222]">
               Laying
             </h2>
-            <h2 className="text-5xl md:text-6xl lg:text-[72px] font-black uppercase tracking-tight leading-[1.1] text-[#F48120] mb-6">
+            <h2 className="text-[clamp(2.5rem,4.5vw+0.5rem,4.5rem)] font-black uppercase tracking-tight leading-[1.1] text-[#F48120] mb-6">
               The Foundation
             </h2>
-            <p className="text-[#666666] text-[10px] md:text-xs max-w-[350px] font-medium leading-[1.8]">
+            <p className="text-[#666666] text-[clamp(10px,0.6vw+5px,13px)] max-w-[350px] font-medium leading-[1.8]">
               We clarified who Neelachandra is, what it stands for, and<br className="hidden md:block" />
               how it should be perceived in a crowded real estate market.
             </p>
@@ -198,13 +198,13 @@ export default function NeelachandraProjectPage() {
 
           {/* Text Content */}
           <div className="w-full md:w-5/12 mb-20 md:mb-0">
-            <h2 className="text-5xl md:text-6xl lg:text-[72px] font-thin uppercase tracking-tight leading-[1.1] text-[#222222]">
+            <h2 className="text-[clamp(2.5rem,4.5vw+0.5rem,4.5rem)] font-thin uppercase tracking-tight leading-[1.1] text-[#222222]">
               Raising
             </h2>
-            <h2 className="text-5xl md:text-6xl lg:text-[72px] font-black uppercase tracking-tight leading-[1.1] text-[#F48120] mb-6">
+            <h2 className="text-[clamp(2.5rem,4.5vw+0.5rem,4.5rem)] font-black uppercase tracking-tight leading-[1.1] text-[#F48120] mb-6">
               The<br />Structure
             </h2>
-            <p className="text-[#666666] text-[10px] md:text-xs max-w-[350px] font-medium leading-[1.8]">
+            <p className="text-[#666666] text-[clamp(10px,0.6vw+5px,13px)] max-w-[350px] font-medium leading-[1.8]">
               We brought the brand to life through a cohesive identity and<br className="hidden md:block" />
               a suite of marketing assets built for every customer touchpoint.
             </p>
@@ -241,13 +241,13 @@ export default function NeelachandraProjectPage() {
 
           {/* Text Content */}
           <div className="w-full md:w-5/12 mb-16 md:mb-0 relative z-10">
-            <h2 className="text-5xl md:text-6xl lg:text-[72px] font-thin uppercase tracking-tight leading-[1.1] text-white">
+            <h2 className="text-[clamp(2.5rem,4.5vw+0.5rem,4.5rem)] font-thin uppercase tracking-tight leading-[1.1] text-white">
               Putting It
             </h2>
-            <h2 className="text-5xl md:text-6xl lg:text-[72px] font-black uppercase tracking-tight leading-[1.1] text-white mb-6">
+            <h2 className="text-[clamp(2.5rem,4.5vw+0.5rem,4.5rem)] font-black uppercase tracking-tight leading-[1.1] text-white mb-6">
               On The Map
             </h2>
-            <p className="text-white/90 text-[10px] md:text-xs max-w-[350px] font-medium leading-[1.8]">
+            <p className="text-white/90 text-[clamp(10px,0.6vw+5px,13px)] max-w-[350px] font-medium leading-[1.8]">
               We improved its digital discoverability, helping people<br className="hidden md:block" />
               searching for real estate properties in India find<br className="hidden md:block" />
               Neelachandra more easily.
@@ -282,11 +282,11 @@ export default function NeelachandraProjectPage() {
         {/* Content Container */}
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="w-full md:w-5/12 lg:w-1/2 flex flex-col justify-center">
-            <h2 className="text-4xl md:text-5xl lg:text-[64px] font-bold uppercase tracking-tight leading-[1.1] text-white mb-8 drop-shadow-lg">
+            <h2 className="text-[clamp(2rem,3.5vw+0.5rem,4rem)] font-bold uppercase tracking-tight leading-[1.1] text-white mb-8 drop-shadow-lg">
               Building<br />
               Recognition
             </h2>
-            <div className="space-y-6 text-white/90 text-[10px] md:text-xs font-light leading-[1.8] max-w-[400px]">
+            <div className="space-y-6 text-white/90 text-[clamp(10px,0.6vw+5px,13px)] font-light leading-[1.8] max-w-[400px]">
               <p>
                 Every touchpoint now works together to make the brand<br className="hidden md:block" />
                 more recognizable, memorable, and credible.
@@ -317,12 +317,12 @@ export default function NeelachandraProjectPage() {
                 className="group relative flex items-center justify-between border-b border-[#F48120]/30 py-8 md:py-10 cursor-pointer overflow-hidden"
               >
                 {/* Left Text */}
-                <span className="text-[10px] md:text-xs text-gray-500">highlighted</span>
+                <span className="text-[clamp(10px,0.6vw+4px,12px)] text-gray-500">highlighted</span>
 
                 {/* Center Content */}
                 <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
                   <div className="flex items-center justify-center">
-                    <span className="text-2xl md:text-4xl lg:text-[50px] font-thin tracking-wider text-[#333] transition-all duration-300 group-hover:font-black group-hover:-translate-x-2">
+                    <span className="text-[clamp(1.5rem,2.8vw+0.5rem,3.125rem)] font-thin tracking-wider text-[#333] transition-all duration-300 group-hover:font-black group-hover:-translate-x-2">
                       {item.word1}
                     </span>
 
@@ -335,14 +335,14 @@ export default function NeelachandraProjectPage() {
                       />
                     </div>
 
-                    <span className="text-2xl md:text-4xl lg:text-[50px] font-thin tracking-wider text-[#333] transition-all duration-300 group-hover:font-black group-hover:text-[#F48120] group-hover:translate-x-2">
+                    <span className="text-[clamp(1.5rem,2.8vw+0.5rem,3.125rem)] font-thin tracking-wider text-[#333] transition-all duration-300 group-hover:font-black group-hover:text-[#F48120] group-hover:translate-x-2">
                       &nbsp;{item.word2}
                     </span>
                   </div>
                 </div>
 
                 {/* Right Text */}
-                <span className="text-[10px] md:text-xs text-gray-500">on website</span>
+                <span className="text-[clamp(10px,0.6vw+4px,12px)] text-gray-500">on website</span>
               </div>
             ))}
           </div>
@@ -364,13 +364,13 @@ export default function NeelachandraProjectPage() {
 
             {/* Text Overlay */}
             <div className="absolute inset-0 flex flex-col justify-end items-center text-center pb-16 md:pb-24 px-4 z-10">
-              <h2 className="text-3xl md:text-5xl lg:text-[64px] font-thin uppercase tracking-wide text-white mb-1 drop-shadow-md">
+              <h2 className="text-[clamp(1.85rem,3.5vw+0.5rem,4rem)] font-thin uppercase tracking-wide text-white mb-1 drop-shadow-md">
                 Branding Is Not
               </h2>
-              <h2 className="text-3xl md:text-5xl lg:text-[64px] font-black uppercase tracking-wide text-white mb-6 drop-shadow-md">
+              <h2 className="text-[clamp(1.85rem,3.5vw+0.5rem,4rem)] font-black uppercase tracking-wide text-white mb-6 drop-shadow-md">
                 The End Of Story
               </h2>
-              <p className="text-white/90 text-[10px] md:text-sm font-light tracking-wide drop-shadow-md">
+              <p className="text-white/90 text-[clamp(10px,0.6vw+5px,14px)] font-light tracking-wide drop-shadow-md">
                 Every touchpoint is important in the real estate business.
               </p>
             </div>
@@ -394,7 +394,7 @@ export default function NeelachandraProjectPage() {
       {/* Conclusion Text Section */}
       <section className="w-full bg-white py-24 md:py-32 lg:py-40 flex justify-center items-center">
         <div className="w-full max-w-[600px] mx-auto px-6 text-center">
-          <p className="text-[#F48120] text-xl md:text-2xl lg:text-3xl font-semibold leading-snug">
+          <p className="text-[#F48120] text-[clamp(1.25rem,1.8vw+0.5rem,1.875rem)] font-semibold leading-snug">
             Neelachandra is now<br />
             discoverable by people<br />
             searching for real estate<br />
@@ -420,14 +420,14 @@ export default function NeelachandraProjectPage() {
 
         {/* Content Container */}
         <div className="relative z-10 w-full flex flex-col items-center justify-end flex-1 pb-16 md:pb-24 lg:pb-32">
-          <h1 className="text-4xl md:text-6xl lg:text-[90px] font-thin text-white tracking-[0.2em] uppercase mb-10 drop-shadow-xl text-center">
+          <h1 className="text-[clamp(2.5rem,5.5vw+0.5rem,5.625rem)] font-thin text-white tracking-[0.2em] uppercase mb-10 drop-shadow-xl text-center">
             Built To Grow.
           </h1>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-            <button className="px-10 py-3 md:py-4 bg-[#F48120] hover:bg-[#d6701c] transition-colors text-white text-[10px] md:text-xs tracking-widest uppercase font-medium rounded-sm">
+            <button className="px-10 py-3 md:py-4 bg-[#F48120] hover:bg-[#d6701c] transition-colors text-white text-[clamp(10px,0.6vw+4px,12px)] tracking-widest uppercase font-medium rounded-sm">
               Create Yours
             </button>
-            <button className="px-10 py-3 md:py-4 border border-white/50 hover:bg-white/10 transition-colors text-white text-[10px] md:text-xs tracking-widest uppercase font-medium rounded-sm backdrop-blur-sm">
+            <button className="px-10 py-3 md:py-4 border border-white/50 hover:bg-white/10 transition-colors text-white text-[clamp(10px,0.6vw+4px,12px)] tracking-widest uppercase font-medium rounded-sm backdrop-blur-sm">
               Next Project
             </button>
           </div>
@@ -449,9 +449,9 @@ export default function NeelachandraProjectPage() {
               <div key={groupIndex} className="flex w-1/2 justify-around items-center">
                 {[...Array(5)].map((_, i) => (
                   <React.Fragment key={i}>
-                    <span className="text-white font-bold tracking-widest uppercase text-sm md:text-base mx-4">SMRKONOVA</span>
+                    <span className="text-white font-bold tracking-widest uppercase text-[clamp(12px,0.6vw+5px,16px)] mx-4">SMRKONOVA</span>
                     <span className="text-white opacity-80 mx-4">✦</span>
-                    <span className="text-white font-bold tracking-widest uppercase text-sm md:text-base mx-4">NEELACHANDRA</span>
+                    <span className="text-white font-bold tracking-widest uppercase text-[clamp(12px,0.6vw+5px,16px)] mx-4">NEELACHANDRA</span>
                     <span className="text-white opacity-80 mx-4">✦</span>
                   </React.Fragment>
                 ))}

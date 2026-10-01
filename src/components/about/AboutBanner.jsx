@@ -18,11 +18,11 @@ export default function AboutBanner() {
             {/* Content Container */}
             <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-0 relative z-10 flex flex-col justify-center">
                 <div className="max-w-2xl lg:max-w-3xl mt-12 md:mt-0">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4.5rem] font-black text-[#111] leading-[1.1] tracking-tight uppercase mb-6 md:mb-8">
+                    <h1 className="text-[clamp(1.75rem,4.5vw+0.5rem,4.5rem)] font-black text-[#111] leading-[1.1] tracking-tight uppercase mb-6 md:mb-8">
                         SMRKONOVA TAKES THE FLIGHT FIRST<br className="hidden md:block" />
                         TO GROW THE WAY FORWARD.
                     </h1>
-                    <p className="text-[#444] text-sm md:text-base lg:text-lg leading-relaxed md:leading-[1.8] font-medium max-w-xl lg:max-w-2xl">
+                    <p className="text-[#444] text-[clamp(0.875rem,0.6vw+0.7rem,1.125rem)] leading-relaxed md:leading-[1.8] font-medium max-w-xl lg:max-w-2xl">
                         We work with businesses to understand their operations, marketing,
                         and digital presence, creating a unified growth system that brings
                         together strategy, design, engineering, marketing, and technology. By

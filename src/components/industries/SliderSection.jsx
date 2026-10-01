@@ -39,7 +39,7 @@ export default function SliderSection() {
         
         {/* Header Content */}
         <div className="mb-20 text-center md:text-left">
-          <h2 className="text-3xl md:text-5xl lg:text-[3.5rem] leading-[1.2] tracking-tight">
+          <h2 className="text-[clamp(1.875rem,3.5vw+0.5rem,3.5rem)] leading-[1.2] tracking-tight">
             <span className="font-bold text-black">21 MANUFACTURING</span><br className="hidden sm:block" />
             <span className="font-light text-[#444]"> VERTICALS ENGINEERED</span>
           </h2>
@@ -119,7 +119,7 @@ export default function SliderSection() {
                   }}
                   transition={{ duration: 0.4 }}
                 >
-                  <p className="text-white font-bold text-[11px] md:text-sm tracking-widest uppercase whitespace-pre-line drop-shadow-md">
+                  <p className="text-white font-bold text-[clamp(11px,0.4vw+7px,14px)] tracking-widest uppercase whitespace-pre-line drop-shadow-md">
                     {item.title}
                   </p>
                 </motion.div>

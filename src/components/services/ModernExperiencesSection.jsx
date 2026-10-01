@@ -20,12 +20,12 @@ export default function ModernExperiencesSection() {
 
                     {/* Left Content Area */}
                     <div className="flex-1 flex flex-col justify-center z-20">
-                        <h2 className="text-[32px] sm:text-[46px] md:text-[60px] lg:text-[70px] leading-[0.95] tracking-tight text-[#1a1a1a] mb-8">
+                        <h2 className="text-[clamp(1.75rem,4.5vw+0.5rem,4.375rem)] leading-[0.95] tracking-tight text-[#1a1a1a] mb-8">
                             <span className="block font-black uppercase">Modern websites are</span>
                             <span className="block font-light text-gray-500 uppercase">no longer static pages.</span>
                         </h2>
 
-                        <p className="text-gray-600 text-[15px] md:text-[17px] font-medium leading-relaxed max-w-[380px]">
+                        <p className="text-gray-600 text-[clamp(0.875rem,0.6vw+0.7rem,1.0625rem)] font-medium leading-relaxed max-w-[380px]">
                            We create interactive experiences that keep visitors engaged and make your brand memorable.
                         </p>
                     </div>
@@ -89,7 +89,7 @@ export default function ModernExperiencesSection() {
                         {[0, 1].map((copyIdx) => (
                             <p 
                                 key={copyIdx} 
-                                className="text-[12px] sm:text-[13px] font-medium text-gray-500 tracking-wider whitespace-nowrap shrink-0 pr-8"
+                                className="text-[clamp(11px,0.5vw+5px,13px)] font-medium text-gray-500 tracking-wider whitespace-nowrap shrink-0 pr-8"
                             >
                                 Smooth scrolling &nbsp;·&nbsp; Interactive sections &nbsp;·&nbsp; Micro animations &nbsp;·&nbsp; Hover effects &nbsp;·&nbsp; 3D experiences &nbsp;·&nbsp; Storytelling pages &nbsp;·&nbsp; Product showcases &nbsp;·&nbsp; Animated landing pages &nbsp;·&nbsp; Custom transitions &nbsp;·&nbsp;
                             </p>

@@ -88,7 +88,7 @@ export default function IndustriesSlider() {
                         </h2>
                     </div>
                     <div className="max-w-[500px]">
-                        <p className="text-gray-600 text-sm md:text-[15px] leading-relaxed font-normal">
+                        <p className="text-gray-600 text-[clamp(12px,0.4vw+7px,15px)] leading-relaxed font-normal">
                             Many agencies disappear after a project goes live. We believe long-term partnerships create better products. Whether it's a website, ecommerce platform, mobile application or business software, we continue helping you improve performance, add new features and keep everything running smoothly.
                         </p>
                     </div>
@@ -110,8 +110,8 @@ export default function IndustriesSlider() {
                                 >
                                     <div className="relative z-10 w-full sm:w-[68%] flex flex-col h-full justify-between">
                                         <div>
-                                            <h3 className="text-white text-xl md:text-2xl font-bold mb-2 tracking-wide">{slide.title}</h3>
-                                            <p className="text-white/90 text-xs md:text-[13px] leading-relaxed mb-4 max-w-[280px]">
+                                            <h3 className="text-white text-[clamp(1.125rem,1.4vw+0.5rem,1.5rem)] font-bold mb-2 tracking-wide">{slide.title}</h3>
+                                            <p className="text-white/90 text-[clamp(11px,0.4vw+5px,13px)] leading-relaxed mb-4 max-w-[280px]">
                                                 {slide.description}
                                             </p>
                                             
@@ -128,7 +128,7 @@ export default function IndustriesSlider() {
                                             </div>
                                         </div>
 
-                                        <button suppressHydrationWarning className="text-white flex items-center gap-2 text-xs md:text-sm tracking-wide font-medium group w-fit bg-white/15 hover:bg-white/25 border border-white/20 px-4 py-2 rounded-full backdrop-blur-md transition-all">
+                                        <button suppressHydrationWarning className="text-white flex items-center gap-2 text-[clamp(11px,0.4vw+6px,14px)] tracking-wide font-medium group w-fit bg-white/15 hover:bg-white/25 border border-white/20 px-4 py-2 rounded-full backdrop-blur-md transition-all">
                                             Explore Services
                                             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                                         </button>

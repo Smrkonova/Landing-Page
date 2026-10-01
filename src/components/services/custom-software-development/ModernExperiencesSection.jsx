@@ -89,7 +89,7 @@ export default function ModernExperiencesSection() {
                         {[0, 1].map((copyIdx) => (
                             <p 
                                 key={copyIdx} 
-                                className="text-[12px] sm:text-[14px] font-medium text-gray-500 tracking-wider whitespace-nowrap shrink-0 pr-8"
+                                className="text-[clamp(11px,0.4vw+4px,13px)] font-medium text-gray-500 tracking-wider whitespace-nowrap shrink-0 pr-8"
                             >
                                 in-app chat &nbsp;·&nbsp; social login &nbsp;·&nbsp; payments &nbsp;·&nbsp; custom integrations &nbsp;·&nbsp; automated workflows &nbsp;·&nbsp; secure APIs &nbsp;·&nbsp; real-time notifications &nbsp;·&nbsp; multi-tenant architecture &nbsp;·&nbsp; cloud deployment &nbsp;·&nbsp;
                             </p>

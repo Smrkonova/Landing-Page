@@ -20,12 +20,12 @@ export default function ModernExperiencesSection() {
 
                     {/* Left Content Area */}
                     <div className="flex-1 flex flex-col justify-center z-20 w-full">
-                        <h2 className="text-[34px] sm:text-[50px] md:text-[70px] lg:text-[85px] leading-[1.05] tracking-tight text-[#1a1a1a] mb-6 sm:mb-8">
+                        <h2 className="text-[clamp(2rem,4.5vw+0.5rem,5rem)] leading-[1.05] tracking-tight text-[#1a1a1a] mb-6 sm:mb-8">
                             <span className="block font-black uppercase">Features</span>
                             <span className="block font-light text-gray-500 uppercase">We Can Build.</span>
                         </h2>
 
-                        <p className="text-gray-600 text-[14px] sm:text-[15px] md:text-[17px] font-medium leading-relaxed max-w-[420px]">
+                        <p className="text-gray-600 text-[clamp(0.875rem,0.6vw+0.65rem,1.0625rem)] font-medium leading-relaxed max-w-[420px]">
                             Every application is different. We build features based on your business requirements.
                         </p>
                     </div>
@@ -89,7 +89,7 @@ export default function ModernExperiencesSection() {
                         {[0, 1].map((copyIdx) => (
                             <p 
                                 key={copyIdx} 
-                                className="text-[12px] sm:text-[14px] font-medium text-gray-500 tracking-wider whitespace-nowrap shrink-0 pr-8"
+                                className="text-[clamp(11px,0.4vw+4px,13px)] font-medium text-gray-500 tracking-wider whitespace-nowrap shrink-0 pr-8"
                             >
                                 User Registration &nbsp;·&nbsp; Login & Authentication &nbsp;·&nbsp; OTP Verification &nbsp;·&nbsp; Social Login &nbsp;·&nbsp; User Profiles &nbsp;·&nbsp; Dashboards &nbsp;·&nbsp; Push Notifications &nbsp;·&nbsp; In-App Chat &nbsp;·&nbsp; Video Calling &nbsp;·&nbsp; Audio Calling &nbsp;·&nbsp; Appointment Booking &nbsp;·&nbsp; Calendar &nbsp;·&nbsp; GPS & Maps &nbsp;·&nbsp; Live Tracking &nbsp;·&nbsp; QR Code Scanner &nbsp;·&nbsp; Barcode Scanner &nbsp;·&nbsp; Camera Integration &nbsp;·&nbsp; File Upload &nbsp;·&nbsp; Payments &nbsp;·&nbsp; Wallet System &nbsp;·&nbsp; Subscriptions &nbsp;·&nbsp; Membership &nbsp;·&nbsp; Reviews & Ratings &nbsp;·&nbsp; Wishlist &nbsp;·&nbsp; Search & Filters &nbsp;·&nbsp; Offline Support &nbsp;·&nbsp; Multi-language &nbsp;·&nbsp; Dark Mode &nbsp;·&nbsp; Reports & Analytics &nbsp;·&nbsp; AI Features &nbsp;·&nbsp; Admin Panel &nbsp;·&nbsp;
                             </p>

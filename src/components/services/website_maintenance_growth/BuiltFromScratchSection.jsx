@@ -36,7 +36,7 @@ export default function BuiltFromScratchSection() {
                         <span className="font-bold tracking-normal">Improvement.</span>
                     </h2>
 
-                    <p className="text-gray-500 text-lg md:text-xl max-w-lg mb-6 leading-relaxed font-light">
+                    <p className="text-gray-500 text-[clamp(1rem,0.8vw+0.65rem,1.25rem)] max-w-lg mb-6 leading-relaxed font-light">
                         Launching a digital product isn't the finish line. It's the beginning of understanding how people actually use it.
                     </p>
                 </div>

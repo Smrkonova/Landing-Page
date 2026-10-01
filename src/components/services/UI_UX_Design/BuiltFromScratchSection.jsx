@@ -38,7 +38,7 @@ export default function BuiltFromScratchSection() {
                         <span className="font-bold tracking-normal text-black">Understanding Users.</span>
                     </h2>
 
-                    <p className="text-gray-500 text-base md:text-lg max-w-lg mb-10 leading-relaxed font-light">
+                    <p className="text-gray-500 text-[clamp(1rem,0.5vw+0.75rem,1.125rem)] max-w-lg mb-10 leading-relaxed font-light">
                         Before we design a single screen, we focus on understanding your users, your business and the problems we're trying to solve.
                     </p>
                 </div>
@@ -113,7 +113,7 @@ export default function BuiltFromScratchSection() {
                                                     zIndex: isVisible ? (isActive ? 30 : 20) : 10,
                                                 }}
                                             >
-                                                <span className={`text-[13px] md:text-[15px] font-medium tracking-[0.2em] uppercase transition-colors duration-[1000ms] ${isActive ? 'text-black' : 'text-gray-700'}`}>
+                                                <span className={`text-[clamp(11px,0.4vw+7px,14px)] font-medium tracking-[0.2em] uppercase transition-colors duration-[1000ms] ${isActive ? 'text-black' : 'text-gray-700'}`}>
                                                     {text}
                                                 </span>
                                             </div>

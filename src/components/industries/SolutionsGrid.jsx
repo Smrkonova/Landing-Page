@@ -17,14 +17,14 @@ export default function SolutionsGrid() {
 
         {/* Header Content */}
         <div className="max-w-3xl mb-16 md:mb-20 space-y-4 md:space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
-          <h4 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#888]">
+          <h4 className="text-[clamp(10px,0.4vw+4px,12px)] font-bold uppercase tracking-[0.2em] text-[#888]">
             SOLUTIONS WE BUILD
           </h4>
-          <h2 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-[4rem] font-light text-[#222] leading-[1.1] tracking-tight">
+          <h2 className="text-[clamp(2rem,4vw+0.5rem,4rem)] font-light text-[#222] leading-[1.1] tracking-tight">
             BUT WINNING A CUSTOMER IS<br className="hidden sm:block" />
             <span className="font-extrabold text-black"> ONLY THE BEGINNING</span>
           </h2>
-          <p className="text-xs md:text-sm text-[#444] font-medium tracking-wide max-w-sm mt-4 md:mt-6 leading-relaxed uppercase">
+          <p className="text-[clamp(11px,0.4vw+6px,14px)] text-[#444] font-medium tracking-wide max-w-sm mt-4 md:mt-6 leading-relaxed uppercase">
             GROWTH SOLUTIONS DESIGNED FOR EVERY<br className="hidden sm:block" /> STAGE OF BUSINESS OPERATIONS
           </p>
         </div>
@@ -61,13 +61,13 @@ export default function SolutionsGrid() {
                 className="relative group pt-6 md:pt-8"
               >
                 {/* Huge Watermark Number (Behind the glass) */}
-                <div className="absolute top-0 left-4 md:left-6 text-[80px] md:text-[120px] font-light text-[#cccccc] leading-none tracking-tighter select-none z-0 transition-transform duration-700 group-hover:scale-105 origin-left">
+                <div className="absolute top-0 left-4 md:left-6 text-[clamp(4.5rem,8vw+1rem,7.5rem)] font-light text-[#cccccc] leading-none tracking-tighter select-none z-0 transition-transform duration-700 group-hover:scale-105 origin-left">
                   {item.number}
                 </div>
 
                 {/* Glass Card */}
                 <div className="relative z-10 mt-8 md:mt-12 bg-[#D9D9D933] backdrop-blur-sm border-[1.5px] border-white/60 rounded-xl p-6 md:p-8 min-h-[160px] md:h-[180px] flex flex-col justify-end shadow-[0_8px_32px_0_rgba(0,0,0,0.04)] transition-all duration-500 hover:bg-white/30 hover:shadow-[0_8px_40px_0_rgba(0,0,0,0.08)]">
-                  <h3 className="text-[11px] md:text-[12px] font-semibold text-[#222] uppercase tracking-[0.1em] leading-[1.8] whitespace-pre-line">
+                  <h3 className="text-[clamp(10px,0.3vw+8px,12px)] font-semibold text-[#222] uppercase tracking-[0.1em] leading-[1.8] whitespace-pre-line">
                     {item.title}
                   </h3>
                 </div>

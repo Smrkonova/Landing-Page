@@ -39,9 +39,9 @@ export default function ServicesScroll() {
         {/* Background "WHAT WE DO" Text */}
         <div className="absolute top-[8%] md:top-[5%] left-0 w-full flex justify-center items-center pointer-events-none z-0">
           <h2 className="leading-none tracking-tighter flex gap-3 md:gap-6 lg:gap-12 opacity-80">
-            <span className="text-[#333] text-[16vw] lg:text-[96px] font-thin">WHAT</span>
-            <span className="bg-gradient-to-br from-[#1a2b5f] to-[#0a1128] bg-clip-text text-transparent text-[16vw] lg:text-[12vw] font-bold">WE</span>
-            <span className="text-[#111] text-[16vw] lg:text-[12vw] font-bold">DO</span>
+            <span className="text-[#333] text-[clamp(3.5rem,10vw,7rem)] font-thin">WHAT</span>
+            <span className="bg-gradient-to-br from-[#1a2b5f] to-[#0a1128] bg-clip-text text-transparent text-[clamp(3.5rem,10vw,7rem)] font-bold">WE</span>
+            <span className="text-[#111] text-[clamp(3.5rem,10vw,7rem)] font-bold">DO</span>
           </h2>
         </div>
 
@@ -69,7 +69,7 @@ export default function ServicesScroll() {
                   className="relative origin-center lg:origin-left overflow-hidden w-full lg:w-auto"
                 >
                   <h3
-                    className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold uppercase tracking-wider cursor-pointer transition-colors duration-500 ${offset === 0 ? "text-white" : "text-[#444]"
+                    className={`text-[clamp(1.125rem,1.8vw+0.5rem,1.875rem)] font-bold uppercase tracking-wider cursor-pointer transition-colors duration-500 ${offset === 0 ? "text-white" : "text-[#444]"
                       }`}
                   >
                     {service.title}

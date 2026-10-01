@@ -101,10 +101,10 @@ export default function FeaturesSliderSection() {
             {/* Title Container - Constrained Width */}
             <div className="max-w-[1400px] mx-auto px-4 md:px-12 flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-6">
                 <div>
-                    <h2 className="text-[24px] md:text-[32px] font-light tracking-wide text-[#1a1a1a] uppercase ml-4 md:ml-0">
+                    <h2 className="text-[clamp(1.25rem,1.8vw+0.5rem,2rem)] font-light tracking-wide text-[#1a1a1a] uppercase ml-4 md:ml-0">
                         Brand Guidelines
                     </h2>
-                    <p className="text-gray-500 text-sm md:text-base font-light max-w-xl leading-relaxed mt-2 ml-4 md:ml-0">
+                    <p className="text-gray-500 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-xl leading-relaxed mt-2 ml-4 md:ml-0">
                         As your business grows, multiple people create content. A brand guideline ensures everyone follows the same visual language and maintains consistency across every platform.
                     </p>
                 </div>
@@ -146,7 +146,7 @@ export default function FeaturesSliderSection() {
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="text-[22px] md:text-[26px] font-medium text-center text-black leading-tight max-w-[200px]">
+                                <h3 className="text-[clamp(1.125rem,1.4vw+0.5rem,1.625rem)] font-medium text-center text-black leading-tight max-w-[200px]">
                                     {feature.title.split(' ').map((word, i) => (
                                         <React.Fragment key={i}>
                                             {word}

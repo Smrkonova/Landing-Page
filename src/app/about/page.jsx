@@ -133,11 +133,11 @@ export default function AboutPage() {
 
                         {/* Content */}
                         <div className="relative z-10 flex flex-col items-center text-center max-w-4xl px-6">
-                            <h2 className="text-sm md:text-lg tracking-[0.3em] uppercase mb-2 font-light">It is our</h2>
-                            <h1 className="text-6xl md:text-9xl font-light tracking-widest mb-6 uppercase">Mission</h1>
-                            <h3 className="text-xl md:text-2xl font-light mb-8">TO PAVE THE PATH FOR YOUR BUSINESS.</h3>
+                            <h2 className="text-[clamp(11px,0.8vw+5px,18px)] tracking-[0.3em] uppercase mb-2 font-light">It is our</h2>
+                            <h1 className="text-[clamp(3.5rem,7.5vw+0.5rem,8rem)] font-light tracking-widest mb-6 uppercase">Mission</h1>
+                            <h3 className="text-[clamp(1.125rem,1.5vw+0.5rem,1.5rem)] font-light mb-8">TO PAVE THE PATH FOR YOUR BUSINESS.</h3>
 
-                            <p className="max-w-xl text-sm md:text-base leading-relaxed font-light text-gray-200">
+                            <p className="max-w-xl text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] leading-relaxed font-light text-gray-200">
                                 Smrkonova builds connected strategies, experiences and technologies that continuously attract new customers, strengthen relationships with existing ones, and improve performance at every stage of growth.
                             </p>
                         </div>
@@ -189,14 +189,14 @@ export default function AboutPage() {
 
                             {/* Right side Text */}
                             <div className="w-full md:w-6/12 flex flex-col text-left">
-                                <h2 className="text-sm md:text-base tracking-[0.4em] uppercase mb-4 font-light">Getting to</h2>
-                                <h1 className="text-6xl md:text-8xl font-light tracking-wider mb-10 uppercase">The Peak</h1>
+                                <h2 className="text-[clamp(11px,0.6vw+5px,16px)] tracking-[0.4em] uppercase mb-4 font-light">Getting to</h2>
+                                <h1 className="text-[clamp(3rem,6vw+0.5rem,6rem)] font-light tracking-wider mb-10 uppercase">The Peak</h1>
 
                                 <div className="flex flex-col md:flex-row gap-8">
-                                    <p className="flex-1 text-sm md:text-base leading-relaxed font-light text-gray-300">
+                                    <p className="flex-1 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] leading-relaxed font-light text-gray-300">
                                         Every decision is made with one goal in mind: building a business that is resilient, efficient, and designed for sustainable growth, innovatively. Rather than chasing short-term wins, we focus on creating a foundation that evolves with your business, helping you adapt to change, seize new opportunities, and scale with confidence.
                                     </p>
-                                    <p className="flex-1 text-sm md:text-base leading-relaxed font-normal tracking-wide text-white uppercase">
+                                    <p className="flex-1 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] leading-relaxed font-normal tracking-wide text-white uppercase">
                                         Every line of strategy, design decision, line of code, campaign are built to surprise the consumer.
                                     </p>
                                 </div>
@@ -243,7 +243,7 @@ export default function AboutPage() {
 
                             {/* Left side Text */}
                             <div className="w-full md:w-5/12 flex flex-col text-left">
-                                <h1 className="text-4xl md:text-5xl lg:text-5xl font-light tracking-widest uppercase leading-snug mb-8">
+                                <h1 className="text-[clamp(1.75rem,3.2vw+0.5rem,3.125rem)] font-light tracking-widest uppercase leading-snug mb-8">
                                     We are a<br />
                                     business-forward<br />
                                     growth studio<br />
@@ -251,39 +251,39 @@ export default function AboutPage() {
                                     value
                                 </h1>
 
-                                <p className="text-sm md:text-base leading-relaxed tracking-wider font-normal text-white uppercase max-w-sm">
+                                <p className="text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] leading-relaxed tracking-wider font-normal text-white uppercase max-w-sm">
                                     Smrkonova is a boutique growth agency led by tech solutions.
                                 </p>
                             </div>
 
                             {/* Right side Text */}
                             <div className="w-full md:w-6/12 flex flex-col text-left mt-4 md:mt-0">
-                                <h2 className="text-sm md:text-base tracking-[0.4em] uppercase mb-8 font-light">We specialise in</h2>
+                                <h2 className="text-[clamp(11px,0.6vw+5px,16px)] tracking-[0.4em] uppercase mb-8 font-light">We specialise in</h2>
 
                                 <div className="flex flex-col gap-6 mb-12">
-                                    <p className="text-xs md:text-sm leading-relaxed font-light text-gray-200">
+                                    <p className="text-[clamp(11px,0.6vw+5px,14px)] leading-relaxed font-light text-gray-200">
                                         holistic brand growth for brands across healthcare, manufacturing, e-commerce, real estate, education among other industries. We specialise in branding, brand marketing, marketing strategy and operational growth.
                                     </p>
-                                    <p className="text-xs md:text-sm leading-relaxed font-light text-gray-200">
+                                    <p className="text-[clamp(11px,0.6vw+5px,14px)] leading-relaxed font-light text-gray-200">
                                         Our mission at Smrkonova is to help iconic brands grow efficiently, sustainably and ultimately profitably leading to growth from the operational and marketing front.
                                     </p>
-                                    <p className="text-xs md:text-sm leading-relaxed font-light text-gray-200">
+                                    <p className="text-[clamp(11px,0.6vw+5px,14px)] leading-relaxed font-light text-gray-200">
                                         We make it easy for our clients to grow and create meaningful connections.
                                     </p>
                                 </div>
 
                                 {/* Pills */}
                                 <div className="flex flex-wrap gap-4">
-                                    <div className="px-6 py-2 rounded-full border border-white/50 bg-white/10 backdrop-blur-md text-xs md:text-sm tracking-wide text-white/90 font-light hover:bg-white/20 transition-colors">
+                                    <div className="px-6 py-2 rounded-full border border-white/50 bg-white/10 backdrop-blur-md text-[clamp(10px,0.6vw+4px,12px)] tracking-wide text-white/90 font-light hover:bg-white/20 transition-colors">
                                         Digital marketing
                                     </div>
-                                    <div className="px-6 py-2 rounded-full border border-white/50 bg-white/10 backdrop-blur-md text-xs md:text-sm tracking-wide text-white/90 font-light hover:bg-white/20 transition-colors">
+                                    <div className="px-6 py-2 rounded-full border border-white/50 bg-white/10 backdrop-blur-md text-[clamp(10px,0.6vw+4px,12px)] tracking-wide text-white/90 font-light hover:bg-white/20 transition-colors">
                                         operational development
                                     </div>
-                                    <div className="px-6 py-2 rounded-full border border-white/50 bg-white/10 backdrop-blur-md text-xs md:text-sm tracking-wide text-white/90 font-light hover:bg-white/20 transition-colors">
+                                    <div className="px-6 py-2 rounded-full border border-white/50 bg-white/10 backdrop-blur-md text-[clamp(10px,0.6vw+4px,12px)] tracking-wide text-white/90 font-light hover:bg-white/20 transition-colors">
                                         App development
                                     </div>
-                                    <div className="px-6 py-2 rounded-full border border-white/50 bg-white/10 backdrop-blur-md text-xs md:text-sm tracking-wide text-white/90 font-light hover:bg-white/20 transition-colors">
+                                    <div className="px-6 py-2 rounded-full border border-white/50 bg-white/10 backdrop-blur-md text-[clamp(10px,0.6vw+4px,12px)] tracking-wide text-white/90 font-light hover:bg-white/20 transition-colors">
                                         Branding
                                     </div>
                                 </div>
@@ -322,18 +322,18 @@ export default function AboutPage() {
                                         <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                                     </div>
                                     <div className="text-center md:text-left w-64 md:w-80">
-                                        <h3 className="text-lg md:text-xl tracking-[0.15em] font-light uppercase mb-2">Mohit Ravindran</h3>
-                                        <p className="text-[10px] md:text-xs tracking-wider text-white/70 font-medium">Founder & Product Designer</p>
+                                        <h3 className="text-[clamp(1rem,1.2vw+0.5rem,1.25rem)] tracking-[0.15em] font-light uppercase mb-2">Mohit Ravindran</h3>
+                                        <p className="text-[clamp(10px,0.5vw+4px,12px)] tracking-wider text-white/70 font-medium">Founder & Product Designer</p>
                                     </div>
                                 </div>
                                 {/* Right Side: Text */}
                                 <div className="w-full md:w-7/12 flex flex-col lg:flex-row gap-6 md:gap-8">
                                     <div className="w-full lg:w-5/12 shrink-0">
-                                        <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-light tracking-widest uppercase leading-snug">
+                                        <h2 className="text-[clamp(1.75rem,2.8vw+0.5rem,2.75rem)] font-light tracking-widest uppercase leading-snug">
                                             Real<br />Progress is<br />Engineered<br />With<br />Systems.
                                         </h2>
                                     </div>
-                                    <div className="w-full lg:w-7/12 flex flex-col gap-4 md:gap-6 text-[11px] md:text-xs font-light text-gray-300 leading-relaxed lg:pr-8">
+                                    <div className="w-full lg:w-7/12 flex flex-col gap-4 md:gap-6 text-[clamp(10px,0.6vw+5px,12px)] font-light text-gray-300 leading-relaxed lg:pr-8">
                                         <p>
                                             Mohit is the strategic force behind every project, combining product thinking, business strategy, and design to solve complex challenges. Having collaborated on more than a hundred digital products across healthcare, fintech, ecommerce, and enterprise software, he brings a deep understanding of what it takes to build products that succeed in the real world.
                                         </p>
@@ -358,18 +358,18 @@ export default function AboutPage() {
                                         <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                                     </div>
                                     <div className="text-center md:text-left w-64 md:w-80">
-                                        <h3 className="text-lg md:text-xl tracking-[0.15em] font-light uppercase mb-2">Person 2 Name</h3>
-                                        <p className="text-[10px] md:text-xs tracking-wider text-white/70 font-medium">Role & Title</p>
+                                        <h3 className="text-[clamp(1rem,1.2vw+0.5rem,1.25rem)] tracking-[0.15em] font-light uppercase mb-2">Person 2 Name</h3>
+                                        <p className="text-[clamp(10px,0.5vw+4px,12px)] tracking-wider text-white/70 font-medium">Role & Title</p>
                                     </div>
                                 </div>
                                 {/* Right Side: Text */}
                                 <div className="w-full md:w-7/12 flex flex-col lg:flex-row gap-6 md:gap-8">
                                     <div className="w-full lg:w-5/12 shrink-0">
-                                        <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-light tracking-widest uppercase leading-snug">
+                                        <h2 className="text-[clamp(1.75rem,2.8vw+0.5rem,2.75rem)] font-light tracking-widest uppercase leading-snug">
                                             Real<br />Progress is<br />Engineered<br />With<br />Systems.
                                         </h2>
                                     </div>
-                                    <div className="w-full lg:w-7/12 flex flex-col gap-4 md:gap-6 text-[11px] md:text-xs font-light text-gray-300 leading-relaxed lg:pr-8">
+                                    <div className="w-full lg:w-7/12 flex flex-col gap-4 md:gap-6 text-[clamp(10px,0.6vw+5px,12px)] font-light text-gray-300 leading-relaxed lg:pr-8">
                                         <p>
                                             Mohit is the strategic force behind every project, combining product thinking, business strategy, and design to solve complex challenges. Having collaborated on more than a hundred digital products across healthcare, fintech, ecommerce, and enterprise software, he brings a deep understanding of what it takes to build products that succeed in the real world.
                                         </p>
@@ -394,18 +394,18 @@ export default function AboutPage() {
                                         <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                                     </div>
                                     <div className="text-center md:text-left w-64 md:w-80">
-                                        <h3 className="text-lg md:text-xl tracking-[0.15em] font-light uppercase mb-2">Person 3 Name</h3>
-                                        <p className="text-[10px] md:text-xs tracking-wider text-white/70 font-medium">Role & Title</p>
+                                        <h3 className="text-[clamp(1rem,1.2vw+0.5rem,1.25rem)] tracking-[0.15em] font-light uppercase mb-2">Person 3 Name</h3>
+                                        <p className="text-[clamp(10px,0.5vw+4px,12px)] tracking-wider text-white/70 font-medium">Role & Title</p>
                                     </div>
                                 </div>
                                 {/* Right Side: Text */}
                                 <div className="w-full md:w-7/12 flex flex-col lg:flex-row gap-6 md:gap-8">
                                     <div className="w-full lg:w-5/12 shrink-0">
-                                        <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-light tracking-widest uppercase leading-snug">
+                                        <h2 className="text-[clamp(1.75rem,2.8vw+0.5rem,2.75rem)] font-light tracking-widest uppercase leading-snug">
                                             Real<br />Progress is<br />Engineered<br />With<br />Systems.
                                         </h2>
                                     </div>
-                                    <div className="w-full lg:w-7/12 flex flex-col gap-4 md:gap-6 text-[11px] md:text-xs font-light text-gray-300 leading-relaxed lg:pr-8">
+                                    <div className="w-full lg:w-7/12 flex flex-col gap-4 md:gap-6 text-[clamp(10px,0.6vw+5px,12px)] font-light text-gray-300 leading-relaxed lg:pr-8">
                                         <p>
                                             Mohit is the strategic force behind every project, combining product thinking, business strategy, and design to solve complex challenges. Having collaborated on more than a hundred digital products across healthcare, fintech, ecommerce, and enterprise software, he brings a deep understanding of what it takes to build products that succeed in the real world.
                                         </p>
@@ -437,8 +437,8 @@ export default function AboutPage() {
 
                             {/* Left Side: Text */}
                             <div className="w-full md:w-5/12 flex flex-col text-left">
-                                <h2 className="text-3xl md:text-4xl tracking-[0.15em] uppercase mb-8 font-light">Our Team</h2>
-                                <p className="text-sm md:text-sm leading-[1.8] font-light text-gray-300 max-w-md">
+                                <h2 className="text-[clamp(1.75rem,2.5vw+0.5rem,2.25rem)] tracking-[0.15em] uppercase mb-8 font-light">Our Team</h2>
+                                <p className="text-[clamp(12px,0.6vw+5px,14px)] leading-[1.8] font-light text-gray-300 max-w-md">
                                     Curiosity drives us. Problem-solving<br />
                                     defines us. Every person at Smrkonova<br />
                                     brings a unique perspective, united by one<br />
@@ -478,8 +478,8 @@ export default function AboutPage() {
                                     </div>
 
                                     <div className="text-center">
-                                        <h3 className="text-sm md:text-base tracking-[0.1em] font-light uppercase mb-1">Mohit Ravindran</h3>
-                                        <p className="text-[9px] md:text-[10px] tracking-wider text-white/60 font-medium">Founder & Product Designer</p>
+                                        <h3 className="text-[clamp(12px,0.6vw+5px,16px)] tracking-[0.1em] font-light uppercase mb-1">Mohit Ravindran</h3>
+                                        <p className="text-[clamp(9px,0.5vw+4px,10px)] tracking-wider text-white/60 font-medium">Founder & Product Designer</p>
                                     </div>
                                 </div>
                             </div>
@@ -535,7 +535,7 @@ export default function AboutPage() {
                             >
                                 {/* Label Top */}
                                 {item.pos === "top" && (
-                                    <span className={`absolute bottom-full mb-4 text-[9px] md:text-sm tracking-widest uppercase transition-colors duration-300 whitespace-nowrap ${activeSlide === index ? 'text-white font-medium' : 'text-white/60 group-hover:text-white'}`}>
+                                    <span className={`absolute bottom-full mb-4 text-[clamp(9px,0.6vw+4px,12px)] tracking-widest uppercase transition-colors duration-300 whitespace-nowrap ${activeSlide === index ? 'text-white font-medium' : 'text-white/60 group-hover:text-white'}`}>
                                         {item.label}
                                     </span>
                                 )}
@@ -548,7 +548,7 @@ export default function AboutPage() {
 
                                 {/* Label Bottom */}
                                 {item.pos === "bottom" && (
-                                    <span className={`absolute top-full mt-4 text-[9px] md:text-sm tracking-widest uppercase transition-colors duration-300 whitespace-nowrap ${activeSlide === index ? 'text-white font-medium' : 'text-white/60 group-hover:text-white'}`}>
+                                    <span className={`absolute top-full mt-4 text-[clamp(9px,0.6vw+4px,12px)] tracking-widest uppercase transition-colors duration-300 whitespace-nowrap ${activeSlide === index ? 'text-white font-medium' : 'text-white/60 group-hover:text-white'}`}>
                                         {item.label}
                                     </span>
                                 )}
@@ -585,17 +585,17 @@ export default function AboutPage() {
                     {/* Text Content constrained to grid */}
                     <div className="relative z-10 w-full max-w-7xl mx-auto px-8 md:px-20 flex justify-end">
                         <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left mt-[40vh] md:mt-0">
-                            <h2 className="text-3xl md:text-5xl lg:text-[3.5rem] font-light tracking-[0.1em] uppercase leading-[1.2] mb-8">
+                            <h2 className="text-[clamp(1.75rem,3.5vw+0.5rem,3.5rem)] font-light tracking-[0.1em] uppercase leading-[1.2] mb-8">
                                 Each<br />Challenge<br />Sharpens Our<br />Thinking.
                             </h2>
-                            <p className="text-xs md:text-sm text-gray-300 font-light leading-[1.8] max-w-sm mb-12">
+                            <p className="text-[clamp(11px,0.6vw+5px,14px)] text-gray-300 font-light leading-[1.8] max-w-sm mb-12">
                                 Every solution expands our understanding revealing a better path forward. Get to the vantage point for your next climb.
                             </p>
                             <div className="flex gap-4">
-                                <button className="px-6 py-3 md:px-8 md:py-4 bg-white text-black text-[9px] md:text-xs tracking-[0.2em] uppercase font-medium hover:bg-gray-200 transition-colors">
+                                <button className="px-6 py-3 md:px-8 md:py-4 bg-white text-black text-[clamp(9px,0.6vw+4px,12px)] tracking-[0.2em] uppercase font-medium hover:bg-gray-200 transition-colors">
                                     Talk to the team
                                 </button>
-                                <button className="px-6 py-3 md:px-8 md:py-4 bg-transparent border border-white/40 text-white text-[9px] md:text-xs tracking-[0.2em] uppercase font-medium hover:bg-white/10 transition-colors">
+                                <button className="px-6 py-3 md:px-8 md:py-4 bg-transparent border border-white/40 text-white text-[clamp(9px,0.6vw+4px,12px)] tracking-[0.2em] uppercase font-medium hover:bg-white/10 transition-colors">
                                     See our work
                                 </button>
                             </div>
@@ -605,7 +605,7 @@ export default function AboutPage() {
 
                 {/* Journey Continues / Clouds Section */}
                 <section className="relative z-10 w-full min-h-[50vh] flex flex-col items-center justify-center py-20">
-                    <h3 className="text-sm md:text-xl tracking-[0.3em] font-light uppercase mb-12 md:mb-20 text-center">
+                    <h3 className="text-[clamp(0.875rem,1.5vw+0.4rem,1.25rem)] tracking-[0.3em] font-light uppercase mb-12 md:mb-20 text-center">
                         The Journey Continues
                     </h3>
 
@@ -639,7 +639,7 @@ export default function AboutPage() {
                             borderBottomRightRadius: '50vw 100%'
                         }}
                     >
-                        <h2 className="text-xl md:text-3xl lg:text-4xl tracking-[0.2em] font-light uppercase text-center leading-[1.6]">
+                        <h2 className="text-[clamp(1.25rem,2.2vw+0.5rem,2.25rem)] tracking-[0.2em] font-light uppercase text-center leading-[1.6]">
                             When your<br />brand reaches<br />the summit,
                         </h2>
                     </div>
@@ -653,18 +653,18 @@ export default function AboutPage() {
                             borderTopRightRadius: '50vw 100%'
                         }}
                     >
-                        <h1 className="text-4xl md:text-6xl lg:text-[5rem] tracking-[0.2em] font-light uppercase text-center mb-4">
+                        <h1 className="text-[clamp(2.25rem,5vw+0.5rem,5rem)] tracking-[0.2em] font-light uppercase text-center mb-4">
                             The View
                         </h1>
-                        <h3 className="text-xs md:text-xl lg:text-2xl tracking-[0.2em] font-light uppercase text-center text-white/80 mb-10">
+                        <h3 className="text-[clamp(0.875rem,1.8vw+0.4rem,1.5rem)] tracking-[0.2em] font-light uppercase text-center text-white/80 mb-10">
                             Speaks for itself
                         </h3>
 
-                        <p className="text-[10px] md:text-xs text-center text-gray-300 font-light max-w-[320px] md:max-w-md leading-[2] mb-12 px-6">
+                        <p className="text-[clamp(10px,0.6vw+4px,12px)] text-center text-gray-300 font-light max-w-[320px] md:max-w-md leading-[2] mb-12 px-6">
                             Share your vision, your challenge, or your next ambition. Smrkonova helps explore what's possible and engineers the smartest path to the top.
                         </p>
 
-                        <button className="px-8 py-3 md:px-10 md:py-4 bg-transparent border border-white/30 text-white text-[9px] md:text-xs tracking-[0.2em] uppercase hover:bg-white/10 transition-colors">
+                        <button className="px-8 py-3 md:px-10 md:py-4 bg-transparent border border-white/30 text-white text-[clamp(9px,0.6vw+4px,12px)] tracking-[0.2em] uppercase hover:bg-white/10 transition-colors">
                             Get in touch
                         </button>
                     </div>

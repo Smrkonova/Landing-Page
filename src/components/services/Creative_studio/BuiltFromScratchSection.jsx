@@ -36,11 +36,11 @@ export default function BuiltFromScratchSection() {
                         <span className="font-bold tracking-normal">Works Everywhere.</span>
                     </h2>
 
-                    <p className="text-gray-500 text-lg md:text-xl max-w-lg mb-6 leading-relaxed font-light">
+                    <p className="text-gray-500 text-[clamp(1rem,0.8vw+0.65rem,1.25rem)] max-w-lg mb-6 leading-relaxed font-light">
                         Great creative isn't limited to one platform. We design assets that work consistently across digital, print and video.
                     </p>
 
-                    <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-400">
+                    <div className="inline-flex items-center gap-2 text-[clamp(10px,0.4vw+5px,12px)] font-semibold uppercase tracking-wider text-gray-400">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#0066FF]"></span>
                         Every project is planned around where your audience will experience it.
                     </div>
@@ -116,7 +116,7 @@ export default function BuiltFromScratchSection() {
                                                     zIndex: isVisible ? (isActive ? 30 : 20) : 10,
                                                 }}
                                             >
-                                                <span className={`text-[13px] md:text-[15px] font-medium tracking-[0.2em] uppercase transition-colors duration-[1000ms] ${isActive ? 'text-black' : 'text-gray-700'}`}>
+                                                <span className={`text-[clamp(11px,0.4vw+7px,14px)] font-medium tracking-[0.2em] uppercase transition-colors duration-[1000ms] ${isActive ? 'text-black' : 'text-gray-700'}`}>
                                                     {text}
                                                 </span>
                                             </div>

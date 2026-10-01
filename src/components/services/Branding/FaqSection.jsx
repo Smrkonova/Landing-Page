@@ -63,7 +63,7 @@ export default function FaqSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
 
         {/* Title */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-[#111] text-center mb-12 md:mb-16 uppercase tracking-wide">
+        <h2 className="text-[clamp(1.75rem,3.5vw+0.5rem,3rem)] font-light text-[#111] text-center mb-12 md:mb-16 uppercase tracking-wide">
           Answers Before You Ask
         </h2>
 
@@ -87,10 +87,10 @@ export default function FaqSection() {
                   onClick={() => toggleFaq(index)}
                   className="w-full flex justify-between items-center p-6 md:px-10 text-left focus:outline-none"
                 >
-                  <span className="text-[#333] font-medium text-sm md:text-base">
+                  <span className="text-[#333] font-medium text-[clamp(0.875rem,0.6vw+0.7rem,1.0625rem)]">
                     {faq.question}
                   </span>
-                  <span className="text-[#333] text-2xl font-light leading-none ml-6">
+                  <span className="text-[#333] text-[clamp(1.25rem,1.5vw+0.5rem,1.5rem)] font-light leading-none ml-6">
                     {isOpen ? "−" : "+"}
                   </span>
                 </button>
@@ -103,7 +103,7 @@ export default function FaqSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <div className="px-6 md:px-10 pb-8 text-[#555] text-xs md:text-sm leading-relaxed max-w-3xl whitespace-pre-line">
+                      <div className="px-6 md:px-10 pb-8 text-[#555] text-[clamp(0.8125rem,0.5vw+0.65rem,0.9375rem)] leading-relaxed max-w-3xl whitespace-pre-line">
                         {faq.answer}
                       </div>
                     </motion.div>

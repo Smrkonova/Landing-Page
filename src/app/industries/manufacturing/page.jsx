@@ -21,16 +21,16 @@ export default function Page() {
                     {/* Left Content (60%) */}
                     <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-6 md:space-y-8 lg:col-span-3 max-w-2xl">
                         <div className="space-y-2 md:space-y-4">
-                            <h1 className="text-[2.5rem] sm:text-5xl md:text-[5rem] font-extrabold tracking-wider leading-none text-white uppercase break-words">
+                            <h1 className="text-[clamp(2.5rem,5.5vw+0.5rem,5rem)] font-extrabold tracking-wider leading-none text-white uppercase break-words">
                                 It Worked...
                             </h1>
-                            <div className="text-xl sm:text-2xl md:text-5xl font-light tracking-[0.1em] md:tracking-[0.15em] leading-tight text-[#666666] uppercase">
+                            <div className="text-[clamp(1.25rem,2.8vw+0.5rem,3rem)] font-light tracking-[0.1em] md:tracking-[0.15em] leading-tight text-[#666666] uppercase">
                                 <span className="block mb-1 md:mb-2">Until</span>
                                 <span className="block">The Systems Didn't</span>
                             </div>
                         </div>
 
-                        <p className="text-xs md:text-[13px] text-[#888888] leading-[1.8] max-w-md font-normal tracking-wide">
+                        <p className="text-[clamp(11px,0.4vw+6px,13px)] text-[#888888] leading-[1.8] max-w-md font-normal tracking-wide">
                             Over the years, we have made the shift from offline to a combination of offline and online
                             strategies to convert a hot lead into a deal. Now, customers flow into your business
                             several ways, through search, physical meetings, events, referrals, to grab downloadables
@@ -41,13 +41,13 @@ export default function Page() {
                         <div className="flex flex-col sm:flex-row gap-3 pt-4 w-full md:w-auto">
                             <Link
                                 href="#build"
-                                className="px-6 py-4 bg-white text-black text-[11px] font-bold tracking-widest uppercase hover:bg-neutral-200 transition-colors text-center w-full md:w-auto"
+                                className="px-6 py-4 bg-white text-black text-[clamp(10px,0.4vw+4px,12px)] font-bold tracking-widest uppercase hover:bg-neutral-200 transition-colors text-center w-full md:w-auto"
                             >
                                 Build Your System
                             </Link>
                             <Link
                                 href="#process"
-                                className="px-6 py-4 bg-transparent border border-white text-white text-[11px] font-bold tracking-widest uppercase hover:bg-white/10 transition-colors text-center w-full md:w-auto"
+                                className="px-6 py-4 bg-transparent border border-white text-white text-[clamp(10px,0.4vw+4px,12px)] font-bold tracking-widest uppercase hover:bg-white/10 transition-colors text-center w-full md:w-auto"
                             >
                                 See Our Process
                             </Link>
@@ -82,10 +82,10 @@ export default function Page() {
 
                     {/* Left Text Content */}
                     <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8 md:space-y-12 z-10 relative pr-0 md:pr-4 lg:pr-12">
-                        <h2 className="text-4xl sm:text-5xl md:text-[4.5rem] lg:text-[64px] font-light tracking-[0.1em] md:tracking-[0.2em] leading-[1.2] md:leading-tight text-[#111] uppercase break-words">
+                        <h2 className="text-[clamp(2rem,4vw+0.5rem,4rem)] font-light tracking-[0.1em] md:tracking-[0.2em] leading-[1.2] md:leading-tight text-[#111] uppercase break-words">
                             Meet your extended wing
                         </h2>
-                        <p className="text-[13px] md:text-[14px] text-[#666] leading-[2] font-normal">
+                        <p className="text-[clamp(12px,0.4vw+6px,14px)] text-[#666] leading-[2] font-normal">
                             Once your business is on-board, we will study it, begin building seamless systems for enterprises, ERP planners among others. With Smrkonova, build brand specific operational systems for your business, keeping your customers' needs right on the top. We don't just build factory websites, we engineer digital business systems using:
                         </p>
                     </div>

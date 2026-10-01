@@ -112,12 +112,12 @@ export default function TechnologySection() {
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 md:gap-10 lg:gap-8 mt-6 sm:mt-12 md:mt-20 lg:mt-28">
                         {softwareCategories.map((cat, idx) => (
                             <div key={idx}>
-                                <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">
+                                <h4 className="text-[clamp(11px,0.4vw+6px,14px)] font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">
                                     {cat.title}
                                 </h4>
                                 <ul className="space-y-1.5 sm:space-y-3">
                                     {cat.tools.map((tool, tIdx) => (
-                                        <li key={tIdx} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 font-medium">
+                                        <li key={tIdx} className="flex items-start gap-2 sm:gap-2.5 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 font-medium">
                                             {checkIcon}
                                             <span>{tool}</span>
                                         </li>
@@ -136,7 +136,7 @@ export default function TechnologySection() {
                                 <span className="block font-black">CREATIVE</span>
                                 <span className="block font-light text-gray-600">TOOLKIT</span>
                             </h3>
-                            <p className="text-gray-600 text-[13px] md:text-[14px] font-medium leading-relaxed">
+                            <p className="text-gray-600 text-[clamp(11px,0.4vw+6px,14px)] font-medium leading-relaxed">
                                 We use industry-standard creative software to craft high-fidelity 3D assets, fluid motion animations and professional video productions.
                             </p>
                         </div>

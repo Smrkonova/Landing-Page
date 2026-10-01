@@ -130,7 +130,7 @@ export default function FeaturesSliderSection() {
         <section className="w-full max-w-full bg-white py-16 md:py-20 overflow-hidden">
             {/* Title Container - Constrained Width */}
             <div className="max-w-[1400px] mx-auto px-4 md:px-12 flex items-center justify-between mb-12">
-                <h2 className="text-[22px] md:text-[28px] lg:text-[32px] font-light tracking-wide text-[#1a1a1a] uppercase ml-4 md:ml-0">
+                <h2 className="text-[clamp(1.25rem,1.8vw+0.5rem,2rem)] font-light tracking-wide text-[#1a1a1a] uppercase ml-4 md:ml-0">
                     What We Create
                 </h2>
 
@@ -171,7 +171,7 @@ export default function FeaturesSliderSection() {
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="text-[22px] md:text-[26px] font-medium text-center text-black leading-tight max-w-[220px]">
+                                <h3 className="text-[clamp(1.125rem,1.4vw+0.5rem,1.625rem)] font-medium text-center text-black leading-tight max-w-[220px]">
                                     {feature.title.split(' ').map((word, i) => (
                                         <React.Fragment key={i}>
                                             {word}

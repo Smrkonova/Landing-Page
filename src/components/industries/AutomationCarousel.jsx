@@ -112,10 +112,10 @@ export default function AutomationCarousel() {
 
                     {/* Text Content */}
                     <div className="flex flex-col justify-end flex-grow text-center lg:text-left items-center lg:items-start z-10">
-                      <h2 className="text-[20px] lg:text-[24px] font-black text-[#111] leading-[1.1] mb-2 uppercase tracking-tight">
+                      <h2 className="text-[clamp(1.125rem,1.4vw+0.5rem,1.5rem)] font-black text-[#111] leading-[1.1] mb-2 uppercase tracking-tight">
                         {item.title}
                       </h2>
-                      <p className="text-[#555] text-[11px] lg:text-[13px] font-medium leading-[1.6] uppercase tracking-wider">
+                      <p className="text-[#555] text-[clamp(11px,0.4vw+4px,13px)] font-medium leading-[1.6] uppercase tracking-wider">
                         {item.description}
                       </p>
                     </div>

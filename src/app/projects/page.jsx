@@ -17,7 +17,7 @@ export default function ProjectsPage() {
           {/* <p className="text-pink-600 text-xs md:text-sm font-semibold uppercase tracking-widest mb-4">
             Data-Driven UX Case Studies From Global Projects
           </p> */}
-          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter">
+          <h1 className="text-[clamp(2.5rem,5.5vw+1rem,4.5rem)] font-black uppercase tracking-tighter">
             Projects
           </h1>
         </div>
@@ -64,7 +64,7 @@ export default function ProjectsPage() {
                 <div className="absolute top-6 left-6 flex flex-wrap gap-2 z-10">
                   {/* Using placeholder tags as seen in the design */}
                   {['WEBSITE', 'APP', 'ENTERTAINMENT'].map((tag) => (
-                    <span key={tag} className="bg-[#1a1a1a]/80 backdrop-blur-sm text-gray-200 text-[10px] font-bold px-2.5 py-1 tracking-wider uppercase">
+                    <span key={tag} className="bg-[#1a1a1a]/80 backdrop-blur-sm text-gray-200 text-[clamp(10px,0.7vw+2px,12px)] font-bold px-2.5 py-1 tracking-wider uppercase">
                       {tag}
                     </span>
                   ))}
@@ -72,7 +72,7 @@ export default function ProjectsPage() {
 
                 {/* Title Overlay (Bottom Left) */}
                 <div className="absolute bottom-6 left-6 z-10">
-                  <h2 className="text-white text-2xl md:text-3xl font-medium tracking-tight">
+                  <h2 className="text-white text-[clamp(1.25rem,1.8vw+0.5rem,1.875rem)] font-medium tracking-tight">
                     {project.title}
                   </h2>
                 </div>
