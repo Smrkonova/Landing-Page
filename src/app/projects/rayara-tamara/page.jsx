@@ -1,7 +1,89 @@
-import React from 'react';
+"use client";
 
+import React, { useState, useEffect, useRef } from 'react';
+
+const CHAT_MESSAGES = [
+  {
+    id: 1,
+    sender: "MOHIT",
+    text: '"When someone walks out after eating, what do you want them to remember?"',
+    type: "outline",
+    align: "left",
+  },
+  {
+    id: 2,
+    sender: "CHANDRASHEKHAR",
+    text: '"The atmosphere, peace & warmth."',
+    type: "green",
+    align: "right",
+  },
+  {
+    id: 3,
+    sender: "CHANDRASHEKHAR",
+    text: '"No loud music. No flashy interiors. Everything should feel warm."',
+    type: "brown",
+    align: "left",
+  },
+  {
+    id: 4,
+    sender: "CHANDRASHEKHAR",
+    text: '"I want people to feel like they\'ve stepped into Karnataka\'s culture."',
+    type: "green",
+    align: "right",
+  },
+  {
+    id: 5,
+    sender: "MOHIT",
+    text: '"What should someone feel in the first ten seconds?"',
+    type: "outline",
+    align: "left",
+  },
+  {
+    id: 6,
+    sender: "CHANDRASHEKHAR",
+    text: '"Calm. Like visiting their ancestral home."',
+    type: "green",
+    align: "right",
+  },
+];
 
 export default function RayaraTamaraProject() {
+  const [chatVisibleCount, setChatVisibleCount] = useState(1);
+  const [isChatPaused, setIsChatPaused] = useState(false);
+  const chatScrollRef = useRef(null);
+
+  // Auto-advance timer: reveals chat messages one by one with vertical scroll
+  useEffect(() => {
+    if (isChatPaused) return;
+
+    let timeoutId;
+    if (chatVisibleCount < CHAT_MESSAGES.length) {
+      timeoutId = setTimeout(() => {
+        setChatVisibleCount((prev) => prev + 1);
+      }, 2400);
+    } else {
+      timeoutId = setTimeout(() => {
+        setChatVisibleCount(1);
+      }, 4500);
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [chatVisibleCount, isChatPaused]);
+
+  // Smooth scroll container to bottom as new messages appear
+  useEffect(() => {
+    if (!chatScrollRef.current) return;
+    const container = chatScrollRef.current;
+
+    if (chatVisibleCount === 1) {
+      container.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const scrollTarget = container.scrollHeight - container.clientHeight;
+      if (scrollTarget > 0) {
+        container.scrollTo({ top: scrollTarget + 40, behavior: "smooth" });
+      }
+    }
+  }, [chatVisibleCount]);
   return (
     <main>
       <section className="min-h-screen bg-[#E3D6CA] relative overflow-hidden font-sans flex items-center">
@@ -170,7 +252,7 @@ export default function RayaraTamaraProject() {
 
       {/* Story Worth Preserving Section */}
       <section 
-        className="relative min-h-screen flex flex-col items-center justify-center font-sans"
+        className="relative min-h-screen flex flex-col items-center justify-center font-sans px-4 py-16"
         style={{
           backgroundColor: '#2B2D16AD',
           backgroundImage: 'url("/images/projects/rayara-tamara/story-worth.png")',
@@ -180,79 +262,104 @@ export default function RayaraTamaraProject() {
         }}
       >
         <div className="relative z-10 text-center flex flex-col items-center justify-center px-4 max-w-4xl mx-auto drop-shadow-2xl">
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-[0.2em] text-[#d2a760] mb-2 uppercase">
+          <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light tracking-[0.25em] text-[#d2a760] mb-2 sm:mb-3 md:mb-4 uppercase">
             Rooting in a
           </h3>
-          <h2 className="text-5xl md:text-7xl lg:text-[6rem] font-bold uppercase tracking-wider text-[#d2a760] leading-tight">
-            Story Worth<br/>Preserving
+          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-[5.5rem] font-bold uppercase tracking-wider text-[#d2a760] leading-[1.15]">
+            Story Worth<br />Preserving
           </h2>
-          <p className="mt-10 text-lg md:text-xl font-medium text-[#d2a760] opacity-90">
-            Something all of the team rooted for all along.
+          <p className="mt-6 sm:mt-8 md:mt-10 text-sm sm:text-base md:text-xl font-medium text-[#d2a760] opacity-90 max-w-[280px] sm:max-w-md md:max-w-none leading-relaxed">
+            Something all of the team<br className="block sm:hidden" /> rooted for all along.
           </p>
         </div>
       </section>
       {/* Experience Section */}
-      <section className="min-h-screen bg-[#E3D6CA] relative overflow-hidden font-sans py-20 flex flex-col items-center">
-        {/* Background Side Abstract Image */}
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 h-[70%] w-1/4 pointer-events-none flex justify-start opacity-70">
+      <section id="experience" className="min-h-screen bg-[#E3D6CA] relative overflow-hidden font-sans pt-16 pb-10 md:py-24 flex flex-col items-center">
+        {/* Background Mandala Accent - Top Left on Mobile, Center Left on Desktop */}
+        <div className="absolute top-0 left-0 w-36 sm:w-48 md:w-1/4 h-[396px] md:h-[533px] md:top-[20%] md:-translate-y-1/2 pointer-events-none flex justify-start opacity-45 md:opacity-60 -translate-x-4 -translate-y-4 md:translate-x-0">
           <img
             src="/images/projects/rayara-tamara/abstract-left.png"
-            alt="Left Abstract"
-            className="h-full object-contain object-left"
+            alt="Mandala Abstract"
+            className="w-full h-auto md:h-full object-contain object-left-top md:object-left"
           />
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-4 w-full relative z-10 flex flex-col items-center pt-10">
+        <div className="max-w-[1440px] mx-auto px-4 w-full relative z-10 flex flex-col items-center">
           
           {/* Top Text */}
-          <div className="text-center text-[#5c564b] mb-20 space-y-2">
-            <h3 className="text-xl md:text-2xl font-light uppercase tracking-widest text-[#5c564b]/90">The meal lasts an hour.</h3>
-            <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wider text-[#5c564b]">The experience lasts much longer.</h2>
-            <h3 className="text-xl md:text-2xl font-light uppercase tracking-widest text-[#5c564b]/90 pt-1">Smrkonova takes fine dining</h3>
-            <h3 className="text-xl md:text-2xl font-light uppercase tracking-widest text-[#5c564b]/90">experience, extends beyond food.</h3>
+          <div className="text-center text-[#5c564b] space-y-[1rem]  mb-10 sm:mb-14 md:mb-20  sm:space-y-1.5 px-4 max-w-full mx-auto">
+            <h3 className="text-xs sm:text-sm md:text-[40px] font-light uppercase  text-[#5c564b]/90">The meal lasts an hour.</h3>
+            <h2 className="text-sm sm:text-base md:text-[40px] font-bold uppercase  text-[#443e2f]">The experience lasts much longer.</h2>
+            <h3 className="text-xs sm:text-sm md:text-[40px] font-light uppercase  text-[#5c564b]/90">Smrkonova takes fine dining experience,<br/> extends beyond food.</h3>
           </div>
 
           {/* Center Graphic */}
-          <div className="relative w-full max-w-4xl flex items-center justify-center mt-10">
+          <div className="relative w-full max-w-sm sm:max-w-[392px] md:max-w-3xl lg:max-w-4xl flex items-center justify-center my-4 sm:my-8 md:my-12">
             {/* The leaf */}
-            <div className="relative w-full max-w-3xl flex justify-center items-center">
-               <img src="/images/projects/rayara-tamara/leaf.png" alt="Leaf" className="w-[110%] md:w-[120%] max-w-none h-auto object-contain" />
+            <div className="relative w-full max-w-[340px] sm:max-w-xl md:max-w-3xl flex justify-center items-center">
+               <img src="/images/projects/rayara-tamara/leaf.png" alt="Leaf" className="w-[397px] md:w-[115%] max-w-none h-auto object-contain drop-shadow-xl" />
                
                {/* The plate centered on the leaf */}
                <div className="absolute inset-0 flex items-center justify-center">
-                  <img src="/images/projects/rayara-tamara/plate.png" alt="Plate" className="w-[65%] md:w-[55%] h-auto drop-shadow-2xl" />
+                  <img src="/images/projects/rayara-tamara/plate.png" alt="Plate" className="w-[62%] sm:w-[56%] md:w-[50%] h-auto drop-shadow-2xl" />
                </div>
             </div>
             
-            {/* The floating text words */}
-            <div className="absolute inset-0 pointer-events-none drop-shadow-md">
-                <span className="absolute top-[8%] left-[22%] text-[#d2a760] font-serif text-2xl md:text-3xl tracking-widest uppercase">Craft</span>
-                <span className="absolute top-[0%] right-[30%] text-[#d2a760] font-serif text-3xl md:text-4xl tracking-widest uppercase">Legacy</span>
+            {/* The floating text words surrounding the leaf */}
+            <div className="absolute inset-0 pointer-events-none drop-shadow-md select-none">
+                {/* 1. CULTURE - Top Center */}
+                <span className="absolute top-[1%] sm:top-[2%] left-1/2 -translate-x-1/2 font-grisons text-xs sm:text-sm md:text-xl lg:text-2xl tracking-[0.25em] text-[#d2a760] font-medium uppercase animate-float-1">
+                  Culture
+                </span>
+
+                {/* 2. CRAFT - Top Left */}
+                <span className="absolute top-[10%] sm:top-[12%] left-[8%] sm:left-[14%] font-grisons text-xs sm:text-sm md:text-xl lg:text-2xl tracking-[0.25em] text-[#d2a760] font-medium uppercase animate-float-2">
+                  Craft
+                </span>
+
+                {/* 3. LEGACY - Top Right */}
+                <span className="absolute top-[8%] sm:top-[10%] right-[8%] sm:right-[14%] font-grisons text-xs sm:text-sm md:text-xl lg:text-2xl tracking-[0.25em] text-[#d2a760] font-medium uppercase animate-float-3">
+                  Legacy
+                </span>
                 
-                <span className="absolute top-[38%] left-[10%] text-[#d2a760] font-serif text-lg md:text-xl tracking-widest uppercase">Character</span>
-                <span className="absolute top-[42%] right-[32%] text-[#d2a760] font-serif text-xl tracking-widest uppercase z-10">Voice</span>
-                <span className="absolute top-[48%] right-[5%] text-[#d2a760] font-serif text-lg md:text-xl tracking-widest uppercase">Identity</span>
+                {/* 4. CHARACTER - Middle Left */}
+                <span className="absolute top-[42%] left-[1%] sm:left-[3%] font-grisons text-[11px] sm:text-xs md:text-lg lg:text-xl tracking-[0.2em] text-[#d2a760] font-medium uppercase animate-float-4">
+                  Character
+                </span>
+
+                {/* 5. IDENTITY - Middle Right */}
+                <span className="absolute top-[43%] right-[1%] sm:right-[4%] font-grisons text-[11px] sm:text-xs md:text-lg lg:text-xl tracking-[0.2em] text-[#d2a760] font-medium uppercase animate-float-1">
+                  Identity
+                </span>
                 
-                <span className="absolute top-[60%] left-[36%] text-[#d2a760] font-serif text-2xl md:text-3xl tracking-widest uppercase z-10 drop-shadow-xl">Meaning</span>
+                {/* 6. MEANING - Center across plate */}
+                <span className="absolute top-[54%] left-1/2 -translate-x-1/2 font-grisons text-sm sm:text-base md:text-2xl lg:text-[36px] font-bold tracking-[0.25em] text-[#dfb86e] uppercase z-20 animate-float-2 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+                  Meaning
+                </span>
                 
-                <span className="absolute bottom-[35%] left-[5%] text-[#d2a760] font-serif text-xl md:text-2xl tracking-widest uppercase">Continuity</span>
-                <span className="absolute bottom-[35%] right-[15%] text-[#d2a760] font-serif text-2xl md:text-3xl tracking-widest uppercase">Ritual</span>
+                {/* 7. RITUAL - Bottom Right */}
+                <span className="absolute bottom-[20%] right-[10%] sm:right-[16%] font-grisons text-xs sm:text-sm md:text-lg lg:text-xl tracking-[0.25em] text-[#d2a760] font-medium uppercase animate-float-3">
+                  Ritual
+                </span>
                 
-                <span className="absolute bottom-[5%] left-[25%] text-[#d2a760] font-serif text-2xl md:text-3xl tracking-widest uppercase">Culture</span>
-                <span className="absolute bottom-[10%] right-[25%] text-[#d2a760] font-serif text-3xl md:text-4xl tracking-widest uppercase">Story</span>
+                {/* 8. STORY - Bottom Left */}
+                <span className="absolute bottom-[8%] left-[8%] sm:left-[14%] font-grisons text-xs sm:text-sm md:text-xl lg:text-2xl tracking-[0.25em] text-[#d2a760] font-medium uppercase animate-float-4">
+                  Story
+                </span>
             </div>
           </div>
 
         </div>
       </section>
+
       {/* Authenticity Section */}
-      <section className="bg-[#E3D6CA] relative overflow-hidden font-sans py-32 flex flex-col items-center justify-center">
-        <div className="text-center px-4 max-w-4xl mx-auto space-y-10">
-          <h2 className="text-5xl md:text-7xl lg:text-[6rem] font-serif text-[#4a5332] leading-none tracking-tight">
+      <section id="authenticity" className="bg-[#E3D6CA] relative overflow-hidden font-sans pt-0 pb-20 md:pt-5 md:pb-32 flex flex-col items-center justify-center">
+        <div className="text-center px-4 max-w-4xl mx-auto space-y-4 sm:space-y-6 md:space-y-8">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] font-grisons text-[#252d1c] leading-[1.05] tracking-tight">
             authenticity is<br />the goal
           </h2>
-          <p className="text-lg md:text-xl text-[#c59e5e] font-medium tracking-wide">
-            but, how to choose a single story from many that feel true?
+          <p className="text-xs sm:text-sm md:text-lg text-[#b58a36] font-medium tracking-wide leading-relaxed max-w-xs sm:max-w-md mx-auto">
+            but, how to choose a single story from<br className="block sm:hidden" /> many that feel true?
           </p>
         </div>
       </section>
@@ -298,11 +405,11 @@ export default function RayaraTamaraProject() {
         <div className="max-w-[1440px] mx-auto px-4 w-full">
           
           {/* Top Text */}
-          <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-5xl font-light uppercase tracking-widest text-[#d8c3a5] mb-12 leading-snug">
+          <div className="text-center mb-10 md:mb-24">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-light uppercase tracking-[0.18em] text-[#d8c3a5] mb-6 md:mb-12 leading-snug">
               We went down<br />the road not taken
             </h2>
-            <div className="flex flex-col md:flex-row gap-8 md:gap-16 justify-center max-w-4xl mx-auto text-left text-sm text-[#d8c3a5] opacity-80 font-medium">
+            <div className="flex flex-col md:flex-row gap-5 md:gap-16 justify-center max-w-sm sm:max-w-md md:max-w-4xl mx-auto text-left text-xs sm:text-sm text-[#d8c3a5]/80 font-normal leading-relaxed">
               <p className="flex-1 leading-relaxed">
                 Traditionally teams begin with listening to the client and drafting a logo. We took another road. We met the founders, asked them about their aspirations with the space, explored the area, and searched for the story that could only belong to this place.
               </p>
@@ -314,8 +421,96 @@ export default function RayaraTamaraProject() {
 
         </div>
 
-        {/* Middle Chat Slider (Full Width) */}
-        <div className="w-full overflow-hidden py-10 relative">
+        {/* Mobile Vertical Chat View - Chats pop up one by one and scroll vertically */}
+        <div className="block md:hidden w-full px-4 mb-14">
+          <div className="w-full">
+            {/* Framed Vertical Chat Container */}
+            <div className="w-full max-w-[360px] sm:max-w-[420px] mx-auto rounded-[28px] sm:rounded-[32px] border border-[#585d33]/50 p-3 sm:p-4 bg-[#232716]/60 backdrop-blur-xs shadow-2xl relative overflow-hidden">
+              {/* Top Gradient Fade Overlay */}
+              <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-[#202514] via-[#202514]/80 to-transparent pointer-events-none z-10 rounded-t-[28px]" />
+              
+              {/* Bottom Gradient Fade Overlay */}
+              <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-[#202514] via-[#202514]/80 to-transparent pointer-events-none z-10 rounded-b-[28px]" />
+
+              {/* Scrollable Chat Feed */}
+              <div
+                ref={chatScrollRef}
+                onMouseEnter={() => setIsChatPaused(true)}
+                onMouseLeave={() => setIsChatPaused(false)}
+                onTouchStart={() => setIsChatPaused(true)}
+                onTouchEnd={() => setIsChatPaused(false)}
+                className="h-[460px] sm:h-[500px] overflow-y-auto no-scrollbar scroll-smooth flex flex-col gap-4 py-4 px-1"
+              >
+                {CHAT_MESSAGES.slice(0, chatVisibleCount).map((msg, index) => {
+                  const isLatest = index === chatVisibleCount - 1 && chatVisibleCount > 1;
+
+                  if (msg.type === "outline") {
+                    return (
+                      <div
+                        key={msg.id}
+                        className={`self-start w-[92%] sm:w-[88%] border border-[#756c4d]/50 bg-[#2b2f18]/60 text-[#e3d6ca] rounded-[20px] p-4 sm:p-5 shadow-sm relative ${
+                          isLatest ? "animate-pop-in" : ""
+                        }`}
+                      >
+                        <span className="text-[10px] sm:text-xs font-semibold tracking-widest uppercase text-[#9e957e] block mb-1.5">
+                          {msg.sender}
+                        </span>
+                        <p className="text-xs sm:text-sm font-normal text-[#e3d6ca] leading-relaxed">
+                          {msg.text}
+                        </p>
+                      </div>
+                    );
+                  }
+
+                  if (msg.type === "green") {
+                    return (
+                      <div
+                        key={msg.id}
+                        className={`self-end ml-auto w-[85%] sm:w-[80%] bg-[#4d5624] text-white rounded-[20px] p-4 sm:p-5 shadow-md relative ${
+                          isLatest ? "animate-pop-in" : ""
+                        }`}
+                      >
+                        <span className="text-[10px] sm:text-xs font-semibold tracking-widest uppercase text-[#d5b068] block mb-1.5 text-right">
+                          {msg.sender}
+                        </span>
+                        <p className="text-xs sm:text-sm font-medium text-white leading-relaxed text-right sm:text-left">
+                          {msg.text}
+                        </p>
+                        {/* Bottom-right speech bubble tail */}
+                        <div className="absolute -bottom-1.5 right-4 w-3.5 h-3.5 bg-[#4d5624] [clip-path:polygon(0_0,100%_0,0_100%)] pointer-events-none" />
+                      </div>
+                    );
+                  }
+
+                  if (msg.type === "brown") {
+                    return (
+                      <div
+                        key={msg.id}
+                        className={`self-start w-[92%] sm:w-[88%] bg-[#502515] text-white rounded-[20px] p-4 sm:p-5 shadow-md relative ${
+                          isLatest ? "animate-pop-in" : ""
+                        }`}
+                      >
+                        <span className="text-[10px] sm:text-xs font-semibold tracking-widest uppercase text-[#d5b068] block mb-1.5 text-left">
+                          {msg.sender}
+                        </span>
+                        <p className="text-xs sm:text-sm font-semibold text-white leading-relaxed text-left">
+                          {msg.text}
+                        </p>
+                        {/* Bottom-left speech bubble tail */}
+                        <div className="absolute -bottom-1.5 left-4 w-3.5 h-3.5 bg-[#502515] [clip-path:polygon(0_0,100%,100%_100%)] pointer-events-none" />
+                      </div>
+                    );
+                  }
+
+                  return null;
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Chat Slider (Horizontal Marquee) */}
+        <div className="hidden md:block w-full overflow-hidden py-10 relative">
             
             {/* Wrapper for marquee */}
             <div className="flex w-max animate-marquee space-x-12 px-6">
@@ -414,7 +609,7 @@ export default function RayaraTamaraProject() {
               <div className="flex flex-col items-center">
                 {/* Placeholder for icon */}
                 <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
-                   <svg className="w-12 h-12 text-[#585d33]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                   <img src="/images/projects/rayara-tamara/Layer1.png" alt="" />
                 </div>
                 <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-sm md:text-base">Brand Name<br/>& Identity</h4>
                 <p className="text-xs text-[#5c564b] opacity-80 max-w-[200px] leading-relaxed">Rooted in Karnataka's heritage, expressing warmth, peace and timeless temple-inspired hospitality.</p>
@@ -422,7 +617,7 @@ export default function RayaraTamaraProject() {
               <div className="flex flex-col items-center">
                 {/* Placeholder for icon */}
                 <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
-                   <svg className="w-12 h-12 text-[#585d33]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                 <img src="/images/projects/rayara-tamara/Layer2.png" alt="" />
                 </div>
                 <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-sm md:text-base">Digital<br/>Experience</h4>
                 <p className="text-xs text-[#5c564b] opacity-80 max-w-[200px] leading-relaxed">Seamlessly translating Karnataka's warmth, heritage and hospitality across every digital interaction.</p>
@@ -439,7 +634,7 @@ export default function RayaraTamaraProject() {
               <div className="flex flex-col items-center">
                 {/* Placeholder for icon */}
                 <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
-                   <svg className="w-12 h-12 text-[#585d33]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M20.24 12.24a5 5 0 00-7.08-7.08L12 8.16l-1.16-1.16a5 5 0 00-7.08 7.08l8.24 8.24 8.24-8.24z"></path></svg>
+                  <img src="/images/projects/rayara-tamara/Layer3.png" alt="" />
                 </div>
                 <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-sm md:text-base">Logo<br/>Design</h4>
                 <p className="text-xs text-[#5c564b] opacity-80 max-w-[200px] leading-relaxed">A timeless symbol reflecting Rayara's blessings, copper traditions and cultural pride.</p>
@@ -447,7 +642,7 @@ export default function RayaraTamaraProject() {
               <div className="flex flex-col items-center">
                 {/* Placeholder for icon */}
                 <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
-                   <svg className="w-12 h-12 text-[#585d33]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                   <img src="/images/projects/rayara-tamara/Layer4.png" alt="" />
                 </div>
                 <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-sm md:text-base">Typography<br/>Iconography</h4>
                 <p className="text-xs text-[#5c564b] opacity-80 max-w-[200px] leading-relaxed">Elegant letterforms balancing traditional character with refined contemporary readability and warmth.</p>
@@ -461,7 +656,7 @@ export default function RayaraTamaraProject() {
             <div className="flex flex-col items-center">
                 {/* Placeholder for icon */}
                 <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
-                   <svg className="w-12 h-12 text-[#585d33]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    <img src="/images/projects/rayara-tamara/Layer5.png" alt="" />
                 </div>
                 <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-sm md:text-base">Visual<br/>Language</h4>
                 <p className="text-xs text-[#5c564b] opacity-80 max-w-[220px] mx-auto leading-relaxed">Spaces inspired by temple architecture, handcrafted textures and curated artwork that tells the story.</p>
@@ -469,7 +664,7 @@ export default function RayaraTamaraProject() {
             <div className="flex flex-col items-center">
                 {/* Placeholder for icon */}
                 <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
-                   <svg className="w-12 h-12 text-[#585d33]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                     <img src="/images/projects/rayara-tamara/Layer6.png" alt="" />
                 </div>
                 <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-sm md:text-base">Colour<br/>System</h4>
                 <p className="text-xs text-[#5c564b] opacity-80 max-w-[220px] mx-auto leading-relaxed">Earthy tones inspired by copper, stone, wood and Karnataka's sacred landscapes.</p>
@@ -477,7 +672,7 @@ export default function RayaraTamaraProject() {
             <div className="flex flex-col items-center">
                 {/* Placeholder for icon */}
                 <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
-                   <svg className="w-12 h-12 text-[#585d33]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                     <img src="/images/projects/rayara-tamara/Layer7.png" alt="" />
                 </div>
                 <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-sm md:text-base">Marketing<br/>Collaterals</h4>
                 <p className="text-xs text-[#5c564b] opacity-80 max-w-[220px] mx-auto leading-relaxed">Menus, stationery and hospitality touchpoints designed with timeless craftsmanship and cultural authenticity.</p>
@@ -485,7 +680,7 @@ export default function RayaraTamaraProject() {
             <div className="flex flex-col items-center">
                 {/* Placeholder for icon */}
                 <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
-                   <svg className="w-12 h-12 text-[#585d33]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                   <img src="/images/projects/rayara-tamara/Layer8.png" alt="" />
                 </div>
                 <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-sm md:text-base">Future<br/>Market Strategy</h4>
                 <p className="text-xs text-[#5c564b] opacity-80 max-w-[220px] mx-auto leading-relaxed">Building lasting relationships through community participation and authentic cultural experiences.</p>
@@ -717,8 +912,76 @@ export default function RayaraTamaraProject() {
             </div>
 
           </div>
+
+          {/* Visual Experience Showcase Cards */}
+          <div id="visual-showcase" className="mt-24 sm:mt-28 md:mt-36 w-full">
+            <div className="flex md:grid md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 overflow-x-auto md:overflow-visible pb-8 md:pb-0 px-3 sm:px-4 md:px-0 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] items-stretch">
+              
+              {/* Card 1: Peace, warmth, atmosphere */}
+              <div className="relative flex-shrink-0 w-[82vw] sm:w-[380px] md:w-auto aspect-[453/560] rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-xl snap-center group">
+                <img
+                  src="/images/projects/rayara-tamara/atmosphere.png"
+                  alt="Peace, warmth, atmosphere"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                {/* Gradient overlay for readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
+                
+                <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8 text-white pointer-events-none">
+                  <p className="text-xl sm:text-2xl lg:text-[28px] xl:text-[32px] font-light tracking-wide text-white/95 leading-tight">
+                    Peace, warmth,
+                  </p>
+                  <p className="text-xl sm:text-2xl lg:text-[28px] xl:text-[32px] font-bold tracking-wide text-white leading-tight mt-0.5">
+                    atmosphere
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 2: Temple-inspired hospitality */}
+              <div className="relative flex-shrink-0 w-[82vw] sm:w-[380px] md:w-auto aspect-[453/560] rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-xl snap-center group">
+                <img
+                  src="/images/projects/rayara-tamara/hospitality.png"
+                  alt="Temple-inspired hospitality"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                {/* Gradient overlay for readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
+                
+                <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8 text-white pointer-events-none">
+                  <p className="text-xl sm:text-2xl lg:text-[28px] xl:text-[32px] font-light tracking-wide text-white/95 leading-tight">
+                    Temple-inspired
+                  </p>
+                  <p className="text-xl sm:text-2xl lg:text-[28px] xl:text-[32px] font-bold tracking-wide text-white leading-tight mt-0.5">
+                    hospitality
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 3: Temple-inspired hospitality */}
+              <div className="relative flex-shrink-0 w-[82vw] sm:w-[380px] md:w-auto aspect-[453/560] rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-xl snap-center group">
+                <img
+                  src="/images/projects/rayara-tamara/tradition.png"
+                  alt="Temple-inspired hospitality"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                {/* Gradient overlay for readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
+                
+                <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8 text-white pointer-events-none">
+                  <p className="text-xl sm:text-2xl lg:text-[28px] xl:text-[32px] font-light tracking-wide text-white/95 leading-tight">
+                    Temple-inspired
+                  </p>
+                  <p className="text-xl sm:text-2xl lg:text-[28px] xl:text-[32px] font-bold tracking-wide text-white leading-tight mt-0.5">
+                    hospitality
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
       </section>
+      
     </main>
   );
 }
