@@ -19,7 +19,7 @@ const marqueeItems = [...cities, ...cities, ...cities, ...cities];
 export default function LocationsMarquee() {
   return (
     <section className="relative w-full bg-white text-black py-24 md:py-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-0 flex flex-col md:flex-row items-center">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-0 flex flex-col md:flex-row items-center">
 
         {/* Left Content */}
         <div className="w-full md:w-[45%] mb-16 md:mb-0 pr-0 md:pr-12 flex flex-col items-center md:items-start text-center md:text-left">

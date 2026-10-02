@@ -4,10 +4,11 @@ import React from 'react';
 import Image from 'next/image';
 
 const checkIcon = (
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-0.5">
-        <circle cx="7" cy="7" r="7" fill="#1a1a1a" />
-        <path d="M4 7L6 9L10 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <span className="flex-shrink-0 w-[15px] h-[15px] rounded-full bg-black flex items-center justify-center">
+        <svg width="8" height="6" viewBox="0 0 8 6" fill="none">
+            <path d="M1 3L3 5L7 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+    </span>
 );
 
 const mobileTechList = [
@@ -15,37 +16,199 @@ const mobileTechList = [
 ];
 
 const backendTechList = [
-    "Node.js", "Laravel", "Firebase", "Supabase"
+    "Node", "Laravel", "Firebase", "Supabase"
+];
+
+const mobileTags = [
+    { text: "PAYMENTS", active: false },
+    { text: "MAP & LOCATION", active: false },
+    { text: "NOTIFICATIONS", active: false },
+    { text: "AUTHENTICATION", active: false },
+    { text: "BOOKING", active: true },
+    { text: "ANALYTICS", active: false },
+    { text: "BUSINESS", active: false },
+    { text: "SYSTEMS", active: false },
+    { text: "MORE", active: false },
 ];
 
 export default function TechnologySection() {
     return (
-        <section className="w-full max-w-full bg-white py-8 sm:py-16 md:py-32 px-4 md:px-12 flex justify-center overflow-hidden">
+        <section className="w-full max-w-full bg-white py-6 md:py-32 px-4 md:px-12 flex justify-center overflow-hidden">
 
-            {/* Main Rounded Card Container */}
-            <div className="relative w-full max-w-7xl min-h-[500px] sm:min-h-[620px] md:min-h-[1540px] bg-white rounded-[28px] sm:rounded-[40px] md:rounded-[60px] overflow-hidden flex flex-col justify-between">
+            {/* ===== MOBILE LAYOUT (<md, 390px base in DesktopScaler) ===== */}
+            <div className="md:hidden flex flex-col w-full max-w-[390px] mx-auto px-2 pt-4 pb-8 bg-white font-sans">
+                {/* Header */}
+                <div className="mb-7">
+                    <h2 
+                        className="uppercase leading-[1.05] tracking-tight"
+                        style={{ fontFamily: "'Inter', sans-serif", fontSize: '42px' }}
+                    >
+                        <span className="block font-[200] text-black">TECHNOLOGY</span>
+                        <span className="block font-[900] text-black">WE WORK WITH</span>
+                    </h2>
+                </div>
 
-                {/* --- BACKGROUND GRAPHICS & GLOWS --- */}
+                {/* Tech Columns (2-column layout) */}
+                <div className="grid grid-cols-2 gap-x-6 gap-y-4 mb-8">
+                    {/* Mobile Dev */}
+                    <div>
+                        <h4 
+                            className="text-[13px] font-[900] tracking-wider uppercase text-black mb-3"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                            MOBILE DEV
+                        </h4>
+                        <ul className="space-y-2.5">
+                            {mobileTechList.map((item, idx) => (
+                                <li key={`m-mob-${idx}`} className="flex items-center gap-2.5 text-[14px] text-gray-800 font-medium">
+                                    {checkIcon}
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Backend */}
+                    <div>
+                        <h4 
+                            className="text-[13px] font-[900] tracking-wider uppercase text-black mb-3"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                            BACKEND
+                        </h4>
+                        <ul className="space-y-2.5">
+                            {backendTechList.map((item, idx) => (
+                                <li key={`m-back-${idx}`} className="flex items-center gap-2.5 text-[14px] text-gray-800 font-medium">
+                                    {checkIcon}
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                {/* INTEGRATIONS */}
+                <div className="mb-6">
+                    <h3 
+                        className="text-[20px] font-[900] tracking-tight text-black uppercase mb-1.5"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                        INTEGRATIONS
+                    </h3>
+                    <p 
+                        className="text-[14px] text-[#555] leading-relaxed font-normal"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                        Modern mobile apps need to work with other systems. We integrate applications with:
+                    </p>
+                </div>
+
+                {/* ADMIN DASHBOARDS */}
+                <div className="mb-4">
+                    <h4 
+                        className="text-[13px] font-[900] tracking-wider text-black uppercase mb-1.5"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                        ADMIN DASHBOARDS
+                    </h4>
+                    <p 
+                        className="text-[13px] text-[#666] leading-relaxed font-normal"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                        Every app needs a control centre. We develop custom admin panels to manage users, content, products, reports and business operations.
+                    </p>
+                </div>
+
+                {/* Bottom Graphic & Vertical Tags Area */}
+                <div className="relative w-full h-[470px] overflow-hidden rounded-2xl mt-2 flex items-end justify-center">
+                    {/* Person Image */}
+                    <div className="absolute inset-0 pointer-events-none flex items-end justify-start">
+                        <Image
+                            src="/images/services/website/mobile3.png"
+                            alt="Mobile Technology Specialist"
+                            width={420}
+                            height={460}
+                            className="object-contain object-bottom w-[340px] h-[440px] -translate-x-6 translate-y-3"
+                            priority
+                        />
+                    </div>
+
+                    {/* Misty atmospheric gradient overlay covering lower portion */}
+                    <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                            background: 'linear-gradient(to bottom, transparent 30%, rgba(180, 200, 220, 0.4) 55%, rgba(195, 215, 235, 0.75) 75%, rgba(255, 255, 255, 0.95) 100%)',
+                        }}
+                    />
+
+                    {/* Soft blur over the right side mist */}
+                    <div
+                        className="absolute right-0 bottom-0 w-[60%] h-[65%] pointer-events-none"
+                        style={{
+                            backdropFilter: 'blur(8px)',
+                            WebkitBackdropFilter: 'blur(8px)',
+                            maskImage: 'linear-gradient(to top, black 40%, transparent 100%)',
+                            WebkitMaskImage: 'linear-gradient(to top, black 40%, transparent 100%)',
+                        }}
+                    />
+
+                    {/* Continuous Vertical Scrolling Keywords (16px font size) */}
+                    <div 
+                        className="absolute right-2 sm:right-3 bottom-4 top-10 w-[210px] z-20 overflow-hidden flex flex-col justify-center text-right pointer-events-none"
+                        style={{
+                            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                            maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)'
+                        }}
+                    >
+                        <div className="flex flex-col animate-[mobileVerticalScroll_16s_linear_infinite] gap-4 items-end pr-1">
+                            {[...Array(2)].map((_, i) => (
+                                <React.Fragment key={i}>
+                                    {mobileTags.map((tag, j) => (
+                                        <span
+                                            key={`${i}-${j}`}
+                                            className={`tracking-widest uppercase text-right ${
+                                                tag.active 
+                                                    ? "font-[900] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" 
+                                                    : "font-[200] text-[#91C3E6] drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]"
+                                            }`}
+                                            style={{
+                                                fontFamily: "'Inter', sans-serif",
+                                                fontSize: '16px',
+                                                lineHeight: '1.2',
+                                            }}
+                                        >
+                                            {tag.text}
+                                        </span>
+                                    ))}
+                                </React.Fragment>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* ===== DESKTOP LAYOUT (>=md) ===== */}
+            <div className="hidden md:flex relative w-full max-w-7xl md:min-h-[1540px] bg-white rounded-[40px] md:rounded-[60px] overflow-hidden flex-col justify-between">
+
                 {/* Center VR Image */}
                 <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none h-full w-full">
                     <img
                         src="/images/services/website/mobile3.png"
                         alt="Mobile Technology"
-                        className="w-full h-full object-cover md:object-contain opacity-90 scale-110 md:scale-180"
+                        className="w-full h-full object-contain opacity-90 scale-180"
                     />
-                    <div className="absolute inset-0 bg-white/40 md:hidden pointer-events-none"></div>
                 </div>
 
                 {/* Cyan/Blue Glows over the image */}
-                <div className="absolute bottom-[10%] right-[10%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full blur-[100px] sm:blur-[120px] pointer-events-none z-0"></div>
-                <div className="absolute bottom-[5%] left-[20%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] rounded-full blur-[100px] sm:blur-[140px] pointer-events-none z-0"></div>
+                <div className="absolute bottom-[10%] right-[10%] w-[500px] h-[500px] rounded-full blur-[120px] pointer-events-none z-0"></div>
+                <div className="absolute bottom-[5%] left-[20%] w-[400px] h-[400px] rounded-full blur-[140px] pointer-events-none z-0"></div>
 
                 {/* Glass Circle Effect at the bottom of the technology image */}
                 <style>{`
                     .tech-glass-circle {
                         position: absolute;
                         width: 100%;
-                        height: 140px;
+                        height: 350px;
                         left: 0;
                         bottom: 0;
                         background: rgba(0, 0, 0, 0);
@@ -53,20 +216,12 @@ export default function TechnologySection() {
                         z-index: 10;
                     }
 
-                    @media (min-width: 768px) {
-                        .tech-glass-circle {
-                            height: 350px;
-                        }
-                    }
-
                     .tech-glass-circle__frost {
                         position: absolute;
                         inset: 0;
                         background: rgba(0, 0, 0, 0);
-
                         backdrop-filter: blur(28.9px);
                         -webkit-backdrop-filter: blur(28.9px);
-
                         -webkit-mask-image: linear-gradient(to top, black 0%, black 30%, transparent 100%);
                         mask-image: linear-gradient(to top, black 0%, black 30%, transparent 100%);
                     }
@@ -76,26 +231,29 @@ export default function TechnologySection() {
                 </div>
 
                 {/* --- FOREGROUND CONTENT --- */}
-                <div className="relative z-10 w-full flex-grow flex flex-col justify-between p-5 sm:p-10 md:p-14 lg:p-16">
+                <div className="relative z-10 w-full flex-grow flex flex-col justify-between p-10 md:p-14 lg:p-16">
 
                     {/* Top Heading */}
                     <div>
-                        <h2 className="text-[clamp(1.75rem,4vw+0.5rem,4.25rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
-                            <span className="block font-light">TECHNOLOGY</span>
-                            <span className="block font-black">WE WORK WITH</span>
+                        <h2 
+                            className="leading-[1.05] tracking-tight text-[#1a1a1a] uppercase"
+                            style={{ fontFamily: "'Inter', sans-serif", fontSize: '42px' }}
+                        >
+                            <span className="block font-[200]">TECHNOLOGY</span>
+                            <span className="block font-[900]">WE WORK WITH</span>
                         </h2>
                     </div>
 
                     {/* Middle Section: Tech Lists */}
-                    <div className="flex flex-col lg:flex-row justify-between mt-6 sm:mt-12 md:mt-24 lg:mt-32 gap-6 lg:gap-8">
+                    <div className="flex flex-col lg:flex-row justify-between mt-12 md:mt-24 lg:mt-32 gap-6 lg:gap-8">
                         {/* Left Lists (Mobile Dev & Backend) */}
-                        <div className="grid grid-cols-2 sm:flex sm:flex-row justify-start gap-4 sm:gap-12 md:gap-20">
+                        <div className="flex flex-row justify-start gap-12 md:gap-20">
                             {/* Mobile Development */}
                             <div>
-                                <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900">MOBILE DEV</h4>
-                                <ul className="space-y-1.5 sm:space-y-3">
+                                <h4 className="text-[15px] font-bold tracking-widest uppercase mb-4 text-gray-900" style={{ fontFamily: "'Inter', sans-serif" }}>MOBILE DEV</h4>
+                                <ul className="space-y-3">
                                     {mobileTechList.map((item, idx) => (
-                                        <li key={`mobile-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 md:text-gray-500 font-medium">
+                                        <li key={`mobile-${idx}`} className="flex items-start gap-3 text-[14px] text-gray-500 font-medium">
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
@@ -104,11 +262,11 @@ export default function TechnologySection() {
                             </div>
                             {/* Backend */}
                             <div>
-                                <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 text-gray-900">BACKEND</h4>
-                                <p className="hidden sm:block text-[clamp(10px,0.4vw+4px,12px)] tracking-wide text-gray-500 mb-4 sm:mb-6">The engine behind your application.</p>
-                                <ul className="space-y-1.5 sm:space-y-3">
+                                <h4 className="text-[15px] font-bold tracking-widest uppercase mb-2 text-gray-900" style={{ fontFamily: "'Inter', sans-serif" }}>BACKEND</h4>
+                                <p className="text-[12px] tracking-wide text-gray-500 mb-4 sm:mb-6">The engine behind your application.</p>
+                                <ul className="space-y-3">
                                     {backendTechList.map((item, idx) => (
-                                        <li key={`backend-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 md:text-gray-500 font-medium">
+                                        <li key={`backend-${idx}`} className="flex items-start gap-3 text-[14px] text-gray-500 font-medium">
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
@@ -118,38 +276,37 @@ export default function TechnologySection() {
                         </div>
 
                         {/* Right Section: Admin Dashboards */}
-                        <div className="lg:max-w-[340px] lg:mr-12 mt-2 sm:mt-6 lg:mt-0">
-                            <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-1.5 sm:mb-2 text-gray-900">ADMIN DASHBOARDS</h4>
-                            <p className="hidden sm:block text-[clamp(10px,0.4vw+4px,12px)] tracking-wide text-gray-500 mb-3 sm:mb-4">Every app needs a control centre.</p>
-                            <p className="text-[clamp(11px,0.4vw+6px,14px)] text-gray-600 md:text-gray-500 font-normal leading-relaxed line-clamp-3 sm:line-clamp-none">
+                        <div className="lg:max-w-[340px] lg:mr-12 mt-6 lg:mt-0">
+                            <h4 className="text-[15px] font-bold tracking-widest uppercase mb-2 text-gray-900" style={{ fontFamily: "'Inter', sans-serif" }}>ADMIN DASHBOARDS</h4>
+                            <p className="text-[12px] tracking-wide text-gray-500 mb-3 sm:mb-4">Every app needs a control centre.</p>
+                            <p className="text-[14px] text-gray-500 font-normal leading-relaxed">
                                 We develop custom admin panels to manage users, content, products, reports and business operations.
                             </p>
                         </div>
                     </div>
 
-                    {/* Bottom Section: Text & Typography Block (Hidden on mobile) */}
-                    <div className="hidden md:flex w-full max-w-full overflow-hidden flex-col lg:flex-row justify-between items-start mt-16 sm:mt-20 lg:mt-auto relative z-20">
+                    {/* Bottom Section: Text & Typography Block */}
+                    <div className="w-full max-w-full overflow-hidden flex flex-col lg:flex-row justify-between items-start mt-20 lg:mt-auto relative z-20">
 
                         {/* Bottom Left Text */}
                         <div className="max-w-[320px] mb-12 lg:mb-0">
-                            <h3 className="text-[clamp(1.75rem,2.8vw+0.5rem,3.25rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-6">
+                            <h3 className="text-[clamp(1.75rem,2.8vw+0.5rem,3.25rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-6" style={{ fontFamily: "'Inter', sans-serif" }}>
                                 <span className="block font-black">Integrations</span>
                             </h3>
-                            <p className="text-gray-600 text-[clamp(11px,0.4vw+6px,14px)] font-medium leading-relaxed">
-                                Modern mobile apps need to work with other systems. We integrate applications with.
+                            <p className="text-gray-600 text-[14px] font-medium leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
+                                Modern mobile apps need to work with other systems. We integrate applications with:
                             </p>
                         </div>
 
                         {/* Bottom Right Vertical Scrolling Typography */}
                         <div
-                            className="w-full lg:w-auto max-w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden flex flex-col justify-center text-center lg:text-right pointer-events-none relative"
+                            className="w-full lg:w-auto max-w-full h-[400px] md:h-[500px] overflow-hidden flex flex-col justify-center text-center lg:text-right pointer-events-none relative"
                             style={{
                                 WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)',
                                 maskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)'
                             }}
                         >
                             <div className="flex flex-col animate-[verticalScroll_20s_linear_infinite]">
-                                {/* Duplicated list for seamless infinite scroll */}
                                 {[...Array(2)].map((_, i) => (
                                     <React.Fragment key={i}>
                                         {[
@@ -191,6 +348,10 @@ export default function TechnologySection() {
                 </div>
 
                 <style>{`
+                    @keyframes mobileVerticalScroll {
+                        0% { transform: translateY(0); }
+                        100% { transform: translateY(-50%); }
+                    }
                     @keyframes verticalScroll {
                         0% { transform: translateY(0); }
                         100% { transform: translateY(-50%); }

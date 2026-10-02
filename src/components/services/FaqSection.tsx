@@ -37,13 +37,13 @@ export default function FaqSection() {
     <section className="relative w-full max-w-full py-24 md:py-32 bg-[#fafafa] overflow-hidden">
 
       {/* Background Colorful Blurs */}
-      <div className="absolute top-0 right-0 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-pink-300 rounded-full mix-blend-multiply filter blur-[60px] md:blur-[120px] opacity-40 pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
-      <div className="absolute top-1/2 right-0 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-orange-300 rounded-full mix-blend-multiply filter blur-[60px] md:blur-[120px] opacity-50 pointer-events-none translate-x-1/4"></div>
+      <div className="absolute top-[3rem] right-1/6 w-[200px] md:w-[450px] h-[180px] md:h-[380px] bg-pink-300 rounded-full mix-blend-multiply filter blur-[60px] md:blur-[120px] opacity-60 pointer-events-none translate-x-1/4 -translate-y-1/3"></div>
+      <div className="absolute top-1/2 right-1/6 w-[250px] md:w-[550px] h-[250px] md:h-[500px] bg-orange-300 rounded-full mix-blend-multiply filter blur-[60px] md:blur-[120px] opacity-80 pointer-events-none translate-x-1/4  -translate-y-1/3"></div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
 
         {/* Title */}
-        <h2 className="text-[clamp(1.75rem,3.5vw+0.5rem,3rem)] font-light text-[#111] text-center mb-12 md:mb-16 uppercase tracking-wide">
+        <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3rem)] font-[200] text-[#000000] text-center mb-12 md:mb-16 uppercase tracking-wide">
           Answers Before You Ask
         </h2>
 
@@ -60,17 +60,25 @@ export default function FaqSection() {
                   boxShadow: isOpen ? "0 10px 30px rgba(0,0,0,0.06)" : "0 0px 0px rgba(0,0,0,0)",
                 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className={`bg-[#69696900] border border-[#e2e2e2] rounded-[20px] overflow-hidden transition-colors ${isOpen ? 'bg-white/80' : ''}`}
+                className={`border rounded-[20px] overflow-hidden transition-all duration-300 backdrop-blur-md ${
+                  isOpen 
+                    ? 'bg-white/35 border-white/60 shadow-[0_10px_30px_rgba(0,0,0,0.04)]' 
+                    : 'bg-white/20 border-white/40 hover:bg-white/30 hover:border-white/50'
+                }`}
+                style={{
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
+                }}
               >
                 <button
                   suppressHydrationWarning
                   onClick={() => toggleFaq(index)}
                   className="w-full flex justify-between items-center p-6 md:px-10 text-left focus:outline-none"
                 >
-                  <span className="text-[#333] font-medium text-[clamp(0.875rem,0.6vw+0.7rem,1.0625rem)]">
+                  <span className="text-[#000000] font-[300] text-[clamp(1.125rem,2.5vw+0.25rem,0.875rem)]">
                     {faq.question}
                   </span>
-                  <span className="text-[#333] text-[clamp(1.25rem,1.5vw+0.5rem,1.5rem)] font-light leading-none ml-6">
+                  <span className="text-[#000000] text-[clamp(1.25rem,1.5vw+0.5rem,1.5rem)] font-light leading-none ml-6">
                     {isOpen ? "−" : "+"}
                   </span>
                 </button>
@@ -83,7 +91,7 @@ export default function FaqSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <div className="px-6 md:px-10 pb-8 text-[#555] text-[clamp(0.8125rem,0.5vw+0.65rem,0.9375rem)] leading-relaxed max-w-3xl whitespace-pre-line">
+                      <div className="px-6 md:px-10 pb-8 text-[#212120]  text-[clamp(0.8125rem,0.5vw+0.65rem,0.9375rem)] leading-relaxed max-w-3xl whitespace-pre-line">
                         {faq.answer}
                       </div>
                     </motion.div>

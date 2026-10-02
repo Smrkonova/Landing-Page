@@ -33,12 +33,24 @@ export default function BuiltFromScratchSection() {
 
                 {/* Left Side: Text */}
                 <div className="flex-1 w-full flex flex-col justify-center">
-                    <h2 className="text-[32px] sm:text-[46px] md:text-[60px] lg:text-[70px] leading-[1.05] font-light text-gray-800 tracking-tight mb-8">
-                        Every Great Product Starts With<br />
-                        <span className="font-bold tracking-normal text-black">Understanding Users.</span>
+                    <h2 
+                        className="font-[200] text-gray-800 tracking-tight mb-6 md:mb-8 uppercase leading-[1.08]"
+                        style={{
+                            fontFamily: "'Inter', sans-serif",
+                            fontSize: '42px',
+                        }}
+                    >
+                        EVERY GREAT PRODUCT STARTS WITH<br />
+                        <span className="font-[900] text-black tracking-normal">UNDERSTANDING USERS.</span>
                     </h2>
 
-                    <p className="text-gray-500 text-[clamp(1rem,0.5vw+0.75rem,1.125rem)] max-w-lg mb-10 leading-relaxed font-light">
+                    <p 
+                        className="text-gray-500 max-w-sm mb-8 md:mb-10 leading-relaxed font-normal"
+                        style={{
+                            fontFamily: "'Inter', sans-serif",
+                            fontSize: '14px',
+                        }}
+                    >
                         Before we design a single screen, we focus on understanding your users, your business and the problems we're trying to solve.
                     </p>
                 </div>
