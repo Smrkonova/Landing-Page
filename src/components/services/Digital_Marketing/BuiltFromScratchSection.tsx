@@ -39,7 +39,7 @@ export default function BuiltFromScratchSection() {
                         <span className="font-bold tracking-normal">Marketing Works.</span>
                     </h2>
 
-                    <p className="text-gray-500 text-lg md:text-xl max-w-lg mb-10 leading-relaxed font-light">
+                    <p className="text-gray-500 text-[clamp(1rem,0.8vw+0.65rem,1.25rem)] max-w-lg mb-10 leading-relaxed font-light">
                         Marketing isn't a single campaign. It's a connected growth system.
                     </p>
 
@@ -115,7 +115,7 @@ export default function BuiltFromScratchSection() {
                                                     zIndex: isVisible ? (isActive ? 30 : 20) : 10,
                                                 }}
                                             >
-                                                <span className={`text-[13px] md:text-[15px] font-medium tracking-[0.2em] uppercase transition-colors duration-[1000ms] ${isActive ? 'text-black' : 'text-gray-700'}`}>
+                                                <span className={`text-[clamp(11px,0.4vw+7px,14px)] font-medium tracking-[0.2em] uppercase transition-colors duration-[1000ms] ${isActive ? 'text-black' : 'text-gray-700'}`}>
                                                     {text}
                                                 </span>
                                             </div>

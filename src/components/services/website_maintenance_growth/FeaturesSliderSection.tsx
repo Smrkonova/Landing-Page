@@ -71,10 +71,10 @@ export default function FeaturesSliderSection() {
             {/* Header with Title and Prev/Next arrows */}
             <div className="max-w-[1400px] mx-auto px-4 md:px-12 flex items-center justify-between mb-12">
                 <div>
-                    <h2 className="text-[20px] md:text-[24px] font-light tracking-wide text-[#1a1a1a] uppercase ml-4 md:ml-0">
+                    <h2 className="text-[clamp(1.125rem,1.5vw+0.5rem,1.5rem)] font-light tracking-wide text-[#1a1a1a] uppercase ml-4 md:ml-0">
                         What We Can Help With
                     </h2>
-                    <p className="text-gray-500 text-xs md:text-sm font-light ml-4 md:ml-0 mt-1">
+                    <p className="text-gray-500 text-[clamp(11px,0.4vw+6px,13px)] font-light ml-4 md:ml-0 mt-1">
                         As your business grows, your digital platform should grow too.
                     </p>
                 </div>
@@ -117,7 +117,7 @@ export default function FeaturesSliderSection() {
 
                                 {/* Bottom Feature Details */}
                                 <div className="w-full flex flex-col items-center gap-6 mb-4">
-                                    <h3 className="text-black font-semibold text-lg md:text-xl text-center tracking-tight">
+                                    <h3 className="text-black font-semibold text-[clamp(1.125rem,1.4vw+0.5rem,1.25rem)] text-center tracking-tight">
                                         {feature.title}
                                     </h3>
 

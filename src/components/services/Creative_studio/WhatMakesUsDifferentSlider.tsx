@@ -57,10 +57,10 @@ export default function WhatMakesUsDifferentSlider() {
                 
                 {/* Section Header */}
                 <div className="flex flex-col gap-3">
-                    <h2 className="text-[20px] md:text-[28px] font-light text-gray-800 tracking-wide uppercase">
+                    <h2 className="text-[clamp(1.25rem,1.8vw+0.5rem,1.75rem)] font-light text-gray-800 tracking-wide uppercase">
                         Creative Applications
                     </h2>
-                    <p className="text-gray-500 text-sm md:text-base font-light max-w-xl leading-relaxed">
+                    <p className="text-gray-500 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-xl leading-relaxed">
                         Our creative work supports every stage of a business.
                     </p>
                 </div>
@@ -130,7 +130,7 @@ export default function WhatMakesUsDifferentSlider() {
                                     <h3 className="text-[34px] sm:text-[38px] md:text-[52px] leading-[1.1] font-light text-white tracking-tight whitespace-pre-line">
                                         {slide.title}
                                     </h3>
-                                    <p className="text-white/90 text-sm md:text-base font-light max-w-[280px] leading-relaxed">
+                                    <p className="text-white/90 text-[clamp(0.8125rem,0.4vw+0.65rem,0.9375rem)] font-light max-w-[280px] leading-relaxed">
                                         {slide.subtitle}
                                     </p>
                                 </div>

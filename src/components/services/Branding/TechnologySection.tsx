@@ -121,10 +121,10 @@ export default function TechnologySection() {
                         <div className="grid grid-cols-2 sm:flex sm:flex-row justify-start gap-4 sm:gap-12 md:gap-24">
                             {/* Social Media */}
                             <div>
-                                <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">SOCIAL MEDIA</h4>
+                                <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">SOCIAL MEDIA</h4>
                                 <ul className="space-y-1.5 sm:space-y-3">
                                     {socialAssets.map((item, idx) => (
-                                        <li key={`social-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[13px] md:text-[14px] text-gray-600 font-medium">
+                                        <li key={`social-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[clamp(11px,0.4vw+6px,14px)] text-gray-600 font-medium">
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
@@ -134,10 +134,10 @@ export default function TechnologySection() {
 
                             {/* Platform & Digital */}
                             <div>
-                                <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">WEB & APPS</h4>
+                                <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">WEB & APPS</h4>
                                 <ul className="space-y-1.5 sm:space-y-3">
                                     {platformAssets.map((item, idx) => (
-                                        <li key={`platform-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[13px] md:text-[14px] text-gray-600 font-medium">
+                                        <li key={`platform-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[clamp(11px,0.4vw+6px,14px)] text-gray-600 font-medium">
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
@@ -148,10 +148,10 @@ export default function TechnologySection() {
 
                         {/* Right List (Marketing & Ads) */}
                         <div className="lg:max-w-[320px] lg:mr-20 mt-2 sm:mt-6 lg:mt-0">
-                            <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">MARKETING & ADS</h4>
+                            <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">MARKETING & ADS</h4>
                             <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 sm:block sm:space-y-3">
                                 {marketingAssets.map((item, idx) => (
-                                    <li key={`marketing-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[13px] md:text-[14px] text-gray-600 font-medium">
+                                    <li key={`marketing-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[clamp(11px,0.4vw+6px,14px)] text-gray-600 font-medium">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -169,7 +169,7 @@ export default function TechnologySection() {
                                 <span className="block font-black">CONSISTENT</span>
                                 <span className="block font-light text-gray-600">EVERYWHERE</span>
                             </h3>
-                            <p className="text-gray-600 text-[13px] md:text-[14px] font-medium leading-relaxed">
+                            <p className="text-gray-600 text-[clamp(11px,0.4vw+6px,14px)] font-medium leading-relaxed">
                                 A modern brand exists everywhere. We create digital assets that keep your business consistent across every platform.
                             </p>
                         </div>

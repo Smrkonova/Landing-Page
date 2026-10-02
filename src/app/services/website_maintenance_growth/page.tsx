@@ -61,11 +61,11 @@ export default function WebsiteMaintenanceGrowthPage() {
                             <div className="flex flex-col justify-end md:justify-start text-white max-w-3xl h-full pb-2 md:pb-0 text-center md:text-left items-center md:items-start w-full">
                                 <div className="mt-auto md:mt-0 w-full flex flex-col items-center md:items-start">
         
-                                    <h1 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[100px] font-[200] leading-[1.1] md:leading-[0.9] tracking-tight uppercase mb-6 sm:mb-8 md:mb-4 text-center md:text-left">
+                                    <h1 className="text-[clamp(2rem,5vw+0.5rem,5.5rem)] font-[200] leading-[1.1] md:leading-[0.9] tracking-tight uppercase mb-6 sm:mb-8 md:mb-4 text-center md:text-left">
                                        Website Maintenance & Growth Support
                                     </h1>
         
-                                    <p className="hidden md:block text-[15px] md:text-[16px] font-[300] leading-relaxed text-white/80 max-w-xl text-left mb-4">
+                                    <p className="hidden md:block text-[clamp(0.875rem,0.6vw+0.65rem,1rem)] font-[300] leading-relaxed text-white/80 max-w-xl text-left mb-4">
                                      Digital products require continuous improvements,<br/>
                                      updates and maintenance to stay secure, perform well <br/> 
                                      and support business growth. We help businesses manage,<br/> 
@@ -74,10 +74,10 @@ export default function WebsiteMaintenanceGrowthPage() {
                                     </p>
         
                                     <div className="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-3 sm:gap-4 mt-3 sm:mt-4 md:mt-8 w-full sm:w-auto">
-                                        <button suppressHydrationWarning className="w-auto bg-[#f0f0f0] text-black px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-white transition-colors text-center whitespace-nowrap">
+                                        <button suppressHydrationWarning className="w-auto bg-[#f0f0f0] text-black px-6 py-3.5 text-[clamp(10px,0.4vw+4px,12px)] font-bold uppercase tracking-[0.15em] hover:bg-white transition-colors text-center whitespace-nowrap">
                                             Get Ongoing Support
                                         </button>
-                                        <button suppressHydrationWarning className="w-auto border border-white/60 text-white px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-white/10 transition-colors text-center whitespace-nowrap">
+                                        <button suppressHydrationWarning className="w-auto border border-white/60 text-white px-6 py-3.5 text-[clamp(10px,0.4vw+4px,12px)] font-bold uppercase tracking-[0.15em] hover:bg-white/10 transition-colors text-center whitespace-nowrap">
                                             Talk To Our Team
                                         </button>
                                     </div>
@@ -91,13 +91,13 @@ export default function WebsiteMaintenanceGrowthPage() {
                             {/* Right Column (Navigation) */}
                             <div className="hidden lg:flex flex-col text-white text-right space-y-16 pt-12">
                                 <div>
-                                    <h3 className="uppercase tracking-[0.05em] text-xs font-semibold leading-relaxed text-white">
+                                    <h3 className="uppercase tracking-[0.05em] text-[clamp(11px,0.4vw+5px,13px)] font-semibold leading-relaxed text-white">
                                         Trusted by teams<br />
                                         across 4 continents
                                     </h3>
                                 </div>
         
-                                <ul className="flex flex-col gap-2 lg:gap-[50px] text-white/80 font-normal text-[15px]">
+                                <ul className="flex flex-col gap-2 lg:gap-[50px] text-white/80 font-normal text-[clamp(13px,0.5vw+5px,15px)]">
                                     <li className="hover:text-white cursor-pointer transition-colors">Healthcare</li>
                                     <li className="hover:text-white cursor-pointer transition-colors">Real Estate</li>
                                     <li className="hover:text-white cursor-pointer transition-colors">SaaS</li>
@@ -114,26 +114,26 @@ export default function WebsiteMaintenanceGrowthPage() {
                             {/* Bottom Stats Bar */}
                             <div className="flex-grow w-full lg:w-[65%] border border-white/20 rounded-3xl px-8 md:px-12 py-6 sm:py-8 flex flex-wrap md:flex-nowrap items-center justify-between backdrop-blur-md bg-white/5 shadow-2xl">
                                 <div className="flex flex-col items-start w-1/2 md:w-auto mb-6 md:mb-0">
-                                    <span className="text-4xl lg:text-[44px] font-[200] text-white mb-1 tracking-tight">120+</span>
-                                    <span className="text-white/60 text-xs font-medium tracking-wide">Projects</span>
+                                    <span className="text-[clamp(1.75rem,2.8vw+0.5rem,2.75rem)] font-[200] text-white mb-1 tracking-tight">120+</span>
+                                    <span className="text-white/60 text-[clamp(11px,0.4vw+5px,13px)] font-medium tracking-wide">Projects</span>
                                 </div>
                                 <div className="hidden md:block w-[1px] h-12 bg-white/20"></div>
         
                                 <div className="flex flex-col items-start w-1/2 md:w-auto mb-6 md:mb-0">
-                                    <span className="text-4xl lg:text-[44px] font-[200] text-white mb-1 tracking-tight">9yrs</span>
-                                    <span className="text-white/60 text-xs font-medium tracking-wide">Building the web</span>
+                                    <span className="text-[clamp(1.75rem,2.8vw+0.5rem,2.75rem)] font-[200] text-white mb-1 tracking-tight">9yrs</span>
+                                    <span className="text-white/60 text-[clamp(11px,0.4vw+5px,13px)] font-medium tracking-wide">Building the web</span>
                                 </div>
                                 <div className="hidden md:block w-[1px] h-12 bg-white/20"></div>
         
                                 <div className="flex flex-col items-start w-1/2 md:w-auto">
-                                    <span className="text-4xl lg:text-[44px] font-[200] text-white mb-1 tracking-tight">24/7</span>
-                                    <span className="text-white/60 text-xs font-medium tracking-wide">Support</span>
+                                    <span className="text-[clamp(1.75rem,2.8vw+0.5rem,2.75rem)] font-[200] text-white mb-1 tracking-tight">24/7</span>
+                                    <span className="text-white/60 text-[clamp(11px,0.4vw+5px,13px)] font-medium tracking-wide">Support</span>
                                 </div>
                                 <div className="hidden md:block w-[1px] h-12 bg-white/20"></div>
         
                                 <div className="flex flex-col items-start w-1/2 md:w-auto">
-                                    <span className="text-4xl lg:text-[44px] font-[200] text-white mb-1 tracking-tight">0</span>
-                                    <span className="text-white/60 text-xs font-medium tracking-wide">Templates used</span>
+                                    <span className="text-[clamp(1.75rem,2.8vw+0.5rem,2.75rem)] font-[200] text-white mb-1 tracking-tight">0</span>
+                                    <span className="text-white/60 text-[clamp(11px,0.4vw+5px,13px)] font-medium tracking-wide">Templates used</span>
                                 </div>
                             </div>
                         </div>

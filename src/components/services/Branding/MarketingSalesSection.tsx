@@ -84,11 +84,11 @@ export default function MarketingSalesSection() {
             {/* Title Container */}
             <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 mb-8 md:mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
                 <div>
-                    <h2 className="text-[28px] sm:text-[40px] md:text-[52px] lg:text-[62px] leading-[1.1] tracking-tight uppercase">
+                    <h2 className="text-[clamp(1.75rem,3.8vw+0.5rem,3.875rem)] leading-[1.1] tracking-tight uppercase">
                         <span className="font-black text-[#1a1a1a]">MARKETING & </span>
                         <span className="font-light text-gray-400">SALES MATERIALS</span>
                     </h2>
-                    <p className="text-gray-500 text-sm md:text-base font-light max-w-xl leading-relaxed mt-2">
+                    <p className="text-gray-500 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-xl leading-relaxed mt-2">
                         Your sales team needs more than a logo. We design materials that help businesses present themselves professionally.
                     </p>
                 </div>
@@ -134,7 +134,7 @@ export default function MarketingSalesSection() {
 
                                 {/* Card Content */}
                                 <div className="flex flex-col items-center gap-5 my-auto">
-                                    <h3 className="text-black font-bold text-[14px] lg:text-[15px] text-center tracking-widest leading-relaxed whitespace-pre-line">
+                                    <h3 className="text-black font-bold text-[clamp(12px,0.4vw+8px,15px)] text-center tracking-widest leading-relaxed whitespace-pre-line">
                                         {card.title}
                                     </h3>
 
@@ -153,7 +153,7 @@ export default function MarketingSalesSection() {
 
             {/* Mobile Swipe Hint */}
             <div className="px-6 flex md:hidden items-center justify-between mt-2">
-                <span className="text-[11px] font-semibold tracking-wider text-gray-400 uppercase flex items-center gap-1.5">
+                <span className="text-[clamp(10px,0.4vw+5px,12px)] font-semibold tracking-wider text-gray-400 uppercase flex items-center gap-1.5">
                     Swipe or auto-advances
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14M12 5l7 7-7 7" />

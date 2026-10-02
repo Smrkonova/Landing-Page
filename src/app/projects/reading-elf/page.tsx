@@ -10,24 +10,24 @@ export default function ReadingElfProjectPage() {
         {/* Left Sidebar */}
         <div className="hidden xl:flex flex-col w-[220px] shrink-0 justify-between py-12">
           <div>
-            <h4 className="text-[11px] text-gray-500 font-bold uppercase tracking-widest mb-3">CASE STUDY 1</h4>
-            <h2 className="text-[14px] font-black text-gray-800 uppercase tracking-widest leading-relaxed w-[90%]">READING ELF<br />CHILDREN'S LIBRARY</h2>
+            <h4 className="text-[clamp(10px,0.6vw+4px,11px)] text-gray-500 font-bold uppercase tracking-widest mb-3">CASE STUDY 1</h4>
+            <h2 className="text-[clamp(12px,0.7vw+5px,14px)] font-black text-gray-800 uppercase tracking-widest leading-relaxed w-[90%]">READING ELF<br />CHILDREN'S LIBRARY</h2>
           </div>
 
           <div className="flex flex-col gap-10 mt-16">
             <div>
-              <h4 className="text-[13px] text-gray-400 tracking-wider mb-3">Industry</h4>
-              <span className="bg-[#EFEFDE] text-gray-900 font-bold text-[11px] px-3 py-1.5 rounded-sm">education</span>
+              <h4 className="text-[clamp(11px,0.6vw+4px,13px)] text-gray-400 tracking-wider mb-3">Industry</h4>
+              <span className="bg-[#EFEFDE] text-gray-900 font-bold text-[clamp(10px,0.6vw+4px,11px)] px-3 py-1.5 rounded-sm">education</span>
             </div>
             <div>
-              <h4 className="text-[13px] text-gray-400 tracking-wider mb-3">Duration</h4>
-              <span className="bg-[#EFEFDE] text-gray-900 font-bold text-[11px] px-3 py-1.5 rounded-sm">3 months</span>
+              <h4 className="text-[clamp(11px,0.6vw+4px,13px)] text-gray-400 tracking-wider mb-3">Duration</h4>
+              <span className="bg-[#EFEFDE] text-gray-900 font-bold text-[clamp(10px,0.6vw+4px,11px)] px-3 py-1.5 rounded-sm">3 months</span>
             </div>
             <div>
-              <h4 className="text-[13px] text-gray-400 tracking-wider mb-3">Platforms</h4>
+              <h4 className="text-[clamp(11px,0.6vw+4px,13px)] text-gray-400 tracking-wider mb-3">Platforms</h4>
               <div className="flex flex-col gap-2 items-start">
                 {["Social Media", "Website", "GMB Optimisation", "Digital Advertising"].map((item, i) => (
-                  <span key={i} className="bg-[#EFEFDE] text-gray-900 font-bold text-[11px] px-3 py-1.5 rounded-sm">{item}</span>
+                  <span key={i} className="bg-[#EFEFDE] text-gray-900 font-bold text-[clamp(10px,0.6vw+4px,11px)] px-3 py-1.5 rounded-sm">{item}</span>
                 ))}
               </div>
             </div>
@@ -46,9 +46,9 @@ export default function ReadingElfProjectPage() {
 
             {/* Overlay Text */}
             <div className="absolute inset-0 flex flex-col justify-end items-center pb-16 md:pb-24 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
-              <p className="text-white/90 text-[10px] md:text-xs tracking-[0.2em] uppercase mb-1">TURNING A MOTHER & SON'S</p>
-              <p className="text-white/90 text-[10px] md:text-xs tracking-[0.2em] uppercase mb-3">DREAM INTO A</p>
-              <h1 className="text-4xl md:text-6xl lg:text-[72px] font-bold text-white tracking-widest mt-1">MAGICAL DEN</h1>
+              <p className="text-white/90 text-[clamp(9px,0.6vw+4px,12px)] tracking-[0.2em] uppercase mb-1">TURNING A MOTHER & SON'S</p>
+              <p className="text-white/90 text-[clamp(9px,0.6vw+4px,12px)] tracking-[0.2em] uppercase mb-3">DREAM INTO A</p>
+              <h1 className="text-[clamp(2.25rem,4.5vw+0.5rem,4.5rem)] font-bold text-white tracking-widest mt-1">MAGICAL DEN</h1>
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@ export default function ReadingElfProjectPage() {
         <div className="hidden xl:flex flex-col w-[180px] shrink-0 justify-end py-16 pl-6">
           <ul className="flex flex-col gap-3.5">
             {["AI video production", "UX/UI", "Development", "Brand"].map((service, i) => (
-              <li key={i} className="text-[12px] font-bold text-gray-500 tracking-wider">{service}</li>
+              <li key={i} className="text-[clamp(10px,0.6vw+4px,12px)] font-bold text-gray-500 tracking-wider">{service}</li>
             ))}
           </ul>
         </div>
@@ -65,24 +65,24 @@ export default function ReadingElfProjectPage() {
         {/* Mobile View Metadata (Visible only on small screens) */}
         <div className="xl:hidden w-full flex flex-wrap gap-8 mt-6 pb-12">
           <div className="w-full">
-            <h4 className="text-[11px] text-gray-500 font-bold uppercase tracking-widest mb-1">CASE STUDY 1</h4>
-            <h2 className="text-[16px] font-black text-gray-800 uppercase tracking-widest">READING ELF CHILDREN'S LIBRARY</h2>
+            <h4 className="text-[clamp(10px,0.6vw+4px,11px)] text-gray-500 font-bold uppercase tracking-widest mb-1">CASE STUDY 1</h4>
+            <h2 className="text-[clamp(13px,0.8vw+5px,16px)] font-black text-gray-800 uppercase tracking-widest">READING ELF CHILDREN'S LIBRARY</h2>
           </div>
           <div className="flex gap-8 flex-wrap">
             <div className="flex flex-col gap-2">
-              <h4 className="text-[13px] text-gray-400 tracking-wider">Industry</h4>
-              <span className="bg-[#EFEFDE] text-gray-900 font-bold text-[11px] px-3 py-1.5 rounded-sm self-start">education</span>
+              <h4 className="text-[clamp(11px,0.6vw+4px,13px)] text-gray-400 tracking-wider">Industry</h4>
+              <span className="bg-[#EFEFDE] text-gray-900 font-bold text-[clamp(10px,0.6vw+4px,11px)] px-3 py-1.5 rounded-sm self-start">education</span>
             </div>
             <div className="flex flex-col gap-2">
-              <h4 className="text-[13px] text-gray-400 tracking-wider">Duration</h4>
-              <span className="bg-[#EFEFDE] text-gray-900 font-bold text-[11px] px-3 py-1.5 rounded-sm self-start">3 months</span>
+              <h4 className="text-[clamp(11px,0.6vw+4px,13px)] text-gray-400 tracking-wider">Duration</h4>
+              <span className="bg-[#EFEFDE] text-gray-900 font-bold text-[clamp(10px,0.6vw+4px,11px)] px-3 py-1.5 rounded-sm self-start">3 months</span>
             </div>
           </div>
           <div className="w-full">
-            <h4 className="text-[13px] text-gray-400 tracking-wider mb-2">Platforms</h4>
+            <h4 className="text-[clamp(11px,0.6vw+4px,13px)] text-gray-400 tracking-wider mb-2">Platforms</h4>
             <div className="flex flex-wrap gap-2 items-start">
               {["Social Media", "Website", "GMB Optimisation", "Digital Advertising"].map((item, i) => (
-                <span key={i} className="bg-[#EFEFDE] text-gray-900 font-bold text-[11px] px-3 py-1.5 rounded-sm">{item}</span>
+                <span key={i} className="bg-[#EFEFDE] text-gray-900 font-bold text-[clamp(10px,0.6vw+4px,11px)] px-3 py-1.5 rounded-sm">{item}</span>
               ))}
             </div>
           </div>
@@ -105,8 +105,8 @@ export default function ReadingElfProjectPage() {
 
           {/* Top Header */}
           <div className="text-center mb-16 mt-10 md:mt-20">
-            <h4 className="text-[10px] md:text-xs text-gray-700 font-bold tracking-[0.2em] uppercase mb-4">WORKING ALONGSIDE EAST THEORY,</h4>
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 uppercase tracking-widest leading-[1.2]">WE TRANSFORMED<br />THE FOUNDER'S VISION</h2>
+            <h4 className="text-[clamp(10px,0.6vw+4px,12px)] text-gray-700 font-bold tracking-[0.2em] uppercase mb-4">WORKING ALONGSIDE EAST THEORY,</h4>
+            <h2 className="text-[clamp(1.75rem,3.2vw+0.5rem,3.125rem)] font-bold text-gray-800 uppercase tracking-widest leading-[1.2]">WE TRANSFORMED<br />THE FOUNDER'S VISION</h2>
           </div>
 
           {/* Open Book Graphic */}
@@ -120,15 +120,15 @@ export default function ReadingElfProjectPage() {
 
           {/* Small Paragraph */}
           <div className="max-w-[400px] text-center mb-24 md:mb-32">
-            <p className="text-[10px] md:text-[11px] text-gray-800/80 leading-relaxed font-bold tracking-wide">
+            <p className="text-[clamp(10px,0.6vw+4px,12px)] text-gray-800/80 leading-relaxed font-bold tracking-wide">
               Smrkonova brought the founder's dream to the table, gave it shape and started building
             </p>
           </div>
 
           {/* Second Header */}
           <div className="text-center mb-16">
-            <h4 className="text-[10px] md:text-xs text-gray-700 font-bold tracking-[0.2em] uppercase mb-4">A BRAND THAT COULD BE</h4>
-            <h2 className="text-2xl md:text-4xl font-black text-gray-800 uppercase tracking-widest leading-snug">SEEN, EXPERIENCED<br />AND DISCOVERED.</h2>
+            <h4 className="text-[clamp(10px,0.6vw+4px,12px)] text-gray-700 font-bold tracking-[0.2em] uppercase mb-4">A BRAND THAT COULD BE</h4>
+            <h2 className="text-[clamp(1.5rem,2.8vw+0.5rem,2.5rem)] font-black text-gray-800 uppercase tracking-widest leading-snug">SEEN, EXPERIENCED<br />AND DISCOVERED.</h2>
           </div>
 
           {/* Flying Book Graphic */}
@@ -146,20 +146,20 @@ export default function ReadingElfProjectPage() {
             {/* Left Text Content */}
             <div className="flex flex-col gap-6 lg:pr-12">
               <div>
-                <h2 className="text-3xl md:text-5xl lg:text-[56px] font-light text-gray-800 uppercase tracking-widest leading-[1.1]">UNDERSTANDING</h2>
-                <h2 className="text-3xl md:text-5xl lg:text-[56px] font-black text-gray-800 uppercase tracking-widest leading-[1.1] mt-1">THE DREAM FIRST</h2>
+                <h2 className="text-[clamp(1.75rem,3.5vw+0.5rem,3.5rem)] font-light text-gray-800 uppercase tracking-widest leading-[1.1]">UNDERSTANDING</h2>
+                <h2 className="text-[clamp(1.75rem,3.5vw+0.5rem,3.5rem)] font-black text-gray-800 uppercase tracking-widest leading-[1.1] mt-1">THE DREAM FIRST</h2>
               </div>
 
               <div className="flex flex-col gap-5 mt-4">
-                <p className="text-[11px] md:text-[13px] text-gray-800/90 leading-relaxed font-medium">
+                <p className="text-[clamp(11px,0.6vw+5px,13px)] text-gray-800/90 leading-relaxed font-medium">
                   Reading Elf is a magical space where parents and children bond over stories, discover books together, and nurture a lifelong love for reading. Through books, workshops, and shared experiences, every visit is designed to spark curiosity and imagination.
                 </p>
-                <p className="text-[11px] md:text-[13px] text-gray-800/90 leading-relaxed font-medium">
+                <p className="text-[clamp(11px,0.6vw+5px,13px)] text-gray-800/90 leading-relaxed font-medium">
                   Our role was to translate that vision into a cohesive brand experience by crafting the visual identity, website, and digital ecosystem that brought Reading Elf's world to life before visiting the library.
                 </p>
               </div>
 
-              <h3 className="text-xl md:text-2xl font-light text-gray-800 mt-10 md:mt-16 tracking-wide">
+              <h3 className="text-[clamp(1.125rem,1.5vw+0.5rem,1.5rem)] font-light text-gray-800 mt-10 md:mt-16 tracking-wide">
                 The first piece was already there.
               </h3>
             </div>
@@ -189,10 +189,10 @@ export default function ReadingElfProjectPage() {
 
             {/* Bottom Summary Text */}
             <div className="max-w-[700px] text-center px-4">
-              <p className="text-[11px] md:text-[13px] text-gray-900 leading-relaxed font-medium mb-4">
+              <p className="text-[clamp(11px,0.6vw+5px,13px)] text-gray-900 leading-relaxed font-medium mb-4">
                 The logo carried the heart of Reading Elf, <span className="font-bold">a child's drawing transformed into a symbol of imagination.</span>
               </p>
-              <p className="text-[11px] md:text-[13px] text-gray-900 leading-relaxed font-medium">
+              <p className="text-[clamp(11px,0.6vw+5px,13px)] text-gray-900 leading-relaxed font-medium">
                 Smrkonova's role was to solve the rest of the puzzle. Keeping the logo as our foundation, we built a cohesive brand around it through colour, illustrations, digital experiences, campaigns, and every customer touchpoint. Piece by piece, the magical world the founder, also a mom and her child had imagined together began to take shape.
               </p>
             </div>
@@ -243,7 +243,7 @@ export default function ReadingElfProjectPage() {
             </div>
             {/* Right Text */}
             <div className="w-full md:w-1/2 flex flex-col justify-center pt-0 md:pt-20 text-center md:text-left">
-              <h3 className="text-2xl md:text-3xl font-light text-gray-800 leading-snug tracking-wide">
+              <h3 className="text-[clamp(1.25rem,1.8vw+0.5rem,1.875rem)] font-light text-gray-800 leading-snug tracking-wide">
                 Bringing the<br/>stories to life<br/>digitally
               </h3>
             </div>
@@ -251,7 +251,7 @@ export default function ReadingElfProjectPage() {
 
           {/* Center Text */}
           <div className="max-w-[550px] mx-auto text-center mb-32 md:mb-48">
-            <p className="text-[13px] md:text-[15px] text-gray-800 leading-relaxed font-medium">
+            <p className="text-[clamp(12px,0.6vw+5px,15px)] text-gray-800 leading-relaxed font-medium">
               A cohesive brand building effort to serve <span className="font-bold">one purpose,</span> to make Reading Elf feel magical before a child even walks through the door.
             </p>
           </div>
@@ -277,8 +277,8 @@ export default function ReadingElfProjectPage() {
                 {/* Using placeholder since lantern wasn't provided */}
                 <img src="/images/projects/reading-elf/logo.png" alt="Brand Strategy" className="w-full h-full object-contain" />
               </div>
-              <h4 className="text-[10px] md:text-[11px] font-black text-gray-800 uppercase tracking-widest mb-3 leading-tight">BRAND STRATEGY</h4>
-              <p className="text-[9px] md:text-[10px] text-gray-700/80 leading-relaxed font-bold px-2">
+              <h4 className="text-[clamp(10px,0.6vw+4px,11px)] font-black text-gray-800 uppercase tracking-widest mb-3 leading-tight">BRAND STRATEGY</h4>
+              <p className="text-[clamp(9px,0.5vw+4px,10px)] text-gray-700/80 leading-relaxed font-bold px-2">
                 Defined the brand experience and digital direction around the Founder's vision.
               </p>
             </div>
@@ -303,20 +303,20 @@ export default function ReadingElfProjectPage() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-white/20 blur-[100px] rounded-full pointer-events-none z-0"></div>
             
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-[42px] font-black text-white uppercase tracking-widest mb-1 drop-shadow-lg">
+              <h2 className="text-[clamp(1.75rem,3vw+0.5rem,2.625rem)] font-black text-white uppercase tracking-widest mb-1 drop-shadow-lg">
                 BRANDS ARE BUILT
               </h2>
-              <h2 className="text-3xl md:text-[42px] font-light text-white uppercase tracking-widest mb-8 drop-shadow-lg">
+              <h2 className="text-[clamp(1.75rem,3vw+0.5rem,2.625rem)] font-light text-white uppercase tracking-widest mb-8 drop-shadow-lg">
                 IN THE DETAILS.
               </h2>
-              <p className="text-[10px] md:text-xs text-white/95 leading-[1.8] max-w-[450px] mx-auto mb-12 font-medium tracking-wide drop-shadow-md">
+              <p className="text-[clamp(10px,0.6vw+5px,12px)] text-white/95 leading-[1.8] max-w-[450px] mx-auto mb-12 font-medium tracking-wide drop-shadow-md">
                 A child had already imagined Reading Elf. The founders had already believed in it. Our job was to remove every barrier between that idea and the families it was meant to reach.
               </p>
               <div className="flex items-center justify-center gap-4">
-                <button className="bg-[#E48744] hover:bg-[#d67b3a] text-white text-[10px] md:text-xs font-bold uppercase tracking-widest px-8 md:px-10 py-3 md:py-4 rounded-sm transition-all shadow-lg hover:scale-105">
+                <button className="bg-[#E48744] hover:bg-[#d67b3a] text-white text-[clamp(10px,0.6vw+4px,12px)] font-bold uppercase tracking-widest px-8 md:px-10 py-3 md:py-4 rounded-sm transition-all shadow-lg hover:scale-105">
                   CREATE YOURS
                 </button>
-                <button className="border-2 border-white/60 hover:bg-white/10 text-white text-[10px] md:text-xs font-bold uppercase tracking-widest px-8 md:px-10 py-3 md:py-4 rounded-sm transition-all shadow-md hover:scale-105">
+                <button className="border-2 border-white/60 hover:bg-white/10 text-white text-[clamp(10px,0.6vw+4px,12px)] font-bold uppercase tracking-widest px-8 md:px-10 py-3 md:py-4 rounded-sm transition-all shadow-md hover:scale-105">
                   NEXT PROJECT
                 </button>
               </div>
@@ -332,7 +332,7 @@ export default function ReadingElfProjectPage() {
         <div className="flex whitespace-nowrap animate-marquee">
           {/* We duplicate the content to create the infinite loop effect */}
           {[...Array(20)].map((_, i) => (
-            <div key={i} className="flex items-center text-white font-black text-[10px] md:text-[11px] uppercase tracking-widest mx-3">
+            <div key={i} className="flex items-center text-white font-black text-[clamp(10px,0.6vw+4px,11px)] uppercase tracking-widest mx-3">
               <span className="mx-3">SMRKONOVA</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="opacity-90">
                 <path d="M12 2L15 8L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L9 8L12 2Z"/>

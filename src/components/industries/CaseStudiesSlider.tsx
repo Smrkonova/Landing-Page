@@ -53,10 +53,10 @@ export default function CaseStudiesSlider() {
 
       {/* Header Container */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 mb-20 text-center md:text-left">
-        <p className="text-gray-500 uppercase tracking-widest text-sm md:text-base mb-2 font-medium">
+        <p className="text-gray-500 uppercase tracking-widest text-[clamp(12px,0.5vw+6px,14px)] mb-2 font-medium">
           Built for the long run
         </p>
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-[#111] tracking-tight uppercase">
+        <h2 className="text-[clamp(2.25rem,4.5vw+0.5rem,4.5rem)] font-black text-[#111] tracking-tight uppercase">
           Case Studies
         </h2>
       </div>
@@ -83,10 +83,10 @@ export default function CaseStudiesSlider() {
 
                 {/* Card Text */}
                 <div className="relative z-20">
-                  <h3 className="text-2xl md:text-3xl font-black text-[#111] uppercase tracking-tight mb-3">
+                  <h3 className="text-[clamp(1.25rem,1.8vw+0.5rem,1.875rem)] font-black text-[#111] uppercase tracking-tight mb-3">
                     {study.title}
                   </h3>
-                  <p className="text-xs md:text-sm text-gray-400 font-medium leading-relaxed max-w-[200px]">
+                  <p className="text-[clamp(11px,0.4vw+6px,13px)] text-gray-400 font-medium leading-relaxed max-w-[200px]">
                     {study.desc}
                   </p>
                 </div>

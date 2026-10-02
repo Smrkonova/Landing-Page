@@ -125,7 +125,7 @@ export default function EngagementSliderSection() {
             {/* Title Container */}
             <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 mb-8 md:mb-12 flex items-end justify-between">
                 <div>
-                    <h2 className="text-[28px] sm:text-[40px] md:text-[52px] lg:text-[62px] leading-[1.1] tracking-tight uppercase">
+                    <h2 className="text-[clamp(1.75rem,3.8vw+0.5rem,3.875rem)] leading-[1.1] tracking-tight uppercase">
                         <span className="font-black text-[#1a1a1a]">WHAT'S </span>
                         <span className="font-light text-gray-400">INCLUDED</span>
                     </h2>
@@ -172,7 +172,7 @@ export default function EngagementSliderSection() {
 
                                 {/* Card Content */}
                                 <div className="flex flex-col items-center gap-5 my-auto">
-                                    <h3 className="text-black font-bold text-[14px] lg:text-[15px] text-center tracking-widest leading-relaxed whitespace-pre-line">
+                                    <h3 className="text-black font-bold text-[clamp(12px,0.4vw+8px,15px)] text-center tracking-widest leading-relaxed whitespace-pre-line">
                                         {card.title}
                                     </h3>
 
@@ -191,7 +191,7 @@ export default function EngagementSliderSection() {
 
             {/* Mobile Swipe Hint */}
             <div className="px-6 flex md:hidden items-center justify-between mt-2">
-                <span className="text-[11px] font-semibold tracking-wider text-gray-400 uppercase flex items-center gap-1.5">
+                <span className="text-[clamp(10px,0.4vw+5px,12px)] font-semibold tracking-wider text-gray-400 uppercase flex items-center gap-1.5">
                     Swipe or auto-advances
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14M12 5l7 7-7 7" />

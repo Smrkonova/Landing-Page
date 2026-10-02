@@ -95,7 +95,7 @@ export default function TechnologySection() {
 
                     {/* Top Heading */}
                     <div>
-                        <h2 className="text-[28px] sm:text-[44px] md:text-[60px] lg:text-[70px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
+                        <h2 className="text-[clamp(1.75rem,4vw+0.5rem,4.25rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
                             <span className="block font-light">ONGOING</span>
                             <span className="block font-black">SUPPORT SERVICES</span>
                         </h2>
@@ -105,13 +105,13 @@ export default function TechnologySection() {
                     <div className="grid grid-cols-2 sm:flex sm:flex-row justify-start gap-4 sm:gap-12 md:gap-20 lg:gap-24 mt-6 sm:mt-12 md:mt-24 lg:mt-32">
                         {/* Marketing Support */}
                         <div className="flex-1 max-w-sm">
-                            <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900 flex items-center gap-1.5 sm:gap-2">
+                            <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900 flex items-center gap-1.5 sm:gap-2">
                                 <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#53A18B]"></span>
                                 MARKETING SUPPORT
                             </h4>
                             <ul className="space-y-1.5 sm:space-y-3">
                                 {marketingSupport.map((item, idx) => (
-                                    <li key={`marketing-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 font-medium">
+                                    <li key={`marketing-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 font-medium">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -121,13 +121,13 @@ export default function TechnologySection() {
 
                         {/* Technical Support */}
                         <div className="flex-1 max-w-sm">
-                            <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900 flex items-center gap-1.5 sm:gap-2">
+                            <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900 flex items-center gap-1.5 sm:gap-2">
                                 <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#0060FB]"></span>
                                 TECHNICAL SUPPORT
                             </h4>
                             <ul className="space-y-1.5 sm:space-y-3">
                                 {technicalSupport.map((item, idx) => (
-                                    <li key={`technical-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 font-medium">
+                                    <li key={`technical-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 font-medium">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -146,7 +146,7 @@ export default function TechnologySection() {
                                 <span className="block font-black">GROWTH </span>
                                 <span className="block font-light text-gray-600"> PARTNERSHIP</span>
                             </h3>
-                            <p className="text-gray-600 text-[13px] md:text-[14px] font-medium leading-relaxed">
+                            <p className="text-gray-600 text-[clamp(11px,0.4vw+6px,14px)] font-medium leading-relaxed">
                                 We manage continuous improvements, routine updates, marketing adjustments, and emergency technical troubleshooting so you can focus on scaling your business.
                             </p>
                         </div>

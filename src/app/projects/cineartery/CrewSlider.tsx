@@ -38,11 +38,11 @@ export default function CrewSlider() {
                 
                 {/* Section Header */}
                 <div className="text-center mb-16 flex flex-col items-center">
-                    <h2 className="text-3xl md:text-5xl lg:text-6xl font-light uppercase tracking-wide leading-tight mb-8">
-                        <span className="text-[#a3a3a3]">Every great<br/>production</span><br/>
-                        <span className="font-bold text-white">Has the best<br/>crew</span>
+                    <h2 className="text-[clamp(1.85rem,4vw+0.5rem,6rem)] font-[100] uppercase tracking-[0.0625rem] leading-[1.2em] mb-8">
+                        <span className="text-[#F7F3EB]">Every great<br/>production</span><br/>
+                        <span className="font-[700] text-[#F7F3EB]">Has the best<br/>crew</span>
                     </h2>
-                    <p className="text-[#888888] text-[10px] md:text-xs max-w-sm leading-relaxed text-center">
+                    <p className="text-[#8C8C8C] text-[clamp(10px,0.7vw+4px,16px)] font-[400] max-w-md leading-relaxed text-center">
                         We knew the target audience, after numerous<br/>
                         market studies, analysis of an ideal user of<br/>
                         Cineartery, every design decision was focused on<br/>
@@ -99,14 +99,14 @@ export default function CrewSlider() {
                                 {slide.type === 'text' && (
                                     <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between">
                                         <div>
-                                            <h3 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#e0e0e0] tracking-wide mb-2 uppercase">
+                                            <h3 className="text-[clamp(1.85rem,3.5vw+0.5rem,3.75rem)] font-light text-[#e0e0e0] tracking-wide mb-2 uppercase">
                                                 {slide.title}
                                             </h3>
-                                            <h4 className="text-xl md:text-2xl lg:text-3xl font-bold text-white tracking-widest uppercase">
+                                            <h4 className="text-[clamp(1.15rem,1.8vw+0.4rem,1.875rem)] font-bold text-white tracking-widest uppercase">
                                                 {slide.subtitle}
                                             </h4>
                                         </div>
-                                        <p className="text-white/80 text-[10px] md:text-xs lg:text-sm font-light max-w-[250px] leading-relaxed whitespace-pre-line">
+                                        <p className="text-white/80 text-[clamp(10px,0.6vw+5px,14px)] font-light max-w-[250px] leading-relaxed whitespace-pre-line">
                                             {slide.description}
                                         </p>
                                     </div>

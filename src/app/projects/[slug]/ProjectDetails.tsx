@@ -38,7 +38,7 @@ export default function ProjectDetails({ slug }) {
       >
         <Link href="/" className="absolute top-10 left-6 md:top-12 md:left-12 z-20 flex items-center gap-2 text-white hover:opacity-70 transition-opacity">
           <ArrowLeft size={24} />
-          <span className="text-xs md:text-sm tracking-[0.2em] uppercase font-bold">Back</span>
+          <span className="text-[clamp(11px,0.6vw+4px,13px)] tracking-[0.2em] uppercase font-bold">Back</span>
         </Link>
 
         {/* Giant Background Text */}
@@ -47,7 +47,7 @@ export default function ProjectDetails({ slug }) {
             initial={{ opacity: 0, y: 150 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
-            className="text-center text-[18vw] font-bold text-white opacity-[0.05] leading-none m-0 p-0 tracking-tight whitespace-nowrap select-none"
+            className="text-center text-[clamp(4rem,18vw,16rem)] font-bold text-white opacity-[0.05] leading-none m-0 p-0 tracking-tight whitespace-nowrap select-none"
           >
             {project.bgText}
           </motion.h1>
@@ -84,12 +84,12 @@ export default function ProjectDetails({ slug }) {
               </div>
             )}
             <div className="flex flex-col gap-2">
-              <span className="text-[10px] tracking-[0.2em] text-black/40 font-bold uppercase">Role</span>
-              <span className="font-medium text-lg">Digital Experience</span>
+              <span className="text-[clamp(10px,0.5vw+4px,11px)] tracking-[0.2em] text-black/40 font-bold uppercase">Role</span>
+              <span className="font-medium text-[clamp(1rem,1.2vw+0.4rem,1.25rem)]">Digital Experience</span>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="text-[10px] tracking-[0.2em] text-black/40 font-bold uppercase">Year</span>
-              <span className="font-medium text-lg">2026</span>
+              <span className="text-[clamp(10px,0.5vw+4px,11px)] tracking-[0.2em] text-black/40 font-bold uppercase">Year</span>
+              <span className="font-medium text-[clamp(1rem,1.2vw+0.4rem,1.25rem)]">2026</span>
             </div>
           </motion.div>
 
@@ -101,10 +101,10 @@ export default function ProjectDetails({ slug }) {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex-grow flex flex-col gap-8 md:gap-12"
           >
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-black font-sans tracking-tighter uppercase leading-[0.9]">
+            <h2 className="text-[clamp(2.5rem,6vw+0.5rem,6rem)] font-black font-sans tracking-tighter uppercase leading-[0.9]">
               {project.title}
             </h2>
-            <p className="text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed text-black/70">
+            <p className="text-[clamp(1.125rem,1.8vw+0.5rem,1.875rem)] font-medium leading-relaxed text-black/70">
               {project.description}
             </p>
           </motion.div>
@@ -118,11 +118,11 @@ export default function ProjectDetails({ slug }) {
       >
         <Link href={`/projects/${nextProject.slug}`} className="absolute inset-0 z-10" />
         
-        <span className="relative z-10 text-white/60 text-xs md:text-sm tracking-[0.3em] font-bold uppercase mb-4 md:mb-8 group-hover:-translate-y-2 transition-transform duration-500">
+        <span className="relative z-10 text-white/60 text-[clamp(11px,0.6vw+4px,13px)] tracking-[0.3em] font-bold uppercase mb-4 md:mb-8 group-hover:-translate-y-2 transition-transform duration-500">
           Next Project
         </span>
         
-        <h2 className="relative z-10 text-5xl md:text-8xl lg:text-[10vw] font-black text-white uppercase tracking-tighter group-hover:scale-105 transition-transform duration-700 ease-out text-center">
+        <h2 className="relative z-10 text-[clamp(2.5rem,8vw+0.5rem,7.5rem)] font-black text-white uppercase tracking-tighter group-hover:scale-105 transition-transform duration-700 ease-out text-center">
           {nextProject.title}
         </h2>
 

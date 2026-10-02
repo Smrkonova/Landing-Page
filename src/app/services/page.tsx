@@ -14,13 +14,13 @@ export default function ServicesPage() {
 
         {/* Header Section */}
         <div className="mb-14 md:mb-20">
-          <p className="text-gray-400 text-xs md:text-sm font-semibold uppercase tracking-[0.25em] mb-3">
+          <p className="text-gray-400 text-[clamp(11px,0.6vw+4px,13px)] font-semibold uppercase tracking-[0.25em] mb-3">
             What We Do
           </p>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter text-[#111]">
+          <h1 className="text-[clamp(2.5rem,6vw+0.5rem,5.5rem)] font-black uppercase tracking-tighter text-[#111]">
             Services
           </h1>
-          <p className="text-gray-500 text-base md:text-lg max-w-2xl mt-4 font-light leading-relaxed">
+          <p className="text-gray-500 text-[clamp(0.9375rem,0.5vw+0.75rem,1.125rem)] max-w-2xl mt-4 font-light leading-relaxed">
             Full-cycle engineering, creative strategy, and digital growth services tailored to elevate ambitious brands globally.
           </p>
         </div>
@@ -49,7 +49,7 @@ export default function ServicesPage() {
                   {service.tags.map((tag) => (
                     <span 
                       key={tag} 
-                      className="bg-gray-100 border border-gray-200/60 text-gray-700 text-[10px] font-bold px-2.5 py-1 tracking-wider uppercase rounded"
+                      className="bg-gray-100 border border-gray-200/60 text-gray-700 text-[clamp(9px,0.5vw+4px,11px)] font-bold px-2.5 py-1 tracking-wider uppercase rounded"
                     >
                       {tag}
                     </span>
@@ -76,10 +76,10 @@ export default function ServicesPage() {
 
                 {/* Title & Description Overlay (Bottom) */}
                 <div className="z-10 relative mt-auto">
-                  <h2 className="text-[#111] text-xl md:text-2xl font-bold tracking-tight leading-tight mb-2 group-hover:text-black transition-colors">
+                  <h2 className="text-[#111] text-[clamp(1.125rem,1.2vw+0.5rem,1.5rem)] font-bold tracking-tight leading-tight mb-2 group-hover:text-black transition-colors">
                     {service.title}
                   </h2>
-                  <p className="text-gray-500 text-xs md:text-[13px] line-clamp-2 leading-relaxed font-normal">
+                  <p className="text-gray-500 text-[clamp(11px,0.6vw+4px,13px)] line-clamp-2 leading-relaxed font-normal">
                     {service.description}
                   </p>
                 </div>

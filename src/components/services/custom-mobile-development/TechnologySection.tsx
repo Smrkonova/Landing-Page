@@ -80,7 +80,7 @@ export default function TechnologySection() {
 
                     {/* Top Heading */}
                     <div>
-                        <h2 className="text-[28px] sm:text-[44px] md:text-[60px] lg:text-[70px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
+                        <h2 className="text-[clamp(1.75rem,4vw+0.5rem,4.25rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
                             <span className="block font-light">TECHNOLOGY</span>
                             <span className="block font-black">WE WORK WITH</span>
                         </h2>
@@ -92,10 +92,10 @@ export default function TechnologySection() {
                         <div className="grid grid-cols-2 sm:flex sm:flex-row justify-start gap-4 sm:gap-12 md:gap-20">
                             {/* Mobile Development */}
                             <div>
-                                <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900">MOBILE DEV</h4>
+                                <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900">MOBILE DEV</h4>
                                 <ul className="space-y-1.5 sm:space-y-3">
                                     {mobileTechList.map((item, idx) => (
-                                        <li key={`mobile-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 md:text-gray-500 font-medium">
+                                        <li key={`mobile-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 md:text-gray-500 font-medium">
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
@@ -104,11 +104,11 @@ export default function TechnologySection() {
                             </div>
                             {/* Backend */}
                             <div>
-                                <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-2 text-gray-900">BACKEND</h4>
-                                <p className="hidden sm:block text-[11px] sm:text-xs tracking-wide text-gray-500 mb-4 sm:mb-6">The engine behind your application.</p>
+                                <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 text-gray-900">BACKEND</h4>
+                                <p className="hidden sm:block text-[clamp(10px,0.4vw+4px,12px)] tracking-wide text-gray-500 mb-4 sm:mb-6">The engine behind your application.</p>
                                 <ul className="space-y-1.5 sm:space-y-3">
                                     {backendTechList.map((item, idx) => (
-                                        <li key={`backend-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 md:text-gray-500 font-medium">
+                                        <li key={`backend-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 md:text-gray-500 font-medium">
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
@@ -119,9 +119,9 @@ export default function TechnologySection() {
 
                         {/* Right Section: Admin Dashboards */}
                         <div className="lg:max-w-[340px] lg:mr-12 mt-2 sm:mt-6 lg:mt-0">
-                            <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-1.5 sm:mb-2 text-gray-900">ADMIN DASHBOARDS</h4>
-                            <p className="hidden sm:block text-[11px] sm:text-xs tracking-wide text-gray-500 mb-3 sm:mb-4">Every app needs a control centre.</p>
-                            <p className="text-[12px] sm:text-[13px] md:text-[14px] text-gray-600 md:text-gray-500 font-normal leading-relaxed line-clamp-3 sm:line-clamp-none">
+                            <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-1.5 sm:mb-2 text-gray-900">ADMIN DASHBOARDS</h4>
+                            <p className="hidden sm:block text-[clamp(10px,0.4vw+4px,12px)] tracking-wide text-gray-500 mb-3 sm:mb-4">Every app needs a control centre.</p>
+                            <p className="text-[clamp(11px,0.4vw+6px,14px)] text-gray-600 md:text-gray-500 font-normal leading-relaxed line-clamp-3 sm:line-clamp-none">
                                 We develop custom admin panels to manage users, content, products, reports and business operations.
                             </p>
                         </div>
@@ -132,10 +132,10 @@ export default function TechnologySection() {
 
                         {/* Bottom Left Text */}
                         <div className="max-w-[320px] mb-12 lg:mb-0">
-                            <h3 className="text-[32px] sm:text-[40px] md:text-[55px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-6">
+                            <h3 className="text-[clamp(1.75rem,2.8vw+0.5rem,3.25rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-6">
                                 <span className="block font-black">Integrations</span>
                             </h3>
-                            <p className="text-gray-600 text-[13px] md:text-[14px] font-medium leading-relaxed">
+                            <p className="text-gray-600 text-[clamp(11px,0.4vw+6px,14px)] font-medium leading-relaxed">
                                 Modern mobile apps need to work with other systems. We integrate applications with.
                             </p>
                         </div>
@@ -179,7 +179,7 @@ export default function TechnologySection() {
                                             "APIs",
                                             "Cloud Storage"
                                         ].map((word, j) => (
-                                            <span key={`${i}-${j}`} className="text-[32px] sm:text-[44px] md:text-[80px] lg:text-[100px] font-black leading-[0.95] uppercase text-white drop-shadow-md">
+                                            <span key={`${i}-${j}`} className="text-[clamp(1.75rem,5.5vw+0.5rem,5.5rem)] font-black leading-[0.95] uppercase text-white drop-shadow-md">
                                                 {word}
                                             </span>
                                         ))}

@@ -188,7 +188,7 @@ export default function ManufacturingScrollCanvas() {
           className="absolute inset-0 z-20 pointer-events-none flex flex-col justify-start max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 pt-16 md:pt-24 space-y-12"
         >
           {/* Top Heading */}
-          <h2 className="text-center md:text-left text-3xl sm:text-4xl md:text-5xl lg:text-[4.5rem] leading-[1.3] md:leading-[1.1] tracking-normal uppercase text-[#111]">
+          <h2 className="text-center md:text-left text-[clamp(1.75rem,4.5vw+0.5rem,4.5rem)] leading-[1.3] md:leading-[1.1] tracking-normal uppercase text-[#111]">
               <div className="overflow-hidden pb-2"><motion.span variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="inline-block font-extrabold">BUILD</motion.span> <motion.span variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="inline-block font-light text-[#777]">360-DEGREE</motion.span> <motion.span variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="inline-block font-extrabold">SYSTEMS</motion.span></div>
               <div className="overflow-hidden pb-2"><motion.span variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="inline-block font-extrabold">THAT</motion.span> <motion.span variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="inline-block font-light text-[#777]">NURTURE AND</motion.span> <motion.span variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="inline-block font-extrabold">GROW YOUR</motion.span></div>
               <div className="overflow-hidden pb-2"><motion.span variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="inline-block font-light text-[#777]">MANUFACTURING</motion.span> <motion.span variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="inline-block font-extrabold">BUSINESS</motion.span></div>
@@ -196,18 +196,18 @@ export default function ManufacturingScrollCanvas() {
 
           {/* Middle Content Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-start pt-4 md:pt-8 text-center md:text-left">
-              <div className="text-2xl md:text-3xl lg:text-[2.5rem] leading-[1.3] font-light text-[#999] uppercase tracking-wide">
+              <div className="text-[clamp(1.25rem,2.2vw+0.5rem,2.5rem)] leading-[1.3] font-light text-[#999] uppercase tracking-wide">
                   <div className="overflow-hidden"><motion.div variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }}>SCALE SYSTEMS THAT</motion.div></div>
                   <div className="overflow-hidden"><motion.div variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }}>RUN YOUR BUSINESS.</motion.div></div>
               </div>
 
               <div className="flex flex-col items-center md:items-start space-y-4 md:space-y-6 max-w-sm mx-auto md:mx-0 pt-2">
                   <div className="overflow-hidden">
-                    <motion.h3 variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="text-[10px] font-bold uppercase tracking-widest text-black">
+                    <motion.h3 variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="text-[clamp(9px,0.4vw+4px,11px)] font-bold uppercase tracking-widest text-black">
                         HOW SMRKONOVA THINKS
                     </motion.h3>
                   </div>
-                  <div className="text-[12px] md:text-[13px] text-[#666] leading-loose">
+                  <div className="text-[clamp(11px,0.4vw+5px,13px)] text-[#666] leading-loose">
                       <div className="overflow-hidden"><motion.div variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }}>Replace disconnected processes with systems</motion.div></div>
                       <div className="overflow-hidden"><motion.div variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }}>that gives every team, from marketing to</motion.div></div>
                       <div className="overflow-hidden"><motion.div variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }}>manufacturing teams the clarity to</motion.div></div>

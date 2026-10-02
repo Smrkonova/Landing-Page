@@ -81,26 +81,26 @@ export default function HorizontalScrollSection() {
                 
                 {/* Top Header */}
                 <div className="w-full flex justify-start">
-                  <p className="text-[10px] md:text-xs font-light tracking-[0.3em] uppercase opacity-80">
+                  <p className="text-[clamp(10px,0.6vw+4px,12px)] font-light tracking-[0.3em] uppercase opacity-80">
                     Behind The Process
                   </p>
                 </div>
 
                 {/* Big Center Title */}
                 <div className="w-full flex justify-center items-center pointer-events-none">
-                  <h1 className="text-6xl md:text-[8rem] lg:text-[12rem] font-thin tracking-widest uppercase opacity-90 drop-shadow-2xl">
+                  <h1 className="text-[clamp(3.5rem,10vw,12rem)] font-thin tracking-widest uppercase opacity-90 drop-shadow-2xl">
                     {slide.title}
                   </h1>
                 </div>
 
                 {/* Bottom Footer (Number & Text) */}
                 <div className="w-full flex justify-between items-end">
-                  <div className="text-xl md:text-2xl font-light opacity-80">
+                  <div className="text-[clamp(1.25rem,1.5vw+0.5rem,1.5rem)] font-light opacity-80">
                     {slide.num}
                   </div>
                   
                   <div className="max-w-[300px] md:max-w-[400px] text-right">
-                    <p className="text-[10px] md:text-xs font-light leading-[1.8] opacity-90">
+                    <p className="text-[clamp(10px,0.6vw+4px,13px)] font-light leading-[1.8] opacity-90">
                       {slide.text}
                     </p>
                   </div>

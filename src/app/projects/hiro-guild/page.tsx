@@ -10,7 +10,7 @@ export default function HiroGuildProjectPage() {
         {/* Left Sidebar */}
         <div className="hidden xl:flex flex-col w-[220px] shrink-0 justify-between py-12">
           <div>
-            <h4 className="text-[11px] text-gray-500 font-bold uppercase tracking-widest mb-3">CASE STUDY 1</h4>
+            <h4 className="text-[clamp(10px,0.8vw+2px,12px)] text-gray-500 font-bold uppercase tracking-widest mb-3">CASE STUDY 1</h4>
             <div className="w-20 h-auto">
               <img src="/images/projects/hiro-guild/logo.svg" alt="Hiro Guild Logo" className="w-full h-full object-contain" />
             </div>
@@ -18,18 +18,18 @@ export default function HiroGuildProjectPage() {
 
           <div className="flex flex-col gap-10 mt-16">
             <div>
-              <h4 className="text-[13px] text-gray-500 tracking-wider mb-3">Industry</h4>
-              <span className="bg-[#222222] text-gray-300 font-bold text-[11px] px-3 py-1.5 rounded-sm">Task Marketplace</span>
+              <h4 className="text-[clamp(11px,0.8vw+2px,13px)] text-gray-500 tracking-wider mb-3">Industry</h4>
+              <span className="bg-[#222222] text-gray-300 font-bold text-[clamp(10px,0.6vw+4px,12px)] px-3 py-1.5 rounded-sm">Task Marketplace</span>
             </div>
             <div>
-              <h4 className="text-[13px] text-gray-500 tracking-wider mb-3">Duration</h4>
-              <span className="bg-[#222222] text-gray-300 font-bold text-[11px] px-3 py-1.5 rounded-sm">Ongoing</span>
+              <h4 className="text-[clamp(11px,0.8vw+2px,13px)] text-gray-500 tracking-wider mb-3">Duration</h4>
+              <span className="bg-[#222222] text-gray-300 font-bold text-[clamp(10px,0.6vw+4px,12px)] px-3 py-1.5 rounded-sm">Ongoing</span>
             </div>
             <div>
-              <h4 className="text-[13px] text-gray-500 tracking-wider mb-3">Platforms</h4>
+              <h4 className="text-[clamp(11px,0.8vw+2px,13px)] text-gray-500 tracking-wider mb-3">Platforms</h4>
               <div className="flex flex-col gap-2 items-start">
                 {["App design", "Research", "Strategy", "UI/UX"].map((item, i) => (
-                  <span key={i} className="bg-[#222222] text-gray-300 font-bold text-[11px] px-3 py-1.5 rounded-sm">{item}</span>
+                  <span key={i} className="bg-[#222222] text-gray-300 font-bold text-[clamp(10px,0.6vw+4px,12px)] px-3 py-1.5 rounded-sm">{item}</span>
                 ))}
               </div>
             </div>
@@ -48,10 +48,10 @@ export default function HiroGuildProjectPage() {
             
             {/* Overlay Text */}
             <div className="absolute inset-0 flex flex-col justify-end items-center pb-16 md:pb-24 bg-gradient-to-t from-black/90 via-black/40 to-transparent px-4">
-              <h1 className="text-3xl md:text-5xl lg:text-[64px] font-black text-white uppercase tracking-wider text-center leading-tight">
+              <h1 className="text-[clamp(2rem,4.5vw+0.5rem,4rem)] font-black text-white uppercase tracking-wider text-center leading-tight">
                 IT WAS JUST <span className="text-[#FFC700]">AN IDEA</span>
               </h1>
-              <h2 className="text-2xl md:text-4xl lg:text-[54px] font-light text-white/80 uppercase tracking-widest text-center mt-2">
+              <h2 className="text-[clamp(1.5rem,3.5vw+0.5rem,3.375rem)] font-light text-white/80 uppercase tracking-widest text-center mt-2">
                 WHEN IT CAME TO US
               </h2>
             </div>
@@ -71,7 +71,7 @@ export default function HiroGuildProjectPage() {
               "LOGO DEVELOPMENT", 
               "DESIGN SYSTEM"
             ].map((service, i) => (
-              <li key={i} className="text-[10px] font-bold text-gray-500 tracking-widest leading-snug">{service}</li>
+              <li key={i} className="text-[clamp(9px,0.6vw+3px,11px)] font-bold text-gray-500 tracking-widest leading-snug">{service}</li>
             ))}
           </ul>
         </div>
@@ -79,26 +79,26 @@ export default function HiroGuildProjectPage() {
         {/* Mobile View Metadata (Visible only on small screens) */}
         <div className="xl:hidden w-full flex flex-wrap gap-8 mt-6 pb-12">
           <div className="w-full">
-            <h4 className="text-[11px] text-gray-500 font-bold uppercase tracking-widest mb-3">CASE STUDY 1</h4>
+            <h4 className="text-[clamp(10px,0.8vw+2px,12px)] text-gray-500 font-bold uppercase tracking-widest mb-3">CASE STUDY 1</h4>
             <div className="w-24 h-auto">
               <img src="/images/projects/hiro-guild/logo.svg" alt="Hiro Guild Logo" className="w-full h-full object-contain" />
             </div>
           </div>
           <div className="flex gap-8 flex-wrap">
             <div className="flex flex-col gap-2">
-              <h4 className="text-[13px] text-gray-500 tracking-wider">Industry</h4>
-              <span className="bg-[#222222] text-gray-300 font-bold text-[11px] px-3 py-1.5 rounded-sm self-start">Task Marketplace</span>
+              <h4 className="text-[clamp(11px,0.8vw+2px,13px)] text-gray-500 tracking-wider">Industry</h4>
+              <span className="bg-[#222222] text-gray-300 font-bold text-[clamp(10px,0.6vw+4px,12px)] px-3 py-1.5 rounded-sm self-start">Task Marketplace</span>
             </div>
             <div className="flex flex-col gap-2">
-              <h4 className="text-[13px] text-gray-500 tracking-wider">Duration</h4>
-              <span className="bg-[#222222] text-gray-300 font-bold text-[11px] px-3 py-1.5 rounded-sm self-start">Ongoing</span>
+              <h4 className="text-[clamp(11px,0.8vw+2px,13px)] text-gray-500 tracking-wider">Duration</h4>
+              <span className="bg-[#222222] text-gray-300 font-bold text-[clamp(10px,0.6vw+4px,12px)] px-3 py-1.5 rounded-sm self-start">Ongoing</span>
             </div>
           </div>
           <div className="w-full">
-            <h4 className="text-[13px] text-gray-500 tracking-wider mb-2">Platforms</h4>
+            <h4 className="text-[clamp(11px,0.8vw+2px,13px)] text-gray-500 tracking-wider mb-2">Platforms</h4>
             <div className="flex flex-wrap gap-2 items-start">
               {["App design", "Research", "Strategy", "UI/UX"].map((item, i) => (
-                <span key={i} className="bg-[#222222] text-gray-300 font-bold text-[11px] px-3 py-1.5 rounded-sm">{item}</span>
+                <span key={i} className="bg-[#222222] text-gray-300 font-bold text-[clamp(10px,0.6vw+4px,12px)] px-3 py-1.5 rounded-sm">{item}</span>
               ))}
             </div>
           </div>
@@ -114,7 +114,7 @@ export default function HiroGuildProjectPage() {
                   "LOGO DEVELOPMENT", 
                   "DESIGN SYSTEM"
                 ].map((service, i) => (
-                  <li key={i} className="text-[10px] font-bold text-gray-400 tracking-widest bg-[#222222] px-3 py-1 rounded-sm">{service}</li>
+                  <li key={i} className="text-[clamp(9px,0.6vw+3px,11px)] font-bold text-gray-400 tracking-widest bg-[#222222] px-3 py-1 rounded-sm">{service}</li>
                 ))}
              </ul>
           </div>
@@ -127,7 +127,7 @@ export default function HiroGuildProjectPage() {
         
         {/* Typography overlapping the map */}
         <div className="w-full max-w-[900px] text-center relative z-20 pointer-events-none">
-          <h2 className="text-[16px] md:text-3xl lg:text-[34px] font-light text-gray-400 uppercase tracking-widest leading-[1.6] text-center">
+          <h2 className="text-[clamp(1rem,1.8vw+0.5rem,2.125rem)] font-light text-gray-400 uppercase tracking-widest leading-[1.6] text-center">
             BUILDING TO TRANSFORM PRODUCT<br/>
             INTO AN BUILDING TO <span className="text-[#FFC700] font-normal">TRANSFORM</span><br/>
             PRODUCT INTO ANBUILDING TO<br/>
@@ -151,7 +151,7 @@ export default function HiroGuildProjectPage() {
         
         {/* Background Text (Always centered behind everything) */}
         <div className="absolute top-[40%] lg:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center z-0 pointer-events-none mt-20 lg:mt-0">
-          <h1 className="text-[60px] md:text-[140px] lg:text-[240px] xl:text-[300px] font-thin text-white/10 tracking-widest uppercase leading-none">
+          <h1 className="text-[clamp(3.75rem,15vw,18.75rem)] font-thin text-white/10 tracking-widest uppercase leading-none">
             EXPERIENCE
           </h1>
         </div>
@@ -170,7 +170,7 @@ export default function HiroGuildProjectPage() {
           
           {/* Top Left */}
           <div className="pointer-events-auto lg:absolute lg:top-12 lg:left-12 xl:top-24 xl:left-24 text-left">
-            <h3 className="text-2xl md:text-3xl lg:text-[40px] font-light text-gray-400 uppercase tracking-widest leading-[1.4] text-left">
+            <h3 className="text-[clamp(1.5rem,2.5vw+0.5rem,2.5rem)] font-light text-gray-400 uppercase tracking-widest leading-[1.4] text-left">
               BUILDING TO<br/>
               TRANSFORM<br/>
               PRODUCT<br/>
@@ -180,7 +180,7 @@ export default function HiroGuildProjectPage() {
           
           {/* Top Right */}
           <div className="pointer-events-auto flex items-center lg:items-start justify-end lg:justify-end gap-6 lg:absolute lg:top-12 lg:right-12 xl:top-24 xl:right-24">
-            <div className="flex flex-col gap-3 text-[10px] md:text-xs font-bold text-gray-500 tracking-widest text-right">
+            <div className="flex flex-col gap-3 text-[clamp(10px,0.6vw+4px,12px)] font-bold text-gray-500 tracking-widest text-right">
               <p>REWARDS <span className="text-[#FFC700]">₹567</span></p>
               <p>MISSIONS <span className="text-[#FFC700]">4</span></p>
               <p>NEXT PICK UP <span className="text-[#FFC700]">2.3KM</span></p>
@@ -198,7 +198,7 @@ export default function HiroGuildProjectPage() {
 
           {/* Bottom Right */}
           <div className="pointer-events-auto lg:absolute lg:bottom-12 lg:right-12 xl:bottom-24 xl:right-24 max-w-[400px]">
-            <p className="text-[11px] md:text-[12px] text-gray-400 leading-[1.8] font-medium tracking-wide lg:text-right">
+            <p className="text-[clamp(11px,0.6vw+5px,13px)] text-gray-400 leading-[1.8] font-medium tracking-wide lg:text-right">
               Hiro Guild, a task management platform is what the client had come up with. We took the complex business idea and turned it into a product people could understand, experience, and believe in.
             </p>
           </div>
@@ -241,7 +241,7 @@ export default function HiroGuildProjectPage() {
           
           {/* Top */}
           <div className="absolute top-[5%] left-1/2 -translate-x-1/2 flex flex-col items-center">
-            <span className="text-[10px] font-bold text-gray-500 tracking-widest uppercase text-center mb-2">WHAT MAKES<br/>THEM TAKE IT?</span>
+            <span className="text-[clamp(9px,0.6vw+3px,11px)] font-bold text-gray-500 tracking-widest uppercase text-center mb-2">WHAT MAKES<br/>THEM TAKE IT?</span>
             <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center border border-white/10 shadow-lg shadow-black">
               <span className="text-white text-xs font-bold leading-none tracking-tighter">»</span>
             </div>
@@ -249,7 +249,7 @@ export default function HiroGuildProjectPage() {
           
           {/* Top Left */}
           <div className="absolute top-[25%] left-[5%] flex items-center gap-3">
-            <span className="text-[10px] font-bold text-gray-500 tracking-widest uppercase text-right">HOW DOES<br/>SOMEONE<br/>DISCOVER IT?</span>
+            <span className="text-[clamp(9px,0.6vw+3px,11px)] font-bold text-gray-500 tracking-widest uppercase text-right">HOW DOES<br/>SOMEONE<br/>DISCOVER IT?</span>
             <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center border border-white/10 shadow-lg shadow-black">
               <span className="text-white text-xs font-bold leading-none tracking-tighter">»</span>
             </div>
@@ -257,7 +257,7 @@ export default function HiroGuildProjectPage() {
           
           {/* Bottom Left */}
           <div className="absolute top-[55%] left-[10%] flex items-center gap-3">
-            <span className="text-[10px] font-bold text-gray-500 tracking-widest uppercase text-right">HOW DOES<br/>A TASK BEGIN?</span>
+            <span className="text-[clamp(9px,0.6vw+3px,11px)] font-bold text-gray-500 tracking-widest uppercase text-right">HOW DOES<br/>A TASK BEGIN?</span>
             <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center border border-white/10 shadow-lg shadow-black">
               <span className="text-white text-xs font-bold leading-none tracking-tighter">»</span>
             </div>
@@ -265,7 +265,7 @@ export default function HiroGuildProjectPage() {
 
           {/* Top Right */}
           <div className="absolute top-[25%] right-[5%] flex items-center gap-3 flex-row-reverse">
-            <span className="text-[10px] font-bold text-[#FFC700] tracking-widest uppercase text-left">HOW DO THEY<br/>KNOW THEY'RE<br/>PROGRESSING?</span>
+            <span className="text-[clamp(9px,0.6vw+3px,11px)] font-bold text-[#FFC700] tracking-widest uppercase text-left">HOW DO THEY<br/>KNOW THEY'RE<br/>PROGRESSING?</span>
             <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center border border-white/10 shadow-lg shadow-black">
               <span className="text-white text-xs font-bold leading-none tracking-tighter">»</span>
             </div>
@@ -273,7 +273,7 @@ export default function HiroGuildProjectPage() {
 
           {/* Bottom Right */}
           <div className="absolute top-[55%] right-[10%] flex items-center gap-3 flex-row-reverse">
-            <span className="text-[10px] font-bold text-gray-500 tracking-widest uppercase text-left">WHAT KEEPS<br/>THEM<br/>COMING<br/>BACK?</span>
+            <span className="text-[clamp(9px,0.6vw+3px,11px)] font-bold text-gray-500 tracking-widest uppercase text-left">WHAT KEEPS<br/>THEM<br/>COMING<br/>BACK?</span>
             <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center border border-white/10 shadow-lg shadow-black">
               <span className="text-white text-xs font-bold leading-none tracking-tighter">»</span>
             </div>
@@ -286,7 +286,7 @@ export default function HiroGuildProjectPage() {
           
           {/* Top Left */}
           <div className="pointer-events-auto lg:absolute lg:top-12 lg:left-12 xl:top-24 xl:left-24 text-left max-w-[300px]">
-            <h3 className="text-xs md:text-sm lg:text-[13px] font-bold text-gray-500 uppercase tracking-widest leading-[1.8] text-left">
+            <h3 className="text-[clamp(11px,0.6vw+4px,14px)] font-bold text-gray-500 uppercase tracking-widest leading-[1.8] text-left">
               DESIGNING WHAT HAPPENS<br/>
               BEFORE AND AFTER THAT<br/>
               SCREEN IS THE REAL WORK.
@@ -295,7 +295,7 @@ export default function HiroGuildProjectPage() {
           
           {/* Top Right */}
           <div className="pointer-events-auto flex items-center lg:items-start justify-end lg:justify-end gap-6 lg:absolute lg:top-12 lg:right-12 xl:top-24 xl:right-24">
-            <div className="flex flex-col gap-3 text-[10px] md:text-xs font-bold text-gray-500 tracking-widest text-right">
+            <div className="flex flex-col gap-3 text-[clamp(10px,0.6vw+4px,12px)] font-bold text-gray-500 tracking-widest text-right">
               <p>REWARDS <span className="text-[#FFC700]">₹567</span></p>
               <p>MISSIONS <span className="text-[#FFC700]">4</span></p>
               <p>NEXT PICK UP <span className="text-[#FFC700]">2.3KM</span></p>
@@ -313,9 +313,9 @@ export default function HiroGuildProjectPage() {
 
           {/* Bottom Right */}
           <div className="pointer-events-auto lg:absolute lg:bottom-12 lg:right-12 xl:bottom-24 xl:right-24 max-w-[400px]">
-            <h4 className="text-xl md:text-2xl lg:text-3xl font-light text-gray-400 tracking-widest uppercase lg:text-right mb-2">HEAVY LIFTING</h4>
-            <h2 className="text-2xl md:text-3xl lg:text-[40px] font-bold text-gray-300 tracking-widest uppercase lg:text-right leading-none mb-6">THE FOUNDERS'<br/>PLATE.</h2>
-            <p className="text-[11px] md:text-[12px] text-gray-400 leading-[1.8] font-medium tracking-wide lg:text-right">
+            <h4 className="text-[clamp(1.25rem,1.8vw+0.5rem,1.875rem)] font-light text-gray-400 tracking-widest uppercase lg:text-right mb-2">HEAVY LIFTING</h4>
+            <h2 className="text-[clamp(1.5rem,2.5vw+0.5rem,2.5rem)] font-bold text-gray-300 tracking-widest uppercase lg:text-right leading-none mb-6">THE FOUNDERS'<br/>PLATE.</h2>
+            <p className="text-[clamp(11px,0.6vw+5px,13px)] text-gray-400 leading-[1.8] font-medium tracking-wide lg:text-right">
               Hiro Guild, a task management platform is what the client had come up with. We took the complex business idea and turned it into a product people could understand, experience, and believe in.
             </p>
           </div>
@@ -352,17 +352,17 @@ export default function HiroGuildProjectPage() {
 
         {/* Top Left Text */}
         <div className="pointer-events-auto lg:absolute lg:top-12 lg:left-12 xl:top-24 xl:left-24 text-left z-20 px-6 lg:px-0">
-          <h3 className="text-xl md:text-2xl lg:text-[28px] font-light text-gray-500 uppercase tracking-widest leading-none mb-4">
+          <h3 className="text-[clamp(1.25rem,1.8vw+0.5rem,1.75rem)] font-light text-gray-500 uppercase tracking-widest leading-none mb-4">
             WE WANTED WORK
           </h3>
-          <h2 className="text-4xl md:text-6xl lg:text-[70px] font-bold text-gray-300 uppercase tracking-tight leading-none">
+          <h2 className="text-[clamp(2.25rem,4.5vw+0.5rem,4.375rem)] font-bold text-gray-300 uppercase tracking-tight leading-none">
             TO FEEL <span className="text-[#FFC700]">LIKE PLAY.</span>
           </h2>
         </div>
 
         {/* Top Right Stats */}
         <div className="pointer-events-auto flex items-center lg:items-start justify-end lg:justify-end gap-6 lg:absolute lg:top-12 lg:right-12 xl:top-24 xl:right-24 z-20 px-6 lg:px-0 mt-12 lg:mt-0">
-          <div className="flex flex-col gap-3 text-[10px] md:text-xs font-bold text-gray-500 tracking-widest text-right">
+          <div className="flex flex-col gap-3 text-[clamp(10px,0.6vw+4px,12px)] font-bold text-gray-500 tracking-widest text-right">
             <p>REWARDS <span className="text-[#FFC700]">₹567</span></p>
             <p>MISSIONS <span className="text-[#FFC700]">4</span></p>
             <p>NEXT PICK UP <span className="text-[#FFC700]">2.3KM</span></p>
@@ -398,7 +398,7 @@ export default function HiroGuildProjectPage() {
                 </div>
 
                 {/* Label */}
-                <span className={`relative z-10 text-[10px] md:text-sm font-black italic tracking-widest uppercase ${card.isActive ? 'text-[#FFC700]' : 'text-[#FFC700] opacity-90'}`}>
+                <span className={`relative z-10 text-[clamp(10px,0.6vw+4px,14px)] font-black italic tracking-widest uppercase ${card.isActive ? 'text-[#FFC700]' : 'text-[#FFC700] opacity-90'}`}>
                   {card.label}
                 </span>
               </div>
@@ -413,7 +413,7 @@ export default function HiroGuildProjectPage() {
 
         {/* Bottom Right Text */}
         <div className="pointer-events-auto lg:absolute lg:bottom-12 lg:right-12 xl:bottom-24 xl:right-24 max-w-[450px] z-20 px-6 lg:px-0 mt-8 lg:mt-0">
-          <p className="text-[11px] md:text-[13px] text-gray-400 leading-[1.8] font-medium tracking-wide lg:text-right">
+          <p className="text-[clamp(11px,0.6vw+5px,13px)] text-gray-400 leading-[1.8] font-medium tracking-wide lg:text-right">
             We didn't want to design another task platform. We wanted the job done to be the game. Instead of a task, done... the experience made people feel like they were getting somewhere.
           </p>
         </div>
@@ -458,7 +458,7 @@ export default function HiroGuildProjectPage() {
                <div className="w-2.5 h-1.5 bg-[#FFC700] rounded-tl-sm rounded-tr-sm"></div>
                <div className="w-6 h-3.5 bg-[#FFC700] rounded-sm"></div>
             </div>
-            <span className="text-xs font-bold text-[#FFC700] tracking-wider">Sketches</span>
+            <span className="text-[clamp(10px,0.6vw+4px,12px)] font-bold text-[#FFC700] tracking-wider">Sketches</span>
           </div>
 
           {/* Mid Left: Concepts */}
@@ -467,7 +467,7 @@ export default function HiroGuildProjectPage() {
                <div className="w-2.5 h-1.5 bg-[#FFC700] rounded-tl-sm rounded-tr-sm"></div>
                <div className="w-6 h-3.5 bg-[#FFC700] rounded-sm"></div>
             </div>
-            <span className="text-xs font-bold text-[#FFC700] tracking-wider">Concepts</span>
+            <span className="text-[clamp(10px,0.6vw+4px,12px)] font-bold text-[#FFC700] tracking-wider">Concepts</span>
           </div>
 
           {/* Top Right: Typography */}
@@ -476,7 +476,7 @@ export default function HiroGuildProjectPage() {
                <div className="w-2.5 h-1.5 bg-[#FFC700] rounded-tl-sm rounded-tr-sm"></div>
                <div className="w-6 h-3.5 bg-[#FFC700] rounded-sm"></div>
             </div>
-            <span className="text-xs font-bold text-[#FFC700] tracking-wider">Typography</span>
+            <span className="text-[clamp(10px,0.6vw+4px,12px)] font-bold text-[#FFC700] tracking-wider">Typography</span>
           </div>
 
           {/* Mid Right: Identity */}
@@ -485,7 +485,7 @@ export default function HiroGuildProjectPage() {
                <div className="w-2.5 h-1.5 bg-[#FFC700] rounded-tl-sm rounded-tr-sm"></div>
                <div className="w-6 h-3.5 bg-[#FFC700] rounded-sm"></div>
             </div>
-            <span className="text-xs font-bold text-[#FFC700] tracking-wider z-10">Identity</span>
+            <span className="text-[clamp(10px,0.6vw+4px,12px)] font-bold text-[#FFC700] tracking-wider z-10">Identity</span>
             {/* Squiggly line pointing to colour */}
             <svg className="absolute top-4 right-10 w-20 h-32" viewBox="0 0 100 150" fill="none">
               <path d="M90 0 V30 L70 50 V80 L80 100 V130 L10 150" stroke="#FFC700" strokeWidth="2" strokeDasharray="4 4" />
@@ -500,7 +500,7 @@ export default function HiroGuildProjectPage() {
                <div className="w-2.5 h-1.5 bg-[#FFC700] rounded-tl-sm rounded-tr-sm"></div>
                <div className="w-6 h-3.5 bg-[#FFC700] rounded-sm"></div>
             </div>
-            <span className="text-xs font-bold text-[#FFC700] tracking-wider">Colour</span>
+            <span className="text-[clamp(10px,0.6vw+4px,12px)] font-bold text-[#FFC700] tracking-wider">Colour</span>
           </div>
           
         </div>
@@ -585,10 +585,10 @@ export default function HiroGuildProjectPage() {
           
           {/* Top Left Text */}
           <div className="pointer-events-auto lg:absolute lg:top-12 lg:left-12 xl:top-24 xl:left-24 text-left z-20">
-            <h3 className="text-xl md:text-2xl lg:text-[28px] font-light text-gray-500 uppercase tracking-widest leading-none mb-4">
+            <h3 className="text-[clamp(1.25rem,1.8vw+0.5rem,1.75rem)] font-light text-gray-500 uppercase tracking-widest leading-none mb-4">
               GIVING THE IDEA
             </h3>
-            <h2 className="text-4xl md:text-6xl lg:text-[70px] font-bold text-gray-300 uppercase tracking-tight leading-none">
+            <h2 className="text-[clamp(2.25rem,4.5vw+0.5rem,4.375rem)] font-bold text-gray-300 uppercase tracking-tight leading-none">
               A FACE<br/>
               AND <span className="text-[#FFC700]">A FEEL</span>
             </h2>
@@ -596,7 +596,7 @@ export default function HiroGuildProjectPage() {
           
           {/* Top Right Stats */}
           <div className="pointer-events-auto flex items-center lg:items-start justify-end lg:justify-end gap-6 lg:absolute lg:top-12 lg:right-12 xl:top-24 xl:right-24 z-20 mt-12 lg:mt-0">
-            <div className="flex flex-col gap-3 text-[10px] md:text-xs font-bold text-gray-500 tracking-widest text-right">
+            <div className="flex flex-col gap-3 text-[clamp(10px,0.6vw+4px,12px)] font-bold text-gray-500 tracking-widest text-right">
               <p>REWARDS <span className="text-[#FFC700]">₹567</span></p>
               <p>MISSIONS <span className="text-[#FFC700]">4</span></p>
               <p>NEXT PICK UP <span className="text-[#FFC700]">2.3KM</span></p>
@@ -609,7 +609,7 @@ export default function HiroGuildProjectPage() {
 
           {/* Left Middle Text */}
           <div className="pointer-events-auto lg:absolute lg:top-[45%] lg:left-12 xl:left-24 max-w-[400px] z-20 mt-8 lg:mt-0">
-            <p className="text-[11px] md:text-[13px] text-gray-400 leading-[1.8] font-medium tracking-wide text-left">
+            <p className="text-[clamp(11px,0.6vw+5px,13px)] text-gray-400 leading-[1.8] font-medium tracking-wide text-left">
               The identity needed to communicate something new, energetic and approachable without becoming overly complicated. So we explored hand-drawn logo directions, visual territories, colour systems, typography and mood boards before bringing everything together into a cohesive brand system.
             </p>
           </div>
@@ -645,17 +645,17 @@ export default function HiroGuildProjectPage() {
           
           {/* Top Left Text */}
           <div className="pointer-events-auto lg:absolute lg:top-12 lg:left-12 xl:top-24 xl:left-24 text-left z-20">
-            <h3 className="text-3xl md:text-5xl lg:text-[60px] font-light text-gray-500 uppercase tracking-widest leading-none mb-2">
+            <h3 className="text-[clamp(1.75rem,3.5vw+0.5rem,3.75rem)] font-light text-gray-500 uppercase tracking-widest leading-none mb-2">
               THERE'S
             </h3>
-            <h2 className="text-4xl md:text-6xl lg:text-[70px] font-bold text-[#FFC700] uppercase tracking-tight leading-none">
+            <h2 className="text-[clamp(2.25rem,4.5vw+0.5rem,4.375rem)] font-bold text-[#FFC700] uppercase tracking-tight leading-none">
               ANOTHER SIDE
             </h2>
           </div>
           
           {/* Top Right Stats */}
           <div className="pointer-events-auto flex items-center lg:items-start justify-end lg:justify-end gap-6 lg:absolute lg:top-12 lg:right-12 xl:top-24 xl:right-24 z-20 mt-12 lg:mt-0">
-            <div className="flex flex-col gap-3 text-[10px] md:text-xs font-bold text-gray-500 tracking-widest text-right">
+            <div className="flex flex-col gap-3 text-[clamp(10px,0.6vw+4px,12px)] font-bold text-gray-500 tracking-widest text-right">
               <p>REWARDS <span className="text-[#FFC700]">₹567</span></p>
               <p>MISSIONS <span className="text-[#FFC700]">4</span></p>
               <p>NEXT PICK UP <span className="text-[#FFC700]">2.3KM</span></p>
@@ -668,13 +668,13 @@ export default function HiroGuildProjectPage() {
 
           {/* Left Middle Text */}
           <div className="pointer-events-auto lg:absolute lg:top-[35%] xl:top-[40%] lg:left-12 xl:left-24 max-w-[500px] z-20 mt-8 lg:mt-0">
-            <p className="text-[11px] md:text-[13px] text-gray-400 leading-[1.8] font-medium tracking-wide text-left mb-4">
+            <p className="text-[clamp(11px,0.6vw+5px,13px)] text-gray-400 leading-[1.8] font-medium tracking-wide text-left mb-4">
               Not everyone came to Hiro Guild for the same reason.
             </p>
-            <p className="text-[11px] md:text-[13px] text-gray-400 leading-[1.8] font-medium tracking-wide text-left mb-4">
+            <p className="text-[clamp(11px,0.6vw+5px,13px)] text-gray-400 leading-[1.8] font-medium tracking-wide text-left mb-4">
               For <span className="text-gray-200">customers</span>, Hiro Guild was about getting something off their plate. They had a task to be done, and the product needed to make that process feel simple, clear and effortless. For <span className="text-gray-200">partners</span>, the motivation was different. They weren't just completing tasks—they were looking for opportunities, building a track record, earning rewards and progressing over time.
             </p>
-            <p className="text-[11px] md:text-[13px] text-gray-400 leading-[1.8] font-medium tracking-wide text-left">
+            <p className="text-[clamp(11px,0.6vw+5px,13px)] text-gray-400 leading-[1.8] font-medium tracking-wide text-left">
               That meant one product had to support <span className="text-[#FFC700]">two very different journeys</span>: one designed around simplicity, and another <span className="text-gray-200">designed around progression.</span>
             </p>
           </div>
@@ -717,17 +717,17 @@ export default function HiroGuildProjectPage() {
 
         {/* Top Left Text */}
         <div className="pointer-events-auto lg:absolute lg:top-12 lg:left-12 xl:top-24 xl:left-24 text-left z-20 px-6 lg:px-0">
-          <h3 className="text-xl md:text-3xl lg:text-[40px] font-light text-gray-500 uppercase tracking-widest leading-none mb-4">
+          <h3 className="text-[clamp(1.25rem,2.2vw+0.5rem,2.5rem)] font-light text-gray-500 uppercase tracking-widest leading-none mb-4">
             THERE WAS NO TASK LIST FOR THIS
           </h3>
-          <h2 className="text-sm md:text-base lg:text-[16px] font-bold text-gray-400 uppercase tracking-widest leading-relaxed max-w-[400px]">
+          <h2 className="text-[clamp(0.875rem,0.6vw+0.5rem,1.05rem)] font-bold text-gray-400 uppercase tracking-widest leading-relaxed max-w-[400px]">
             WHEN THE PRODUCT IS NEW, THERE ISN'T ALWAYS A PATTERN TO FOLLOW.
           </h2>
         </div>
         
         {/* Top Right Stats */}
         <div className="pointer-events-auto flex items-center lg:items-start justify-end lg:justify-end gap-6 lg:absolute lg:top-12 lg:right-12 xl:top-24 xl:right-24 z-20 px-6 lg:px-0 mt-12 lg:mt-0">
-          <div className="flex flex-col gap-3 text-[10px] md:text-xs font-bold text-gray-500 tracking-widest text-right">
+          <div className="flex flex-col gap-3 text-[clamp(10px,0.6vw+4px,12px)] font-bold text-gray-500 tracking-widest text-right">
             <p>REWARDS <span className="text-[#FFC700]">₹567</span></p>
             <p>MISSIONS <span className="text-[#FFC700]">4</span></p>
             <p>NEXT PICK UP <span className="text-[#FFC700]">2.3KM</span></p>
@@ -753,14 +753,14 @@ export default function HiroGuildProjectPage() {
         {/* Floating Nodes (Desktop) */}
         <div className="absolute top-[50%] right-0 -translate-y-1/2 w-full max-w-[1200px] h-[700px] pointer-events-none z-0 hidden lg:block">
           {[
-            { label: 'User\nResearch', top: '25%', left: '5%', size: 'w-[90px] h-[90px]', textSize: 'text-[10px]' },
-            { label: 'Product\nDiscovery', top: '35%', left: '20%', size: 'w-[90px] h-[90px]', textSize: 'text-[10px]' },
-            { label: 'Information\nArchitecture', top: '55%', left: '12%', size: 'w-[100px] h-[100px]', textSize: 'text-[9px]' },
-            { label: 'User\nFlows', top: '65%', left: '5%', size: 'w-20 h-20', textSize: 'text-[10px]' },
-            { label: 'UX\nStrategy', top: '15%', left: '42%', size: 'w-20 h-20', textSize: 'text-[9px]' },
-            { label: 'Wireframes', top: '20%', right: '28%', size: 'w-[90px] h-[90px]', textSize: 'text-[10px]' },
-            { label: 'High-Fidelity\nUI', top: '48%', right: '15%', size: 'w-24 h-24', textSize: 'text-[10px]' },
-            { label: 'Interactive\nPrototype', top: '65%', right: '15%', size: 'w-[100px] h-[100px]', textSize: 'text-[10px]' },
+            { label: 'User\nResearch', top: '25%', left: '5%', size: 'w-[90px] h-[90px]', textSize: 'text-[clamp(9px,0.5vw+3px,11px)]' },
+            { label: 'Product\nDiscovery', top: '35%', left: '20%', size: 'w-[90px] h-[90px]', textSize: 'text-[clamp(9px,0.5vw+3px,11px)]' },
+            { label: 'Information\nArchitecture', top: '55%', left: '12%', size: 'w-[100px] h-[100px]', textSize: 'text-[clamp(8px,0.5vw+3px,10px)]' },
+            { label: 'User\nFlows', top: '65%', left: '5%', size: 'w-20 h-20', textSize: 'text-[clamp(9px,0.5vw+3px,11px)]' },
+            { label: 'UX\nStrategy', top: '15%', left: '42%', size: 'w-20 h-20', textSize: 'text-[clamp(8px,0.5vw+3px,10px)]' },
+            { label: 'Wireframes', top: '20%', right: '28%', size: 'w-[90px] h-[90px]', textSize: 'text-[clamp(9px,0.5vw+3px,11px)]' },
+            { label: 'High-Fidelity\nUI', top: '48%', right: '15%', size: 'w-24 h-24', textSize: 'text-[clamp(9px,0.5vw+3px,11px)]' },
+            { label: 'Interactive\nPrototype', top: '65%', right: '15%', size: 'w-[100px] h-[100px]', textSize: 'text-[clamp(9px,0.5vw+3px,11px)]' },
           ].map((node, i) => (
             <div 
               key={i} 
@@ -774,7 +774,7 @@ export default function HiroGuildProjectPage() {
 
         {/* Bottom Right Text */}
         <div className="pointer-events-auto lg:absolute lg:bottom-12 lg:right-12 xl:bottom-24 xl:right-24 max-w-[320px] z-20 px-6 lg:px-0 mt-8 lg:mt-0">
-          <p className="text-[11px] md:text-[12px] text-gray-400 leading-[2] font-medium tracking-wide lg:text-right">
+          <p className="text-[clamp(11px,0.6vw+5px,13px)] text-gray-400 leading-[2] font-medium tracking-wide lg:text-right">
             We explored workflows from first principles, tested different structures, questioned assumptions, iterated on interactions and worked through the difficult parts before they became development problems. Sometimes the hardest task in product design is knowing there isn't a template for the task we are trying to accomplish.
           </p>
         </div>
@@ -820,12 +820,12 @@ export default function HiroGuildProjectPage() {
           
           {/* Left Content */}
           <div className="w-full lg:w-[55%] flex flex-col items-start text-left">
-            <h2 className="text-4xl md:text-5xl lg:text-[65px] font-light text-gray-300 uppercase tracking-widest leading-[1.1] mb-10">
+            <h2 className="text-[clamp(2.25rem,4vw+0.5rem,4.0625rem)] font-light text-gray-300 uppercase tracking-widest leading-[1.1] mb-10">
               A PRODUCT BUILT<br/>
               FOR <span className="font-bold text-white">WHAT'S NEXT</span>
             </h2>
             
-            <div className="flex flex-col gap-6 text-[11px] md:text-[13px] text-gray-400 leading-[1.9] font-medium tracking-wide max-w-[650px] mb-14">
+            <div className="flex flex-col gap-6 text-[clamp(11px,0.6vw+5px,13px)] text-gray-400 leading-[1.9] font-medium tracking-wide max-w-[650px] mb-14">
               <p>Hiro Guild came to us with an idea for a different kind of task platform. We helped turn that idea into a product people could understand, experience, and believe in.</p>
               <p>From mapping the business model to defining two distinct user journeys. From giving the brand a voice to turning work into a system of progression. From rough sketches and unanswered questions to a product that could finally be shown, not just explained.</p>
               <p>We took on the heavy lifting. Hiro Guild got a product ready to move forward. The platform now has the foundation to enter its next chapter — development, growth, and the conversations that turn a product vision into a business.</p>
@@ -833,10 +833,10 @@ export default function HiroGuildProjectPage() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto">
-              <button className="w-full sm:w-[220px] py-4 bg-[#FFC700] hover:bg-[#e6b300] text-black text-[11px] font-bold tracking-widest uppercase rounded transition-colors shadow-lg">
+              <button className="w-full sm:w-[220px] py-4 bg-[#FFC700] hover:bg-[#e6b300] text-black text-[clamp(10px,0.6vw+4px,12px)] font-bold tracking-widest uppercase rounded transition-colors shadow-lg">
                 CREATE YOURS
               </button>
-              <button className="w-full sm:w-[220px] py-4 bg-transparent border border-white/20 hover:border-white/60 hover:bg-white/5 text-white text-[11px] font-bold tracking-widest uppercase rounded transition-all">
+              <button className="w-full sm:w-[220px] py-4 bg-transparent border border-white/20 hover:border-white/60 hover:bg-white/5 text-white text-[clamp(10px,0.6vw+4px,12px)] font-bold tracking-widest uppercase rounded transition-all">
                 NEXT PROJECT
               </button>
             </div>

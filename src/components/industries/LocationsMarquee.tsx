@@ -23,12 +23,12 @@ export default function LocationsMarquee() {
 
         {/* Left Content */}
         <div className="w-full md:w-[45%] mb-16 md:mb-0 pr-0 md:pr-12 flex flex-col items-center md:items-start text-center md:text-left">
-          <h2 className="text-[28px] sm:text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.3] text-[#111] mb-8 uppercase tracking-wide">
+          <h2 className="text-[clamp(1.75rem,3.2vw+0.5rem,3rem)] font-medium leading-[1.3] text-[#111] mb-8 uppercase tracking-wide">
             Supporting <br className="hidden sm:block" />
             Manufacturers across <br className="hidden sm:block" />
             India's industrial hubs
           </h2>
-          <p className="text-[#666] text-sm md:text-base max-w-md mb-12 leading-relaxed">
+          <p className="text-[#666] text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] max-w-md mb-12 leading-relaxed">
             India's manufacturing sector is expanding rapidly through industrial
             corridors, export zones, and smart manufacturing initiatives yet,
             many factories still depend on traditional sales methods.
@@ -37,10 +37,10 @@ export default function LocationsMarquee() {
             relationships that already drive their business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button suppressHydrationWarning className="bg-[#111] text-white px-8 py-4 text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-black transition-colors w-full sm:w-auto">
+            <button suppressHydrationWarning className="bg-[#111] text-white px-8 py-4 text-[clamp(11px,0.4vw+6px,13px)] font-bold tracking-widest uppercase hover:bg-black transition-colors w-full sm:w-auto">
               Build your system
             </button>
-            <button suppressHydrationWarning className="bg-transparent text-[#111] border border-[#111] px-8 py-4 text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-gray-50 transition-colors w-full sm:w-auto">
+            <button suppressHydrationWarning className="bg-transparent text-[#111] border border-[#111] px-8 py-4 text-[clamp(11px,0.4vw+6px,13px)] font-bold tracking-widest uppercase hover:bg-gray-50 transition-colors w-full sm:w-auto">
               See what we build
             </button>
           </div>
@@ -62,7 +62,7 @@ export default function LocationsMarquee() {
             {marqueeItems.map((city, i) => (
               <div
                 key={i}
-                className="text-[50px] sm:text-[70px] md:text-[90px] font-black text-[#f0f0f0] leading-[1.1] uppercase tracking-tighter"
+                className="text-[clamp(2.5rem,5.5vw+0.5rem,5.5rem)] font-black text-[#f0f0f0] leading-[1.1] uppercase tracking-tighter"
               >
                 {city}
               </div>
@@ -85,7 +85,7 @@ export default function LocationsMarquee() {
               {marqueeItems.map((city, i) => (
                 <div
                   key={i}
-                  className="text-[50px] sm:text-[70px] md:text-[90px] font-black text-[#111] leading-[1.1] uppercase tracking-tighter drop-shadow-md"
+                  className="text-[clamp(2.5rem,5.5vw+0.5rem,5.5rem)] font-black text-[#111] leading-[1.1] uppercase tracking-tighter drop-shadow-md"
                 >
                   {city}
                 </div>

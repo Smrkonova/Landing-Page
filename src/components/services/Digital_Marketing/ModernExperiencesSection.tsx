@@ -61,7 +61,7 @@ export default function ModernExperiencesSection() {
                             <span className="block font-light text-gray-500">Services.</span>
                         </h2>
 
-                        <p className="text-gray-600 text-[14px] sm:text-[15px] md:text-[17px] font-normal leading-relaxed max-w-[420px] mb-8 lg:mb-0">
+                        <p className="text-gray-600 text-[clamp(0.875rem,0.6vw+0.65rem,1.0625rem)] font-normal leading-relaxed max-w-[420px] mb-8 lg:mb-0">
                             Build long-term visibility on Google through technical improvements, content optimisation and authority building.
                         </p>
                     </div>

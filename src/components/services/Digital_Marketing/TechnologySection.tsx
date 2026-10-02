@@ -129,12 +129,12 @@ export default function TechnologySection() {
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 md:gap-10 lg:gap-8 mt-6 sm:mt-12 md:mt-20 lg:mt-28">
                         {/* Google Setup */}
                         <div>
-                            <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">
+                            <h4 className="text-[clamp(11px,0.4vw+6px,14px)] font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">
                                 GOOGLE SETUP
                             </h4>
                             <ul className="space-y-1.5 sm:space-y-3">
                                 {googleSetup.map((item, idx) => (
-                                    <li key={`google-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 font-medium">
+                                    <li key={`google-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 font-medium">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -144,12 +144,12 @@ export default function TechnologySection() {
 
                         {/* Meta Setup */}
                         <div>
-                            <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">
+                            <h4 className="text-[clamp(11px,0.4vw+6px,14px)] font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">
                                 META SETUP
                             </h4>
                             <ul className="space-y-1.5 sm:space-y-3">
                                 {metaSetup.map((item, idx) => (
-                                    <li key={`meta-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 font-medium">
+                                    <li key={`meta-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 font-medium">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -159,12 +159,12 @@ export default function TechnologySection() {
 
                         {/* Tracking & Reporting */}
                         <div>
-                            <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">
+                            <h4 className="text-[clamp(11px,0.4vw+6px,14px)] font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">
                                 TRACKING & REPORTING
                             </h4>
                             <ul className="space-y-1.5 sm:space-y-3">
                                 {trackingReporting.map((item, idx) => (
-                                    <li key={`tracking-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 font-medium">
+                                    <li key={`tracking-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 font-medium">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -174,12 +174,12 @@ export default function TechnologySection() {
 
                         {/* Email & CRM */}
                         <div>
-                            <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">
+                            <h4 className="text-[clamp(11px,0.4vw+6px,14px)] font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">
                                 EMAIL & CRM
                             </h4>
                             <ul className="space-y-1.5 sm:space-y-3">
                                 {emailCrm.map((item, idx) => (
-                                    <li key={`crm-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 font-medium">
+                                    <li key={`crm-${idx}`} className="flex items-start gap-2 sm:gap-2.5 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 font-medium">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -197,7 +197,7 @@ export default function TechnologySection() {
                                 <span className="block font-black">CONNECTED</span>
                                 <span className="block font-light text-gray-600">ECOSYSTEM</span>
                             </h3>
-                            <p className="text-gray-600 text-[13px] md:text-[14px] font-medium leading-relaxed">
+                            <p className="text-gray-600 text-[clamp(11px,0.4vw+6px,14px)] font-medium leading-relaxed">
                                 A successful campaign starts with the right foundation. We configure and connect all the tools needed to track and optimise your marketing.
                             </p>
                         </div>

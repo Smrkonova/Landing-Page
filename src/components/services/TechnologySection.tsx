@@ -84,7 +84,7 @@ export default function TechnologySection() {
 
                     {/* Top Heading */}
                     <div>
-                        <h2 className="text-[28px] sm:text-[44px] md:text-[60px] lg:text-[70px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
+                        <h2 className="text-[clamp(1.75rem,4.5vw+0.5rem,4.375rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
                             <span className="block font-light">TECHNOLOGY</span>
                             <span className="block font-black">WE WORK WITH</span>
                         </h2>
@@ -96,11 +96,11 @@ export default function TechnologySection() {
                         <div className="grid grid-cols-2 sm:flex sm:flex-row justify-start gap-4 sm:gap-10 md:gap-20 lg:gap-24">
                             {/* Frontend */}
                             <div>
-                                <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-1.5 sm:mb-4 text-gray-900">FRONTEND</h4>
-                                <p className="hidden sm:block text-[11px] sm:text-xs tracking-wider uppercase mb-3 sm:mb-6 text-gray-600">The part visitors interact with.</p>
+                                <h4 className="text-[clamp(12px,0.6vw+4px,16px)] font-bold tracking-widest uppercase mb-1.5 sm:mb-4 text-gray-900">FRONTEND</h4>
+                                <p className="hidden sm:block text-[clamp(10px,0.5vw+4px,12px)] tracking-wider uppercase mb-3 sm:mb-6 text-gray-600">The part visitors interact with.</p>
                                 <ul className="space-y-1.5 sm:space-y-3">
                                     {fonttechList.map((item, idx) => (
-                                        <li key={`frontend-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 md:text-gray-500 font-medium">
+                                        <li key={`frontend-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(12px,0.5vw+4px,14px)] text-gray-700 md:text-gray-500 font-medium">
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
@@ -110,11 +110,11 @@ export default function TechnologySection() {
 
                             {/* Backend */}
                             <div>
-                                <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-1.5 sm:mb-4 text-gray-900">BACKEND</h4>
-                                <p className="hidden sm:block text-[11px] sm:text-xs tracking-wider uppercase mb-3 sm:mb-6 text-gray-600">The engine behind your website.</p>
+                                <h4 className="text-[clamp(12px,0.6vw+4px,16px)] font-bold tracking-widest uppercase mb-1.5 sm:mb-4 text-gray-900">BACKEND</h4>
+                                <p className="hidden sm:block text-[clamp(10px,0.5vw+4px,12px)] tracking-wider uppercase mb-3 sm:mb-6 text-gray-600">The engine behind your website.</p>
                                 <ul className="space-y-1.5 sm:space-y-3">
                                     {backendtechList.map((item, idx) => (
-                                        <li key={`backend-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 md:text-gray-500 font-medium">
+                                        <li key={`backend-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(12px,0.5vw+4px,14px)] text-gray-700 md:text-gray-500 font-medium">
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
@@ -125,11 +125,11 @@ export default function TechnologySection() {
 
                         {/* Right List (CMS) */}
                         <div className="mt-4 sm:mt-8 lg:mt-0 lg:mr-20">
-                            <h4 className="text-xs sm:text-sm md:text-base font-bold tracking-widest uppercase mb-1.5 sm:mb-4 text-gray-900">CMS</h4>
-                            <p className="hidden sm:block text-[11px] sm:text-xs tracking-wider uppercase mb-3 sm:mb-6 text-gray-600">Manage your own content.</p>
+                            <h4 className="text-[clamp(12px,0.6vw+4px,16px)] font-bold tracking-widest uppercase mb-1.5 sm:mb-4 text-gray-900">CMS</h4>
+                            <p className="hidden sm:block text-[clamp(10px,0.5vw+4px,12px)] tracking-wider uppercase mb-3 sm:mb-6 text-gray-600">Manage your own content.</p>
                             <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 sm:block sm:space-y-3">
                                 {cmstechList.map((item, idx) => (
-                                    <li key={`cms-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[12px] sm:text-[13px] md:text-[14px] text-gray-700 md:text-gray-500 font-medium">
+                                    <li key={`cms-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(12px,0.5vw+4px,14px)] text-gray-700 md:text-gray-500 font-medium">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -143,12 +143,12 @@ export default function TechnologySection() {
 
                         {/* Bottom Left Text */}
                         <div className="max-w-[320px] mb-12 lg:mb-0">
-                            <h3 className="text-[32px] sm:text-[40px] md:text-[55px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-6">
+                            <h3 className="text-[clamp(1.75rem,3.2vw+0.5rem,3.4375rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-6">
                                 <span className="block font-black">CONNECT</span>
                                 <span className="block font-black">EVERYTHING</span>
                                 <span className="block font-light text-gray-600">TOGETHER</span>
                             </h3>
-                            <p className="text-gray-600 text-[13px] md:text-[14px] font-medium leading-relaxed">
+                            <p className="text-gray-600 text-[clamp(12px,0.5vw+4px,14px)] font-medium leading-relaxed">
                                 Your website shouldn't work alone.
                                 We connect it with the tools your business already uses.
                             </p>
@@ -167,7 +167,7 @@ export default function TechnologySection() {
                                 {[...Array(2)].map((_, i) => (
                                     <React.Fragment key={i}>
                                         {["PAYMENT GATEWAYS", "WHATSAPP", "GOOGLE MAPS", "CRM", "BOOKING SYSTEMS", "EMAIL MARKETING", "ANALYTICS", "SHIPPING", "SOCIAL MEDIA" , "ERP"].map((word, j) => (
-                                            <span key={`${i}-${j}`} className="text-[32px] sm:text-[44px] md:text-[80px] lg:text-[100px] font-black leading-[0.95] uppercase text-white drop-shadow-md">
+                                            <span key={`${i}-${j}`} className="text-[clamp(2rem,6.5vw+0.5rem,6.25rem)] font-black leading-[0.95] uppercase text-white drop-shadow-md">
                                                 {word}
                                             </span>
                                         ))}
