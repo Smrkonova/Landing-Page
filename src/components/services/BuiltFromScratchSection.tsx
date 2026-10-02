@@ -29,12 +29,12 @@ export default function BuiltFromScratchSection() {
 
                 {/* Left Side: Text */}
                 <div className="flex-1 w-full flex flex-col justify-center">
-                    <h2 className="text-[clamp(2rem,4.5vw+0.5rem,5rem)] leading-[1.05] font-light text-gray-800 tracking-tight mb-8">
-                        EVERY WEBSITE IS<br />
-                        <span className="font-bold tracking-normal">BUILT FROM SCRATCH.</span>
+                    <h2 className="text-[clamp(2rem,4.5vw+0.5rem,4rem)] leading-[1.05] font-[200] text-gray-800 tracking-tight mb-8">
+                        EVERY <br/> WEBSITE IS<br />
+                        <span className="font-[900] tracking-normal">BUILT FROM SCRATCH.</span>
                     </h2>
 
-                    <p className="text-gray-500 text-[clamp(1rem,1.2vw+0.5rem,1.25rem)] max-w-lg mb-10 leading-relaxed font-light">
+                    <p className="text-gray-500 text-[clamp(1.125rem,2.5vw+0.25rem,0.875rem)] max-w-sm mb-10 leading-[1.4em] font-[400]">
                        We don't start with templates.<br/>
                         Every project starts by understanding your business, your customers and your goals before a single screen is designed.
 
@@ -60,7 +60,7 @@ export default function BuiltFromScratchSection() {
                     <div className="relative w-full max-w-[600px] h-[450px] flex items-center justify-center">
 
                         {/* UI Element Graphic (with built.svg background) */}
-                        <div className="relative w-full h-full z-10 flex flex-col items-center justify-center overflow-hidden rounded-3xl">
+                        <div className="relative w-full h-full z-10 flex flex-col items-center justify-center overflow-hidden rounded-3xl bg-white shadow-[0_20px_50px_rgba(0,0,0,0.04)]">
 
                             {/* Background SVG Window */}
                             <Image
@@ -70,13 +70,13 @@ export default function BuiltFromScratchSection() {
                                 className="object-contain pointer-events-none z-10"
                             />
 
-                            {/* Glow Effect from Figma */}
+                            {/* Glow Effect from Figma: Soft Pink on Left, Soft Orange on Right */}
                             <div
-                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] max-w-[300px] h-[250px] z-0 pointer-events-none"
+                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] max-w-[340px] h-[260px] z-0 pointer-events-none"
                                 style={{
-                                    background: 'conic-gradient(from 180deg at 50% 50%, #FF00FF 0deg, #FF9D00 180deg, #FF00FF 360deg)',
-                                    filter: 'blur(100px)',
-                                    opacity: 0.5
+                                    background: 'conic-gradient(from 270deg at 50% 50%, #FF00FF 0deg, #FF9D00 180deg, #FF00FF 360deg)',
+                                    filter: 'blur(90px)',
+                                    opacity: 0.45
                                 }}
                             ></div>
 
