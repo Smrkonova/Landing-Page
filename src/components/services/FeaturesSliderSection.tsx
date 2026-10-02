@@ -82,7 +82,7 @@ export default function FeaturesSliderSection() {
         <section className="w-full max-w-full bg-white py-16 md:py-20 overflow-hidden">
             {/* Title Container */}
             <div className="max-w-[1400px] mx-auto px-4 md:px-12 flex items-center justify-between mb-8 md:mb-12">
-                <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,2rem)] font-[300] tracking-wide text-[#1a1a1a] uppercase ml-4 md:ml-0">
+                <h2 className="text-[clamp(1.125rem,1.5vw+0.5rem,1.5rem)] font-light tracking-wide text-[#1a1a1a] uppercase ml-4 md:ml-0">
                     FEATURES WE CAN BUILD
                 </h2>
 

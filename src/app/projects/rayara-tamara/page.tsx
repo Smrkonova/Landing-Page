@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
 
 const CHAT_MESSAGES = [
   {
@@ -87,210 +86,206 @@ export default function RayaraTamaraProject() {
   }, [chatVisibleCount]);
   return (
     <main>
-      <section 
-        className="bg-[#E3D6CA] relative overflow-hidden font-sans flex items-center pt-16 pb-4"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
-      >
-        {/* Background Side Abstract Image - Desktop Only */}
-        <div className="hidden md:flex absolute right-0 top-0 bottom-0 h-[532px] w-[533px] pointer-events-none justify-end">
+      <section className="min-h-screen bg-[#E3D6CA] relative overflow-hidden font-sans flex items-center">
+      {/* Background Side Abstract Image - Desktop Only */}
+      <div className="hidden md:flex absolute right-0 top-0 bottom-0 h-[532px] w-[533px] pointer-events-none justify-end">
+        <img
+          src="/images/projects/rayara-tamara/Layer_1.png"
+          alt="Side Abstract"
+          className="h-full object-cover object-right opacity-60"
+        />
+      </div>
+
+      {/* MOBILE VIEW (matches exact mobile design) */}
+      <div className="block md:hidden w-full px-5 py-10 relative z-10 mt-18">
+        {/* 1. Header / Case Study Title */}
+        <div className="block md:hidden absolute flex right-0  bottom-0 h-[370px] w-[372px] pointer-events-none justify-end">
           <img
-            src="/images/projects/rayara-tamara/Layer_1.png"
+            src="/images/projects/rayara-tamara/vector.png"
             alt="Side Abstract"
             className="h-full object-cover object-right opacity-60"
           />
         </div>
+        <div className="mb-6">
+          <h4 className="font-sans font-light text-[clamp(10px,0.8vw+2px,12px)] leading-[122%] tracking-[0.05em] uppercase text-[#606024] mb-2">
+            Case Study 1
+          </h4>
+          <h1 className="font-sans font-semibold text-[clamp(11px,0.8vw+2px,12px)] leading-[122%] tracking-[0.05em] uppercase text-[#606024] mb-1">
+            RAYARA TAMARA
+          </h1>
+          <p className="font-sans font-light text-[clamp(11px,0.8vw+2px,12px)] leading-[145%] tracking-[0.05em] text-[#606024]">
+            Ancient roots, timeless taste
+          </p>
+        </div>
 
-        {/* MOBILE VIEW (matches exact mobile design) */}
-        <div className="block md:hidden w-full px-5 py-10 relative z-10 mt-18">
-          {/* 1. Header / Case Study Title */}
-          <div className="block md:hidden absolute flex right-0  bottom-0 h-[370px] w-[372px] pointer-events-none justify-end">
+        {/* 2. Banner Card with Outer Rounded Border */}
+        <div className="w-full p-2 sm:p-2.5 rounded-[32px] sm:rounded-[36px] border border-[#5c564b]/30 shadow-lg">
+          <div className="relative w-full aspect-[4/5] rounded-[24px] sm:rounded-[28px] overflow-hidden">
             <img
-              src="/images/projects/rayara-tamara/vector.png"
-              alt="Side Abstract"
-              className="h-full object-cover object-right opacity-60"
+              src="/images/projects/rayara-tamara/banner.png"
+              alt="Rayara Tamara Banner"
+              className="absolute inset-0 w-full h-full object-cover"
             />
-          </div>
-          <div className="mb-6">
-            <h4 className="font-sans font-light text-[clamp(10px,0.8vw+2px,12px)] leading-[122%] tracking-[0.05em] uppercase text-[#606024] mb-2">
-              Case Study 1
-            </h4>
-            <h1 className="font-sans font-semibold text-[clamp(11px,0.8vw+2px,12px)] leading-[122%] tracking-[0.05em] uppercase text-[#606024] mb-1">
-              RAYARA TAMARA
-            </h1>
-            <p className="font-sans font-light text-[clamp(11px,0.8vw+2px,12px)] leading-[145%] tracking-[0.05em] text-[#606024]">
-              Ancient roots, timeless taste
-            </p>
-          </div>
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
 
-          {/* 2. Banner Card with Outer Rounded Border */}
-          <div className="w-full p-2 sm:p-2.5 rounded-[32px] sm:rounded-[36px] border border-[#5c564b]/30 shadow-lg">
-            <div className="relative w-full aspect-[4/5] rounded-[24px] sm:rounded-[28px] overflow-hidden">
-              <img
-                src="/images/projects/rayara-tamara/banner.png"
-                alt="Rayara Tamara Banner"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              {/* Dark overlay for text readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
-
-              <div className="absolute bottom-6 left-5 right-5 text-white">
-                <h2 className="font-sans font-bold uppercase tracking-[3px] text-[clamp(20px,2.6vw+10px,40px)] leading-[clamp(24px,2.9vw+10px,44.13px)] mb-1.5 drop-shadow-md">
-                  Evoking a feeling
-                </h2>
-                <h3 className="font-sans font-thin uppercase tracking-[3px] text-[clamp(18px,2.6vw+8px,40px)] leading-[clamp(22px,2.9vw+10px,44.13px)] text-white/85 drop-shadow-md">
-                  Before it even<br />looks beautiful
-                </h3>
-              </div>
-            </div>
-          </div>
-
-          {/* 3. Industry & Duration */}
-          <div className="mt-8 grid grid-cols-2 gap-4">
-            <div>
-              <h4 className="font-sans font-extralight text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[2px] uppercase text-[#606024] mb-2">
-                Industry
-              </h4>
-              <span className="inline-block bg-[#c5baa9] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-xs text-[#606024]">
-                Restaurant
-              </span>
-            </div>
-
-            <div>
-              <h4 className="font-sans font-extralight text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[2px] uppercase text-[#606024] mb-2">
-                Duration
-              </h4>
-              <span className="inline-block bg-[#c5baa9] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-xs text-[#606024]">
-                Ongoing
-              </span>
-            </div>
-          </div>
-
-          {/* 4. Platforms */}
-          <div className="mt-6">
-            <h4 className="font-sans font-extralight text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[2px] uppercase text-[#606024] mb-2">
-              Platforms
-            </h4>
-            <div className="flex flex-wrap gap-2 items-center">
-              <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-xs text-[#606024]">Website</span>
-              <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-xs text-[#606024]">Shopify</span>
-              <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-xs text-[#606024]">Flutter</span>
-              <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-xs text-[#606024]">Backend</span>
-            </div>
-          </div>
-
-          {/* 5. Divider Line */}
-          <div className="w-full border-t border-[#5c564b]/20 my-8"></div>
-
-          {/* 6. Disciplines */}
-          <div>
-            <h4 className="font-sans font-extralight text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[2px] uppercase text-[#606024] mb-4">
-              Disciplines
-            </h4>
-            <div className="flex justify-between items-end">
-              <div className="space-y-3 font-sans font-normal text-[clamp(10px,0.8vw+2px,12px)] leading-[25px] tracking-[2px] text-[#606024]">
-                <p className="hover:text-[#606024] transition-colors cursor-pointer">Strategy</p>
-                <p className="hover:text-[#606024] transition-colors cursor-pointer">UX/UI</p>
-                <p className="hover:text-[#606024] transition-colors cursor-pointer">Development</p>
-                <p className="hover:text-[#606024] transition-colors cursor-pointer">Brand</p>
-              </div>
+            <div className="absolute bottom-6 left-5 right-5 text-white">
+              <h2 className="font-sans font-bold uppercase tracking-[3px] text-[clamp(20px,2.6vw+10px,40px)] leading-[clamp(24px,2.9vw+10px,44.13px)] mb-1.5 drop-shadow-md">
+                Evoking a feeling
+              </h2>
+              <h3 className="font-sans font-thin uppercase tracking-[3px] text-[clamp(18px,2.6vw+8px,40px)] leading-[clamp(22px,2.9vw+10px,44.13px)] text-white/85 drop-shadow-md">
+                Before it even<br />looks beautiful
+              </h3>
             </div>
           </div>
         </div>
 
-        {/* DESKTOP VIEW */}
-        <div className="hidden md:flex max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex-row items-center w-full h-full max-h-[820px]">
-
-          {/* Left Column - Details */}
-          <div className="w-full md:w-1/5 pr-8 text-[#5c564b] flex flex-col justify-between py-10">
-
-            <div className="space-y-10">
-              <div>
-                <h4 className="font-sans font-light text-[clamp(10px,0.8vw+2px,12px)] leading-[122%] tracking-[0.05em] uppercase text-[#606024] mb-3">
-                  Case Study 1
-                </h4>
-                <h2 className="font-sans font-semibold text-[clamp(11px,0.8vw+2px,12px)] leading-[122%] tracking-[0.05em] uppercase text-[#606024] mb-1">
-                  RAYARA TAMARA
-                </h2>
-                <p className="font-sans font-light text-[clamp(11px,0.8vw+2px,12px)] leading-[145%] tracking-[0.05em] text-[#606024]">
-                  Ancient roots, timeless taste
-                </p>
-              </div>
-
-              <div>
-                <h4 className="font-sans font-extralight text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[2px] uppercase text-[#606024] mb-3">
-                  Industry
-                </h4>
-                <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-sm text-[#606024]">
-                  Restaurant
-                </span>
-              </div>
-
-              <div>
-                <h4 className="font-sans font-extralight text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[2px] uppercase text-[#606024] mb-3">
-                  Duration
-                </h4>
-                <span className="inline-block bg-[#c5baa9] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-sm text-[#606024]">
-                  Ongoing
-                </span>
-              </div>
-
-              <div>
-                <h4 className="font-sans font-extralight text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[2px] uppercase text-[#606024] mb-3">
-                  Platforms
-                </h4>
-                <div className="flex flex-col gap-2 items-start">
-                  <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-sm text-[#606024]">Website</span>
-                  <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-sm text-[#606024]">Shopify</span>
-                  <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-sm text-[#606024]">Flutter</span>
-                  <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-sm text-[#606024]">Backend</span>
-                </div>
-              </div>
-            </div>
-
+        {/* 3. Industry & Duration */}
+        <div className="mt-8 grid grid-cols-2 gap-4">
+          <div>
+            <h4 className="font-sans font-extralight text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[2px] uppercase text-[#606024] mb-2">
+              Industry
+            </h4>
+            <span className="inline-block bg-[#c5baa9] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-xs text-[#606024]">
+              Restaurant
+            </span>
           </div>
 
-          {/* Center Column - Banner Image */}
-          <div className="w-full md:w-3/5 flex justify-center py-4 relative px-4">
-            <div className="p-2 sm:p-2.5 rounded-[36px] border border-[#5c564b]/30 shadow-2xl w-full h-full min-h-[480px] max-h-[600px]">
-              <div className="relative rounded-[28px] overflow-hidden w-full h-full min-h-[480px] max-h-[580px]">
-                <img
-                  src="/images/projects/rayara-tamara/banner.png"
-                  alt="Rayara Tamara Banner"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                {/* Dark overlay for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-
-                <div className="absolute bottom-12 left-10 text-white right-10">
-                  <h1 className="font-sans font-bold uppercase tracking-[3px] text-[clamp(20px,2.6vw+10px,40px)] leading-[clamp(24px,2.9vw+10px,44.13px)] mb-2 drop-shadow-lg">
-                    Evoking a feeling
-                  </h1>
-                  <h2 className="font-sans font-thin uppercase tracking-[3px] text-[clamp(18px,2.6vw+8px,40px)] leading-[clamp(22px,2.9vw+10px,44.13px)] text-white/80 drop-shadow-lg">
-                    Before it even<br />looks beautiful
-                  </h2>
-                </div>
-              </div>
-            </div>
+          <div>
+            <h4 className="font-sans font-extralight text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[2px] uppercase text-[#606024] mb-2">
+              Duration
+            </h4>
+            <span className="inline-block bg-[#c5baa9] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-xs text-[#606024]">
+              Ongoing
+            </span>
           </div>
+        </div>
 
-          {/* Right Column - Navigation/Services list */}
-          <div className="w-full md:w-1/5 pl-4 flex flex-col justify-end items-end text-[#606024] py-10">
-            <div className="mt-auto space-y-4 font-sans font-normal text-[clamp(10px,0.8vw+2px,12px)] leading-[25px] tracking-[2px] text-[#606024]">
+        {/* 4. Platforms */}
+        <div className="mt-6">
+          <h4 className="font-sans font-extralight text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[2px] uppercase text-[#606024] mb-2">
+            Platforms
+          </h4>
+          <div className="flex flex-wrap gap-2 items-center">
+            <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-xs text-[#606024]">Website</span>
+            <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-xs text-[#606024]">Shopify</span>
+            <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-xs text-[#606024]">Flutter</span>
+            <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-xs text-[#606024]">Backend</span>
+          </div>
+        </div>
+
+        {/* 5. Divider Line */}
+        <div className="w-full border-t border-[#5c564b]/20 my-8"></div>
+
+        {/* 6. Disciplines */}
+        <div>
+          <h4 className="font-sans font-extralight text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[2px] uppercase text-[#606024] mb-4">
+            Disciplines
+          </h4>
+          <div className="flex justify-between items-end">
+            <div className="space-y-3 font-sans font-normal text-[clamp(10px,0.8vw+2px,12px)] leading-[25px] tracking-[2px] text-[#606024]">
               <p className="hover:text-[#606024] transition-colors cursor-pointer">Strategy</p>
               <p className="hover:text-[#606024] transition-colors cursor-pointer">UX/UI</p>
               <p className="hover:text-[#606024] transition-colors cursor-pointer">Development</p>
               <p className="hover:text-[#606024] transition-colors cursor-pointer">Brand</p>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* DESKTOP VIEW */}
+      <div className="hidden md:flex max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 flex-row items-stretch w-full min-h-[80vh]">
+
+        {/* Left Column - Details */}
+        <div className="w-full md:w-1/5 pr-8 text-[#5c564b] flex flex-col justify-between py-10">
+
+          <div className="space-y-10">
+            <div>
+              <h4 className="font-sans font-light text-[clamp(10px,0.8vw+2px,12px)] leading-[122%] tracking-[0.05em] uppercase text-[#606024] mb-3">
+                Case Study 1
+              </h4>
+              <h2 className="font-sans font-semibold text-[clamp(11px,0.8vw+2px,12px)] leading-[122%] tracking-[0.05em] uppercase text-[#606024] mb-1">
+                RAYARA TAMARA
+              </h2>
+              <p className="font-sans font-light text-[clamp(11px,0.8vw+2px,12px)] leading-[145%] tracking-[0.05em] text-[#606024]">
+                Ancient roots, timeless taste
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-sans font-extralight text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[2px] uppercase text-[#606024] mb-3">
+                Industry
+              </h4>
+              <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-sm text-[#606024]">
+                Restaurant
+              </span>
+            </div>
+
+            <div>
+              <h4 className="font-sans font-extralight text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[2px] uppercase text-[#606024] mb-3">
+                Duration
+              </h4>
+              <span className="inline-block bg-[#c5baa9] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-sm text-[#606024]">
+                Ongoing
+              </span>
+            </div>
+
+            <div>
+              <h4 className="font-sans font-extralight text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[2px] uppercase text-[#606024] mb-3">
+                Platforms
+              </h4>
+              <div className="flex flex-col gap-2 items-start">
+                <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-sm text-[#606024]">Website</span>
+                <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-sm text-[#606024]">Shopify</span>
+                <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-sm text-[#606024]">Flutter</span>
+                <span className="inline-block bg-[#D7CCBE] px-4 py-1.5 font-sans font-bold text-[clamp(10px,0.8vw+2px,12px)] leading-[15.87px] tracking-[0px] rounded shadow-sm text-[#606024]">Backend</span>
+              </div>
+            </div>
+          </div>
 
         </div>
+
+        {/* Center Column - Banner Image */}
+        <div className="w-full md:w-3/5 flex justify-center py-4 relative px-4">
+          <div className="p-2 sm:p-2.5 rounded-[36px] border border-[#5c564b]/30 shadow-2xl w-full h-full min-h-[500px]">
+            <div className="relative rounded-[28px] overflow-hidden w-full h-full min-h-[500px]">
+              <img
+                src="/images/projects/rayara-tamara/banner.png"
+                alt="Rayara Tamara Banner"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              {/* Dark overlay for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+              <div className="absolute bottom-12 left-10 text-white right-10">
+                <h1 className="font-sans font-bold uppercase tracking-[3px] text-[clamp(20px,2.6vw+10px,40px)] leading-[clamp(24px,2.9vw+10px,44.13px)] mb-2 drop-shadow-lg">
+                  Evoking a feeling
+                </h1>
+                <h2 className="font-sans font-thin uppercase tracking-[3px] text-[clamp(18px,2.6vw+8px,40px)] leading-[clamp(22px,2.9vw+10px,44.13px)] text-white/80 drop-shadow-lg">
+                  Before it even<br />looks beautiful
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column - Navigation/Services list */}
+        <div className="w-full md:w-1/5 pl-4 flex flex-col justify-end items-end text-[#606024] py-10">
+          <div className="mt-auto space-y-4 font-sans font-normal text-[clamp(10px,0.8vw+2px,12px)] leading-[25px] tracking-[2px] text-[#606024]">
+            <p className="hover:text-[#606024] transition-colors cursor-pointer">Strategy</p>
+            <p className="hover:text-[#606024] transition-colors cursor-pointer">UX/UI</p>
+            <p className="hover:text-[#606024] transition-colors cursor-pointer">Development</p>
+            <p className="hover:text-[#606024] transition-colors cursor-pointer">Brand</p>
+          </div>
+        </div>
+
+      </div>
       </section>
 
       {/* Story Worth Preserving Section */}
       <section 
-        className="relative flex flex-col items-center justify-center font-sans px-4 py-16"
+        className="relative min-h-screen flex flex-col items-center justify-center font-sans px-4 py-16"
         style={{
-          height: "calc(100vh / var(--desktop-scale, 1))",
           backgroundColor: '#2B2D16AD',
           backgroundImage: 'url("/images/projects/rayara-tamara/story-worth.png")',
           backgroundSize: 'cover',
@@ -311,10 +306,7 @@ export default function RayaraTamaraProject() {
         </div>
       </section>
       {/* Experience Section */}
-      <section 
-        id="experience" 
-        className="bg-[#E3D6CA] relative font-sans pt-16 pb-16 md:py-24 flex flex-col items-center justify-start min-h-[calc(100vh/var(--desktop-scale,1))]"
-      >
+      <section id="experience" className="min-h-screen bg-[#E3D6CA] relative overflow-hidden font-sans pt-16 pb-10 md:py-24 flex flex-col items-center">
         {/* Background Mandala Accent - Top Left on Mobile, Center Left on Desktop */}
         <div className="absolute top-0 left-0 w-36 sm:w-48 md:w-1/4 h-[396px] md:h-[533px] md:top-[20%] md:-translate-y-1/2 pointer-events-none flex justify-start opacity-45 md:opacity-60 -translate-x-4 -translate-y-4 md:translate-x-0">
           <img
@@ -325,67 +317,67 @@ export default function RayaraTamaraProject() {
         </div>
 
         <div className="max-w-[1440px] mx-auto px-4 w-full relative z-10 flex flex-col items-center">
-
+          
           {/* Top Text */}
-          <div className="text-center text-[#5c564b] space-y-[1rem] mb-8 sm:mb-12 md:mb-16 sm:space-y-1.5 px-4 max-w-full mx-auto">
+          <div className="text-center text-[#5c564b] space-y-[1rem]  mb-10 sm:mb-14 md:mb-20 sm:space-y-1.5 px-4 max-w-full mx-auto">
             <h3 className="text-[clamp(0.875rem,2.2vw+0.25rem,2.5rem)] leading-[1.3em] font-light uppercase text-[#606024]">The meal lasts an hour.</h3>
-            <h2 className="text-[clamp(1rem,2.2vw+0.35rem,2.5rem)] font-bold uppercase leading-[1.3em] text-[#606024]">The experience lasts much longer.</h2>
-            <h3 className="text-[clamp(0.875rem,2.2vw+0.25rem,2.5rem)] font-light leading-[1.3em] uppercase text-[#606024]">Smrkonova takes fine dining <br /> experience, extends beyond food.</h3>
+            <h2 className="text-[clamp(1rem,2.2vw+0.35rem,2.5rem)] font-bold uppercase leading-[1.3em]  text-[#606024]">The experience lasts much longer.</h2>
+            <h3 className="text-[clamp(0.875rem,2.2vw+0.25rem,2.5rem)] font-light leading-[1.3em]  uppercase text-[#606024]">Smrkonova takes fine dining <br/> experience, extends beyond food.</h3>
           </div>
 
           {/* Center Graphic */}
-          <div className="relative w-full max-w-sm sm:max-w-[392px] md:max-w-3xl lg:max-w-4xl flex items-center justify-center my-4 sm:my-8 md:my-10">
+          <div className="relative w-full max-w-sm sm:max-w-[392px] md:max-w-3xl lg:max-w-4xl flex items-center justify-center my-4 sm:my-8 md:my-12">
             {/* The leaf */}
             <div className="relative w-full max-w-[340px] sm:max-w-xl md:max-w-3xl flex justify-center items-center">
-              <img src="/images/projects/rayara-tamara/leaf.png" alt="Leaf" className="w-[397px] md:w-[115%] max-w-none h-auto object-contain drop-shadow-xl" />
-
-              {/* The plate centered on the leaf */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <img src="/images/projects/rayara-tamara/plate.png" alt="Plate" className="w-[62%] sm:w-[56%] md:w-[50%] h-auto drop-shadow-2xl" />
-              </div>
+               <img src="/images/projects/rayara-tamara/leaf.png" alt="Leaf" className="w-[397px] md:w-[115%] max-w-none h-auto object-contain drop-shadow-xl" />
+               
+               {/* The plate centered on the leaf */}
+               <div className="absolute inset-0 flex items-center justify-center">
+                  <img src="/images/projects/rayara-tamara/plate.png" alt="Plate" className="w-[62%] sm:w-[56%] md:w-[50%] h-auto drop-shadow-2xl" />
+               </div>
             </div>
-
+            
             {/* The floating text words surrounding the leaf */}
             <div className="absolute inset-0 pointer-events-none drop-shadow-md select-none">
-              {/* 1. CULTURE - Top Center */}
-              <span className="absolute top-[1%] sm:top-[2%] left-1/2 -translate-x-1/2 font-grisons text-[clamp(1.125rem,2.5vw+0.25rem,2.5rem)] tracking-[0.25em] text-[#d2a760] font-medium uppercase animate-float-1">
-                Culture
-              </span>
+                {/* 1. CULTURE - Top Center */}
+                <span className="absolute top-[1%] sm:top-[2%] left-1/2 -translate-x-1/2 font-grisons text-[clamp(1.125rem,2.5vw+0.25rem,2.5rem)] tracking-[0.25em] text-[#d2a760] font-medium uppercase animate-float-1">
+                  Culture
+                </span>
 
-              {/* 2. CRAFT - Top Left */}
-              <span className="absolute top-[10%] sm:top-[12%] left-[8%] sm:left-[14%] font-grisons text-[clamp(1.125rem,2.5vw+0.25rem,2rem)] tracking-[0.25em] text-[#d2a760] font-medium uppercase animate-float-2">
-                Craft
-              </span>
+                {/* 2. CRAFT - Top Left */}
+                <span className="absolute top-[10%] sm:top-[12%] left-[8%] sm:left-[14%] font-grisons text-[clamp(1.125rem,2.5vw+0.25rem,2rem)] tracking-[0.25em] text-[#d2a760] font-medium uppercase animate-float-2">
+                  Craft
+                </span>
 
-              {/* 3. LEGACY - Top Right */}
-              <span className="absolute top-[8%] sm:top-[10%] right-[8%] sm:right-[14%] font-grisons text-[clamp(1.125rem,2.5vw+0.25rem,3rem)] tracking-[0.25em] text-[#d2a760] font-medium uppercase animate-float-3">
-                Legacy
-              </span>
+                {/* 3. LEGACY - Top Right */}
+                <span className="absolute top-[8%] sm:top-[10%] right-[8%] sm:right-[14%] font-grisons text-[clamp(1.125rem,2.5vw+0.25rem,3rem)] tracking-[0.25em] text-[#d2a760] font-medium uppercase animate-float-3">
+                  Legacy
+                </span>
+                
+                {/* 4. CHARACTER - Middle Left */}
+                <span className="absolute top-[42%] left-[1%] sm:left-[3%] font-grisons text-[clamp(1.125rem,2.5vw+0.25rem,1.5rem)] tracking-[0.2em] text-[#d2a760] font-medium uppercase animate-float-4">
+                  Character
+                </span>
 
-              {/* 4. CHARACTER - Middle Left */}
-              <span className="absolute top-[42%] left-[1%] sm:left-[3%] font-grisons text-[clamp(1.125rem,2.5vw+0.25rem,1.5rem)] tracking-[0.2em] text-[#d2a760] font-medium uppercase animate-float-4">
-                Character
-              </span>
-
-              {/* 5. IDENTITY - Middle Right */}
-              <span className="absolute top-[43%] right-[1%] sm:right-[4%] font-grisons text-[clamp(1.125rem,2.5vw+0.25rem,1.8125rem)] tracking-[0.2em] text-[#d2a760] font-medium uppercase animate-float-1">
-                Identity
-              </span>
-
-              {/* 6. MEANING - Center across plate */}
-              <span className="absolute top-[54%] left-1/2 -translate-x-1/2 font-grisons text-[clamp(1.125rem,2.5vw+0.25rem,2.25rem)] font-[400] tracking-[0.25em] text-[#dfb86e] uppercase z-20 animate-float-2 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-                Meaning
-              </span>
-
-              {/* 7. RITUAL - Bottom Right */}
-              <span className="absolute bottom-[20%] right-[10%] sm:right-[16%] font-grisons text-[clamp(1.125rem,2.5vw+0.25rem,2.25rem)] tracking-[0.25em] text-[#d2a760] font-medium uppercase animate-float-3">
-                Ritual
-              </span>
-
-              {/* 8. STORY - Bottom Left */}
-              <span className="absolute bottom-[8%] left-[8%] sm:left-[14%] font-grisons text-[clamp(1.125rem,2.5vw+0.25rem,3rem)] tracking-[0.25em] text-[#d2a760] font-medium uppercase animate-float-4">
-                Story
-              </span>
+                {/* 5. IDENTITY - Middle Right */}
+                <span className="absolute top-[43%] right-[1%] sm:right-[4%] font-grisons text-[clamp(1.125rem,2.5vw+0.25rem,1.8125rem)] tracking-[0.2em] text-[#d2a760] font-medium uppercase animate-float-1">
+                  Identity
+                </span>
+                
+                {/* 6. MEANING - Center across plate */}
+                <span className="absolute top-[54%] left-1/2 -translate-x-1/2 font-grisons text-[clamp(1.125rem,2.5vw+0.25rem,2.25rem)] font-[400] tracking-[0.25em] text-[#dfb86e] uppercase z-20 animate-float-2 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+                  Meaning
+                </span>
+                
+                {/* 7. RITUAL - Bottom Right */}
+                <span className="absolute bottom-[20%] right-[10%] sm:right-[16%] font-grisons text-[clamp(1.125rem,2.5vw+0.25rem,2.25rem)] tracking-[0.25em] text-[#d2a760] font-medium uppercase animate-float-3">
+                  Ritual
+                </span>
+                
+                {/* 8. STORY - Bottom Left */}
+                <span className="absolute bottom-[8%] left-[8%] sm:left-[14%] font-grisons text-[clamp(1.125rem,2.5vw+0.25rem,3rem)] tracking-[0.25em] text-[#d2a760] font-medium uppercase animate-float-4">
+                  Story
+                </span>
             </div>
           </div>
 
@@ -405,8 +397,7 @@ export default function RayaraTamaraProject() {
       </section>
       {/* The Road Not Taken Section */}
       <section className="bg-[#2B2D16] relative overflow-hidden font-sans py-24 flex flex-col items-center">
-        <style dangerouslySetInnerHTML={{
-          __html: `
+        <style dangerouslySetInnerHTML={{__html: `
           @keyframes marquee {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
@@ -416,14 +407,6 @@ export default function RayaraTamaraProject() {
           }
           .animate-marquee:hover {
             animation-play-state: paused;
-          }
-          @keyframes pop-in {
-            0% { transform: scale(0.9) translateY(10px); opacity: 0; }
-            70% { transform: scale(1.02) translateY(-2px); opacity: 1; }
-            100% { transform: scale(1) translateY(0); opacity: 1; }
-          }
-          .animate-pop-in {
-            animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
           }
           .chat-tail-outline::before {
             content: ''; position: absolute; bottom: -16px; left: 40px;
@@ -452,7 +435,7 @@ export default function RayaraTamaraProject() {
         `}} />
 
         <div className="max-w-[1440px] mx-auto px-4 w-full">
-
+          
           {/* Top Text */}
           <div className="text-center mb-10 md:mb-24">
             <h2 className="text-[clamp(1.5rem,2.8vw+0.25rem,4rem)] font-[200] uppercase  text-[#EAD7C0] mb-6 md:mb-12 leading-[1.2em]">
@@ -477,7 +460,7 @@ export default function RayaraTamaraProject() {
             <div className="w-full max-w-[360px] sm:max-w-[420px] mx-auto rounded-[28px] sm:rounded-[32px] border border-[#585d33]/50 p-3 sm:p-4 bg-[#232716]/60 backdrop-blur-xs shadow-2xl relative overflow-hidden">
               {/* Top Gradient Fade Overlay */}
               <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-[#202514] via-[#202514]/80 to-transparent pointer-events-none z-10 rounded-t-[28px]" />
-
+              
               {/* Bottom Gradient Fade Overlay */}
               <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-[#202514] via-[#202514]/80 to-transparent pointer-events-none z-10 rounded-b-[28px]" />
 
@@ -497,8 +480,9 @@ export default function RayaraTamaraProject() {
                     return (
                       <div
                         key={msg.id}
-                        className={`self-start w-[92%] sm:w-[88%] border border-[#756c4d]/50 bg-[#2b2f18]/60 text-[#e3d6ca] rounded-[20px] p-4 sm:p-5 shadow-sm relative ${isLatest ? "animate-pop-in" : ""
-                          }`}
+                        className={`self-start w-[92%] sm:w-[88%] border border-[#756c4d]/50 bg-[#2b2f18]/60 text-[#e3d6ca] rounded-[20px] p-4 sm:p-5 shadow-sm relative ${
+                          isLatest ? "animate-pop-in" : ""
+                        }`}
                       >
                         <span className="text-[clamp(10px,0.5vw+7px,12px)] font-semibold tracking-widest uppercase text-[#9e957e] block mb-1.5">
                           {msg.sender}
@@ -514,8 +498,9 @@ export default function RayaraTamaraProject() {
                     return (
                       <div
                         key={msg.id}
-                        className={`self-end ml-auto w-[85%] sm:w-[80%] bg-[#4d5624] text-white rounded-[20px] p-4 sm:p-5 shadow-md relative ${isLatest ? "animate-pop-in" : ""
-                          }`}
+                        className={`self-end ml-auto w-[85%] sm:w-[80%] bg-[#4d5624] text-white rounded-[20px] p-4 sm:p-5 shadow-md relative ${
+                          isLatest ? "animate-pop-in" : ""
+                        }`}
                       >
                         <span className="text-[clamp(10px,0.5vw+7px,12px)] font-semibold tracking-widest uppercase text-[#d5b068] block mb-1.5 text-right">
                           {msg.sender}
@@ -533,8 +518,9 @@ export default function RayaraTamaraProject() {
                     return (
                       <div
                         key={msg.id}
-                        className={`self-start w-[92%] sm:w-[88%] bg-[#502515] text-white rounded-[20px] p-4 sm:p-5 shadow-md relative ${isLatest ? "animate-pop-in" : ""
-                          }`}
+                        className={`self-start w-[92%] sm:w-[88%] bg-[#502515] text-white rounded-[20px] p-4 sm:p-5 shadow-md relative ${
+                          isLatest ? "animate-pop-in" : ""
+                        }`}
                       >
                         <span className="text-[clamp(10px,0.5vw+7px,12px)] font-semibold tracking-widest uppercase text-[#d5b068] block mb-1.5 text-left">
                           {msg.sender}
@@ -557,88 +543,58 @@ export default function RayaraTamaraProject() {
 
         {/* Desktop Chat Slider (Horizontal Marquee) */}
         <div className="hidden md:block w-full overflow-hidden py-10 relative">
+            
+            {/* Wrapper for marquee */}
+            <div className="flex w-max animate-marquee space-x-12 px-6">
+              {/* Duplicate the items for seamless looping */}
+              {[...Array(2)].map((_, i) => (
+                <React.Fragment key={i}>
+                  {/* Item 1 */}
+                  <div className="flex flex-col gap-4">
+                    <div className="relative border border-[#655d49] rounded-[2rem] p-6 w-[280px] text-[clamp(12px,0.6vw+8px,14px)] text-[#d8c3a5] chat-tail-outline shadow-lg">
+                      <span className="opacity-70 text-[clamp(0.875rem,2.5vw+0.25rem,0.875rem)] block mb-1">Mohit:</span>
+                      "When someone walks out after eating, what do you want them to remember?"
+                    </div>
+                    <div className="pl-6 text-[#d8c3a5]/70 text-[clamp(1.125rem,2.5vw+0.25rem,1.5rem)] font-light mt-6">The first<br/>discovery</div>
+                  </div>
 
-          {/* Wrapper for marquee */}
-          <div className="flex w-max animate-marquee space-x-12 px-6">
-            {/* Duplicate the items for seamless looping */}
-            {[...Array(2)].map((_, i) => (
-              <React.Fragment key={i}>
-                {/* Item 1 */}
-                <div className="flex flex-col gap-4">
-                  <motion.div 
-                    initial={{ scale: 0.8, y: -20, opacity: 0 }}
-                    whileInView={{ scale: 1, y: 0, opacity: 1 }}
-                    viewport={{ once: false, amount: 0.8 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                    className="relative border border-[#655d49] rounded-[2rem] p-6 w-[280px] text-[clamp(12px,0.6vw+8px,14px)] text-[#d8c3a5] chat-tail-outline shadow-lg"
-                  >
-                    <span className="opacity-70 text-[clamp(0.875rem,2.5vw+0.25rem,0.875rem)] block mb-1">Mohit:</span>
-                    "When someone walks out after eating, what do you want them to remember?"
-                  </motion.div>
-                  <div className="pl-6 text-[#d8c3a5]/70 text-[clamp(1.125rem,2.5vw+0.25rem,1.5rem)] font-light mt-6">The first<br />discovery</div>
-                </div>
+                  {/* Item 2 */}
+                  <div className="flex flex-col gap-4 mt-16">
+                    <div className="relative bg-[#5c3a21] rounded-[2rem] p-6 w-[280px] text-[clamp(12px,0.6vw+8px,14px)] text-[#d8c3a5] chat-tail-solid-brown shadow-lg">
+                      <span className="opacity-70 text-[clamp(1rem,2.5vw+0.25rem,1rem)] block mb-1">Chandrashekhar:</span>
+                      <strong className="font-semibold text-[clamp(1.125rem,2.5vw+0.25rem,1.25rem)]">"No loud music. No flashy interiors. Everything should feel warm."</strong>
+                    </div>
+                    <div className="pl-6 text-[#d8c3a5]/70 text-[clamp(1rem,0.7vw+0.65rem,1.125rem)] font-light mt-6">A design brief<br/>without mentioning<br/>design</div>
+                  </div>
 
-                {/* Item 2 */}
-                <div className="flex flex-col gap-4 mt-16">
-                  <motion.div 
-                    initial={{ scale: 0.8, y: -20, opacity: 0 }}
-                    whileInView={{ scale: 1, y: 0, opacity: 1 }}
-                    viewport={{ once: false, amount: 0.8 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                    className="relative bg-[#5c3a21] rounded-[2rem] p-6 w-[280px] text-[clamp(12px,0.6vw+8px,14px)] text-[#d8c3a5] chat-tail-solid-brown shadow-lg"
-                  >
-                    <span className="opacity-70 text-[clamp(1rem,2.5vw+0.25rem,1rem)] block mb-1">Chandrashekhar:</span>
-                    <strong className="font-semibold text-[clamp(1.125rem,2.5vw+0.25rem,1.25rem)]">"No loud music. No flashy interiors. Everything should feel warm."</strong>
-                  </motion.div>
-                  <div className="pl-6 text-[#d8c3a5]/70 text-[clamp(1rem,0.7vw+0.65rem,1.125rem)] font-light mt-6">A design brief<br />without mentioning<br />design</div>
-                </div>
+                  {/* Item 3 */}
+                  <div className="flex flex-col gap-4">
+                    <div className="relative bg-[#585d33] rounded-[2rem] p-6 w-[280px] text-[clamp(12px,0.6vw+8px,14px)] text-[#d8c3a5] chat-tail-solid-green shadow-lg">
+                      <span className="opacity-70 text-[clamp(10px,0.5vw+7px,12px)] block mb-1">Chandrashekhar:</span>
+                      <strong className="font-semibold text-[clamp(14px,0.7vw+9px,16px)]">"I want people to feel like they've stepped into Karnataka's culture."</strong>
+                    </div>
+                    <div className="pl-6 text-[#d8c3a5]/70 text-[clamp(1rem,0.7vw+0.65rem,1.125rem)] font-light mt-6">The philosophy</div>
+                  </div>
 
-                {/* Item 3 */}
-                <div className="flex flex-col gap-4">
-                  <motion.div 
-                    initial={{ scale: 0.8, y: -20, opacity: 0 }}
-                    whileInView={{ scale: 1, y: 0, opacity: 1 }}
-                    viewport={{ once: false, amount: 0.8 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                    className="relative bg-[#585d33] rounded-[2rem] p-6 w-[280px] text-[clamp(12px,0.6vw+8px,14px)] text-[#d8c3a5] chat-tail-solid-green shadow-lg"
-                  >
-                    <span className="opacity-70 text-[clamp(10px,0.5vw+7px,12px)] block mb-1">Chandrashekhar:</span>
-                    <strong className="font-semibold text-[clamp(14px,0.7vw+9px,16px)]">"I want people to feel like they've stepped into Karnataka's culture."</strong>
-                  </motion.div>
-                  <div className="pl-6 text-[#d8c3a5]/70 text-[clamp(1rem,0.7vw+0.65rem,1.125rem)] font-light mt-6">The philosophy</div>
-                </div>
-
-                {/* Item 4 */}
-                <div className="flex flex-col gap-4 mt-16">
-                  <motion.div 
-                    initial={{ scale: 0.8, y: -20, opacity: 0 }}
-                    whileInView={{ scale: 1, y: 0, opacity: 1 }}
-                    viewport={{ once: false, amount: 0.3 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                    className="relative border border-[#655d49] rounded-[2rem] p-6 w-[280px] text-[clamp(12px,0.6vw+8px,14px)] text-[#d8c3a5] chat-tail-outline shadow-lg"
-                  >
-                    <span className="opacity-70 text-[clamp(10px,0.5vw+7px,12px)] block mb-1">Mohit:</span>
-                    "What should someone feel in the first ten seconds?"
-                  </motion.div>
-                </div>
-
-                {/* Item 5 */}
-                <div className="flex flex-col gap-4">
-                  <motion.div 
-                    initial={{ scale: 0.8, y: -20, opacity: 0 }}
-                    whileInView={{ scale: 1, y: 0, opacity: 1 }}
-                    viewport={{ once: false, amount: 0.3 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                    className="relative bg-[#585d33] rounded-[2rem] p-6 w-[280px] text-[clamp(12px,0.6vw+8px,14px)] text-[#d8c3a5] chat-tail-solid-green shadow-lg"
-                  >
-                    <span className="opacity-70 text-[clamp(10px,0.5vw+7px,12px)] block mb-1">Chandrashekhar:</span>
-                    <strong className="font-semibold text-[clamp(14px,0.7vw+9px,16px)]">"Calm. Like visiting their ancestral home."</strong>
-                  </motion.div>
-                </div>
-              </React.Fragment>
-            ))}
+                  {/* Item 4 */}
+                  <div className="flex flex-col gap-4 mt-16">
+                    <div className="relative border border-[#655d49] rounded-[2rem] p-6 w-[280px] text-[clamp(12px,0.6vw+8px,14px)] text-[#d8c3a5] chat-tail-outline shadow-lg">
+                      <span className="opacity-70 text-[clamp(10px,0.5vw+7px,12px)] block mb-1">Mohit:</span>
+                      "What should someone feel in the first ten seconds?"
+                    </div>
+                  </div>
+                  
+                  {/* Item 5 */}
+                  <div className="flex flex-col gap-4">
+                     <div className="relative bg-[#585d33] rounded-[2rem] p-6 w-[280px] text-[clamp(12px,0.6vw+8px,14px)] text-[#d8c3a5] chat-tail-solid-green shadow-lg">
+                      <span className="opacity-70 text-[clamp(10px,0.5vw+7px,12px)] block mb-1">Chandrashekhar:</span>
+                      <strong className="font-semibold text-[clamp(14px,0.7vw+9px,16px)]">"Calm. Like visiting their ancestral home."</strong>
+                    </div>
+                  </div>
+                </React.Fragment>
+              ))}
+            </div>
           </div>
-        </div>
 
         <div className="max-w-[1440px] mx-auto px-4 w-full">
           {/* Bottom Project Changed */}
@@ -651,9 +607,9 @@ export default function RayaraTamaraProject() {
                 The moment<br />the project changed
               </h2>
               <div className="relative border-2 border-[#585d33] rounded-[3rem] p-10 md:p-14 max-w-lg chat-tail-large">
-                <p className="text-[clamp(1.125rem,2.5vw+0.25rem,2rem)] max-w-sm font-[600] text-white leading-relaxed text-center">
-                  "I want to share the happiness I once felt, so others can feel at home too."
-                </p>
+                 <p className="text-[clamp(1.125rem,2.5vw+0.25rem,2rem)] max-w-sm font-[600] text-white leading-relaxed text-center">
+                   "I want to share the happiness I once felt, so others can feel at home too."
+                 </p>
               </div>
             </div>
           </div>
@@ -663,7 +619,7 @@ export default function RayaraTamaraProject() {
       {/* Rayuru's Tamara Section */}
       <section className="bg-[#E3D6CA] relative overflow-hidden font-sans py-24 flex flex-col items-center">
         <div className="max-w-[1440px] mx-auto px-4 w-full">
-
+          
           {/* Top text */}
           <div className="text-center mb-20 text-[#606024]">
             <h3 className="text-[clamp(1.125rem,2.5vw+0.25rem,2.1875rem)] leading-[1em] font-[300] uppercase -tracking-[0.01em]  mb-1 opacity-90">Exploring Waywards</h3>
@@ -679,23 +635,23 @@ export default function RayaraTamaraProject() {
 
           {/* Grid Area */}
           <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-8 mb-20">
-
+            
             {/* Left Column */}
             <div className="flex flex-col justify-center gap-16 lg:w-1/4 text-center">
               <div className="flex flex-col items-center">
                 {/* Placeholder for icon */}
                 <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
-                  <img src="/images/projects/rayara-tamara/Layer1.png" alt="" />
+                   <img src="/images/projects/rayara-tamara/Layer1.png" alt="" />
                 </div>
-                <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)]">Brand Name<br />& Identity</h4>
+                <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)]">Brand Name<br/>& Identity</h4>
                 <p className="text-[clamp(0.75rem,0.35vw+0.6rem,0.8125rem)] text-[#5c564b] opacity-80 max-w-[200px] leading-relaxed">Rooted in Karnataka's heritage, expressing warmth, peace and timeless temple-inspired hospitality.</p>
               </div>
               <div className="flex flex-col items-center">
                 {/* Placeholder for icon */}
                 <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
-                  <img src="/images/projects/rayara-tamara/Layer2.png" alt="" />
+                 <img src="/images/projects/rayara-tamara/Layer2.png" alt="" />
                 </div>
-                <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)]">Digital<br />Experience</h4>
+                <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)]">Digital<br/>Experience</h4>
                 <p className="text-[clamp(0.75rem,0.35vw+0.6rem,0.8125rem)] text-[#5c564b] opacity-80 max-w-[200px] leading-relaxed">Seamlessly translating Karnataka's warmth, heritage and hospitality across every digital interaction.</p>
               </div>
             </div>
@@ -712,15 +668,15 @@ export default function RayaraTamaraProject() {
                 <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
                   <img src="/images/projects/rayara-tamara/Layer3.png" alt="" />
                 </div>
-                <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)]">Logo<br />Design</h4>
+                <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)]">Logo<br/>Design</h4>
                 <p className="text-[clamp(0.75rem,0.35vw+0.6rem,0.8125rem)] text-[#5c564b] opacity-80 max-w-[200px] leading-relaxed">A timeless symbol reflecting Rayara's blessings, copper traditions and cultural pride.</p>
               </div>
               <div className="flex flex-col items-center">
                 {/* Placeholder for icon */}
                 <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
-                  <img src="/images/projects/rayara-tamara/Layer4.png" alt="" />
+                   <img src="/images/projects/rayara-tamara/Layer4.png" alt="" />
                 </div>
-                <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)]">Typography<br />Iconography</h4>
+                <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)]">Typography<br/>Iconography</h4>
                 <p className="text-[clamp(0.75rem,0.35vw+0.6rem,0.8125rem)] text-[#5c564b] opacity-80 max-w-[200px] leading-relaxed">Elegant letterforms balancing traditional character with refined contemporary readability and warmth.</p>
               </div>
             </div>
@@ -730,36 +686,36 @@ export default function RayaraTamaraProject() {
           {/* Bottom Row */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center pt-16 mt-8">
             <div className="flex flex-col items-center">
-              {/* Placeholder for icon */}
-              <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
-                <img src="/images/projects/rayara-tamara/Layer5.png" alt="" />
-              </div>
-              <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)]">Visual<br />Language</h4>
-              <p className="text-[clamp(0.75rem,0.35vw+0.6rem,0.8125rem)] text-[#5c564b] opacity-80 max-w-[220px] mx-auto leading-relaxed">Spaces inspired by temple architecture, handcrafted textures and curated artwork that tells the story.</p>
+                {/* Placeholder for icon */}
+                <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
+                    <img src="/images/projects/rayara-tamara/Layer5.png" alt="" />
+                </div>
+                <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)]">Visual<br/>Language</h4>
+                <p className="text-[clamp(0.75rem,0.35vw+0.6rem,0.8125rem)] text-[#5c564b] opacity-80 max-w-[220px] mx-auto leading-relaxed">Spaces inspired by temple architecture, handcrafted textures and curated artwork that tells the story.</p>
             </div>
             <div className="flex flex-col items-center">
-              {/* Placeholder for icon */}
-              <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
-                <img src="/images/projects/rayara-tamara/Layer6.png" alt="" />
-              </div>
-              <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)]">Colour<br />System</h4>
-              <p className="text-[clamp(0.75rem,0.35vw+0.6rem,0.8125rem)] text-[#5c564b] opacity-80 max-w-[220px] mx-auto leading-relaxed">Earthy tones inspired by copper, stone, wood and Karnataka's sacred landscapes.</p>
+                {/* Placeholder for icon */}
+                <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
+                     <img src="/images/projects/rayara-tamara/Layer6.png" alt="" />
+                </div>
+                <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)]">Colour<br/>System</h4>
+                <p className="text-[clamp(0.75rem,0.35vw+0.6rem,0.8125rem)] text-[#5c564b] opacity-80 max-w-[220px] mx-auto leading-relaxed">Earthy tones inspired by copper, stone, wood and Karnataka's sacred landscapes.</p>
             </div>
             <div className="flex flex-col items-center">
-              {/* Placeholder for icon */}
-              <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
-                <img src="/images/projects/rayara-tamara/Layer7.png" alt="" />
-              </div>
-              <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)]">Marketing<br />Collaterals</h4>
-              <p className="text-[clamp(0.75rem,0.35vw+0.6rem,0.8125rem)] text-[#5c564b] opacity-80 max-w-[220px] mx-auto leading-relaxed">Menus, stationery and hospitality touchpoints designed with timeless craftsmanship and cultural authenticity.</p>
+                {/* Placeholder for icon */}
+                <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
+                     <img src="/images/projects/rayara-tamara/Layer7.png" alt="" />
+                </div>
+                <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)]">Marketing<br/>Collaterals</h4>
+                <p className="text-[clamp(0.75rem,0.35vw+0.6rem,0.8125rem)] text-[#5c564b] opacity-80 max-w-[220px] mx-auto leading-relaxed">Menus, stationery and hospitality touchpoints designed with timeless craftsmanship and cultural authenticity.</p>
             </div>
             <div className="flex flex-col items-center">
-              {/* Placeholder for icon */}
-              <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
-                <img src="/images/projects/rayara-tamara/Layer8.png" alt="" />
-              </div>
-              <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)]">Future<br />Market Strategy</h4>
-              <p className="text-[clamp(0.75rem,0.35vw+0.6rem,0.8125rem)] text-[#5c564b] opacity-80 max-w-[220px] mx-auto leading-relaxed">Building lasting relationships through community participation and authentic cultural experiences.</p>
+                {/* Placeholder for icon */}
+                <div className="w-20 h-20 mb-6 flex items-center justify-center opacity-60">
+                   <img src="/images/projects/rayara-tamara/Layer8.png" alt="" />
+                </div>
+                <h4 className="text-[#585d33] font-bold tracking-widest uppercase mb-3 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)]">Future<br/>Market Strategy</h4>
+                <p className="text-[clamp(0.75rem,0.35vw+0.6rem,0.8125rem)] text-[#5c564b] opacity-80 max-w-[220px] mx-auto leading-relaxed">Building lasting relationships through community participation and authentic cultural experiences.</p>
             </div>
           </div>
 
@@ -776,9 +732,9 @@ export default function RayaraTamaraProject() {
         </div>
       </section>
       {/* Culture Fused Section */}
-      <section className="bg-[#E3D6CA] relative font-sans py-24 flex flex-col items-center">
+      <section className="bg-[#E3D6CA] relative overflow-hidden font-sans py-24 flex flex-col items-center">
         <div className="max-w-[1200px] mx-auto px-4 w-full relative z-10">
-
+          
           {/* Header */}
           <div className="text-center mb-24 text-[#606024]">
             <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,4.625rem)] lg:text-[74px] text-[#606024] font-[300] uppercase  mb-8 leading-[1em]">
@@ -791,10 +747,10 @@ export default function RayaraTamaraProject() {
           </div>
 
           {/* Cards container */}
-          <div className="flex flex-col gap-16 md:gap-32 pb-32">
-
+          <div className="flex flex-col gap-12">
+            
             {/* The Cow Card */}
-            <div className="sticky top-24 md:top-28 z-10 bg-[#606024] rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden relative min-h-[450px]">
+            <div className="bg-[#606024] rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden relative shadow-lg min-h-[450px]">
               <div className="w-full md:w-5/12 text-white z-10 pl-2 md:pl-10 text-center md:text-left">
                 <h3 className="text-[clamp(1.75rem,1.8vw+0.75rem,2.25rem)] font-light tracking-widest uppercase mb-8">The Cow</h3>
                 <p className="text-[clamp(0.875rem,2.5vw+0.25rem,0.875rem)]  leading-relaxed font-[400]">
@@ -802,12 +758,12 @@ export default function RayaraTamaraProject() {
                 </p>
               </div>
               <div className="w-full md:w-7/12 flex justify-center md:justify-end items-end relative h-full">
-                <img src="/images/projects/rayara-tamara/cow.png" alt="The Cow" className="w-full h-auto max-h-[350px] md:max-h-[450px] object-contain object-center md:object-right-bottom" />
+                 <img src="/images/projects/rayara-tamara/cow.png" alt="The Cow" className="w-full h-auto max-h-[350px] md:max-h-[450px] object-contain object-center md:object-right-bottom" />
               </div>
             </div>
 
             {/* Lotus Mandala Card */}
-            <div className="sticky top-24 md:top-28 z-20 bg-[#C08C45] rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row-reverse items-center justify-between gap-10 overflow-hidden relative min-h-[450px]">
+            <div className="bg-[#C08C45] rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row-reverse items-center justify-between gap-10 overflow-hidden relative shadow-lg min-h-[450px]">
               <div className="w-full md:w-5/12 text-white z-10 pr-2 md:pr-10 text-center md:text-left">
                 <h3 className="text-[clamp(1.75rem,1.8vw+0.75rem,2.25rem)] font-light tracking-widest uppercase mb-8">Lotus Mandala</h3>
                 <p className="text-[clamp(0.875rem,2.5vw+0.25rem,0.875rem)]  leading-relaxed font-[400]">
@@ -815,12 +771,12 @@ export default function RayaraTamaraProject() {
                 </p>
               </div>
               <div className="w-full md:w-7/12 flex justify-center md:justify-start items-end relative h-full">
-                <img src="/images/projects/rayara-tamara/flower.png" alt="Lotus Mandala" className="w-full h-auto max-h-[350px] md:max-h-[450px] object-contain object-center md:object-left-bottom" />
+                 <img src="/images/projects/rayara-tamara/flower.png" alt="Lotus Mandala" className="w-full h-auto max-h-[350px] md:max-h-[450px] object-contain object-center md:object-left-bottom" />
               </div>
             </div>
 
             {/* Copper Plate Card */}
-            <div className="sticky top-24 md:top-28 z-30 bg-[#F1EBE0] rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden relative min-h-[450px]">
+            <div className="bg-[#F1EBE0] rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden relative shadow-lg min-h-[450px]">
               <div className="w-full md:w-5/12 text-[#5c564b] z-10 pl-2 md:pl-10 text-center md:text-left">
                 <h3 className="text-[clamp(1.75rem,1.8vw+0.75rem,2.25rem)] font-light tracking-widest uppercase mb-8">Copper Plate</h3>
                 <p className="text-[clamp(0.875rem,2.5vw+0.25rem,0.875rem)]  leading-relaxed font-[400] mb-6">
@@ -831,7 +787,7 @@ export default function RayaraTamaraProject() {
                 </p>
               </div>
               <div className="w-full md:w-7/12 flex justify-center md:justify-end items-center relative h-full">
-                <img src="/images/projects/rayara-tamara/copper-plate.png" alt="Copper Plate" className="w-[85%] md:w-[95%] h-auto max-h-[350px] md:max-h-[450px] object-contain object-center md:object-right" />
+                 <img src="/images/projects/rayara-tamara/copper-plate.png" alt="Copper Plate" className="w-[85%] md:w-[95%] h-auto max-h-[350px] md:max-h-[450px] object-contain object-center md:object-right" />
               </div>
             </div>
 
@@ -841,7 +797,7 @@ export default function RayaraTamaraProject() {
       {/* Heritage Inspired Gallery Section */}
       <section className="bg-[#E3D6CA] relative overflow-hidden font-sans py-24 flex flex-col items-center">
         <div className="max-w-[1440px] mx-auto px-4 w-full">
-
+          
           {/* Header */}
           <div className="text-center mb-16 text-[#606024]">
             <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,4.125rem)] lg:text-[66px] font-[200] uppercase -tracking-[0.05em]  mb-10 leading-[1em]">
@@ -869,7 +825,7 @@ export default function RayaraTamaraProject() {
             <div className="md:col-span-4 overflow-hidden rounded-[2rem] shadow-md">
               <img src="/images/projects/rayara-tamara/gallery/2.png" alt="Gallery 2" className="w-full h-full object-cover" />
             </div>
-
+            
             {/* Row 2 */}
             <div className="md:col-span-12 overflow-hidden rounded-[2rem] shadow-md">
               <img src="/images/projects/rayara-tamara/gallery/3.png" alt="Gallery 3" className="w-full h-full object-cover" />
@@ -923,11 +879,11 @@ export default function RayaraTamaraProject() {
       <section className="bg-[#E1D8CC] relative overflow-hidden font-sans py-32 flex flex-col items-center">
         {/* Subtle mandala background accent */}
         <div className="absolute top-0 left-0 w-[500px] h-[500px] pointer-events-none opacity-[0.03]">
-          <img src="/images/projects/rayara-tamara/flower.png" alt="" className="w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 scale-150" />
+           <img src="/images/projects/rayara-tamara/flower.png" alt="" className="w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 scale-150" />
         </div>
 
         <div className="max-w-[1440px] mx-auto px-4 w-full relative z-10">
-
+          
           {/* Header */}
           <div className="text-center mb-28">
             <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,2.5rem)] font-[300] uppercase  text-[#606024] leading-[1.5em]">
@@ -938,7 +894,7 @@ export default function RayaraTamaraProject() {
 
           {/* Color Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-y-20 gap-x-8 max-w-5xl mx-auto">
-
+            
             {/* Color 1 */}
             <div className="flex flex-col items-center group cursor-pointer">
               <div className="w-32 h-32 md:w-44 md:h-44 rounded-full mb-8 bg-gradient-to-tr from-[#b86d39] via-[#e59868] to-[#f4c8aa] shadow-lg group-hover:scale-105 transition-transform duration-500 ease-out"></div>
@@ -992,7 +948,7 @@ export default function RayaraTamaraProject() {
           {/* Visual Experience Showcase Cards */}
           <div id="visual-showcase" className="mt-24 sm:mt-28 md:mt-36 w-full">
             <div className="flex md:grid md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 overflow-x-auto md:overflow-visible pb-8 md:pb-0 px-3 sm:px-4 md:px-0 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] items-stretch">
-
+              
               {/* Card 1: Peace, warmth, atmosphere */}
               <div className="relative flex-shrink-0 w-[82vw] sm:w-[380px] md:w-auto aspect-[453/560] rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-xl snap-center group">
                 <img
@@ -1002,7 +958,7 @@ export default function RayaraTamaraProject() {
                 />
                 {/* Gradient overlay for readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
-
+                
                 <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8 text-white pointer-events-none">
                   <p className="text-[clamp(1.125rem,2.5vw+0.25rem,2.5rem)] font-[200] tracking-wide text-white/95 leading-tight">
                     Peace, warmth,
@@ -1022,7 +978,7 @@ export default function RayaraTamaraProject() {
                 />
                 {/* Gradient overlay for readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
-
+                
                 <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8 text-white pointer-events-none">
                   <p className="text-[clamp(1.125rem,2.5vw+0.25rem,2.5rem)] font-[200] tracking-wide text-white/95 leading-tight">
                     Temple-inspired
@@ -1042,7 +998,7 @@ export default function RayaraTamaraProject() {
                 />
                 {/* Gradient overlay for readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
-
+                
                 <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8 text-white pointer-events-none">
                   <p className="text-[clamp(1.125rem,2.5vw+0.25rem,2.5rem)] font-[200] tracking-wide text-white/95 leading-tight">
                     Temple-inspired
@@ -1057,7 +1013,7 @@ export default function RayaraTamaraProject() {
           </div>
         </div>
       </section>
-
+      
     </main>
   );
 }

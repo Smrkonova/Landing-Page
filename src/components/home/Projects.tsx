@@ -48,8 +48,8 @@ const Projects = () => {
   });
 
   return (
-    <div ref={containerRef} className="w-full relative" style={{ height: "calc(700vh / var(--desktop-scale, 1))" }}>
-      <div className="sticky top-0 w-full overflow-hidden" style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}>
+    <div ref={containerRef} className="w-full relative h-[700vh]">
+      <div className="sticky top-0 w-full h-screen overflow-hidden">
         <AnimatePresence>
           {activeIndex === 0 && (
             <motion.div
@@ -68,7 +68,7 @@ const Projects = () => {
               {/* Giant Background Text */}
               <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
                 <h1
-                  className="text-center text-[18vw] md:text-[10vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
+                  className="text-center text-[18vw] md:text-[12vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
                   style={{ color: '#FFFFFF4D' }}
                 >
                   YOU ARE<br />SAFE
@@ -198,7 +198,7 @@ const Projects = () => {
               {/* Giant Background Text */}
               <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
                 <h1
-                  className="text-center text-[18vw] md:text-[9vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
+                  className="text-center text-[18vw] md:text-[12vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
                   style={{ color: '#FFFFFF4D' }}
                 >
                   BUILDING<br />TRUST
@@ -312,7 +312,7 @@ const Projects = () => {
               {/* Giant Background Text */}
               <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
                 <h1
-                  className="text-center text-[18vw] md:text-[10vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
+                  className="text-center text-[18vw] md:text-[14vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
                   style={{ color: '#FFFFFF4D' }}
                 >
                   GAMIFIED
@@ -440,7 +440,7 @@ const Projects = () => {
               {/* Giant Background Text */}
               <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
                 <h1
-                  className="text-center text-[18vw] md:text-[9vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
+                  className="text-center text-[18vw] md:text-[14vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
                   style={{ color: '#FFFFFF4D' }}
                 >
                   TIMELESS<br />TASTE
@@ -568,7 +568,7 @@ const Projects = () => {
               {/* Giant Background Text */}
               <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
                 <h1
-                  className="text-center text-[18vw] md:text-[9vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
+                  className="text-center text-[18vw] md:text-[14vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
                   style={{ color: '#FFFFFF1A' }}
                 >
                   READY<br />FOR FILMS
@@ -723,7 +723,7 @@ const Projects = () => {
               {/* Giant Background Text */}
               <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
                 <h1
-                  className="text-center text-[18vw] md:text-[9vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
+                  className="text-center text-[18vw] md:text-[14vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
                   style={{ color: '#FFFFFF33' }}
                 >
                   READING<br />SIMPLIFIED

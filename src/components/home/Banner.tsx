@@ -64,8 +64,7 @@ export default function Banner() {
         }
       }}
       viewport={{ amount: 0.1 }}
-      className="relative w-full bg-transparent text-[#212121] overflow-hidden font-mono selection:bg-[#212121]/20"
-      style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+      className="relative w-full h-screen bg-transparent text-[#212121] overflow-hidden font-mono selection:bg-[#212121]/20"
     >
       {/* Noir Noise Overlay */}
       <style>{`

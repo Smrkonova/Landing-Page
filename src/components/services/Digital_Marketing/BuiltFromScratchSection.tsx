@@ -34,24 +34,12 @@ export default function BuiltFromScratchSection() {
 
                 {/* Left Side: Text */}
                 <div className="flex-1 w-full flex flex-col justify-center">
-                    <h2 
-                        className="font-[200] text-gray-800 tracking-tight mb-6 md:mb-8 uppercase leading-[1.08]"
-                        style={{
-                            fontFamily: "'Inter', sans-serif",
-                            fontSize: '42px',
-                        }}
-                    >
-                        HOW DIGITAL<br />
-                        <span className="font-[900] text-black tracking-normal">MARKETING WORKS.</span>
+                    <h2 className="text-[44px] sm:text-[60px] md:text-[70px] lg:text-[80px] leading-[1.05] font-light text-gray-800 tracking-tight mb-8">
+                        How Digital<br />
+                        <span className="font-bold tracking-normal">Marketing Works.</span>
                     </h2>
 
-                    <p 
-                        className="text-gray-500 max-w-sm mb-8 md:mb-10 leading-relaxed font-normal"
-                        style={{
-                            fontFamily: "'Inter', sans-serif",
-                            fontSize: '14px',
-                        }}
-                    >
+                    <p className="text-gray-500 text-[clamp(1rem,0.8vw+0.65rem,1.25rem)] max-w-lg mb-10 leading-relaxed font-light">
                         Marketing isn't a single campaign. It's a connected growth system.
                     </p>
 

@@ -12,20 +12,20 @@ export default function ModernExperiencesSection() {
 
                 {/* --- BACKGROUND GLOWS & MESH GRADIENTS --- */}
                 {/* Large soft pink/purple glow in the center/right */}
-                <div className="absolute top-1/4 right-1/5 w-[150px] sm:w-[400px] h-[350px] sm:h-[600px] bg-pink-300 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none -translate-y-1/4"></div>
+                <div className="absolute top-0 right-1/4 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-pink-200 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none -translate-y-1/4"></div>
                 {/* Orange glow on the far right */}
-                <div className="absolute bottom-1/4 right-[7rem] w-[120px] sm:w-[300px] h-[200px] sm:h-[300px] bg-orange-400 rounded-full blur-[90px] sm:blur-[120px] pointer-events-none translate-x-1/4"></div>
+                <div className="absolute bottom-1/4 right-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-orange-200 rounded-full blur-[90px] sm:blur-[120px] pointer-events-none translate-x-1/4"></div>
 
-                <div className="relative z-10 flex flex-col lg:flex-row p-6 sm:p-10 md:p-20 lg:p-20  min-h-[600px]">
+                <div className="relative z-10 flex flex-col lg:flex-row p-6 sm:p-10 md:p-20 lg:p-24 min-h-[600px]">
 
                     {/* Left Content Area */}
-                    <div className="flex-1 flex flex-col justify-start z-20">
-                        <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3.75rem)] leading-[1.2em] tracking-tight text-[#212121] mb-8">
-                            <span className="block font-[900] uppercase">Modern <br/> websites are</span>
-                            <span className="block font-[200] text-gray-500 uppercase">no longer <br/> static pages.</span>
+                    <div className="flex-1 flex flex-col justify-center z-20">
+                        <h2 className="text-[clamp(1.75rem,4.5vw+0.5rem,4.375rem)] leading-[0.95] tracking-tight text-[#1a1a1a] mb-8">
+                            <span className="block font-black uppercase">Modern websites are</span>
+                            <span className="block font-light text-gray-500 uppercase">no longer static pages.</span>
                         </h2>
 
-                        <p className="text-[#212121] text-[clamp(1.125rem,2.5vw+0.25rem,0.875rem)] font-[400] leading-[1.5em] max-w-[380px]">
+                        <p className="text-gray-600 text-[clamp(0.875rem,0.6vw+0.7rem,1.0625rem)] font-medium leading-relaxed max-w-[380px]">
                            We create interactive experiences that keep visitors engaged and make your brand memorable.
                         </p>
                     </div>
@@ -39,9 +39,9 @@ export default function ModernExperiencesSection() {
                             {/* Top-Left Wireframe UI List */}
                             <div className="absolute top-4 left-4 sm:top-7 sm:left-7 md:top-9 md:left-9 flex flex-col gap-2 sm:gap-2.5 md:gap-3 z-10 pointer-events-none w-[110px] sm:w-[150px] md:w-[190px]">
                                 {[100, 75, 55].map((w, idx) => (
-                                    <div key={idx} className="flex items-center gap-2 sm:gap-2.5 ">
-                                        <div className="w-3 h-3 sm:w-2.3 sm:h-2.3 md:w-4 md:h-4 rounded-full bg-white/60 shadow-sm shrink-0 " />
-                                        <div className="h-1 sm:h-1.5 md:h-2 rounded-full bg-white/60 shadow-sm" style={{ width: `${w}%` }} />
+                                    <div key={idx} className="flex items-center gap-2 sm:gap-2.5">
+                                        <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full bg-white/80 shadow-sm shrink-0" />
+                                        <div className="h-1 sm:h-1.5 md:h-2 rounded-full bg-white/65 shadow-sm" style={{ width: `${w}%` }} />
                                     </div>
                                 ))}
                             </div>
@@ -89,7 +89,7 @@ export default function ModernExperiencesSection() {
                         {[0, 1].map((copyIdx) => (
                             <p 
                                 key={copyIdx} 
-                                className="text-[clamp(13px,0.5vw+5px,14px)] font-medium text-[#212121] tracking-wider whitespace-nowrap shrink-0 pr-8"
+                                className="text-[clamp(11px,0.5vw+5px,13px)] font-medium text-gray-500 tracking-wider whitespace-nowrap shrink-0 pr-8"
                             >
                                 Smooth scrolling &nbsp;·&nbsp; Interactive sections &nbsp;·&nbsp; Micro animations &nbsp;·&nbsp; Hover effects &nbsp;·&nbsp; 3D experiences &nbsp;·&nbsp; Storytelling pages &nbsp;·&nbsp; Product showcases &nbsp;·&nbsp; Animated landing pages &nbsp;·&nbsp; Custom transitions &nbsp;·&nbsp;
                             </p>

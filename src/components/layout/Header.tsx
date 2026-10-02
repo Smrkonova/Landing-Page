@@ -92,8 +92,8 @@ export default function Header() {
         <source src="/audio/background.mpeg" type="audio/mpeg" />
       </audio>
 
-      <header className="absolute top-0 left-0 w-full z-[900] px-6 py-4 md:px-12 flex justify-center pointer-events-none">
-        <div className={`w-full max-w-[1400px] mx-auto flex items-center justify-between border-b ${bottomBorder} pb-3 transition-colors duration-300`}>
+      <header className="absolute top-0 left-0 w-full z-40 px-6 py-8 md:px-12 flex justify-center  pointer-events-none">
+        <div className={`w-full max-w-7xl flex items-center justify-between border-b ${bottomBorder} pb-6 transition-colors duration-300`}>
           {/* Left: Logo */}
           <Link href="/" className="pointer-events-auto hover:opacity-70 transition-opacity">
             <div className="relative w-48 h-10 md:w-56 md:h-12">
@@ -156,7 +156,7 @@ export default function Header() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.6 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[1000]"
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60]"
             />
 
             {/* Sidebar Overlay Wrapper (Handles animation, no clipping) */}
@@ -165,8 +165,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-              className="fixed top-0 right-0 w-full md:w-[55vw] lg:w-[45vw] z-[1010]"
-              style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+              className="fixed top-0 right-0 w-full md:w-[55vw] lg:w-[45vw] h-screen z-[70]"
             >
               {/* Floating Close Button (Matches ContactDrawer entrance) */}
               <motion.div
@@ -197,14 +196,13 @@ export default function Header() {
                 </div>
 
                 {/* Menu Links */}
-                <div className="flex flex-col gap-4 mt-16 mb-auto">
+                <div className="flex flex-col gap-6 mt-24 mb-auto">
                   <MenuLink href="/" title="HOME" active={pathname === "/"} onClick={() => setIsOpen(false)} />
                   <MenuLink href="/about" title="ABOUT US" active={pathname === "/about"} onClick={() => setIsOpen(false)} />
                   <MenuLink href="/services" title="SERVICES" active={pathname?.startsWith("/services")} onClick={() => setIsOpen(false)} />
-                  <MenuLink href="/industries" title="INDUSTRIES" active={pathname?.startsWith("/industries")} onClick={() => setIsOpen(false)} />
                   <MenuLink href="/projects" title="PROJECTS" active={pathname?.startsWith("/projects")} onClick={() => setIsOpen(false)} />
 
-                  <div className="mt-8">
+                  <div className="mt-16">
                     <MenuLink href="/contact" title="JOIN US" active={pathname === "/contact"} onClick={() => setIsOpen(false)} />
                   </div>
                 </div>
@@ -234,7 +232,7 @@ function MenuLink({ href, title, active, onClick }) {
       <span className="text-[10px]  text-black/50">
         ( {active ? "●" : "○"} )
       </span>
-      <span className={`text-3xl md:text-5xl font-black uppercase tracking-tighter transition-colors duration-400 font-sans ${active ? "text-black" : "text-black/30 group-hover:text-black/60"}`}>
+      <span className={`text-4xl md:text-6xl font-black uppercase tracking-tighter transition-colors duration-400 font-sans ${active ? "text-black" : "text-black/30 group-hover:text-black/60"}`}>
         {title}
       </span>
     </Link>

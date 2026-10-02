@@ -32,9 +32,9 @@ export default function ServicesScroll() {
   });
 
   return (
-    <section ref={containerRef} className="relative w-full bg-black" style={{ height: "calc(600vh / var(--desktop-scale, 1))" }}>
+    <section ref={containerRef} className="relative w-full bg-black h-[600vh]">
       {/* Sticky container stays on screen while we scroll through the 600vh */}
-      <div className="sticky top-0 w-full flex flex-col justify-center overflow-hidden pt-20 lg:pt-[120px]" style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}>
+      <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden pt-20 lg:pt-[120px]">
 
         {/* Background "WHAT WE DO" Text */}
         <div className="absolute top-[8%] md:top-[5%] left-0 w-full flex justify-center items-center pointer-events-none z-0">
@@ -46,7 +46,7 @@ export default function ServicesScroll() {
         </div>
 
         {/* Foreground Content */}
-        <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10 h-full">
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10 h-full">
 
           {/* Left Side: Text List */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-4 md:space-y-6 relative z-20 h-[180px] md:h-[250px] lg:h-[300px] justify-center gap-4 w-full">
@@ -149,7 +149,7 @@ export default function ServicesScroll() {
                     duration: 0.6,
                     ease: [0.32, 0.72, 0, 1], // Custom spring-like easing
                   }}
-                  className="absolute lg:right-0 w-[95%] sm:w-[80%] lg:w-[85%] h-[200px] md:h-[350px] lg:h-[420px] rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform-style-3d origin-bottom"
+                  className="absolute lg:right-0 w-[95%] sm:w-[80%] lg:w-[100%] h-[200px] md:h-[350px] lg:h-[480px] rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform-style-3d origin-bottom"
                 >
                   <Image
                     src="/images/industries/manufacturing/service/1.png"

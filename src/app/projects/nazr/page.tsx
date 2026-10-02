@@ -5,11 +5,8 @@ export default function NazrProjectPage() {
   return (
     <main className="min-h-screen bg-[#111111] text-white selection:bg-[#F80090]/20 flex flex-col font-sans">
       {/* Hero Section */}
-      <section 
-        className="relative w-full pt-20 pb-8 px-6 md:px-12 flex justify-center items-center overflow-hidden"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
-      >
-        <div className="w-full max-w-[1440px] grid grid-cols-1 lg:grid-cols-[1fr_3fr_1fr] gap-8 xl:gap-12 h-full max-h-[850px] items-center">
+      <section className="relative w-full min-h-screen pt-24 pb-12 px-6 md:px-12 flex justify-center items-center">
+        <div className="w-full max-w-[1440px] grid grid-cols-1 lg:grid-cols-[1fr_3fr_1fr] gap-8 xl:gap-12 h-full">
 
           {/* Left Column - Metadata */}
           <div className="flex flex-col gap-10 pt-4 xl:pt-12">
@@ -45,7 +42,7 @@ export default function NazrProjectPage() {
           </div>
 
           {/* Center Column - Banner */}
-          <div className="w-full max-h-[580px] aspect-[904/587] relative rounded-[2rem] border-[1.5px] border-[#3b82f6]/40 overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.15)] flex flex-col justify-end">
+          <div className="w-full aspect-[904/587] relative rounded-[2rem] border-[1.5px] border-[#3b82f6]/40 overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.15)] flex flex-col justify-end">
             <img
               src="/images/projects/nazr/banner.png"
               alt="Nazr Banner"
@@ -89,10 +86,7 @@ export default function NazrProjectPage() {
       </section>
 
       {/* Already Existed Section */}
-      <section 
-        className="relative w-full flex justify-center items-center overflow-hidden"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
-      >
+      <section className="relative w-full min-h-screen flex justify-center items-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -105,7 +99,7 @@ export default function NazrProjectPage() {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 w-full max-w-[1440px] px-6 md:px-12 lg:px-20 py-12 h-full flex items-center justify-between">
+        <div className="relative z-10 w-full max-w-[1440px] px-6 md:px-12 lg:px-20 py-24 min-h-screen flex items-center justify-between">
 
           {/* Left Column */}
           <div className="flex flex-col gap-16 md:gap-24 text-right w-[40%] md:w-[35%] lg:w-[30%]">

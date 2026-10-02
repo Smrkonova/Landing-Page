@@ -35,7 +35,7 @@ export default function SliderSection() {
 
   return (
     <section className="relative w-full bg-white text-black py-24 md:py-32 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         
         {/* Header Content */}
         <div className="mb-20 text-center md:text-left">

@@ -6,11 +6,8 @@ import DisplayScaler from '@/components/DisplayScaler';
 export default function CineArteryProjectPage() {
   return (
     <main className="min-h-screen bg-[#111111] text-white">
-      <section 
-        className="relative overflow-hidden font-sans flex items-center pt-16 pb-4"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
-      >
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center w-full h-full max-h-[820px]">
+      <section className="relative overflow-hidden font-sans mt-[1rem] flex items-center min-h-screen">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 flex flex-col md:flex-row items-stretch w-full min-h-[80vh]">
           
           {/* Left Column - Details */}
           <div className="w-full md:w-1/5 pr-8 flex flex-col justify-center py-10">
@@ -51,7 +48,7 @@ export default function CineArteryProjectPage() {
           {/* Center Column - Banner Image */}
           <div className="w-full md:w-3/5 flex justify-center py-4 relative px-4">
             {/* The outer container with the blue border */}
-            <div className="relative rounded-[1.5rem] border-[1.5px] border-[#3a5a7b] w-full h-full min-h-[480px] max-h-[600px] p-[2px] shadow-sm overflow-hidden">
+            <div className="relative rounded-[1.5rem] border-[1.5px] border-[#3a5a7b] w-full h-full min-h-[500px] p-[2px] shadow-sm overflow-hidden">
               {/* Inner container for image */}
               <div className="relative rounded-[1.4rem] overflow-hidden w-full h-full bg-[#0a0a0a]">
                 <img
@@ -272,10 +269,7 @@ export default function CineArteryProjectPage() {
       </section>
 
       {/* Phone Showcase Section */}
-      <section 
-        className="relative w-full py-12 lg:py-0 bg-[#0c0c0c] overflow-hidden flex items-center justify-center"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
-      >
+      <section className="relative w-full py-20 sm:py-24 lg:py-32 bg-[#0c0c0c] overflow-hidden min-h-screen">
         {/* Ambient radial glow centered behind the middle column */}
         <div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none opacity-40 blur-[130px]"
@@ -284,7 +278,7 @@ export default function CineArteryProjectPage() {
           }}
         />
 
-        <div className="w-full max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10 h-full max-h-[850px] flex items-center">
+        <div className="w-full max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
           
           <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_minmax(280px,380px)_1.1fr] xl:grid-cols-[1.15fr_minmax(320px,400px)_1.15fr] gap-12 lg:gap-8 xl:gap-14 items-stretch">
             
@@ -444,10 +438,7 @@ export default function CineArteryProjectPage() {
       </section>
 
       {/* Cave / Final Section */}
-      <section 
-        className="relative w-full py-16 flex flex-col justify-center items-center bg-[#0a0a0a] overflow-hidden"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
-      >
+      <section className="relative w-full min-h-screen py-24 flex flex-col justify-center items-center bg-[#0a0a0a] overflow-hidden">
         
         {/* Background Cave Image with Fade */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1069px] h-[70%] lg:h-[80%] z-0">

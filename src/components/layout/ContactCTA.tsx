@@ -2,20 +2,14 @@
 
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
-import { usePathname } from 'next/navigation';
 import ContactDrawer from './ContactDrawer';
 
 export default function ContactCTA() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const pathname = usePathname();
-
-  if (pathname === '/') {
-    return null;
-  }
 
   return (
     <>
-      <section className="sticky top-0 z-0 w-full max-w-full flex items-center justify-center overflow-hidden bg-black" style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}>
+      <section className="sticky top-0 z-0 w-full max-w-full h-[100vh] flex items-center justify-center overflow-hidden bg-black">
         {/* Background Video */}
         <video
           autoPlay
@@ -72,7 +66,7 @@ export default function ContactCTA() {
       </section>
 
       {/* Spacer to delay the footer by 100vh (1 scroll), creating the '2 scroll stay' effect */}
-      <div className="w-full pointer-events-none" style={{ height: "calc(100vh / var(--desktop-scale, 1))" }} />
+      <div className="w-full h-[100vh] pointer-events-none" />
 
       {/* Slide-out Drawer */}
       <ContactDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />

@@ -79,7 +79,7 @@ export function DesktopScaler({
       setIsDesktopSiteMobile(desktopSiteMobile);
 
       if (mobile) {
-        setScale(windowWidth / 390);
+        setScale(Math.min(1.1, windowWidth / 390));
         return;
       }
 

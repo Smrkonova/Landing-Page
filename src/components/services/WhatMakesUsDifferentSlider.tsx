@@ -51,18 +51,22 @@ export default function WhatMakesUsDifferentSlider() {
     }, []);
 
     return (
-        <section className="w-full max-w-full bg-white text-black py-15 md:py-20 overflow-hidden relative">
-            <div className="w-full max-w-8xl mx-auto px-12  flex flex-col gap-8 overflow-hidden">
+        <section className="w-full max-w-full bg-white text-black py-24 md:py-32 overflow-hidden relative">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col gap-12 overflow-hidden">
 
                 {/* Section Header */}
                 <div>
-                    <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,2rem)] font-[300] text-gray-800 tracking-wide uppercase">
+                    <h2 className="text-[clamp(1.25rem,1.8vw+0.5rem,1.75rem)] font-light text-gray-800 tracking-wide uppercase">
                         WHAT MAKES OUR WEBSITES DIFFERENT.
                     </h2>
                 </div>
 
                 {/* Slider Container */}
                 <div className="relative w-full max-w-full h-[400px] md:h-[600px] flex items-center mt-12 overflow-hidden">
+
+                    {/* Glow Effect behind Active Card */}
+                    <div className="absolute left-[10%] top-1/2 -translate-y-1/2 w-[240px] md:w-[400px] h-[240px] md:h-[400px] bg-black/30 rounded-full blur-[60px] md:blur-[120px] pointer-events-none z-0"></div>
+
                     {slides.map((slide, index) => {
                         const distance = index - activeIndex;
 
@@ -117,7 +121,7 @@ export default function WhatMakesUsDifferentSlider() {
                         return (
                             <div
                                 key={slide.id}
-                                className={`absolute left-0 top-0 w-[260px] sm:w-[280px] md:w-[450px] h-[350px] md:h-[550px] rounded-[32px] md:rounded-[40px] overflow-hidden transition-all duration-[1500ms] ease-in-out ${slide.bg}`}
+                                className={`absolute left-0 top-0 w-[260px] sm:w-[280px] md:w-[450px] h-[350px] md:h-[550px] rounded-[32px] md:rounded-[40px] overflow-hidden transition-all duration-[1500ms] ease-in-out shadow-2xl ${slide.bg}`}
                                 style={{
                                     transform: `translateX(${translateX}) scale(${scale})`,
                                     transformOrigin: 'center left',
