@@ -231,10 +231,8 @@ export default function ProcessScroll() {
 
           {/* Left Glass Container */}
           <div 
-            className="absolute z-10 flex flex-col justify-between overflow-hidden"
+            className="absolute z-10 flex flex-col justify-between overflow-hidden w-[820px] lg:w-[740px] xl:w-[610px] h-[780px] lg:h-[720px] xl:h-[618px]"
             style={{ 
-              width: "610px",
-              height: "618px",
               left: "65px",
               top: "50%",
               transform: "translateY(-50%)",
@@ -270,7 +268,7 @@ export default function ProcessScroll() {
 
             {/* Middle Scrolling Text List (Centered inside card) */}
             <div className="relative flex-grow flex items-center pl-12 pr-14 z-20">
-              <div className="relative w-full h-[360px] flex items-center">
+              <div className="relative w-full h-[440px] lg:h-[390px] xl:h-[360px] flex items-center">
                 {processes.map((process, index) => {
                   const offset = index - activeIndex;
                   const isVisible = Math.abs(offset) <= 1;
