@@ -52,7 +52,7 @@ export default function CaseStudiesSlider() {
     <section className="relative w-full bg-white py-24 md:py-32 overflow-hidden">
 
       {/* Header Container */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 mb-20 text-center md:text-left">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 mb-20 text-center md:text-left">
         <p className="text-gray-500 uppercase tracking-widest text-[clamp(12px,0.5vw+6px,14px)] mb-2 font-medium">
           Built for the long run
         </p>

@@ -92,8 +92,8 @@ export default function Header() {
         <source src="/audio/background.mpeg" type="audio/mpeg" />
       </audio>
 
-      <header className="absolute top-0 left-0 w-full z-999 px-6 py-4 md:px-12 flex justify-center pointer-events-none">
-        <div className={`w-full max-w-7xl flex items-center justify-between border-b ${bottomBorder} pb-3 transition-colors duration-300`}>
+      <header className="absolute top-0 left-0 w-full z-[900] px-6 py-4 md:px-12 flex justify-center pointer-events-none">
+        <div className={`w-full max-w-[1400px] mx-auto flex items-center justify-between border-b ${bottomBorder} pb-3 transition-colors duration-300`}>
           {/* Left: Logo */}
           <Link href="/" className="pointer-events-auto hover:opacity-70 transition-opacity">
             <div className="relative w-48 h-10 md:w-56 md:h-12">
@@ -156,7 +156,7 @@ export default function Header() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.6 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60]"
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[1000]"
             />
 
             {/* Sidebar Overlay Wrapper (Handles animation, no clipping) */}
@@ -165,7 +165,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-              className="fixed top-0 right-0 w-full md:w-[55vw] lg:w-[45vw] z-[70]"
+              className="fixed top-0 right-0 w-full md:w-[55vw] lg:w-[45vw] z-[1010]"
               style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
             >
               {/* Floating Close Button (Matches ContactDrawer entrance) */}

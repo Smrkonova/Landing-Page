@@ -16,7 +16,7 @@ export default function Page() {
         <main className="w-full">
             {/* Banner Section */}
             <div className="relative bg-black text-white flex items-center pt-32 md:pt-0 pb-12 md:pb-0 overflow-hidden" style={{ minHeight: "calc(100vh / var(--desktop-scale, 1))" }}>
-                <div className="max-w-7xl mx-auto w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center relative z-10">
+                <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center relative z-10">
 
                     {/* Left Content (60%) */}
                     <div className="order-2 md:order-1 flex flex-col items-center md:items-start text-center md:text-left space-y-6 md:space-y-8 md:col-span-3 max-w-2xl">
@@ -76,7 +76,7 @@ export default function Page() {
 
             {/* Automation Carousel Section */}
             <div className="bg-[#f8f9fa] text-black py-32 w-full overflow-hidden">
-                <div className="max-w-7xl mx-auto w-full px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
                     {/* Left Text Content */}
                     <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8 md:space-y-12 z-10 relative pr-0 md:pr-4 lg:pr-12">

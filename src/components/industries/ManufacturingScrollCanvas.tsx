@@ -185,7 +185,7 @@ export default function ManufacturingScrollCanvas() {
             hidden: {},
             visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } }
           }}
-          className="absolute inset-0 z-20 pointer-events-none flex flex-col justify-start max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 pt-12 md:pt-16 space-y-6 md:space-y-8"
+          className="absolute inset-0 z-20 pointer-events-none flex flex-col justify-start max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-16 pt-12 md:pt-16 space-y-6 md:space-y-8"
         >
           {/* Top Heading */}
           <h2 className="text-center md:text-left text-[clamp(1.5rem,3.5vw+0.5rem,3.5rem)] leading-[1.2] md:leading-[1.1] tracking-normal uppercase text-[#111]">
