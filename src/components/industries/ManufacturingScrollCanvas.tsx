@@ -167,8 +167,8 @@ export default function ManufacturingScrollCanvas() {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full h-[400vh] relative">
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex justify-center items-center">
+    <div ref={containerRef} className="w-full relative" style={{ height: "calc(400vh / var(--desktop-scale, 1))" }}>
+      <div className="sticky top-0 w-full overflow-hidden flex justify-center items-center" style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}>
         <canvas
           ref={canvasRef}
           className="w-full h-full object-cover"
@@ -185,18 +185,18 @@ export default function ManufacturingScrollCanvas() {
             hidden: {},
             visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } }
           }}
-          className="absolute inset-0 z-20 pointer-events-none flex flex-col justify-start max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 pt-16 md:pt-24 space-y-12"
+          className="absolute inset-0 z-20 pointer-events-none flex flex-col justify-start max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 pt-12 md:pt-16 space-y-6 md:space-y-8"
         >
           {/* Top Heading */}
-          <h2 className="text-center md:text-left text-[clamp(1.75rem,4.5vw+0.5rem,4.5rem)] leading-[1.3] md:leading-[1.1] tracking-normal uppercase text-[#111]">
+          <h2 className="text-center md:text-left text-[clamp(1.5rem,3.5vw+0.5rem,3.5rem)] leading-[1.2] md:leading-[1.1] tracking-normal uppercase text-[#111]">
               <div className="overflow-hidden pb-2"><motion.span variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="inline-block font-extrabold">BUILD</motion.span> <motion.span variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="inline-block font-light text-[#777]">360-DEGREE</motion.span> <motion.span variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="inline-block font-extrabold">SYSTEMS</motion.span></div>
               <div className="overflow-hidden pb-2"><motion.span variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="inline-block font-extrabold">THAT</motion.span> <motion.span variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="inline-block font-light text-[#777]">NURTURE AND</motion.span> <motion.span variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="inline-block font-extrabold">GROW YOUR</motion.span></div>
               <div className="overflow-hidden pb-2"><motion.span variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="inline-block font-light text-[#777]">MANUFACTURING</motion.span> <motion.span variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }} className="inline-block font-extrabold">BUSINESS</motion.span></div>
           </h2>
 
           {/* Middle Content Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-start pt-4 md:pt-8 text-center md:text-left">
-              <div className="text-[clamp(1.25rem,2.2vw+0.5rem,2.5rem)] leading-[1.3] font-light text-[#999] uppercase tracking-wide">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-start pt-2 md:pt-4 text-center md:text-left">
+              <div className="text-[clamp(1.125rem,2vw+0.5rem,2rem)] leading-[1.3] font-light text-[#999] uppercase tracking-wide">
                   <div className="overflow-hidden"><motion.div variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }}>SCALE SYSTEMS THAT</motion.div></div>
                   <div className="overflow-hidden"><motion.div variants={{ hidden: { y: "110%" }, visible: { y: "0%", transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } } }}>RUN YOUR BUSINESS.</motion.div></div>
               </div>
