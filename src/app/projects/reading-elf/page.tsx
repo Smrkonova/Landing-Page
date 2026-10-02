@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import BookScrollFlip from "@/components/projects/reading-elf/BookScrollFlip";
+import FannedCardsSlider from "@/components/projects/reading-elf/FannedCardsSlider";
 
 export default function ReadingElfProjectPage() {
   return (
-    <main className="min-h-screen bg-[#FDFCEE] pt-32 md:pt-40 flex flex-col justify-center overflow-hidden">
+    <main className="min-h-screen bg-[#FDFCEE] pt-32 md:pt-40 flex flex-col justify-center">
       <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 pb-12 flex flex-col xl:flex-row items-stretch gap-6 xl:gap-8">
 
         {/* Left Sidebar */}
@@ -203,51 +205,19 @@ export default function ReadingElfProjectPage() {
       </section>
 
       {/* Book Showcase Section */}
-      <section className="relative w-full flex flex-col items-center pb-24 md:pb-40 z-20">
+      <section className="relative w-full flex flex-col items-center pb-24 md:pb-40 z-20 -mt-24 md:-mt-48">
+        <BookScrollFlip />
 
-        {/* Background Image */}
         <img
           src="/images/projects/reading-elf/book/book-bg.png"
           alt="Book Showcase Background"
-          className="absolute inset-0 w-full h-full object-cover  z-0"
+          className="absolute inset-0 w-full h-full object-cover z-0"
         />
-
-        {/* Books Stack Container - Using negative margin to overlap previous section */}
-        <div className="relative w-full max-w-[900px] mx-auto z-10 flex flex-col items-center px-4 md:px-8 gap-10 md:gap-16 -mt-24 md:-mt-48">
-          {[1, 2, 3, 4, 5, 6].map((num) => (
-            <div
-              key={num}
-              className="w-full drop-shadow-[0_25px_50px_rgba(0,0,0,0.35)] hover:scale-105 transition-transform duration-500"
-            >
-              <img
-                src={`/images/projects/reading-elf/book/book-${num}.png`}
-                alt={`Reading Elf Brand Book Page ${num}`}
-                className="w-full h-auto object-contain"
-              />
-            </div>
-          ))}
-        </div>
 
         {/* Details & Fanned Cards Container */}
         <div className="relative w-full max-w-[1200px] mx-auto z-10 flex flex-col px-6 md:px-12 mt-32 md:mt-48">
-          
-          {/* Top Part: Left Book & Right Text */}
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-24 mb-32">
-            {/* Left Book */}
-            <div className="w-full md:w-1/2 flex justify-center md:justify-end drop-shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:scale-105 transition-transform duration-500">
-              <img 
-                src="/images/projects/reading-elf/left-book.png" 
-                alt="Reading Elf Digital Story" 
-                className="w-[85%] max-w-[400px] h-auto object-contain"
-              />
-            </div>
-            {/* Right Text */}
-            <div className="w-full md:w-1/2 flex flex-col justify-center pt-0 md:pt-20 text-center md:text-left">
-              <h3 className="text-[clamp(1.25rem,1.8vw+0.5rem,1.875rem)] font-light text-gray-800 leading-snug tracking-wide">
-                Bringing the<br/>stories to life<br/>digitally
-              </h3>
-            </div>
-          </div>
+
+
 
           {/* Center Text */}
           <div className="max-w-[550px] mx-auto text-center mb-32 md:mb-48">
@@ -256,52 +226,15 @@ export default function ReadingElfProjectPage() {
             </p>
           </div>
 
-          {/* Fanned Cards */}
-          <div className="relative w-full h-[350px] md:h-[450px] flex justify-center items-center mb-48 md:mb-64">
-            
-            {/* Left Card 2 */}
-            <div className="absolute z-10 w-[180px] md:w-[240px] aspect-[3/4] bg-white/20 backdrop-blur-md rounded-2xl md:rounded-[32px] border border-white/40 shadow-lg flex flex-col items-center justify-center p-6 -translate-x-[85%] md:-translate-x-[90%] rotate-[-24deg] opacity-70 hover:opacity-100 hover:rotate-[-20deg] transition-all duration-500">
-            </div>
-
-            {/* Left Card 1 */}
-            <div className="absolute z-20 w-[180px] md:w-[240px] aspect-[3/4] bg-white/30 backdrop-blur-md rounded-2xl md:rounded-[32px] border border-white/50 shadow-xl flex flex-col items-center justify-center p-6 -translate-x-[45%] md:-translate-x-[48%] rotate-[-12deg] hover:-translate-y-4 hover:rotate-[-8deg] transition-all duration-500">
-              <div className="w-20 h-20 opacity-90 drop-shadow-xl">
-                 {/* Using placeholder since icons weren't provided */}
-                 <img src="/images/projects/reading-elf/fly-book.png" alt="Icon" className="w-full h-full object-contain" />
-              </div>
-            </div>
-
-            {/* Center Card (Highlighted) */}
-            <div className="absolute z-30 w-[200px] md:w-[260px] aspect-[3/4] bg-gradient-to-b from-[#F3EFE9] to-[#EBDCCC] rounded-2xl md:rounded-[32px] border-[3px] border-white/80 shadow-[0_30px_60px_rgba(0,0,0,0.15)] flex flex-col items-center justify-start p-6 text-center hover:-translate-y-6 transition-transform duration-500 cursor-pointer">
-              <div className="w-16 h-16 md:w-20 md:h-20 mb-6 mt-4 drop-shadow-xl">
-                {/* Using placeholder since lantern wasn't provided */}
-                <img src="/images/projects/reading-elf/logo.png" alt="Brand Strategy" className="w-full h-full object-contain" />
-              </div>
-              <h4 className="text-[clamp(10px,0.6vw+4px,11px)] font-black text-gray-800 uppercase tracking-widest mb-3 leading-tight">BRAND STRATEGY</h4>
-              <p className="text-[clamp(9px,0.5vw+4px,10px)] text-gray-700/80 leading-relaxed font-bold px-2">
-                Defined the brand experience and digital direction around the Founder's vision.
-              </p>
-            </div>
-
-            {/* Right Card 1 */}
-            <div className="absolute z-20 w-[180px] md:w-[240px] aspect-[3/4] bg-white/30 backdrop-blur-md rounded-2xl md:rounded-[32px] border border-white/50 shadow-xl flex flex-col items-center justify-center p-6 translate-x-[45%] md:translate-x-[48%] rotate-[12deg] hover:-translate-y-4 hover:rotate-[8deg] transition-all duration-500">
-              <div className="w-20 h-20 opacity-90 drop-shadow-xl">
-                 <img src="/images/projects/reading-elf/open-book.png" alt="Icon" className="w-full h-full object-contain" />
-              </div>
-            </div>
-
-            {/* Right Card 2 */}
-            <div className="absolute z-10 w-[180px] md:w-[240px] aspect-[3/4] bg-white/20 backdrop-blur-md rounded-2xl md:rounded-[32px] border border-white/40 shadow-lg flex flex-col items-center justify-center p-6 translate-x-[85%] md:translate-x-[90%] rotate-[24deg] opacity-70 hover:opacity-100 hover:rotate-[20deg] transition-all duration-500">
-            </div>
-
-          </div>
+          {/* Fanned Cards Slider */}
+          <FannedCardsSlider />
 
           {/* Final Typography & CTA */}
           <div className="flex flex-col items-center text-center mt-20 mb-12 md:mb-24 z-10 relative">
-            
+
             {/* Glowing Aura Effect behind text */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-white/20 blur-[100px] rounded-full pointer-events-none z-0"></div>
-            
+
             <div className="relative z-10">
               <h2 className="text-[clamp(1.75rem,3vw+0.5rem,2.625rem)] font-black text-white uppercase tracking-widest mb-1 drop-shadow-lg">
                 BRANDS ARE BUILT
@@ -324,7 +257,7 @@ export default function ReadingElfProjectPage() {
           </div>
 
         </div>
-        
+
       </section>
 
       {/* Footer Marquee */}
@@ -335,11 +268,11 @@ export default function ReadingElfProjectPage() {
             <div key={i} className="flex items-center text-white font-black text-[clamp(10px,0.6vw+4px,11px)] uppercase tracking-widest mx-3">
               <span className="mx-3">SMRKONOVA</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="opacity-90">
-                <path d="M12 2L15 8L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L9 8L12 2Z"/>
+                <path d="M12 2L15 8L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L9 8L12 2Z" />
               </svg>
               <span className="mx-3">READING ELF</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="opacity-90">
-                <path d="M12 2L15 8L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L9 8L12 2Z"/>
+                <path d="M12 2L15 8L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L9 8L12 2Z" />
               </svg>
             </div>
           ))}
