@@ -1,21 +1,30 @@
 export const FRAME_SECTIONS = [
-  { folder: "Raw", start: 1, end: 80 },
-  { folder: "Understand", start: 81, end: 160 },
-  { folder: "Plan", start: 161, end: 240 },
-  { folder: "Design", start: 241, end: 320 },
-  { folder: "Development", start: 321, end: 400 },
-  { folder: "Testing", start: 401, end: 480 },
-  { folder: "Launch", start: 481, end: 560 },
-  { folder: "Scale", start: 561, end: 724 },
+  { folder: "raw-1", count: 59, filePrefix: "frame_", ext: ".png", fileStart: 1 },
+  { folder: "understand-2", count: 60, filePrefix: "frame_", ext: ".png", fileStart: 1 },
+  { folder: "plan-3", count: 59, filePrefix: "frame_", ext: ".png", fileStart: 1 },
+  { folder: "build-4/design", count: 59, filePrefix: "frame_", ext: ".png", fileStart: 1 },
+  { folder: "build-4/develop", count: 60, filePrefix: "frame_", ext: ".png", fileStart: 1 },
+  { folder: "build-4/test", count: 59, filePrefix: "frame_", ext: ".png", fileStart: 1 },
+  { folder: "lanuch-5", count: 59, filePrefix: "frame_", ext: ".png", fileStart: 1 },
+  { folder: "scale-6", count: 100, filePrefix: "frame_", ext: ".jpg", fileStart: 1 },
+  { folder: "contact-7", count: 60, filePrefix: "frame_", ext: ".png", fileStart: 1 },
 ];
 
-export const TOTAL_FRAMES = FRAME_SECTIONS.reduce(
-  (sum, section) => sum + (section.end - section.start + 1),
+let currentStart = 1;
+export const COMPUTED_SECTIONS = FRAME_SECTIONS.map(section => {
+  const start = currentStart;
+  const end = currentStart + section.count - 1;
+  currentStart = end + 1;
+  return { ...section, start, end };
+});
+
+export const TOTAL_FRAMES = COMPUTED_SECTIONS.reduce(
+  (sum, section) => sum + section.count,
   0
 );
 
 export function getFramePath(frameNumber) {
-  const section = FRAME_SECTIONS.find(
+  const section = COMPUTED_SECTIONS.find(
     (entry) => frameNumber >= entry.start && frameNumber <= entry.end
   );
 
@@ -23,8 +32,11 @@ export function getFramePath(frameNumber) {
     throw new RangeError(`Frame number ${frameNumber} is out of range.`);
   }
 
-  const padded = String(frameNumber).padStart(4, "0");
-  return `/frames/${section.folder}/frame_${padded}.jpg`;
+  const indexInSection = frameNumber - section.start;
+  const fileNumber = section.fileStart + indexInSection;
+
+  const padded = String(fileNumber).padStart(4, "0");
+  return `/frames/${section.folder}/${section.filePrefix}${padded}${section.ext}`;
 }
 
 export function getAllFramePaths() {
@@ -35,7 +47,7 @@ export function getAllFramePaths() {
 
 export function getSectionIndexFromFrame(frameIndex) {
   const frameNumber = frameIndex + 1;
-  const index = FRAME_SECTIONS.findIndex(
+  const index = COMPUTED_SECTIONS.findIndex(
     (section) => frameNumber >= section.start && frameNumber <= section.end
   );
 
