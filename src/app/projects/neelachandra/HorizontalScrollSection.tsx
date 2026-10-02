@@ -59,8 +59,11 @@ export default function HorizontalScrollSection() {
   const x = useTransform(scrollYProgress, [0, 1], ["0%", `-${(slides.length - 1) * 100}vw`]);
 
   return (
-    <section ref={containerRef} className="relative bg-black" style={{ height: `${slides.length * 100}vh` }}>
-      <div className="sticky top-0 h-screen overflow-hidden flex items-center">
+    <section ref={containerRef} className="relative bg-black" style={{ height: `calc(${slides.length * 100}vh / var(--desktop-scale, 1))` }}>
+      <div 
+        className="sticky top-0 w-full overflow-hidden flex items-center"
+        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+      >
         <motion.div style={{ x }} className="flex h-full w-[800vw]">
           {slides.map((slide, index) => (
             <div key={index} className="relative h-full w-[100vw] flex-shrink-0 flex items-center justify-center">
@@ -77,7 +80,7 @@ export default function HorizontalScrollSection() {
               </div>
 
               {/* Content Overlay */}
-              <div className="relative z-10 w-full h-full max-w-[1400px] mx-auto p-8 md:p-16 lg:p-24 flex flex-col justify-between text-white">
+              <div className="relative z-10 w-full h-full max-w-[1400px] mx-auto p-6 md:p-10 lg:p-14 flex flex-col justify-between text-white">
                 
                 {/* Top Header */}
                 <div className="w-full flex justify-start">
@@ -88,7 +91,7 @@ export default function HorizontalScrollSection() {
 
                 {/* Big Center Title */}
                 <div className="w-full flex justify-center items-center pointer-events-none">
-                  <h1 className="text-[clamp(3.5rem,10vw,12rem)] font-thin tracking-widest uppercase opacity-90 drop-shadow-2xl">
+                  <h1 className="text-[clamp(2.5rem,7vw,7.5rem)] font-thin tracking-widest uppercase opacity-90 drop-shadow-2xl">
                     {slide.title}
                   </h1>
                 </div>

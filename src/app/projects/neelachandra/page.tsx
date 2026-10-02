@@ -5,8 +5,11 @@ import HorizontalScrollSection from './HorizontalScrollSection';
 export default function NeelachandraProjectPage() {
   return (
     <main className="min-h-screen bg-white">
-      <section className="relative overflow-hidden font-sans flex items-center min-h-screen">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 flex flex-col md:flex-row items-stretch w-full min-h-[80vh]">
+      <section 
+        className="relative overflow-hidden font-sans flex items-center pt-16 pb-4"
+        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+      >
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center w-full h-full max-h-[820px]">
 
           {/* Left Column - Details */}
           <div className="w-full md:w-1/5 pr-8 flex flex-col justify-between py-10">
@@ -40,11 +43,11 @@ export default function NeelachandraProjectPage() {
           </div>
 
           {/* Center Column - Banner Image */}
-          <div className="w-full md:w-3/5 flex justify-center py-4 relative px-4">
+          <div className="w-full md:w-3/5 flex justify-center py-2 relative px-2 sm:px-4">
             {/* The outer container with the orange border */}
-            <div className="relative rounded-[1.5rem] border-[1.5px] border-[#f98845] w-full h-full min-h-[500px] p-[6px] shadow-sm">
+            <div className="relative rounded-[1.5rem] border-[1.5px] border-[#f98845] w-full max-w-[850px] max-h-[580px] aspect-[16/10] p-[6px] shadow-sm flex flex-col">
               {/* Inner container for image */}
-              <div className="relative rounded-[1.25rem] overflow-hidden w-full h-full shadow-md bg-[#111]">
+              <div className="relative rounded-[1.25rem] overflow-hidden w-full h-full shadow-md bg-[#111] flex flex-col justify-end">
                 <img
                   src="/images/projects/neelachandra/banner.png"
                   alt="Neelachandra Banner"
@@ -54,7 +57,7 @@ export default function NeelachandraProjectPage() {
                 {/* Dark overlay for text readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
-                <div className="absolute inset-0 flex flex-col items-center justify-end text-white px-4 md:px-8 text-center pb-12 md:pb-16 lg:pb-20">
+                <div className="absolute inset-0 flex flex-col items-center justify-end text-white px-4 md:px-8 text-center pb-8 md:pb-12 lg:pb-16">
                   <p className="text-[clamp(9px,0.7vw+4px,12px)] font-light tracking-[0.15em] uppercase mb-2 text-white/80 leading-relaxed">
                     The company trusted to<br />build lasting structures
                   </p>
@@ -83,7 +86,7 @@ export default function NeelachandraProjectPage() {
       </section>
 
       {/* Network / Foundation Section */}
-      <section className="relative w-full h-[1500px] flex flex-col bg-white">
+      <section className="relative w-full min-h-[750px] md:min-h-[850px] lg:h-[950px] flex flex-col bg-white">
 
         {/* Background Image & Orange Gradient */}
         <div className="absolute inset-0 w-full h-full bg-[#F48120]">
@@ -114,8 +117,8 @@ export default function NeelachandraProjectPage() {
           </div>
 
           {/* Bottom Solid Orange Content Area */}
-          <div className="w-full text-center text-white max-w-4xl mx-auto flex flex-col items-center pb-48 px-4">
-            <h3 className="text-[clamp(1.5rem,2.5vw+0.5rem,2.75rem)] font-light tracking-widest uppercase leading-tight mb-8">
+          <div className="w-full text-center text-white max-w-4xl mx-auto flex flex-col items-center pb-20 md:pb-28 px-4">
+            <h3 className="text-[clamp(1.5rem,2.5vw+0.5rem,2.75rem)] font-light tracking-widest uppercase leading-tight mb-6">
               Nobody knew them beyond.<br />
               So we started<br />
               <span className="font-bold">Building the foundation.</span>
@@ -130,7 +133,7 @@ export default function NeelachandraProjectPage() {
       </section>
 
       {/* Staggered Images Section */}
-      <section className="w-full bg-white py-24 md:py-40">
+      <section className="w-full bg-white py-16 md:py-24 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
             {/* Left Image Column */}
@@ -138,16 +141,16 @@ export default function NeelachandraProjectPage() {
               <img
                 src="/images/projects/neelachandra/left.png"
                 alt="Neelachandra property showcase"
-                className="w-full h-auto object-cover rounded-[2rem] shadow-xl"
+                className="w-full max-h-[580px] object-cover rounded-[2rem] shadow-xl"
               />
             </div>
 
             {/* Right Image Column - Staggered downwards */}
-            <div className="w-full md:mt-32 lg:mt-48">
+            <div className="w-full md:mt-16 lg:mt-24">
               <img
                 src="/images/projects/neelachandra/right.png"
                 alt="Neelachandra high-rise showcase"
-                className="w-full h-auto object-cover rounded-[2rem] shadow-xl"
+                className="w-full max-h-[580px] object-cover rounded-[2rem] shadow-xl"
               />
             </div>
           </div>
@@ -156,15 +159,15 @@ export default function NeelachandraProjectPage() {
       </section>
 
       {/* Laying the Foundation Section */}
-      <section className="relative w-full bg-white py-24 md:py-32 overflow-hidden">
+      <section className="relative w-full bg-white py-12 md:py-16 overflow-hidden">
         <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col">
 
           {/* Text Content */}
-          <div className="mb-20 md:mb-32">
-            <h2 className="text-[clamp(2.5rem,4.5vw+0.5rem,4.5rem)] font-thin uppercase tracking-tight leading-[1.1] text-[#222222]">
+          <div className="mb-8 md:mb-12">
+            <h2 className="text-[clamp(2.25rem,4vw+0.5rem,4rem)] font-thin uppercase tracking-tight leading-[1.1] text-[#222222]">
               Laying
             </h2>
-            <h2 className="text-[clamp(2.5rem,4.5vw+0.5rem,4.5rem)] font-black uppercase tracking-tight leading-[1.1] text-[#F48120] mb-6">
+            <h2 className="text-[clamp(2.25rem,4vw+0.5rem,4rem)] font-black uppercase tracking-tight leading-[1.1] text-[#F48120] mb-4">
               The Foundation
             </h2>
             <p className="text-[#666666] text-[clamp(10px,0.6vw+5px,13px)] max-w-[350px] font-medium leading-[1.8]">
@@ -174,7 +177,7 @@ export default function NeelachandraProjectPage() {
           </div>
 
           {/* Images Container */}
-          <div className="relative w-full flex justify-center items-center h-[300px] md:h-[500px] lg:h-[700px]">
+          <div className="relative w-full flex justify-center items-center h-[260px] md:h-[380px] lg:h-[480px]">
             {/* Outer Image (Blurred Logos) */}
             <img
               src="/images/projects/neelachandra/laying.png"
@@ -185,7 +188,7 @@ export default function NeelachandraProjectPage() {
             <img
               src="/images/projects/neelachandra/center.png"
               alt="Final Brand Logo"
-              className="relative z-10 w-[50%] md:w-[40%] lg:w-[35%] max-w-[400px] object-contain drop-shadow-2xl"
+              className="relative z-10 w-[50%] md:w-[40%] lg:w-[35%] max-w-[360px] object-contain drop-shadow-2xl"
             />
           </div>
 
@@ -193,15 +196,15 @@ export default function NeelachandraProjectPage() {
       </section>
 
       {/* Raising The Structure Section */}
-      <section className="relative w-full bg-white py-24 md:py-32 overflow-hidden">
+      <section className="relative w-full bg-white py-12 md:py-16 overflow-hidden">
         <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center">
 
           {/* Text Content */}
-          <div className="w-full md:w-5/12 mb-20 md:mb-0">
-            <h2 className="text-[clamp(2.5rem,4.5vw+0.5rem,4.5rem)] font-thin uppercase tracking-tight leading-[1.1] text-[#222222]">
+          <div className="w-full md:w-5/12 mb-8 md:mb-0">
+            <h2 className="text-[clamp(2.25rem,4vw+0.5rem,4rem)] font-thin uppercase tracking-tight leading-[1.1] text-[#222222]">
               Raising
             </h2>
-            <h2 className="text-[clamp(2.5rem,4.5vw+0.5rem,4.5rem)] font-black uppercase tracking-tight leading-[1.1] text-[#F48120] mb-6">
+            <h2 className="text-[clamp(2.25rem,4vw+0.5rem,4rem)] font-black uppercase tracking-tight leading-[1.1] text-[#F48120] mb-4">
               The<br />Structure
             </h2>
             <p className="text-[#666666] text-[clamp(10px,0.6vw+5px,13px)] max-w-[350px] font-medium leading-[1.8]">
@@ -211,7 +214,7 @@ export default function NeelachandraProjectPage() {
           </div>
 
           {/* Image Container */}
-          <div className="relative w-full md:w-7/12 flex justify-center items-center h-[400px] md:h-[600px] lg:h-[800px]">
+          <div className="relative w-full md:w-7/12 flex justify-center items-center h-[300px] md:h-[440px] lg:h-[540px]">
             <img
               src="/images/projects/neelachandra/raising.png"
               alt="Raising the Structure Assets"
@@ -225,8 +228,8 @@ export default function NeelachandraProjectPage() {
       <OpeningDoorsSection />
 
       {/* Phone Mockup Section */}
-      <section className="relative w-full bg-white pt-10 pb-24 md:pb-32 flex justify-center z-20">
-        <div className="w-full max-w-[400px] md:max-w-[600px] lg:max-w-[700px] mx-auto px-4 -mt-[20%] md:-mt-[15%]">
+      <section className="relative w-full bg-[#5F873D] pt-4 pb-16 md:pb-24 flex justify-center z-20">
+        <div className="w-full max-w-[340px] md:max-w-[460px] lg:max-w-[500px] mx-auto px-4 -mt-[80px] md:-mt-[120px]">
           <img
             src="/images/projects/neelachandra/phone.png"
             alt="Google My Business Mobile View"
@@ -236,11 +239,11 @@ export default function NeelachandraProjectPage() {
       </section>
 
       {/* Map Section */}
-      <section className="relative w-full bg-[#5F873D] py-24 md:py-32 lg:py-40 overflow-hidden flex items-center">
+      <section className="relative w-full bg-[#5F873D] py-16 md:py-24 overflow-hidden flex items-center">
         <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center">
 
           {/* Text Content */}
-          <div className="w-full md:w-5/12 mb-16 md:mb-0 relative z-10">
+          <div className="w-full md:w-5/12 mb-12 md:mb-0 relative z-10">
             <h2 className="text-[clamp(2.5rem,4.5vw+0.5rem,4.5rem)] font-thin uppercase tracking-tight leading-[1.1] text-white">
               Putting It
             </h2>
@@ -255,11 +258,11 @@ export default function NeelachandraProjectPage() {
           </div>
 
           {/* Image Container */}
-          <div className="w-full md:w-7/12 flex justify-center items-center relative z-0">
+          <div className="w-full md:w-7/12 flex justify-center items-center relative z-0 max-h-[480px] md:max-h-[560px]">
             <img
               src="/images/projects/neelachandra/map.png"
               alt="Neelachandra Map Discoverability"
-              className="w-[110%] md:w-[125%] max-w-none h-auto object-contain translate-x-[5%] md:translate-x-[10%]"
+              className="w-full max-h-[480px] md:max-h-[560px] object-contain"
             />
           </div>
 
@@ -267,7 +270,10 @@ export default function NeelachandraProjectPage() {
       </section>
 
       {/* Building Recognition Section */}
-      <section className="relative w-full h-[600px] md:h-[800px] lg:h-[100vh] min-h-[600px] flex items-center overflow-hidden">
+      <section 
+        className="relative w-full min-h-[600px] flex items-center overflow-hidden"
+        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+      >
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -350,9 +356,9 @@ export default function NeelachandraProjectPage() {
       </section>
 
       {/* Branding Section */}
-      <section className="relative w-full bg-white py-24 md:py-32">
-        <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="relative w-full h-[500px] md:h-[700px] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.2)]">
+      <section className="relative w-full bg-white py-16 md:py-24">
+        <div className="w-full max-w-[1280px] mx-auto px-6 lg:px-12">
+          <div className="relative w-full h-[400px] md:h-[500px] lg:h-[580px] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.2)]">
             {/* Background Image */}
             <img
               src="/images/projects/neelachandra/branding.png"
@@ -363,11 +369,11 @@ export default function NeelachandraProjectPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
 
             {/* Text Overlay */}
-            <div className="absolute inset-0 flex flex-col justify-end items-center text-center pb-16 md:pb-24 px-4 z-10">
-              <h2 className="text-[clamp(1.85rem,3.5vw+0.5rem,4rem)] font-thin uppercase tracking-wide text-white mb-1 drop-shadow-md">
+            <div className="absolute inset-0 flex flex-col justify-end items-center text-center pb-12 md:pb-16 px-4 z-10">
+              <h2 className="text-[clamp(1.85rem,3.5vw+0.5rem,3.75rem)] font-thin uppercase tracking-wide text-white mb-1 drop-shadow-md">
                 Branding Is Not
               </h2>
-              <h2 className="text-[clamp(1.85rem,3.5vw+0.5rem,4rem)] font-black uppercase tracking-wide text-white mb-6 drop-shadow-md">
+              <h2 className="text-[clamp(1.85rem,3.5vw+0.5rem,3.75rem)] font-black uppercase tracking-wide text-white mb-4 drop-shadow-md">
                 The End Of Story
               </h2>
               <p className="text-white/90 text-[clamp(10px,0.6vw+5px,14px)] font-light tracking-wide drop-shadow-md">
@@ -378,21 +384,20 @@ export default function NeelachandraProjectPage() {
         </div>
       </section>
 
-
-
       {/* Logo Section */}
-      <section className="w-full bg-white py-32 md:py-48 lg:py-56 flex justify-center items-center">
+      <section className="w-full bg-white py-16 md:py-24 lg:py-28 flex justify-center items-center">
         <img
           src="/images/projects/neelachandra/logo.svg"
           alt="Neelachandra Construction & Interiors"
-          className="w-full max-w-[250px] md:max-w-[350px] lg:max-w-[400px] h-auto object-contain"
+          className="w-full max-w-[220px] md:max-w-[300px] lg:max-w-[360px] h-auto object-contain"
         />
       </section>
+
       {/* Horizontal Scroll Process Section */}
       <HorizontalScrollSection />
 
       {/* Conclusion Text Section */}
-      <section className="w-full bg-white py-24 md:py-32 lg:py-40 flex justify-center items-center">
+      <section className="w-full bg-white py-16 md:py-24 flex justify-center items-center">
         <div className="w-full max-w-[600px] mx-auto px-6 text-center">
           <p className="text-[#F48120] text-[clamp(1.25rem,1.8vw+0.5rem,1.875rem)] font-semibold leading-snug">
             Neelachandra is now<br />
@@ -406,7 +411,10 @@ export default function NeelachandraProjectPage() {
       </section>
 
       {/* Built To Grow Section */}
-      <section className="relative w-full h-[80vh] min-h-[600px] flex flex-col justify-end overflow-hidden">
+      <section 
+        className="relative w-full flex flex-col justify-end overflow-hidden"
+        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+      >
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -419,8 +427,8 @@ export default function NeelachandraProjectPage() {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 w-full flex flex-col items-center justify-end flex-1 pb-16 md:pb-24 lg:pb-32">
-          <h1 className="text-[clamp(2.5rem,5.5vw+0.5rem,5.625rem)] font-thin text-white tracking-[0.2em] uppercase mb-10 drop-shadow-xl text-center">
+        <div className="relative z-10 w-full flex flex-col items-center justify-end flex-1 pb-10 md:pb-16 lg:pb-20">
+          <h1 className="text-[clamp(2.5rem,5.5vw+0.5rem,5.625rem)] font-thin text-white tracking-[0.2em] uppercase mb-6 md:mb-8 drop-shadow-xl text-center">
             Built To Grow.
           </h1>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">

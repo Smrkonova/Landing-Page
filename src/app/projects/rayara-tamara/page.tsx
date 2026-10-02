@@ -86,7 +86,10 @@ export default function RayaraTamaraProject() {
   }, [chatVisibleCount]);
   return (
     <main>
-      <section className="min-h-screen bg-[#E3D6CA] relative overflow-hidden font-sans flex items-center">
+      <section 
+        className="bg-[#E3D6CA] relative overflow-hidden font-sans flex items-center pt-16 pb-4"
+        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+      >
       {/* Background Side Abstract Image - Desktop Only */}
       <div className="hidden md:flex absolute right-0 top-0 bottom-0 h-[532px] w-[533px] pointer-events-none justify-end">
         <img
@@ -194,7 +197,7 @@ export default function RayaraTamaraProject() {
       </div>
 
       {/* DESKTOP VIEW */}
-      <div className="hidden md:flex max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 flex-row items-stretch w-full min-h-[80vh]">
+      <div className="hidden md:flex max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex-row items-center w-full h-full max-h-[820px]">
 
         {/* Left Column - Details */}
         <div className="w-full md:w-1/5 pr-8 text-[#5c564b] flex flex-col justify-between py-10">
@@ -247,8 +250,8 @@ export default function RayaraTamaraProject() {
 
         {/* Center Column - Banner Image */}
         <div className="w-full md:w-3/5 flex justify-center py-4 relative px-4">
-          <div className="p-2 sm:p-2.5 rounded-[36px] border border-[#5c564b]/30 shadow-2xl w-full h-full min-h-[500px]">
-            <div className="relative rounded-[28px] overflow-hidden w-full h-full min-h-[500px]">
+          <div className="p-2 sm:p-2.5 rounded-[36px] border border-[#5c564b]/30 shadow-2xl w-full h-full min-h-[480px] max-h-[600px]">
+            <div className="relative rounded-[28px] overflow-hidden w-full h-full min-h-[480px] max-h-[580px]">
               <img
                 src="/images/projects/rayara-tamara/banner.png"
                 alt="Rayara Tamara Banner"
@@ -284,8 +287,9 @@ export default function RayaraTamaraProject() {
 
       {/* Story Worth Preserving Section */}
       <section 
-        className="relative min-h-screen flex flex-col items-center justify-center font-sans px-4 py-16"
+        className="relative flex flex-col items-center justify-center font-sans px-4 py-16"
         style={{
+          height: "calc(100vh / var(--desktop-scale, 1))",
           backgroundColor: '#2B2D16AD',
           backgroundImage: 'url("/images/projects/rayara-tamara/story-worth.png")',
           backgroundSize: 'cover',
@@ -306,7 +310,10 @@ export default function RayaraTamaraProject() {
         </div>
       </section>
       {/* Experience Section */}
-      <section id="experience" className="min-h-screen bg-[#E3D6CA] relative overflow-hidden font-sans pt-16 pb-10 md:py-24 flex flex-col items-center">
+      <section 
+        id="experience" 
+        className="bg-[#E3D6CA] relative font-sans pt-16 pb-16 md:py-24 flex flex-col items-center justify-start min-h-[calc(100vh/var(--desktop-scale,1))]"
+      >
         {/* Background Mandala Accent - Top Left on Mobile, Center Left on Desktop */}
         <div className="absolute top-0 left-0 w-36 sm:w-48 md:w-1/4 h-[396px] md:h-[533px] md:top-[20%] md:-translate-y-1/2 pointer-events-none flex justify-start opacity-45 md:opacity-60 -translate-x-4 -translate-y-4 md:translate-x-0">
           <img
@@ -319,14 +326,14 @@ export default function RayaraTamaraProject() {
         <div className="max-w-[1440px] mx-auto px-4 w-full relative z-10 flex flex-col items-center">
           
           {/* Top Text */}
-          <div className="text-center text-[#5c564b] space-y-[1rem]  mb-10 sm:mb-14 md:mb-20 sm:space-y-1.5 px-4 max-w-full mx-auto">
+          <div className="text-center text-[#5c564b] space-y-[1rem] mb-8 sm:mb-12 md:mb-16 sm:space-y-1.5 px-4 max-w-full mx-auto">
             <h3 className="text-[clamp(0.875rem,2.2vw+0.25rem,2.5rem)] leading-[1.3em] font-light uppercase text-[#606024]">The meal lasts an hour.</h3>
-            <h2 className="text-[clamp(1rem,2.2vw+0.35rem,2.5rem)] font-bold uppercase leading-[1.3em]  text-[#606024]">The experience lasts much longer.</h2>
-            <h3 className="text-[clamp(0.875rem,2.2vw+0.25rem,2.5rem)] font-light leading-[1.3em]  uppercase text-[#606024]">Smrkonova takes fine dining <br/> experience, extends beyond food.</h3>
+            <h2 className="text-[clamp(1rem,2.2vw+0.35rem,2.5rem)] font-bold uppercase leading-[1.3em] text-[#606024]">The experience lasts much longer.</h2>
+            <h3 className="text-[clamp(0.875rem,2.2vw+0.25rem,2.5rem)] font-light leading-[1.3em] uppercase text-[#606024]">Smrkonova takes fine dining <br/> experience, extends beyond food.</h3>
           </div>
 
           {/* Center Graphic */}
-          <div className="relative w-full max-w-sm sm:max-w-[392px] md:max-w-3xl lg:max-w-4xl flex items-center justify-center my-4 sm:my-8 md:my-12">
+          <div className="relative w-full max-w-sm sm:max-w-[392px] md:max-w-3xl lg:max-w-4xl flex items-center justify-center my-4 sm:my-8 md:my-10">
             {/* The leaf */}
             <div className="relative w-full max-w-[340px] sm:max-w-xl md:max-w-3xl flex justify-center items-center">
                <img src="/images/projects/rayara-tamara/leaf.png" alt="Leaf" className="w-[397px] md:w-[115%] max-w-none h-auto object-contain drop-shadow-xl" />

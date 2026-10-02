@@ -4,8 +4,13 @@ import Image from "next/image";
 
 export default function ReadingElfProjectPage() {
   return (
-    <main className="min-h-screen bg-[#FDFCEE] pt-32 md:pt-40 flex flex-col justify-center overflow-hidden">
-      <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 pb-12 flex flex-col xl:flex-row items-stretch gap-6 xl:gap-8">
+    <main className="min-h-screen bg-[#FDFCEE] text-black">
+      {/* Hero Section */}
+      <section 
+        className="w-full flex items-center justify-center pt-24 pb-8 overflow-hidden"
+        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+      >
+        <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 h-full max-h-[820px] flex flex-col xl:flex-row items-center gap-6 xl:gap-8">
 
         {/* Left Sidebar */}
         <div className="hidden xl:flex flex-col w-[220px] shrink-0 justify-between py-12">
@@ -36,7 +41,7 @@ export default function ReadingElfProjectPage() {
 
         {/* Center Image */}
         <div className="flex-1 w-full border-[1.5px] border-[#F29F58] rounded-[30px] md:rounded-[40px] p-1.5 relative overflow-hidden flex items-stretch">
-          <div className="w-full relative rounded-[26px] md:rounded-[34px] overflow-hidden aspect-[4/3] md:aspect-[16/10] xl:aspect-auto xl:h-full min-h-[60vh]">
+          <div className="w-full relative rounded-[26px] md:rounded-[34px] overflow-hidden aspect-[4/3] md:aspect-[16/10] xl:aspect-auto xl:h-full max-h-[580px]">
             {/* Background Image */}
             <img
               src="/images/projects/reading-elf/banner.png"
@@ -89,6 +94,7 @@ export default function ReadingElfProjectPage() {
         </div>
 
       </div>
+      </section>
 
       {/* Transformed Vision & Dream Section */}
       <section className="relative w-full overflow-hidden flex flex-col items-center pt-32 pb-40">
