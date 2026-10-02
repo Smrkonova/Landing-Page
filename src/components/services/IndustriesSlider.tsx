@@ -54,16 +54,29 @@ export default function IndustriesSlider() {
     <section className="w-full bg-white text-black pt-24 pb-32 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-0">
         {/* Header Section */}
-        <div className="mb-12 md:mb-16 flex flex-col gap-6">
+        <div className="mb-10 md:mb-16 flex flex-col gap-4 md:gap-6">
           <div>
-            <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3.75rem)] leading-[1.2em] font-[200] tracking-tight text-gray-800">
+            <h2 
+              className="font-[200] tracking-tight text-gray-800 uppercase leading-[1.08]"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '42px',
+              }}
+            >
               EVERY BUSINESS NEEDS <br />
-              <span className="font-[700] text-black">A DIFFERENT WEBSITE.</span>
+              <span className="font-[900] text-black">A DIFFERENT WEBSITE.</span>
             </h2>
           </div>
-          <div className="max-w-[400px]">
-            <p className="text-gray-500 text-[clamp(1.125rem,2.5vw+0.25rem,1rem)] leading-[1.5em] font-[300]">
-              Don't list technologies first. <br className="hidden sm:block" />Show different business needs.
+          <div className="max-w-[420px]">
+            <p 
+              className="text-gray-600 leading-relaxed font-normal"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '14px',
+              }}
+            >
+              Every business has different users, workflows and goals. <br />
+              That's why every website we build is built specifically for your business.
             </p>
           </div>
         </div>
