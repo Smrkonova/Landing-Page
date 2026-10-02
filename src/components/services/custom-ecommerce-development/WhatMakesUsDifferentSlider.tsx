@@ -4,48 +4,40 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const slides = [
-    { 
+    {
         id: 1,
-        type: 'text', 
-        title: "User Friendly\nExperience",   
-        subtitle: "Simple navigation that helps users complete tasks quickly.", 
-        bg: "bg-[linear-gradient(150deg,#D8CFBE_22.55%,#E9AB39_87.59%)]"
+        type: 'text',
+        title: "Premium\nShopping\nExperience",
+        subtitle: "Beautiful product pages, smooth browsing and modern interfaces that build trust.",
+        bg: "bg-[linear-gradient(150deg,#D8CFBE_22.55%,#421812_87.59%)]"
     },
-    { 
+    {
         id: 2,
-        type: 'text', 
-        title: "Fast\nPerformance", 
-        subtitle: "Apps designed to load quickly and run smoothly across devices.", 
-        bg: "bg-[linear-gradient(150deg,#435975_22.55%,#2A3B4C_87.59%)]" 
+        type: 'text',
+        title: "Fast & \n Mobile Friendly",
+        subtitle: "Designed for customers shopping on phones, tablets and desktops.", // Runner placeholder
+        bg: "bg-gray-300"
     },
-    { 
-        id: 3, 
-        type: 'text', 
-        title: "Secure\nAuthentication", 
-        subtitle: "Safe login systems with modern security standards.", 
-        bg: "bg-[#BFD4FF]" 
-    },
-    { 
-        id: 4, 
-        type: 'text', 
-        title: "Built To\nScale", 
-        subtitle: "Whether you have 500 users or 5 million, your application can grow with your business.", 
-        bg: "bg-[#E6D6B8]" 
-    },
-    { 
-        id: 5, 
-        type: 'text', 
-        title: "Easy Content\nManagement", 
-        subtitle: "Manage users, products and content from an admin dashboard.", 
-        bg: "bg-[#DFE8B4]" 
-    },
-    { 
-        id: 6, 
-        type: 'text', 
-        title: "Reliable &\nSecure", 
-        subtitle: "Built using modern development standards with regular updates and maintenance.", 
-        bg: "bg-[#EED3D9]" 
-    },
+    {
+        id: 3, type: 'text',
+        title: "Easy\n Product\n Management",
+        subtitle: "Update products, prices, inventory and promotions without technical knowledge.", bg: "bg-[#BFD4FF]"
+    }, // Light blue
+    {
+        id: 4, type: 'text',
+        title: "Built To Scale",
+        subtitle: "Whether you sell 50 products or 50,000, your platform grows with your business.", bg: "bg-[#E6D6B8]"
+    }, // Tan
+    {
+        id: 5, type: 'text',
+        title: "Conversion Focused",
+        subtitle: "Every page is designed to reduce friction and increase completed purchases.", bg: "bg-[#DFE8B4]"
+    }, // Light green
+    {
+        id: 6, type: 'text',
+        title: "Secure Shopping",
+        subtitle: "Reliable payment processing and customer data protection built into every project.", bg: "bg-[#EED3D9]"
+    }, // Pink
 ];
 
 export default function WhatMakesUsDifferentSlider() {
@@ -61,20 +53,17 @@ export default function WhatMakesUsDifferentSlider() {
     return (
         <section className="w-full max-w-full bg-white text-black py-24 md:py-32 overflow-hidden relative">
             <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col gap-12 overflow-hidden">
-                
+
                 {/* Section Header */}
-                <div className="flex flex-col gap-3">
+                <div>
                     <h2 className="text-[20px] md:text-[28px] font-light text-gray-800 tracking-wide uppercase">
-                        More Than Just A Mobile App
+                        More Than Just An Online Store.
                     </h2>
-                    <p className="text-gray-500 text-sm md:text-base font-light max-w-lg leading-relaxed">
-                        A successful app is more than beautiful screens. It's a complete digital ecosystem.
-                    </p>
                 </div>
 
                 {/* Slider Container */}
                 <div className="relative w-full max-w-full h-[400px] md:h-[600px] flex items-center mt-12 overflow-hidden">
-                    
+
                     {/* Glow Effect behind Active Card */}
                     <div className="absolute left-[10%] top-1/2 -translate-y-1/2 w-[240px] md:w-[400px] h-[240px] md:h-[400px] bg-black/30 rounded-full blur-[60px] md:blur-[120px] pointer-events-none z-0"></div>
 
@@ -112,7 +101,7 @@ export default function WhatMakesUsDifferentSlider() {
                         // Simple array rotation logic:
                         let wrappedDistance = distance;
                         if (wrappedDistance < 0) wrappedDistance += slides.length;
-                        
+
                         // We will use wrapped distance to make it infinite
                         if (wrappedDistance === 0) {
                             translateX = "0%";
@@ -122,7 +111,7 @@ export default function WhatMakesUsDifferentSlider() {
                         } else if (wrappedDistance > 0 && wrappedDistance < 6) {
                             const translationSteps = [0, 110, 150, 185, 215, 240];
                             const scaleSteps = [1, 0.95, 0.86, 0.76, 0.65, 0.53];
-                            
+
                             translateX = `${translationSteps[Math.min(wrappedDistance, 5)]}%`;
                             scale = scaleSteps[Math.min(wrappedDistance, 5)];
                             opacity = 1;
@@ -130,7 +119,7 @@ export default function WhatMakesUsDifferentSlider() {
                         }
 
                         return (
-                            <div 
+                            <div
                                 key={slide.id}
                                 className={`absolute left-0 top-0 w-[260px] sm:w-[280px] md:w-[450px] h-[350px] md:h-[550px] rounded-[32px] md:rounded-[40px] overflow-hidden transition-all duration-[1500ms] ease-in-out shadow-2xl ${slide.bg}`}
                                 style={{
@@ -153,9 +142,9 @@ export default function WhatMakesUsDifferentSlider() {
                                 )}
 
                                 {slide.type === 'image' && (
-                                    <img 
-                                        src={slide.src} 
-                                        alt="Slide image" 
+                                    <img
+                                        src={(slide as any).src}
+                                        alt="Slide image"
                                         className="w-full h-full object-cover"
                                     />
                                 )}

@@ -7,72 +7,44 @@ const slides = [
     { 
         id: 1,
         type: 'text', 
-        title: "Primary\nLogo",   
-        subtitle: "The core emblem and signature mark representing your company across all flagship touchpoints.", 
-        bg: "bg-[linear-gradient(150deg,#004496_22.55%,#FF8B61_87.59%)]"
+        title: "User Friendly\nExperience",   
+        subtitle: "Simple navigation that helps users complete tasks quickly.", 
+        bg: "bg-[linear-gradient(150deg,#D8CFBE_22.55%,#E9AB39_87.59%)]"
     },
     { 
         id: 2,
         type: 'text', 
-        title: "Secondary\nLogo", 
-        subtitle: "Alternative horizontal, vertical and stacked lockups designed for diverse placements.", 
+        title: "Fast\nPerformance", 
+        subtitle: "Apps designed to load quickly and run smoothly across devices.", 
         bg: "bg-[linear-gradient(150deg,#435975_22.55%,#2A3B4C_87.59%)]" 
     },
     { 
         id: 3, 
         type: 'text', 
-        title: "Icon\nMarks", 
-        subtitle: "Distinctive monograms and symbols for app icons, favicons, avatars and compact spaces.", 
-        bg: "bg-[linear-gradient(150deg,#3B7FBF_22.55%,#004496_87.59%)]" 
+        title: "Secure\nAuthentication", 
+        subtitle: "Safe login systems with modern security standards.", 
+        bg: "bg-[#BFD4FF]" 
     },
     { 
         id: 4, 
         type: 'text', 
-        title: "Brand\nColours", 
-        subtitle: "Harmonious primary, secondary and neutral color palettes tailored for digital screens and print.", 
-        bg: "bg-[linear-gradient(150deg,#C85A32_22.55%,#7A2E1E_87.59%)]" 
+        title: "Built To\nScale", 
+        subtitle: "Whether you have 500 users or 5 million, your application can grow with your business.", 
+        bg: "bg-[#E6D6B8]" 
     },
     { 
         id: 5, 
         type: 'text', 
-        title: "Typography\nSystem", 
-        subtitle: "Carefully curated font pairings, hierarchy rules, and typographic scales.", 
-        bg: "bg-[linear-gradient(150deg,#5B5F97_22.55%,#2C3066_87.59%)]" 
+        title: "Easy Content\nManagement", 
+        subtitle: "Manage users, products and content from an admin dashboard.", 
+        bg: "bg-[#DFE8B4]" 
     },
     { 
         id: 6, 
         type: 'text', 
-        title: "Icon\nStyle", 
-        subtitle: "Custom iconography rules ensuring stroke, corner radius and styling remain consistent.", 
-        bg: "bg-[linear-gradient(150deg,#007ACC_22.55%,#004496_87.59%)]" 
-    },
-    { 
-        id: 7, 
-        type: 'text', 
-        title: "Brand\nPatterns", 
-        subtitle: "Bespoke patterns and textured graphics that give depth to packaging, web and collateral.", 
-        bg: "bg-[linear-gradient(150deg,#FF8B61_22.55%,#C44D25_87.59%)]" 
-    },
-    { 
-        id: 8, 
-        type: 'text', 
-        title: "Visual\nElements", 
-        subtitle: "Grid alignments, borders, badges and compositional rules unifying your brand presence.", 
-        bg: "bg-[linear-gradient(150deg,#394B69_22.55%,#1E2A3B_87.59%)]" 
-    },
-    { 
-        id: 9, 
-        type: 'text', 
-        title: "Illustration\nStyle", 
-        subtitle: "Curated illustration language and graphic motifs tailored to your brand personality.", 
-        bg: "bg-[linear-gradient(150deg,#9B51E0_22.55%,#4A1D85_87.59%)]" 
-    },
-    { 
-        id: 10, 
-        type: 'text', 
-        title: "Photography\nDirection", 
-        subtitle: "Art direction, moodboards, lighting and composition guidelines for photography.", 
-        bg: "bg-[linear-gradient(150deg,#004496_22.55%,#009BFB_87.59%)]" 
+        title: "Reliable &\nSecure", 
+        subtitle: "Built using modern development standards with regular updates and maintenance.", 
+        bg: "bg-[#EED3D9]" 
     },
 ];
 
@@ -93,10 +65,10 @@ export default function WhatMakesUsDifferentSlider() {
                 {/* Section Header */}
                 <div className="flex flex-col gap-3">
                     <h2 className="text-[20px] md:text-[28px] font-light text-gray-800 tracking-wide uppercase">
-                        Brand Identity Design
+                        More Than Just A Mobile App
                     </h2>
-                    <p className="text-gray-500 text-sm md:text-base font-light max-w-xl leading-relaxed">
-                        Your visual identity becomes the foundation for everything that follows. Designed to work across websites, packaging, social media, presentations and print.
+                    <p className="text-gray-500 text-sm md:text-base font-light max-w-lg leading-relaxed">
+                        A successful app is more than beautiful screens. It's a complete digital ecosystem.
                     </p>
                 </div>
 
@@ -114,6 +86,7 @@ export default function WhatMakesUsDifferentSlider() {
                         let scale = 1;
                         let opacity = 1;
                         let zIndex = 50 - index;
+                        let blur = "blur(0px)";
 
                         if (distance === 0) {
                             // Active Slide
@@ -122,6 +95,7 @@ export default function WhatMakesUsDifferentSlider() {
                             opacity = 1;
                         } else if (distance > 0) {
                             // Stacked to the right
+                            // Use a diminishing translation formula for the stacked effect
                             const translationSteps = [0, 45, 80, 105, 120, 130];
                             translateX = `${translationSteps[Math.min(distance, 5)]}%`;
                             scale = 1 - (distance * 0.1);
@@ -134,10 +108,12 @@ export default function WhatMakesUsDifferentSlider() {
                             zIndex = 0;
                         }
 
-                        // For infinite loop effect
+                        // For infinite loop effect (when index is less than activeIndex but we want to show it on the right if it's wrapping)
+                        // Simple array rotation logic:
                         let wrappedDistance = distance;
                         if (wrappedDistance < 0) wrappedDistance += slides.length;
                         
+                        // We will use wrapped distance to make it infinite
                         if (wrappedDistance === 0) {
                             translateX = "0%";
                             scale = 1;
@@ -166,11 +142,11 @@ export default function WhatMakesUsDifferentSlider() {
                             >
                                 {/* Slide Content */}
                                 {slide.type === 'text' && (
-                                    <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/15 to-black/30">
-                                        <h3 className="text-[36px] sm:text-[40px] md:text-[60px] leading-[1.1] font-light text-white tracking-tight whitespace-pre-line">
+                                    <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/10 to-black/10">
+                                        <h3 className="text-[40px] md:text-[64px] leading-[1.1] font-light text-white tracking-tight whitespace-pre-line">
                                             {slide.title}
                                         </h3>
-                                        <p className="text-white/90 text-sm md:text-base font-light max-w-[280px] leading-relaxed">
+                                        <p className="text-white/80 text-sm md:text-base font-light max-w-[250px] leading-relaxed">
                                             {slide.subtitle}
                                         </p>
                                     </div>
@@ -178,7 +154,7 @@ export default function WhatMakesUsDifferentSlider() {
 
                                 {slide.type === 'image' && (
                                     <img 
-                                        src={slide.src} 
+                                        src={(slide as any).src} 
                                         alt="Slide image" 
                                         className="w-full h-full object-cover"
                                     />

@@ -65,7 +65,7 @@ export default function ManufacturingScrollCanvas() {
 
     // 1. Preload only the first 10 frames
     const preloadInitialFrames = () =>
-      new Promise((resolve) => {
+      new Promise<void>((resolve) => {
         let loadedCount = 0;
         for (let i = 0; i < INITIAL_FRAMES; i++) {
           const image = new Image();

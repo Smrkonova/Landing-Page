@@ -7,36 +7,36 @@ const slides = [
     {
         id: 1,
         type: 'text',
-        title: "Premium\nShopping\nExperience",
-        subtitle: "Beautiful product pages, smooth browsing and modern interfaces that build trust.",
-        bg: "bg-[linear-gradient(150deg,#D8CFBE_22.55%,#421812_87.59%)]"
+        title: "Designed\naround\nyour\nbrand",
+        subtitle: "No generic layouts. Every page is designed specifically for your business.",
+        bg: "bg-[#7A8768]"
     },
     {
         id: 2,
         type: 'text',
-        title: "Fast & \n Mobile Friendly",
-        subtitle: "Designed for customers shopping on phones, tablets and desktops.", // Runner placeholder
+        title: "Built\nFor\nSpeed",
+        subtitle: "Fast-loading websites that work smoothly across desktop, tablet and mobile devices.",
         bg: "bg-gray-300"
     },
     {
         id: 3, type: 'text',
-        title: "Easy\n Product\n Management",
-        subtitle: "Update products, prices, inventory and promotions without technical knowledge.", bg: "bg-[#BFD4FF]"
+        title: "Easy\nTo\nManage",
+        subtitle: "Update content, images and blogs without depending on developers.", bg: "bg-[#BFD4FF]"
     }, // Light blue
     {
         id: 4, type: 'text',
-        title: "Built To Scale",
-        subtitle: "Whether you sell 50 products or 50,000, your platform grows with your business.", bg: "bg-[#E6D6B8]"
+        title: "Search\nEngine\nFriendly",
+        subtitle: "Every website follows SEO best practices from the beginning.", bg: "bg-[#E6D6B8]"
     }, // Tan
     {
         id: 5, type: 'text',
-        title: "Conversion Focused",
-        subtitle: "Every page is designed to reduce friction and increase completed purchases.", bg: "bg-[#DFE8B4]"
+        title: "Secure & Reliable",
+        subtitle: "Built with modern security standards and regularly maintained.", bg: "bg-[#DFE8B4]"
     }, // Light green
     {
         id: 6, type: 'text',
-        title: "Secure Shopping",
-        subtitle: "Reliable payment processing and customer data protection built into every project.", bg: "bg-[#EED3D9]"
+        title: "Ready\nTo\nGrow",
+        subtitle: "Whether you add new services, products or locations later, your website is built to scale.", bg: "bg-[#EED3D9]"
     }, // Pink
 ];
 
@@ -57,7 +57,7 @@ export default function WhatMakesUsDifferentSlider() {
                 {/* Section Header */}
                 <div>
                     <h2 className="text-[20px] md:text-[28px] font-light text-gray-800 tracking-wide uppercase">
-                        More Than Just An Online Store.
+                        WHAT MAKES OUR WEBSITES DIFFERENT.
                     </h2>
                 </div>
 
@@ -143,7 +143,7 @@ export default function WhatMakesUsDifferentSlider() {
 
                                 {slide.type === 'image' && (
                                     <img
-                                        src={slide.src}
+                                        src={(slide as any).src}
                                         alt="Slide image"
                                         className="w-full h-full object-cover"
                                     />

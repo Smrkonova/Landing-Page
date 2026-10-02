@@ -62,7 +62,7 @@ export default function ContactDrawer({ isOpen, onClose }) {
         </button>
 
         {/* Inner Scrolling Content Area */}
-        <div className="w-full h-full bg-[#111111] border-l border-white/5 shadow-2xl overflow-y-auto relative">
+        <div data-lenis-prevent className="w-full h-full bg-[#111111] border-l border-white/5 shadow-2xl overflow-y-auto relative">
           {/* Mobile Close Button (Inside) */}
           <button 
             onClick={onClose}

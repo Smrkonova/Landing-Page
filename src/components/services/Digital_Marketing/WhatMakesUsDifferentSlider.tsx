@@ -7,44 +7,44 @@ const slides = [
     { 
         id: 1,
         type: 'text', 
-        title: "User\nFirst",   
-        subtitle: "Every design decision starts with understanding the people who will use the product.", 
-        bg: "bg-[linear-gradient(150deg,#D8CFBE_22.55%,#4F46E5_87.59%)]"
+        title: "Generate More\nQualified Leads",   
+        subtitle: "Reach people already searching for your services.", 
+        bg: "bg-[linear-gradient(150deg,#004496_22.55%,#FF8B61_87.59%)]"
     },
     { 
         id: 2,
         type: 'text', 
-        title: "Business\nFocused", 
-        subtitle: "Good design doesn't just look good. It helps businesses generate leads, improve conversions and increase customer satisfaction.", 
+        title: "Increase\nWebsite Traffic", 
+        subtitle: "Bring relevant visitors through search engines, paid campaigns and social media.", 
         bg: "bg-[linear-gradient(150deg,#435975_22.55%,#2A3B4C_87.59%)]" 
     },
     { 
         id: 3, 
         type: 'text', 
-        title: "Built For\nDevelopers", 
-        subtitle: "Designs are created with real development in mind, making implementation faster and more accurate.", 
-        bg: "bg-[#BFD4FF]" 
+        title: "Improve\nSearch Rankings", 
+        subtitle: "Help your business appear where customers are actively searching.", 
+        bg: "bg-[linear-gradient(150deg,#3B7FBF_22.55%,#004496_87.59%)]" 
     },
     { 
         id: 4, 
         type: 'text', 
-        title: "Scalable\nDesign Systems", 
-        subtitle: "Instead of designing one screen at a time, we create reusable components that keep products consistent as they grow.", 
-        bg: "bg-[#E6D6B8]" 
+        title: "Build Brand\nAwareness", 
+        subtitle: "Stay visible across multiple platforms and strengthen customer trust.", 
+        bg: "bg-[linear-gradient(150deg,#C85A32_22.55%,#7A2E1E_87.59%)]" 
     },
     { 
         id: 5, 
         type: 'text', 
-        title: "Mobile\nFirst", 
-        subtitle: "Every experience is optimised across phones, tablets and desktops.", 
-        bg: "bg-[#DFE8B4]" 
+        title: "Improve\nConversion Rates", 
+        subtitle: "Turn more visitors into enquiries, bookings and customers.", 
+        bg: "bg-[linear-gradient(150deg,#5B5F97_22.55%,#2C3066_87.59%)]" 
     },
     { 
         id: 6, 
         type: 'text', 
-        title: "Accessibility", 
-        subtitle: "Designs that are easy to understand and usable for a wider range of people.", 
-        bg: "bg-[#EED3D9]" 
+        title: "Measure Every\nCampaign", 
+        subtitle: "Understand exactly where your leads come from and what drives business growth.", 
+        bg: "bg-[linear-gradient(150deg,#007ACC_22.55%,#004496_87.59%)]" 
     },
 ];
 
@@ -65,10 +65,10 @@ export default function WhatMakesUsDifferentSlider() {
                 {/* Section Header */}
                 <div className="flex flex-col gap-3">
                     <h2 className="text-[20px] md:text-[28px] font-light text-gray-800 tracking-wide uppercase">
-                        Our Design Approach
+                        What We Help You Achieve
                     </h2>
                     <p className="text-gray-500 text-sm md:text-base font-light max-w-xl leading-relaxed">
-                        We believe good design is invisible. Users shouldn't think about how to use your product. It should simply feel natural.
+                        Instead of focusing on services, we focus on business outcomes.
                     </p>
                 </div>
 
@@ -86,7 +86,6 @@ export default function WhatMakesUsDifferentSlider() {
                         let scale = 1;
                         let opacity = 1;
                         let zIndex = 50 - index;
-                        let blur = "blur(0px)";
 
                         if (distance === 0) {
                             // Active Slide
@@ -95,7 +94,6 @@ export default function WhatMakesUsDifferentSlider() {
                             opacity = 1;
                         } else if (distance > 0) {
                             // Stacked to the right
-                            // Use a diminishing translation formula for the stacked effect
                             const translationSteps = [0, 45, 80, 105, 120, 130];
                             translateX = `${translationSteps[Math.min(distance, 5)]}%`;
                             scale = 1 - (distance * 0.1);
@@ -108,12 +106,10 @@ export default function WhatMakesUsDifferentSlider() {
                             zIndex = 0;
                         }
 
-                        // For infinite loop effect (when index is less than activeIndex but we want to show it on the right if it's wrapping)
-                        // Simple array rotation logic:
+                        // For infinite loop effect
                         let wrappedDistance = distance;
                         if (wrappedDistance < 0) wrappedDistance += slides.length;
                         
-                        // We will use wrapped distance to make it infinite
                         if (wrappedDistance === 0) {
                             translateX = "0%";
                             scale = 1;
@@ -142,11 +138,11 @@ export default function WhatMakesUsDifferentSlider() {
                             >
                                 {/* Slide Content */}
                                 {slide.type === 'text' && (
-                                    <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/10 to-black/10">
-                                        <h3 className="text-[40px] md:text-[64px] leading-[1.1] font-light text-white tracking-tight whitespace-pre-line">
+                                    <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/15 to-black/30">
+                                        <h3 className="text-[34px] sm:text-[38px] md:text-[54px] leading-[1.1] font-light text-white tracking-tight whitespace-pre-line">
                                             {slide.title}
                                         </h3>
-                                        <p className="text-white/80 text-sm md:text-base font-light max-w-[250px] leading-relaxed">
+                                        <p className="text-white/90 text-sm md:text-base font-light max-w-[280px] leading-relaxed">
                                             {slide.subtitle}
                                         </p>
                                     </div>
@@ -154,7 +150,7 @@ export default function WhatMakesUsDifferentSlider() {
 
                                 {slide.type === 'image' && (
                                     <img 
-                                        src={slide.src} 
+                                        src={(slide as any).src} 
                                         alt="Slide image" 
                                         className="w-full h-full object-cover"
                                     />
