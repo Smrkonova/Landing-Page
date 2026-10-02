@@ -103,15 +103,12 @@ export default function EngagementSliderSection() {
 
     return (
         <section className="w-full max-w-full bg-white py-16 md:py-24 overflow-hidden relative">
-            {/* Ambient Background Glow Aura */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[500px] md:w-[800px] h-[300px] md:h-[350px] max-w-full bg-gradient-to-r from-[#6B86DF]/15 via-[#F55779]/20 to-[#7A8EC7]/15 blur-[60px] md:blur-[120px] rounded-full pointer-events-none -z-10"></div>
-
             {/* Title Container */}
             <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 mb-8 md:mb-12 flex items-end justify-between">
                 <div>
-                    <h2 className="text-[clamp(1.5rem,4vw+0.5rem,3.875rem)] leading-[1.1] tracking-tight uppercase">
-                        <span className="font-black text-[#1a1a1a]">WHAT'S </span>
-                        <span className="font-light text-gray-400">INCLUDED</span>
+                    <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3.75rem)] leading-[1.1] tracking-tight uppercase">
+                        <span className="font-[900] text-[#212121]">WHAT'S </span>
+                        <span className="font-[200] text-[#212121]">INCLUDED</span>
                     </h2>
                 </div>
 
@@ -149,18 +146,15 @@ export default function EngagementSliderSection() {
                                 <div
                                     className={`group relative w-full h-[340px] md:h-[380px] lg:h-[400px] rounded-3xl p-7 flex flex-col items-center justify-center transition-all duration-500 ease-out 
                                     hover:rotate-0 hover:-translate-y-5 hover:scale-105 hover:z-30 
-                                    shadow-[0_15px_35px_rgba(0,0,0,0.08),0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.15)] border border-gray-200 hover:border-gray-300 backdrop-blur-2xl 
+                                    border border-gray-200 hover:border-gray-300 backdrop-blur-2xl 
                                     ${card.gradient} ${rotateClass} ${yClass}`}
                                 >
-                                {/* Soft Blurred Glow Behind */}
-                                <div className={`absolute inset-0 -z-10 ${card.gradient} scale-[1.15] blur-[30px] opacity-70 rounded-3xl group-hover:opacity-100 group-hover:scale-[1.25] transition-all duration-500`}></div>
-
                                 {/* Inner Glass Highlight */}
                                 <div className="absolute inset-0 rounded-3xl border-[1.5px] border-white/30 pointer-events-none mix-blend-overlay"></div>
 
                                 {/* Card Content */}
                                 <div className="flex flex-col items-center gap-5 my-auto">
-                                    <h3 className="text-black font-bold text-[clamp(12px,0.5vw+5px,15px)] text-center tracking-widest leading-relaxed whitespace-pre-line">
+                                    <h3 className="text-black font-[600] text-[clamp(1.125rem,2.5vw+0.25rem,1.1875rem)] text-center tracking-widest leading-relaxed whitespace-pre-line">
                                         {card.title}
                                     </h3>
 

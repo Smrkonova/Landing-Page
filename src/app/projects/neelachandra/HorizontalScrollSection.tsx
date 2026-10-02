@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useRef, useEffect } from 'react';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 const slides = [
   {
@@ -16,13 +16,13 @@ const slides = [
   },
   {
     num: "03",
-    title: "DEVELOPMENT",
-    text: "We explored hundreds of sketches, concepts, colours, and type combinations before arriving at an identity that felt distinctly Neelachandra."
+    title: "SYSTEM",
+    text: "The identity expanded beyond the logo into a complete system—business cards, brochures, company profiles, stationery, signage, glass branding, and more."
   },
   {
     num: "04",
-    title: "SYSTEM",
-    text: "The identity expanded beyond the logo into a complete system—business cards, brochures, company profiles, stationery, signage, glass branding, and more."
+    title: "IDENTITY",
+    text: "We explored hundreds of sketches, concepts, colours, and type combinations before arriving at an identity that felt distinctly Neelachandra."
   },
   {
     num: "05",
@@ -47,25 +47,69 @@ const slides = [
 ];
 
 export default function HorizontalScrollSection() {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  // We have 8 slides, so we make the container 800vh tall to allow scrolling
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
+  // Exact pinned scroll progress tracking via getBoundingClientRect
+  // Prevents premature scroll animation when section is not yet pinned at top of viewport
+  const scrollProgress = useMotionValue(0);
 
-  // x transforms from 0% to -((slides.length - 1) * 100)%
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", `-${(slides.length - 1) * 100}vw`]);
+  useEffect(() => {
+    const updateProgress = () => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Section top has not reached top of viewport yet -> strictly 0 progress (Slide 1 static)
+      if (rect.top > 0) {
+        scrollProgress.set(0);
+        return;
+      }
+
+      const scrollableDistance = rect.height - viewportHeight;
+      if (scrollableDistance <= 0) {
+        scrollProgress.set(0);
+        return;
+      }
+
+      // Progress is strictly measured once the section is pinned at top: 0
+      const scrolled = -rect.top;
+      const p = Math.min(1, Math.max(0, scrolled / scrollableDistance));
+      scrollProgress.set(p);
+    };
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+
+    return () => {
+      window.removeEventListener('scroll', updateProgress);
+      window.removeEventListener('resize', updateProgress);
+    };
+  }, [scrollProgress]);
+
+  // Buffer at start ([0, 0.05]) ensures Slide 01 is firmly seated before horizontal translation begins
+  const totalShift = (slides.length - 1) * 100;
+  const x = useTransform(
+    scrollProgress,
+    [0, 0.05, 0.95, 1],
+    ["0%", "0%", `-${totalShift}vw`, `-${totalShift}vw`]
+  );
 
   return (
-    <section ref={containerRef} className="relative bg-black" style={{ height: `${slides.length * 100}vh` }}>
-      <div className="sticky top-0 h-screen overflow-hidden flex items-center">
+    <section 
+      ref={containerRef} 
+      className="relative bg-black" 
+      style={{ height: `calc(${slides.length * 100}vh / var(--desktop-scale, 1))` }}
+    >
+      <div 
+        className="sticky top-0 w-full overflow-hidden flex items-center"
+        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+      >
         <motion.div style={{ x }} className="flex h-full w-[800vw]">
           {slides.map((slide, index) => (
             <div key={index} className="relative h-full w-[100vw] flex-shrink-0 flex items-center justify-center">
               
-              {/* Background Image */}
+              {/* Background Image - Original Blueprint image for all slides */}
               <div className="absolute inset-0 z-0">
                 <img 
                   src="/images/projects/neelachandra/slide-1.png" 
@@ -77,7 +121,7 @@ export default function HorizontalScrollSection() {
               </div>
 
               {/* Content Overlay */}
-              <div className="relative z-10 w-full h-full max-w-[1400px] mx-auto p-8 md:p-16 lg:p-24 flex flex-col justify-between text-white">
+              <div className="relative z-10 w-full h-full max-w-[1400px] mx-auto p-6 md:p-10 lg:p-14 flex flex-col justify-between text-white">
                 
                 {/* Top Header */}
                 <div className="w-full flex justify-start">
@@ -88,7 +132,7 @@ export default function HorizontalScrollSection() {
 
                 {/* Big Center Title */}
                 <div className="w-full flex justify-center items-center pointer-events-none">
-                  <h1 className="text-[clamp(3.5rem,10vw,12rem)] font-thin tracking-widest uppercase opacity-90 drop-shadow-2xl">
+                  <h1 className="text-[clamp(2.5rem,7vw,7.5rem)] font-thin tracking-widest uppercase opacity-90 drop-shadow-2xl text-center">
                     {slide.title}
                   </h1>
                 </div>

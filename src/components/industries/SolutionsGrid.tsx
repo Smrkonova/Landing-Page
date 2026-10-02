@@ -13,7 +13,7 @@ const solutions = Array.from({ length: 16 }, (_, i) => ({
 export default function SolutionsGrid() {
   return (
     <section className="relative w-full bg-[#fcfcfc] text-black py-24 md:py-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
 
         {/* Header Content */}
         <div className="max-w-3xl mb-16 md:mb-20 space-y-4 md:space-y-6 flex flex-col items-center md:items-start text-center md:text-left">

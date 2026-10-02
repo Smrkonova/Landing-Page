@@ -36,7 +36,7 @@ const slides = [
     description: "Admissions, courses, student portals and online applications.",
     image: "/images/services/website/manufacturing.png",
     bg: "linear-gradient(139.7deg, #436475 22.55%, #BED6E1 87.59%)"
-  } , {
+  }, {
     title: "Ecommerce Websites",
     description: "Custom shopping experiences built for conversions.",
     image: "/images/services/website/healthcare.png",
@@ -54,16 +54,29 @@ export default function IndustriesSlider() {
     <section className="w-full bg-white text-black pt-24 pb-32 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-0">
         {/* Header Section */}
-        <div className="mb-12 md:mb-16 flex flex-col gap-6">
+        <div className="mb-10 md:mb-16 flex flex-col gap-4 md:gap-6">
           <div>
-            <h2 className="text-[clamp(1.75rem,3.8vw+0.5rem,4rem)] leading-[1.05] font-light tracking-tight text-gray-800">
+            <h2 
+              className="font-[200] tracking-tight text-gray-800 uppercase leading-[1.08]"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '42px',
+              }}
+            >
               EVERY BUSINESS NEEDS <br />
-              <span className="font-bold text-black">A DIFFERENT WEBSITE.</span>
+              <span className="font-[900] text-black">A DIFFERENT WEBSITE.</span>
             </h2>
           </div>
-          <div className="max-w-[400px]">
-            <p className="text-gray-500 text-[clamp(12px,0.5vw+4px,14px)] leading-relaxed font-medium">
-             Don't list technologies first. <br className="hidden sm:block" />Show different business needs.
+          <div className="max-w-[420px]">
+            <p 
+              className="text-gray-600 leading-relaxed font-normal"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '14px',
+              }}
+            >
+              Every business has different users, workflows and goals. <br />
+              That's why every website we build is built specifically for your business.
             </p>
           </div>
         </div>
@@ -84,13 +97,13 @@ export default function IndustriesSlider() {
                   style={{ background: slide.bg }}
                 >
                   <div className="relative z-10 w-[70%] lg:w-[60%] flex flex-col h-full">
-                    <h3 className="text-white text-[clamp(1.125rem,1.4vw+0.5rem,1.5rem)] font-semibold mb-3 tracking-wide">{slide.title}</h3>
-                    <p className="text-white/90 text-[clamp(11px,0.4vw+5px,13px)] leading-relaxed mb-auto max-w-[200px]">
+                    <h3 className="text-white text-[clamp(1.125rem,2.5vw+0.25rem,1.5rem)] font-[500] mb-3 tracking-wide">{slide.title}</h3>
+                    <p className="text-white/90 font-[400] text-[clamp(13px,0.4vw+5px,14px)] leading-relaxed mb-auto max-w-[200px]">
                       {slide.description}
                     </p>
-                    <button suppressHydrationWarning className="text-white flex items-center gap-2 mt-auto text-[clamp(12px,0.5vw+4px,14px)] tracking-wide font-medium group w-fit">
+                    <button suppressHydrationWarning className="text-white flex items-center gap-2 mt-auto text-[clamp(12px,0.5vw+4px,14px)] tracking-wide font-[500] group w-fit">
                       Explore
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-[1.9rem] h-[1.5rem] group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
                   {/* Background Image Overlay */}

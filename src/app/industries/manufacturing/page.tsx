@@ -15,11 +15,11 @@ export default function Page() {
     return (
         <main className="w-full">
             {/* Banner Section */}
-            <div className="relative min-h-screen bg-black text-white flex items-center pt-48 sm:pt-56 md:pt-64 pb-12 lg:pt-20 lg:pb-0 overflow-hidden">
-                <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center relative z-10">
+            <div className="relative bg-black text-white flex items-center pt-32 md:pt-0 pb-12 md:pb-0 overflow-hidden" style={{ minHeight: "calc(100vh / var(--desktop-scale, 1))" }}>
+                <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center relative z-10">
 
                     {/* Left Content (60%) */}
-                    <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-6 md:space-y-8 lg:col-span-3 max-w-2xl">
+                    <div className="order-2 md:order-1 flex flex-col items-center md:items-start text-center md:text-left space-y-6 md:space-y-8 md:col-span-3 max-w-2xl">
                         <div className="space-y-2 md:space-y-4">
                             <h1 className="text-[clamp(2.5rem,5.5vw+0.5rem,5rem)] font-extrabold tracking-wider leading-none text-white uppercase break-words">
                                 It Worked...
@@ -55,16 +55,14 @@ export default function Page() {
                     </div>
 
                     {/* Right Content - Image (40%) */}
-                    <div className="relative w-full h-[40vh] md:h-[60vh] lg:h-[85vh] lg:col-span-2 flex justify-center items-center mt-8 lg:mt-0 pb-12 lg:pb-0">
-                        <div className="absolute inset-0 z-0 scale-100 md:scale-110 lg:scale-125">
-                            <Image
-                                src="/images/industries/manufacturing/banner.png"
-                                alt="Manufacturing System"
-                                fill
-                                priority
-                                className="object-contain object-center"
-                            />
-                        </div>
+                    <div className="order-1 md:order-2 relative w-full h-[40vh] md:h-[80vh] md:col-span-2 flex justify-center items-center mt-8 md:mt-0">
+                        <Image
+                            src="/images/industries/manufacturing/banner.png"
+                            alt="Manufacturing System"
+                            fill
+                            priority
+                            className="object-contain object-center md:object-right scale-100 md:scale-110"
+                        />
                     </div>
 
                 </div>
@@ -78,7 +76,7 @@ export default function Page() {
 
             {/* Automation Carousel Section */}
             <div className="bg-[#f8f9fa] text-black py-32 w-full overflow-hidden">
-                <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
                     {/* Left Text Content */}
                     <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8 md:space-y-12 z-10 relative pr-0 md:pr-4 lg:pr-12">
