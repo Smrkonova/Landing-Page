@@ -29,15 +29,26 @@ export default function BuiltFromScratchSection() {
 
                 {/* Left Side: Text */}
                 <div className="flex-1 w-full flex flex-col justify-center">
-                    <h2 className="text-[clamp(2rem,4.5vw+0.5rem,4rem)] leading-[1.05] font-[200] text-gray-800 tracking-tight mb-8">
+                    <h2 
+                        className="font-[200] text-gray-800 tracking-tight mb-6 md:mb-8 uppercase leading-[1.08]"
+                        style={{
+                            fontFamily: "'Inter', sans-serif",
+                            fontSize: '42px',
+                        }}
+                    >
                         EVERY <br/> WEBSITE IS<br />
-                        <span className="font-[900] tracking-normal">BUILT FROM SCRATCH.</span>
+                        <span className="font-[900] text-black tracking-normal">BUILT FROM SCRATCH.</span>
                     </h2>
 
-                    <p className="text-gray-500 text-[clamp(1.125rem,2.5vw+0.25rem,0.875rem)] max-w-sm mb-10 leading-[1.4em] font-[400]">
-                       We don't start with templates.<br/>
+                    <p 
+                        className="text-gray-500 max-w-sm mb-8 md:mb-10 leading-relaxed font-normal"
+                        style={{
+                            fontFamily: "'Inter', sans-serif",
+                            fontSize: '14px',
+                        }}
+                    >
+                        We don't start with templates.<br />
                         Every project starts by understanding your business, your customers and your goals before a single screen is designed.
-
                     </p>
 
                 </div>

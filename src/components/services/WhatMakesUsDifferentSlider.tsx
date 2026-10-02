@@ -63,10 +63,6 @@ export default function WhatMakesUsDifferentSlider() {
 
                 {/* Slider Container */}
                 <div className="relative w-full max-w-full h-[400px] md:h-[600px] flex items-center mt-12 overflow-hidden">
-
-                    {/* Glow Effect behind Active Card */}
-                    <div className="absolute left-[10%] top-1/2 -translate-y-1/2 w-[240px] md:w-[400px] h-[240px] md:h-[400px] bg-black/30 rounded-full blur-[60px] md:blur-[120px] pointer-events-none z-0"></div>
-
                     {slides.map((slide, index) => {
                         const distance = index - activeIndex;
 
@@ -121,7 +117,7 @@ export default function WhatMakesUsDifferentSlider() {
                         return (
                             <div
                                 key={slide.id}
-                                className={`absolute left-0 top-0 w-[260px] sm:w-[280px] md:w-[450px] h-[350px] md:h-[550px] rounded-[32px] md:rounded-[40px] overflow-hidden transition-all duration-[1500ms] ease-in-out shadow-2xl ${slide.bg}`}
+                                className={`absolute left-0 top-0 w-[260px] sm:w-[280px] md:w-[450px] h-[350px] md:h-[550px] rounded-[32px] md:rounded-[40px] overflow-hidden transition-all duration-[1500ms] ease-in-out ${slide.bg}`}
                                 style={{
                                     transform: `translateX(${translateX}) scale(${scale})`,
                                     transformOrigin: 'center left',

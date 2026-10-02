@@ -13,11 +13,9 @@ export default function CustomWebDevelopmentPage() {
     return (
         <div className="w-full max-w-full overflow-x-clip">
             <div
-                className="w-full relative overflow-hidden flex flex-col justify-between font-sans"
+                className="w-full relative overflow-hidden flex flex-col justify-between font-sans min-h-[calc(100vh/var(--desktop-scale,1))] h-auto md:min-h-[800px] md:h-[calc(100vh/var(--desktop-scale,1))] md:max-h-[873px]"
                 style={{
                     background: 'linear-gradient(67.52deg, #004496 -0.39%, #FFD861 49.92%, #009BFB 93.89%)',
-                    height: 'calc(100vh / var(--desktop-scale, 1))',
-                    minHeight: 'calc(100vh / var(--desktop-scale, 1))',
                 }}
             >
                 {/* Liquid Glass SVG Filter Def */}
@@ -31,43 +29,176 @@ export default function CustomWebDevelopmentPage() {
                     </defs>
                 </svg>
 
-                {/* Mobile / Tablet Background SVG Images and Effects (<lg) */}
-                <div className="lg:hidden absolute inset-0 flex items-center justify-center pointer-events-none z-20 overflow-hidden">
-                    {/* Ambient Glow */}
+                {/* Mobile Layout (<md, 390px base in DesktopScaler) */}
+                <div className="md:hidden flex flex-col items-center w-full max-w-[390px] mx-auto px-[17px] pt-20 pb-8 z-30">
+                    {/* Header Title */}
+                    <div className="w-[356px] text-left mb-2">
+                        <h1
+                            className="text-white text-left uppercase"
+                            style={{
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 200,
+                                fontSize: '34px',
+                                lineHeight: '36.72px',
+                                letterSpacing: '-0.85px',
+                            }}
+                        >
+                            CUSTOM WEB<br />DEVELOPMENT
+                        </h1>
+                    </div>
+
+                    {/* Graphic Image Showcase (width: 356px, height: 201px) */}
                     <div
-                        className="absolute w-[280px] h-[220px] rounded-full translate-x-4 -translate-y-4 pointer-events-none"
+                        className="relative my-3 flex items-center justify-center overflow-hidden"
                         style={{
-                            background: 'radial-gradient(circle, rgba(255, 235, 150, 0.35) 0%, rgba(42, 164, 255, 0.2) 45%, rgba(255, 255, 255, 0) 70%)',
-                            filter: 'blur(35px)',
+                            width: '356px',
+                            height: '201px',
+                            opacity: 1,
                         }}
-                    />
-                    <div
-                        className="absolute w-[260px] aspect-square rounded-full translate-x-16 -translate-y-16 pointer-events-none"
-                        style={{
-                            background: 'radial-gradient(circle, rgba(255, 245, 190, 0.7) 0%, rgba(255, 216, 97, 0.4) 60%, rgba(255, 216, 97, 0) 80%)',
-                            filter: 'blur(45px)',
-                        }}
-                    />
-                    <Image
-                        src="/images/services/website/banner.svg"
-                        alt="Custom web development showcase"
-                        width={718}
-                        height={608}
-                        className="w-[85%] max-w-[420px] h-auto object-contain translate-x-4 translate-y-8 relative z-10 opacity-90"
-                        priority
-                    />
-                    <Image
-                        src="/images/services/website/eagle.png"
-                        alt="Flying Eagle"
-                        width={264}
-                        height={380}
-                        className="absolute w-[40%] max-w-[175px] h-auto object-contain translate-x-16 -translate-y-12 z-30"
-                        priority
-                    />
+                    >
+                        {/* Ambient Glows */}
+                        <div
+                            className="absolute w-[220px] h-[150px] rounded-full pointer-events-none"
+                            style={{
+                                background: 'radial-gradient(circle, rgba(255, 245, 170, 0.6) 0%, rgba(255, 216, 97, 0.35) 50%, transparent 75%)',
+                                filter: 'blur(30px)',
+                                zIndex: 5,
+                            }}
+                        />
+                        <div
+                            className="absolute w-[160px] aspect-square rounded-full pointer-events-none"
+                            style={{
+                                right: '30px',
+                                top: '15px',
+                                background: 'radial-gradient(circle, rgba(255, 245, 190, 0.75) 0%, rgba(255, 216, 97, 0.4) 60%, transparent 80%)',
+                                filter: 'blur(32px)',
+                                zIndex: 15,
+                            }}
+                        />
+
+                        {/* Laptop Banner */}
+                        <div className="relative w-full h-full z-10 flex items-center justify-center">
+                            <Image
+                                src="/images/services/website/banner.svg"
+                                alt="Custom web development showcase"
+                                width={356}
+                                height={201}
+                                className="w-full h-full object-contain"
+                                priority
+                            />
+                            {/* Eagle Accent */}
+                            <div
+                                className="absolute pointer-events-none z-20"
+                                style={{
+                                    right: '18px',
+                                    top: '12px',
+                                    width: '115px',
+                                    height: '150px',
+                                }}
+                            >
+                                <Image
+                                    src="/images/services/website/eagle.png"
+                                    alt="Flying Eagle"
+                                    width={115}
+                                    height={150}
+                                    className="w-full h-full object-contain"
+                                    priority
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Left Side Text of Stats (between image and buttons) */}
+                    <div className="w-[350px] text-left mb-5">
+                        <p
+                            className="text-white text-left"
+                            style={{
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 400,
+                                fontSize: '13px',
+                                lineHeight: '21.13px',
+                                letterSpacing: '0px',
+                            }}
+                        >
+                            Every business is different. Your website should be too — engineered from zero, not stitched from templates.
+                        </p>
+                    </div>
+
+                    {/* Buttons (width: 350px, height: 45px) */}
+                    <div className="flex flex-col gap-3 items-center w-[350px] mb-7">
+                        <button
+                            suppressHydrationWarning
+                            className="bg-white text-black text-[12px] font-medium tracking-[0.1em] uppercase rounded-md flex items-center justify-center transition-opacity hover:opacity-90 cursor-pointer"
+                            style={{
+                                width: '350px',
+                                height: '45px',
+                                fontFamily: "'Inter', sans-serif",
+                            }}
+                        >
+                            CREATE YOUR CUSTOM WEBSITE
+                        </button>
+                        <button
+                            suppressHydrationWarning
+                            className="border border-white/60 bg-white/10 backdrop-blur-sm text-white text-[12px] font-medium tracking-[0.1em] uppercase rounded-md flex items-center justify-center transition-colors hover:bg-white/20 cursor-pointer"
+                            style={{
+                                width: '350px',
+                                height: '45px',
+                                fontFamily: "'Inter', sans-serif",
+                            }}
+                        >
+                            SEE OUR WORK
+                        </button>
+                    </div>
+
+                    {/* Trusted by teams across 4 continents */}
+                    <div className="w-[350px] text-left mb-7">
+                        <h3
+                            className="uppercase tracking-[0.08em] text-white/80 font-medium mb-2.5"
+                            style={{
+                                fontFamily: "'Inter', sans-serif",
+                                fontSize: '11px',
+                                lineHeight: '14px',
+                            }}
+                        >
+                            TRUSTED BY TEAMS ACROSS 4 CONTINENTS
+                        </h3>
+                        <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-white/75 text-[13px] font-normal">
+                            <span>Healthcare</span>
+                            <span>Real Estate</span>
+                            <span>SaaS</span>
+                            <span>Ecommerce</span>
+                            <span>Enterprise</span>
+                        </div>
+                    </div>
+
+                    {/* Stats Box (2x2 grid, width: 350px) */}
+                    <div className="w-[350px] border border-white/20 rounded-[20px] p-6 backdrop-blur-md bg-white/5">
+                        <div className="grid grid-cols-2 gap-y-6 gap-x-4">
+                            <div className="flex flex-col items-start">
+                                <span className="text-[32px] font-[200] text-white leading-none mb-1 tracking-tight">120+</span>
+                                <span className="text-white/60 text-[12px] font-medium tracking-wide">Projects</span>
+                            </div>
+
+                            <div className="flex flex-col items-start">
+                                <span className="text-[32px] font-[200] text-white leading-none mb-1 tracking-tight">9yrs</span>
+                                <span className="text-white/60 text-[12px] font-medium tracking-wide">Building the web</span>
+                            </div>
+
+                            <div className="flex flex-col items-start">
+                                <span className="text-[32px] font-[200] text-white leading-none mb-1 tracking-tight">24/7</span>
+                                <span className="text-white/60 text-[12px] font-medium tracking-wide">Support</span>
+                            </div>
+
+                            <div className="flex flex-col items-start">
+                                <span className="text-[32px] font-[200] text-white leading-none mb-1 tracking-tight">0</span>
+                                <span className="text-white/60 text-[12px] font-[300] tracking-wide">Templates used</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Desktop Background SVG Images and Effects (>=lg, matching exact Figma 1440px coordinates) */}
-                <div className="hidden lg:block absolute inset-0 pointer-events-none z-20 overflow-hidden">
+                {/* Desktop Background SVG Images and Effects (>=md, matching exact Figma 1440px coordinates) */}
+                <div className="hidden md:block absolute inset-0 pointer-events-none z-20 overflow-hidden">
                     {/* Ambient Glow behind Laptop Screen & Top Edge */}
                     <div
                         className="absolute w-[460px] h-[320px] rounded-full pointer-events-none"
@@ -157,15 +288,15 @@ export default function CustomWebDevelopmentPage() {
                     </div>
                 </div>
 
-                {/* Main Content Area */}
-                <div className="relative z-40 w-full max-w-7xl mx-auto px-4 md:px-0 pt-28 sm:pt-32 md:pt-28 lg:pt-32 flex justify-between flex-grow">
+                {/* Desktop Main Content Area (>=md, 1440px canvas) */}
+                <div className="hidden md:flex relative z-40 w-full max-w-7xl mx-auto px-0 pt-28 justify-between flex-grow">
                     {/* Left Column */}
-                    <div className="flex flex-col justify-start text-[#FFFFFF] max-w-3xl h-full pb-2 md:pb-0 text-center md:text-left items-center md:items-start w-full">
-                        <div className="w-full flex flex-col items-center md:items-start">
-                            <h1 className="text-[clamp(2.75rem,5.5vw+1rem,5.5rem)] font-[100] leading-[0.95] tracking-[0] mb-4 sm:mb-6 text-center md:text-left">
+                    <div className="flex flex-col justify-start text-[#FFFFFF] max-w-3xl h-full text-left items-start w-full">
+                        <div className="w-full flex flex-col items-start">
+                            <h1 className="text-[clamp(2.75rem,5.5vw+1rem,5.5rem)] font-[100] leading-[0.95] tracking-[0] mb-4 sm:mb-6 text-left">
                                 Custom Web <br />Development
                             </h1>
-                            <div className="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-3 sm:gap-4 mt-3 sm:mt-4 md:mt-6 w-full sm:w-auto">
+                            <div className="flex flex-row items-start justify-start gap-4 mt-6">
                                 <button suppressHydrationWarning className="w-auto bg-[#f0f0f0] text-black px-6 py-3.5 text-[clamp(10px,0.4vw+4px,12px)] font-[500] uppercase tracking-[0.15em] hover:bg-white transition-colors text-center whitespace-nowrap cursor-pointer">
                                     CREATE YOUR CUSTOM WEBSITE
                                 </button>
@@ -177,7 +308,7 @@ export default function CustomWebDevelopmentPage() {
                     </div>
 
                     {/* Right Column (Navigation) */}
-                    <div className="hidden lg:flex flex-col text-white text-right space-y-10 pt-6">
+                    <div className="hidden md:flex flex-col text-white text-right space-y-10 pt-6">
                         <div>
                             <h3 className="uppercase tracking-[0.05em] text-[clamp(0.875rem,0.6vw+0.25rem,0.875rem)] font-[500] leading-relaxed text-white">
                                 Trusted by teams<br />
@@ -185,7 +316,7 @@ export default function CustomWebDevelopmentPage() {
                             </h3>
                         </div>
 
-                        <ul className="flex flex-col gap-2 lg:gap-[32px] text-white/80 text-[clamp(0.875rem,0.6vw+0.25rem,0.875rem)] font-[400]">
+                        <ul className="flex flex-col gap-[32px] text-white/80 text-[clamp(0.875rem,0.6vw+0.25rem,0.875rem)] font-[400]">
                             <li className="hover:text-white cursor-pointer transition-colors">Healthcare</li>
                             <li className="hover:text-white cursor-pointer transition-colors">Real Estate</li>
                             <li className="hover:text-white cursor-pointer transition-colors">SaaS</li>
@@ -195,11 +326,11 @@ export default function CustomWebDevelopmentPage() {
                     </div>
                 </div>
 
-                {/* Bottom Row Area */}
-                <div className="relative z-40 w-full max-w-7xl mx-auto px-4 md:px-0 pb-6 lg:pb-8 flex flex-col lg:flex-row items-end justify-between gap-4 lg:gap-8">
+                {/* Desktop Bottom Row Area (>=md, 1440px canvas) */}
+                <div className="hidden md:flex relative z-40 w-full max-w-7xl mx-auto px-0 pb-8 flex-row items-end justify-between gap-8">
                     {/* Bottom Left Text */}
-                    <div className="hidden lg:block lg:w-[35%]">
-                        <p className="hidden md:block text-[clamp(0.8125rem,0.6vw+0.65rem,1.125rem)] font-[400] leading-[1.8] max-w-[450px] uppercase tracking-[0.05em] text-white mb-2 text-left">
+                    <div className="w-[35%]">
+                        <p className="text-[clamp(0.8125rem,0.6vw+0.65rem,1.125rem)] font-[400] leading-[1.8] max-w-[450px] uppercase tracking-[0.05em] text-white mb-2 text-left">
                             Every business is different.<br />
                             Your website should be too —<br />
                             engineered from zero,<br />
@@ -208,26 +339,26 @@ export default function CustomWebDevelopmentPage() {
                     </div>
 
                     {/* Bottom Stats Bar */}
-                    <div className="flex-grow w-full lg:w-[65%] border border-white/20 rounded-3xl px-8 md:px-12 py-5 sm:py-6 flex flex-wrap md:flex-nowrap items-center justify-between backdrop-blur-md bg-white/5 shadow-2xl">
-                        <div className="flex flex-col items-start w-1/2 md:w-auto mb-4 md:mb-0">
+                    <div className="flex-grow w-[65%] border border-white/20 rounded-3xl px-12 py-5 flex items-center justify-between backdrop-blur-md bg-white/5 shadow-2xl">
+                        <div className="flex flex-col items-start">
                             <span className="text-[clamp(1.125rem,2.5vw+0.25rem,2.3125rem)] font-[200] text-white mb-1 tracking-tight">120+</span>
                             <span className="text-white/60 text-[clamp(0.75rem,0.7vw+0.25rem,0.75rem)] font-medium tracking-wide">Projects</span>
                         </div>
-                        <div className="hidden md:block w-[1px] h-10 bg-white/20"></div>
+                        <div className="w-[1px] h-10 bg-white/20"></div>
 
-                        <div className="flex flex-col items-start w-1/2 md:w-auto mb-4 md:mb-0">
+                        <div className="flex flex-col items-start">
                             <span className="text-[clamp(1.125rem,2.5vw+0.25rem,2.3125rem)] font-[200] text-white mb-1 tracking-tight">9yrs</span>
                             <span className="text-white/60 text-[clamp(0.75rem,0.7vw+0.25rem,0.75rem)] font-medium tracking-wide">Building the web</span>
                         </div>
-                        <div className="hidden md:block w-[1px] h-10 bg-white/20"></div>
+                        <div className="w-[1px] h-10 bg-white/20"></div>
 
-                        <div className="flex flex-col items-start w-1/2 md:w-auto">
+                        <div className="flex flex-col items-start">
                             <span className="text-[clamp(1.125rem,2.5vw+0.25rem,2.3125rem)] font-[200] text-white mb-1 tracking-tight">24/7</span>
                             <span className="text-white/60 text-[clamp(0.75rem,0.7vw+0.25rem,0.75rem)] font-medium tracking-wide">Support</span>
                         </div>
-                        <div className="hidden md:block w-[1px] h-10 bg-white/20"></div>
+                        <div className="w-[1px] h-10 bg-white/20"></div>
 
-                        <div className="flex flex-col items-start w-1/2 md:w-auto">
+                        <div className="flex flex-col items-start">
                             <span className="text-[clamp(1.125rem,2.5vw+0.25rem,2.3125rem)] font-[200] text-white mb-1 tracking-tight">0</span>
                             <span className="text-white/60 text-[clamp(0.75rem,0.7vw+0.25rem,0.75rem)] font-[300] tracking-wide">Templates used</span>
                         </div>
