@@ -7,72 +7,44 @@ const slides = [
     { 
         id: 1,
         type: 'text', 
-        title: "Primary\nLogo",   
-        subtitle: "The core emblem and signature mark representing your company across all flagship touchpoints.", 
+        title: "Generate More\nQualified Leads",   
+        subtitle: "Reach people already searching for your services.", 
         bg: "bg-[linear-gradient(150deg,#004496_22.55%,#FF8B61_87.59%)]"
     },
     { 
         id: 2,
         type: 'text', 
-        title: "Secondary\nLogo", 
-        subtitle: "Alternative horizontal, vertical and stacked lockups designed for diverse placements.", 
+        title: "Increase\nWebsite Traffic", 
+        subtitle: "Bring relevant visitors through search engines, paid campaigns and social media.", 
         bg: "bg-[linear-gradient(150deg,#435975_22.55%,#2A3B4C_87.59%)]" 
     },
     { 
         id: 3, 
         type: 'text', 
-        title: "Icon\nMarks", 
-        subtitle: "Distinctive monograms and symbols for app icons, favicons, avatars and compact spaces.", 
+        title: "Improve\nSearch Rankings", 
+        subtitle: "Help your business appear where customers are actively searching.", 
         bg: "bg-[linear-gradient(150deg,#3B7FBF_22.55%,#004496_87.59%)]" 
     },
     { 
         id: 4, 
         type: 'text', 
-        title: "Brand\nColours", 
-        subtitle: "Harmonious primary, secondary and neutral color palettes tailored for digital screens and print.", 
+        title: "Build Brand\nAwareness", 
+        subtitle: "Stay visible across multiple platforms and strengthen customer trust.", 
         bg: "bg-[linear-gradient(150deg,#C85A32_22.55%,#7A2E1E_87.59%)]" 
     },
     { 
         id: 5, 
         type: 'text', 
-        title: "Typography\nSystem", 
-        subtitle: "Carefully curated font pairings, hierarchy rules, and typographic scales.", 
+        title: "Improve\nConversion Rates", 
+        subtitle: "Turn more visitors into enquiries, bookings and customers.", 
         bg: "bg-[linear-gradient(150deg,#5B5F97_22.55%,#2C3066_87.59%)]" 
     },
     { 
         id: 6, 
         type: 'text', 
-        title: "Icon\nStyle", 
-        subtitle: "Custom iconography rules ensuring stroke, corner radius and styling remain consistent.", 
+        title: "Measure Every\nCampaign", 
+        subtitle: "Understand exactly where your leads come from and what drives business growth.", 
         bg: "bg-[linear-gradient(150deg,#007ACC_22.55%,#004496_87.59%)]" 
-    },
-    { 
-        id: 7, 
-        type: 'text', 
-        title: "Brand\nPatterns", 
-        subtitle: "Bespoke patterns and textured graphics that give depth to packaging, web and collateral.", 
-        bg: "bg-[linear-gradient(150deg,#FF8B61_22.55%,#C44D25_87.59%)]" 
-    },
-    { 
-        id: 8, 
-        type: 'text', 
-        title: "Visual\nElements", 
-        subtitle: "Grid alignments, borders, badges and compositional rules unifying your brand presence.", 
-        bg: "bg-[linear-gradient(150deg,#394B69_22.55%,#1E2A3B_87.59%)]" 
-    },
-    { 
-        id: 9, 
-        type: 'text', 
-        title: "Illustration\nStyle", 
-        subtitle: "Curated illustration language and graphic motifs tailored to your brand personality.", 
-        bg: "bg-[linear-gradient(150deg,#9B51E0_22.55%,#4A1D85_87.59%)]" 
-    },
-    { 
-        id: 10, 
-        type: 'text', 
-        title: "Photography\nDirection", 
-        subtitle: "Art direction, moodboards, lighting and composition guidelines for photography.", 
-        bg: "bg-[linear-gradient(150deg,#004496_22.55%,#009BFB_87.59%)]" 
     },
 ];
 
@@ -93,10 +65,10 @@ export default function WhatMakesUsDifferentSlider() {
                 {/* Section Header */}
                 <div className="flex flex-col gap-3">
                     <h2 className="text-[clamp(1.25rem,1.8vw+0.5rem,1.75rem)] font-light text-gray-800 tracking-wide uppercase">
-                        Brand Identity Design
+                        What We Help You Achieve
                     </h2>
                     <p className="text-gray-500 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-xl leading-relaxed">
-                        Your visual identity becomes the foundation for everything that follows. Designed to work across websites, packaging, social media, presentations and print.
+                        Instead of focusing on services, we focus on business outcomes.
                     </p>
                 </div>
 
@@ -167,7 +139,7 @@ export default function WhatMakesUsDifferentSlider() {
                                 {/* Slide Content */}
                                 {slide.type === 'text' && (
                                     <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/15 to-black/30">
-                                        <h3 className="text-[36px] sm:text-[40px] md:text-[60px] leading-[1.1] font-light text-white tracking-tight whitespace-pre-line">
+                                        <h3 className="text-[34px] sm:text-[38px] md:text-[54px] leading-[1.1] font-light text-white tracking-tight whitespace-pre-line">
                                             {slide.title}
                                         </h3>
                                         <p className="text-white/90 text-[clamp(0.8125rem,0.4vw+0.65rem,0.9375rem)] font-light max-w-[280px] leading-relaxed">
@@ -178,7 +150,7 @@ export default function WhatMakesUsDifferentSlider() {
 
                                 {slide.type === 'image' && (
                                     <img 
-                                        src={slide.src} 
+                                        src={(slide as any).src} 
                                         alt="Slide image" 
                                         className="w-full h-full object-cover"
                                     />

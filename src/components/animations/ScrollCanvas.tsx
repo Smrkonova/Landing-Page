@@ -68,7 +68,7 @@ export default function ScrollCanvas({ scrollTriggerRef, onFrameChange }) {
     };
 
     const preloadFrames = () =>
-      new Promise((resolve) => {
+      new Promise<void>((resolve) => {
         if (framePaths.length === 0) {
           resolve();
           return;

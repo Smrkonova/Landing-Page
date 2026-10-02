@@ -3,7 +3,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function Loading({ onComplete }) {
+interface LoadingProps {
+  onComplete?: () => void;
+}
+
+export default function Loading({ onComplete }: LoadingProps) {
   const [lineIndex, setLineIndex] = useState(0);
 
   const lines = [

@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import CrewSlider from './CrewSlider';
+import DisplayScaler from '@/components/DisplayScaler';
 
 export default function CineArteryProjectPage() {
   return (
@@ -252,15 +253,15 @@ export default function CineArteryProjectPage() {
 
         {/* Iframe Container */}
         <div className="w-full max-w-6xl px-4 md:px-8">
-          <div className="relative w-full aspect-[4/3] md:aspect-[16/10] lg:aspect-video rounded-[1.5rem] md:rounded-[2rem] border-[1.5px] border-[#3a5a7b] p-[2px] shadow-2xl overflow-hidden bg-[#0a0a0a]">
+          <div className="relative w-full aspect-video rounded-[1.5rem] md:rounded-[2rem] border-[1.5px] border-[#3a5a7b] p-[2px] shadow-2xl overflow-hidden bg-[#0a0a0a]">
             <div className="relative w-full h-full rounded-[1.4rem] md:rounded-[1.9rem] overflow-hidden bg-black">
-              <iframe 
+              <DisplayScaler 
                 src="https://www.cineartery.com/" 
                 title="Cineartery Live Website"
-                className="w-full h-full border-none pointer-events-auto"
-                loading="lazy"
-                sandbox="allow-scripts allow-same-origin"
-              ></iframe>
+                baseWidth={1440}
+                aspectRatio={16 / 9}
+                showOpenButton={true}
+              />
             </div>
           </div>
         </div>

@@ -154,7 +154,7 @@ export default function WhatMakesUsDifferentSlider() {
 
                                 {slide.type === 'image' && (
                                     <img 
-                                        src={slide.src} 
+                                        src={(slide as any).src} 
                                         alt="Slide image" 
                                         className="w-full h-full object-cover"
                                     />

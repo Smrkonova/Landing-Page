@@ -4,6 +4,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ContactCTA from "@/components/layout/ContactCTA";
 import GlobalAudio from "@/components/layout/GlobalAudio";
+import DesktopScaler from "@/components/DesktopScaler";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -15,15 +17,19 @@ export const metadata = {
   description: "Smrkonova Softech Solutions helps Bangalore businesses grow with web design, website development, UI/UX, branding, SEO, and digital marketing services.",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">
-        <GlobalAudio />
-        <Header />
-        <main className="w-full max-w-full overflow-x-clip flex-grow">{children}</main>
-        <ContactCTA />
-        <Footer />
+        <SmoothScroll>
+          <DesktopScaler>
+            <GlobalAudio />
+            <Header />
+            <main className="w-full max-w-full overflow-x-clip flex-grow">{children}</main>
+            <ContactCTA />
+            <Footer />
+          </DesktopScaler>
+        </SmoothScroll>
       </body>
     </html>
   );

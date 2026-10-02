@@ -1,4 +1,5 @@
 import React from 'react';
+import DisplayScaler from '@/components/DisplayScaler';
 
 export default function NazrProjectPage() {
   return (
@@ -750,13 +751,19 @@ export default function NazrProjectPage() {
 
           {/* Iframe to NAZR website */}
           <div className="w-full max-w-[1000px] aspect-video border-[6px] md:border-[10px] border-gray-400 rounded-2xl md:rounded-[40px] overflow-hidden shadow-2xl mb-24 relative bg-black">
-             <iframe src="https://www.nazrco.in/" className="w-full h-full" title="NAZR Website" />
+            <DisplayScaler
+              src="https://www.nazrco.in/"
+              title="NAZR Website"
+              baseWidth={1440}
+              aspectRatio={16 / 9}
+              showOpenButton={true}
+            />
           </div>
 
           {/* Footer Typography */}
           <div className="text-center max-w-[800px] mb-20 relative">
              <p className="text-[clamp(1.25rem,2vw+0.5rem,2.25rem)] font-bold text-gray-800 leading-tight">
-               <span className="text-[#F80090]">Launching NAZR wasn't limited to<br/>publishing an application.</span> Smrkonova<br/>supported the complete technical<br/>launch, ensuring every moving part<br/>worked together.
+               <span className="text-[#F80090]">Launching NAZR wasn&apos;t limited to<br/>publishing an application.</span> Smrkonova<br/>supported the complete technical<br/>launch, ensuring every moving part<br/>worked together.
              </p>
           </div>
 

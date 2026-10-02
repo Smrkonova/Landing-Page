@@ -121,7 +121,7 @@ export default function ProcessScroll() {
                     }}
                     className="text-white/60 text-[clamp(12px,0.5vw+4px,14px)] tracking-wide font-medium whitespace-pre-line"
                   >
-                    {process.desc}
+                    {(process as any).desc}
                   </motion.p>
                 </motion.div>
               );
