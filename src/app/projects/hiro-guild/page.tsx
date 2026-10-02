@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { HiroHorizontalSlider } from "@/components/HiroHorizontalSlider";
 
 export default function HiroGuildProjectPage() {
   return (
@@ -143,24 +144,20 @@ export default function HiroGuildProjectPage() {
         
         {/* Map Graphic - pulled up with negative margin to sit behind text */}
         <div className="w-full max-w-[700px] flex justify-center relative z-10 -mt-16 md:-mt-24">
-          <img 
-            src="/images/projects/hiro-guild/transform.png" 
-            alt="Transformation Map Routing" 
-            className="w-full h-auto object-contain opacity-90 drop-shadow-2xl"
-          />
+          <div className="h-[400px]"></div>
         </div>
         
       </section>
 
-      {/* Experience Section */}
-      <section 
-        className="relative w-full bg-[#111111] overflow-hidden flex flex-col lg:block pt-12 pb-12 border-t border-white/5"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
-      >
+      
+      {/* Horizontal Slider Wrapper */}
+      <HiroHorizontalSlider>
+        {/* Experience Section */}
+      <div className="w-[390px] md:w-[1440px] h-full flex-shrink-0 relative bg-[#111111] overflow-hidden flex flex-col lg:block border-r border-white/5">
         
         {/* Background Text (Always centered behind everything) */}
         <div className="absolute top-[40%] lg:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center z-0 pointer-events-none mt-20 lg:mt-0">
-          <h1 className="text-[clamp(3.75rem,15vw,18.75rem)] font-thin text-white/10 tracking-widest uppercase leading-none">
+          <h1 className="text-[clamp(3.75rem,10vw,12.5rem)] font-thin text-white/10 tracking-[0.1em] uppercase leading-none">
             EXPERIENCE
           </h1>
         </div>
@@ -178,8 +175,8 @@ export default function HiroGuildProjectPage() {
         <div className="relative z-20 w-full max-w-[1600px] mx-auto px-6 md:px-12 h-full max-h-[820px] flex flex-col gap-16 lg:gap-0 lg:flex-none mt-10 lg:mt-0 pointer-events-none">
           
           {/* Top Left */}
-          <div className="pointer-events-auto lg:absolute lg:top-12 lg:left-12 xl:top-24 xl:left-24 text-left">
-            <h3 className="text-[clamp(1.5rem,2.5vw+0.5rem,2.5rem)] font-light text-gray-400 uppercase tracking-widest leading-[1.4] text-left">
+          <div className="pointer-events-auto lg:absolute lg:top-8 lg:left-8 xl:top-12 xl:left-12 text-left">
+            <h3 className="text-[clamp(1.25rem,2vw+0.5rem,2.25rem)] font-light text-gray-400 uppercase tracking-[0.2em] leading-[1.2] text-left">
               BUILDING TO<br/>
               TRANSFORM<br/>
               PRODUCT<br/>
@@ -187,23 +184,10 @@ export default function HiroGuildProjectPage() {
             </h3>
           </div>
           
-          {/* Top Right */}
-          <div className="pointer-events-auto flex items-center lg:items-start justify-end lg:justify-end gap-6 lg:absolute lg:top-12 lg:right-12 xl:top-24 xl:right-24">
-            <div className="flex flex-col gap-3 text-[clamp(10px,0.6vw+4px,12px)] font-bold text-gray-500 tracking-widest text-right">
-              <p>REWARDS <span className="text-[#FFC700]">₹567</span></p>
-              <p>MISSIONS <span className="text-[#FFC700]">{"4"}</span></p>
-              <p>NEXT PICK UP <span className="text-[#FFC700]">2.3KM</span></p>
-            </div>
-            {/* Minimalist Chevron SVG */}
-            <svg width="24" height="80" viewBox="0 0 24 80" fill="none" className="opacity-50 hidden md:block">
-              <path d="M24 0 L0 40 L24 80" stroke="#666666" strokeWidth="1.5" vectorEffect="non-scaling-stroke"/>
-            </svg>
-          </div>
+          
 
           {/* Bottom Left - (Mobile Flow Only) */}
-          <div className="pointer-events-auto lg:hidden w-[250px] md:w-[350px]">
-            <img src="/images/projects/hiro-guild/active.png" alt="Active Map" className="w-full h-auto object-contain opacity-80" />
-          </div>
+          
 
           {/* Bottom Right */}
           <div className="pointer-events-auto lg:absolute lg:bottom-12 lg:right-12 xl:bottom-24 xl:right-24 max-w-[400px]">
@@ -215,25 +199,12 @@ export default function HiroGuildProjectPage() {
         </div>
 
         {/* Active Map - Desktop Absolute Position (Left End Bottom) */}
-        <div className="hidden lg:block absolute bottom-0 left-0 w-[350px] xl:w-[450px] pointer-events-none z-20">
-          <img src="/images/projects/hiro-guild/active.png" alt="Active Map" className="w-full h-auto object-contain opacity-80" />
-        </div>
+        
 
-        {/* Pagination Indicators */}
-        <div className="relative lg:absolute lg:bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-3 z-30 pointer-events-auto mt-20 lg:mt-0">
-          <div className="w-8 h-2 bg-[#FFC700] rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-          {[1,2,3,4].map(i => (
-            <div key={i} className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          ))}
         </div>
-
-      </section>
 
       {/* Founders Plate Section (Bag) */}
-      <section 
-        className="relative w-full bg-[#111111] overflow-hidden flex flex-col lg:block pt-16 pb-16 border-t border-white/5"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
-      >
+      <div className="w-[390px] md:w-[1440px] h-full flex-shrink-0 relative bg-[#111111] overflow-hidden flex flex-col lg:block border-r border-white/5">
         
         {/* Background Radial Rings (Simulated with CSS) */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] md:w-[560px] md:h-[560px] border border-white/5 rounded-full pointer-events-none z-0"></div>
@@ -305,23 +276,10 @@ export default function HiroGuildProjectPage() {
             </h3>
           </div>
           
-          {/* Top Right */}
-          <div className="pointer-events-auto flex items-center lg:items-start justify-end lg:justify-end gap-6 lg:absolute lg:top-12 lg:right-12 xl:top-24 xl:right-24">
-            <div className="flex flex-col gap-3 text-[clamp(10px,0.6vw+4px,12px)] font-bold text-gray-500 tracking-widest text-right">
-              <p>REWARDS <span className="text-[#FFC700]">₹567</span></p>
-              <p>MISSIONS <span className="text-[#FFC700]">{"4"}</span></p>
-              <p>NEXT PICK UP <span className="text-[#FFC700]">2.3KM</span></p>
-            </div>
-            {/* Minimalist Chevron SVG */}
-            <svg width="24" height="80" viewBox="0 0 24 80" fill="none" className="opacity-50 hidden md:block">
-              <path d="M24 0 L0 40 L24 80" stroke="#666666" strokeWidth="1.5" vectorEffect="non-scaling-stroke"/>
-            </svg>
-          </div>
+          
 
           {/* Bottom Left - (Mobile Flow Only) */}
-          <div className="pointer-events-auto lg:hidden w-[250px] md:w-[350px]">
-            <img src="/images/projects/hiro-guild/active.png" alt="Active Map" className="w-full h-auto object-contain opacity-80" />
-          </div>
+          
 
           {/* Bottom Right */}
           <div className="pointer-events-auto lg:absolute lg:bottom-10 lg:right-10 xl:bottom-14 xl:right-16 max-w-[320px]">
@@ -335,26 +293,12 @@ export default function HiroGuildProjectPage() {
         </div>
 
         {/* Active Map - Desktop Absolute Position (Left End Bottom) */}
-        <div className="hidden lg:block absolute bottom-0 left-0 w-[350px] xl:w-[450px] pointer-events-none z-20">
-          <img src="/images/projects/hiro-guild/active.png" alt="Active Map" className="w-full h-auto object-contain opacity-80" />
-        </div>
+        
 
-        {/* Pagination Indicators */}
-        <div className="relative lg:absolute lg:bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-3 z-30 pointer-events-auto mt-20 lg:mt-0">
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-8 h-2 bg-[#FFC700] rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
         </div>
-
-      </section>
 
       {/* Feel Like Play Section */}
-      <section 
-        className="relative w-full bg-[#111111] overflow-hidden flex flex-col lg:block pt-16 pb-16 border-t border-white/5"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
-      >
+      <div className="w-[390px] md:w-[1440px] h-full flex-shrink-0 relative bg-[#111111] overflow-hidden flex flex-col lg:block border-r border-white/5">
         
         {/* Full Section Background Image */}
         <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
@@ -375,18 +319,7 @@ export default function HiroGuildProjectPage() {
           </h2>
         </div>
 
-        {/* Top Right Stats */}
-        <div className="pointer-events-auto flex items-center lg:items-start justify-end lg:justify-end gap-6 lg:absolute lg:top-12 lg:right-12 xl:top-24 xl:right-24 z-20 px-6 lg:px-0 mt-12 lg:mt-0">
-          <div className="flex flex-col gap-3 text-[clamp(10px,0.6vw+4px,12px)] font-bold text-gray-500 tracking-widest text-right">
-            <p>REWARDS <span className="text-[#FFC700]">₹567</span></p>
-            <p>MISSIONS <span className="text-[#FFC700]">{"4"}</span></p>
-            <p>NEXT PICK UP <span className="text-[#FFC700]">2.3KM</span></p>
-          </div>
-          {/* Minimalist Chevron SVG */}
-          <svg width="24" height="80" viewBox="0 0 24 80" fill="none" className="opacity-50 hidden md:block">
-            <path d="M24 0 L0 40 L24 80" stroke="#666666" strokeWidth="1.5" vectorEffect="non-scaling-stroke"/>
-          </svg>
-        </div>
+        
 
         {/* Center Graphic Grid (Cards) */}
         <div className="relative z-10 w-full max-w-[1200px] mx-auto mt-20 lg:mt-0 lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 flex flex-wrap justify-center items-center gap-2.5 sm:gap-3 md:gap-4 px-4 pointer-events-none">
@@ -422,9 +355,7 @@ export default function HiroGuildProjectPage() {
         </div>
 
         {/* Bottom Left - (Mobile Flow Only) */}
-        <div className="pointer-events-auto lg:hidden w-[250px] md:w-[350px] mt-24 px-6 relative z-20">
-          <img src="/images/projects/hiro-guild/active.png" alt="Active Map" className="w-full h-auto object-contain opacity-80" />
-        </div>
+        
 
         {/* Bottom Right Text */}
         <div className="pointer-events-auto lg:absolute lg:bottom-10 lg:right-10 xl:bottom-14 xl:right-16 max-w-[400px] z-20 px-6 lg:px-0 mt-8 lg:mt-0">
@@ -434,26 +365,12 @@ export default function HiroGuildProjectPage() {
         </div>
 
         {/* Active Map - Desktop Absolute Position (Left End Bottom) */}
-        <div className="hidden lg:block absolute bottom-0 left-0 w-[350px] xl:w-[450px] pointer-events-none z-20">
-          <img src="/images/projects/hiro-guild/active.png" alt="Active Map" className="w-full h-auto object-contain opacity-80" />
-        </div>
+        
 
-        {/* Pagination Indicators */}
-        <div className="relative lg:absolute lg:bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-3 z-30 pointer-events-auto mt-20 lg:mt-0 pb-10 lg:pb-0">
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-8 h-2 bg-[#FFC700] rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
         </div>
-
-      </section>
 
       {/* Bike Face & Feel Section */}
-      <section 
-        className="relative w-full bg-[#111111] overflow-hidden flex flex-col lg:block pt-16 pb-16 border-t border-white/5"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
-      >
+      <div className="w-[390px] md:w-[1440px] h-full flex-shrink-0 relative bg-[#111111] overflow-hidden flex flex-col lg:block border-r border-white/5">
         
         {/* Background Radial Rings */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] md:w-[600px] md:h-[600px] border border-white/5 rounded-full pointer-events-none z-0"></div>
@@ -612,18 +529,7 @@ export default function HiroGuildProjectPage() {
             </h2>
           </div>
           
-          {/* Top Right Stats */}
-          <div className="pointer-events-auto flex items-center lg:items-start justify-end lg:justify-end gap-6 lg:absolute lg:top-12 lg:right-12 xl:top-24 xl:right-24 z-20 mt-12 lg:mt-0">
-            <div className="flex flex-col gap-3 text-[clamp(10px,0.6vw+4px,12px)] font-bold text-gray-500 tracking-widest text-right">
-              <p>REWARDS <span className="text-[#FFC700]">₹567</span></p>
-              <p>MISSIONS <span className="text-[#FFC700]">{"4"}</span></p>
-              <p>NEXT PICK UP <span className="text-[#FFC700]">2.3KM</span></p>
-            </div>
-            {/* Minimalist Chevron SVG */}
-            <svg width="24" height="80" viewBox="0 0 24 80" fill="none" className="opacity-50 hidden md:block">
-              <path d="M24 0 L0 40 L24 80" stroke="#666666" strokeWidth="1.5" vectorEffect="non-scaling-stroke"/>
-            </svg>
-          </div>
+          
 
           {/* Left Middle Text */}
           <div className="pointer-events-auto lg:absolute lg:top-[45%] lg:left-12 xl:left-24 max-w-[400px] z-20 mt-8 lg:mt-0">
@@ -633,33 +539,17 @@ export default function HiroGuildProjectPage() {
           </div>
 
           {/* Bottom Left Map (Mobile) */}
-          <div className="pointer-events-auto lg:hidden w-[250px] md:w-[350px] mt-24 relative z-20">
-            <img src="/images/projects/hiro-guild/active.png" alt="Active Map" className="w-full h-auto object-contain opacity-80" />
-          </div>
+          
 
         </div>
 
         {/* Active Map - Desktop Absolute Position (Left End Bottom) */}
-        <div className="hidden lg:block absolute bottom-0 left-0 w-[300px] xl:w-[400px] pointer-events-none z-20">
-          <img src="/images/projects/hiro-guild/active.png" alt="Active Map" className="w-full h-auto object-contain opacity-80" />
-        </div>
+        
 
-        {/* Pagination Indicators */}
-        <div className="relative lg:absolute lg:bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-3 z-30 pointer-events-auto mt-20 lg:mt-0 pb-10 lg:pb-0">
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-8 h-2 bg-[#FFC700] rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
         </div>
-
-      </section>
 
       {/* Another Side (Phones) Section */}
-      <section 
-        className="relative w-full bg-[#111111] overflow-hidden flex flex-col lg:block pt-16 pb-16 border-t border-white/5"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
-      >
+      <div className="w-[390px] md:w-[1440px] h-full flex-shrink-0 relative bg-[#111111] overflow-hidden flex flex-col lg:block border-r border-white/5">
         
         {/* Content Wrapper for Layout */}
         <div className="relative z-20 w-full max-w-[1600px] mx-auto px-6 md:px-12 h-full max-h-[820px] flex flex-col gap-16 lg:gap-0 lg:flex-none mt-10 lg:mt-0 pointer-events-none">
@@ -674,18 +564,7 @@ export default function HiroGuildProjectPage() {
             </h2>
           </div>
           
-          {/* Top Right Stats */}
-          <div className="pointer-events-auto flex items-center lg:items-start justify-end lg:justify-end gap-6 lg:absolute lg:top-12 lg:right-12 xl:top-24 xl:right-24 z-20 mt-12 lg:mt-0">
-            <div className="flex flex-col gap-3 text-[clamp(10px,0.6vw+4px,12px)] font-bold text-gray-500 tracking-widest text-right">
-              <p>REWARDS <span className="text-[#FFC700]">₹567</span></p>
-              <p>MISSIONS <span className="text-[#FFC700]">{"4"}</span></p>
-              <p>NEXT PICK UP <span className="text-[#FFC700]">2.3KM</span></p>
-            </div>
-            {/* Minimalist Chevron SVG */}
-            <svg width="24" height="80" viewBox="0 0 24 80" fill="none" className="opacity-50 hidden md:block">
-              <path d="M24 0 L0 40 L24 80" stroke="#666666" strokeWidth="1.5" vectorEffect="non-scaling-stroke"/>
-            </svg>
-          </div>
+          
 
           {/* Left Middle Text */}
           <div className="pointer-events-auto lg:absolute lg:top-[50%] lg:left-12 xl:left-24 lg:-translate-y-1/2 max-w-[460px] z-20 mt-8 lg:mt-0">
@@ -708,33 +587,17 @@ export default function HiroGuildProjectPage() {
           </div>
 
           {/* Bottom Left Map (Mobile) */}
-          <div className="pointer-events-auto lg:hidden w-[250px] md:w-[350px] mt-24 relative z-20">
-            <img src="/images/projects/hiro-guild/active.png" alt="Active Map" className="w-full h-auto object-contain opacity-80" />
-          </div>
+          
 
         </div>
 
         {/* Active Map - Desktop Absolute Position (Left End Bottom) */}
-        <div className="hidden lg:block absolute bottom-0 left-0 w-[300px] xl:w-[400px] pointer-events-none z-20">
-          <img src="/images/projects/hiro-guild/active.png" alt="Active Map" className="w-full h-auto object-contain opacity-80" />
-        </div>
+        
 
-        {/* Pagination Indicators */}
-        <div className="relative lg:absolute lg:bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-3 z-30 pointer-events-auto mt-20 lg:mt-0 pb-10 lg:pb-0">
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-8 h-2 bg-[#FFC700] rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
         </div>
-
-      </section>
 
       {/* Ride (No Task List) Section */}
-      <section 
-        className="relative w-full bg-[#111111] overflow-hidden flex flex-col lg:block pt-16 pb-16 border-t border-white/5"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
-      >
+      <div className="w-[390px] md:w-[1440px] h-full flex-shrink-0 relative bg-[#111111] overflow-hidden flex flex-col lg:block border-r border-white/5">
         
         {/* Background Highlight/Glow behind Bike */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[40%] bg-[#FFC700]/5 blur-[120px] rounded-full pointer-events-none z-0 hidden lg:block"></div>
@@ -749,18 +612,7 @@ export default function HiroGuildProjectPage() {
           </h2>
         </div>
         
-        {/* Top Right Stats */}
-        <div className="pointer-events-auto flex items-center lg:items-start justify-end lg:justify-end gap-6 lg:absolute lg:top-12 lg:right-12 xl:top-24 xl:right-24 z-20 px-6 lg:px-0 mt-12 lg:mt-0">
-          <div className="flex flex-col gap-3 text-[clamp(10px,0.6vw+4px,12px)] font-bold text-gray-500 tracking-widest text-right">
-            <p>REWARDS <span className="text-[#FFC700]">₹567</span></p>
-            <p>MISSIONS <span className="text-[#FFC700]">{"4"}</span></p>
-            <p>NEXT PICK UP <span className="text-[#FFC700]">2.3KM</span></p>
-          </div>
-          {/* Minimalist Chevron SVG */}
-          <svg width="24" height="80" viewBox="0 0 24 80" fill="none" className="opacity-50 hidden md:block">
-            <path d="M24 0 L0 40 L24 80" stroke="#666666" strokeWidth="1.5" vectorEffect="non-scaling-stroke"/>
-          </svg>
-        </div>
+        
 
         {/* Central Graphic (Ride) */}
         <div className="relative z-10 w-full max-w-[620px] xl:max-w-[720px] max-h-[440px] mt-16 lg:mt-0 lg:absolute lg:top-[50%] lg:right-0 lg:-translate-y-1/2 pointer-events-none flex justify-end">
@@ -804,28 +656,16 @@ export default function HiroGuildProjectPage() {
         </div>
 
         {/* Bottom Left Map (Mobile) */}
-        <div className="pointer-events-auto lg:hidden w-[250px] md:w-[350px] mt-16 px-6 relative z-20">
-          <img src="/images/projects/hiro-guild/active.png" alt="Active Map" className="w-full h-auto object-contain opacity-80" />
-        </div>
+        
 
         {/* Active Map - Desktop Absolute Position (Left End Bottom) */}
-        <div className="hidden lg:block absolute bottom-0 left-0 w-[300px] xl:w-[400px] pointer-events-none z-20">
-          <img src="/images/projects/hiro-guild/active.png" alt="Active Map" className="w-full h-auto object-contain opacity-80" />
+        
+
         </div>
 
-        {/* Pagination Indicators */}
-        <div className="relative lg:absolute lg:bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-3 z-30 pointer-events-auto mt-20 lg:mt-0 pb-10 lg:pb-0">
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-4 h-2 bg-gray-700 rounded-full cursor-pointer hover:bg-gray-500 transition-colors"></div>
-          <div className="w-8 h-2 bg-[#FFC700] rounded-full cursor-pointer hover:opacity-80 transition-opacity"></div>
-        </div>
-
-      </section>
-
-      {/* Final CTA Section */}
+      
+      </HiroHorizontalSlider>
+{/* Final CTA Section */}
       <section 
         className="relative w-full bg-[#0a0a0a] overflow-hidden flex items-center pt-10 pb-10 md:pt-14 md:pb-14 border-t border-white/5"
         style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
@@ -887,3 +727,4 @@ export default function HiroGuildProjectPage() {
     </main>
   );
 }
+
