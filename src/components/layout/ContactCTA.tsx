@@ -2,10 +2,16 @@
 
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import ContactDrawer from './ContactDrawer';
 
 export default function ContactCTA() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const pathname = usePathname();
+
+  if (pathname === '/') {
+    return null;
+  }
 
   return (
     <>
