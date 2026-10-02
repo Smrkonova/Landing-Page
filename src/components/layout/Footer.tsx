@@ -15,7 +15,7 @@ const LinkedinIcon = () => (
 
 export default function Footer() {
     return (
-        <footer className="relative z-10 w-full max-w-full overflow-hidden bg-[#111111] text-[#888888] py-8 px-4 sm:px-6 md:px-12 flex flex-col min-h-[100vh] font-mono uppercase text-[10px] md:text-xs">
+        <footer className="relative z-10 w-full max-w-full overflow-hidden bg-[#111111] text-[#888888] py-8 px-4 sm:px-6 md:px-12 flex flex-col font-mono uppercase text-[10px] md:text-xs" style={{ minHeight: "calc(100vh / var(--desktop-scale, 1))" }}>
             <div className="max-w-7xl mx-auto w-full flex flex-col justify-between flex-1">
                 {/* Top Section */}
                 <div className="flex justify-between items-start w-full leading-tight">

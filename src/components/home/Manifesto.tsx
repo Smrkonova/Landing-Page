@@ -23,9 +23,10 @@ export default function Manifesto() {
           document.body.style.backgroundColor = "#ffffff";
         }
       }}
-      className="relative w-full h-[200vh] bg-transparent flex items-start justify-center z-10"
+      className="relative w-full bg-transparent flex items-start justify-center z-10"
+      style={{ height: "calc(200vh / var(--desktop-scale, 1))" }}
     >
-      <motion.div style={{ opacity: containerOpacity }} className="sticky top-0 w-full h-screen flex items-center justify-center px-4 md:px-16 overflow-hidden bg-white">
+      <motion.div style={{ opacity: containerOpacity, height: "calc(100vh / var(--desktop-scale, 1))" }} className="sticky top-0 w-full flex items-center justify-center px-4 md:px-16 overflow-hidden bg-white">
 
         {/* Subtle Background noise matching Banner */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03]">

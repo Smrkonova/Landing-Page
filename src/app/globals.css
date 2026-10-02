@@ -200,14 +200,14 @@ button {
 }
 
 .story-scroll-section {
-  height: 320vh;
+  height: calc(320vh / var(--desktop-scale, 1));
 }
 
 .story-visual-layer {
   position: sticky;
   top: 0;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh / var(--desktop-scale, 1));
   overflow: hidden;
   pointer-events: none;
 }

@@ -38,7 +38,7 @@ export default function Home() {
             <Projects />
           </div>
         </div>
-        <StoryExperience />
+        {/* <StoryExperience /> */}
       </div>
     </main>
   );
