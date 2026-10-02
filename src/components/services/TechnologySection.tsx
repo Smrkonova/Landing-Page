@@ -15,19 +15,23 @@ const fonttechList = [
 ];
 
 const backendtechList = [
-   "Node.js","Larvel","firebase","superbase"
+    "Node.js", "Larvel", "firebase", "superbase"
 ];
 
 const cmstechList = [
-   "WordPress","Sanity","Shopify","Custom CMS"
+    "WordPress", "Sanity", "Shopify", "Custom CMS"
 ];
 
 export default function TechnologySection() {
     return (
-        <section id="technology-section" className="w-full bg-white py-8 sm:py-16 md:py-32 px-4 md:px-12 flex justify-center overflow-hidden">
+        <section
+            id="technology-section"
+            className="relative w-full h-[1540px] bg-white overflow-hidden flex justify-center"
+            style={{ width: '100%', height: '1540px' }}
+        >
 
-            {/* Main Rounded Card Container */}
-            <div className="relative w-full max-w-7xl min-h-[500px] sm:min-h-[620px] md:min-h-[1540px] bg-white rounded-[28px] sm:rounded-[40px] md:rounded-[60px] overflow-hidden flex flex-col justify-between">
+            {/* Main Container */}
+            <div className="relative w-full h-full bg-white overflow-hidden flex flex-col justify-between">
 
                 {/* --- BACKGROUND GRAPHICS & GLOWS --- */}
                 {/* Center VR Image */}
@@ -84,9 +88,9 @@ export default function TechnologySection() {
 
                     {/* Top Heading */}
                     <div>
-                        <h2 className="text-[clamp(1.75rem,4.5vw+0.5rem,4.375rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
-                            <span className="block font-light">TECHNOLOGY</span>
-                            <span className="block font-black">WE WORK WITH</span>
+                        <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3.75rem)] leading-[1.05em] tracking-tight text-[#1a1a1a] uppercase">
+                            <span className="block font-[200]">TECHNOLOGY</span>
+                            <span className="block font-[900]">WE WORK WITH</span>
                         </h2>
                     </div>
 
@@ -96,11 +100,11 @@ export default function TechnologySection() {
                         <div className="grid grid-cols-2 sm:flex sm:flex-row justify-start gap-4 sm:gap-10 md:gap-20 lg:gap-24">
                             {/* Frontend */}
                             <div>
-                                <h4 className="text-[clamp(12px,0.6vw+4px,16px)] font-bold tracking-widest uppercase mb-1.5 sm:mb-4 text-gray-900">FRONTEND</h4>
-                                <p className="hidden sm:block text-[clamp(10px,0.5vw+4px,12px)] tracking-wider uppercase mb-3 sm:mb-6 text-gray-600">The part visitors interact with.</p>
+                                <h4 className="text-[clamp(1.125rem,2.5vw+0.25rem,1.5rem)] font-[600] tracking-widest uppercase mb-1.5 sm:mb-4 text-[#212121]">FRONTEND</h4>
+
                                 <ul className="space-y-1.5 sm:space-y-3">
                                     {fonttechList.map((item, idx) => (
-                                        <li key={`frontend-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(12px,0.5vw+4px,14px)] text-gray-700 md:text-gray-500 font-medium">
+                                        <li key={`frontend-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(12px,0.5vw+4px,14px)] text-[#5A5E63] md:text-[#5A5E63] font-[400]">
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
@@ -110,8 +114,8 @@ export default function TechnologySection() {
 
                             {/* Backend */}
                             <div>
-                                <h4 className="text-[clamp(12px,0.6vw+4px,16px)] font-bold tracking-widest uppercase mb-1.5 sm:mb-4 text-gray-900">BACKEND</h4>
-                                <p className="hidden sm:block text-[clamp(10px,0.5vw+4px,12px)] tracking-wider uppercase mb-3 sm:mb-6 text-gray-600">The engine behind your website.</p>
+                                <h4 className="text-[clamp(1.125rem,2.5vw+0.25rem,1.5rem)] font-[600] tracking-widest uppercase mb-1.5 sm:mb-4 text-gray-900">BACKEND</h4>
+
                                 <ul className="space-y-1.5 sm:space-y-3">
                                     {backendtechList.map((item, idx) => (
                                         <li key={`backend-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(12px,0.5vw+4px,14px)] text-gray-700 md:text-gray-500 font-medium">
@@ -125,8 +129,8 @@ export default function TechnologySection() {
 
                         {/* Right List (CMS) */}
                         <div className="mt-4 sm:mt-8 lg:mt-0 lg:mr-20">
-                            <h4 className="text-[clamp(12px,0.6vw+4px,16px)] font-bold tracking-widest uppercase mb-1.5 sm:mb-4 text-gray-900">CMS</h4>
-                            <p className="hidden sm:block text-[clamp(10px,0.5vw+4px,12px)] tracking-wider uppercase mb-3 sm:mb-6 text-gray-600">Manage your own content.</p>
+                            <h4 className="text-[clamp(1.125rem,2.5vw+0.25rem,1.5rem)] font-[600] tracking-widest uppercase mb-1.5 sm:mb-4 text-gray-900">CMS</h4>
+
                             <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 sm:block sm:space-y-3">
                                 {cmstechList.map((item, idx) => (
                                     <li key={`cms-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(12px,0.5vw+4px,14px)] text-gray-700 md:text-gray-500 font-medium">
@@ -166,7 +170,7 @@ export default function TechnologySection() {
                                 {/* Duplicated list for seamless infinite scroll */}
                                 {[...Array(2)].map((_, i) => (
                                     <React.Fragment key={i}>
-                                        {["PAYMENT GATEWAYS", "WHATSAPP", "GOOGLE MAPS", "CRM", "BOOKING SYSTEMS", "EMAIL MARKETING", "ANALYTICS", "SHIPPING", "SOCIAL MEDIA" , "ERP"].map((word, j) => (
+                                        {["PAYMENT GATEWAYS", "WHATSAPP", "GOOGLE MAPS", "CRM", "BOOKING SYSTEMS", "EMAIL MARKETING", "ANALYTICS", "SHIPPING", "SOCIAL MEDIA", "ERP"].map((word, j) => (
                                             <span key={`${i}-${j}`} className="text-[clamp(2rem,6.5vw+0.5rem,6.25rem)] font-black leading-[0.95] uppercase text-white drop-shadow-md">
                                                 {word}
                                             </span>
