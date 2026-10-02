@@ -27,16 +27,16 @@ export default function Home() {
 
       <div className="w-full flex-1 flex flex-col">
         {/* Main home page content goes here */}
-        {/* <Banner /> */}
+        <Banner />
         <div className="w-full relative">
           {/* Manifesto in foreground (fades out) */}
           <div className="absolute top-0 left-0 w-full z-10 pointer-events-none">
-            {/* <Manifesto /> */}
+            <Manifesto />
           </div>
           {/* Projects in background (revealed) */}
-          {/* <div className="relative z-0 w-full">
+          <div className="relative z-0 w-full">
             <Projects />
-          </div> */}
+          </div>
         </div>
         <StoryExperience />
       </div>
