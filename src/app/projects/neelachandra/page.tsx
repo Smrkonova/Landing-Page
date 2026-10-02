@@ -1,6 +1,8 @@
 import React from 'react';
 import OpeningDoorsSection from './OpeningDoorsSection';
+import InteractiveMap from './InteractiveMap';
 import HorizontalScrollSection from './HorizontalScrollSection';
+import RaisingStructureCards from './RaisingStructureCards';
 
 export default function NeelachandraProjectPage() {
   return (
@@ -176,19 +178,19 @@ export default function NeelachandraProjectPage() {
             </p>
           </div>
 
-          {/* Images Container */}
-          <div className="relative w-full flex justify-center items-center h-[260px] md:h-[380px] lg:h-[480px]">
-            {/* Outer Image (Blurred Logos) */}
+          {/* Brand Concept Explorations with Seamless Center Logo */}
+          <div className="relative w-full flex justify-center items-center h-[300px] sm:h-[400px] md:h-[500px] lg:h-[560px]">
+            {/* Outer Logo Concepts Background */}
             <img
               src="/images/projects/neelachandra/laying.png"
               alt="Brand Explorations"
-              className="absolute inset-0 w-full h-full object-contain object-center z-0"
+              className="absolute inset-0 w-full h-full object-contain object-center z-0 pointer-events-none"
             />
-            {/* Center Image (Sharp Logo) */}
+            {/* Center Logo Sketch - seamless blend, no drop shadow */}
             <img
               src="/images/projects/neelachandra/center.png"
               alt="Final Brand Logo"
-              className="relative z-10 w-[50%] md:w-[40%] lg:w-[35%] max-w-[360px] object-contain drop-shadow-2xl"
+              className="relative z-10 w-[24%] sm:w-[22%] md:w-[19%] lg:w-[17%] max-w-[210px] object-contain mix-blend-multiply pointer-events-none"
             />
           </div>
 
@@ -196,7 +198,7 @@ export default function NeelachandraProjectPage() {
       </section>
 
       {/* Raising The Structure Section */}
-      <section className="relative w-full bg-white py-12 md:py-16 overflow-hidden">
+      <section className="relative w-full bg-white py-16 md:py-24 overflow-hidden">
         <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center">
 
           {/* Text Content */}
@@ -213,13 +215,9 @@ export default function NeelachandraProjectPage() {
             </p>
           </div>
 
-          {/* Image Container */}
-          <div className="relative w-full md:w-7/12 flex justify-center items-center h-[300px] md:h-[440px] lg:h-[540px]">
-            <img
-              src="/images/projects/neelachandra/raising.png"
-              alt="Raising the Structure Assets"
-              className="w-full h-full object-contain"
-            />
+          {/* Interactive Card Slides Container */}
+          <div className="w-full md:w-7/12 flex justify-center items-center">
+            <RaisingStructureCards />
           </div>
 
         </div>
@@ -227,19 +225,8 @@ export default function NeelachandraProjectPage() {
 
       <OpeningDoorsSection />
 
-      {/* Phone Mockup Section */}
-      <section className="relative w-full bg-[#5F873D] pt-4 pb-16 md:pb-24 flex justify-center z-20">
-        <div className="w-full max-w-[340px] md:max-w-[460px] lg:max-w-[500px] mx-auto px-4 -mt-[80px] md:-mt-[120px]">
-          <img
-            src="/images/projects/neelachandra/phone.png"
-            alt="Google My Business Mobile View"
-            className="w-full h-auto object-contain drop-shadow-2xl"
-          />
-        </div>
-      </section>
-
       {/* Map Section */}
-      <section className="relative w-full bg-[#5F873D] py-16 md:py-24 overflow-hidden flex items-center">
+      <section className="relative w-full bg-[#5F873D] pt-36 md:pt-48 lg:pt-60 pb-16 md:py-24 overflow-hidden flex items-center">
         <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center">
 
           {/* Text Content */}
@@ -258,48 +245,56 @@ export default function NeelachandraProjectPage() {
           </div>
 
           {/* Image Container */}
-          <div className="w-full md:w-7/12 flex justify-center items-center relative z-0 max-h-[480px] md:max-h-[560px]">
-            <img
-              src="/images/projects/neelachandra/map.png"
-              alt="Neelachandra Map Discoverability"
-              className="w-full max-h-[480px] md:max-h-[560px] object-contain"
-            />
+          <div className="w-full md:w-7/12 flex justify-center items-center relative z-0">
+            <InteractiveMap />
           </div>
 
         </div>
       </section>
 
       {/* Building Recognition Section */}
-      <section 
-        className="relative w-full min-h-[600px] flex items-center overflow-hidden"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
-      >
-        {/* Background Image */}
+      <section className="relative w-full bg-[#181818] min-h-[600px] md:min-h-[720px] lg:min-h-[820px] flex items-start overflow-hidden">
+        {/* Full Bleed Background Image on Right with Dark Gradient on Left */}
         <div className="absolute inset-0 z-0">
           <img
             src="/images/projects/neelachandra/building.png"
-            alt="Building Recognition Background"
-            className="w-full h-full object-cover object-center"
+            alt="Neelachandra Website on Laptop"
+            className="w-full h-full object-cover object-right"
           />
-          {/* Dark Gradient Overlay for text readability on the left */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent w-full md:w-3/4"></div>
+          {/* Gradient Overlay to seamlessly blend into text background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#181818] from-25% via-[#181818]/85 via-50% to-transparent w-full md:w-[65%]" />
         </div>
 
-        {/* Content Container */}
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="w-full md:w-5/12 lg:w-1/2 flex flex-col justify-center">
-            <h2 className="text-[clamp(2rem,3.5vw+0.5rem,4rem)] font-bold uppercase tracking-tight leading-[1.1] text-white mb-8 drop-shadow-lg">
+        {/* Content Container - Placed top-left with top 91px space and left 84px space as per Figma */}
+        <div className="relative z-10 w-full pt-[60px] md:pt-[91px] pl-6 sm:pl-10 md:pl-[84px] pr-6 pb-16">
+          <div className="max-w-[480px]">
+            <h2 
+              className="font-['Inter',sans-serif] uppercase text-white mb-6 md:mb-8"
+              style={{
+                fontWeight: 700,
+                fontSize: "clamp(2.5rem, 4.5vw, 64px)",
+                lineHeight: "clamp(2.8rem, 5.2vw, 77.73px)",
+                letterSpacing: "1.73px",
+              }}
+            >
               Building<br />
               Recognition
             </h2>
-            <div className="space-y-6 text-white/90 text-[clamp(10px,0.6vw+5px,13px)] font-light leading-[1.8] max-w-[400px]">
+            <div 
+              className="space-y-4 md:space-y-6 text-white max-w-[440px]"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 300,
+                fontSize: "16px",
+                lineHeight: "24px",
+                letterSpacing: "0px",
+              }}
+            >
               <p>
-                Every touchpoint now works together to make the brand<br className="hidden md:block" />
-                more recognizable, memorable, and credible.
+                Every touchpoint now works together to make the brand more recognizable, memorable, and credible.
               </p>
               <p>
-                Designed in Webflow, trained the internal team the flexibly<br className="hidden md:block" />
-                manage content without depending on developers.
+                Designed in Webflow, trained the internal team the flexibly manage content without depending on developers.
               </p>
             </div>
           </div>
@@ -357,26 +352,64 @@ export default function NeelachandraProjectPage() {
 
       {/* Branding Section */}
       <section className="relative w-full bg-white py-16 md:py-24">
-        <div className="w-full max-w-[1280px] mx-auto px-6 lg:px-12">
-          <div className="relative w-full h-[400px] md:h-[500px] lg:h-[580px] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.2)]">
+        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[50px] flex justify-center">
+          <div
+            className="relative w-full overflow-hidden select-none"
+            style={{
+              maxWidth: 1340,
+              aspectRatio: "1340 / 893",
+              borderRadius: "clamp(20px, 3.43vw, 46px)",
+              boxShadow: "0 25px 60px -15px rgba(0, 0, 0, 0.3)",
+              backgroundColor: "#0d1322",
+            }}
+          >
             {/* Background Image */}
             <img
-              src="/images/projects/neelachandra/branding.png"
+              src="/images/projects/neelachandra/branding-card.png"
               alt="Branding background"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            {/* Subtle dark overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+
+            {/* Subtle dark overlay for text contrast */}
+            <div className="absolute inset-0 bg-black/25 pointer-events-none" />
 
             {/* Text Overlay */}
-            <div className="absolute inset-0 flex flex-col justify-end items-center text-center pb-12 md:pb-16 px-4 z-10">
-              <h2 className="text-[clamp(1.85rem,3.5vw+0.5rem,3.75rem)] font-thin uppercase tracking-wide text-white mb-1 drop-shadow-md">
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 md:px-8 z-10">
+              <h2
+                className="text-white text-center uppercase"
+                style={{
+                  fontFamily: "var(--font-inter), 'Inter', sans-serif",
+                  fontWeight: 100,
+                  fontSize: "clamp(28px, 5.97vw, 80px)",
+                  lineHeight: "clamp(30px, 6.04vw, 81px)",
+                  letterSpacing: "4px",
+                }}
+              >
                 Branding Is Not
               </h2>
-              <h2 className="text-[clamp(1.85rem,3.5vw+0.5rem,3.75rem)] font-black uppercase tracking-wide text-white mb-4 drop-shadow-md">
+              <h2
+                className="text-white text-center uppercase"
+                style={{
+                  fontFamily: "var(--font-inter), 'Inter', sans-serif",
+                  fontWeight: 900,
+                  fontSize: "clamp(28px, 5.97vw, 80px)",
+                  lineHeight: "clamp(30px, 6.04vw, 81px)",
+                  letterSpacing: "4px",
+                }}
+              >
                 The End Of Story
               </h2>
-              <p className="text-white/90 text-[clamp(10px,0.6vw+5px,14px)] font-light tracking-wide drop-shadow-md">
+              <p
+                className="text-white text-center"
+                style={{
+                  fontFamily: "var(--font-inter), 'Inter', sans-serif",
+                  fontWeight: 400,
+                  fontSize: "clamp(12px, 1.49vw, 20px)",
+                  lineHeight: "clamp(20px, 2.54vw, 34px)",
+                  letterSpacing: "2px",
+                  marginTop: "clamp(14px, 2.4vw, 32px)",
+                }}
+              >
                 Every touchpoint is important in the real estate business.
               </p>
             </div>
@@ -396,16 +429,21 @@ export default function NeelachandraProjectPage() {
       {/* Horizontal Scroll Process Section */}
       <HorizontalScrollSection />
 
-      {/* Conclusion Text Section */}
-      <section className="w-full bg-white py-16 md:py-24 flex justify-center items-center">
-        <div className="w-full max-w-[600px] mx-auto px-6 text-center">
-          <p className="text-[#F48120] text-[clamp(1.25rem,1.8vw+0.5rem,1.875rem)] font-semibold leading-snug">
-            Neelachandra is now<br />
-            discoverable by people<br />
-            searching for real estate<br />
-            properties in India, while also<br />
-            building stronger brand<br />
-            positioning.
+      {/* The Result Section */}
+      <section className="w-full bg-[#B9893E] py-20 md:py-28 lg:py-36 px-6 flex flex-col justify-center items-center text-center">
+        <div className="w-full max-w-[1100px] mx-auto flex flex-col items-center">
+          <p className="text-white/80 text-[clamp(11px,0.7vw+4px,13px)] font-medium tracking-[0.3em] uppercase mb-8">
+            The Result
+          </p>
+          <p
+            className="font-['Inter',sans-serif] font-normal text-white text-center max-w-[1000px]"
+            style={{
+              fontSize: "clamp(1.25rem, 2vw + 0.5rem, 32px)",
+              lineHeight: "clamp(2.4rem, 4.2vw + 0.5rem, 69px)",
+              letterSpacing: "0px",
+            }}
+          >
+            A complete brand transformation—from an established construction company known through word of mouth to a business with the identity, digital presence, and visibility to be discovered by its next generation of customers.
           </p>
         </div>
       </section>
