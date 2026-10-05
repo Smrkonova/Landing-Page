@@ -139,9 +139,9 @@ export default function Educationscroll() {
         </div>
 
         {/* Mobile: Floating Glass Card */}
-        <div className="block xl:hidden relative z-10 w-full px-4 sm:px-6 pt-5 sm:pt-0 max-w-[460px] sm:max-w-[500px]">
+        <div className="block xl:hidden h-full relative z-10 w-full px-4 sm:px-6 pt-5 sm:pt-0 max-w-[460px] sm:max-w-[500px] ">
           <div
-            className="w-full bg-white/[0.12] sm:bg-white/[0.10] border border-white/35 rounded-[24px] sm:rounded-[28px] p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative overflow-hidden backdrop-blur-2xl"
+            className="w-full bg-white/[0.12]  h-[70%] sm:bg-white/[0.10] border border-white/35 mt-16 rounded-[24px] sm:rounded-[28px] p-6  sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative overflow-hidden backdrop-blur-2xl"
             style={{
               backdropFilter: "blur(24px) url(#liquid-glass-distortion-educationscroll)",
               WebkitBackdropFilter: "blur(24px)",
