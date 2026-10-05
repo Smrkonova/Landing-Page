@@ -42,7 +42,19 @@ const caseStudies = [
   },
 ];
 
-export default function CaseStudiesSlider() {
+interface CaseStudiesSliderProps {
+  tag?: string;
+  tagClassName?: string;
+  title?: string;
+  titleClassName?: string;
+}
+
+export default function CaseStudiesSlider({
+  tag = "Built for the long run",
+  tagClassName,
+  title = "Case Studies",
+  titleClassName,
+}: CaseStudiesSliderProps = {}) {
   const [emblaRef] = useEmblaCarousel({
     dragFree: true,
     containScroll: "trimSnaps"
@@ -53,11 +65,11 @@ export default function CaseStudiesSlider() {
 
       {/* Header Container */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 mb-20 text-center md:text-left">
-        <p className="text-gray-500 uppercase tracking-widest text-[clamp(12px,0.5vw+6px,14px)] mb-2 font-medium">
-          Built for the long run
+        <p className={tagClassName || "text-gray-500 uppercase tracking-widest text-[clamp(12px,0.5vw+6px,14px)] mb-2 font-medium"}>
+          {tag}
         </p>
-        <h2 className="text-[clamp(2.25rem,4.5vw+0.5rem,4.5rem)] font-black text-[#111] tracking-tight uppercase">
-          Case Studies
+        <h2 className={titleClassName || "text-[clamp(2.25rem,4.5vw+0.5rem,4.5rem)] font-black text-[#111] tracking-tight uppercase"}>
+          {title}
         </h2>
       </div>
 

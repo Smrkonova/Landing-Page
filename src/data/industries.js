@@ -23,4 +23,20 @@ export const industriesData = [
     image: "/images/industries/education/caruosel/Futuristic Glass Portal Doorway 1.png",
     link: "/industries/education",
   },
+  {
+    id: 4,
+    title: "E-Commerce",
+    tags: ["D2C", "B2B", "RETAIL"],
+    description: "Building high-performance online stores and connected commerce ecosystems designed to convert visitors and scale revenue.",
+    image: "/images/industries/ecommerce/card.jpg",
+    link: "/industries/ecommerce",
+  },
+  {
+    id: 5,
+    title: "Healthcare",
+    tags: ["CLINICAL", "HEALTH-TECH", "B2C"],
+    description: "Engineering secure, compliant digital healthcare ecosystems that connect every stage of the patient care journey.",
+    image: "/images/services/website/healthcare.png",
+    link: "/industries/healthcare",
+  },
 ];

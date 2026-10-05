@@ -16,43 +16,68 @@ const cities = [
 // Duplicate enough times so it can scroll seamlessly
 const marqueeItems = [...cities, ...cities, ...cities, ...cities];
 
-export default function LocationsMarquee() {
+interface LocationsMarqueeProps {
+  badge?: string;
+  title?: React.ReactNode;
+  titleClassName?: string;
+  description?: string;
+  descriptionClassName?: string;
+  primaryBtn?: string;
+  primaryBtnClassName?: string;
+  secondaryBtn?: string;
+  secondaryBtnClassName?: string;
+}
+
+export default function LocationsMarquee({
+  badge,
+  title = (
+    <>
+      Supporting <br className="hidden sm:block" />
+      Manufacturers across <br className="hidden sm:block" />
+      India's industrial hubs
+    </>
+  ),
+  titleClassName,
+  description = "India's manufacturing sector is expanding rapidly through industrial corridors, export zones, and smart manufacturing initiatives yet, many factories still depend on traditional sales methods. Smrkonova works hands-on with manufacturers to build systems that strengthen their digital presence while supporting the relationships that already drive their business.",
+  descriptionClassName,
+  primaryBtn = "Build your system",
+  primaryBtnClassName,
+  secondaryBtn = "See what we build",
+  secondaryBtnClassName,
+}: LocationsMarqueeProps) {
   return (
     <section className="relative w-full bg-white text-black py-16 sm:py-24 md:py-32 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start md:items-center">
 
-        {/* Left Content */}
         <div className="w-full md:w-[50%] mb-12 md:mb-0 pr-0 md:pr-12 flex flex-col items-start text-left">
-          <h2 className="text-[clamp(1.75rem,5.5vw,2.75rem)] font-normal leading-[1.2] text-[#111] mb-5 uppercase tracking-normal text-left max-w-[440px]">
-            Supporting <br />
-            Manufacturers <br />
-            across <br />
-            India's industrial <br />
-            hubs
+          {badge && (
+            <div className="mb-4">
+              <span className="bg-[#0091ff] text-white text-[clamp(10px,0.4vw+5px,12px)] font-bold px-3 py-1.5 uppercase tracking-wider rounded">
+                {badge}
+              </span>
+            </div>
+          )}
+          <h2 className={titleClassName || "text-[clamp(1.75rem,5.5vw,2.75rem)] font-normal leading-[1.2] text-[#111] mb-5 uppercase tracking-normal text-left max-w-[440px]"}>
+            {title}
           </h2>
 
-          <p className="text-[#555] text-[12.5px] sm:text-[13.5px] md:text-[14px] max-w-lg mb-8 sm:mb-10 leading-[1.65] font-normal text-left">
-            India's manufacturing sector is expanding rapidly through industrial
-            corridors, export zones, and smart manufacturing initiatives yet,
-            many factories still depend on traditional sales methods.
-            Smrkonova works hands-on with manufacturers to build systems
-            that strengthen their digital presence while supporting the
-            relationships that already drive their business.
-          </p>
+          <div className={descriptionClassName || "text-[#555] text-[12.5px] sm:text-[13.5px] md:text-[14px] max-w-lg mb-8 sm:mb-10 leading-[1.65] font-normal text-left whitespace-pre-line"}>
+            {description}
+          </div>
 
           {/* Action Buttons: Stacked full-width on mobile */}
           <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mb-10 md:mb-0">
             <button
               suppressHydrationWarning
-              className="inline-flex items-center justify-center bg-[#181818] text-white px-6 py-3.5 sm:py-3 text-[11px] sm:text-[12px] font-bold tracking-[0.08em] uppercase hover:bg-black transition-colors w-full sm:w-[170px] h-[46px] sm:h-[42px] select-none text-center"
+              className={primaryBtnClassName || "inline-flex items-center justify-center bg-[#181818] text-white px-6 py-3.5 sm:py-3 text-[11px] sm:text-[12px] font-bold tracking-[0.08em] uppercase hover:bg-black transition-colors w-full sm:w-[170px] h-[46px] sm:h-[42px] select-none text-center"}
             >
-              Build your system
+              {primaryBtn}
             </button>
             <button
               suppressHydrationWarning
-              className="inline-flex items-center justify-center bg-white text-[#181818] border border-[#181818] px-6 py-3.5 sm:py-3 text-[11px] sm:text-[12px] font-bold tracking-[0.08em] uppercase hover:bg-neutral-50 transition-colors w-full sm:w-[170px] h-[46px] sm:h-[42px] select-none text-center"
+              className={secondaryBtnClassName || "inline-flex items-center justify-center bg-white text-[#181818] border border-[#181818] px-6 py-3.5 sm:py-3 text-[11px] sm:text-[12px] font-bold tracking-[0.08em] uppercase hover:bg-neutral-50 transition-colors w-full sm:w-[170px] h-[46px] sm:h-[42px] select-none text-center"}
             >
-              See what we build
+              {secondaryBtn}
             </button>
           </div>
         </div>

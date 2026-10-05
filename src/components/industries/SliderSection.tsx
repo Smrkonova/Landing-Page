@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-const items = [
+const defaultItems = [
   { id: 1, img: "/images/industries/manufacturing/slider/1.png", title: "INDUSTRIAL PRODUCT\nCATALOGUES" },
   { id: 2, img: "/images/industries/manufacturing/slider/2.png", title: "SUPPLY CHAIN\nMANAGEMENT" },
   { id: 3, img: "/images/industries/manufacturing/slider/3.png", title: "QUALITY CONTROL\nSYSTEMS" },
@@ -14,7 +14,36 @@ const items = [
   { id: 7, img: "/images/industries/manufacturing/slider/3.png", title: "AUTOMATED\nREPORTING" },
 ];
 
-export default function SliderSection() {
+interface SliderItem {
+  id: number | string;
+  img: string;
+  title: string;
+}
+
+interface SliderSectionProps {
+  headerTag?: string;
+  headerTagClassName?: string;
+  headerContainerClassName?: string;
+  title?: React.ReactNode;
+  titleClassName?: string;
+  items?: SliderItem[];
+  borderBox?: boolean;
+}
+
+export default function SliderSection({
+  headerTag,
+  headerTagClassName,
+  headerContainerClassName,
+  title = (
+    <>
+      <span className="font-bold text-black">21 MANUFACTURING</span><br className="hidden sm:block" />
+      <span className="font-light text-[#444]"> VERTICALS ENGINEERED</span>
+    </>
+  ),
+  titleClassName,
+  items = defaultItems,
+  borderBox = false,
+}: SliderSectionProps) {
   const [activeIndex, setActiveIndex] = useState(3);
 
   // Auto-play interval for continuous movement
@@ -23,7 +52,7 @@ export default function SliderSection() {
       setActiveIndex((prev) => (prev + 1) % items.length);
     }, 3000);
     return () => clearInterval(timer);
-  }, []);
+  }, [items.length]);
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % items.length);
@@ -38,24 +67,30 @@ export default function SliderSection() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         
         {/* Header Content */}
-        <div className="mb-20 text-center md:text-left">
-          <h2 className="text-[clamp(1.875rem,3.5vw+0.5rem,3.5rem)] leading-[1.2] tracking-tight">
-            <span className="font-bold text-black">21 MANUFACTURING</span><br className="hidden sm:block" />
-            <span className="font-light text-[#444]"> VERTICALS ENGINEERED</span>
+        <div className={headerContainerClassName || "mb-14 md:mb-20 text-center md:text-left"}>
+          {headerTag && (
+            <h4 className={headerTagClassName || "text-[clamp(11px,0.5vw+6px,14px)] font-black uppercase tracking-[0.2em] text-[#111] mb-3"}>
+              {headerTag}
+            </h4>
+          )}
+          <h2 className={titleClassName || "text-[clamp(1.875rem,3.5vw+0.5rem,3.5rem)] leading-[1.2] tracking-tight"}>
+            {title}
           </h2>
         </div>
 
-        {/* Slider Container */}
-        <motion.div 
-          className="relative w-full h-[450px] md:h-[500px] flex justify-center items-center perspective-[1000px] cursor-grab active:cursor-grabbing"
-          onPanEnd={(e, info) => {
-            if (info.offset.x < -50) {
-              handleNext();
-            } else if (info.offset.x > 50) {
-              handlePrev();
-            }
-          }}
-        >
+        {/* Outer Frame Wrapper */}
+        <div className={borderBox ? "relative p-4 md:p-8 rounded-2xl md:rounded-3xl border-[2.5px] border-[#0091ff] shadow-[0_0_40px_rgba(0,145,255,0.15)] bg-white" : ""}>
+          {/* Slider Container */}
+          <motion.div 
+            className="relative w-full h-[450px] md:h-[500px] flex justify-center items-center perspective-[1000px] cursor-grab active:cursor-grabbing"
+            onPanEnd={(e, info) => {
+              if (info.offset.x < -50) {
+                handleNext();
+              } else if (info.offset.x > 50) {
+                handlePrev();
+              }
+            }}
+          >
           {items.map((item, index) => {
             // Calculate shortest distance in a circular array
             let offset = index - activeIndex;
@@ -127,6 +162,7 @@ export default function SliderSection() {
             );
           })}
         </motion.div>
+        </div>
 
       </div>
     </section>

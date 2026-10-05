@@ -3,7 +3,34 @@
 import React from "react";
 import Image from "next/image";
 
-export default function SystemCTA() {
+interface SystemCTAProps {
+  title?: React.ReactNode;
+  titleClassName?: string;
+  description?: string;
+  descriptionClassName?: string;
+  primaryBtn?: string;
+  primaryBtnClassName?: string;
+  secondaryBtn?: string;
+  secondaryBtnClassName?: string;
+}
+
+export default function SystemCTA({
+  title = (
+    <>
+      We <span className="font-black">DESIGN</span> and build <span className="font-black">SYSTEMS</span>
+      <span className="md:hidden"> </span>
+      <br className="hidden md:block" />
+      <span className="font-black">THAT HELP</span> companies <span className="font-black">GROW</span>
+    </>
+  ),
+  titleClassName,
+  description = "Smrkonova gives your manufacturing business the foundation it needs to grow by connecting seamless business operations with strategic marketing and brand-building solutions. Bridging the gap between your ERP and customer-facing systems, we help streamline processes, strengthen your brand, and support the relationships that drive long-term business success.",
+  descriptionClassName,
+  primaryBtn = "Build epic systems",
+  primaryBtnClassName,
+  secondaryBtn = "See what we build",
+  secondaryBtnClassName,
+}: SystemCTAProps) {
   return (
     <section className="relative w-full h-[80vh] md:h-screen min-h-[600px] flex justify-center items-center overflow-hidden p-6 md:p-12">
       {/* Liquid Glass SVG Filter Def for CTA */}
@@ -34,28 +61,22 @@ export default function SystemCTA() {
       >
 
         {/* Headline */}
-        <h2 className="text-[clamp(1.5rem,2.8vw+0.5rem,2.5rem)] font-light text-[#111] leading-[1.2] uppercase tracking-tight mb-8">
-          We <span className="font-black">DESIGN</span> and build <span className="font-black">SYSTEMS</span>
-          <span className="md:hidden"> </span>
-          <br className="hidden md:block" />
-          <span className="font-black">THAT HELP</span> companies <span className="font-black">GROW</span>
+        <h2 className={titleClassName || "text-[clamp(1.5rem,2.8vw+0.5rem,2.5rem)] font-light text-[#111] leading-[1.2] uppercase tracking-tight mb-8"}>
+          {title}
         </h2>
 
         {/* Description Paragraph */}
-        <p className="text-[clamp(0.8125rem,0.4vw+0.65rem,1rem)] text-gray-800 font-medium max-w-3xl mx-auto mb-12 leading-relaxed">
-          Smrkonova gives your manufacturing business the foundation it needs to grow by connecting seamless
-          business operations with strategic marketing and brand-building solutions. Bridging the gap between your
-          ERP and customer-facing systems, we help streamline processes, strengthen your brand, and support the
-          relationships that drive long-term business success.
+        <p className={descriptionClassName || "text-[clamp(0.8125rem,0.4vw+0.65rem,1rem)] text-gray-800 font-medium max-w-3xl mx-auto mb-12 leading-relaxed whitespace-pre-line"}>
+          {description}
         </p>
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <button suppressHydrationWarning className="bg-[#111] text-white px-8 py-4 text-[clamp(11px,0.4vw+6px,14px)] font-bold tracking-widest uppercase hover:bg-black transition-colors w-full sm:w-auto">
-            Build epic systems
+          <button suppressHydrationWarning className={primaryBtnClassName || "bg-[#111] text-white px-8 py-4 text-[clamp(11px,0.4vw+6px,14px)] font-bold tracking-widest uppercase hover:bg-black transition-colors w-full sm:w-auto"}>
+            {primaryBtn}
           </button>
-          <button suppressHydrationWarning className="bg-transparent text-[#111] border border-[#111] px-8 py-4 text-[clamp(11px,0.4vw+6px,14px)] font-bold tracking-widest uppercase hover:bg-white/20 transition-colors w-full sm:w-auto">
-            See what we build
+          <button suppressHydrationWarning className={secondaryBtnClassName || "bg-transparent text-[#111] border border-[#111] px-8 py-4 text-[clamp(11px,0.4vw+6px,14px)] font-bold tracking-widest uppercase hover:bg-white/20 transition-colors w-full sm:w-auto"}>
+            {secondaryBtn}
           </button>
         </div>
 

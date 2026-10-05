@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-const processes = [
+const defaultProcesses = [
   { id: 1, title: "RESEARCH", desc: "Market, customers,\ncompetitors", img: "/images/industries/manufacturing/process/1.png" },
   { id: 2, title: "ENGINEER", desc: "Architect the right system", img: "/images/industries/manufacturing/process/2.png" },
   { id: 3, title: "DEVELOP", desc: "Build with precision and\npurpose", img: "/images/industries/manufacturing/process/3.png" },
@@ -13,7 +13,22 @@ const processes = [
   { id: 6, title: "SCALE", desc: "Expand and optimize operations", img: "/images/industries/manufacturing/process/1.png" },
 ];
 
-export default function ProcessScroll() {
+interface ProcessItem {
+  id: number | string;
+  title: string;
+  desc: string;
+  img: string;
+}
+
+interface ProcessScrollProps {
+  headline?: string;
+  processes?: ProcessItem[];
+}
+
+export default function ProcessScroll({
+  headline = "OUR PROCESS",
+  processes = defaultProcesses,
+}: ProcessScrollProps) {
   const containerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -86,7 +101,7 @@ export default function ProcessScroll() {
           >
             {/* Top Label */}
             <h4 className="text-[12px] sm:text-[13px] font-medium text-white/70 tracking-[0.12em] uppercase text-left mb-6 sm:mb-8">
-              OUR PROCESS
+              {headline}
             </h4>
 
             {/* 3 Visible Process Steps */}
@@ -134,7 +149,7 @@ export default function ProcessScroll() {
           {/* Top Label */}
           <div className="absolute top-12 left-12 md:left-24 text-left">
             <h4 className="text-[clamp(11px,0.4vw+6px,14px)] font-medium text-white/60 tracking-[0.2em] uppercase text-left">
-              OUR PROCESS
+              {headline}
             </h4>
           </div>
 

@@ -96,24 +96,24 @@ export default function HorizontalScrollSection() {
   );
 
   return (
-    <section 
-      ref={containerRef} 
-      className="relative bg-black" 
+    <section
+      ref={containerRef}
+      className="relative bg-black"
       style={{ height: `calc(${slides.length * 100}vh / var(--desktop-scale, 1))` }}
     >
-      <div 
+      <div
         className="sticky top-0 w-full overflow-hidden flex items-center"
         style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
       >
         <motion.div style={{ x }} className="flex h-full w-[800vw]">
           {slides.map((slide, index) => (
             <div key={index} className="relative h-full w-[100vw] flex-shrink-0 flex items-center justify-center">
-              
+
               {/* Background Image - Original Blueprint image for all slides */}
               <div className="absolute inset-0 z-0">
-                <img 
-                  src="/images/projects/neelachandra/slide-1.png" 
-                  alt={slide.title} 
+                <img
+                  src="/images/projects/neelachandra/slide-1.png"
+                  alt={slide.title}
                   className="w-full h-full object-cover"
                 />
                 {/* Dark overlay for text readability */}
@@ -122,7 +122,7 @@ export default function HorizontalScrollSection() {
 
               {/* Content Overlay */}
               <div className="relative z-10 w-full h-full max-w-[1400px] mx-auto p-6 md:p-10 lg:p-14 flex flex-col justify-between text-white">
-                
+
                 {/* Top Header */}
                 <div className="w-full flex justify-start">
                   <p className="text-[clamp(10px,0.6vw+4px,12px)] font-light tracking-[0.3em] uppercase opacity-80">
@@ -142,7 +142,7 @@ export default function HorizontalScrollSection() {
                   <div className="text-[clamp(1.25rem,1.5vw+0.5rem,1.5rem)] font-light opacity-80">
                     {slide.num}
                   </div>
-                  
+
                   <div className="max-w-[300px] md:max-w-[400px] text-right">
                     <p className="text-[clamp(10px,0.6vw+4px,13px)] font-light leading-[1.8] opacity-90">
                       {slide.text}

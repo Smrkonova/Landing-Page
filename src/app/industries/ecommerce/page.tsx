@@ -1,0 +1,243 @@
+import Image from "next/image";
+import Link from "next/link";
+import ManufacturingScrollCanvas from "@/components/industries/ManufacturingScrollCanvas";
+import IndustryExtendedSection from "@/components/industries/IndustryExtendedSection";
+import EcommerceCarousel from "@/components/industries/EcommerceCarousel";
+import SolutionsGrid from "@/components/industries/SolutionsGrid";
+import SliderSection from "@/components/industries/SliderSection";
+import ProcessScroll from "@/components/industries/ProcessScroll";
+import LocationsMarquee from "@/components/industries/LocationsMarquee";
+import SystemCTA from "@/components/industries/SystemCTA";
+import CaseStudiesSlider from "@/components/industries/CaseStudiesSlider";
+import FaqSection from "@/components/industries/FaqSection";
+
+export const metadata = {
+  title: "E-Commerce Industry Solutions | Smrkonova",
+  description: "Bespoke Shopify Plus, Headless Commerce, and connected storefront systems built to maximize conversion and scale global revenue.",
+};
+
+const ecommerceSolutions = [
+  { id: 1, number: "01", title: "Custom Shopify Stores" },
+  { id: 2, number: "02", title: "Shopify Plus Development" },
+  { id: 3, number: "03", title: "Headless Commerce Solutions" },
+  { id: 4, number: "04", title: "Fully Custom eCommerce Websites" },
+  { id: 5, number: "05", title: "WooCommerce Development" },
+  { id: 6, number: "06", title: "Magento Development" },
+  { id: 7, number: "07", title: "Marketplace Development" },
+  { id: 8, number: "08", title: "Custom Product Configurators" },
+  { id: 9, number: "09", title: "Animated Shopping Experiences" },
+  { id: 10, number: "10", title: "Premium Landing Pages" },
+  { id: 11, number: "11", title: "Custom Checkout Experiences" },
+  { id: 12, number: "12", title: "Property Management Systems" },
+  { id: 13, number: "13", title: "Payment Gateway Integrations" },
+  { id: 14, number: "14", title: "Razorpay Integration" },
+  { id: 15, number: "15", title: "Stripe Integration" },
+];
+
+const ecommerceSliders = [
+  { id: 1, img: "/images/industries/manufacturing/slider/1.png", title: "DIRECT-TO-CONSUMER\n(D2C) BRANDS" },
+  { id: 2, img: "/images/industries/manufacturing/slider/2.png", title: "B2B WHOLESALE &\nDISTRIBUTION" },
+  { id: 3, img: "/images/industries/manufacturing/slider/3.png", title: "INDUSTRIAL PRODUCT\nCATALOGUES" },
+  { id: 4, img: "/images/industries/manufacturing/slider/4.png", title: "LUXURY & APPAREL\nFASHION HOUSES" },
+  { id: 5, img: "/images/industries/manufacturing/slider/1.png", title: "SUBSCRIPTION &\nMEMBERSHIP COMMERCE" },
+  { id: 6, img: "/images/industries/manufacturing/slider/2.png", title: "MULTI-VENDOR\nMARKETPLACES" },
+  { id: 7, img: "/images/industries/manufacturing/slider/3.png", title: "DIGITAL PRODUCTS &\nSOFTWARE COMMERCE" },
+];
+
+const ecommerceProcesses = [
+  { id: 1, title: "UNDERSTAND", desc: "Customer behavior, funnel analysis,\nand conversion blockers", img: "/images/industries/manufacturing/process/1.png" },
+  { id: 2, title: "RESEARCH", desc: "Market benchmarks, tech stack audit,\nand buyer journey mapping", img: "/images/industries/manufacturing/process/2.png" },
+  { id: 3, title: "ENGINEER", desc: "Architect fast headless storefronts,\ncustom checkout & APIs", img: "/images/industries/manufacturing/process/3.png" },
+  { id: 4, title: "DEVELOP", desc: "High-performance store builds with\nbespoke UI/UX and themes", img: "/images/industries/manufacturing/process/1.png" },
+  { id: 5, title: "INTEGRATE", desc: "Connect ERPs, CRMs, inventory tracking,\npayment gateways & 3PLs", img: "/images/industries/manufacturing/process/2.png" },
+  { id: 6, title: "TEST", desc: "Comprehensive load testing, edge\nlatency & security verification", img: "/images/industries/manufacturing/process/3.png" },
+  { id: 7, title: "LAUNCH", desc: "Flawless deployment with zero\ndowntime and conversion tracking", img: "/images/industries/manufacturing/process/1.png" },
+];
+
+const ecommerceFaqs = [
+  {
+    question: "What eCommerce platforms do you build and specialize in?",
+    answer: "We specialize in custom Shopify & Shopify Plus development, Headless Commerce setups (Next.js with Shopify, Medusa, or Commercelayer), custom WooCommerce solutions, and bespoke full-stack marketplace architectures.",
+  },
+  {
+    question: "Can you migrate our store from another platform without losing SEO or orders?",
+    answer: "Yes. We execute zero-downtime migrations with complete URL redirects, customer data mapping, order history retention, and preservation of your search engine rankings.",
+  },
+  {
+    question: "How do you optimize stores for higher conversion rates (CRO)?",
+    answer: "We optimize every friction point: micro-interactions, sub-second page loads, simplified one-click checkouts, personalized product recommendations, and mobile-first responsive architecture.",
+  },
+  {
+    question: "Can you connect our ERP, CRM, and custom warehouse management systems?",
+    answer: "Absolutely. We build robust API integrations connecting your storefront directly to SAP, Salesforce, Zoho, Shiprocket, Unicommerce, and custom warehouse databases for automated inventory sync and fulfillment.",
+  },
+  {
+    question: "Do you offer post-launch maintenance, support, and speed monitoring?",
+    answer: "Yes, we provide ongoing SLAs covering security audits, performance monitoring, continuous feature development, promotional campaign support, and 24/7 incident response.",
+  },
+];
+
+export default function EcommerceIndustryPage() {
+  return (
+    <main className="w-full">
+      {/* Banner / Hero Section */}
+      <div 
+        className="relative bg-black text-white flex items-center pt-32 md:pt-0 pb-16 md:pb-0 overflow-hidden" 
+        style={{ minHeight: "calc(100vh / var(--desktop-scale, 1))" }}
+      >
+        {/* Full Hero Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/industries/ecommerce/banner.png"
+            alt="Futuristic eCommerce Experience"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          {/* Gradient overlays to blend smoothly and keep text legible on the left */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 md:via-black/75 to-transparent w-full md:w-[65%]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
+        </div>
+
+        <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 relative z-10">
+          {/* Hero Content */}
+          <div className="flex flex-col items-start text-left space-y-6 md:space-y-8 max-w-2xl">
+            <div className="space-y-3 md:space-y-4">
+              <span className="font-sans font-extralight text-[clamp(1.5rem,2.4vw+0.5rem,36px)] leading-[1.22] tracking-[0.05em] uppercase text-white/90 block">
+                BEAUTIFUL STORES
+              </span>
+              <h1 className="font-good-times font-bold text-[clamp(2.75rem,5.8vw+1rem,96px)] leading-[0.91] tracking-[0.05em] uppercase text-white break-words">
+                DON&apos;T WIN<br />
+                ANYMORE.
+              </h1>
+            </div>
+
+            <p className="font-sans font-light text-[12px] leading-[1.55] tracking-[0.05em] text-[#ccc] max-w-xl">
+              Create a connected eCommerce experience that takes customers from discovery to repeat purchase. From high-performance eCommerce website development and product discovery to checkout, payments, fulfilment, and retention, Smrkonova builds digital commerce experiences designed around how modern customers shop.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-2 w-full sm:w-auto">
+              <Link
+                href="/contact"
+                className="px-8 py-4 bg-white text-black text-[clamp(10px,0.4vw+4px,12px)] font-bold tracking-widest uppercase hover:bg-neutral-200 transition-colors text-center w-full sm:w-auto shadow-lg"
+              >
+                Start Your Project
+              </Link>
+              <Link
+                href="#solutions"
+                className="px-8 py-4 bg-transparent border border-white text-white text-[clamp(10px,0.4vw+4px,12px)] font-bold tracking-widest uppercase hover:bg-white/10 transition-colors text-center w-full sm:w-auto"
+              >
+                See What We Build
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Exploded Architecture Animation Section ("MAKE THE SHIFT") */}
+      <div className="w-full bg-white relative">
+        <ManufacturingScrollCanvas
+          badge="MAKE THE SHIFT"
+          showBadgeUnderline={false}
+          hideDetails={true}
+          title={
+            <>
+              BUILD EXPERIENCES THAT<br />
+              CONVERT VISITORS INTO CUSTOMERS AND<br />
+              SCALE YOUR ECOMMERCE GROWTH
+            </>
+          }
+        />
+      </div>
+
+      {/* Service Narrative & Glowing Card */}
+      <IndustryExtendedSection
+        tag="How Smrkonova thinks"
+        tagClassName="font-sans font-normal text-[14px] leading-[1.22] tracking-[0.05em] uppercase text-[#888]"
+        title="Your products may be unique. Your website shouldn't look ordinary."
+        titleClassName="font-sans font-extralight text-[clamp(2rem,3.8vw+0.5rem,64px)] leading-[1.22] tracking-[0.05em] uppercase text-[#111]"
+        paragraphs={[
+          "Nothing in eCommerce operates in isolation. Your website, product catalogue, marketing, CRM, payments, inventory, warehouse, shipping, customer support, and analytics all need to work together.",
+          "Smrkonova creates connected eCommerce ecosystems that make every customer interaction simpler while helping your business operate more efficiently."
+        ]}
+        paragraphClassName="font-sans font-light text-[12px] leading-[1.39] tracking-[0.05em] text-[#555]"
+        cardTitle="e-Commerce Website Development"
+        cardTitleClassName="font-sans font-normal text-[16px] leading-[1.22] tracking-normal uppercase text-[#111]"
+        cardDescription="eCommerce Website Development that creates fast, intuitive, conversion-focused online stores."
+        cardDescriptionClassName="font-sans font-light text-[14px] leading-[1.39] tracking-[0.05em] text-[#666]"
+        carousel={<EcommerceCarousel />}
+      />
+
+      {/* Solutions Grid */}
+      <div id="solutions">
+        <SolutionsGrid
+          tag="Solutions we build"
+          tagClassName="font-sans font-normal text-[clamp(16px,1.4vw+8px,24px)] leading-[1.36] tracking-[0em] uppercase text-[#888]"
+          title="Turn your storefront into a connected commerce system."
+          titleClassName="font-sans font-light text-[clamp(2.25rem,3.8vw+0.5rem,64px)] leading-[1.22] tracking-[0em] uppercase text-[#111]"
+          subtitle="Digital solutions designed around the way modern customers shop"
+          subtitleClassName="font-sans font-normal text-[clamp(14px,1.3vw+6px,24px)] leading-[1.36] tracking-[0em] uppercase text-[#444] max-w-2xl mt-4 md:mt-6 leading-relaxed"
+          solutions={ecommerceSolutions}
+          itemTitleClassName="font-sans font-normal text-[14px] leading-[1.36] tracking-[0em] uppercase text-[#222]"
+        />
+      </div>
+
+      {/* Slider Section */}
+      <SliderSection
+        headerContainerClassName="mb-14 md:mb-20 text-center flex flex-col items-center justify-center space-y-3"
+        headerTag="Businesses within e-Commerce"
+        headerTagClassName="font-sans font-semibold text-[clamp(1.75rem,3.2vw+0.5rem,52.58px)] leading-[1.22] tracking-[0em] text-center uppercase text-[#111]"
+        title="Built for every kind of online seller"
+        titleClassName="font-sans font-extralight text-[clamp(2rem,3.8vw+0.5rem,64px)] leading-[1.22] tracking-[0em] text-center uppercase text-[#111]"
+        borderBox={true}
+        items={ecommerceSliders}
+      />
+
+      {/* Process Scroll */}
+      <ProcessScroll
+        headline="OUR PROCESS"
+        processes={ecommerceProcesses}
+      />
+
+      {/* Locations Marquee */}
+      <LocationsMarquee
+        title="Supporting eCommerce growth across India"
+        titleClassName="font-sans font-normal text-[clamp(1.75rem,2.8vw+0.5rem,40px)] leading-[1.22] tracking-[0em] uppercase text-[#111] mb-8"
+        description={"Smrkonova helps eCommerce businesses across India's fastest-growing startup and retail ecosystems build online stores, custom eCommerce platforms, digital commerce systems, and customer experiences designed for long-term growth.\n\nFrom D2C brands and online retailers to B2B commerce businesses and growing marketplaces, we connect your eCommerce website, marketing, customer data, payments, inventory, logistics, and analytics around a single growth strategy."}
+        descriptionClassName="font-sans font-light text-[12px] leading-[1.39] tracking-[0.05em] text-[#666] max-w-md mb-12"
+        primaryBtn="BUILD YOUR SYSTEM"
+        primaryBtnClassName="bg-[#111] text-white px-8 py-4 font-sans font-medium text-[12px] leading-[1.22] tracking-[0.05em] uppercase hover:bg-black transition-colors w-full sm:w-auto"
+        secondaryBtn="See what we build"
+        secondaryBtnClassName="bg-transparent text-[#111] border border-[#111] px-8 py-4 font-sans font-medium text-[12px] leading-[1.22] tracking-[0.05em] uppercase hover:bg-gray-50 transition-colors w-full sm:w-auto"
+      />
+
+      {/* Rainbow Iridescent System CTA */}
+      <SystemCTA
+        title="Put your growth on systems that can keep up"
+        titleClassName="font-sans font-light text-[clamp(1.75rem,2.8vw+0.5rem,40px)] leading-[1.12] tracking-[0em] text-center uppercase text-[#111] mb-8"
+        description="Smrkonova partners with eCommerce founders, brands, and business leaders to build digital systems that support sustainable growth."
+        descriptionClassName="font-sans font-light text-[12px] leading-[1.39] tracking-[0.05em] text-center text-gray-800 max-w-3xl mx-auto mb-12"
+        primaryBtn="Start your store"
+        secondaryBtn="See case studies"
+      />
+
+      {/* Case Studies Slider */}
+      <CaseStudiesSlider
+        tag="Built to become a landmark"
+        tagClassName="font-sans font-extralight text-[clamp(1.25rem,2vw+0.5rem,32px)] leading-[1.36] tracking-[0em] uppercase text-[#666] mb-2"
+        title="CASE STUDIES"
+        titleClassName="font-sans font-extrabold text-[clamp(2.25rem,4vw+0.5rem,64px)] leading-[1.36] tracking-[0em] uppercase text-[#111]"
+      />
+
+      {/* FAQ Section */}
+      <FaqSection
+        title="Answers before you ask"
+        titleClassName="font-sans font-extralight text-[clamp(2rem,3.2vw+0.5rem,48px)] leading-[1.36] tracking-[0em] text-center uppercase text-[#111]"
+        subtitle="The questions eCommerce founders, marketers and business leaders ask us."
+        subtitleClassName="font-sans font-normal text-[clamp(14px,1.3vw+6px,24px)] leading-[1.36] tracking-[0em] text-center uppercase text-[#666] mt-4"
+        questionClassName="font-sans font-light text-[14px] leading-[1.39] tracking-[0.05em] text-[#333]"
+        faqs={ecommerceFaqs}
+      />
+    </main>
+  );
+}

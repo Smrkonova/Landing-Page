@@ -1,13 +1,13 @@
 export const FRAME_SECTIONS = [
-  { folder: "raw-1", count: 59, filePrefix: "frame_", ext: ".png", fileStart: 1 },
-  { folder: "understand-2", count: 60, filePrefix: "frame_", ext: ".png", fileStart: 1 },
-  { folder: "plan-3", count: 59, filePrefix: "frame_", ext: ".png", fileStart: 1 },
-  { folder: "build-4/design", count: 59, filePrefix: "frame_", ext: ".png", fileStart: 1 },
-  { folder: "build-4/develop", count: 60, filePrefix: "frame_", ext: ".png", fileStart: 1 },
-  { folder: "build-4/test", count: 59, filePrefix: "frame_", ext: ".png", fileStart: 1 },
-  { folder: "lanuch-5", count: 59, filePrefix: "frame_", ext: ".png", fileStart: 1 },
-  { folder: "scale-6", count: 100, filePrefix: "frame_", ext: ".jpg", fileStart: 1 },
-  { folder: "contact-7", count: 60, filePrefix: "frame_", ext: ".png", fileStart: 1 },
+  { folder: "contact-7", count: 50, filePrefix: "frame-", ext: ".webp", fileStart: 1 },
+  { folder: "contact-7", count: 55, filePrefix: "frame-", ext: ".webp", fileStart: 51 },
+  { folder: "contact-7", count: 50, filePrefix: "frame-", ext: ".webp", fileStart: 106 },
+  { folder: "contact-7", count: 50, filePrefix: "frame-", ext: ".webp", fileStart: 156 },
+  { folder: "contact-7", count: 50, filePrefix: "frame-", ext: ".webp", fileStart: 206 },
+  { folder: "contact-7", count: 50, filePrefix: "frame-", ext: ".webp", fileStart: 256 },
+  { folder: "contact-7", count: 50, filePrefix: "frame-", ext: ".webp", fileStart: 306 },
+  { folder: "contact-7", count: 55, filePrefix: "frame-", ext: ".webp", fileStart: 356 },
+  { folder: "contact-7", count: 39, filePrefix: "frame-", ext: ".webp", fileStart: 411 },
 ];
 
 let currentStart = 1;
