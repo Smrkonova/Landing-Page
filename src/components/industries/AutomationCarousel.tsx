@@ -15,44 +15,45 @@ const automationData = [
   },
   {
     id: 2,
-    title: "ERP INTEGRATIONS",
+    title: "MANUFACTURING AND AUTOMATION",
     description:
-      "seamless data flow across all your departments, minimizing manual entry and costly errors.",
-    image: "/images/industries/manufacturing/automation/1.png", // reusing for demo
+      "by building systems that eliminate bottlenecks across production, inventory, and daily operations.",
+    image: "/images/industries/manufacturing/automation/1.png",
   },
   {
     id: 3,
-    title: "QUALITY CONTROL",
+    title: "ERP INTEGRATIONS",
     description:
-      "implementing standardized digital checks that ensure every product meets your strict criteria.",
-    image: "/images/industries/manufacturing/automation/1.png", // reusing for demo
+      "seamless data flow across all your departments, minimizing manual entry and costly errors.",
+    image: "/images/industries/manufacturing/automation/1.png",
   },
   {
     id: 4,
     title: "QUALITY CONTROL",
     description:
       "implementing standardized digital checks that ensure every product meets your strict criteria.",
-    image: "/images/industries/manufacturing/automation/1.png", // reusing for demo
+    image: "/images/industries/manufacturing/automation/1.png",
   },
   {
     id: 5,
-    title: "QUALITY CONTROL",
+    title: "SUPPLY CHAIN MONITORING",
     description:
-      "implementing standardized digital checks that ensure every product meets your strict criteria.",
-    image: "/images/industries/manufacturing/automation/1.png", // reusing for demo
+      "real-time tracking and automated reordering to prevent production downtime.",
+    image: "/images/industries/manufacturing/automation/1.png",
   },
 ];
 
 export default function AutomationCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "start", dragFree: false },
-    [Autoplay({ delay: 3000, stopOnInteraction: false })]
+    [Autoplay({ delay: 3500, stopOnInteraction: false })]
   );
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const onSelect = useCallback((emblaApi) => {
-    setSelectedIndex(emblaApi.selectedScrollSnap());
+  const onSelect = useCallback((api: any) => {
+    if (!api) return;
+    setSelectedIndex(api.selectedScrollSnap());
   }, []);
 
   useEffect(() => {
@@ -63,9 +64,9 @@ export default function AutomationCarousel() {
   }, [emblaApi, onSelect]);
 
   return (
-    <div className="relative w-[100vw] max-w-[150vw] md:w-[100vw] lg:w-[80vw] xl:w-[70vw] perspective-[1000px]">
+    <div className="relative w-full overflow-hidden sm:overflow-visible">
       {/* Liquid Glass SVG Filter Def for Automation Carousel */}
-      <svg width="0" height="0" style={{ position: "absolute" }}>
+      <svg width="0" height="0" className="absolute pointer-events-none">
         <defs>
           <filter id="liquid-glass-distortion-auto" x="0%" y="0%" width="100%" height="100%">
             <feTurbulence type="fractalNoise" baseFrequency="0.005 0.005" numOctaves="2" seed="9" result="noise" />
@@ -74,55 +75,43 @@ export default function AutomationCarousel() {
           </filter>
         </defs>
       </svg>
-      {/* Background Circular Glow */}
-      <div className="absolute top-1/2 left-[40%] -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] lg:w-[700px] lg:h-[700px] bg-[#ffb466] rounded-full blur-[100px] opacity-30 pointer-events-none z-0"></div>
 
       {/* Carousel */}
-      <div className="overflow-hidden relative z-10 p-4 md:py-12" ref={emblaRef}>
-        <div className="flex gap-4 md:gap-6 transform-style-3d">
+      <div className="overflow-visible relative z-10 py-2 sm:py-4" ref={emblaRef}>
+        <div className="flex gap-4 sm:gap-6">
           {automationData.map((item, index) => {
-            const isActive = index === selectedIndex;
             return (
               <div
-                key={item.id}
-                className="flex-none w-[85vw] sm:w-[400px] lg:w-[524px] relative"
+                key={`${item.id}-${index}`}
+                className="flex-none w-[76vw] sm:w-[380px] md:w-[420px] lg:w-[460px] relative select-none"
               >
-                {/* Inner animated wrapper */}
-                <div
-                  className={`w-full h-full transition-all duration-[800ms] ease-[0.16,1,0.3,1] origin-center ${isActive
-                    ? "rotate-y-0 rotate-z-0 scale-100 opacity-100 z-20 "
-                    : "rotate-y-[-25deg] scale-[0.85] opacity-40 z-0 translate-x-4"
-                    }`}
+                {/* Clean Flat Glass Card matching Figma */}
+                <div 
+                  className="bg-white/65 border border-white/80 rounded-[20px] sm:rounded-[24px] p-6 sm:p-8 lg:p-9 flex flex-col h-[440px] sm:h-[500px] lg:h-[580px] justify-between relative shadow-[0_12px_36px_rgba(0,0,0,0.035)] backdrop-blur-xl overflow-hidden group transition-transform duration-300"
+                  style={{ backdropFilter: "blur(24px) url(#liquid-glass-distortion-auto)" }}
                 >
-                  {/* Glass Card */}
-                  <div 
-                    className="bg-white/50 border border-white/60 rounded-[1.5rem] p-8 lg:p-10 flex flex-col h-[500px] lg:h-[634px] relative group"
-                    style={{ backdropFilter: "blur(24px) url(#liquid-glass-distortion-auto)" }}
-                  >
-
-                    {/* Image Container */}
-                    <div className="relative w-[120%] h-[280px] lg:h-[400px] -ml-[15%] -mt-4 mb-8 z-20">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className="object-contain object-left-bottom drop-shadow-xl"
-                      />
-                    </div>
-
-                    {/* Text Content */}
-                    <div className="flex flex-col justify-end flex-grow text-center lg:text-left items-center lg:items-start z-10">
-                      <h2 className="text-[clamp(1.125rem,1.4vw+0.5rem,1.5rem)] font-black text-[#111] leading-[1.1] mb-2 uppercase tracking-tight">
-                        {item.title}
-                      </h2>
-                      <p className="text-[#555] text-[clamp(11px,0.4vw+4px,13px)] font-medium leading-[1.6] uppercase tracking-wider">
-                        {item.description}
-                      </p>
-                    </div>
-
-                    {/* Subtle gradient overlay for extra glass feel */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-transparent to-white/20 pointer-events-none rounded-[1.5rem]"></div>
+                  {/* Image Container */}
+                  <div className="relative w-full h-[240px] sm:h-[280px] lg:h-[340px] flex items-center justify-center mb-3">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-contain object-bottom drop-shadow-md"
+                    />
                   </div>
+
+                  {/* Text Content */}
+                  <div className="flex flex-col justify-end text-left items-start z-10 pt-2">
+                    <h3 className="text-[14.5px] sm:text-[16px] lg:text-[19px] font-semibold text-[#181818] leading-[1.25] mb-2 sm:mb-2.5 uppercase tracking-[0.02em] text-left">
+                      {item.title}
+                    </h3>
+                    <p className="text-[#555] text-[12px] sm:text-[13px] lg:text-[14px] font-normal leading-[1.55] tracking-normal text-left">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  {/* Subtle glass gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-transparent to-white/10 pointer-events-none rounded-[20px] sm:rounded-[24px]"></div>
                 </div>
               </div>
             );

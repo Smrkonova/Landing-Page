@@ -19,7 +19,7 @@ export default function Page() {
                 <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center relative z-10">
 
                     {/* Left Content (60%) */}
-                    <div className="order-2 md:order-1 flex flex-col items-center md:items-start text-center md:text-left space-y-6 md:space-y-8 md:col-span-3 max-w-2xl">
+                    <div className="order-2 md:order-1 flex flex-col items-start text-left space-y-6 md:space-y-8 md:col-span-3 max-w-2xl w-full">
                         <div className="space-y-2 md:space-y-4">
                             <h1 className="text-[clamp(2.5rem,5.5vw+0.5rem,5rem)] font-extrabold tracking-wider leading-none text-white uppercase break-words">
                                 It Worked...
@@ -75,21 +75,39 @@ export default function Page() {
             </div>
 
             {/* Automation Carousel Section */}
-            <div className="bg-[#f8f9fa] text-black py-32 w-full overflow-hidden">
-                <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            <div className="relative bg-[#fafafa] text-black py-16 sm:py-24 lg:py-32 w-full overflow-hidden">
+                {/* Ambient Warm Amber/Orange Radial & Conic Glow matching Figma */}
+                <div
+                    className="absolute -top-10 sm:top-4 -right-16 sm:right-0 w-[360px] sm:w-[500px] lg:w-[700px] h-[550px] sm:h-[700px] lg:h-[900px] pointer-events-none z-0"
+                    style={{
+                        background:
+                            "radial-gradient(ellipse at 75% 30%, rgba(255, 175, 80, 0.42) 0%, rgba(255, 195, 110, 0.2) 40%, rgba(250, 250, 250, 0) 70%)",
+                        filter: "blur(30px)",
+                    }}
+                />
+                <div className="absolute top-1/4 -right-12 sm:right-0 w-[420px] lg:w-[650px] h-[500px] lg:h-[800px] pointer-events-none opacity-40 z-0">
+                    <Image
+                        src="/images/industries/manufacturing/automation/glow.svg"
+                        alt=""
+                        fill
+                        className="object-contain object-right"
+                    />
+                </div>
+
+                <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center relative z-10">
 
                     {/* Left Text Content */}
-                    <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8 md:space-y-12 z-10 relative pr-0 md:pr-4 lg:pr-12">
-                        <h2 className="text-[clamp(2rem,4vw+0.5rem,4rem)] font-light tracking-[0.1em] md:tracking-[0.2em] leading-[1.2] md:leading-tight text-[#111] uppercase break-words">
-                            Meet your extended wing
+                    <div className="lg:col-span-6 flex flex-col items-start text-left space-y-4 sm:space-y-6 md:space-y-8 z-10 relative pr-0 md:pr-4 lg:pr-10">
+                        <h2 className="text-[clamp(1.75rem,5.5vw,3.5rem)] font-[300] tracking-[0.04em] leading-[1.2] text-[#1a1a1a] uppercase text-left break-words">
+                            MEET YOUR EXTENDED WING
                         </h2>
-                        <p className="text-[clamp(12px,0.4vw+6px,14px)] text-[#666] leading-[2] font-normal">
+                        <p className="text-[12px] sm:text-[13px] md:text-[14px] text-[#555] leading-[1.65] font-normal text-left max-w-[640px]">
                             Once your business is on-board, we will study it, begin building seamless systems for enterprises, ERP planners among others. With Smrkonova, build brand specific operational systems for your business, keeping your customers' needs right on the top. We don't just build factory websites, we engineer digital business systems using:
                         </p>
                     </div>
 
                     {/* Right Carousel Content */}
-                    <div className="lg:col-span-5 lg:col-start-8 relative w-full mt-12 lg:mt-0">
+                    <div className="lg:col-span-6 relative w-full mt-6 lg:mt-0 -mr-6 md:mr-0">
                         <AutomationCarousel />
                     </div>
 

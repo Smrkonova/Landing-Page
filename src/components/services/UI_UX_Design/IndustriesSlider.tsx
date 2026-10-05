@@ -53,15 +53,26 @@ export default function IndustriesSlider() {
         {/* Header Section */}
         <div className="mb-12 md:mb-16 flex flex-col gap-6">
           <div>
-            <h2 className="text-[clamp(1.75rem,3.8vw+0.5rem,4rem)] leading-[1.05] font-light tracking-tight text-gray-800">
-              What We<br />
-              <span className="font-bold text-black">Design.</span>
+            <h2 
+              className="leading-[1.08] tracking-tight uppercase"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '42px',
+              }}
+            >
+              <span className="font-[200] text-gray-800">DIGITAL EXPERIENCES</span><br />
+              <span className="font-[900] text-black">WE DESIGN.</span>
             </h2>
           </div>
-          <div className="max-w-[400px]">
-            <p className="text-gray-500 text-[clamp(12px,0.5vw+4px,14px)] leading-relaxed font-medium">
-              Every digital product has different users and different goals. <br className="hidden sm:block" />
-              We design experiences that balance business objectives with user needs.
+          <div className="max-w-[420px]">
+            <p 
+              className="text-gray-600 leading-relaxed font-normal"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '14px',
+              }}
+            >
+              Every digital product has unique users and distinct goals. We craft seamless interfaces that balance user delight with measurable business growth.
             </p>
           </div>
         </div>
@@ -81,11 +92,11 @@ export default function IndustriesSlider() {
                   style={{ background: slide.bg }}
                 >
                   <div className="relative z-10 w-[70%] lg:w-[60%] flex flex-col h-full">
-                    <h3 className="text-white text-[clamp(1.125rem,1.4vw+0.5rem,1.5rem)] font-semibold mb-3 tracking-wide">{slide.title}</h3>
-                    <p className="text-white/90 text-[clamp(11px,0.4vw+5px,13px)] leading-relaxed mb-auto max-w-[200px]">
+                    <h3 className="text-white text-[clamp(1.125rem,2.5vw+0.25rem,1.5rem)] font-[500] uppercase mb-3 tracking-wide">{slide.title}</h3>
+                    <p className="text-white/90 text-[clamp(13px,0.4vw+5px,14px)] font-[400] leading-relaxed mb-auto max-w-[240px]">
                       {slide.description}
                     </p>
-                    <button suppressHydrationWarning className="text-white flex items-center gap-2 mt-auto text-[clamp(12px,0.5vw+4px,14px)] tracking-wide font-medium group w-fit">
+                    <button suppressHydrationWarning className="text-white flex items-center gap-2 mt-auto text-[clamp(12px,0.5vw+4px,14px)] tracking-wide font-[500] uppercase group w-fit">
                       Explore
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>

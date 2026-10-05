@@ -99,13 +99,13 @@ export default function FeaturesSliderSection() {
     return (
         <section className="w-full max-w-full bg-white py-16 md:py-20 overflow-hidden">
             {/* Title Container - Constrained Width */}
-            <div className="max-w-[1400px] mx-auto px-4 md:px-12 flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-6">
+            <div className="max-w-[1400px] mx-auto px-4 md:px-12 flex flex-col sm:flex-row sm:items-end justify-between mb-8 md:mb-12 gap-6">
                 <div>
-                    <h2 className="text-[clamp(1.25rem,1.8vw+0.5rem,2rem)] font-light tracking-wide text-[#1a1a1a] uppercase ml-4 md:ml-0">
-                        Brand Guidelines
+                    <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,2rem)] font-[300] tracking-wide text-[#1a1a1a] uppercase ml-4 md:ml-0">
+                        BRAND GUIDELINES SYSTEM
                     </h2>
-                    <p className="text-gray-500 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-xl leading-relaxed mt-2 ml-4 md:ml-0">
-                        As your business grows, multiple people create content. A brand guideline ensures everyone follows the same visual language and maintains consistency across every platform.
+                    <p className="text-gray-500 text-[14px] font-normal max-w-xl leading-relaxed mt-2 ml-4 md:ml-0">
+                        As your business grows, multiple people create content. A comprehensive brand guideline ensures everyone follows the same visual language and maintains consistency across every platform.
                     </p>
                 </div>
 

@@ -19,15 +19,14 @@ export default function ModernExperiencesSection() {
                 <div className="relative z-10 flex flex-col lg:flex-row p-6 sm:p-10 md:p-16 lg:p-24 min-h-0 lg:min-h-[600px] items-center lg:items-stretch">
 
                     {/* Left Content Area */}
-                    <div className="flex-1 flex flex-col justify-center z-20 w-full text-left">
-                        <h2 className="text-[34px] sm:text-[46px] md:text-[62px] lg:text-[76px] xl:text-[85px] leading-[1.08] tracking-tight text-[#1a1a1a] mb-5 sm:mb-6 md:mb-8">
-                            <span className="block font-black">Premium</span>
-                            <span className="block font-black">Shopping</span>
-                            <span className="block font-light text-gray-500">Experiences.</span>
+                    <div className="flex-1 flex flex-col justify-start z-20">
+                        <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3.75rem)] leading-[1.2em] tracking-tight text-[#212121] mb-8">
+                            <span className="block font-[900] uppercase">Modern stores are <br/> no longer</span>
+                            <span className="block font-[200] text-gray-500 uppercase">just static <br/> listings.</span>
                         </h2>
 
-                        <p className="text-gray-600 text-[clamp(0.875rem,0.6vw+0.65rem,1.0625rem)] font-normal leading-relaxed max-w-[390px] mb-8 lg:mb-0">
-                            Today's customers expect more than a basic online store. We create experiences that make products feel premium.
+                        <p className="text-[#212121] text-[15px] md:text-[16px] font-[400] leading-[1.6em] max-w-[380px]">
+                            Today's customers expect more than a basic online store. We create interactive experiences that make products feel premium and drive conversions.
                         </p>
                     </div>
 

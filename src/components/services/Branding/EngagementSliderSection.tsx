@@ -62,70 +62,6 @@ const engagementCards = [
         y: "translate-y-2 md:translate-y-3", 
         iconColor: "#E03667" 
     },
-    { 
-        id: 8, 
-        title: "BUSINESS CARD\nDESIGN", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#A1A7FD_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#F7A9D8_0%,transparent_70%)]", 
-        rotate: "rotate-[5deg]", 
-        y: "-translate-y-1 md:-translate-y-2", 
-        iconColor: "#B89FD6" 
-    },
-    { 
-        id: 9, 
-        title: "BROCHURE\nDESIGN", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top,#FFDF88_0%,transparent_55%),radial-gradient(ellipse_at_bottom,#F55779_0%,transparent_75%)]", 
-        rotate: "-rotate-[5deg]", 
-        y: "translate-y-1 md:translate-y-2", 
-        iconColor: "#F55779" 
-    },
-    { 
-        id: 10, 
-        title: "COMPANY\nPROFILE", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#6EF3FF_20%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#1530C8_0%,transparent_70%)]", 
-        rotate: "rotate-[6deg]", 
-        y: "-translate-y-1 md:-translate-y-2", 
-        iconColor: "#DE5F59" 
-    },
-    { 
-        id: 11, 
-        title: "PRESENTATION\nTEMPLATE", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top,#3AA0FF_10%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#6FB29E_0%,transparent_70%)]", 
-        rotate: "-rotate-[6deg]", 
-        y: "translate-y-2 md:translate-y-3", 
-        iconColor: "#CE3F68" 
-    },
-    { 
-        id: 12, 
-        title: "SOCIAL MEDIA\nTEMPLATES", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#A1A7FD_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#3AA0FF_0%,transparent_70%)]", 
-        rotate: "rotate-[5deg]", 
-        y: "-translate-y-1 md:-translate-y-2", 
-        iconColor: "#3AA0FF" 
-    },
-    { 
-        id: 13, 
-        title: "BRAND\nGUIDELINES", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top,#A1FFF7_0%,transparent_55%),radial-gradient(ellipse_at_bottom,#6FB29E_0%,transparent_75%)]", 
-        rotate: "-rotate-[5deg]", 
-        y: "translate-y-1 md:translate-y-2", 
-        iconColor: "#10B981" 
-    },
-    { 
-        id: 14, 
-        title: "PRINT READY\nFILES", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#6EF3FF_20%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#8848FF_0%,transparent_70%)]", 
-        rotate: "rotate-[6deg]", 
-        y: "-translate-y-1 md:-translate-y-2", 
-        iconColor: "#8848FF" 
-    },
-    { 
-        id: 15, 
-        title: "LETTERHEAD\nDESIGN", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top,#6EF3FF_20%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#3AA0FF_0%,transparent_70%)]", 
-        rotate: "-rotate-[6deg]", 
-        y: "translate-y-2 md:translate-y-3", 
-        iconColor: "#0060FB" 
-    },
 ];
 
 // Duplicate items for infinite carousel wrap
@@ -157,9 +93,9 @@ export default function EngagementSliderSection() {
             {/* Title Container */}
             <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 mb-8 md:mb-12 flex items-end justify-between">
                 <div>
-                    <h2 className="text-[clamp(1.75rem,3.8vw+0.5rem,3.875rem)] leading-[1.1] tracking-tight uppercase">
-                        <span className="font-black text-[#1a1a1a]">WHAT'S </span>
-                        <span className="font-light text-gray-400">INCLUDED</span>
+                    <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3.75rem)] leading-[1.1] tracking-tight uppercase">
+                        <span className="font-[900] text-[#212121]">WHAT'S </span>
+                        <span className="font-[200] text-[#212121]">INCLUDED</span>
                     </h2>
                 </div>
 
@@ -204,7 +140,7 @@ export default function EngagementSliderSection() {
 
                                 {/* Card Content */}
                                 <div className="flex flex-col items-center gap-5 my-auto">
-                                    <h3 className="text-black font-bold text-[clamp(12px,0.4vw+8px,15px)] text-center tracking-widest leading-relaxed whitespace-pre-line">
+                                    <h3 className="text-black font-[600] text-[clamp(1.125rem,2.5vw+0.25rem,1.1875rem)] text-center tracking-widest leading-relaxed whitespace-pre-line">
                                         {card.title}
                                     </h3>
 

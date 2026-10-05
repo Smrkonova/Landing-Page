@@ -5,14 +5,14 @@ import Image from 'next/image';
 
 const slides = [
     { 
-        id: 1,
+        id: 1, 
         type: 'text', 
-        title: "CMR\n System",   
-        subtitle: "Assign roles, monitor progress and collaborate from one dashboard.", 
+        title: "CRM & ERP\nSYSTEMS", 
+        subtitle: "Assign roles, monitor progress, and coordinate enterprise workflows seamlessly.", 
         bg:"bg-[linear-gradient(150deg,#D8CFBE_22.55%,#E9AB39_87.59%)]"
     },
     { 
-        id: 2,
+        id: 2, 
         type: 'image', 
         src: "/images/services/website/mobile2.png", // Runner placeholder
         bg: "bg-gray-300" 
@@ -34,13 +34,13 @@ export default function WhatMakesUsDifferentSlider() {
     }, []);
 
     return (
-        <section className="w-full bg-white text-black py-24 md:py-32 overflow-hidden relative">
-            <div className="w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-12">
+        <section className="w-full max-w-full bg-white text-black py-15 md:py-20 overflow-hidden relative">
+            <div className="w-full max-w-8xl mx-auto px-6 md:px-12 flex flex-col gap-8 overflow-hidden">
                 
                 {/* Section Header */}
                 <div>
-                    <h2 className="text-[clamp(1.25rem,1.8vw+0.5rem,1.75rem)] font-light text-gray-800 tracking-wide uppercase">
-                      Types of Software We Develop
+                    <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,2rem)] font-[300] text-gray-800 tracking-wide uppercase">
+                        Types of Software We Develop
                     </h2>
                 </div>
 
@@ -115,7 +115,7 @@ export default function WhatMakesUsDifferentSlider() {
                                 {/* Slide Content */}
                                 {slide.type === 'text' && (
                                     <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/10 to-black/10">
-                                        <h3 className="text-[clamp(1.75rem,3.2vw+0.5rem,3.75rem)] leading-[1.1] font-light text-white tracking-tight whitespace-pre-line">
+                                        <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line">
                                             {slide.title}
                                         </h3>
                                         <p className="text-white/80 text-[clamp(0.8125rem,0.4vw+0.65rem,0.9375rem)] font-light max-w-[250px] leading-relaxed">

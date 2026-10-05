@@ -43,10 +43,13 @@ const scrollWords = [
 
 export default function TechnologySection() {
     return (
-        <section className="w-full max-w-full bg-white py-8 sm:py-16 md:py-32 px-4 md:px-12 flex justify-center overflow-hidden">
+        <section
+            id="technology-section"
+            className="relative w-full h-auto md:h-[1540px] bg-white overflow-hidden flex justify-center py-6 md:py-0"
+        >
 
-            {/* Main Rounded Card Container */}
-            <div className="relative w-full max-w-7xl min-h-[500px] sm:min-h-[620px] md:min-h-[1440px] bg-white rounded-[28px] sm:rounded-[40px] md:rounded-[60px] overflow-hidden flex flex-col justify-between">
+            {/* Main Full-Width Container */}
+            <div className="relative w-full h-full bg-white overflow-hidden flex flex-col justify-between">
 
                 {/* --- BACKGROUND GRAPHICS & GLOWS --- */}
                 <div className="absolute w-full inset-0 z-0 flex items-center justify-center pointer-events-none">
@@ -102,9 +105,12 @@ export default function TechnologySection() {
 
                     {/* Top Heading */}
                     <div>
-                        <h2 className="text-[28px] sm:text-[44px] md:text-[60px] lg:text-[72px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
-                            <span className="block font-light">SOFTWARE</span>
-                            <span className="block font-black">WE WORK WITH</span>
+                        <h2 
+                            className="leading-[1.05em] tracking-tight text-[#1a1a1a] uppercase"
+                            style={{ fontFamily: "'Inter', sans-serif", fontSize: '42px' }}
+                        >
+                            <span className="block font-[200]">SOFTWARE</span>
+                            <span className="block font-[900]">WE WORK WITH</span>
                         </h2>
                     </div>
 
@@ -112,12 +118,12 @@ export default function TechnologySection() {
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 md:gap-10 lg:gap-8 mt-6 sm:mt-12 md:mt-20 lg:mt-28">
                         {softwareCategories.map((cat, idx) => (
                             <div key={idx}>
-                                <h4 className="text-[clamp(11px,0.4vw+6px,14px)] font-bold tracking-widest uppercase mb-2 sm:mb-6 text-gray-900">
+                                <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121]" style={{ fontFamily: "'Inter', sans-serif" }}>
                                     {cat.title}
                                 </h4>
-                                <ul className="space-y-1.5 sm:space-y-3">
+                                <ul className="space-y-3">
                                     {cat.tools.map((tool, tIdx) => (
-                                        <li key={tIdx} className="flex items-start gap-2 sm:gap-2.5 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 font-medium">
+                                        <li key={tIdx} className="flex items-start gap-3 text-[14px] text-[#5A5E63] font-[400]">
                                             {checkIcon}
                                             <span>{tool}</span>
                                         </li>
@@ -132,12 +138,13 @@ export default function TechnologySection() {
 
                         {/* Bottom Left Text */}
                         <div className="max-w-[340px] mb-12 lg:mb-0">
-                            <h3 className="text-[34px] sm:text-[45px] md:text-[55px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-4">
-                                <span className="block font-black">CREATIVE</span>
-                                <span className="block font-light text-gray-600">TOOLKIT</span>
+                            <h3 className="text-[clamp(1.75rem,3.2vw+0.5rem,3.4375rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-6" style={{ fontFamily: "'Inter', sans-serif" }}>
+                                <span className="block font-[900]">CREATIVE</span>
+                                <span className="block font-[900]">TOOLKIT</span>
+                                <span className="block font-[200] text-gray-600">AT SCALE</span>
                             </h3>
-                            <p className="text-gray-600 text-[clamp(11px,0.4vw+6px,14px)] font-medium leading-relaxed">
-                                We use industry-standard creative software to craft high-fidelity 3D assets, fluid motion animations and professional video productions.
+                            <p className="text-[#5A5E63] text-[16px] font-[400] leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
+                                We use industry-standard creative software to craft high-fidelity 3D assets, fluid motion animations and cinematic video productions.
                             </p>
                         </div>
 
@@ -153,7 +160,7 @@ export default function TechnologySection() {
                                 {[...Array(2)].map((_, i) => (
                                     <React.Fragment key={i}>
                                         {scrollWords.map((word, j) => (
-                                            <span key={`${i}-${j}`} className="text-[36px] sm:text-[50px] md:text-[75px] lg:text-[90px] font-black leading-[0.95] uppercase text-white drop-shadow-md">
+                                            <span key={`${i}-${j}`} className="text-[clamp(1.75rem,5.5vw+0.5rem,5.5rem)] font-black leading-[0.95] uppercase text-white drop-shadow-md">
                                                 {word}
                                             </span>
                                         ))}

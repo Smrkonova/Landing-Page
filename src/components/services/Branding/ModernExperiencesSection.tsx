@@ -19,14 +19,14 @@ export default function ModernExperiencesSection() {
                 <div className="relative z-10 flex flex-col lg:flex-row p-6 sm:p-10 md:p-16 lg:p-24 min-h-0 lg:min-h-[600px] items-center lg:items-stretch">
 
                     {/* Left Content Area */}
-                    <div className="flex-1 flex flex-col justify-center z-20 w-full text-left">
-                        <h2 className="text-[34px] sm:text-[46px] md:text-[62px] lg:text-[76px] xl:text-[85px] leading-[1.08] tracking-tight text-[#1a1a1a] mb-5 sm:mb-6 md:mb-8">
-                            <span className="block font-black">Print</span>
-                            <span className="block font-light text-gray-500">Design.</span>
+                    <div className="flex-1 flex flex-col justify-start z-20">
+                        <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3.75rem)] leading-[1.2em] tracking-tight text-[#212121] mb-8">
+                            <span className="block font-[900] uppercase">PRINT & DIGITAL</span>
+                            <span className="block font-[200] text-gray-500 uppercase">BRAND ASSETS.</span>
                         </h2>
 
-                        <p className="text-gray-600 text-[clamp(0.875rem,0.6vw+0.65rem,1.0625rem)] font-normal leading-relaxed max-w-[390px] mb-8 lg:mb-0">
-                            We don't just design. We create assets ready for production.
+                        <p className="text-[#5A5E63] text-[15px] md:text-[16px] font-[400] leading-[1.6em] max-w-[380px]">
+                            We don't just design visual marks. We deliver complete, production-ready brand assets engineered for flawless print and digital execution.
                         </p>
                     </div>
 
@@ -89,7 +89,7 @@ export default function ModernExperiencesSection() {
                         {[0, 1].map((copyIdx) => (
                             <p 
                                 key={copyIdx} 
-                                className="text-[11px] sm:text-[13px] font-medium text-gray-500 tracking-wider whitespace-nowrap shrink-0 pr-8 opacity-80"
+                                className="text-[clamp(13px,0.5vw+5px,14px)] font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap shrink-0 pr-8"
                             >
                                 Visiting Cards &nbsp;·&nbsp; Letterheads &nbsp;·&nbsp; Envelopes &nbsp;·&nbsp; Brochures &nbsp;·&nbsp; Product Catalogues &nbsp;·&nbsp; Flyers &nbsp;·&nbsp; Posters &nbsp;·&nbsp; Banners &nbsp;·&nbsp; Standees &nbsp;·&nbsp; Stickers &nbsp;·&nbsp; Packaging Design &nbsp;·&nbsp; Product Labels &nbsp;·&nbsp; Event Backdrops &nbsp;·&nbsp; Exhibition Panels &nbsp;·&nbsp; Office Branding &nbsp;·&nbsp; ID Cards &nbsp;·&nbsp; Certificates &nbsp;·&nbsp; Merchandise &nbsp;·&nbsp;
                             </p>

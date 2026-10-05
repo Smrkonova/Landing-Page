@@ -50,16 +50,28 @@ export default function IndustriesSlider() {
     <section className="w-full bg-white text-black pt-24 pb-32 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-0">
         {/* Header Section */}
-        <div className="mb-12 md:mb-16 flex flex-col gap-6">
+        <div className="mb-10 md:mb-16 flex flex-col gap-4 md:gap-6">
           <div>
-            <h2 className="text-[clamp(1.75rem,3.8vw+0.5rem,4rem)] leading-[1.05] font-light tracking-tight text-gray-800">
-              Mobile Apps<br />
-              <span className="font-bold text-black">we build.</span>
+            <h2 
+              className="font-[200] tracking-tight text-gray-800 uppercase leading-[1.08]"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '42px',
+              }}
+            >
+              MOBILE APPS <br />
+              <span className="font-[900] text-black">WE BUILD.</span>
             </h2>
           </div>
-          <div className="max-w-[400px]">
-            <p className="text-gray-500 text-[clamp(12px,0.5vw+4px,14px)] leading-relaxed font-medium">
-              Every business has different users, workflows and goals. <br className="hidden sm:block" />
+          <div className="max-w-[420px]">
+            <p 
+              className="text-gray-600 leading-relaxed font-normal"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '14px',
+              }}
+            >
+              Every business has different users, workflows and goals. <br />
               That's why every app we develop is built specifically for your business.
             </p>
           </div>
@@ -80,11 +92,11 @@ export default function IndustriesSlider() {
                   style={{ background: slide.bg }}
                 >
                   <div className="relative z-10 w-[70%] lg:w-[60%] flex flex-col h-full">
-                    <h3 className="text-white text-[clamp(1.125rem,1.4vw+0.5rem,1.5rem)] font-semibold mb-3 tracking-wide">{slide.title}</h3>
-                    <p className="text-white/90 text-[clamp(11px,0.4vw+5px,13px)] leading-relaxed mb-auto max-w-[200px]">
+                    <h3 className="text-white text-[clamp(1.125rem,2.5vw+0.25rem,1.5rem)] font-[500] mb-3 tracking-wide">{slide.title}</h3>
+                    <p className="text-white/90 font-[400] text-[clamp(13px,0.4vw+5px,14px)] leading-relaxed mb-auto max-w-[200px]">
                       {slide.description}
                     </p>
-                    <button suppressHydrationWarning className="text-white flex items-center gap-2 mt-auto text-[clamp(12px,0.5vw+4px,14px)] tracking-wide font-medium group w-fit">
+                    <button suppressHydrationWarning className="text-white flex items-center gap-2 mt-auto text-[clamp(12px,0.5vw+4px,14px)] tracking-wide font-[500] group w-fit">
                       Explore
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>

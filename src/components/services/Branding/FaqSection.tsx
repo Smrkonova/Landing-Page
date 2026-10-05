@@ -5,44 +5,24 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
-    question: "What is included in a branding project?",
-    answer: "A complete branding project typically includes brand discovery, logo design (primary, secondary, and icon marks), color palette, typography hierarchy, iconography style, brand patterns, collateral design (visiting cards, letterheads, social templates), and comprehensive brand guidelines. Deliverables are customized to fit your business goals and market needs.",
+    question: "What is included in a complete branding project?",
+    answer: "A complete branding project typically includes strategic discovery, logo system design (primary, secondary, and icon marks), bespoke color palettes, typography hierarchy, iconography style, marketing collateral, and a comprehensive brand guideline document ready for print and digital deployment.",
   },
   {
-    question: "Do you redesign existing brands?",
-    answer: "Yes. We assist established businesses in refreshing or completely rebranding their identity. We can modernize outdated visuals, realign brand positioning, resolve consistency issues across departments, or execute an evolutionary rebrand while protecting your existing market recognition.",
+    question: "Do you redesign existing brands or build from scratch?",
+    answer: "We do both. We partner with emerging startups to establish brand identities from scratch, and with established enterprises to modernize, realign, and scale their existing brands while protecting their hard-earned equity and recognition in the market.",
   },
   {
-    question: "Will I receive editable files?",
-    answer: "Yes, you will have 100% ownership and receive all master, editable files upon project completion. This includes vector source files (AI, EPS, SVG), high-resolution exports (PNG, JPG, WebP), and organized Figma / Adobe design files for your internal team or future partners.",
+    question: "Will I receive full copyright and editable source files?",
+    answer: "Yes, you retain 100% intellectual property ownership. Upon project delivery, we provide all master vector files (AI, EPS, SVG), high-resolution raster files (PNG, JPG, WebP), and organized Figma design libraries for your team and external vendors.",
   },
   {
-    question: "Can you create brand guidelines?",
-    answer: "Yes. We build detailed brand guidelines (brand books) that clearly outline rules for logo clearspace and misuse, color codes (HEX, RGB, CMYK, Pantone), font pairings, photography art direction, iconography, and voice/tone so your team and external vendors never break consistency.",
+    question: "Can you create comprehensive brand guidelines?",
+    answer: "Yes. We compile detailed brand guidelines covering logo clearspace, color formulas (HEX, RGB, CMYK, Pantone), typographic hierarchy, imagery direction, and dos and don'ts so your brand remains cohesive across all future touchpoints.",
   },
   {
-    question: "Do you design brochures and company profiles?",
-    answer: "Yes. We design multi-page company profiles, product catalogues, corporate brochures, and digital pitch decks. All layouts are engineered with clear hierarchy and compelling visuals, delivered in both interactive digital PDF format and commercial print-ready specifications.",
-  },
-  {
-    question: "Can you design packaging?",
-    answer: "Yes. We design packaging systems, product labels, boxes, pouches, shopping bags, and retail displays. We provide precise dieline setups with bleed, trim, and color separations ready for professional manufacturing and print production.",
-  },
-  {
-    question: "Do you provide print-ready files?",
-    answer: "Yes. All print collateral is provided in print-ready PDF formats configured with CMYK color profiles, vector typography, bleed margins, crop marks, and high-resolution 300+ DPI settings ready for commercial offset or digital printing.",
-  },
-  {
-    question: "Can you create social media templates?",
-    answer: "Yes. We create editable, reusable social media templates for platforms including Instagram (posts, carousels, stories, highlights), LinkedIn, Facebook, and Twitter. We can provide these in Figma, Canva, or Photoshop so your team can easily produce on-brand content.",
-  },
-  {
-    question: "How long does branding take?",
-    answer: "A focused brand identity or startup MVP package typically takes 2 to 4 weeks. A comprehensive brand transformation including extensive research, collateral design, packaging, and exhaustive brand guidelines usually takes 4 to 8 weeks depending on feedback rounds and scope.",
-  },
-  {
-    question: "Can branding be done before website development?",
-    answer: "Yes, establishing your brand identity before website development is strongly recommended. It defines your design tokens, colors, typography, imagery direction, and messaging first, ensuring the website design phase is fast, cohesive, and perfectly aligned with your brand.",
+    question: "Can branding be completed before website development?",
+    answer: "Yes, establishing your brand identity prior to website design is strongly recommended. It defines all design tokens, styling rules, typography scales, and tone of voice first, making your digital web design process faster, cleaner, and deeply cohesive.",
   },
 ];
 
@@ -63,7 +43,7 @@ export default function FaqSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
 
         {/* Title */}
-        <h2 className="text-[clamp(1.75rem,3.5vw+0.5rem,3rem)] font-light text-[#111] text-center mb-12 md:mb-16 uppercase tracking-wide">
+        <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3rem)] font-[200] text-[#000000] text-center mb-12 md:mb-16 uppercase tracking-wide">
           Answers Before You Ask
         </h2>
 
@@ -87,7 +67,7 @@ export default function FaqSection() {
                   onClick={() => toggleFaq(index)}
                   className="w-full flex justify-between items-center p-6 md:px-10 text-left focus:outline-none"
                 >
-                  <span className="text-[#333] font-medium text-[clamp(0.875rem,0.6vw+0.7rem,1.0625rem)]">
+                  <span className="text-[#000000] font-[300] text-[clamp(1.125rem,2.5vw+0.25rem,0.875rem)]">
                     {faq.question}
                   </span>
                   <span className="text-[#333] text-[clamp(1.25rem,1.5vw+0.5rem,1.5rem)] font-light leading-none ml-6">

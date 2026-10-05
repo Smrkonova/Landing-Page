@@ -5,49 +5,29 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
-    question: "Do you only support projects built by Smrkonova?",
-    answer: "No. While we maintain and scale all products we build from scratch, we also take over, audit, and provide ongoing maintenance for websites, applications, and platforms originally developed by third-party agencies or internal teams.",
+    question: "Do you only maintain platforms built by Smrkonova?",
+    answer: "No. While we maintain all digital products we engineer from scratch, we also audit, refactor, and assume ongoing maintenance for websites, mobile applications, and enterprise systems originally built by external vendors or internal teams.",
   },
   {
-    question: "Can you maintain our existing website?",
-    answer: "Yes. We start by conducting a comprehensive code and infrastructure audit of your current site. Once verified, we establish routine backup protocols, update dependencies, monitor uptime, and implement continuous content and performance updates.",
+    question: "What is included in your ongoing maintenance retainers?",
+    answer: "Our retainers provide dedicated development hours covering security patches, dependency upgrades, bug fixes, automated nightly backups, uptime monitoring, CMS updates, and continuous speed and Core Web Vitals optimization.",
   },
   {
-    question: "Do you provide emergency support?",
-    answer: "Yes. Our maintenance retainers include high-priority incident response for critical outages, security breaches, database errors, or broken checkout funnels to restore operations as swiftly as possible.",
+    question: "How do you handle emergency issues and site downtime?",
+    answer: "Critical outages, database crashes, security incidents, or broken checkout flows trigger high-priority alerts with an immediate response within 15–30 minutes to restore service, isolate errors, and deploy urgent hotfixes.",
   },
   {
-    question: "Can you improve an existing Shopify store?",
-    answer: "Yes. We support Shopify and Shopify Plus merchants with speed optimization, checkout flow refinements, theme customizations, private app integrations, inventory synchronization, and custom landing page development.",
+    question: "Can we use our support hours to build new features?",
+    answer: "Yes. Hours can be used flexibly for both maintenance tasks and feature enhancements—such as creating new landing pages, designing modules, building third-party API integrations, or enhancing conversion funnels.",
   },
   {
-    question: "Will you update our mobile application?",
-    answer: "Yes. We provide complete maintenance for iOS and Android apps, including updating SDKs for the latest OS versions, ensuring App Store and Google Play Store policy compliance, bug fixing, and continuous feature enhancements.",
-  },
-  {
-    question: "Can you add new features later?",
-    answer: "Yes. Growth support is designed specifically for iterative feature rollouts. Whether you need a new customer portal, payment gateway, custom calculator, API integration, or dashboard module, we engineer and deploy features seamlessly.",
-  },
-  {
-    question: "Do you monitor website performance?",
-    answer: "Yes. We establish 24/7 automated uptime and performance observability covering Core Web Vitals, page speed benchmarks, SSL validity, DNS health, broken link detection, and server resource utilization.",
-  },
-  {
-    question: "Do you provide monthly maintenance plans?",
-    answer: "Yes. We offer flexible monthly and annual support retainers based on your product's scale, update frequency, and dedicated development hours, with transparent hour tracking and rollover options.",
-  },
-  {
-    question: "Can you optimise our existing software?",
-    answer: "Yes. We review database queries, server infrastructure, API response latency, and frontend bundle sizes to resolve bottlenecks, boost responsiveness, and improve user satisfaction across your business applications.",
-  },
-  {
-    question: "How quickly are support requests handled?",
-    answer: "Emergency issues (e.g. site downtime or checkout failures) are acknowledged within 15–30 minutes and resolved with urgent priority. Standard support requests and feature updates are typically completed within 24 to 48 hours depending on scope.",
+    question: "How do you monitor platform health and performance?",
+    answer: "We establish 24/7 automated synthetic and real-user monitoring tracking uptime, server resource utilization, latency, SSL certificates, broken links, and database load, delivering transparent monthly health reports.",
   },
 ];
 
 export default function FaqSection() {
-  const [openIndex, setOpenIndex] = useState(1); // Open the second one by default
+  const [openIndex, setOpenIndex] = useState(0);
 
   const toggleFaq = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -63,7 +43,7 @@ export default function FaqSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
 
         {/* Title */}
-        <h2 className="text-[clamp(1.75rem,3.5vw+0.5rem,3rem)] font-light text-[#111] text-center mb-12 md:mb-16 uppercase tracking-wide">
+        <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3rem)] font-[200] text-[#000000] text-center mb-12 md:mb-16 uppercase tracking-wide">
           Answers Before You Ask
         </h2>
 
@@ -87,7 +67,7 @@ export default function FaqSection() {
                   onClick={() => toggleFaq(index)}
                   className="w-full flex justify-between items-center p-6 md:px-10 text-left focus:outline-none"
                 >
-                  <span className="text-[#333] font-medium text-[clamp(0.875rem,0.6vw+0.7rem,1.0625rem)]">
+                  <span className="text-[#000000] font-[300] text-[clamp(1.125rem,2.5vw+0.25rem,0.875rem)]">
                     {faq.question}
                   </span>
                   <span className="text-[#333] text-[clamp(1.25rem,1.5vw+0.5rem,1.5rem)] font-light leading-none ml-6">

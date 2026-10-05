@@ -16,14 +16,14 @@ const caseStudies = [
     id: 2,
     title: "NAZR",
     desc: "India's manufacturing sector is expanding rapidly through",
-    img: "/images/industries/case-studies/neelachandra.png",
+    img: "/images/industries/case-studies/nazr.png",
     imgStyle: "absolute -right-1 -top-6 w-[160px] h-[220px] object-contain z-10 rotate-[15deg]",
   },
   {
     id: 3,
     title: "NEELACHANDRA",
     desc: "India's manufacturing sector is expanding rapidly through",
-    img: "/images/industries/case-studies/nazr.png",
+    img: "/images/industries/case-studies/neelachandra.png ",
     imgStyle: "absolute -top-16 -right-4 w-[200px] h-[240px] object-contain z-10",
   },
   {
@@ -37,7 +37,7 @@ const caseStudies = [
     id: 5,
     title: "NEELACHANDRA",
     desc: "India's manufacturing sector is expanding rapidly through",
-    img: "/images/industries/case-studies/nazr.png",
+    img: "/images/industries/case-studies/neelachandra.png ",
     imgStyle: "absolute -top-16 -right-4 w-[200px] h-[240px] object-contain z-10",
   },
 ];

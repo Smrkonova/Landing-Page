@@ -5,49 +5,29 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
-    question: "How long does SEO take to show results?",
-    answer: "SEO is a compound growth strategy that typically begins showing tangible organic visibility and keyword rank improvements within 3 to 6 months. Timelines depend on existing domain authority, competitive density in your market, technical site health, and the consistency of content and authority-building efforts.",
+    question: "How long does SEO take to produce measurable pipeline revenue?",
+    answer: "SEO is a compounding organic engine. Typical technical fixes and initial keyword rank movements appear within 60 to 90 days, with substantial organic traffic growth and qualified inbound leads accelerating between 3 to 6 months as authority and content signals compound.",
   },
   {
-    question: "Do I need Google Ads and SEO together?",
-    answer: "Combining Google Ads and SEO produces the strongest search footprint. Google Ads delivers immediate traffic, leads, and conversion testing data from day one, while SEO builds long-term organic authority and lowers blended acquisition costs. Leveraging both maximizes search engine real estate across high-intent queries.",
+    question: "Should we invest in Google Ads and SEO concurrently?",
+    answer: "Yes. Google Ads delivers immediate high-intent traffic, immediate conversions, and valuable search query data from day one, while SEO builds permanent organic real estate that lowers your long-term blended customer acquisition cost (CAC). Combining both dominates search engine results pages.",
   },
   {
-    question: "Can you optimise my existing website?",
-    answer: "Yes. We begin with an exhaustive audit of your current site covering technical SEO, page speed, mobile performance, on-page structure, and conversion funnels. We then implement technical fixes, optimize content and metadata, and streamline user journeys without requiring a rebuild if your current platform is viable.",
+    question: "How do you track conversions and measure true return on ad spend (ROAS)?",
+    answer: "We implement server-side and client-side attribution architectures using Google Tag Manager, Google Analytics 4, and Meta Conversions API (CAPI). We track phone inquiries, form leads, purchases, and multi-touch interactions so you know the exact ROI for every dollar invested.",
   },
   {
-    question: "Do you manage Google Business Profiles?",
-    answer: "Yes. We handle end-to-end Google Business Profile (formerly GMB) setup, category optimization, business verification, local citations, review generation strategies, photo updates, and location-based local SEO to help you rank in Google Maps and local 3-pack search results.",
+    question: "How do you determine our recommended monthly advertising budget?",
+    answer: "Budgets are calibrated to your customer lifetime value (LTV), target cost per acquisition (CPA), and industry CPC benchmarks. We begin with a disciplined testing budget to validate audiences, ad creatives, and landing page conversion rates before scaling aggressively into verified winning campaigns.",
   },
   {
-    question: "Can you create Meta ad campaigns?",
-    answer: "Yes. We configure your Meta Business Manager, Pixel, and Conversions API (CAPI), build custom and lookalike audiences, design high-converting creative variations (images, carousels, videos), and manage continuous A/B testing and retargeting campaigns across Facebook and Instagram.",
-  },
-  {
-    question: "How do you track conversions?",
-    answer: "We implement advanced server-side and client-side conversion tracking using Google Tag Manager, Google Analytics 4, and Meta Pixel/CAPI. We track phone calls, form submissions, purchases, button clicks, and lead events so you have complete attribution for every dollar spent.",
-  },
-  {
-    question: "Will I receive monthly reports?",
-    answer: "Yes. Every month you receive a transparent, easy-to-understand performance report detailing impressions, website traffic, rankings, lead conversions, cost-per-acquisition (CPA), and return on ad spend (ROAS), accompanied by strategic recommendations for the upcoming month.",
-  },
-  {
-    question: "Can you work with our internal marketing team?",
-    answer: "Absolutely. We often collaborate alongside in-house marketing leaders, designers, or developers. We can handle specialized areas like performance advertising, technical SEO, and conversion analytics, or provide strategic roadmaps while your team focuses on content and brand execution.",
-  },
-  {
-    question: "How much should I spend on advertising?",
-    answer: "Ad spend depends on your industry, target geography, customer acquisition goals, and average customer lifetime value. We usually recommend starting with a focused monthly testing budget to validate audiences, ad creatives, and conversion rates, and then scaling budgets profitably based on validated ROAS and lead cost.",
-  },
-  {
-    question: "Do you create landing pages?",
-    answer: "Yes. We design and develop dedicated, fast-loading landing pages specifically tailored for your advertising campaigns. Every landing page is optimized for conversion with compelling headlines, clear value propositions, trust signals, and distraction-free inquiry forms.",
+    question: "Do you build high-converting landing pages for paid campaigns?",
+    answer: "Yes. Running paid traffic to generic homepages wastes ad spend. We engineer dedicated, high-speed landing pages with targeted copy, strong proof points, and friction-free conversion flows designed specifically to maximize inquiry rates.",
   },
 ];
 
 export default function FaqSection() {
-  const [openIndex, setOpenIndex] = useState(1); // Open the second one by default to match screenshot
+  const [openIndex, setOpenIndex] = useState(0);
 
   const toggleFaq = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -63,7 +43,7 @@ export default function FaqSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
 
         {/* Title */}
-        <h2 className="text-[clamp(1.75rem,3.5vw+0.5rem,3rem)] font-light text-[#111] text-center mb-12 md:mb-16 uppercase tracking-wide">
+        <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3rem)] font-[200] text-[#111] text-center mb-12 md:mb-16 uppercase tracking-wide">
           Answers Before You Ask
         </h2>
 
@@ -87,7 +67,7 @@ export default function FaqSection() {
                   onClick={() => toggleFaq(index)}
                   className="w-full flex justify-between items-center p-6 md:px-10 text-left focus:outline-none"
                 >
-                  <span className="text-[#333] font-medium text-[clamp(0.875rem,0.6vw+0.7rem,1.0625rem)]">
+                  <span className="text-[#333] font-medium text-[17px] md:text-[19px]">
                     {faq.question}
                   </span>
                   <span className="text-[#333] text-[clamp(1.25rem,1.5vw+0.5rem,1.5rem)] font-light leading-none ml-6">
@@ -103,7 +83,7 @@ export default function FaqSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <div className="px-6 md:px-10 pb-8 text-[#555] text-[clamp(0.8125rem,0.5vw+0.65rem,0.9375rem)] leading-relaxed max-w-3xl whitespace-pre-line">
+                      <div className="px-6 md:px-10 pb-8 text-[#555] text-[14px] md:text-[15px] font-normal leading-relaxed max-w-3xl whitespace-pre-line">
                         {faq.answer}
                       </div>
                     </motion.div>

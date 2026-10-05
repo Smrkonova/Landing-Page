@@ -8,48 +8,64 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 const engagementCards = [
     { 
         id: 1, 
-        title: "BUSINESS\nDISCOVERY", 
+        title: "SYSTEM\nARCHITECTURE", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#3AA0FF_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#6FB29E_0%,transparent_70%)]", 
-        rotate: "-rotate-[7deg]", 
+        rotate: "-rotate-[6deg]", 
         y: "translate-y-2 md:translate-y-3", 
         iconColor: "#E03667" 
     },
     { 
         id: 2, 
-        title: "UX RESEARCH", 
+        title: "UI/UX\nPROTOTYPING", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#A1A7FD_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#F7A9D8_0%,transparent_70%)]", 
-        rotate: "rotate-[6deg]", 
+        rotate: "rotate-[5deg]", 
         y: "-translate-y-1 md:-translate-y-2", 
         iconColor: "#B89FD6" 
     },
     { 
         id: 3, 
-        title: "UI DESIGN", 
+        title: "BESPOKE CORE\nDEVELOPMENT", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top,#A1FFF7_0%,transparent_55%),radial-gradient(ellipse_at_bottom,#8848FF_0%,transparent_75%)]", 
-        rotate: "-rotate-[6deg]", 
+        rotate: "-rotate-[5deg]", 
         y: "translate-y-1 md:translate-y-2", 
         iconColor: "#F55779" 
     },
     { 
         id: 4, 
-        title: "INTERACTIVE\nPROTOTYPE", 
+        title: "REST & GRAPHQL\nAPIS", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#6EF3FF_20%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#1530C8_0%,transparent_70%)]", 
-        rotate: "rotate-[5deg]", 
+        rotate: "rotate-[6deg]", 
         y: "-translate-y-1 md:-translate-y-2", 
         iconColor: "#DE5F59" 
     },
     { 
         id: 5, 
-        title: "FLUTTER\nDEVELOPMENT", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top,#3AA0FF_10%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#6FB29E_0%,transparent_70%)]", 
-        rotate: "-rotate-[6deg]", 
-        y: "translate-y-2 md:translate-y-3", 
-        iconColor: "#CE3F68" 
+        title: "ADMIN CONTROL\nCENTRE", 
+        gradient: "bg-white bg-[radial-gradient(ellipse_at_top,#FFDF88_0%,transparent_55%),radial-gradient(ellipse_at_bottom,#F55779_0%,transparent_75%)]", 
+        rotate: "-rotate-[5deg]", 
+        y: "translate-y-1 md:translate-y-2", 
+        iconColor: "#F55779" 
     },
+    { 
+        id: 6, 
+        title: "ENTERPRISE\nSECURITY & QA", 
+        gradient: "bg-white bg-[radial-gradient(ellipse_at_top,#A1FFF7_0%,transparent_55%),radial-gradient(ellipse_at_bottom,#6FB29E_0%,transparent_75%)]", 
+        rotate: "-rotate-[5deg]", 
+        y: "translate-y-1 md:translate-y-2", 
+        iconColor: "#10B981" 
+    },
+    { 
+        id: 7, 
+        title: "DEVOPS & CLOUD\nDEPLOYMENT", 
+        gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#3AA0FF_10%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#8848FF_0%,transparent_70%)]", 
+        rotate: "rotate-[6deg]", 
+        y: "-translate-y-1 md:-translate-y-2", 
+        iconColor: "#8848FF" 
+    }
 ];
 
 // Duplicate items for infinite carousel wrap
-const slideCards = [...engagementCards, ...engagementCards, ...engagementCards];
+const slideCards = [...engagementCards, ...engagementCards];
 
 export default function EngagementSliderSection() {
     const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -77,9 +93,9 @@ export default function EngagementSliderSection() {
             {/* Title Container */}
             <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 mb-8 md:mb-12 flex items-end justify-between">
                 <div>
-                    <h2 className="text-[clamp(1.75rem,3.8vw+0.5rem,3.875rem)] leading-[1.1] tracking-tight uppercase">
-                        <span className="font-black text-[#1a1a1a]">WHAT'S </span>
-                        <span className="font-light text-gray-400">INCLUDED</span>
+                    <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3.75rem)] leading-[1.1] uppercase">
+                        <span className="font-[900] text-[#1a1a1a]">WHAT'S </span>
+                        <span className="font-[200] text-gray-400">INCLUDED</span>
                     </h2>
                 </div>
 
@@ -124,7 +140,7 @@ export default function EngagementSliderSection() {
 
                                 {/* Card Content */}
                                 <div className="flex flex-col items-center gap-5 my-auto">
-                                    <h3 className="text-black font-bold text-[clamp(12px,0.4vw+8px,15px)] text-center tracking-widest leading-relaxed whitespace-pre-line">
+                                    <h3 className="text-black font-[800] text-[clamp(18px,1.2vw+10px,26px)] text-center tracking-tight leading-[1.05] uppercase whitespace-pre-line">
                                         {card.title}
                                     </h3>
 

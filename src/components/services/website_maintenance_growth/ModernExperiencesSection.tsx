@@ -30,12 +30,12 @@ export default function ModernExperiencesSection() {
 
                     {/* Left Content Area */}
                     <div className="flex-1 flex flex-col justify-center z-20 w-full text-left">
-                        <h2 className="text-[34px] sm:text-[46px] md:text-[62px] lg:text-[76px] xl:text-[85px] leading-[1.08] tracking-tight text-[#1a1a1a] mb-5 sm:mb-6 md:mb-8">
-                            <span className="block font-black">Monitoring &amp;</span>
-                            <span className="block font-light text-gray-500">Optimisation.</span>
+                        <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3.75rem)] leading-[1.2em] tracking-tight text-[#212121] mb-5 sm:mb-6 md:mb-8">
+                            <span className="block font-[900] uppercase">Monitoring &amp;</span>
+                            <span className="block font-[200] text-gray-500 uppercase">Optimisation.</span>
                         </h2>
 
-                        <p className="text-gray-600 text-[clamp(0.875rem,0.6vw+0.65rem,1.0625rem)] font-normal leading-relaxed max-w-[420px] mb-8 lg:mb-0">
+                        <p className="text-[#5A5E63] text-[15px] md:text-[16px] font-[400] leading-[1.6em] max-w-[380px] mb-8 lg:mb-0">
                             A successful digital product should never remain static. We continuously monitor and refine your platforms to ensure continuous growth, reliability, and security.
                         </p>
                     </div>
@@ -99,7 +99,7 @@ export default function ModernExperiencesSection() {
                         {[0, 1].map((copyIdx) => (
                             <p 
                                 key={copyIdx} 
-                                className="text-[11px] sm:text-[13px] font-medium text-gray-500 tracking-wider whitespace-nowrap shrink-0 pr-8 opacity-80"
+                                className="text-[clamp(13px,0.5vw+5px,14px)] font-medium text-gray-500 tracking-wider whitespace-nowrap shrink-0 pr-8 opacity-80 uppercase"
                             >
                                 {tickerItems.map((item, idx) => (
                                     <React.Fragment key={idx}>

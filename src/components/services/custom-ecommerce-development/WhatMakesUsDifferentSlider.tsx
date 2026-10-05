@@ -14,28 +14,28 @@ const slides = [
     {
         id: 2,
         type: 'text',
-        title: "Fast & \n Mobile Friendly",
+        title: "Fast &\nMobile\nFriendly",
         subtitle: "Designed for customers shopping on phones, tablets and desktops.", // Runner placeholder
         bg: "bg-gray-300"
     },
     {
         id: 3, type: 'text',
-        title: "Easy\n Product\n Management",
+        title: "Easy\nProduct\nManagement",
         subtitle: "Update products, prices, inventory and promotions without technical knowledge.", bg: "bg-[#BFD4FF]"
     }, // Light blue
     {
         id: 4, type: 'text',
-        title: "Built To Scale",
+        title: "Built\nTo Scale",
         subtitle: "Whether you sell 50 products or 50,000, your platform grows with your business.", bg: "bg-[#E6D6B8]"
     }, // Tan
     {
         id: 5, type: 'text',
-        title: "Conversion Focused",
+        title: "Conversion\nFocused",
         subtitle: "Every page is designed to reduce friction and increase completed purchases.", bg: "bg-[#DFE8B4]"
     }, // Light green
     {
         id: 6, type: 'text',
-        title: "Secure Shopping",
+        title: "Secure\nShopping",
         subtitle: "Reliable payment processing and customer data protection built into every project.", bg: "bg-[#EED3D9]"
     }, // Pink
 ];
@@ -51,13 +51,13 @@ export default function WhatMakesUsDifferentSlider() {
     }, []);
 
     return (
-        <section className="w-full max-w-full bg-white text-black py-24 md:py-32 overflow-hidden relative">
-            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col gap-12 overflow-hidden">
+        <section className="w-full max-w-full bg-white text-black py-15 md:py-20 overflow-hidden relative">
+            <div className="w-full max-w-8xl mx-auto px-6 md:px-12 flex flex-col gap-8 overflow-hidden">
 
                 {/* Section Header */}
                 <div>
-                    <h2 className="text-[clamp(1.25rem,1.8vw+0.5rem,1.75rem)] font-light text-gray-800 tracking-wide uppercase">
-                        More Than Just An Online Store.
+                    <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,2rem)] font-[300] text-gray-800 tracking-wide uppercase">
+                        WHAT MAKES OUR STORES DIFFERENT.
                     </h2>
                 </div>
 
@@ -132,10 +132,10 @@ export default function WhatMakesUsDifferentSlider() {
                                 {/* Slide Content */}
                                 {slide.type === 'text' && (
                                     <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/10 to-black/10">
-                                        <h3 className="text-[clamp(1.75rem,3.2vw+0.5rem,3.75rem)] leading-[1.1] font-light text-white tracking-tight whitespace-pre-line">
+                                        <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line">
                                             {slide.title}
                                         </h3>
-                                        <p className="text-white/80 text-[clamp(0.8125rem,0.4vw+0.65rem,0.9375rem)] font-light max-w-[250px] leading-relaxed">
+                                        <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed">
                                             {slide.subtitle}
                                         </p>
                                     </div>

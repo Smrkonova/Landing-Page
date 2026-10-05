@@ -54,25 +54,17 @@ export default function BrandingPage() {
                     {/* Left Column */}
                     <div className="flex flex-col justify-end md:justify-start text-white max-w-3xl h-full pb-2 md:pb-0 text-center md:text-left items-center md:items-start w-full">
                         <div className="mt-auto md:mt-0 w-full flex flex-col items-center md:items-start">
-                            <h1 className="text-[clamp(2.5rem,5.5vw+0.5rem,5rem)] uppercase font-[200] leading-[1.1] sm:leading-[0.95] tracking-tight mb-6 sm:mb-8 text-center md:text-left">
-                                Branding
+                            <h1 className="text-[clamp(2.75rem,5.5vw+1rem,5.5rem)] font-[100] leading-[0.95] tracking-[0] uppercase mb-4 sm:mb-6 md:mb-8 text-center md:text-left">
+                                Brand<br />
+                                Identity
                             </h1>
 
-                            <p className="hidden md:block text-[clamp(0.8125rem,0.6vw+0.65rem,1rem)] font-[300] leading-relaxed text-white/80 max-w-xl text-left mb-4">
-                               Your brand is much more than a logo. It's<br/>
-                                how customers recognise you, remember you<br/>
-                                and experience your business across every <br/>
-                                interaction. We create complete brand identities <br/>
-                                that work consistently across websites, mobile apps,<br/>
-                                 marketing campaigns and printed materials.
-                            </p>
-
-                            <div className="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-3 sm:gap-4 mt-3 sm:mt-4 w-full sm:w-auto">
-                                <button suppressHydrationWarning className="w-auto bg-[#f0f0f0] text-black px-6 py-3.5 text-[clamp(10px,0.4vw+4px,12px)] font-bold uppercase tracking-[0.15em] hover:bg-white transition-colors text-center whitespace-nowrap">
-                                    Build Youd Brand
+                            <div className="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-3 sm:gap-4 mt-3 sm:mt-4 md:mt-0 mb-0 md:mb-8 w-full sm:w-auto">
+                                <button suppressHydrationWarning className="w-auto bg-[#f0f0f0] text-black px-6 py-3.5 text-[clamp(10px,0.4vw+4px,12px)] font-[500] uppercase tracking-[0.15em] hover:bg-white transition-colors text-center whitespace-nowrap">
+                                    BUILD YOUR BRAND
                                 </button>
-                                <button suppressHydrationWarning className="w-auto border border-white/60 text-white px-6 py-3.5 text-[clamp(10px,0.4vw+4px,12px)] font-bold uppercase tracking-[0.15em] hover:bg-white/10 transition-colors text-center whitespace-nowrap">
-                                   View Branding Projects
+                                <button suppressHydrationWarning className="w-auto border border-white/60 text-white px-6 py-3.5 text-[clamp(10px,0.4vw+4px,12px)] font-[500] uppercase tracking-[0.15em] hover:bg-white/10 transition-colors text-center whitespace-nowrap">
+                                    VIEW BRANDING PROJECTS
                                 </button>
                             </div>
                         </div>
@@ -100,31 +92,35 @@ export default function BrandingPage() {
                 {/* Bottom Stats Bar */}
                 <div className="relative z-20 w-full max-w-7xl mx-auto px-4 md:px-0 mt-6 sm:mt-0 pb-8 lg:pb-12 flex flex-col lg:flex-row items-end justify-between gap-4 lg:gap-8">
                     {/* Bottom Left Text */}
-                    <div className="hidden lg:block lg:w-[35%]"></div>
+                    <div className="hidden lg:block lg:w-[35%] mb-4 lg:mb-0">
+                        <p className="text-[clamp(0.8125rem,0.6vw+0.65rem,1.125rem)] font-[400] leading-[1.8] max-w-[450px] uppercase tracking-[0.05em] text-white">
+                            We design comprehensive brand identities, design systems, and visual narratives engineered to establish industry authority and market distinction.
+                        </p>
+                    </div>
 
                     {/* Bottom Stats Bar */}
                     <div className="flex-grow w-full lg:w-[65%] border border-white/20 rounded-3xl px-8 md:px-12 py-6 sm:py-8 flex flex-wrap md:flex-nowrap items-center justify-between backdrop-blur-md bg-white/5 shadow-2xl">
                         <div className="flex flex-col items-start w-1/2 md:w-auto mb-6 md:mb-0">
-                            <span className="text-[clamp(1.75rem,2.8vw+0.5rem,2.75rem)] font-[200] text-white mb-1 tracking-tight">120+</span>
-                            <span className="text-white/60 text-[clamp(11px,0.4vw+5px,13px)] font-medium tracking-wide">Projects</span>
+                            <span className="text-[clamp(1.125rem,2.5vw+0.25rem,2.3125rem)] font-[200] text-white mb-1 tracking-tight">120+</span>
+                            <span className="text-white/60 text-[clamp(0.75rem,0.7vw+0.25rem,0.75rem)] font-medium tracking-wide">Brands Built</span>
                         </div>
                         <div className="hidden md:block w-[1px] h-12 bg-white/20"></div>
 
                         <div className="flex flex-col items-start w-1/2 md:w-auto mb-6 md:mb-0">
-                            <span className="text-[clamp(1.75rem,2.8vw+0.5rem,2.75rem)] font-[200] text-white mb-1 tracking-tight">9yrs</span>
-                            <span className="text-white/60 text-[clamp(11px,0.4vw+5px,13px)] font-medium tracking-wide">Building the web</span>
+                            <span className="text-[clamp(1.125rem,2.5vw+0.25rem,2.3125rem)] font-[200] text-white mb-1 tracking-tight">9yrs</span>
+                            <span className="text-white/60 text-[clamp(0.75rem,0.7vw+0.25rem,0.75rem)] font-medium tracking-wide">Brand Architecture</span>
                         </div>
                         <div className="hidden md:block w-[1px] h-12 bg-white/20"></div>
 
                         <div className="flex flex-col items-start w-1/2 md:w-auto">
-                            <span className="text-[clamp(1.75rem,2.8vw+0.5rem,2.75rem)] font-[200] text-white mb-1 tracking-tight">24/7</span>
-                            <span className="text-white/60 text-[clamp(11px,0.4vw+5px,13px)] font-medium tracking-wide">Support</span>
+                            <span className="text-[clamp(1.125rem,2.5vw+0.25rem,2.3125rem)] font-[200] text-white mb-1 tracking-tight">24/7</span>
+                            <span className="text-white/60 text-[clamp(0.75rem,0.7vw+0.25rem,0.75rem)] font-medium tracking-wide">Creative Direction</span>
                         </div>
                         <div className="hidden md:block w-[1px] h-12 bg-white/20"></div>
 
                         <div className="flex flex-col items-start w-1/2 md:w-auto">
-                            <span className="text-[clamp(1.75rem,2.8vw+0.5rem,2.75rem)] font-[200] text-white mb-1 tracking-tight">0</span>
-                            <span className="text-white/60 text-[clamp(11px,0.4vw+5px,13px)] font-medium tracking-wide">Templates used</span>
+                            <span className="text-[clamp(1.125rem,2.5vw+0.25rem,2.3125rem)] font-[200] text-white mb-1 tracking-tight">0</span>
+                            <span className="text-white/60 text-[clamp(0.75rem,0.7vw+0.25rem,0.75rem)] font-medium tracking-wide">Stock Logos</span>
                         </div>
                     </div>
                 </div>

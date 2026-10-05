@@ -36,10 +36,13 @@ const technicalSupport = [
 
 export default function TechnologySection() {
     return (
-        <section className="w-full max-w-full bg-white py-8 sm:py-16 md:py-32 px-4 md:px-12 flex justify-center overflow-hidden">
+        <section
+            id="technology-section"
+            className="relative w-full h-auto md:h-[1540px] bg-white overflow-hidden flex justify-center py-6 md:py-0"
+        >
 
-            {/* Main Rounded Card Container */}
-            <div className="relative w-full max-w-7xl min-h-[500px] sm:min-h-[620px] md:min-h-[1400px] bg-white rounded-[28px] sm:rounded-[40px] md:rounded-[60px] overflow-hidden flex flex-col justify-between">
+            {/* Main Full-Width Container */}
+            <div className="relative w-full h-full bg-white overflow-hidden flex flex-col justify-between">
 
                 {/* --- BACKGROUND GRAPHICS & GLOWS --- */}
                 <div className="absolute w-full inset-0 z-0 flex items-center justify-center pointer-events-none">
@@ -95,9 +98,12 @@ export default function TechnologySection() {
 
                     {/* Top Heading */}
                     <div>
-                        <h2 className="text-[clamp(1.75rem,4vw+0.5rem,4.25rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
-                            <span className="block font-light">ONGOING</span>
-                            <span className="block font-black">SUPPORT SERVICES</span>
+                        <h2 
+                            className="leading-[1.15] tracking-tight uppercase"
+                            style={{ fontFamily: "'Inter', sans-serif", fontSize: '42px' }}
+                        >
+                            <span className="font-[200] text-gray-800">ONGOING </span><br />
+                            <span className="font-[900] text-black">SUPPORT SERVICES</span>
                         </h2>
                     </div>
 
@@ -105,13 +111,13 @@ export default function TechnologySection() {
                     <div className="grid grid-cols-2 sm:flex sm:flex-row justify-start gap-4 sm:gap-12 md:gap-20 lg:gap-24 mt-6 sm:mt-12 md:mt-24 lg:mt-32">
                         {/* Marketing Support */}
                         <div className="flex-1 max-w-sm">
-                            <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900 flex items-center gap-1.5 sm:gap-2">
+                            <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121] flex items-center gap-1.5 sm:gap-2">
                                 <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#53A18B]"></span>
                                 MARKETING SUPPORT
                             </h4>
                             <ul className="space-y-1.5 sm:space-y-3">
                                 {marketingSupport.map((item, idx) => (
-                                    <li key={`marketing-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 font-medium">
+                                    <li key={`marketing-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[14px] text-[#5A5E63] font-[400]">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -121,13 +127,13 @@ export default function TechnologySection() {
 
                         {/* Technical Support */}
                         <div className="flex-1 max-w-sm">
-                            <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900 flex items-center gap-1.5 sm:gap-2">
+                            <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121] flex items-center gap-1.5 sm:gap-2">
                                 <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#0060FB]"></span>
                                 TECHNICAL SUPPORT
                             </h4>
                             <ul className="space-y-1.5 sm:space-y-3">
                                 {technicalSupport.map((item, idx) => (
-                                    <li key={`technical-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 font-medium">
+                                    <li key={`technical-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[14px] text-[#5A5E63] font-[400]">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -141,12 +147,12 @@ export default function TechnologySection() {
 
                         {/* Bottom Left Text */}
                         <div className="max-w-[340px] mb-12 lg:mb-0">
-                            <h3 className="text-[36px] md:text-[48px] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-6">
-                                <span className="block font-black">COMPLETE</span>
-                                <span className="block font-black">GROWTH </span>
-                                <span className="block font-light text-gray-600"> PARTNERSHIP</span>
+                            <h3 className="text-[clamp(1.75rem,3.2vw+0.5rem,3.4375rem)] leading-[1.05] tracking-tight uppercase mb-6 text-[#212121]">
+                                <span className="block font-[900]">COMPLETE</span>
+                                <span className="block font-[900]">GROWTH </span>
+                                <span className="block font-[200] text-gray-500">PARTNERSHIP</span>
                             </h3>
-                            <p className="text-gray-600 text-[clamp(11px,0.4vw+6px,14px)] font-medium leading-relaxed">
+                            <p className="text-[#5A5E63] text-[16px] font-[400] leading-relaxed">
                                 We manage continuous improvements, routine updates, marketing adjustments, and emergency technical troubleshooting so you can focus on scaling your business.
                             </p>
                         </div>
@@ -163,7 +169,7 @@ export default function TechnologySection() {
                                 {[...Array(2)].map((_, i) => (
                                     <React.Fragment key={i}>
                                         {["SUPPORT", "SECURITY", "UPDATES", "SPEED", "BACKUPS", "GROWTH", "OPTIMISE", "SCALING", "MONITORING"].map((word, j) => (
-                                            <span key={`${i}-${j}`} className="text-[50px] md:text-[80px] lg:text-[100px] font-black leading-[0.9] uppercase text-white drop-shadow-md">
+                                            <span key={`${i}-${j}`} className="text-[clamp(1.75rem,5.5vw+0.5rem,5.5rem)] font-black leading-[0.95] uppercase text-white drop-shadow-md">
                                                 {word}
                                             </span>
                                         ))}
