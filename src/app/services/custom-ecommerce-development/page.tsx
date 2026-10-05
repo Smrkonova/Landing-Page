@@ -51,40 +51,35 @@ export default function customecommercedevelopment() {
                 </div>
 
                 {/* Main Content Area */}
-                <div className="relative z-40 w-full max-w-7xl mx-auto px-4 md:px-0 pt-36 sm:pt-44 md:pt-32 flex justify-between flex-grow">
+                <div className="relative z-40 w-full max-w-7xl mx-auto px-4 md:px-0 pt-36 sm:pt-44 md:pt-28 flex justify-between flex-grow">
                     {/* Left Column */}
-                    <div className="flex flex-col justify-end md:justify-start text-white max-w-3xl h-full pb-2 md:pb-0 text-center md:text-left items-center md:items-start w-full">
-                        <div className="mt-auto md:mt-0 w-full flex flex-col items-center md:items-start">
-                            <h1 className="text-[clamp(2.25rem,5vw+0.5rem,5rem)] uppercase font-[200] leading-[1.1] sm:leading-[0.95] tracking-tight mb-6 sm:mb-8 text-center md:text-left">
-                                custom ecommerce development
+                    <div className="flex flex-col justify-start text-white max-w-3xl h-full text-left items-start w-full">
+                        <div className="w-full flex flex-col items-start">
+                            <h1 className="text-[clamp(2.75rem,5.5vw+1rem,5.5rem)] font-[100] leading-[0.95] tracking-[0] mb-4 sm:mb-6 text-left">
+                                Custom Ecommerce <br />Development
                             </h1>
 
-                            <p className="hidden md:block text-[clamp(0.8125rem,0.6vw+0.65rem,1rem)] font-[300] leading-relaxed text-white/80 max-w-xl text-left mb-4">
-                                We design and develop custom ecommerce <br /> experiences that help brands sell more, manage <br /> operations efficiently and scale confidently. <br /> From premium Shopify stores to fully custom <br /> ecommerce platforms, every solution is built <br /> around your business—not around pre-built themes.
-                            </p>
-
-                            <div className="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-3 sm:gap-4 mt-3 sm:mb-4 w-full sm:w-auto">
-                                <button suppressHydrationWarning className="w-auto bg-[#f0f0f0] text-black px-6 py-3.5 text-[clamp(10px,0.4vw+4px,12px)] font-bold uppercase tracking-[0.15em] hover:bg-white transition-colors text-center whitespace-nowrap">
-                                    CREATE YOUR CUSTOM WEBSITE
+                            <div className="flex flex-row items-start justify-start gap-4 mt-6">
+                                <button suppressHydrationWarning className="w-auto bg-[#f0f0f0] text-black px-6 py-3.5 text-[clamp(10px,0.4vw+4px,12px)] font-[500] uppercase tracking-[0.15em] hover:bg-white transition-colors text-center whitespace-nowrap cursor-pointer">
+                                    CREATE YOUR CUSTOM STORE
                                 </button>
-                                <button suppressHydrationWarning className="w-auto border border-white/60 text-white px-6 py-3.5 text-[clamp(10px,0.4vw+4px,12px)] font-bold uppercase tracking-[0.15em] hover:bg-white/10 transition-colors text-center whitespace-nowrap">
+                                <button suppressHydrationWarning className="w-auto border border-white/60 text-white px-6 py-3.5 text-[clamp(10px,0.4vw+4px,12px)] font-[500] uppercase tracking-[0.15em] hover:bg-white/10 transition-colors text-center whitespace-nowrap cursor-pointer backdrop-blur-sm bg-white/5">
                                     SEE OUR WORK
                                 </button>
                             </div>
                         </div>
                     </div>
 
-
                     {/* Right Column (Navigation) */}
-                    <div className="hidden lg:flex flex-col text-white text-right space-y-16 pt-12">
+                    <div className="hidden lg:flex flex-col text-white text-right space-y-10 pt-6">
                         <div>
-                            <h3 className="uppercase tracking-[0.05em] text-[clamp(11px,0.4vw+5px,13px)] font-semibold leading-relaxed text-white">
+                            <h3 className="uppercase tracking-[0.05em] text-[clamp(0.875rem,0.6vw+0.25rem,0.875rem)] font-[500] leading-relaxed text-white">
                                 Trusted by teams<br />
                                 across 4 continents
                             </h3>
                         </div>
 
-                        <ul className="flex flex-col gap-2 lg:gap-[50px] text-white/80 font-normal text-[clamp(13px,0.5vw+5px,15px)]">
+                        <ul className="flex flex-col gap-[32px] text-white/80 text-[clamp(0.875rem,0.6vw+0.25rem,0.875rem)] font-[400]">
                             <li className="hover:text-white cursor-pointer transition-colors">Healthcare</li>
                             <li className="hover:text-white cursor-pointer transition-colors">Real Estate</li>
                             <li className="hover:text-white cursor-pointer transition-colors">SaaS</li>
@@ -93,34 +88,42 @@ export default function customecommercedevelopment() {
                         </ul>
                     </div>
                 </div>
-                {/* Bottom Stats Bar */}
-                <div className="relative z-20 w-full max-w-7xl mx-auto px-4 md:px-0 mt-6 sm:mt-0 pb-8 lg:pb-12 flex flex-col lg:flex-row items-end justify-between gap-4 lg:gap-8">
+
+                {/* Bottom Row Area */}
+                <div className="relative z-20 w-full max-w-7xl mx-auto px-4 md:px-0 pb-8 flex flex-col md:flex-row items-end justify-between gap-8">
                     {/* Bottom Left Text */}
-                    <div className="hidden lg:block lg:w-[35%]"></div>
+                    <div className="w-full md:w-[35%]">
+                        <p className="text-[clamp(0.8125rem,0.6vw+0.65rem,1.125rem)] font-[400] leading-[1.8] max-w-[450px] uppercase tracking-[0.05em] text-white mb-2 text-left">
+                            Every business is different.<br />
+                            Your store should be too —<br />
+                            engineered from zero,<br />
+                            not stitched from templates.
+                        </p>
+                    </div>
 
                     {/* Bottom Stats Bar */}
-                    <div className="flex-grow w-full lg:w-[65%] border border-white/20 rounded-3xl px-8 md:px-12 py-6 sm:py-8 flex flex-wrap md:flex-nowrap items-center justify-between backdrop-blur-md bg-white/5 shadow-2xl">
-                        <div className="flex flex-col items-start w-1/2 md:w-auto mb-6 md:mb-0">
-                            <span className="text-[clamp(1.75rem,2.8vw+0.5rem,2.75rem)] font-[200] text-white mb-1 tracking-tight">120+</span>
-                            <span className="text-white/60 text-[clamp(11px,0.4vw+5px,13px)] font-medium tracking-wide">Projects</span>
+                    <div className="flex-grow w-full md:w-[65%] border border-white/20 rounded-3xl px-8 md:px-12 py-5 flex items-center justify-between backdrop-blur-md bg-white/5 shadow-2xl">
+                        <div className="flex flex-col items-start">
+                            <span className="text-[clamp(1.125rem,2.5vw+0.25rem,2.3125rem)] font-[200] text-white mb-1 tracking-tight">120+</span>
+                            <span className="text-white/60 text-[clamp(0.75rem,0.7vw+0.25rem,0.75rem)] font-medium tracking-wide">Stores Launched</span>
                         </div>
-                        <div className="hidden md:block w-[1px] h-12 bg-white/20"></div>
+                        <div className="w-[1px] h-10 bg-white/20"></div>
 
-                        <div className="flex flex-col items-start w-1/2 md:w-auto mb-6 md:mb-0">
-                            <span className="text-[clamp(1.75rem,2.8vw+0.5rem,2.75rem)] font-[200] text-white mb-1 tracking-tight">9yrs</span>
-                            <span className="text-white/60 text-[clamp(11px,0.4vw+5px,13px)] font-medium tracking-wide">Building the web</span>
+                        <div className="flex flex-col items-start">
+                            <span className="text-[clamp(1.125rem,2.5vw+0.25rem,2.3125rem)] font-[200] text-white mb-1 tracking-tight">9yrs</span>
+                            <span className="text-white/60 text-[clamp(0.75rem,0.7vw+0.25rem,0.75rem)] font-medium tracking-wide">Building the web</span>
                         </div>
-                        <div className="hidden md:block w-[1px] h-12 bg-white/20"></div>
+                        <div className="w-[1px] h-10 bg-white/20"></div>
 
-                        <div className="flex flex-col items-start w-1/2 md:w-auto">
-                            <span className="text-[clamp(1.75rem,2.8vw+0.5rem,2.75rem)] font-[200] text-white mb-1 tracking-tight">24/7</span>
-                            <span className="text-white/60 text-[clamp(11px,0.4vw+5px,13px)] font-medium tracking-wide">Support</span>
+                        <div className="flex flex-col items-start">
+                            <span className="text-[clamp(1.125rem,2.5vw+0.25rem,2.3125rem)] font-[200] text-white mb-1 tracking-tight">24/7</span>
+                            <span className="text-white/60 text-[clamp(0.75rem,0.7vw+0.25rem,0.75rem)] font-medium tracking-wide">Support</span>
                         </div>
-                        <div className="hidden md:block w-[1px] h-12 bg-white/20"></div>
+                        <div className="w-[1px] h-10 bg-white/20"></div>
 
-                        <div className="flex flex-col items-start w-1/2 md:w-auto">
-                            <span className="text-[clamp(1.75rem,2.8vw+0.5rem,2.75rem)] font-[200] text-white mb-1 tracking-tight">0</span>
-                            <span className="text-white/60 text-[clamp(11px,0.4vw+5px,13px)] font-medium tracking-wide">Templates used</span>
+                        <div className="flex flex-col items-start">
+                            <span className="text-[clamp(1.125rem,2.5vw+0.25rem,2.3125rem)] font-[200] text-white mb-1 tracking-tight">0</span>
+                            <span className="text-white/60 text-[clamp(0.75rem,0.7vw+0.25rem,0.75rem)] font-[300] tracking-wide">Themes used</span>
                         </div>
                     </div>
                 </div>

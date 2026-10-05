@@ -16,7 +16,7 @@ const engagementCards = [
     },
     { 
         id: 2, 
-        title: "UX STRATEGY", 
+        title: "CUSTOM UI/UX\nDESIGN", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#B8B0EA_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#EA9FC0_0%,transparent_70%)]", 
         rotate: "rotate-[6deg]", 
         y: "-translate-y-1 md:-translate-y-2", 
@@ -24,7 +24,7 @@ const engagementCards = [
     },
     { 
         id: 3, 
-        title: "CUSTOM UI\nDESIGN", 
+        title: "RESPONSIVE\nDEVELOPMENT", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top,#FFF0F3_0%,transparent_55%),radial-gradient(ellipse_at_bottom,#F55779_0%,transparent_75%)]", 
         rotate: "-rotate-[6deg]", 
         y: "translate-y-1 md:translate-y-2", 
@@ -32,7 +32,7 @@ const engagementCards = [
     },
     { 
         id: 4, 
-        title: "RESPONSIVE\nDEVELOPMENT", 
+        title: "PAYMENT\nGATEWAYS", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#79B3BF_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#DE5F59_0%,transparent_70%)]", 
         rotate: "rotate-[5deg]", 
         y: "-translate-y-1 md:-translate-y-2", 
@@ -40,7 +40,7 @@ const engagementCards = [
     },
     { 
         id: 5, 
-        title: "PRODUCT\nSETUP", 
+        title: "INVENTORY &\nSHIPPING", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#7A8EC7_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#CE3F68_0%,transparent_70%)]", 
         rotate: "-rotate-[6deg]", 
         y: "translate-y-2 md:translate-y-3", 
@@ -48,7 +48,7 @@ const engagementCards = [
     },
     { 
         id: 6, 
-        title: "PAYMENT\nINTEGRATION", 
+        title: "SEO &\nANALYTICS", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#6B86DF_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#E03667_0%,transparent_70%)]", 
         rotate: "rotate-[7deg]", 
         y: "-translate-y-1 md:-translate-y-2", 
@@ -56,59 +56,11 @@ const engagementCards = [
     },
     { 
         id: 7, 
-        title: "SHIPPING\nINTEGRATION", 
+        title: "LAUNCH &\nSUPPORT", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#B8B0EA_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#EA9FC0_0%,transparent_70%)]", 
         rotate: "-rotate-[5deg]", 
         y: "translate-y-1 md:translate-y-2", 
         iconColor: "#B89FD6" 
-    },
-    { 
-        id: 8, 
-        title: "ANALYTICS\nSETUP", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top,#FFF0F3_0%,transparent_55%),radial-gradient(ellipse_at_bottom,#F55779_0%,transparent_75%)]", 
-        rotate: "rotate-[6deg]", 
-        y: "-translate-y-1 md:-translate-y-2", 
-        iconColor: "#F55779" 
-    },
-    { 
-        id: 9, 
-        title: "SEO\nSETUP", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#79B3BF_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#DE5F59_0%,transparent_70%)]", 
-        rotate: "-rotate-[6deg]", 
-        y: "translate-y-2 md:translate-y-3", 
-        iconColor: "#DE5F59" 
-    },
-    { 
-        id: 10, 
-        title: "TESTING", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#7A8EC7_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#CE3F68_0%,transparent_70%)]", 
-        rotate: "rotate-[5deg]", 
-        y: "-translate-y-1 md:-translate-y-2", 
-        iconColor: "#CE3F68" 
-    },
-    { 
-        id: 11, 
-        title: "LAUNCH\nSUPPORT", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#6B86DF_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#E03667_0%,transparent_70%)]", 
-        rotate: "-rotate-[6deg]", 
-        y: "translate-y-2 md:translate-y-3", 
-        iconColor: "#E03667" 
-    },
-    { 
-        id: 12, 
-        title: "TRAINING &\nDOCS", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#B8B0EA_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#EA9FC0_0%,transparent_70%)]", 
-        rotate: "rotate-[6deg]", 
-        y: "-translate-y-1 md:-translate-y-2", 
-        iconColor: "#B89FD6" 
-    },
-    { 
-        id: 13, 
-        title: "ONGOING\nSUPPORT", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top,#FFF0F3_0%,transparent_55%),radial-gradient(ellipse_at_bottom,#F55779_0%,transparent_75%)]", 
-        rotate: "-rotate-[6deg]", 
-        y: "translate-y-1 md:translate-y-2", 
-        iconColor: "#F55779" 
     }
 ];
 
@@ -141,9 +93,9 @@ export default function EngagementSliderSection() {
             {/* Title Container */}
             <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 mb-8 md:mb-12 flex items-end justify-between">
                 <div>
-                    <h2 className="text-[24px] sm:text-[36px] md:text-[52px] lg:text-[62px] leading-[1.1] tracking-tight uppercase">
-                        <span className="font-black text-[#1a1a1a]">WHAT'S </span>
-                        <span className="font-light text-gray-400">INCLUDED</span>
+                    <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3.75rem)] leading-[1.1] tracking-tight uppercase">
+                        <span className="font-[900] text-[#212121]">WHAT'S </span>
+                        <span className="font-[200] text-[#212121]">INCLUDED</span>
                     </h2>
                 </div>
 

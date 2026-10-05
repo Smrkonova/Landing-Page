@@ -38,10 +38,13 @@ const scrollTools = [
 
 export default function TechnologySection() {
     return (
-        <section className="w-full max-w-full bg-white py-8 sm:py-16 md:py-32 px-4 md:px-12 flex justify-center overflow-hidden">
+        <section
+            id="technology-section"
+            className="relative w-full h-auto md:h-[1540px] bg-white overflow-hidden flex justify-center py-6 md:py-0"
+        >
 
-            {/* Main Rounded Card Container */}
-            <div className="relative w-full max-w-7xl min-h-[500px] sm:min-h-[620px] md:min-h-[1450px] bg-white rounded-[28px] sm:rounded-[40px] md:rounded-[60px] overflow-hidden flex flex-col justify-between">
+            {/* Main Full-Width Container */}
+            <div className="relative w-full h-full bg-white overflow-hidden flex flex-col justify-between">
 
                 {/* --- BACKGROUND GRAPHICS & GLOWS --- */}
                 <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none h-full w-full">
@@ -95,12 +98,15 @@ export default function TechnologySection() {
 
                     {/* Top Heading */}
                     <div>
-                        <h2 className="text-[clamp(1.75rem,4vw+0.5rem,4.25rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase">
-                            <span className="block font-light">TOOLS</span>
-                            <span className="block font-black">WE WORK WITH</span>
+                        <h2 
+                            className="leading-[1.05em] tracking-tight text-[#1a1a1a] uppercase"
+                            style={{ fontFamily: "'Inter', sans-serif", fontSize: '42px' }}
+                        >
+                            <span className="block font-[200]">TOOLS</span>
+                            <span className="block font-[900]">WE WORK WITH</span>
                         </h2>
-                        <p className="hidden sm:block text-gray-600 text-[13px] sm:text-[15px] md:text-[16px] font-medium leading-relaxed max-w-xl mt-4">
-                            We use industry-standard tools to design, prototype and collaborate efficiently.
+                        <p className="hidden sm:block text-[#5A5E63] text-[14px] font-normal leading-relaxed max-w-xl mt-4">
+                            We use industry-standard tools to research, design, prototype and collaborate seamlessly with your engineering team.
                         </p>
                     </div>
 
@@ -110,10 +116,10 @@ export default function TechnologySection() {
                         <div className="grid grid-cols-2 sm:flex sm:flex-row justify-start gap-4 sm:gap-12 md:gap-20">
                             {/* Design */}
                             <div>
-                                <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900">DESIGN</h4>
-                                <ul className="space-y-1.5 sm:space-y-3">
+                                <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121]" style={{ fontFamily: "'Inter', sans-serif" }}>DESIGN</h4>
+                                <ul className="space-y-3">
                                     {designTools.map((item, idx) => (
-                                        <li key={`design-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 md:text-gray-500 font-medium">
+                                        <li key={`design-${idx}`} className="flex items-start gap-3 text-[14px] text-[#5A5E63] font-[400]">
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
@@ -123,10 +129,10 @@ export default function TechnologySection() {
 
                             {/* Prototyping */}
                             <div>
-                                <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900">PROTOTYPING</h4>
-                                <ul className="space-y-1.5 sm:space-y-3">
+                                <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121]" style={{ fontFamily: "'Inter', sans-serif" }}>PROTOTYPING</h4>
+                                <ul className="space-y-3">
                                     {prototypingTools.map((item, idx) => (
-                                        <li key={`proto-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 md:text-gray-500 font-medium">
+                                        <li key={`proto-${idx}`} className="flex items-start gap-3 text-[14px] text-[#5A5E63] font-[400]">
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
@@ -137,10 +143,10 @@ export default function TechnologySection() {
 
                         {/* Right Section: Motion & Interaction */}
                         <div className="lg:max-w-[340px] lg:mr-18 mt-2 sm:mt-6 lg:mt-0">
-                            <h4 className="text-[clamp(12px,0.5vw+6px,15px)] font-bold tracking-widest uppercase mb-2 sm:mb-4 text-gray-900">MOTION & INTERACTION</h4>
-                            <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 sm:block sm:space-y-3 mb-2 sm:mb-6">
+                            <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121]" style={{ fontFamily: "'Inter', sans-serif" }}>MOTION & INTERACTION</h4>
+                            <ul className="space-y-3 mb-2 sm:mb-6">
                                 {motionTools.map((item, idx) => (
-                                    <li key={`motion-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[clamp(11px,0.4vw+6px,14px)] text-gray-700 md:text-gray-500 font-medium">
+                                    <li key={`motion-${idx}`} className="flex items-start gap-3 text-[14px] text-[#5A5E63] font-[400]">
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -154,12 +160,13 @@ export default function TechnologySection() {
 
                         {/* Bottom Left Text */}
                         <div className="max-w-[340px] mb-12 lg:mb-0">
-                            <h3 className="text-[clamp(1.75rem,2.8vw+0.5rem,3.25rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-4">
-                                <span className="block font-black">Interactive</span>
-                                <span className="block font-light text-gray-600">Experiences</span>
+                            <h3 className="text-[clamp(1.75rem,3.2vw+0.5rem,3.4375rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-6" style={{ fontFamily: "'Inter', sans-serif" }}>
+                                <span className="block font-[900]">INTERACTIVE</span>
+                                <span className="block font-[900]">EXPERIENCES</span>
+                                <span className="block font-[200] text-gray-600">AT SCALE</span>
                             </h3>
-                            <p className="text-gray-600 text-[clamp(11px,0.4vw+6px,14px)] font-medium leading-relaxed">
-                                Used to create interactive experiences, animations and modern product interfaces.
+                            <p className="text-[#5A5E63] text-[16px] font-[400] leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
+                                Every product interface connects users to your core business value. We engineer prototypes and design systems that make growth effortless.
                             </p>
                         </div>
 

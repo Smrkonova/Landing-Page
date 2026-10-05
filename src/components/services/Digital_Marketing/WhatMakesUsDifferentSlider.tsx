@@ -7,21 +7,21 @@ const slides = [
     { 
         id: 1,
         type: 'text', 
-        title: "Generate More\nQualified Leads",   
+        title: "Generate More\nQualified\nLeads",   
         subtitle: "Reach people already searching for your services.", 
         bg: "bg-[linear-gradient(150deg,#004496_22.55%,#FF8B61_87.59%)]"
     },
     { 
         id: 2,
         type: 'text', 
-        title: "Increase\nWebsite Traffic", 
+        title: "Increase\nWebsite\nTraffic", 
         subtitle: "Bring relevant visitors through search engines, paid campaigns and social media.", 
         bg: "bg-[linear-gradient(150deg,#435975_22.55%,#2A3B4C_87.59%)]" 
     },
     { 
         id: 3, 
         type: 'text', 
-        title: "Improve\nSearch Rankings", 
+        title: "Improve\nSearch\nRankings", 
         subtitle: "Help your business appear where customers are actively searching.", 
         bg: "bg-[linear-gradient(150deg,#3B7FBF_22.55%,#004496_87.59%)]" 
     },
@@ -35,7 +35,7 @@ const slides = [
     { 
         id: 5, 
         type: 'text', 
-        title: "Improve\nConversion Rates", 
+        title: "Improve\nConversion\nRates", 
         subtitle: "Turn more visitors into enquiries, bookings and customers.", 
         bg: "bg-[linear-gradient(150deg,#5B5F97_22.55%,#2C3066_87.59%)]" 
     },
@@ -59,15 +59,15 @@ export default function WhatMakesUsDifferentSlider() {
     }, []);
 
     return (
-        <section className="w-full max-w-full bg-white text-black py-24 md:py-32 overflow-hidden relative">
-            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col gap-12 overflow-hidden">
+        <section className="w-full max-w-full bg-white text-black py-15 md:py-20 overflow-hidden relative">
+            <div className="w-full max-w-8xl mx-auto px-6 md:px-12 flex flex-col gap-8 overflow-hidden">
                 
                 {/* Section Header */}
                 <div className="flex flex-col gap-3">
-                    <h2 className="text-[clamp(1.25rem,1.8vw+0.5rem,1.75rem)] font-light text-gray-800 tracking-wide uppercase">
+                    <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,2rem)] font-[300] text-gray-800 tracking-wide uppercase">
                         What We Help You Achieve
                     </h2>
-                    <p className="text-gray-500 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-xl leading-relaxed">
+                    <p className="text-gray-500 text-[14px] font-normal max-w-xl leading-relaxed">
                         Instead of focusing on services, we focus on business outcomes.
                     </p>
                 </div>
@@ -139,10 +139,10 @@ export default function WhatMakesUsDifferentSlider() {
                                 {/* Slide Content */}
                                 {slide.type === 'text' && (
                                     <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/15 to-black/30">
-                                        <h3 className="text-[34px] sm:text-[38px] md:text-[54px] leading-[1.1] font-light text-white tracking-tight whitespace-pre-line">
+                                        <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line">
                                             {slide.title}
                                         </h3>
-                                        <p className="text-white/90 text-[clamp(0.8125rem,0.4vw+0.65rem,0.9375rem)] font-light max-w-[280px] leading-relaxed">
+                                        <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed">
                                             {slide.subtitle}
                                         </p>
                                     </div>

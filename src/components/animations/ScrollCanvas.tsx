@@ -74,17 +74,25 @@ export default function ScrollCanvas({ scrollTriggerRef, onFrameChange }) {
           return;
         }
 
+        let hasResolved = false;
+        const initialThreshold = Math.min(25, framePaths.length);
+
         framePaths.forEach((path, index) => {
           const image = new Image();
           images[index] = image;
 
           const onLoad = () => {
             loadedCount += 1;
+            if (index === 0 && isMounted) {
+              resizeCanvasToElement(canvas);
+              renderFrame(0);
+            }
             if (isMounted) {
               setLoadProgress(Math.round((loadedCount / framePaths.length) * 100));
             }
 
-            if (loadedCount === framePaths.length) {
+            if (!hasResolved && loadedCount >= initialThreshold) {
+              hasResolved = true;
               resolve();
             }
           };

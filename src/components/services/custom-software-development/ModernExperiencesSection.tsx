@@ -20,13 +20,13 @@ export default function ModernExperiencesSection() {
 
                     {/* Left Content Area */}
                     <div className="flex-1 flex flex-col justify-center z-20 w-full">
-                        <h2 className="text-[50px] md:text-[70px] lg:text-[85px] leading-[1.05] tracking-tight text-[#1a1a1a] mb-8">
-                            <span className="block font-black">FEATURES</span>
-                            <span className="block font-light text-gray-500">WE CAN BUILD.</span>
+                        <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3.75rem)] leading-[1.2em] tracking-tight text-[#212121] uppercase mb-8">
+                            <span className="block font-[900]">FEATURES</span>
+                            <span className="block font-[200] text-gray-500">WE CAN BUILD.</span>
                         </h2>
 
-                        <p className="text-gray-600 text-[15px] md:text-[17px] font-medium leading-relaxed max-w-[380px]">
-                            Every application is different. We build features based on your business requirements.
+                        <p className="text-[#5A5E63] text-[15px] md:text-[16px] font-[400] leading-[1.6em] max-w-[380px]">
+                            Every enterprise workflow has unique demands. We engineer purpose-built software features tailored directly to your team's operational goals.
                         </p>
                     </div>
 
@@ -89,7 +89,7 @@ export default function ModernExperiencesSection() {
                         {[0, 1].map((copyIdx) => (
                             <p 
                                 key={copyIdx} 
-                                className="text-[clamp(11px,0.4vw+4px,13px)] font-medium text-gray-500 tracking-wider whitespace-nowrap shrink-0 pr-8"
+                                className="text-[clamp(13px,0.5vw+5px,14px)] font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap shrink-0 pr-8"
                             >
                                 in-app chat &nbsp;·&nbsp; social login &nbsp;·&nbsp; payments &nbsp;·&nbsp; custom integrations &nbsp;·&nbsp; automated workflows &nbsp;·&nbsp; secure APIs &nbsp;·&nbsp; real-time notifications &nbsp;·&nbsp; multi-tenant architecture &nbsp;·&nbsp; cloud deployment &nbsp;·&nbsp;
                             </p>

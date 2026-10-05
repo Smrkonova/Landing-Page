@@ -6,5 +6,37 @@ export const industriesData = [
     description: "Streamlining operations and modernizing the supply chain with robust digital solutions for the manufacturing sector.",
     image: "/images/services/website/manufacturing.png",
     link: "/industries/manufacturing",
-  }
+  },
+  {
+    id: 2,
+    title: "Real Estate",
+    tags: ["DEVELOPERS", "BUILDERS", "PORTALS"],
+    description: "Building digital foundations, sales portals, and immersive experiences that connect developers and luxury buyers.",
+    image: "/images/industries/real-estate/carousel/Modern Architectural House Sculpture 1.png",
+    link: "/industries/real-estate",
+  },
+  {
+    id: 3,
+    title: "Education",
+    tags: ["EDTECH", "INSTITUTIONS", "CAMPUS"],
+    description: "Creating connected admissions pipelines and student engagement systems that bridge the decision gap.",
+    image: "/images/industries/education/caruosel/Futuristic Glass Portal Doorway 1.png",
+    link: "/industries/education",
+  },
+  {
+    id: 4,
+    title: "E-Commerce",
+    tags: ["D2C", "B2B", "RETAIL"],
+    description: "Building high-performance online stores and connected commerce ecosystems designed to convert visitors and scale revenue.",
+    image: "/images/industries/ecommerce/card.jpg",
+    link: "/industries/ecommerce",
+  },
+  {
+    id: 5,
+    title: "Healthcare",
+    tags: ["CLINICAL", "HEALTH-TECH", "B2C"],
+    description: "Engineering secure, compliant digital healthcare ecosystems that connect every stage of the patient care journey.",
+    image: "/images/services/website/healthcare.png",
+    link: "/industries/healthcare",
+  },
 ];

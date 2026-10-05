@@ -5,14 +5,11 @@ import Image from 'next/image';
 
 export default function BuiltFromScratchSection() {
     const cards = [
-        "Business Discovery",
-        "Research",
-        "UX Design",
-        "UI Design",
-        "Development",
-        "Testing",
-        "Store Launch",
-        "Continuous Support"
+        "BUSINESS GOALS",
+        "USER RESEARCH",
+        "UX & UI DESIGN",
+        "NATIVE DEV",
+        "STORE LAUNCH"
     ];
 
     const [activeIndex, setActiveIndex] = useState(0);

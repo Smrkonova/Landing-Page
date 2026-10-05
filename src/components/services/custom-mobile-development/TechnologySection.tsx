@@ -33,7 +33,10 @@ const mobileTags = [
 
 export default function TechnologySection() {
     return (
-        <section className="w-full max-w-full bg-white py-6 md:py-32 px-4 md:px-12 flex justify-center overflow-hidden">
+        <section
+            id="technology-section"
+            className="relative w-full h-auto md:h-[1540px] bg-white overflow-hidden flex justify-center py-6 md:py-0"
+        >
 
             {/* ===== MOBILE LAYOUT (<md, 390px base in DesktopScaler) ===== */}
             <div className="md:hidden flex flex-col w-full max-w-[390px] mx-auto px-2 pt-4 pb-8 bg-white font-sans">
@@ -188,7 +191,7 @@ export default function TechnologySection() {
             </div>
 
             {/* ===== DESKTOP LAYOUT (>=md) ===== */}
-            <div className="hidden md:flex relative w-full max-w-7xl md:min-h-[1540px] bg-white rounded-[40px] md:rounded-[60px] overflow-hidden flex-col justify-between">
+            <div className="hidden md:flex relative w-full h-full bg-white overflow-hidden flex-col justify-between">
 
                 {/* Center VR Image */}
                 <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none h-full w-full">
@@ -245,56 +248,52 @@ export default function TechnologySection() {
                     </div>
 
                     {/* Middle Section: Tech Lists */}
-                    <div className="flex flex-col lg:flex-row justify-between mt-12 md:mt-24 lg:mt-32 gap-6 lg:gap-8">
-                        {/* Left Lists (Mobile Dev & Backend) */}
-                        <div className="flex flex-row justify-start gap-12 md:gap-20">
-                            {/* Mobile Development */}
-                            <div>
-                                <h4 className="text-[15px] font-bold tracking-widest uppercase mb-4 text-gray-900" style={{ fontFamily: "'Inter', sans-serif" }}>MOBILE DEV</h4>
-                                <ul className="space-y-3">
-                                    {mobileTechList.map((item, idx) => (
-                                        <li key={`mobile-${idx}`} className="flex items-start gap-3 text-[14px] text-gray-500 font-medium">
-                                            {checkIcon}
-                                            <span>{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            {/* Backend */}
-                            <div>
-                                <h4 className="text-[15px] font-bold tracking-widest uppercase mb-2 text-gray-900" style={{ fontFamily: "'Inter', sans-serif" }}>BACKEND</h4>
-                                <p className="text-[12px] tracking-wide text-gray-500 mb-4 sm:mb-6">The engine behind your application.</p>
-                                <ul className="space-y-3">
-                                    {backendTechList.map((item, idx) => (
-                                        <li key={`backend-${idx}`} className="flex items-start gap-3 text-[14px] text-gray-500 font-medium">
-                                            {checkIcon}
-                                            <span>{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12 md:mt-24 lg:mt-32 max-w-4xl">
+                        {/* Mobile Development */}
+                        <div>
+                            <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121]">MOBILE DEV</h4>
+                            <ul className="space-y-3">
+                                {mobileTechList.map((item, idx) => (
+                                    <li key={`mobile-${idx}`} className="flex items-center gap-3 text-[14px] text-[#5A5E63] font-[400]">
+                                        {checkIcon}
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
-
+                        {/* Backend */}
+                        <div>
+                            <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121]">BACKEND</h4>
+                            <ul className="space-y-3">
+                                {backendTechList.map((item, idx) => (
+                                    <li key={`backend-${idx}`} className="flex items-center gap-3 text-[14px] text-[#5A5E63] font-[400]">
+                                        {checkIcon}
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                         {/* Right Section: Admin Dashboards */}
-                        <div className="lg:max-w-[340px] lg:mr-12 mt-6 lg:mt-0">
-                            <h4 className="text-[15px] font-bold tracking-widest uppercase mb-2 text-gray-900" style={{ fontFamily: "'Inter', sans-serif" }}>ADMIN DASHBOARDS</h4>
-                            <p className="text-[12px] tracking-wide text-gray-500 mb-3 sm:mb-4">Every app needs a control centre.</p>
-                            <p className="text-[14px] text-gray-500 font-normal leading-relaxed">
-                                We develop custom admin panels to manage users, content, products, reports and business operations.
+                        <div>
+                            <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121]">DASHBOARDS</h4>
+                            <p className="text-[14px] text-[#5A5E63] font-[400] leading-relaxed">
+                                Custom admin panels and monitoring dashboards engineered to manage users, real-time data, permissions, and mission-critical business workflows.
                             </p>
                         </div>
                     </div>
 
                     {/* Bottom Section: Text & Typography Block */}
-                    <div className="w-full max-w-full overflow-hidden flex flex-col lg:flex-row justify-between items-start mt-20 lg:mt-auto relative z-20">
+                    <div className="w-full max-w-full overflow-hidden flex flex-col lg:flex-row justify-between items-end mt-20 lg:mt-auto relative z-20">
 
                         {/* Bottom Left Text */}
-                        <div className="max-w-[320px] mb-12 lg:mb-0">
-                            <h3 className="text-[clamp(1.75rem,2.8vw+0.5rem,3.25rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-6" style={{ fontFamily: "'Inter', sans-serif" }}>
-                                <span className="block font-black">Integrations</span>
+                        <div className="max-w-[420px] mb-12 lg:mb-0">
+                            <h3 className="text-[clamp(1.75rem,3.2vw+0.5rem,3.4375rem)] leading-[1.05] tracking-tight uppercase mb-6">
+                                <span className="block font-[900] text-[#212121]">CONNECT</span>
+                                <span className="block font-[900] text-[#212121]">EVERYTHING</span>
+                                <span className="block font-[200] text-gray-500">TOGETHER</span>
                             </h3>
-                            <p className="text-gray-600 text-[14px] font-medium leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
-                                Modern mobile apps need to work with other systems. We integrate applications with:
+                            <p className="text-[#5A5E63] text-[16px] font-[400] leading-relaxed">
+                                High-performance native and cross-platform mobile architectures engineered with clean API integrations, real-time synchronization, and enterprise security.
                             </p>
                         </div>
 

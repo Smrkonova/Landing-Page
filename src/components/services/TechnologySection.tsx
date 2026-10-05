@@ -37,6 +37,80 @@ const webTags = [
 ];
 
 export default function TechnologySection() {
+    const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+    const scrollItemRefs = React.useRef<(HTMLSpanElement | null)[]>([]);
+    const [activeScrollIndex, setActiveScrollIndex] = React.useState<number>(0);
+    const activeScrollRef = React.useRef<number>(0);
+
+    const mobileScrollContainerRef = React.useRef<HTMLDivElement>(null);
+    const mobileScrollItemRefs = React.useRef<(HTMLSpanElement | null)[]>([]);
+    const [mobileActiveScrollIndex, setMobileActiveScrollIndex] = React.useState<number>(0);
+    const mobileActiveScrollRef = React.useRef<number>(0);
+
+    // Track active item closest to the vertical center of the scrolling container
+    React.useEffect(() => {
+        let animId: number;
+
+        const checkActive = () => {
+            // Desktop active check
+            if (scrollContainerRef.current) {
+                const containerRect = scrollContainerRef.current.getBoundingClientRect();
+                const centerY = containerRect.top + containerRect.height / 2;
+
+                let closestIndex = 0;
+                let minDistance = Infinity;
+
+                for (let i = 0; i < scrollItemRefs.current.length; i++) {
+                    const el = scrollItemRefs.current[i];
+                    if (!el) continue;
+                    const r = el.getBoundingClientRect();
+                    const itemCenterY = r.top + r.height / 2;
+                    const dist = Math.abs(itemCenterY - centerY);
+                    if (dist < minDistance) {
+                        minDistance = dist;
+                        closestIndex = i;
+                    }
+                }
+
+                if (closestIndex !== activeScrollRef.current) {
+                    activeScrollRef.current = closestIndex;
+                    setActiveScrollIndex(closestIndex);
+                }
+            }
+
+            // Mobile active check
+            if (mobileScrollContainerRef.current) {
+                const mobileRect = mobileScrollContainerRef.current.getBoundingClientRect();
+                const mobileCenterY = mobileRect.top + mobileRect.height / 2;
+
+                let mobileClosestIndex = 0;
+                let mobileMinDistance = Infinity;
+
+                for (let i = 0; i < mobileScrollItemRefs.current.length; i++) {
+                    const el = mobileScrollItemRefs.current[i];
+                    if (!el) continue;
+                    const r = el.getBoundingClientRect();
+                    const itemCenterY = r.top + r.height / 2;
+                    const dist = Math.abs(itemCenterY - mobileCenterY);
+                    if (dist < mobileMinDistance) {
+                        mobileMinDistance = dist;
+                        mobileClosestIndex = i;
+                    }
+                }
+
+                if (mobileClosestIndex !== mobileActiveScrollRef.current) {
+                    mobileActiveScrollRef.current = mobileClosestIndex;
+                    setMobileActiveScrollIndex(mobileClosestIndex);
+                }
+            }
+
+            animId = requestAnimationFrame(checkActive);
+        };
+
+        animId = requestAnimationFrame(checkActive);
+        return () => cancelAnimationFrame(animId);
+    }, []);
+
     return (
         <section
             id="technology-section"
@@ -144,34 +218,43 @@ export default function TechnologySection() {
                         }}
                     />
 
-                    {/* Continuous Vertical Scrolling Keywords (16px font size, desktop colors, active bold, non-active 200 weight) */}
+                    {/* Continuous Vertical Scrolling Keywords (16px font size, desktop colors, dynamic active bold, non-active 200 weight) */}
                     <div 
+                        ref={mobileScrollContainerRef}
                         className="absolute right-2 sm:right-3 bottom-4 top-10 w-[210px] z-20 overflow-hidden flex flex-col justify-center text-right pointer-events-none"
                         style={{
-                            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
-                            maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)'
+                            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)',
+                            maskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)'
                         }}
                     >
                         <div className="flex flex-col animate-[mobileVerticalScroll_16s_linear_infinite] gap-4 items-end pr-1">
                             {[...Array(2)].map((_, i) => (
                                 <React.Fragment key={i}>
-                                    {webTags.map((tag, j) => (
-                                        <span
-                                            key={`${i}-${j}`}
-                                            className={`tracking-widest uppercase text-right ${
-                                                tag.active 
-                                                    ? "font-[900] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" 
-                                                    : "font-[200] text-[#91C3E6] drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]"
-                                            }`}
-                                            style={{
-                                                fontFamily: "'Inter', sans-serif",
-                                                fontSize: '16px',
-                                                lineHeight: '1.2',
-                                            }}
-                                        >
-                                            {tag.text}
-                                        </span>
-                                    ))}
+                                    {webTags.map((tag, j) => {
+                                        const globalIndex = i * webTags.length + j;
+                                        const isActive = globalIndex === mobileActiveScrollIndex;
+
+                                        return (
+                                            <span
+                                                key={`${i}-${j}`}
+                                                ref={(el) => {
+                                                    mobileScrollItemRefs.current[globalIndex] = el;
+                                                }}
+                                                className={`tracking-widest uppercase text-right transition-all duration-300 ${
+                                                    isActive 
+                                                        ? "font-[900] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" 
+                                                        : "font-[200] text-[#91C3E6] drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]"
+                                                }`}
+                                                style={{
+                                                    fontFamily: "'Inter', sans-serif",
+                                                    fontSize: '16px',
+                                                    lineHeight: '1.2',
+                                                }}
+                                            >
+                                                {tag.text}
+                                            </span>
+                                        );
+                                    })}
                                 </React.Fragment>
                             ))}
                         </div>
@@ -303,28 +386,38 @@ export default function TechnologySection() {
 
                         {/* Bottom Right Vertical Scrolling Typography */}
                         <div
+                            ref={scrollContainerRef}
                             className="w-full lg:w-auto max-w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden flex flex-col justify-center text-center lg:text-right pointer-events-none relative"
                             style={{
-                                WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 80%, black 60%, transparent 100%)',
-                                maskImage: 'linear-gradient(to bottom, transparent 0%, black 80%, black 60%, transparent 100%)'
+                                WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)',
+                                maskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)'
                             }}
                         >
-                            <div className="flex flex-col animate-[verticalScroll_15s_linear_infinite]">
+                            <div className="flex flex-col animate-[verticalScroll_20s_linear_infinite]">
+                                {/* Duplicated list for seamless infinite scroll */}
                                 {[...Array(2)].map((_, i) => (
                                     <React.Fragment key={i}>
-                                        {webTags.map((tag, j) => (
-                                            <span 
-                                                key={`${i}-${j}`} 
-                                                className={`text-[clamp(2rem,6.5vw+0.5rem,6rem)] leading-[0.95] uppercase drop-shadow-md ${
-                                                    tag.active 
-                                                        ? "font-black text-white" 
-                                                        : "font-[200] text-[#91C3E6]/85"
-                                                }`}
-                                                style={{ fontFamily: "'Inter', sans-serif" }}
-                                            >
-                                                {tag.text}
-                                            </span>
-                                        ))}
+                                        {webTags.map((tag, j) => {
+                                            const globalIndex = i * webTags.length + j;
+                                            const isActive = globalIndex === activeScrollIndex;
+
+                                            return (
+                                                <span 
+                                                    key={`${i}-${j}`} 
+                                                    ref={(el) => {
+                                                        scrollItemRefs.current[globalIndex] = el;
+                                                    }}
+                                                    className={`text-[clamp(1.75rem,5.5vw+0.5rem,5.5rem)] leading-[0.95] uppercase drop-shadow-md transition-all duration-300 ${
+                                                        isActive 
+                                                            ? "font-[900] text-white" 
+                                                            : "font-[200] text-[#91C3E6]/85"
+                                                    }`}
+                                                    style={{ fontFamily: "'Inter', sans-serif" }}
+                                                >
+                                                    {tag.text}
+                                                </span>
+                                            );
+                                        })}
                                     </React.Fragment>
                                 ))}
                             </div>

@@ -3,33 +3,54 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const faqs = [
+const defaultFaqs = [
   {
     question: "Can you build websites for manufacturing companies?",
     answer: "India's manufacturing sector is expanding rapidly through industrial corridors, export zones, and smart manufacturing initiatives yet, many factories still depend on traditional sales methods.\nSmrkonova works hands-on with manufacturers to build systems that strengthen their digital presence while supporting the relationships that already drive their business.",
   },
   {
-    question: "Can you build websites for manufacturing companies?",
-    answer: "India's manufacturing sector is expanding rapidly through industrial corridors, export zones, and smart manufacturing initiatives yet, many factories still depend on traditional sales methods.\nSmrkonova works hands-on with manufacturers to build systems that strengthen their digital presence while supporting the relationships that already drive their business.",
+    question: "How long does a full system deployment typically take?",
+    answer: "Project timelines vary depending on complexity. Standard digital presence and marketing websites take 4–6 weeks, while comprehensive enterprise system integrations and ERP workflows take 8–14 weeks.",
   },
   {
-    question: "Can you build websites for manufacturing companies?",
-    answer: "India's manufacturing sector is expanding rapidly through industrial corridors, export zones, and smart manufacturing initiatives yet, many factories still depend on traditional sales methods.\nSmrkonova works hands-on with manufacturers to build systems that strengthen their digital presence while supporting the relationships that already drive their business.",
+    question: "Do you integrate with our existing ERP or CRM software?",
+    answer: "Yes, we build custom APIs and connectors to sync seamlessly with SAP, Salesforce, Microsoft Dynamics, Zoho, and custom legacy enterprise software.",
   },
   {
-    question: "Can you build websites for manufacturing companies?",
-    answer: "India's manufacturing sector is expanding rapidly through industrial corridors, export zones, and smart manufacturing initiatives yet, many factories still depend on traditional sales methods.\nSmrkonova works hands-on with manufacturers to build systems that strengthen their digital presence while supporting the relationships that already drive their business.",
+    question: "Can you handle complex product catalogues and dynamic pricing?",
+    answer: "Absolutely. We engineer scalable catalogue architectures capable of handling tens of thousands of SKUs, tier-based distributor pricing, and real-time stock sync.",
   },
   {
-    question: "Can you build websites for manufacturing companies?",
-    answer: "India's manufacturing sector is expanding rapidly through industrial corridors, export zones, and smart manufacturing initiatives yet, many factories still depend on traditional sales methods.\nSmrkonova works hands-on with manufacturers to build systems that strengthen their digital presence while supporting the relationships that already drive their business.",
+    question: "Do you provide post-launch maintenance and support?",
+    answer: "Yes, we offer ongoing managed support, proactive uptime monitoring, speed optimization, and continuous feature expansion to ensure your systems never lag.",
   },
 ];
 
-export default function FaqSection() {
-  const [openIndex, setOpenIndex] = useState(1); // Open the second one by default to match screenshot
+interface FaqItem {
+  question: string;
+  answer: string;
+}
 
-  const toggleFaq = (index) => {
+interface FaqSectionProps {
+  title?: React.ReactNode;
+  titleClassName?: string;
+  subtitle?: React.ReactNode;
+  subtitleClassName?: string;
+  questionClassName?: string;
+  faqs?: FaqItem[];
+}
+
+export default function FaqSection({
+  title = "Answers Before You Ask",
+  titleClassName,
+  subtitle,
+  subtitleClassName,
+  questionClassName,
+  faqs = defaultFaqs,
+}: FaqSectionProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(1); // Open the second one by default to match screenshot
+
+  const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
@@ -43,9 +64,16 @@ export default function FaqSection() {
       <div className="max-w-4xl mx-auto px-6 relative z-10">
 
         {/* Title */}
-        <h2 className="text-[clamp(1.75rem,3.5vw+0.5rem,3rem)] font-light text-[#111] text-center mb-16 uppercase tracking-wide">
-          Answers Before You Ask
-        </h2>
+        <div className="text-center mb-16">
+          <h2 className={titleClassName || "text-[clamp(1.75rem,3.5vw+0.5rem,3rem)] font-light text-[#111] uppercase tracking-wide"}>
+            {title}
+          </h2>
+          {subtitle && (
+            <p className={subtitleClassName || "text-gray-500 text-[clamp(12px,0.5vw+6px,14px)] mt-2 font-normal"}>
+              {subtitle}
+            </p>
+          )}
+        </div>
 
         {/* Accordion List */}
         <div className="flex flex-col space-y-4">
@@ -68,7 +96,7 @@ export default function FaqSection() {
                   onClick={() => toggleFaq(index)}
                   className="w-full flex justify-between items-center p-6 md:px-10 text-left focus:outline-none"
                 >
-                  <span className="text-[#333] font-medium text-[clamp(0.875rem,0.6vw+0.7rem,1.0625rem)]">
+                  <span className={questionClassName || "text-[#333] font-medium text-[clamp(0.875rem,0.6vw+0.7rem,1.0625rem)]"}>
                     {faq.question}
                   </span>
                   <span className="text-[#333] text-[clamp(1.25rem,1.5vw+0.5rem,1.5rem)] font-light leading-none ml-6">

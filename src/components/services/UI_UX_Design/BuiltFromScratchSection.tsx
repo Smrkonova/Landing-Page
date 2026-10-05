@@ -5,15 +5,11 @@ import Image from 'next/image';
 
 export default function BuiltFromScratchSection() {
     const cards = [
-        "Business Goals",
-        "User Research",
-        "Strategy",
-        "Information Architecture",
-        "Wireframes",
-        "UI Design",
-        "Prototype",
-        "Developer Handoff",
-        "Continuous Improvement"
+        "USER RESEARCH",
+        "INFORMATION ARCHITECTURE",
+        "WIREFRAMING",
+        "UI SYSTEM DESIGN",
+        "PROTOTYPING & HANDOFF"
     ];
 
     const [activeIndex, setActiveIndex] = useState(0);
@@ -40,8 +36,8 @@ export default function BuiltFromScratchSection() {
                             fontSize: '42px',
                         }}
                     >
-                        EVERY GREAT PRODUCT STARTS WITH<br />
-                        <span className="font-[900] text-black tracking-normal">UNDERSTANDING USERS.</span>
+                        EVERY PRODUCT IS<br />
+                        <span className="font-[900] text-black tracking-normal">BUILT FOR USERS.</span>
                     </h2>
 
                     <p 
@@ -51,7 +47,8 @@ export default function BuiltFromScratchSection() {
                             fontSize: '14px',
                         }}
                     >
-                        Before we design a single screen, we focus on understanding your users, your business and the problems we're trying to solve.
+                        We don't rely on guesswork.<br />
+                        Every interface begins with deep user empathy, simplifying complex workflows into elegant, intuitive experiences.
                     </p>
                 </div>
 

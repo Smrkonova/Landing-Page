@@ -5,14 +5,11 @@ import Image from 'next/image';
 
 export default function BuiltFromScratchSection() {
     const cards = [
-        "Discovery",
-        "Brand Strategy",
-        "Visual Identity",
-        "Marketing Assets",
-        "Digital Presence",
-        "Print Materials",
-        "Brand Guidelines",
-        "Launch"
+        "BRAND AUDIT & DISCOVERY",
+        "STRATEGIC POSITIONING",
+        "VISUAL IDENTITY SYSTEM",
+        "BRAND ASSET CREATION",
+        "STYLE & GUIDELINES"
     ];
 
     const [activeIndex, setActiveIndex] = useState(0);
@@ -39,8 +36,8 @@ export default function BuiltFromScratchSection() {
                             fontSize: '42px',
                         }}
                     >
-                        BUILDING A<br />
-                        <span className="font-[900] text-black tracking-normal">BRAND SYSTEM.</span>
+                        EVERY BRAND IS<br />
+                        <span className="font-[900] text-black tracking-normal">BUILT FROM STRATEGY.</span>
                     </h2>
 
                     <p 
@@ -50,7 +47,8 @@ export default function BuiltFromScratchSection() {
                             fontSize: '14px',
                         }}
                     >
-                        A successful brand isn't created by designing a logo. It's built by creating consistency across every customer touchpoint.
+                        We don't just design logos.<br />
+                        Every project begins with deep strategic alignment to position your business with clarity, authority, and distinction.
                     </p>
 
                 </div>

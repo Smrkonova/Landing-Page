@@ -5,16 +5,11 @@ import Image from 'next/image';
 
 export default function BuiltFromScratchSection() {
     const cards = [
-        "Research",
-        "Strategy",
-        "Website",
-        "SEO",
-        "Content",
-        "Advertising",
-        "Lead Generation",
-        "Analytics",
-        "Optimisation",
-        "Growth"
+        "AUDIENCE RESEARCH",
+        "FUNNEL STRATEGY",
+        "CONTENT CREATION",
+        "PERFORMANCE ADS",
+        "CONVERSION METRICS"
     ];
 
     const [activeIndex, setActiveIndex] = useState(0);
@@ -52,7 +47,7 @@ export default function BuiltFromScratchSection() {
                             fontSize: '14px',
                         }}
                     >
-                        Marketing isn't a single campaign. It's a connected growth system.
+                        Marketing isn't an isolated campaign. We engineer connected conversion systems that systematically attract, engage, and retain high-value customers.
                     </p>
 
                 </div>

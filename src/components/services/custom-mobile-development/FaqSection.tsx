@@ -5,52 +5,24 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
-    question: "Do you build Android and iPhone apps?",
-    answer: "Yes, we develop cross-platform mobile applications that run smoothly on both Android and iOS devices from a unified codebase. We ensure native performance, platform-specific UI nuances, and compliance with Google Play Store and Apple App Store guidelines.",
+    question: "Do you build Android and iOS apps from a single codebase?",
+    answer: "Yes, we build cross-platform mobile applications using Flutter and modern frameworks. This gives you native performance, fluid 60–120fps animations, platform-specific UI nuances, and identical reliability across both iOS and Android while dramatically lowering development and maintenance overhead.",
   },
   {
-    question: "Why do you use Flutter?",
-    answer: "Flutter allows us to build natively compiled, beautiful applications for both iOS and Android from a single codebase. This significantly reduces development time and costs, provides consistent 60–120fps UI performance, and ensures faster rollout of future features without sacrificing native capabilities.",
+    question: "Do you handle the complete App Store and Google Play publishing process?",
+    answer: "Yes. We take full responsibility for app store compliance, certificates, provisioning profiles, store listing metadata, preview assets, and review submission for both Google Play Console and Apple App Store Connect until your application is approved and live.",
   },
   {
-    question: "Can you redesign our existing mobile app?",
-    answer: "Yes, we can conduct a comprehensive UI/UX and technical audit of your current app. We redesign user flows, modernize the visual design, optimize performance, refactor underlying code, and migrate legacy applications to modern frameworks like Flutter.",
+    question: "Can we integrate custom backends, databases, and third-party APIs?",
+    answer: "Absolutely. We architect secure REST and GraphQL API layers connecting your mobile app with custom databases (Node, Laravel, Supabase, Firebase), CRM/ERP systems, payment gateways, push notifications, map routing, and legacy internal platforms.",
   },
   {
-    question: "Can you publish the app on Google Play and the App Store?",
-    answer: "Yes, we handle the entire app submission and store approval process for both Google Play and the Apple App Store. This includes configuring developer accounts, generating release certificates, preparing store metadata and screenshots, and ensuring compliance with store review policies.",
+    question: "How do you guarantee security, speed, and offline capability?",
+    answer: "We incorporate strict security standards including encrypted local storage, biometric authentication, SSL pinning, and automated vulnerability scanning. When needed, we implement local caching and offline-first data synchronization so users can continue work seamlessly during intermittent connectivity.",
   },
   {
-    question: "Can you integrate payment gateways?",
-    answer: "Yes, we integrate secure payment gateways including Razorpay, Stripe, Cashfree, PayU, and in-app purchases (Apple IAP and Google Play Billing). We support multiple payment modes like UPI, cards, net banking, digital wallets, and recurring subscriptions.",
-  },
-  {
-    question: "Can you build admin dashboards?",
-    answer: "Yes, every mobile application needs a centralized control center. We build custom web-based admin dashboards that give you full control to manage users, content, orders, products, push notifications, reports, and business operations.",
-  },
-  {
-    question: "Can users receive push notifications?",
-    answer: "Yes, we integrate Firebase Cloud Messaging (FCM), OneSignal, and custom backend notification engines. You can send transactional alerts, promotional campaigns, automated reminders, and segment-targeted push notifications.",
-  },
-  {
-    question: "Can the app work offline?",
-    answer: "Yes, we can implement local caching and offline data synchronization using technologies like SQLite, Hive, or Firebase offline persistence. Users can view key content and queue actions even with low or no internet connectivity, syncing automatically once back online.",
-  },
-  {
-    question: "Do you provide app maintenance?",
-    answer: "Yes, we offer ongoing post-launch maintenance packages. This includes OS compatibility updates for new iOS and Android versions, security patches, bug fixes, performance monitoring, and regular feature updates.",
-  },
-  {
-    question: "Can you connect our existing software?",
-    answer: "Yes, we build robust RESTful or GraphQL APIs to integrate your mobile app seamlessly with your existing CRM, ERP, warehouse management systems, inventory databases, accounting software, and third-party SaaS tools.",
-  },
-  {
-    question: "How long does mobile app development take?",
-    answer: "A focused MVP or standard business application typically takes 6 to 10 weeks. Larger, feature-dense platforms with custom backends, extensive third-party integrations, and complex admin panels take between 12 to 18 weeks depending on scope.",
-  },
-  {
-    question: "Can we manage the app after launch?",
-    answer: "Yes, through your custom web admin dashboard, non-technical team members can easily update content, view analytics, manage customer data, configure app settings, and trigger communications without writing code. We also provide thorough training and documentation.",
+    question: "What does your post-launch support and maintenance include?",
+    answer: "We provide comprehensive ongoing support including operating system compatibility updates for new iOS and Android releases, performance tracking, crash analytics monitoring, bug fixes, and feature enhancements as your user base scales.",
   },
 ];
 
@@ -71,7 +43,7 @@ export default function FaqSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
 
         {/* Title */}
-        <h2 className="text-[clamp(1.75rem,3.5vw+0.5rem,3rem)] font-light text-[#111] text-center mb-12 md:mb-16 uppercase tracking-wide">
+        <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3rem)] font-[200] text-[#111] text-center mb-12 md:mb-16 uppercase tracking-wide">
           Answers Before You Ask
         </h2>
 
@@ -95,7 +67,7 @@ export default function FaqSection() {
                   onClick={() => toggleFaq(index)}
                   className="w-full flex justify-between items-center p-6 md:px-10 text-left focus:outline-none"
                 >
-                  <span className="text-[#333] font-medium text-[clamp(0.875rem,0.6vw+0.7rem,1.0625rem)]">
+                  <span className="text-[#333] font-medium text-[17px] md:text-[19px]">
                     {faq.question}
                   </span>
                   <span className="text-[#333] text-[clamp(1.25rem,1.5vw+0.5rem,1.5rem)] font-light leading-none ml-6">
@@ -111,7 +83,7 @@ export default function FaqSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <div className="px-6 md:px-10 pb-8 text-[#555] text-[clamp(0.8125rem,0.5vw+0.65rem,0.9375rem)] leading-relaxed max-w-3xl whitespace-pre-line">
+                      <div className="px-6 md:px-10 pb-8 text-[#555] text-[14px] md:text-[15px] font-normal leading-relaxed max-w-3xl whitespace-pre-line">
                         {faq.answer}
                       </div>
                     </motion.div>

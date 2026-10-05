@@ -128,7 +128,7 @@ export default function WhatMakesUsDifferentSlider() {
                                 {/* Slide Content */}
                                 {slide.type === 'text' && (
                                     <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/10 to-black/10">
-                                        <h3 className="text-[clamp(2rem,3.5vw+0.5rem,4rem)] leading-[1.1] font-light text-white tracking-tight whitespace-pre-line">
+                                        <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line">
                                             {slide.title}
                                         </h3>
                                         <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed">

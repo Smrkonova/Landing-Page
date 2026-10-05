@@ -19,14 +19,14 @@ export default function ModernExperiencesSection() {
                 <div className="relative z-10 flex flex-col lg:flex-row p-10 md:p-20 lg:p-24 min-h-[600px] items-center">
 
                     {/* Left Content Area */}
-                    <div className="flex-1 flex flex-col justify-center z-20 w-full">
-                        <h2 className="text-[clamp(2rem,4.5vw+0.5rem,5rem)] leading-[1.05] tracking-tight text-[#1a1a1a] mb-6 sm:mb-8">
-                            <span className="block font-black uppercase">Features</span>
-                            <span className="block font-light text-gray-500 uppercase">We Can Build.</span>
+                    <div className="flex-1 flex flex-col justify-start z-20">
+                        <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3.75rem)] leading-[1.2em] tracking-tight text-[#212121] mb-8">
+                            <span className="block font-[900] uppercase">Modern apps are <br/> no longer</span>
+                            <span className="block font-[200] text-gray-500 uppercase">just static <br/> screens.</span>
                         </h2>
 
-                        <p className="text-gray-600 text-[clamp(0.875rem,0.6vw+0.65rem,1.0625rem)] font-medium leading-relaxed max-w-[420px]">
-                            Every application is different. We build features based on your business requirements.
+                        <p className="text-[#212121] text-[15px] md:text-[16px] font-[400] leading-[1.6em] max-w-[380px]">
+                            We craft interactive, fluid mobile experiences that keep users engaged and deliver seamless performance across devices.
                         </p>
                     </div>
 

@@ -19,14 +19,14 @@ export default function ModernExperiencesSection() {
                 <div className="relative z-10 flex flex-col lg:flex-row p-10 md:p-20 lg:p-24 min-h-[600px] items-center">
 
                     {/* Left Content Area */}
-                    <div className="flex-1 flex flex-col justify-center z-20 w-full">
-                        <h2 className="text-[clamp(2rem,4.5vw+0.5rem,5rem)] leading-[1.05] tracking-tight text-[#1a1a1a] mb-6 sm:mb-8">
-                            <span className="block font-black uppercase">Design</span>
-                            <span className="block font-light text-gray-500 uppercase">Deliverables.</span>
+                    <div className="flex-1 flex flex-col justify-start z-20">
+                        <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3.75rem)] leading-[1.2em] tracking-tight text-[#212121] mb-8">
+                            <span className="block font-[900] uppercase">INTUITIVE UI</span>
+                            <span className="block font-[200] text-gray-500 uppercase">& UX SYSTEMS.</span>
                         </h2>
 
-                        <p className="text-gray-600 text-[clamp(0.875rem,0.6vw+0.65rem,1.0625rem)] font-medium leading-relaxed max-w-[420px]">
-                            Every project is different. We craft user research, interface designs, scalable systems, and developer-ready specifications.
+                        <p className="text-[#5A5E63] text-[15px] md:text-[16px] font-[400] leading-[1.6em] max-w-[380px]">
+                            Modern digital products demand seamless user journeys. We craft data-backed interfaces, scalable component libraries, and developer-ready specifications.
                         </p>
                     </div>
 
@@ -89,7 +89,7 @@ export default function ModernExperiencesSection() {
                         {[0, 1].map((copyIdx) => (
                             <p 
                                 key={copyIdx} 
-                                className="text-[clamp(11px,0.4vw+4px,13px)] font-medium text-gray-500 tracking-wider whitespace-nowrap shrink-0 pr-8"
+                                className="text-[clamp(13px,0.5vw+5px,14px)] font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap shrink-0 pr-8"
                             >
                                 User Research &nbsp;·&nbsp; Competitor Analysis &nbsp;·&nbsp; Product Strategy &nbsp;·&nbsp; Feature Prioritisation &nbsp;·&nbsp; User Flows &nbsp;·&nbsp; Information Architecture &nbsp;·&nbsp; Journey Mapping &nbsp;·&nbsp; Wireframes &nbsp;·&nbsp; High-Fidelity UI &nbsp;·&nbsp; Responsive Layouts &nbsp;·&nbsp; Mobile Design &nbsp;·&nbsp; Desktop Design &nbsp;·&nbsp; Tablet Design &nbsp;·&nbsp; Design System &nbsp;·&nbsp; UI Components &nbsp;·&nbsp; Typography &nbsp;·&nbsp; Colour System &nbsp;·&nbsp; Icons &nbsp;·&nbsp; Spacing Guidelines &nbsp;·&nbsp; Figma Files &nbsp;·&nbsp; Design Specifications &nbsp;·&nbsp; Assets &nbsp;·&nbsp; Documentation &nbsp;·&nbsp;
                             </p>

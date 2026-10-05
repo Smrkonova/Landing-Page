@@ -16,84 +16,100 @@ const cities = [
 // Duplicate enough times so it can scroll seamlessly
 const marqueeItems = [...cities, ...cities, ...cities, ...cities];
 
-export default function LocationsMarquee() {
-  return (
-    <section className="relative w-full bg-white text-black py-24 md:py-32 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-0 flex flex-col md:flex-row items-center">
+interface LocationsMarqueeProps {
+  badge?: string;
+  title?: React.ReactNode;
+  titleClassName?: string;
+  description?: string;
+  descriptionClassName?: string;
+  primaryBtn?: string;
+  primaryBtnClassName?: string;
+  secondaryBtn?: string;
+  secondaryBtnClassName?: string;
+}
 
-        {/* Left Content */}
-        <div className="w-full md:w-[45%] mb-16 md:mb-0 pr-0 md:pr-12 flex flex-col items-center md:items-start text-center md:text-left">
-          <h2 className="text-[clamp(1.75rem,3.2vw+0.5rem,3rem)] font-medium leading-[1.3] text-[#111] mb-8 uppercase tracking-wide">
-            Supporting <br className="hidden sm:block" />
-            Manufacturers across <br className="hidden sm:block" />
-            India's industrial hubs
+export default function LocationsMarquee({
+  badge,
+  title = (
+    <>
+      Supporting <br className="hidden sm:block" />
+      Manufacturers across <br className="hidden sm:block" />
+      India's industrial hubs
+    </>
+  ),
+  titleClassName,
+  description = "India's manufacturing sector is expanding rapidly through industrial corridors, export zones, and smart manufacturing initiatives yet, many factories still depend on traditional sales methods. Smrkonova works hands-on with manufacturers to build systems that strengthen their digital presence while supporting the relationships that already drive their business.",
+  descriptionClassName,
+  primaryBtn = "Build your system",
+  primaryBtnClassName,
+  secondaryBtn = "See what we build",
+  secondaryBtnClassName,
+}: LocationsMarqueeProps) {
+  return (
+    <section className="relative w-full bg-white text-black py-16 sm:py-24 md:py-32 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start md:items-center">
+
+        <div className="w-full md:w-[50%] mb-12 md:mb-0 pr-0 md:pr-12 flex flex-col items-start text-left">
+          {badge && (
+            <div className="mb-4">
+              <span className="bg-[#0091ff] text-white text-[clamp(10px,0.4vw+5px,12px)] font-bold px-3 py-1.5 uppercase tracking-wider rounded">
+                {badge}
+              </span>
+            </div>
+          )}
+          <h2 className={titleClassName || "text-[clamp(1.75rem,5.5vw,2.75rem)] font-normal leading-[1.2] text-[#111] mb-5 uppercase tracking-normal text-left max-w-[440px]"}>
+            {title}
           </h2>
-          <p className="text-[#666] text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] max-w-md mb-12 leading-relaxed">
-            India's manufacturing sector is expanding rapidly through industrial
-            corridors, export zones, and smart manufacturing initiatives yet,
-            many factories still depend on traditional sales methods.
-            Smrkonova works hands-on with manufacturers to build systems
-            that strengthen their digital presence while supporting the
-            relationships that already drive their business.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button suppressHydrationWarning className="bg-[#111] text-white px-8 py-4 text-[clamp(11px,0.4vw+6px,13px)] font-bold tracking-widest uppercase hover:bg-black transition-colors w-full sm:w-auto">
-              Build your system
+
+          <div className={descriptionClassName || "text-[#555] text-[12.5px] sm:text-[13.5px] md:text-[14px] max-w-lg mb-8 sm:mb-10 leading-[1.65] font-normal text-left whitespace-pre-line"}>
+            {description}
+          </div>
+
+          {/* Action Buttons: Stacked full-width on mobile */}
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mb-10 md:mb-0">
+            <button
+              suppressHydrationWarning
+              className={primaryBtnClassName || "inline-flex items-center justify-center bg-[#181818] text-white px-6 py-3.5 sm:py-3 text-[11px] sm:text-[12px] font-bold tracking-[0.08em] uppercase hover:bg-black transition-colors w-full sm:w-[170px] h-[46px] sm:h-[42px] select-none text-center"}
+            >
+              {primaryBtn}
             </button>
-            <button suppressHydrationWarning className="bg-transparent text-[#111] border border-[#111] px-8 py-4 text-[clamp(11px,0.4vw+6px,13px)] font-bold tracking-widest uppercase hover:bg-gray-50 transition-colors w-full sm:w-auto">
-              See what we build
+            <button
+              suppressHydrationWarning
+              className={secondaryBtnClassName || "inline-flex items-center justify-center bg-white text-[#181818] border border-[#181818] px-6 py-3.5 sm:py-3 text-[11px] sm:text-[12px] font-bold tracking-[0.08em] uppercase hover:bg-neutral-50 transition-colors w-full sm:w-[170px] h-[46px] sm:h-[42px] select-none text-center"}
+            >
+              {secondaryBtn}
             </button>
           </div>
         </div>
 
-        {/* Right Content - Vertical Marquee */}
-        <div className="w-full md:w-[55%] relative h-[500px] md:h-[700px] overflow-hidden flex justify-end items-center select-none md:-mr-24 lg:-mr-32">
-
-          {/* Top and Bottom Fade Overlays */}
-          <div className="absolute top-0 left-0 w-full h-32 md:h-48 bg-gradient-to-b from-white to-transparent z-20 pointer-events-none"></div>
-          <div className="absolute bottom-0 left-0 w-full h-32 md:h-48 bg-gradient-to-t from-white to-transparent z-20 pointer-events-none"></div>
-
-          {/* Base Track (Light Grey) */}
-          <motion.div
-            animate={{ y: [0, "-50%"] }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 w-full flex flex-col items-center"
-          >
-            {marqueeItems.map((city, i) => (
-              <div
-                key={i}
-                className="text-[clamp(2.5rem,5.5vw+0.5rem,5.5rem)] font-black text-[#f0f0f0] leading-[1.1] uppercase tracking-tighter"
-              >
-                {city}
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Masked Track (Solid Black, smoothly masked as an overlay in the center) */}
+        {/* Right Content - Vertical Marquee (Left-aligned on mobile, right-aligned on desktop) */}
+        <div className="w-full md:w-[50%] relative h-[440px] sm:h-[520px] md:h-[650px] overflow-hidden flex justify-start md:justify-end items-center select-none">
           <div
-            className="absolute inset-0 z-10 pointer-events-none"
+            className="absolute inset-0 z-10 w-full flex flex-col justify-center"
             style={{
-              WebkitMaskImage: "linear-gradient(to bottom, transparent 40%, black 48%, black 52%, transparent 60%)",
-              maskImage: "linear-gradient(to bottom, transparent 40%, black 48%, black 52%, transparent 60%)"
+              WebkitMaskImage:
+                "linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.3) 18%, rgba(0,0,0,0.6) 36%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.6) 64%, rgba(0,0,0,0.3) 82%, rgba(0,0,0,0.12) 100%)",
+              maskImage:
+                "linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.3) 18%, rgba(0,0,0,0.6) 36%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.6) 64%, rgba(0,0,0,0.3) 82%, rgba(0,0,0,0.12) 100%)",
             }}
           >
             <motion.div
               animate={{ y: [0, "-50%"] }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute top-0 w-full flex flex-col items-center"
+              className="w-full flex flex-col items-start md:items-end pl-0"
             >
               {marqueeItems.map((city, i) => (
                 <div
                   key={i}
-                  className="text-[clamp(2.5rem,5.5vw+0.5rem,5.5rem)] font-black text-[#111] leading-[1.1] uppercase tracking-tighter drop-shadow-md"
+                  className="text-[clamp(2.75rem,8.5vw,5.5rem)] font-black text-[#111] leading-[1.08] uppercase tracking-tighter text-left"
                 >
                   {city}
                 </div>
               ))}
             </motion.div>
           </div>
-
         </div>
+
       </div>
     </section>
   );

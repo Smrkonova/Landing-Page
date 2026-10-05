@@ -10,105 +10,57 @@ const engagementCards = [
         id: 1, 
         title: "MARKETING\nSTRATEGY", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#6B86DF_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#E03667_0%,transparent_70%)]", 
-        rotate: "-rotate-[7deg]", 
+        rotate: "-rotate-[6deg]", 
         y: "translate-y-2 md:translate-y-3", 
         iconColor: "#E03667" 
     },
     { 
         id: 2, 
-        title: "COMPETITOR\nANALYSIS", 
+        title: "SEARCH ENGINE\nOPTIMISATION", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#B8B0EA_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#EA9FC0_0%,transparent_70%)]", 
-        rotate: "rotate-[6deg]", 
+        rotate: "rotate-[5deg]", 
         y: "-translate-y-1 md:-translate-y-2", 
         iconColor: "#B89FD6" 
     },
     { 
         id: 3, 
-        title: "KEYWORD\nRESEARCH", 
+        title: "GOOGLE & META\nADVERTISING", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top,#FFF0F3_0%,transparent_55%),radial-gradient(ellipse_at_bottom,#F55779_0%,transparent_75%)]", 
-        rotate: "-rotate-[6deg]", 
+        rotate: "-rotate-[5deg]", 
         y: "translate-y-1 md:translate-y-2", 
         iconColor: "#F55779" 
     },
     { 
         id: 4, 
-        title: "WEBSITE\nAUDIT", 
+        title: "CONVERSION\nTRACKING & GA4", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#79B3BF_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#DE5F59_0%,transparent_70%)]", 
-        rotate: "rotate-[5deg]", 
+        rotate: "rotate-[6deg]", 
         y: "-translate-y-1 md:-translate-y-2", 
         iconColor: "#DE5F59" 
     },
     { 
         id: 5, 
-        title: "GOOGLE BUSINESS\nPROFILE SETUP", 
+        title: "LANDING PAGE\nOPTIMISATION", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#7A8EC7_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#CE3F68_0%,transparent_70%)]", 
-        rotate: "-rotate-[6deg]", 
-        y: "translate-y-2 md:translate-y-3", 
+        rotate: "-rotate-[5deg]", 
+        y: "translate-y-1 md:translate-y-2", 
         iconColor: "#CE3F68" 
     },
     { 
         id: 6, 
-        title: "SEO\nOPTIMISATION", 
+        title: "RETARGETING\nFUNNELS", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top,#A1FFF7_0%,transparent_55%),radial-gradient(ellipse_at_bottom,#3AA0FF_0%,transparent_75%)]", 
-        rotate: "rotate-[6deg]", 
-        y: "-translate-y-1 md:-translate-y-2", 
+        rotate: "-rotate-[5deg]", 
+        y: "translate-y-1 md:translate-y-2", 
         iconColor: "#0060FB" 
     },
     { 
         id: 7, 
-        title: "GOOGLE ADS\nSETUP", 
+        title: "ROI & ATTRIBUTION\nREPORTING", 
         gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#3AA0FF_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#6FB29E_0%,transparent_70%)]", 
-        rotate: "-rotate-[6deg]", 
-        y: "translate-y-2 md:translate-y-3", 
-        iconColor: "#E03667" 
-    },
-    { 
-        id: 8, 
-        title: "META ADS\nSETUP", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#A1A7FD_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#F7A9D8_0%,transparent_70%)]", 
-        rotate: "rotate-[5deg]", 
-        y: "-translate-y-1 md:-translate-y-2", 
-        iconColor: "#B89FD6" 
-    },
-    { 
-        id: 9, 
-        title: "CONVERSION\nTRACKING", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top,#FFDF88_0%,transparent_55%),radial-gradient(ellipse_at_bottom,#F55779_0%,transparent_75%)]", 
-        rotate: "-rotate-[5deg]", 
-        y: "translate-y-1 md:translate-y-2", 
-        iconColor: "#F55779" 
-    },
-    { 
-        id: 10, 
-        title: "ANALYTICS\nSETUP", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#6EF3FF_20%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#1530C8_0%,transparent_70%)]", 
         rotate: "rotate-[6deg]", 
         y: "-translate-y-1 md:-translate-y-2", 
-        iconColor: "#DE5F59" 
-    },
-    { 
-        id: 11, 
-        title: "MONTHLY\nREPORTS", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top,#3AA0FF_10%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#6FB29E_0%,transparent_70%)]", 
-        rotate: "-rotate-[6deg]", 
-        y: "translate-y-2 md:translate-y-3", 
-        iconColor: "#CE3F68" 
-    },
-    { 
-        id: 12, 
-        title: "LANDING PAGE\nRECOMMENDATIONS", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top_left,#A1A7FD_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,#3AA0FF_0%,transparent_70%)]", 
-        rotate: "rotate-[5deg]", 
-        y: "-translate-y-1 md:-translate-y-2", 
-        iconColor: "#3AA0FF" 
-    },
-    { 
-        id: 13, 
-        title: "ONGOING\nOPTIMISATION", 
-        gradient: "bg-white bg-[radial-gradient(ellipse_at_top,#A1FFF7_0%,transparent_55%),radial-gradient(ellipse_at_bottom,#6FB29E_0%,transparent_75%)]", 
-        rotate: "-rotate-[5deg]", 
-        y: "translate-y-1 md:translate-y-2", 
-        iconColor: "#10B981" 
+        iconColor: "#E03667" 
     }
 ];
 
@@ -141,9 +93,9 @@ export default function EngagementSliderSection() {
             {/* Title Container */}
             <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 mb-8 md:mb-12 flex items-end justify-between">
                 <div>
-                    <h2 className="text-[clamp(1.75rem,3.8vw+0.5rem,3.875rem)] leading-[1.1] tracking-tight uppercase">
-                        <span className="font-black text-[#1a1a1a]">WHAT'S </span>
-                        <span className="font-light text-gray-400">INCLUDED</span>
+                    <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3.75rem)] leading-[1.1] uppercase">
+                        <span className="font-[900] text-[#1a1a1a]">WHAT'S </span>
+                        <span className="font-[200] text-gray-400">INCLUDED</span>
                     </h2>
                 </div>
 
@@ -188,7 +140,7 @@ export default function EngagementSliderSection() {
 
                                 {/* Card Content */}
                                 <div className="flex flex-col items-center gap-5 my-auto">
-                                    <h3 className="text-black font-bold text-[clamp(12px,0.4vw+8px,15px)] text-center tracking-widest leading-relaxed whitespace-pre-line">
+                                    <h3 className="text-black font-[800] text-[clamp(18px,1.2vw+10px,26px)] text-center tracking-tight leading-[1.05] uppercase whitespace-pre-line">
                                         {card.title}
                                     </h3>
 

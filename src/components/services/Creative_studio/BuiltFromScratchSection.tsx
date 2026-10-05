@@ -5,13 +5,11 @@ import Image from 'next/image';
 
 export default function BuiltFromScratchSection() {
     const cards = [
-        "Concept",
-        "Storyboard",
-        "Design",
-        "Animation",
-        "Production",
-        "Optimisation",
-        "Launch"
+        "CONCEPT & IDEATION",
+        "STORYBOARDING",
+        "VISUAL ASSET DESIGN",
+        "MOTION & ANIMATION",
+        "STUDIO PRODUCTION"
     ];
 
     const [activeIndex, setActiveIndex] = useState(0);
@@ -43,19 +41,15 @@ export default function BuiltFromScratchSection() {
                     </h2>
 
                     <p 
-                        className="text-gray-500 max-w-sm mb-6 leading-relaxed font-normal"
+                        className="text-gray-500 max-w-sm mb-8 md:mb-10 leading-relaxed font-normal"
                         style={{
                             fontFamily: "'Inter', sans-serif",
                             fontSize: '14px',
                         }}
                     >
-                        Great creative isn't limited to one platform. We design assets that work consistently across digital, print and video.
+                        Great creative isn't limited to one platform.<br />
+                        We craft cohesive cinematic visuals and interactive assets tailored for digital, print, and video touchpoints.
                     </p>
-
-                    <div className="inline-flex items-center gap-2 text-[clamp(10px,0.4vw+5px,12px)] font-semibold uppercase tracking-wider text-gray-400">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#0066FF]"></span>
-                        Every project is planned around where your audience will experience it.
-                    </div>
                 </div>
 
                 {/* Right Side: Rebuilt UI Graphic */}

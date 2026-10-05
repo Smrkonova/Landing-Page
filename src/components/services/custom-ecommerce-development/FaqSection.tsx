@@ -6,55 +6,23 @@ import { motion, AnimatePresence } from "framer-motion";
 const faqs = [
   {
     question: "Why choose a custom ecommerce website instead of a template?",
-    answer: "Pre-built templates often come with bloated code, rigid layout constraints, and generic user experiences that limit conversions. A custom ecommerce website is engineered from scratch around your brand identity, unique customer journey, and specific business workflows—ensuring ultra-fast load times, seamless checkout, and unlimited scalability.",
+    answer: "Pre-built templates come with bloated code, rigid layout constraints, and generic user experiences that harm conversions. A custom ecommerce platform is engineered from zero around your product catalog, customer journey, and checkout flow—ensuring lightning-fast speeds and higher sales.",
   },
   {
-    question: "Do you develop custom Shopify stores?",
-    answer: "Yes, we build bespoke Shopify and Shopify Plus stores. Rather than relying on off-the-shelf themes, we design custom Shopify Liquid and headless architectures with tailored product pages, custom filtering, interactive configurators, and private app integrations.",
+    question: "Do you develop custom Shopify and Shopify Plus stores?",
+    answer: "Yes, we build bespoke Shopify and Shopify Plus experiences. Rather than relying on off-the-shelf themes, we craft custom Shopify Liquid or headless Next.js frontends with tailored product pages, custom filtering, and bespoke app integrations.",
   },
   {
-    question: "Can you redesign our existing ecommerce website?",
-    answer: "Absolutely. We can revamp your current store's visual design, information architecture, and checkout flow to enhance user experience, decrease cart abandonment, and significantly boost your conversion rate while retaining your existing SEO rankings and customer data.",
+    question: "Can you integrate payment gateways and courier shipping?",
+    answer: "Yes, we integrate leading payment gateways including Razorpay, Stripe, Cashfree, PayU, and PayPal. We also connect your store with shipping aggregators like Shiprocket, Delhivery, and Blue Dart for real-time rates, label generation, and tracking.",
   },
   {
-    question: "Can you migrate from WooCommerce or Magento?",
-    answer: "Yes, we handle end-to-end ecommerce migrations across platforms—including moving from WooCommerce, Magento, OpenCart, or legacy setups to Shopify, Next.js, or modern headless platforms with zero data loss for products, customer accounts, and order histories.",
+    question: "Can you connect our ERP, warehouse and inventory systems?",
+    answer: "Yes, we build secure API integrations connecting your online store directly with your ERP, warehouse management systems, and point-of-sale software for real-time inventory synchronization across all sales channels.",
   },
   {
-    question: "Can you integrate Razorpay or Stripe?",
-    answer: "Yes, we integrate leading payment gateways including Razorpay, Stripe, PayU, Cashfree, PayPal, and Apple Pay/Google Pay. We also implement multi-currency support, automated invoicing, EMI options, and secure PCI-DSS compliant checkout flows.",
-  },
-  {
-    question: "Can you connect our warehouse and inventory systems?",
-    answer: "Yes, we connect your ecommerce platform with ERP systems, warehouse management software (WMS), point-of-sale (POS) systems, and shipping aggregators like Shiprocket, Delhivery, and Blue Dart for real-time inventory synchronization and automated order fulfillment.",
-  },
-  {
-    question: "Do you build B2B ecommerce platforms?",
-    answer: "Yes, we develop specialized B2B ecommerce solutions featuring customer-specific wholesale pricing, minimum order quantities (MOQ), custom credit terms, bulk order forms, multi-tiered accounts, and quotation workflows.",
-  },
-  {
-    question: "Can you create multilingual online stores?",
-    answer: "Yes, we build multi-language and multi-currency ecommerce websites tailored for global commerce, with automatic geo-detection, localized currency conversion, and dedicated international SEO setups.",
-  },
-  {
-    question: "Will the website be mobile friendly?",
-    answer: "Every ecommerce platform we build is mobile-first. Over 75% of ecommerce traffic originates on smartphones, so we design fluid, app-like mobile browsing experiences, quick-add drawers, sticky checkout bars, and thumb-friendly navigation.",
-  },
-  {
-    question: "Can customers track their orders?",
-    answer: "Yes, we build comprehensive customer account portals with live order tracking, automated WhatsApp/SMS/Email status notifications, return/exchange request workflows, and integration with your courier partners' APIs.",
-  },
-  {
-    question: "Do you provide ongoing maintenance?",
-    answer: "Yes, we provide post-launch support and growth packages that cover security updates, speed optimization, server monitoring, bug fixes, feature enhancements, and seasonal campaign launches.",
-  },
-  {
-    question: "Can you improve website speed and conversions?",
-    answer: "Speed directly impacts sales. We optimize Core Web Vitals, asset compression, database queries, and checkout friction to achieve sub-second load times and higher checkout completion rates.",
-  },
-  {
-    question: "How long does an ecommerce project take?",
-    answer: "A standard custom Shopify or ecommerce project typically takes between 4 to 8 weeks, while complex enterprise platforms with custom ERP integrations and B2B workflows take between 8 to 14 weeks depending on scope and specifications.",
+    question: "How long does a custom ecommerce project take?",
+    answer: "A standard custom ecommerce project typically takes between 4 to 8 weeks, while complex platforms with custom ERP integrations and B2B workflows take 8 to 12 weeks. We also provide dedicated post-launch support and growth retainers.",
   },
 ];
 
@@ -75,7 +43,7 @@ export default function FaqSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
 
         {/* Title */}
-        <h2 className="text-[clamp(1.75rem,3.5vw+0.5rem,3rem)] font-light text-[#111] text-center mb-12 md:mb-16 uppercase tracking-wide">
+        <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3rem)] font-[200] text-[#000000] text-center mb-12 md:mb-16 uppercase tracking-wide">
           Answers Before You Ask
         </h2>
 
@@ -99,7 +67,7 @@ export default function FaqSection() {
                   onClick={() => toggleFaq(index)}
                   className="w-full flex justify-between items-center p-6 md:px-10 text-left focus:outline-none"
                 >
-                  <span className="text-[#333] font-medium text-[clamp(0.875rem,0.6vw+0.7rem,1.0625rem)]">
+                  <span className="text-[17px] md:text-[19px] font-medium text-[#111111]">
                     {faq.question}
                   </span>
                   <span className="text-[#333] text-[clamp(1.25rem,1.5vw+0.5rem,1.5rem)] font-light leading-none ml-6">
@@ -115,7 +83,7 @@ export default function FaqSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <div className="px-6 md:px-10 pb-8 text-[#555] text-[clamp(0.8125rem,0.5vw+0.65rem,0.9375rem)] leading-relaxed max-w-3xl whitespace-pre-line">
+                      <div className="px-6 md:px-10 pb-8 text-gray-600 text-[14px] md:text-[15px] font-normal leading-relaxed max-w-3xl whitespace-pre-line">
                         {faq.answer}
                       </div>
                     </motion.div>

@@ -5,21 +5,17 @@ import Image from 'next/image';
 
 export default function BuiltFromScratchSection() {
     const cards = [
-        "Launch",
-        "Collect Feedback",
-        "Analyse Data",
-        "Improve Experience",
-        "Add Features",
-        "Optimise Performance",
-        "Scale"
+        "CONTINUOUS MONITORING",
+        "PERFORMANCE AUDITS",
+        "SECURITY PATCHING",
+        "FEATURE ITERATION",
+        "SCALABLE GROWTH"
     ];
 
     const [activeIndex, setActiveIndex] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            // Scroll upwards: so the "next" item to enter the center comes from below
-            // This means we DECREASE the active index.
             setActiveIndex((current) => (current === 0 ? cards.length - 1 : current - 1));
         }, 3000);
         return () => clearInterval(interval);
@@ -103,8 +99,8 @@ export default function BuiltFromScratchSection() {
                                     {cards.map((text, i) => {
                                         // Calculate shortest distance in a circular array
                                         let distance = i - activeIndex;
-                                        if (distance < -3) distance += cards.length;
-                                        if (distance > 3) distance -= cards.length;
+                                        if (distance < -2) distance += cards.length;
+                                        if (distance > 2) distance -= cards.length;
 
                                         const isActive = distance === 0;
                                         const isVisible = Math.abs(distance) <= 1;
