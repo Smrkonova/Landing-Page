@@ -47,7 +47,7 @@ export default function TechnologySection() {
                 {/* --- BACKGROUND GRAPHICS & GLOWS --- */}
                 <div className="absolute w-full inset-0 z-0 flex items-center justify-center pointer-events-none">
                     <img
-                        src="/images/services/website/woman-holding-shopping-bags-looking-phone 1.png"
+                        src="/images/services/website/website_maintanenece/woman-repairer-isolated-with-laptop 1.png"
                         alt="Support Specialist"
                         className="w-full h-full object-cover md:object-contain opacity-90 scale-110 md:scale-100"
                     />
@@ -159,13 +159,13 @@ export default function TechnologySection() {
 
                         {/* Bottom Right Vertical Scrolling Typography */}
                         <div
-                            className="h-[400px] md:h-[500px] overflow-hidden flex flex-col justify-center text-right pointer-events-none relative"
+                            className="w-full lg:w-auto max-w-full h-[320px] sm:h-[380px] md:h-[450px] overflow-hidden flex flex-col justify-center text-center lg:text-right pointer-events-none relative"
                             style={{
                                 WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)',
                                 maskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)'
                             }}
                         >
-                            <div className="flex flex-col animate-[verticalScroll_15s_linear_infinite]">
+                            <div className="flex flex-col animate-[verticalScroll_20s_linear_infinite]">
                                 {[...Array(2)].map((_, i) => (
                                     <React.Fragment key={i}>
                                         {["SUPPORT", "SECURITY", "UPDATES", "SPEED", "BACKUPS", "GROWTH", "OPTIMISE", "SCALING", "MONITORING"].map((word, j) => (

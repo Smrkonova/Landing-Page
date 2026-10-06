@@ -9,36 +9,36 @@ const slides = [
   {
     title: "Corporate Websites",
     description: "Professional websites that build trust and generate enquiries.",
-    image: "/images/services/website/healthcare.png", // Placeholder image for now
+    image: "/images/services/website/web development/image 38 (1).png", // Placeholder image for now
     bg: "linear-gradient(139.7deg, #E0B85C 22.55%, #F4DFA8 87.59%)"
   },
   {
     title: "HEALTHCARE WEBSITES",
     description: "Appointment booking, doctor profiles and patient information.",
-    image: "/images/services/website/healthcare.png",
+    image: "/images/services/website/web development/healthcare.png",
     bg: "linear-gradient(139.7deg, #51BAEF 22.55%, #BED6E1 87.59%)"
   },
   {
     title: "Real Estate Websites",
     description: "Admissions, courses, student portals and online applications.",
-    image: "/images/services/website/manufacturing.png",
+    image: "/images/services/website/web development/image 35.png",
     bg: "linear-gradient(139.7deg, #436475 22.55%, #BED6E1 87.59%)"
   },
   {
     title: "Manufacturing Websites",
     description: "Product catalogues, certifications and enquiry systems.",
-    image: "/images/services/website/healthcare.png", // Placeholder image for now
+    image: "/images/services/website/web development/manufacturing.png", // Placeholder image for now
     bg: "linear-gradient(139.7deg, #E0B85C 22.55%, #F4DFA8 87.59%)"
   },
   {
     title: "Educational Websites",
     description: "Admissions, courses, student portals and online applications.",
-    image: "/images/services/website/manufacturing.png",
+    image: "/images/services/website/web development/image 36.png",
     bg: "linear-gradient(139.7deg, #436475 22.55%, #BED6E1 87.59%)"
   }, {
     title: "Ecommerce Websites",
     description: "Custom shopping experiences built for conversions.",
-    image: "/images/services/website/healthcare.png",
+    image: "/images/services/website/web development/image 37.png",
     bg: "linear-gradient(139.7deg, #51BAEF 22.55%, #BED6E1 87.59%)"
   }
 ];

@@ -9,37 +9,47 @@ const slides = [
   {
     title: "Bussiness Apps",
     description: "Applications that help companies manage operations, customers and teams.",
-    image: "/images/services/website/yre1.png", // Placeholder image for now
+    image: "/images/services/website/mobile/image 45.png", // Placeholder image for now
     bg: "linear-gradient(139.7deg, #4C9B94 22.55%, #BED6E1 87.59%)"
   },
   {
     title: "Customer Apps",
     description: "Apps that improve customer engagement, bookings, purchases and support.",
-    image: "/images/services/website/yre1.png", // Placeholder image for now
-    bg: "linear-gradient(139.7deg, #4C9B94 22.55%, #BED6E1 87.59%)"
+    image: "/images/services/website/mobile/image 46.png", // Placeholder image for now
+    bg: "linear-gradient(139.7deg, #3B7FBF 22.55%, #BED6E1 87.59%)"
   },
   {
     title: "Ecommerce Apps",
     description: "Shopping experiences with secure payments, order tracking and customer accounts.",
-    image: "/images/services/website/yre1.png",
+    image: "/images/services/website/mobile/image 47.png",
     bg: "linear-gradient(139.7deg, #435975 22.55%, #BED6E1 87.59%)"
   }, {
     title: "Healthcare Apps",
     description: "Appointment booking, patient records, teleconsultation and healthcare management.",
-    image: "/images/services/website/yre1.png", // Placeholder image for now
+    image: "/images/services/website/mobile/image 48.png", // Placeholder image for now
     bg: "linear-gradient(139.7deg, #4C9B94 22.55%, #BED6E1 87.59%)"
   },
   {
     title: "Educational Apps",
     description: "Student portals, online learning, assignments and course management.",
-    image: "/images/services/website/yre1.png", // Placeholder image for now
-    bg: "linear-gradient(139.7deg, #4C9B94 22.55%, #BED6E1 87.59%)"
+    image: "/images/services/website/mobile/image 49.png", // Placeholder image for now
+   bg: "linear-gradient(139.7deg, #3B7FBF 22.55%, #BED6E1 87.59%)"
   },
   {
     title: "Enterprise Apps",
     description: "Large-scale applications with dashboards, reporting and internal workflows.",
-    image: "/images/services/website/yre1.png",
+    image: "/images/services/website/mobile/image 46.png",
     bg: "linear-gradient(139.7deg, #435975 22.55%, #BED6E1 87.59%)"
+  },{
+    title: "Marketplace Apps",
+    description: "Applications that help companies manage operations, customers and teams.",
+    image: "/images/services/website/mobile/image 51.png", // Placeholder image for now
+    bg: "linear-gradient(139.7deg, #4C9B94 22.55%, #BED6E1 87.59%)"
+  },{
+    title: " SaaS Applications",
+    description: "Applications that help companies manage operations, customers and teams.",
+    image: "/images/services/website/mobile/image 52.png", // Placeholder image for now
+    bg: "linear-gradient(139.7deg, #3B7FBF 22.55%, #BED6E1 87.59%)"
   }
 ];
 

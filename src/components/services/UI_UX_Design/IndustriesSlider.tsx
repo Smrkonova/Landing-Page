@@ -9,38 +9,38 @@ const slides = [
   {
     title: "Websites",
     description: "Business websites, corporate websites, landing pages and marketing websites designed to improve engagement and conversions.",
-    image: "/images/services/website/yre1.png",
-    bg: "linear-gradient(139.7deg, #4C9B94 22.55%, #BED6E1 87.59%)"
+    image: "/images/services/website/ui_uxdesign/image 57.png",
+    bg: "linear-gradient(139.7deg, #51BAEF 22.55%, #BED6E1 87.59%)"
   },
   {
     title: "Mobile Applications",
     description: "Android and iOS applications designed around real user behaviour and intuitive navigation.",
-    image: "/images/services/website/mobile1.png",
-    bg: "linear-gradient(139.7deg, #3B7FBF 22.55%, #BED6E1 87.59%)"
+    image: "/images/services/website/ui_uxdesign/image 58.png",
+    bg: "linear-gradient(139.7deg, #436475 22.55%, #BED6E1 87.59%)"
   },
   {
     title: "SaaS Platforms",
     description: "Complex dashboards and enterprise software simplified into easy-to-use experiences.",
-    image: "/images/services/website/yre1.png",
-    bg: "linear-gradient(139.7deg, #5B5F97 22.55%, #BED6E1 87.59%)"
+    image: "/images/services/website/ui_uxdesign/image 59.png",
+    bg: "linear-gradient(139.7deg, #EFC851 22.55%, #BED6E1 87.59%)"
   },
   {
     title: "Ecommerce Experiences",
     description: "Shopping journeys focused on increasing conversions and improving customer satisfaction.",
-    image: "/images/services/website/shopify1.png",
-    bg: "linear-gradient(139.7deg, #435975 22.55%, #BED6E1 87.59%)"
+    image: "/images/services/website/ui_uxdesign/image 60.png",
+    bg: "linear-gradient(139.7deg, #51BAEF 22.55%, #BED6E1 87.59%)"
   },
   {
     title: "Enterprise Software",
     description: "Internal tools, admin panels and business platforms designed to improve productivity.",
-    image: "/images/services/website/yre1.png",
-    bg: "linear-gradient(139.7deg, #3E6B89 22.55%, #BED6E1 87.59%)"
+    image: "/images/services/website/ui_uxdesign/image 61.png",
+    bg: "linear-gradient(139.7deg, #436475 22.55%, #BED6E1 87.59%)"
   },
   {
     title: "Product MVPs",
     description: "Helping startups transform ideas into validated digital products.",
-    image: "/images/services/website/mobile2.png",
-    bg: "linear-gradient(139.7deg, #4C9B94 22.55%, #BED6E1 87.59%)"
+    image: "/images/services/website/ui_uxdesign/image 62.png",
+    bg: "linear-gradient(139.7deg, #EFC851 22.55%, #BED6E1 87.59%)"
   }
 ];
 

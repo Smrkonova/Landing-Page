@@ -10,36 +10,36 @@ const slides = [
     {
         title: "Shopify Stores",
         description: "Premium Shopify websites with completely custom designs and advanced functionality.",
-        image: "/images/services/website/shopify1.png", // Placeholder image for now
+        image: "/images/services/website/ecommerce/image 39.png", // Placeholder image for now
         bg: "linear-gradient(139.7deg, #EF7151 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Shopify Plus",
         description: "Enterprise ecommerce solutions for growing brands handling large product catalogues and high order volumes.",
-        image: "/images/services/website/shopify1.png",
+        image: "/images/services/website/ecommerce/image 40.png",
         bg: "linear-gradient(139.7deg, #3B7FBF 22.55%, #BED6E1  87.59%)"
     },
     {
         title: "Custom Ecommerce Platforms",
         description: "Completely custom-built ecommerce platforms for businesses with unique workflows and business models.",
-        image: "/images/services/website/shopify1.png",
+        image: "/images/services/website/ecommerce/image 41.png",
         bg: "linear-gradient(139.7deg, #435975 22.55%, #BED6E1 87.59%)"
     },   {
         title: "B2B Commerce",
         description: "Dealer portals, wholesale pricing, distributor management and business ordering systems.",
-        image: "/images/services/website/shopify1.png", // Placeholder image for now
+        image: "/images/services/website/ecommerce/image 42.png", // Placeholder image for now
         bg: "linear-gradient(139.7deg, #EF7151 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "D2C Brands",
         description: "High-converting online stores focused on customer experience and brand storytelling.",
-        image: "/images/services/website/shopify1.png",
+        image: "/images/services/website/ecommerce/image 43.png",
         bg: "linear-gradient(139.7deg, #3B7FBF 22.55%, #BED6E1  87.59%)"
     },
     {
         title: "Marketplace Platforms",
         description: "Platforms connecting multiple vendors, products and customers within one ecosystem.",
-        image: "/images/services/website/shopify1.png",
+        image: "/images/services/website/ecommerce/image 44.png",
         bg: "linear-gradient(139.7deg, #435975 22.55%, #BED6E1 87.59%)"
     }
 ];
