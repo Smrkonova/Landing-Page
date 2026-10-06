@@ -10,26 +10,26 @@ const slides = [
     {
         title: "Website Maintenance",
         description: "Content updates, security patches, bug fixes, speed improvements, and regular backups to keep your website running at peak health.",
-        image: "/images/services/website/image32.png",
-        bg: "linear-gradient(139.7deg, #53A18B 22.55%, #0060FB 87.59%)"
+        image: "/images/services/website/website_maintanenece/image 85.png",
+        bg: "linear-gradient(139.7deg, #EF7151 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Ecommerce Support",
         description: "Dedicated support for growing online stores, including catalog updates, checkout optimization, campaign pages, and feature enhancements.",
-        image: "/images/services/website/shopify1.png",
-        bg: "linear-gradient(139.7deg, #004496 22.55%, #3AA0FF 87.59%)"
+        image: "/images/services/website/website_maintanenece/image 86.png",
+        bg: "linear-gradient(139.7deg, #435975 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Mobile App Maintenance",
         description: "Reliable version upgrades, OS compatibility checks, store compliance updates, and seamless performance tuning for iOS and Android.",
-        image: "/images/services/website/mobile1.png",
-        bg: "linear-gradient(139.7deg, #5B5F97 22.55%, #7C3AED 87.59%)"
+        image: "/images/services/website/website_maintanenece/image 87.png",
+        bg: "linear-gradient(139.7deg, #3B7FBF 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Software Support",
         description: "Scalable backend support, module enhancements, workflow automations, and proactive security monitoring as your platform grows.",
-        image: "/images/services/website/healthcare.png",
-        bg: "linear-gradient(139.7deg, #1E293B 22.55%, #0D9488 87.59%)"
+        image: "/images/services/website/website_maintanenece/image 88.png",
+         bg: "linear-gradient(139.7deg, #EF7151 22.55%, #BED6E1 87.59%)"
     }
 ];
 

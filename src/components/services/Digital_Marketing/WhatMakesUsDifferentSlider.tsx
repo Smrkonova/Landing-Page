@@ -9,42 +9,48 @@ const slides = [
         type: 'text', 
         title: "Generate More\nQualified\nLeads",   
         subtitle: "Reach people already searching for your services.", 
-        bg: "bg-[linear-gradient(150deg,#004496_22.55%,#FF8B61_87.59%)]"
+        bg: "bg-[linear-gradient(150deg,#004496_22.55%,#FF8B61_87.59%)]",
+        image: "/images/services/website/Digitalmarketing/image 115.png"
     },
     { 
         id: 2,
         type: 'text', 
         title: "Increase\nWebsite\nTraffic", 
         subtitle: "Bring relevant visitors through search engines, paid campaigns and social media.", 
-        bg: "bg-[linear-gradient(150deg,#435975_22.55%,#2A3B4C_87.59%)]" 
+        bg: "bg-[linear-gradient(150deg,#435975_22.55%,#2A3B4C_87.59%)]",
+        image: "/images/services/website/Digitalmarketing/image 116.png"
     },
     { 
         id: 3, 
         type: 'text', 
         title: "Improve\nSearch\nRankings", 
         subtitle: "Help your business appear where customers are actively searching.", 
-        bg: "bg-[linear-gradient(150deg,#3B7FBF_22.55%,#004496_87.59%)]" 
+        bg: "bg-[linear-gradient(150deg,#3B7FBF_22.55%,#004496_87.59%)]",
+        image: "/images/services/website/Digitalmarketing/image 117.png"
     },
     { 
         id: 4, 
         type: 'text', 
         title: "Build Brand\nAwareness", 
         subtitle: "Stay visible across multiple platforms and strengthen customer trust.", 
-        bg: "bg-[linear-gradient(150deg,#C85A32_22.55%,#7A2E1E_87.59%)]" 
+        bg: "bg-[linear-gradient(150deg,#C85A32_22.55%,#7A2E1E_87.59%)]",
+        image: "/images/services/website/Digitalmarketing/image 118.png"
     },
     { 
         id: 5, 
         type: 'text', 
         title: "Improve\nConversion\nRates", 
         subtitle: "Turn more visitors into enquiries, bookings and customers.", 
-        bg: "bg-[linear-gradient(150deg,#5B5F97_22.55%,#2C3066_87.59%)]" 
+        bg: "bg-[linear-gradient(150deg,#5B5F97_22.55%,#2C3066_87.59%)]",
+        image: "/images/services/website/Digitalmarketing/image 119.png"
     },
     { 
         id: 6, 
         type: 'text', 
         title: "Measure Every\nCampaign", 
         subtitle: "Understand exactly where your leads come from and what drives business growth.", 
-        bg: "bg-[linear-gradient(150deg,#007ACC_22.55%,#004496_87.59%)]" 
+        bg: "bg-[linear-gradient(150deg,#007ACC_22.55%,#004496_87.59%)]",
+        image: "/images/services/website/Digitalmarketing/image 120.png"
     },
 ];
 
@@ -136,13 +142,21 @@ export default function WhatMakesUsDifferentSlider() {
                                     opacity: opacity,
                                 }}
                             >
+                                {slide.image && (
+                                    <img 
+                                        src={slide.image} 
+                                        alt="" 
+                                        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                                    />
+                                )}
+
                                 {/* Slide Content */}
                                 {slide.type === 'text' && (
-                                    <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/15 to-black/30">
-                                        <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line">
+                                    <div className={`relative z-10 w-full h-full p-8 md:p-12 flex flex-col justify-between ${slide.image ? 'bg-gradient-to-t from-black/85 via-black/25 to-black/45' : 'bg-gradient-to-br from-white/15 to-black/30'}`}>
+                                        <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line drop-shadow-md">
                                             {slide.title}
                                         </h3>
-                                        <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed">
+                                        <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed drop-shadow-md">
                                             {slide.subtitle}
                                         </p>
                                     </div>

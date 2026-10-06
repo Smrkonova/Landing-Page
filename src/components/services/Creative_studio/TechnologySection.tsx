@@ -54,7 +54,7 @@ export default function TechnologySection() {
                 {/* --- BACKGROUND GRAPHICS & GLOWS --- */}
                 <div className="absolute w-full inset-0 z-0 flex items-center justify-center pointer-events-none">
                     <img
-                        src="/images/services/website/woman-holding-shopping-bags-looking-phone 1.png"
+                        src="/images/services/website/Creative_studio/djcnasd;v 1.png"
                         alt="Creative Software Showcase"
                         className="w-full h-full object-cover md:object-contain opacity-90 scale-110 md:scale-100"
                     />

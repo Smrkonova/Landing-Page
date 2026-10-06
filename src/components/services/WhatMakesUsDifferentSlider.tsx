@@ -9,35 +9,49 @@ const slides = [
         type: 'text',
         title: "Designed\naround\nyour\nbrand",
         subtitle: "No generic layouts. Every page is designed specifically for your business.",
-        bg: "bg-[#7A8768]"
+        bg: "bg-[#7A8768]",
+        image: "/images/services/website/web development/Golden Hour Sketches on a Rustic Table 1.png"
     },
     {
         id: 2,
         type: 'text',
         title: "Built\nFor\nSpeed",
         subtitle: "Fast-loading websites that work smoothly across desktop, tablet and mobile devices.",
-        bg: "bg-gray-300"
+        bg: "bg-gray-300",
+        image: "/images/services/website/web development/Golden Light Through Sheer Curtains 1.png"
     },
     {
-        id: 3, type: 'text',
+        id: 3, 
+        type: 'text',
         title: "Easy\nTo\nManage",
-        subtitle: "Update content, images and blogs without depending on developers.", bg: "bg-[#BFD4FF]"
-    }, // Light blue
+        subtitle: "Update content, images and blogs without depending on developers.", 
+        bg: "bg-[#BFD4FF]",
+        image: "/images/services/website/web development/Resilient Sprout in Golden Light 1.png"
+    },
     {
-        id: 4, type: 'text',
+        id: 4, 
+        type: 'text',
         title: "Search\nEngine\nFriendly",
-        subtitle: "Every website follows SEO best practices from the beginning.", bg: "bg-[#E6D6B8]"
-    }, // Tan
+        subtitle: "Every website follows SEO best practices from the beginning.", 
+        bg: "bg-[#E6D6B8]",
+        image: "/images/services/website/web development/Solitary Tower at Golden Hour 1.png"
+    },
     {
-        id: 5, type: 'text',
+        id: 5, 
+        type: 'text',
         title: "Secure & Reliable",
-        subtitle: "Built with modern security standards and regularly maintained.", bg: "bg-[#DFE8B4]"
-    }, // Light green
+        subtitle: "Built with modern security standards and regularly maintained.", 
+        bg: "bg-[#DFE8B4]",
+        image: "/images/services/website/web development/Sunlit Chair in a Quiet Hall 1.png"
+    },
     {
-        id: 6, type: 'text',
+        id: 6, 
+        type: 'text',
         title: "Ready\nTo\nGrow",
-        subtitle: "Whether you add new services, products or locations later, your website is built to scale.", bg: "bg-[#EED3D9]"
-    }, // Pink
+        subtitle: "Whether you add new services, products or locations later, your website is built to scale.", 
+        bg: "bg-[#EED3D9]",
+        image: "/images/services/website/web development/Warm Handwoven Linen Texture 1.png"
+    },
 ];
 
 export default function WhatMakesUsDifferentSlider() {
@@ -117,7 +131,7 @@ export default function WhatMakesUsDifferentSlider() {
                         return (
                             <div
                                 key={slide.id}
-                                className={`absolute left-0 top-0 w-[260px] sm:w-[280px] md:w-[450px] h-[350px] md:h-[550px] rounded-[32px] md:rounded-[40px] overflow-hidden transition-all duration-[1500ms] ease-in-out ${slide.bg}`}
+                                className={`absolute left-0 top-0 w-[260px] sm:w-[280px] md:w-[450px] h-[350px] md:h-[550px] rounded-[32px] md:rounded-[40px] overflow-hidden transition-all duration-[1500ms] ease-in-out shadow-2xl ${slide.bg}`}
                                 style={{
                                     transform: `translateX(${translateX}) scale(${scale})`,
                                     transformOrigin: 'center left',
@@ -125,13 +139,21 @@ export default function WhatMakesUsDifferentSlider() {
                                     opacity: opacity,
                                 }}
                             >
+                                {slide.image && (
+                                    <img
+                                        src={slide.image}
+                                        alt=""
+                                        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                                    />
+                                )}
+
                                 {/* Slide Content */}
                                 {slide.type === 'text' && (
-                                    <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/10 to-black/10">
-                                        <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line">
+                                    <div className={`relative z-10 w-full h-full p-8 md:p-12 flex flex-col justify-between ${slide.image ? 'bg-gradient-to-t from-black/85 via-black/25 to-black/45' : 'bg-gradient-to-br from-white/10 to-black/10'}`}>
+                                        <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line drop-shadow-md">
                                             {slide.title}
                                         </h3>
-                                        <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed">
+                                        <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed drop-shadow-md">
                                             {slide.subtitle}
                                         </p>
                                     </div>

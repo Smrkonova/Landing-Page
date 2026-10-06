@@ -9,70 +9,48 @@ const slides = [
         type: 'text',
         title: "Primary\nLogo",
         subtitle: "The core emblem and signature mark representing your company across all flagship touchpoints.",
-        bg: "bg-[linear-gradient(150deg,#004496_22.55%,#FF8B61_87.59%)]"
+        bg: "bg-[linear-gradient(150deg,#004496_22.55%,#FF8B61_87.59%)]",
+        image: "/images/services/website/Branding/image 109.png"
     },
     {
         id: 2,
         type: 'text',
         title: "Secondary\nLogo",
         subtitle: "Alternative horizontal, vertical and stacked lockups designed for diverse placements.",
-        bg: "bg-[linear-gradient(150deg,#435975_22.55%,#2A3B4C_87.59%)]"
+        bg: "bg-[linear-gradient(150deg,#435975_22.55%,#2A3B4C_87.59%)]",
+        image: "/images/services/website/Branding/image 110.png"
     },
     {
         id: 3,
         type: 'text',
         title: "Icon\nMarks",
         subtitle: "Distinctive monograms and symbols for app icons, favicons, avatars and compact spaces.",
-        bg: "bg-[linear-gradient(150deg,#3B7FBF_22.55%,#004496_87.59%)]"
+        bg: "bg-[linear-gradient(150deg,#3B7FBF_22.55%,#004496_87.59%)]",
+        image: "/images/services/website/Branding/image 111.png"
     },
     {
         id: 4,
         type: 'text',
         title: "Brand\nColours",
         subtitle: "Harmonious primary, secondary and neutral color palettes tailored for digital screens and print.",
-        bg: "bg-[linear-gradient(150deg,#C85A32_22.55%,#7A2E1E_87.59%)]"
+        bg: "bg-[linear-gradient(150deg,#C85A32_22.55%,#7A2E1E_87.59%)]",
+        image: "/images/services/website/Branding/image 112.png"
     },
     {
         id: 5,
         type: 'text',
         title: "Typography\nSystem",
         subtitle: "Carefully curated font pairings, hierarchy rules, and typographic scales.",
-        bg: "bg-[linear-gradient(150deg,#5B5F97_22.55%,#2C3066_87.59%)]"
+        bg: "bg-[linear-gradient(150deg,#5B5F97_22.55%,#2C3066_87.59%)]",
+        image: "/images/services/website/Branding/image 113.png"
     },
     {
         id: 6,
         type: 'text',
         title: "Icon\nStyle",
         subtitle: "Custom iconography rules ensuring stroke, corner radius and styling remain consistent.",
-        bg: "bg-[linear-gradient(150deg,#007ACC_22.55%,#004496_87.59%)]"
-    },
-    {
-        id: 7,
-        type: 'text',
-        title: "Brand\nPatterns",
-        subtitle: "Bespoke patterns and textured graphics that give depth to packaging, web and collateral.",
-        bg: "bg-[linear-gradient(150deg,#FF8B61_22.55%,#C44D25_87.59%)]"
-    },
-    {
-        id: 8,
-        type: 'text',
-        title: "Visual\nElements",
-        subtitle: "Grid alignments, borders, badges and compositional rules unifying your brand presence.",
-        bg: "bg-[linear-gradient(150deg,#394B69_22.55%,#1E2A3B_87.59%)]"
-    },
-    {
-        id: 9,
-        type: 'text',
-        title: "Illustration\nStyle",
-        subtitle: "Curated illustration language and graphic motifs tailored to your brand personality.",
-        bg: "bg-[linear-gradient(150deg,#9B51E0_22.55%,#4A1D85_87.59%)]"
-    },
-    {
-        id: 10,
-        type: 'text',
-        title: "Photography\nDirection",
-        subtitle: "Art direction, moodboards, lighting and composition guidelines for photography.",
-        bg: "bg-[linear-gradient(150deg,#004496_22.55%,#009BFB_87.59%)]"
+        bg: "bg-[linear-gradient(150deg,#007ACC_22.55%,#004496_87.59%)]",
+        image: "/images/services/website/Branding/image 114.png"
     },
 ];
 
@@ -161,13 +139,21 @@ export default function WhatMakesUsDifferentSlider() {
                                     opacity: opacity,
                                 }}
                             >
+                                {slide.image && (
+                                    <img
+                                        src={slide.image}
+                                        alt=""
+                                        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                                    />
+                                )}
+
                                 {/* Slide Content */}
                                 {slide.type === 'text' && (
-                                    <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/15 to-black/30">
-                                        <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line">
+                                    <div className={`relative z-10 w-full h-full p-8 md:p-12 flex flex-col justify-between ${slide.image ? 'bg-gradient-to-t from-black/85 via-black/25 to-black/45' : 'bg-gradient-to-br from-white/15 to-black/30'}`}>
+                                        <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line drop-shadow-md">
                                             {slide.title}
                                         </h3>
-                                        <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed">
+                                        <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed drop-shadow-md">
                                             {slide.subtitle}
                                         </p>
                                     </div>

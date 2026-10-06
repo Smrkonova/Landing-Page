@@ -9,38 +9,44 @@ const slides = [
     {
         title: "Search Engine Optimization (SEO)",
         description: "Improve your visibility on Google and attract customers searching for your products or services.",
-        image: "/images/services/website/yre1.png",
-        bg: "linear-gradient(139.7deg, #004496 22.55%, #FF8B61 87.59%)"
+        image: "/images/services/website/Digitalmarketing/image 69.png",
+        bg: "linear-gradient(139.7deg, #4C9B94 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Performance Marketing",
         description: "Run targeted advertising campaigns designed to generate leads and sales.",
-        image: "/images/services/website/image32.png",
+        image: "/images/services/website/Digitalmarketing/image 70.png",
         bg: "linear-gradient(139.7deg, #3B7FBF 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Social Media Marketing",
         description: "Build a consistent brand presence across platforms where your audience spends time.",
-        image: "/images/services/website/mobile1.png",
-        bg: "linear-gradient(139.7deg, #5B5F97 22.55%, #FF8B61 87.59%)"
+        image: "/images/services/website/Digitalmarketing/image 71.png",
+        bg: "linear-gradient(139.7deg, #435975 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Local Business Marketing",
         description: "Help local businesses appear in Google Maps, local search results and location-based searches.",
-        image: "/images/services/website/manufacturing.png",
-        bg: "linear-gradient(139.7deg, #435975 22.55%, #BED6E1 87.59%)"
+        image: "/images/services/website/Digitalmarketing/image 72.png",
+        bg: "linear-gradient(139.7deg, #4C9B94 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Content Marketing",
         description: "Create valuable content that builds trust, improves rankings and educates potential customers.",
-        image: "/images/services/website/healthcare.png",
-        bg: "linear-gradient(139.7deg, #FF6B4A 22.55%, #BED6E1 87.59%)"
+        image: "/images/services/website/Digitalmarketing/image 73.png",
+        bg: "linear-gradient(139.7deg, #3B7FBF 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Analytics & Reporting",
         description: "Track every campaign and measure what's working with real business insights.",
-        image: "/images/services/website/shopify1.png",
-        bg: "linear-gradient(139.7deg, #009BFB 22.55%, #FF8B61 87.59%)"
+        image: "/images/services/website/Digitalmarketing/image 74.png",
+        bg: "linear-gradient(139.7deg, #435975 22.55%, #BED6E1 87.59%)"
+    },
+    {
+        title: "Analytics & Reporting",
+        description: "Apps that improve customer engagement, bookings, purchases and support.",
+        image: "/images/services/website/Digitalmarketing/image 75.png",
+        bg: "linear-gradient(139.7deg, #4C9B94 22.55%, #BED6E1 87.59%)"
     }
 ];
 

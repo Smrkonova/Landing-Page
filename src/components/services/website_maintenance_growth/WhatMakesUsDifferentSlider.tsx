@@ -7,37 +7,43 @@ const slides = [
         id: 1, 
         title: "Feature\nEnhancements",   
         subtitle: "Add new pages, modules and functionality without rebuilding your platform.", 
-        bg: "bg-[linear-gradient(150deg,#53A18B_22.55%,#0060FB_87.59%)]"
+        bg: "bg-[linear-gradient(150deg,#53A18B_22.55%,#0060FB_87.59%)]",
+        image: "/images/services/website/website_maintanenece/image 125.png"
     },
     { 
         id: 2, 
         title: "UI/UX\nImprovements", 
         subtitle: "Refresh interfaces, improve navigation and modernise the user experience.", 
-        bg: "bg-[linear-gradient(150deg,#004496_22.55%,#3AA0FF_87.59%)]" 
+        bg: "bg-[linear-gradient(150deg,#004496_22.55%,#3AA0FF_87.59%)]",
+        image: "/images/services/website/website_maintanenece/image 126.png"
     },
     { 
         id: 3, 
         title: "Performance\nOptimisation", 
         subtitle: "Improve loading speed, core vitals, and overall user experience.", 
-        bg: "bg-[linear-gradient(150deg,#5B5F97_22.55%,#7C3AED_87.59%)]" 
+        bg: "bg-[linear-gradient(150deg,#5B5F97_22.55%,#7C3AED_87.59%)]",
+        image: "/images/services/website/website_maintanenece/image 127.png"
     },
     { 
         id: 4, 
         title: "Platform\nSecurity", 
         subtitle: "Keep your platform protected with regular updates and security improvements.", 
-        bg: "bg-[linear-gradient(150deg,#1E293B_22.55%,#0D9488_87.59%)]" 
+        bg: "bg-[linear-gradient(150deg,#1E293B_22.55%,#0D9488_87.59%)]",
+        image: "/images/services/website/website_maintanenece/image 128.png"
     },
     { 
         id: 5, 
         title: "Content\nManagement", 
         subtitle: "Update text, images, videos, blogs and other content whenever required.", 
-        bg: "bg-[linear-gradient(150deg,#435975_22.55%,#53A18B_87.59%)]" 
+        bg: "bg-[linear-gradient(150deg,#435975_22.55%,#53A18B_87.59%)]",
+        image: "/images/services/website/website_maintanenece/image 129.png"
     },
     { 
         id: 6, 
         title: "Technical\nSupport", 
         subtitle: "Resolve bugs, troubleshoot issues and provide technical assistance when needed.", 
-        bg: "bg-[linear-gradient(150deg,#0060FB_22.55%,#53A18B_87.59%)]" 
+        bg: "bg-[linear-gradient(150deg,#0060FB_22.55%,#53A18B_87.59%)]",
+        image: "/images/services/website/website_maintanenece/image 130.png"
     },
 ];
 
@@ -126,11 +132,19 @@ export default function WhatMakesUsDifferentSlider() {
                                     opacity: opacity,
                                 }}
                             >
-                                <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/15 to-black/30">
-                                    <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line">
+                                {slide.image && (
+                                    <img 
+                                        src={slide.image} 
+                                        alt="" 
+                                        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                                    />
+                                )}
+
+                                <div className={`relative z-10 w-full h-full p-8 md:p-12 flex flex-col justify-between ${slide.image ? 'bg-gradient-to-t from-black/85 via-black/25 to-black/45' : 'bg-gradient-to-br from-white/15 to-black/30'}`}>
+                                    <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line drop-shadow-md">
                                         {slide.title}
                                     </h3>
-                                    <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed">
+                                    <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed drop-shadow-md">
                                         {slide.subtitle}
                                     </p>
                                 </div>

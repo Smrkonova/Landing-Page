@@ -23,94 +23,20 @@ const cmstechList = [
     "WordPress", "Sanity", "Shopify", "Custom CMS"
 ];
 
-const webTags = [
-    { text: "PAYMENT GATEWAYS", active: false },
-    { text: "WHATSAPP", active: false },
-    { text: "GOOGLE MAPS", active: false },
-    { text: "CRM", active: false },
-    { text: "BOOKING SYSTEMS", active: true },
-    { text: "EMAIL MARKETING", active: false },
-    { text: "ANALYTICS", active: false },
-    { text: "SHIPPING", active: false },
-    { text: "SOCIAL MEDIA", active: false },
-    { text: "ERP", active: false }
+const scrollWords = [
+    "PAYMENT GATEWAYS",
+    "WHATSAPP",
+    "GOOGLE MAPS",
+    "CRM",
+    "BOOKING SYSTEMS",
+    "EMAIL MARKETING",
+    "ANALYTICS",
+    "SHIPPING",
+    "SOCIAL MEDIA",
+    "ERP"
 ];
 
 export default function TechnologySection() {
-    const scrollContainerRef = React.useRef<HTMLDivElement>(null);
-    const scrollItemRefs = React.useRef<(HTMLSpanElement | null)[]>([]);
-    const [activeScrollIndex, setActiveScrollIndex] = React.useState<number>(0);
-    const activeScrollRef = React.useRef<number>(0);
-
-    const mobileScrollContainerRef = React.useRef<HTMLDivElement>(null);
-    const mobileScrollItemRefs = React.useRef<(HTMLSpanElement | null)[]>([]);
-    const [mobileActiveScrollIndex, setMobileActiveScrollIndex] = React.useState<number>(0);
-    const mobileActiveScrollRef = React.useRef<number>(0);
-
-    // Track active item closest to the vertical center of the scrolling container
-    React.useEffect(() => {
-        let animId: number;
-
-        const checkActive = () => {
-            // Desktop active check
-            if (scrollContainerRef.current) {
-                const containerRect = scrollContainerRef.current.getBoundingClientRect();
-                const centerY = containerRect.top + containerRect.height / 2;
-
-                let closestIndex = 0;
-                let minDistance = Infinity;
-
-                for (let i = 0; i < scrollItemRefs.current.length; i++) {
-                    const el = scrollItemRefs.current[i];
-                    if (!el) continue;
-                    const r = el.getBoundingClientRect();
-                    const itemCenterY = r.top + r.height / 2;
-                    const dist = Math.abs(itemCenterY - centerY);
-                    if (dist < minDistance) {
-                        minDistance = dist;
-                        closestIndex = i;
-                    }
-                }
-
-                if (closestIndex !== activeScrollRef.current) {
-                    activeScrollRef.current = closestIndex;
-                    setActiveScrollIndex(closestIndex);
-                }
-            }
-
-            // Mobile active check
-            if (mobileScrollContainerRef.current) {
-                const mobileRect = mobileScrollContainerRef.current.getBoundingClientRect();
-                const mobileCenterY = mobileRect.top + mobileRect.height / 2;
-
-                let mobileClosestIndex = 0;
-                let mobileMinDistance = Infinity;
-
-                for (let i = 0; i < mobileScrollItemRefs.current.length; i++) {
-                    const el = mobileScrollItemRefs.current[i];
-                    if (!el) continue;
-                    const r = el.getBoundingClientRect();
-                    const itemCenterY = r.top + r.height / 2;
-                    const dist = Math.abs(itemCenterY - mobileCenterY);
-                    if (dist < mobileMinDistance) {
-                        mobileMinDistance = dist;
-                        mobileClosestIndex = i;
-                    }
-                }
-
-                if (mobileClosestIndex !== mobileActiveScrollRef.current) {
-                    mobileActiveScrollRef.current = mobileClosestIndex;
-                    setMobileActiveScrollIndex(mobileClosestIndex);
-                }
-            }
-
-            animId = requestAnimationFrame(checkActive);
-        };
-
-        animId = requestAnimationFrame(checkActive);
-        return () => cancelAnimationFrame(animId);
-    }, []);
-
     return (
         <section
             id="technology-section"
@@ -118,7 +44,7 @@ export default function TechnologySection() {
         >
 
             {/* ===== MOBILE LAYOUT (<md, 390px base in DesktopScaler) ===== */}
-            <div className="md:hidden flex flex-col w-full max-w-[390px] mx-auto px-4 pt-4 pb-8 bg-white font-sans">
+            <div className="md:hidden flex flex-col w-full max-w-[390px] mx-auto px-2 pt-4 pb-8 bg-white font-sans">
                 {/* Header */}
                 <div className="mb-7">
                     <h2 
@@ -130,8 +56,8 @@ export default function TechnologySection() {
                     </h2>
                 </div>
 
-                {/* Tech Columns (2-column layout: FRONTEND & BACKEND, CMS removed on mobile) */}
-                <div className="grid grid-cols-2 gap-x-6 gap-y-4 mb-8">
+                {/* Tech Columns (2-column layout to prevent cramped text) */}
+                <div className="grid grid-cols-2 gap-x-6 gap-y-7 mb-8">
                     {/* Frontend */}
                     <div>
                         <h4 
@@ -140,7 +66,7 @@ export default function TechnologySection() {
                         >
                             FRONTEND
                         </h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2.5">
                             {fonttechList.map((item, idx) => (
                                 <li key={`m-front-${idx}`} className="flex items-center gap-2.5 text-[14px] text-gray-800 font-medium">
                                     {checkIcon}
@@ -158,7 +84,7 @@ export default function TechnologySection() {
                         >
                             BACKEND
                         </h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2.5">
                             {backendtechList.map((item, idx) => (
                                 <li key={`m-back-${idx}`} className="flex items-center gap-2.5 text-[14px] text-gray-800 font-medium">
                                     {checkIcon}
@@ -167,9 +93,27 @@ export default function TechnologySection() {
                             ))}
                         </ul>
                     </div>
+
+                    {/* CMS */}
+                    <div className="col-span-2 pt-1 border-t border-gray-100">
+                        <h4 
+                            className="text-[13px] font-[900] tracking-wider uppercase text-black mb-3"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                            CMS
+                        </h4>
+                        <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+                            {cmstechList.map((item, idx) => (
+                                <div key={`m-cms-${idx}`} className="flex items-center gap-2.5 text-[14px] text-gray-800 font-medium">
+                                    {checkIcon}
+                                    <span>{item}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
-                {/* CONNECT EVERYTHING TOGETHER / INTEGRATIONS */}
+                {/* CONNECT EVERYTHING TOGETHER Heading & Subtext */}
                 <div className="mb-6">
                     <h3 
                         className="text-[20px] font-[900] tracking-tight text-black uppercase mb-1.5"
@@ -190,7 +134,7 @@ export default function TechnologySection() {
                     {/* VR Person Image */}
                     <div className="absolute inset-0 pointer-events-none flex items-end justify-start">
                         <Image
-                            src="/images/services/website/technology.png"
+                            src="/images/services/website/website_maintanenece/woman-repairer-isolated-with-laptop 1.png"
                             alt="Technology Showcase"
                             width={420}
                             height={460}
@@ -218,9 +162,8 @@ export default function TechnologySection() {
                         }}
                     />
 
-                    {/* Continuous Vertical Scrolling Keywords (16px font size, desktop colors, dynamic active bold, non-active 200 weight) */}
+                    {/* Continuous Vertical Scrolling Keywords */}
                     <div 
-                        ref={mobileScrollContainerRef}
                         className="absolute right-2 sm:right-3 bottom-4 top-10 w-[210px] z-20 overflow-hidden flex flex-col justify-center text-right pointer-events-none"
                         style={{
                             WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)',
@@ -230,31 +173,19 @@ export default function TechnologySection() {
                         <div className="flex flex-col animate-[mobileVerticalScroll_16s_linear_infinite] gap-4 items-end pr-1">
                             {[...Array(2)].map((_, i) => (
                                 <React.Fragment key={i}>
-                                    {webTags.map((tag, j) => {
-                                        const globalIndex = i * webTags.length + j;
-                                        const isActive = globalIndex === mobileActiveScrollIndex;
-
-                                        return (
-                                            <span
-                                                key={`${i}-${j}`}
-                                                ref={(el) => {
-                                                    mobileScrollItemRefs.current[globalIndex] = el;
-                                                }}
-                                                className={`tracking-widest uppercase text-right transition-all duration-300 ${
-                                                    isActive 
-                                                        ? "font-[900] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" 
-                                                        : "font-[200] text-[#91C3E6] drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]"
-                                                }`}
-                                                style={{
-                                                    fontFamily: "'Inter', sans-serif",
-                                                    fontSize: '16px',
-                                                    lineHeight: '1.2',
-                                                }}
-                                            >
-                                                {tag.text}
-                                            </span>
-                                        );
-                                    })}
+                                    {scrollWords.map((word, j) => (
+                                        <span
+                                            key={`${i}-${j}`}
+                                            className="tracking-widest uppercase text-right font-black text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+                                            style={{
+                                                fontFamily: "'Inter', sans-serif",
+                                                fontSize: '16px',
+                                                lineHeight: '1.2',
+                                            }}
+                                        >
+                                            {word}
+                                        </span>
+                                    ))}
                                 </React.Fragment>
                             ))}
                         </div>
@@ -358,12 +289,10 @@ export default function TechnologySection() {
                             <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-gray-900" style={{ fontFamily: "'Inter', sans-serif" }}>CMS</h4>
 
                             <ul className="space-y-3">
-                                {cmstechList.map((item, idx) => (
-                                    <li key={`cms-${idx}`} className="flex items-start gap-3 text-[14px] text-gray-500 font-medium">
-                                        {checkIcon}
-                                        <span>{item}</span>
-                                    </li>
-                                ))}
+                                <li className="text-[14px] text-gray-500 font-medium">WordPress</li>
+                                <li className="text-[14px] text-gray-500 font-medium">Shopify</li>
+                                <li className="text-[14px] text-gray-500 font-medium">Webflow</li>
+                                <li className="text-[14px] text-gray-500 font-medium">Custom CMS</li>
                             </ul>
                         </div>
                     </div>
@@ -386,38 +315,20 @@ export default function TechnologySection() {
 
                         {/* Bottom Right Vertical Scrolling Typography */}
                         <div
-                            ref={scrollContainerRef}
-                            className="w-full lg:w-auto max-w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden flex flex-col justify-center text-center lg:text-right pointer-events-none relative"
+                            className="w-full lg:w-auto max-w-full h-[320px] sm:h-[380px] md:h-[450px] overflow-hidden flex flex-col justify-center text-center lg:text-right pointer-events-none relative"
                             style={{
                                 WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)',
                                 maskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)'
                             }}
                         >
                             <div className="flex flex-col animate-[verticalScroll_20s_linear_infinite]">
-                                {/* Duplicated list for seamless infinite scroll */}
                                 {[...Array(2)].map((_, i) => (
                                     <React.Fragment key={i}>
-                                        {webTags.map((tag, j) => {
-                                            const globalIndex = i * webTags.length + j;
-                                            const isActive = globalIndex === activeScrollIndex;
-
-                                            return (
-                                                <span 
-                                                    key={`${i}-${j}`} 
-                                                    ref={(el) => {
-                                                        scrollItemRefs.current[globalIndex] = el;
-                                                    }}
-                                                    className={`text-[clamp(1.75rem,5.5vw+0.5rem,5.5rem)] leading-[0.95] uppercase drop-shadow-md transition-all duration-300 ${
-                                                        isActive 
-                                                            ? "font-[900] text-white" 
-                                                            : "font-[200] text-[#91C3E6]/85"
-                                                    }`}
-                                                    style={{ fontFamily: "'Inter', sans-serif" }}
-                                                >
-                                                    {tag.text}
-                                                </span>
-                                            );
-                                        })}
+                                        {scrollWords.map((word, j) => (
+                                            <span key={`${i}-${j}`} className="text-[clamp(1.75rem,5.5vw+0.5rem,5.5rem)] font-black leading-[0.95] uppercase text-white drop-shadow-md">
+                                                {word}
+                                            </span>
+                                        ))}
                                     </React.Fragment>
                                 ))}
                             </div>

@@ -9,38 +9,38 @@ const slides = [
     {
         title: "3D Product Visualisation",
         description: "Photorealistic product renders and animations that showcase products before they're manufactured or photographed.",
-        image: "/images/services/website/yre1.png",
-        bg: "linear-gradient(139.7deg, #5B5F97 22.55%, #FF8B61 87.59%)"
+        image: "/images/services/website/Creative_studio/image 75.png",
+        bg: "linear-gradient(139.7deg, #51BAEF 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Motion Graphics",
         description: "Animated graphics for presentations, explainers, websites and marketing campaigns.",
-        image: "/images/services/website/image32.png",
-        bg: "linear-gradient(139.7deg, #004496 22.55%, #BED6E1 87.59%)"
+        image: "/images/services/website/Creative_studio/image 76.png",
+        bg: "linear-gradient(139.7deg, #436475 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Website Animations",
         description: "Interactive scrolling experiences, transitions and modern web animations that make websites memorable.",
-        image: "/images/services/website/shopify1.png",
-        bg: "linear-gradient(139.7deg, #009BFB 22.55%, #FF8B61 87.59%)"
+        image: "/images/services/website/Creative_studio/image 77.png",
+        bg: "linear-gradient(139.7deg, #EFC851 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Corporate Videos",
         description: "Professional videos for company introductions, presentations and brand storytelling.",
-        image: "/images/services/website/manufacturing.png",
-        bg: "linear-gradient(139.7deg, #435975 22.55%, #BED6E1 87.59%)"
+        image: "/images/services/website/Creative_studio/image 78.png",
+        bg: "linear-gradient(139.7deg, #51BAEF 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Product Videos",
         description: "Videos designed to highlight features, demonstrate products and improve customer understanding.",
-        image: "/images/services/website/mobile1.png",
-        bg: "linear-gradient(139.7deg, #EF7151 22.55%, #BED6E1 87.59%)"
+        image: "/images/services/website/Creative_studio/image 79.png",
+        bg: "linear-gradient(139.7deg, #436475 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Social Media Content",
         description: "Creative assets designed for Instagram, LinkedIn, YouTube, Facebook and other digital platforms.",
-        image: "/images/services/website/healthcare.png",
-        bg: "linear-gradient(139.7deg, #3B7FBF 22.55%, #FF8B61 87.59%)"
+        image: "/images/services/website/Creative_studio/image 80.png",
+        bg: "linear-gradient(139.7deg, #EFC851 22.55%, #BED6E1 87.59% 87.59%)"
     }
 ];
 

@@ -33,7 +33,7 @@ export default function customsoftwaredevelopment() {
                         <div className="relative w-full max-w-[800px] translate-x-4 sm:translate-x-8 translate-y-12 lg:translate-x-30 lg:translate-y-16 z-10 Luminosity">
                             {/* Base Image */}
                             <Image
-                                src="/images/services/website/mobile1.png"
+                                src="/images/services/website/image 34.png"
                                 alt="custom-software"
                                 width={680}
                                 height={440}
