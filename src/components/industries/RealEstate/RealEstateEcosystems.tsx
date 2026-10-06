@@ -48,6 +48,14 @@ const realEstateCarouselData: RealEstateEcosystemItem[] = [
   },
   {
     id: 5,
+    title: "LUXURY BUYER ONBOARDING & PORTALS",
+    description:
+      "Elevated post-booking and client onboarding portals tailored for high-net-worth property acquisitions.",
+    image:
+      "/images/industries/real-estate/carousel/Luxury Marble Staircase to Modern Home 1.png",
+  },
+  {
+    id: 6,
     title: "DEVELOPER MARKETING SUITES",
     description:
       "Unified digital ecosystems connecting CRM pipelines, channel partners, and onsite sales galleries.",
@@ -55,7 +63,15 @@ const realEstateCarouselData: RealEstateEcosystemItem[] = [
       "/images/industries/real-estate/carousel/Modern Architectural House Sculpture 1.png",
   },
   {
-    id: 6,
+    id: 7,
+    title: "ARCHITECTURAL AWARDS & RECOGNITION",
+    description:
+      "Showcasing signature designs, sustainability certifications, and award-winning development milestones.",
+    image:
+      "/images/industries/real-estate/carousel/Modern Architectural Trophy Sculpture 1.png",
+  },
+  {
+    id: 8,
     title: "MASTER PLAN & AMENITY SHOWCASING",
     description:
       "Interactive community maps, phased construction updates, and neighborhood lifestyle discovery.",

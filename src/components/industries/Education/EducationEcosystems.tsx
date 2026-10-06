@@ -16,41 +16,99 @@ interface EcosystemItem {
 const ecosystemCarouselData: EcosystemItem[] = [
   {
     id: 1,
-    title: "Healthcare Brand Strategy",
+    title: "Institutional Brand Strategy",
     description:
-      "to reduce redundant tasks while the team works on what needs their attention",
+      "Crafting prestigious brand identities and digital flagships for educational institutions.",
     image:
-      "/images/industries/education/caruosel/3D Healthcare Shield Emblem 1.png",
+      "/images/industries/education/caruosel/Luxury Academic Crest with Open Book 1 (1).png",
   },
   {
     id: 2,
-    title: "Patient Acquisition & Healthcare Marketing",
+    title: "Student Acquisition & Marketing",
     description:
-      "turning operational data into actionable insights for better decisions.",
+      "Driving high-intent admissions and program discovery through targeted campaigns.",
     image:
-      "/images/industries/education/caruosel/Glossy Target Rings with Minimal Human Icon 1.png",
+      "/images/industries/education/caruosel/Golden Magnifying Glass with Graduation Cap 1 (1).png",
   },
   {
     id: 3,
-    title: "Healthcare Websites",
-    description: "designed around your processes",
+    title: "Admissions & Enrollment Portals",
+    description:
+      "Optimizing student inquiry-to-enrollment journeys with streamlined application flows.",
     image:
-      "/images/industries/education/caruosel/Futuristic Glass Portal Doorway 1.png",
+      "/images/industries/education/caruosel/Luxury Graduation Cap Target Emblem 1 (1).png",
   },
   {
     id: 4,
-    title: "designed around your processes",
-    description: "designed around your processes",
+    title: "Educational Web Ecosystems",
+    description:
+      "Modern, accessible, and responsive portals engineered specifically for universities.",
     image:
-      "/images/industries/education/caruosel/Futuristic Capsule Medical Record 1.png",
+      "/images/industries/education/caruosel/Futuristic Ivory and Gold Arch Monument 1 (1).png",
   },
   {
     id: 5,
-    title: "Patient Portals",
+    title: "Learning Management & Course Portals",
     description:
-      "building a brand and its presence by building brand identity, logo among other details",
+      "Seamless LMS integration, interactive curricula, and modern classroom tools.",
     image:
-      "/images/industries/education/caruosel/Protective Hands Embracing a Glowing Orb 1.png",
+      "/images/industries/education/caruosel/Interlocking Cube with Glowing Book Core 1 (1).png",
+  },
+  {
+    id: 6,
+    title: "Student & Faculty Hubs",
+    description:
+      "Unified dashboards connecting learners, educators, and administrators effortlessly.",
+    image:
+      "/images/industries/education/caruosel/Triad Orb with Glowing Open Book 1 (1).png",
+  },
+  {
+    id: 7,
+    title: "Campus Operations & ERP Systems",
+    description:
+      "Automating academic scheduling, fee management, and institutional workflows.",
+    image:
+      "/images/industries/education/caruosel/Futuristic Triple-Portal Network Hub 1 (1).png",
+  },
+  {
+    id: 8,
+    title: "Digital Applications & Records",
+    description:
+      "Paperless document verification, grading records, and automated compliance.",
+    image:
+      "/images/industries/education/caruosel/Ivory Glass Document Tray 1 (1).png",
+  },
+  {
+    id: 9,
+    title: "Interactive Course Catalogs",
+    description:
+      "Intuitive program explorers and dynamic syllabus finders for prospective learners.",
+    image:
+      "/images/industries/education/caruosel/Rotating Document Carousel Organizer 1 (1).png",
+  },
+  {
+    id: 10,
+    title: "Campus Communication Networks",
+    description:
+      "Real-time announcements, parent portals, and collaborative community boards.",
+    image:
+      "/images/industries/education/caruosel/Interlocking Pearl Speech Bubbles 1 (1).png",
+  },
+  {
+    id: 11,
+    title: "Research & Knowledge Repositories",
+    description:
+      "Showcasing institutional publications, digital archives, and research milestones.",
+    image:
+      "/images/industries/education/caruosel/Petal-Like Open Book Sculpture 1 (1).png",
+  },
+  {
+    id: 12,
+    title: "Alumni & Advancement Platforms",
+    description:
+      "Engaging global alumni networks and supporting institutional fundraising.",
+    image:
+      "/images/industries/education/caruosel/Ornate Marble Archway in Glass Frame 1 (1).png",
   },
 ];
 
