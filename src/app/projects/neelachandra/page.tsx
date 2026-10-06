@@ -8,33 +8,32 @@ export default function NeelachandraProjectPage() {
   return (
     <main className="min-h-screen bg-white">
       <section 
-        className="relative overflow-hidden font-sans flex items-center pt-16 pb-4"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+        className="relative overflow-hidden font-sans flex items-center pt-24 md:pt-16 pb-12 md:pb-4 min-h-screen md:h-[calc(100vh/var(--desktop-scale,1))]"
       >
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center w-full h-full max-h-[820px]">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center w-full md:h-full md:max-h-[820px] gap-8 md:gap-0">
 
           {/* Left Column - Details */}
-          <div className="w-full md:w-1/5 pr-8 flex flex-col justify-between py-10">
-            <div className="space-y-10">
-              <div>
-                <h4 className="text-[clamp(9px,0.6vw+4px,11px)] font-bold tracking-[0.2em] uppercase mb-3 text-[#a3a3a3]">Case Study 1</h4>
+          <div className="w-full md:w-1/5 pr-0 md:pr-8 flex flex-col justify-between py-4 md:py-10">
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:flex md:flex-col gap-6 md:space-y-10">
+              <div className="col-span-2 sm:col-span-1">
+                <h4 className="text-[clamp(9px,0.6vw+4px,11px)] font-bold tracking-[0.2em] uppercase mb-2 md:mb-3 text-[#a3a3a3]">Case Study 1</h4>
                 <h2 className="text-[clamp(12px,0.7vw+5px,14px)] font-bold tracking-widest uppercase text-[#333333] mb-1">NEELACHANDRA</h2>
-                <p className="text-[clamp(10px,0.6vw+4px,12px)] text-[#777777] font-medium">construction company in 'luru</p>
+                <p className="text-[clamp(10px,0.6vw+4px,12px)] text-[#777777] font-medium">construction company in &apos;luru</p>
               </div>
 
               <div>
-                <h4 className="text-[clamp(9px,0.6vw+4px,11px)] font-bold tracking-[0.2em] uppercase mb-3 text-[#a3a3a3]">Industry</h4>
+                <h4 className="text-[clamp(9px,0.6vw+4px,11px)] font-bold tracking-[0.2em] uppercase mb-2 md:mb-3 text-[#a3a3a3]">Industry</h4>
                 <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-bold rounded-sm text-[#333333] leading-tight">real estate<br />construction</span>
               </div>
 
               <div>
-                <h4 className="text-[clamp(9px,0.6vw+4px,11px)] font-bold tracking-[0.2em] uppercase mb-3 text-[#a3a3a3]">Duration</h4>
+                <h4 className="text-[clamp(9px,0.6vw+4px,11px)] font-bold tracking-[0.2em] uppercase mb-2 md:mb-3 text-[#a3a3a3]">Duration</h4>
                 <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-bold rounded-sm text-[#333333]">Ongoing</span>
               </div>
 
               <div>
-                <h4 className="text-[clamp(9px,0.6vw+4px,11px)] font-bold tracking-[0.2em] uppercase mb-3 text-[#a3a3a3]">Platforms</h4>
-                <div className="flex flex-col gap-2 items-start">
+                <h4 className="text-[clamp(9px,0.6vw+4px,11px)] font-bold tracking-[0.2em] uppercase mb-2 md:mb-3 text-[#a3a3a3]">Platforms</h4>
+                <div className="flex flex-wrap md:flex-col gap-2 items-start">
                   <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-bold rounded-sm text-[#333333]">Branding</span>
                   <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-bold rounded-sm text-[#333333]">Website</span>
                   <span className="inline-block bg-[#f4f4f4] px-2.5 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-bold rounded-sm text-[#333333]">GMB Optimisation</span>
@@ -45,9 +44,9 @@ export default function NeelachandraProjectPage() {
           </div>
 
           {/* Center Column - Banner Image */}
-          <div className="w-full md:w-3/5 flex justify-center py-2 relative px-2 sm:px-4">
+          <div className="w-full md:w-3/5 flex justify-center py-2 relative px-0 sm:px-4">
             {/* The outer container with the orange border */}
-            <div className="relative rounded-[1.5rem] border-[1.5px] border-[#f98845] w-full max-w-[850px] max-h-[580px] aspect-[16/10] p-[6px] shadow-sm flex flex-col">
+            <div className="relative rounded-[1.5rem] border-[1.5px] border-[#f98845] w-full max-w-[850px] min-h-[340px] sm:min-h-[420px] md:max-h-[580px] aspect-[16/11] md:aspect-[16/10] p-[6px] shadow-sm flex flex-col">
               {/* Inner container for image */}
               <div className="relative rounded-[1.25rem] overflow-hidden w-full h-full shadow-md bg-[#111] flex flex-col justify-end">
                 <img
@@ -75,12 +74,12 @@ export default function NeelachandraProjectPage() {
           </div>
 
           {/* Right Column - Navigation/Services list */}
-          <div className="w-full md:w-1/5 pl-4 flex flex-col justify-end items-end text-[#5c564b] py-10">
-            <div className="mt-auto space-y-3 font-semibold text-[clamp(10px,0.6vw+4px,12px)] tracking-widest text-[#777777] uppercase">
-              <p className="hover:text-[#333333] transition-colors cursor-pointer text-right">Strategy</p>
-              <p className="hover:text-[#333333] transition-colors cursor-pointer text-right">UX/UI</p>
-              <p className="hover:text-[#333333] transition-colors cursor-pointer text-right">Development</p>
-              <p className="hover:text-[#333333] transition-colors cursor-pointer text-right">Brand</p>
+          <div className="w-full md:w-1/5 pl-0 md:pl-4 flex flex-row flex-wrap md:flex-col justify-start md:justify-end items-start md:items-end text-[#5c564b] py-2 md:py-10">
+            <div className="mt-auto flex flex-row flex-wrap md:flex-col gap-3 md:space-y-3 font-semibold text-[clamp(10px,0.6vw+4px,12px)] tracking-widest text-[#777777] uppercase">
+              <p className="hover:text-[#333333] transition-colors cursor-pointer text-left md:text-right bg-[#f4f4f4] md:bg-transparent px-3 py-1 md:px-0 md:py-0 rounded-sm">Strategy</p>
+              <p className="hover:text-[#333333] transition-colors cursor-pointer text-left md:text-right bg-[#f4f4f4] md:bg-transparent px-3 py-1 md:px-0 md:py-0 rounded-sm">UX/UI</p>
+              <p className="hover:text-[#333333] transition-colors cursor-pointer text-left md:text-right bg-[#f4f4f4] md:bg-transparent px-3 py-1 md:px-0 md:py-0 rounded-sm">Development</p>
+              <p className="hover:text-[#333333] transition-colors cursor-pointer text-left md:text-right bg-[#f4f4f4] md:bg-transparent px-3 py-1 md:px-0 md:py-0 rounded-sm">Brand</p>
             </div>
           </div>
 
@@ -450,8 +449,7 @@ export default function NeelachandraProjectPage() {
 
       {/* Built To Grow Section */}
       <section 
-        className="relative w-full flex flex-col justify-end overflow-hidden"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+        className="relative w-full flex flex-col justify-end overflow-hidden min-h-screen md:h-[calc(100vh/var(--desktop-scale,1))] pt-24"
       >
         {/* Background Image */}
         <div className="absolute inset-0 z-0">

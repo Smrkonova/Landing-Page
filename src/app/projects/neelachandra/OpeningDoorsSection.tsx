@@ -60,8 +60,7 @@ export default function OpeningDoorsSection() {
     >
       {/* Sticky container pins to the viewport during the scroll with increased container size */}
       <div
-        className="sticky top-0 w-full overflow-hidden flex flex-col items-center justify-between"
-        style={{ height: "calc(115vh / var(--desktop-scale, 1))", minHeight: "860px" }}
+        className="sticky top-0 w-full overflow-hidden flex flex-col items-center justify-between h-screen md:h-[calc(115vh/var(--desktop-scale,1))] md:min-h-[860px]"
       >
 
         {/* Animated Green Doors - Starts at 0% (fully closed, solid orange) and opens from center seam */}

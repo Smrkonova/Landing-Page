@@ -169,11 +169,7 @@ export default function TechnologySection() {
                                     {mobileTags.map((tag, j) => (
                                         <span
                                             key={`${i}-${j}`}
-                                            className={`tracking-widest uppercase text-right ${
-                                                tag.active 
-                                                    ? "font-[900] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" 
-                                                    : "font-[200] text-[#91C3E6] drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]"
-                                            }`}
+                                            className="tracking-widest uppercase text-right font-black text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
                                             style={{
                                                 fontFamily: "'Inter', sans-serif",
                                                 fontSize: '16px',
@@ -299,7 +295,7 @@ export default function TechnologySection() {
 
                         {/* Bottom Right Vertical Scrolling Typography */}
                         <div
-                            className="w-full lg:w-auto max-w-full h-[400px] md:h-[500px] overflow-hidden flex flex-col justify-center text-center lg:text-right pointer-events-none relative"
+                            className="w-full lg:w-auto max-w-full h-[320px] sm:h-[380px] md:h-[450px] overflow-hidden flex flex-col justify-center text-center lg:text-right pointer-events-none relative"
                             style={{
                                 WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)',
                                 maskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)'

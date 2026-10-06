@@ -59,16 +59,18 @@ export default function IndustryExtendedSection({
           ) : (
             <>
               {/* Ambient Warm Radial Blur Behind Card */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] md:w-[420px] md:h-[420px] rounded-full bg-gradient-to-tr from-[#ff9a44] via-[#ff6a00] to-[#ffd074] blur-[80px] opacity-40 pointer-events-none"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] md:w-[440px] md:h-[440px] rounded-full bg-gradient-to-tr from-[#ff9a44] via-[#ff6a00] to-[#ffd074] blur-[90px] opacity-55 pointer-events-none"></div>
 
-              {/* Frosted Glass Card */}
+              {/* Ultra-Premium Glassmorphic Translucent Card */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="relative z-10 w-full max-w-[420px] min-h-[500px] md:min-h-[540px] rounded-[32px] bg-white border border-neutral-100 p-7 md:p-9 flex flex-col justify-between overflow-hidden group transition-all duration-500"
+                className="relative z-10 w-full max-w-[420px] min-h-[500px] md:min-h-[540px] rounded-[32px] bg-white/40 hover:bg-white/50 backdrop-blur-2xl border border-white/60 shadow-[0_20px_50px_rgba(0,0,0,0.06),inset_0_1px_1px_0_rgba(255,255,255,0.85)] p-7 md:p-9 flex flex-col justify-between overflow-hidden group transition-all duration-500"
               >
+                {/* Subtle Glass Diagonal Specular Sheen */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/15 to-white/40 pointer-events-none rounded-[32px]" />
 
                 {/* 3D Floating Graphic in Card */}
                 {cardImage && (
@@ -82,7 +84,7 @@ export default function IndustryExtendedSection({
                         src={cardImage}
                         alt={cardTitle || "Healthcare Digital System"}
                         fill
-                        className="object-contain p-2 group-hover:scale-105 transition-transform duration-500 ease-out"
+                        className="object-contain p-2 drop-shadow-[0_18px_24px_rgba(0,0,0,0.10)] group-hover:scale-105 transition-transform duration-500 ease-out"
                       />
                     </motion.div>
                   </div>
@@ -93,7 +95,7 @@ export default function IndustryExtendedSection({
                   <h3 className={cardTitleClassName || "text-[clamp(1.125rem,1.4vw+0.5rem,1.35rem)] font-bold text-[#111] uppercase tracking-wide leading-tight"}>
                     {cardTitle}
                   </h3>
-                  <p className={cardDescriptionClassName || "text-[clamp(11px,0.4vw+6px,12.5px)] text-[#666] leading-relaxed font-normal"}>
+                  <p className={cardDescriptionClassName || "text-[clamp(11px,0.4vw+6px,12.5px)] text-[#555] leading-relaxed font-normal"}>
                     {cardDescription}
                   </p>
                 </div>

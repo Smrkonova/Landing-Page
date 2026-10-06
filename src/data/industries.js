@@ -20,7 +20,7 @@ export const industriesData = [
     title: "Education",
     tags: ["EDTECH", "INSTITUTIONS", "CAMPUS"],
     description: "Creating connected admissions pipelines and student engagement systems that bridge the decision gap.",
-    image: "/images/industries/education/caruosel/Futuristic Glass Portal Doorway 1.png",
+    image: "/images/industries/education/caruosel/Futuristic Ivory and Gold Arch Monument 1 (1).png",
     link: "/industries/education",
   },
   {

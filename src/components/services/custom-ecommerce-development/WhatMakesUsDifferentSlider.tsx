@@ -9,35 +9,41 @@ const slides = [
         type: 'text',
         title: "Premium\nShopping\nExperience",
         subtitle: "Beautiful product pages, smooth browsing and modern interfaces that build trust.",
-        bg: "bg-[linear-gradient(150deg,#D8CFBE_22.55%,#421812_87.59%)]"
+        bg: "bg-[linear-gradient(150deg,#D8CFBE_22.55%,#421812_87.59%)]",
+        image: "/images/services/website/ecommerce/image 89.png"
     },
     {
         id: 2,
         type: 'text',
         title: "Fast &\nMobile\nFriendly",
-        subtitle: "Designed for customers shopping on phones, tablets and desktops.", // Runner placeholder
-        bg: "bg-gray-300"
+        subtitle: "Designed for customers shopping on phones, tablets and desktops.",
+        bg: "bg-gray-300",
+        image: "/images/services/website/ecommerce/image 90.png"
     },
     {
-        id: 3, type: 'text',
+        id: 3, 
+        type: 'text',
         title: "Easy\nProduct\nManagement",
-        subtitle: "Update products, prices, inventory and promotions without technical knowledge.", bg: "bg-[#BFD4FF]"
-    }, // Light blue
+        subtitle: "Update products, prices, inventory and promotions without technical knowledge.", 
+        bg: "bg-[#BFD4FF]",
+        image: "/images/services/website/ecommerce/image 91.png"
+    },
     {
-        id: 4, type: 'text',
+        id: 4, 
+        type: 'text',
         title: "Built\nTo Scale",
-        subtitle: "Whether you sell 50 products or 50,000, your platform grows with your business.", bg: "bg-[#E6D6B8]"
-    }, // Tan
+        subtitle: "Whether you sell 50 products or 50,000, your platform grows with your business.", 
+        bg: "bg-[#E6D6B8]",
+        image: "/images/services/website/ecommerce/image 92.png"
+    },
     {
-        id: 5, type: 'text',
+        id: 5, 
+        type: 'text',
         title: "Conversion\nFocused",
-        subtitle: "Every page is designed to reduce friction and increase completed purchases.", bg: "bg-[#DFE8B4]"
-    }, // Light green
-    {
-        id: 6, type: 'text',
-        title: "Secure\nShopping",
-        subtitle: "Reliable payment processing and customer data protection built into every project.", bg: "bg-[#EED3D9]"
-    }, // Pink
+        subtitle: "Every page is designed to reduce friction and increase completed purchases.", 
+        bg: "bg-[#DFE8B4]",
+        image: "/images/services/website/ecommerce/image 93.png"
+    },
 ];
 
 export default function WhatMakesUsDifferentSlider() {
@@ -84,9 +90,8 @@ export default function WhatMakesUsDifferentSlider() {
                             opacity = 1;
                         } else if (distance > 0) {
                             // Stacked to the right
-                            // Use a diminishing translation formula for the stacked effect
-                            const translationSteps = [0, 45, 80, 105, 120, 130];
-                            translateX = `${translationSteps[Math.min(distance, 5)]}%`;
+                            const translationSteps = [0, 45, 80, 105, 120];
+                            translateX = `${translationSteps[Math.min(distance, 4)]}%`;
                             scale = 1 - (distance * 0.1);
                             opacity = 1;
                         } else {
@@ -97,8 +102,7 @@ export default function WhatMakesUsDifferentSlider() {
                             zIndex = 0;
                         }
 
-                        // For infinite loop effect (when index is less than activeIndex but we want to show it on the right if it's wrapping)
-                        // Simple array rotation logic:
+                        // For infinite loop effect
                         let wrappedDistance = distance;
                         if (wrappedDistance < 0) wrappedDistance += slides.length;
 
@@ -108,12 +112,12 @@ export default function WhatMakesUsDifferentSlider() {
                             scale = 1;
                             opacity = 1;
                             zIndex = 50;
-                        } else if (wrappedDistance > 0 && wrappedDistance < 6) {
-                            const translationSteps = [0, 110, 150, 185, 215, 240];
-                            const scaleSteps = [1, 0.95, 0.86, 0.76, 0.65, 0.53];
+                        } else if (wrappedDistance > 0 && wrappedDistance < 5) {
+                            const translationSteps = [0, 110, 150, 185, 215];
+                            const scaleSteps = [1, 0.95, 0.86, 0.76, 0.65];
 
-                            translateX = `${translationSteps[Math.min(wrappedDistance, 5)]}%`;
-                            scale = scaleSteps[Math.min(wrappedDistance, 5)];
+                            translateX = `${translationSteps[Math.min(wrappedDistance, 4)]}%`;
+                            scale = scaleSteps[Math.min(wrappedDistance, 4)];
                             opacity = 1;
                             zIndex = 50 - wrappedDistance;
                         }
@@ -129,13 +133,21 @@ export default function WhatMakesUsDifferentSlider() {
                                     opacity: opacity,
                                 }}
                             >
+                                {slide.image && (
+                                    <img
+                                        src={slide.image}
+                                        alt=""
+                                        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                                    />
+                                )}
+
                                 {/* Slide Content */}
                                 {slide.type === 'text' && (
-                                    <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/10 to-black/10">
-                                        <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line">
+                                    <div className={`relative z-10 w-full h-full p-8 md:p-12 flex flex-col justify-between ${slide.image ? 'bg-gradient-to-t from-black/85 via-black/25 to-black/45' : 'bg-gradient-to-br from-white/10 to-black/10'}`}>
+                                        <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line drop-shadow-md">
                                             {slide.title}
                                         </h3>
-                                        <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed">
+                                        <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed drop-shadow-md">
                                             {slide.subtitle}
                                         </p>
                                     </div>

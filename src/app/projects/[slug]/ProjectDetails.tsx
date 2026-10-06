@@ -33,10 +33,9 @@ export default function ProjectDetails({ slug }) {
 
       {/* Hero Section */}
       <section 
-        className="relative w-full flex flex-col items-center justify-center text-white overflow-hidden"
+        className="relative w-full flex flex-col items-center justify-center text-white overflow-hidden min-h-screen md:h-[calc(100vh/var(--desktop-scale,1))]"
         style={{ 
           backgroundColor: project.bgColor,
-          height: "calc(100vh / var(--desktop-scale, 1))"
         }}
       >
         <Link href="/" className="absolute top-10 left-6 md:top-12 md:left-12 z-20 flex items-center gap-2 text-white hover:opacity-70 transition-opacity">

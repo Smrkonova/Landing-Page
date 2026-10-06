@@ -5,7 +5,7 @@ import WhatMakesUsDifferentSlider from "@/components/services/website_maintenanc
 import ModernExperiencesSection from "@/components/services/website_maintenance_growth/ModernExperiencesSection"
 import TechnologySection from "@/components/services/website_maintenance_growth/TechnologySection"
 import FeaturesSliderSection from "@/components/services/website_maintenance_growth/FeaturesSliderSection"
-import ProcessScroll from "@/components/services/website_maintenance_growth/ProcessScroll"
+import StoryExperience from "@/components/animations/StoryExperience"
 import EngagementSliderSection from "@/components/services/website_maintenance_growth/EngagementSliderSection"
 import FaqSection from "@/components/services/website_maintenance_growth/FaqSection"
 
@@ -140,7 +140,9 @@ export default function WebsiteMaintenanceGrowthPage() {
                     <ModernExperiencesSection />
                     <TechnologySection />
                     <FeaturesSliderSection />
-                    <ProcessScroll />
+                    <div id="process" className="w-full relative">
+                        <StoryExperience />
+                    </div>
                     <EngagementSliderSection />
                     <FaqSection />
                 </div>

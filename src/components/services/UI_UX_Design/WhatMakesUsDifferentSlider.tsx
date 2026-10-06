@@ -9,42 +9,48 @@ const slides = [
         type: 'text', 
         title: "User\nFirst",   
         subtitle: "Every design decision starts with understanding the people who will use the product.", 
-        bg: "bg-[linear-gradient(150deg,#D8CFBE_22.55%,#4F46E5_87.59%)]"
+        bg: "bg-[linear-gradient(150deg,#D8CFBE_22.55%,#4F46E5_87.59%)]",
+        image: "/images/services/website/ui_uxdesign/image 103.png"
     },
     { 
         id: 2,
         type: 'text', 
         title: "Business\nFocused", 
         subtitle: "Good design doesn't just look good. It helps businesses generate leads, improve conversions and increase customer satisfaction.", 
-        bg: "bg-[linear-gradient(150deg,#435975_22.55%,#2A3B4C_87.59%)]" 
+        bg: "bg-[linear-gradient(150deg,#435975_22.55%,#2A3B4C_87.59%)]",
+        image: "/images/services/website/ui_uxdesign/image 104.png"
     },
     { 
         id: 3, 
         type: 'text', 
         title: "Built For\nDevelopers", 
         subtitle: "Designs are created with real development in mind, making implementation faster and more accurate.", 
-        bg: "bg-[#BFD4FF]" 
+        bg: "bg-[#BFD4FF]",
+        image: "/images/services/website/ui_uxdesign/image 105.png"
     },
     { 
         id: 4, 
         type: 'text', 
         title: "Scalable\nDesign Systems", 
         subtitle: "Instead of designing one screen at a time, we create reusable components that keep products consistent as they grow.", 
-        bg: "bg-[#E6D6B8]" 
+        bg: "bg-[#E6D6B8]",
+        image: "/images/services/website/ui_uxdesign/image 106.png"
     },
     { 
         id: 5, 
         type: 'text', 
         title: "Mobile\nFirst", 
         subtitle: "Every experience is optimised across phones, tablets and desktops.", 
-        bg: "bg-[#DFE8B4]" 
+        bg: "bg-[#DFE8B4]",
+        image: "/images/services/website/ui_uxdesign/image 107.png"
     },
     { 
         id: 6, 
         type: 'text', 
         title: "Accessibility", 
         subtitle: "Designs that are easy to understand and usable for a wider range of people.", 
-        bg: "bg-[#EED3D9]" 
+        bg: "bg-[#EED3D9]",
+        image: "/images/services/website/ui_uxdesign/image 108.png"
     },
 ];
 
@@ -137,13 +143,21 @@ export default function WhatMakesUsDifferentSlider() {
                                     opacity: opacity,
                                 }}
                             >
+                                {slide.image && (
+                                    <img 
+                                        src={slide.image} 
+                                        alt="" 
+                                        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                                    />
+                                )}
+
                                 {/* Slide Content */}
                                 {slide.type === 'text' && (
-                                    <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/10 to-black/10">
-                                        <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line">
+                                    <div className={`relative z-10 w-full h-full p-8 md:p-12 flex flex-col justify-between ${slide.image ? 'bg-gradient-to-t from-black/85 via-black/25 to-black/45' : 'bg-gradient-to-br from-white/10 to-black/10'}`}>
+                                        <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line drop-shadow-md">
                                             {slide.title}
                                         </h3>
-                                        <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed">
+                                        <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed drop-shadow-md">
                                             {slide.subtitle}
                                         </p>
                                     </div>

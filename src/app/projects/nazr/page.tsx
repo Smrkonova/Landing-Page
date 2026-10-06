@@ -6,36 +6,35 @@ export default function NazrProjectPage() {
     <main className="min-h-screen bg-[#111111] text-white selection:bg-[#F80090]/20 flex flex-col font-sans">
       {/* Hero Section */}
       <section 
-        className="relative w-full pt-20 pb-8 px-6 md:px-12 flex justify-center items-center overflow-hidden"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+        className="relative w-full pt-24 md:pt-20 pb-12 md:pb-8 px-4 sm:px-6 md:px-12 flex justify-center items-center overflow-hidden min-h-screen lg:h-[calc(100vh/var(--desktop-scale,1))]"
       >
-        <div className="w-full max-w-[1440px] grid grid-cols-1 lg:grid-cols-[1fr_3fr_1fr] gap-8 xl:gap-12 h-full max-h-[850px] items-center">
+        <div className="w-full max-w-[1440px] grid grid-cols-1 lg:grid-cols-[1fr_3fr_1fr] gap-8 xl:gap-12 h-full max-h-none lg:max-h-[850px] items-center">
 
           {/* Left Column - Metadata */}
-          <div className="flex flex-col gap-10 pt-4 xl:pt-12">
-            <div>
-              <p className="text-[clamp(10px,0.8vw+2px,12px)] text-gray-500 uppercase tracking-widest mb-4">CASE STUDY 1</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-col gap-6 lg:gap-10 pt-2 lg:pt-4 xl:pt-12">
+            <div className="col-span-2 sm:col-span-1">
+              <p className="text-[clamp(10px,0.8vw+2px,12px)] text-gray-500 uppercase tracking-widest mb-2 lg:mb-4">CASE STUDY 1</p>
               <h2 className="text-[clamp(13px,0.8vw+3px,16px)] font-bold uppercase tracking-wide text-gray-200">NAZR</h2>
               <p className="text-[clamp(11px,0.6vw+4px,13px)] text-gray-400">Women safety Ecosystem</p>
             </div>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2 lg:gap-3">
               <p className="text-[clamp(10px,0.8vw+2px,12px)] text-gray-500 uppercase tracking-widest">Industry</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1.5 bg-[#222] text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-md text-gray-300">Women safety</span>
               </div>
             </div>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2 lg:gap-3">
               <p className="text-[clamp(10px,0.8vw+2px,12px)] text-gray-500 uppercase tracking-widest">Duration</p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1.5 bg-[#222] text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-md text-gray-300">Ongoing</span>
               </div>
             </div>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2 lg:gap-3">
               <p className="text-[clamp(10px,0.8vw+2px,12px)] text-gray-500 uppercase tracking-widest">Platforms</p>
-              <div className="flex flex-col items-start gap-2">
+              <div className="flex flex-wrap lg:flex-col items-start gap-2">
                 <span className="px-3 py-1.5 bg-[#222] text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-md text-gray-300">Website</span>
                 <span className="px-3 py-1.5 bg-[#222] text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-md text-gray-300">Shopify</span>
                 <span className="px-3 py-1.5 bg-[#222] text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-md text-gray-300">Flutter</span>
@@ -45,24 +44,24 @@ export default function NazrProjectPage() {
           </div>
 
           {/* Center Column - Banner */}
-          <div className="w-full max-h-[580px] aspect-[904/587] relative rounded-[2rem] border-[1.5px] border-[#3b82f6]/40 overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.15)] flex flex-col justify-end">
+          <div className="w-full min-h-[380px] sm:min-h-[440px] lg:max-h-[580px] aspect-auto lg:aspect-[904/587] relative rounded-[1.5rem] lg:rounded-[2rem] border-[1.5px] border-[#3b82f6]/40 overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.15)] flex flex-col justify-end">
             <img
               src="/images/projects/nazr/banner.png"
               alt="Nazr Banner"
               className="absolute inset-0 w-full h-full object-cover"
             />
             {/* Gradient Overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
 
-            <div className="relative z-10 w-full flex flex-col md:flex-row justify-between items-end gap-6 p-8 md:p-12 xl:p-16">
+            <div className="relative z-10 w-full flex flex-col md:flex-row justify-between items-start md:items-end gap-6 p-6 sm:p-8 md:p-12 xl:p-16">
               {/* Left Text */}
-              <h1 className="w-full md:w-[55%] text-[clamp(2rem,4.5vw+0.5rem,4rem)] font-black text-white uppercase leading-[0.9] tracking-tighter">
+              <h1 className="w-full md:w-[55%] text-[clamp(1.75rem,4vw+0.5rem,4rem)] font-black text-white uppercase leading-[0.95] tracking-tighter">
                 IT IS A LONG<br />ESTABLISHED FACT<br />THAT A READER
               </h1>
 
               {/* Right Text & Button */}
-              <div className="w-full md:w-[40%] flex flex-col items-start gap-6">
-                <p className="text-[clamp(1.125rem,1.5vw+0.5rem,1.5rem)] font-semibold text-white leading-tight">
+              <div className="w-full md:w-[40%] flex flex-col items-start gap-4 sm:gap-6">
+                <p className="text-[clamp(1rem,1.3vw+0.4rem,1.5rem)] font-semibold text-white leading-tight">
                   It is a long established<br />
                   fact that a reader will<br />
                   be distracted
@@ -76,12 +75,12 @@ export default function NazrProjectPage() {
           </div>
 
           {/* Right Column - Services */}
-          <div className="flex flex-col justify-end pb-8 xl:pb-16 pl-0 lg:pl-12">
-            <ul className="flex flex-col gap-4 text-[clamp(11px,0.6vw+4px,13px)] tracking-widest text-gray-500 font-medium uppercase">
-              <li className="hover:text-white transition-colors cursor-default">Strategy</li>
-              <li className="hover:text-white transition-colors cursor-default">UX/UI</li>
-              <li className="hover:text-white transition-colors cursor-default">Development</li>
-              <li className="hover:text-white transition-colors cursor-default">Brand</li>
+          <div className="flex flex-row flex-wrap lg:flex-col justify-start lg:justify-end pb-2 lg:pb-8 xl:pb-16 pl-0 lg:pl-12 gap-3 lg:gap-4">
+            <ul className="flex flex-row flex-wrap lg:flex-col gap-3 lg:gap-4 text-[clamp(11px,0.6vw+4px,13px)] tracking-widest text-gray-500 font-medium uppercase">
+              <li className="hover:text-white transition-colors cursor-default bg-[#1a1a1a] lg:bg-transparent px-3 py-1 lg:px-0 lg:py-0 rounded-sm">Strategy</li>
+              <li className="hover:text-white transition-colors cursor-default bg-[#1a1a1a] lg:bg-transparent px-3 py-1 lg:px-0 lg:py-0 rounded-sm">UX/UI</li>
+              <li className="hover:text-white transition-colors cursor-default bg-[#1a1a1a] lg:bg-transparent px-3 py-1 lg:px-0 lg:py-0 rounded-sm">Development</li>
+              <li className="hover:text-white transition-colors cursor-default bg-[#1a1a1a] lg:bg-transparent px-3 py-1 lg:px-0 lg:py-0 rounded-sm">Brand</li>
             </ul>
           </div>
 
@@ -90,8 +89,7 @@ export default function NazrProjectPage() {
 
       {/* Already Existed Section */}
       <section 
-        className="relative w-full flex justify-center items-center overflow-hidden"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+        className="relative w-full flex justify-center items-center overflow-hidden min-h-screen md:h-[calc(100vh/var(--desktop-scale,1))] py-16 md:py-0"
       >
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
@@ -105,37 +103,37 @@ export default function NazrProjectPage() {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 w-full max-w-[1440px] px-6 md:px-12 lg:px-20 py-12 h-full flex items-center justify-between">
+        <div className="relative z-10 w-full max-w-[1440px] px-3 sm:px-6 md:px-12 lg:px-20 py-12 h-full flex items-center justify-between">
 
           {/* Left Column */}
-          <div className="flex flex-col gap-16 md:gap-24 text-right w-[40%] md:w-[35%] lg:w-[30%]">
+          <div className="flex flex-col gap-8 sm:gap-16 md:gap-24 text-right w-[47%] sm:w-[42%] md:w-[35%] lg:w-[30%]">
             <div className="flex flex-col gap-1">
-              <span className="text-[clamp(10px,0.6vw+4px,13px)] font-semibold text-gray-300">Pepper sprays</span>
-              <span className="text-[clamp(1.125rem,2vw+0.4rem,1.875rem)] font-bold uppercase tracking-wide text-pink-200 drop-shadow-lg">ALREADY EXISTED</span>
+              <span className="text-[clamp(9px,0.6vw+4px,13px)] font-semibold text-gray-300">Pepper sprays</span>
+              <span className="text-[clamp(0.85rem,2vw+0.3rem,1.875rem)] font-bold uppercase tracking-wide text-pink-200 drop-shadow-lg leading-tight">ALREADY EXISTED</span>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="text-[clamp(10px,0.6vw+4px,13px)] font-semibold text-gray-300">Emergency helplines</span>
-              <span className="text-[clamp(1.125rem,2vw+0.4rem,1.875rem)] font-bold uppercase tracking-wide text-pink-200 drop-shadow-lg">ALREADY EXISTED</span>
+              <span className="text-[clamp(9px,0.6vw+4px,13px)] font-semibold text-gray-300">Emergency helplines</span>
+              <span className="text-[clamp(0.85rem,2vw+0.3rem,1.875rem)] font-bold uppercase tracking-wide text-pink-200 drop-shadow-lg leading-tight">ALREADY EXISTED</span>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="text-[clamp(10px,0.6vw+4px,13px)] font-semibold text-gray-300">Safety apps</span>
-              <span className="text-[clamp(1.125rem,2vw+0.4rem,1.875rem)] font-bold uppercase tracking-wide text-pink-200 drop-shadow-lg">ALREADY EXISTED</span>
+              <span className="text-[clamp(9px,0.6vw+4px,13px)] font-semibold text-gray-300">Safety apps</span>
+              <span className="text-[clamp(0.85rem,2vw+0.3rem,1.875rem)] font-bold uppercase tracking-wide text-pink-200 drop-shadow-lg leading-tight">ALREADY EXISTED</span>
             </div>
           </div>
 
           {/* Right Column */}
-          <div className="flex flex-col gap-16 md:gap-24 text-left w-[40%] md:w-[35%] lg:w-[30%]">
+          <div className="flex flex-col gap-8 sm:gap-16 md:gap-24 text-left w-[47%] sm:w-[42%] md:w-[35%] lg:w-[30%]">
             <div className="flex flex-col gap-1">
-              <span className="text-[clamp(10px,0.6vw+4px,13px)] font-semibold text-gray-300">Self-defence classes</span>
-              <span className="text-[clamp(1.125rem,2vw+0.4rem,1.875rem)] font-bold uppercase tracking-wide text-gray-300 md:text-pink-100 lg:text-pink-200 drop-shadow-lg">ALREADY EXISTED</span>
+              <span className="text-[clamp(9px,0.6vw+4px,13px)] font-semibold text-gray-300">Self-defence classes</span>
+              <span className="text-[clamp(0.85rem,2vw+0.3rem,1.875rem)] font-bold uppercase tracking-wide text-pink-100 lg:text-pink-200 drop-shadow-lg leading-tight">ALREADY EXISTED</span>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="text-[clamp(10px,0.6vw+4px,13px)] font-semibold text-gray-300">CCTV</span>
-              <span className="text-[clamp(1.125rem,2vw+0.4rem,1.875rem)] font-bold uppercase tracking-wide text-gray-300 md:text-pink-100 lg:text-pink-200 drop-shadow-lg">ALREADY EXISTED</span>
+              <span className="text-[clamp(9px,0.6vw+4px,13px)] font-semibold text-gray-300">CCTV</span>
+              <span className="text-[clamp(0.85rem,2vw+0.3rem,1.875rem)] font-bold uppercase tracking-wide text-pink-100 lg:text-pink-200 drop-shadow-lg leading-tight">ALREADY EXISTED</span>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="text-[clamp(10px,0.6vw+4px,13px)] font-semibold text-gray-300">Laws</span>
-              <span className="text-[clamp(1.125rem,2vw+0.4rem,1.875rem)] font-bold uppercase tracking-wide text-gray-300 md:text-pink-100 lg:text-pink-200 drop-shadow-lg">ALREADY EXISTED</span>
+              <span className="text-[clamp(9px,0.6vw+4px,13px)] font-semibold text-gray-300">Laws</span>
+              <span className="text-[clamp(0.85rem,2vw+0.3rem,1.875rem)] font-bold uppercase tracking-wide text-pink-100 lg:text-pink-200 drop-shadow-lg leading-tight">ALREADY EXISTED</span>
             </div>
           </div>
 
@@ -681,8 +679,8 @@ export default function NazrProjectPage() {
             </h2>
           </div>
 
-          {/* Center Graphic Layout */}
-          <div className="relative w-full max-w-[1100px] h-[700px] flex justify-center items-center mb-20 mt-10">
+          {/* Center Graphic Layout - Desktop */}
+          <div className="relative w-full max-w-[1100px] h-[700px] hidden lg:flex justify-center items-center mb-20 mt-10">
             
             {/* Images */}
             {/* Middle Phone */}
@@ -753,6 +751,62 @@ export default function NazrProjectPage() {
               ))}
             </div>
 
+          </div>
+
+          {/* Center Graphic Layout - Mobile */}
+          <div className="flex lg:hidden flex-col items-center gap-8 w-full mb-16 mt-6 px-2">
+            <div className="relative w-full max-w-[320px] h-[340px] flex justify-center items-center mx-auto">
+              <img 
+                src="/images/projects/nazr/ecosystem/sos.png" 
+                className="w-[60%] z-20 drop-shadow-2xl" 
+                alt="Mobile SOS App" 
+              />
+              <img 
+                src="/images/projects/nazr/ecosystem/pink.png" 
+                className="w-[28%] absolute left-[6%] bottom-[12%] z-30 drop-shadow-xl -rotate-12" 
+                alt="Pink Pepper Spray" 
+              />
+              <img 
+                src="/images/projects/nazr/ecosystem/white.png" 
+                className="w-[26%] absolute right-[6%] bottom-[8%] z-30 drop-shadow-xl rotate-12" 
+                alt="White Pepper Spray" 
+              />
+            </div>
+
+            <div className="flex flex-col gap-4 w-full max-w-md">
+              <div className="flex items-start gap-3 bg-white/70 backdrop-blur-sm p-4 rounded-2xl border border-gray-300 shadow-sm">
+                <div className="bg-[#F80090] text-white rounded-full w-7 h-7 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</div>
+                <div>
+                  <h4 className="font-bold text-gray-800 text-xs sm:text-sm mb-1">Volume Button SOS</h4>
+                  <p className="text-[11px] sm:text-xs text-gray-600 leading-tight">Press your volume button three times to instantly trigger SOS.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 bg-white/70 backdrop-blur-sm p-4 rounded-2xl border border-gray-300 shadow-sm">
+                <div className="bg-[#F80090] text-white rounded-full w-7 h-7 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</div>
+                <div>
+                  <h4 className="font-bold text-gray-800 text-xs sm:text-sm mb-1">In-App SOS Button</h4>
+                  <p className="text-[11px] sm:text-xs text-gray-600 leading-tight">Tap the SOS button in the NAZR app to alert your support network.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 bg-white/70 backdrop-blur-sm p-4 rounded-2xl border border-gray-300 shadow-sm">
+                <div className="bg-[#F80090] text-white rounded-full w-7 h-7 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</div>
+                <div>
+                  <h4 className="font-bold text-gray-800 text-xs sm:text-sm mb-1">Home Screen SOS Widget</h4>
+                  <p className="text-[11px] sm:text-xs text-gray-600 leading-tight">Trigger SOS directly from your home screen without opening the app.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 w-full max-w-md pt-2">
+              {["LARGE TOUCH TARGETS", "MINIMAL DISTRACTIONS", "RELIABLE NAVIGATION", "HIGH CONTRAST", "FAST INTERACTION", "SIMPLE LANGUAGE"].map((text, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-[#F80090] shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="font-bold text-gray-900 text-[10px] sm:text-[11px] tracking-wider">{text}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Iframe to NAZR website */}

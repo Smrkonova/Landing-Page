@@ -10,13 +10,24 @@ export default function ContactCTA() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const pathname = usePathname();
 
-  if (pathname === '/') {
+  const pathLower = pathname?.toLowerCase() || '';
+
+  if (
+    pathname === '/' ||
+    pathLower.includes('/industries') ||
+    pathLower.includes('/services') ||
+    pathLower.includes('/projects') ||
+    pathname === '/privacy' ||
+    pathname === '/terms'
+  ) {
     return null;
   }
-
-  const isEcommerce = pathname?.includes('/industries/ecommerce') || pathname?.includes('/industries/e-commerce');
-  const isHealthcare = pathname?.includes('/industries/healthcare');
-  const isIndustryPill = isEcommerce || isHealthcare;
+  const isEcommerce = pathLower.includes('/industries/ecommerce') || pathLower.includes('/industries/e-commerce');
+  const isHealthcare = pathLower.includes('/industries/healthcare');
+  const isEducation = pathLower.includes('/industries/education');
+  const isRealEstate = pathLower.includes('/industries/real-estate') || pathLower.includes('/industries/real_estate');
+  const isManufacturing = pathLower.includes('/industries/manufacturing');
+  const isIndustryPill = isEcommerce || isHealthcare || isEducation || isRealEstate || isManufacturing;
 
   let pretitle = "Ready to build something";
   let title: React.ReactNode = "Extraordinary?";
@@ -40,6 +51,33 @@ export default function ContactCTA() {
       </>
     );
     subtext = "Smrkonova inspires healthcare organizations with digital solutions for institution management, healthcare marketing, branding, admissions and patient engagement.";
+    buttonText = "Schedule a Strategy Session";
+  } else if (isEducation) {
+    pretitle = "READY TO BUILD SOMETHING";
+    title = (
+      <>
+        Build a future-ready<br className="hidden sm:block" /> institution
+      </>
+    );
+    subtext = "Smrkonova inspires schools, colleges and universities with digital solutions for institution management, education marketing, branding, admissions and student engagement.";
+    buttonText = "Schedule a Strategy Session";
+  } else if (isRealEstate) {
+    pretitle = "READY TO BUILD SOMETHING";
+    title = (
+      <>
+        Build a future-ready<br className="hidden sm:block" /> real estate business
+      </>
+    );
+    subtext = "Smrkonova inspires real estate developers, builders and property brands with digital solutions for property marketing, branding, lead acquisition and immersive sales experiences.";
+    buttonText = "Schedule a Strategy Session";
+  } else if (isManufacturing) {
+    pretitle = "READY TO BUILD SOMETHING";
+    title = (
+      <>
+        Build a future-ready<br className="hidden sm:block" /> manufacturing enterprise
+      </>
+    );
+    subtext = "Smrkonova partners with manufacturers and industrial brands to engineer automated digital workflows, B2B portals, and connected operations.";
     buttonText = "Schedule a Strategy Session";
   }
 

@@ -7,16 +7,15 @@ export default function CineArteryProjectPage() {
   return (
     <main className="min-h-screen bg-[#111111] text-white">
       <section 
-        className="relative overflow-hidden font-sans flex items-center pt-16 pb-4"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+        className="relative font-sans flex items-center pt-24 md:pt-16 pb-12 md:pb-4 min-h-screen md:h-[calc(100vh/var(--desktop-scale,1))] overflow-hidden"
       >
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center w-full h-full max-h-[820px]">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center w-full md:h-full md:max-h-[820px] gap-8 md:gap-0">
           
           {/* Left Column - Details */}
-          <div className="w-full md:w-1/5 pr-8 flex flex-col justify-center py-10">
-            <div className="space-y-12">
-              <div>
-                <h4 className="text-[clamp(0.75rem,2.5vw+0.25rem,0.75rem)] font-[300] tracking-[0.2em] uppercase mb-4 text-[#FFFFFF]">Case Study 1</h4>
+          <div className="w-full md:w-1/5 pr-0 md:pr-8 flex flex-col justify-center py-4 md:py-10">
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:flex md:flex-col gap-6 md:space-y-12">
+              <div className="col-span-2 sm:col-span-1">
+                <h4 className="text-[clamp(0.75rem,2.5vw+0.25rem,0.75rem)] font-[300] tracking-[0.2em] uppercase mb-2 md:mb-4 text-[#FFFFFF]">Case Study 1</h4>
                 <div className="relative w-32 h-8">
                    <img 
                       src="/images/projects/cineartery/logo.png" 
@@ -27,18 +26,18 @@ export default function CineArteryProjectPage() {
               </div>
 
               <div>
-                <h4 className="text-[clamp(0.75rem,2.5vw+0.25rem,0.75rem)] font-[300] tracking-[0.2em] mb-3 text-[#FFFFFF] capitalize">Industry</h4>
+                <h4 className="text-[clamp(0.75rem,2.5vw+0.25rem,0.75rem)] font-[300] tracking-[0.2em] mb-2 md:mb-3 text-[#FFFFFF] capitalize">Industry</h4>
                 <span className="inline-block bg-[#222222] px-3 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-sm text-white">Women safety</span>
               </div>
 
               <div>
-                <h4 className="text-[clamp(0.75rem,2.5vw+0.25rem,0.75rem)] font-[300] tracking-[0.2em] mb-3 text-[#FFFFFF] capitalize">Duration</h4>
+                <h4 className="text-[clamp(0.75rem,2.5vw+0.25rem,0.75rem)] font-[300] tracking-[0.2em] mb-2 md:mb-3 text-[#FFFFFF] capitalize">Duration</h4>
                 <span className="inline-block bg-[#222222] px-3 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-sm text-white">Ongoing</span>
               </div>
 
               <div>
-                <h4 className="text-[clamp(0.75rem,2.5vw+0.25rem,0.75rem)] font-[300] tracking-[0.2em] mb-3 text-[#FFFFFF] capitalize">Platforms</h4>
-                <div className="flex flex-col gap-2 items-start">
+                <h4 className="text-[clamp(0.75rem,2.5vw+0.25rem,0.75rem)] font-[300] tracking-[0.2em] mb-2 md:mb-3 text-[#FFFFFF] capitalize">Platforms</h4>
+                <div className="flex flex-wrap md:flex-col gap-2 items-start">
                   <span className="inline-block bg-[#222222] px-3 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-sm text-white">Website</span>
                   <span className="inline-block bg-[#222222] px-3 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-sm text-white">Shopify</span>
                   <span className="inline-block bg-[#222222] px-3 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-sm text-white">Flutter</span>
@@ -49,9 +48,9 @@ export default function CineArteryProjectPage() {
           </div>
 
           {/* Center Column - Banner Image */}
-          <div className="w-full md:w-3/5 flex justify-center py-4 relative px-4">
+          <div className="w-full md:w-3/5 flex justify-center py-4 relative px-0 sm:px-4">
             {/* The outer container with the blue border */}
-            <div className="relative rounded-[1.5rem] border-[1.5px] border-[#3a5a7b] w-full h-full min-h-[480px] max-h-[600px] p-[2px] shadow-sm overflow-hidden">
+            <div className="relative rounded-[1.5rem] border-[1.5px] border-[#3a5a7b] w-full min-h-[360px] sm:min-h-[440px] md:min-h-[480px] max-h-[600px] aspect-[16/11] md:aspect-auto md:h-full p-[2px] shadow-sm overflow-hidden">
               {/* Inner container for image */}
               <div className="relative rounded-[1.4rem] overflow-hidden w-full h-full bg-[#0a0a0a]">
                 <img
@@ -63,14 +62,14 @@ export default function CineArteryProjectPage() {
                 {/* Dark overlay for text readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
 
-                <div className="absolute inset-0 flex flex-col items-start justify-end text-white px-8 md:px-12 pb-12 md:pb-16 lg:pb-20">
-                  <h1 className="text-[clamp(1.75rem,3.5vw+0.5rem,2.75rem)] font-[100] uppercase tracking-wide leading-tight drop-shadow-lg text-white/80">
+                <div className="absolute inset-0 flex flex-col items-start justify-end text-white px-6 sm:px-8 md:px-12 pb-8 sm:pb-12 md:pb-16 lg:pb-20">
+                  <h1 className="text-[clamp(1.5rem,3.5vw+0.5rem,2.75rem)] font-[100] uppercase tracking-wide leading-tight drop-shadow-lg text-white/80">
                     The Heartbeat
                   </h1>
-                  <h1 className="text-[clamp(1.75rem,3.5vw+0.5rem,2.75rem)] font-[100] uppercase tracking-wide leading-tight drop-shadow-lg text-white/80">
+                  <h1 className="text-[clamp(1.5rem,3.5vw+0.5rem,2.75rem)] font-[100] uppercase tracking-wide leading-tight drop-shadow-lg text-white/80">
                     Of <span className="font-[700] text-white">Creative</span>
                   </h1>
-                  <h1 className="text-[clamp(1.75rem,3.5vw+0.5rem,2.75rem)] font-[700] uppercase tracking-wide leading-tight drop-shadow-lg text-white">
+                  <h1 className="text-[clamp(1.5rem,3.5vw+0.5rem,2.75rem)] font-[700] uppercase tracking-wide leading-tight drop-shadow-lg text-white">
                     Collaboration
                   </h1>
                 </div>
@@ -79,20 +78,14 @@ export default function CineArteryProjectPage() {
           </div>
 
           {/* Right Column - Navigation/Services list */}
-          <div className="w-full md:w-1/5 pl-8 flex flex-col justify-center items-start text-[#FFFFFF] md:pt-[6rem]">
-            <div className="space-y-4 text-[clamp(10px,0.8vw+2px,12px)]  tracking-widest uppercase font-[200]">
-              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full"></span> Motion Website</p>
-              <p className="pl-3">Development</p>
-              <p className="flex items-center gap-2 mt-4"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full"></span> Cinematic Web</p>
-              <p className="pl-3">Design</p>
-              <p className="flex items-center gap-2 mt-4"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full"></span> Next.js Development</p>
-              <p className="flex items-center gap-2 mt-4"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full"></span> GSAP Animations</p>
-              <p className="flex items-center gap-2 mt-4"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full"></span> Responsive Website</p>
-              <p className="pl-3">Design</p>
-              <p className="flex items-center gap-2 mt-4"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full"></span> Interactive Digital</p>
-              <p className="pl-3">Experiences1</p>
-              <p className="flex items-center gap-2 mt-4"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full"></span> Film Industry</p>
-              <p className="pl-3">Platform</p>
+          <div className="w-full md:w-1/5 pl-0 md:pl-8 flex flex-col justify-center items-start text-[#FFFFFF] pt-4 md:pt-[6rem]">
+            <div className="grid grid-cols-2 md:flex md:flex-col gap-3 md:space-y-4 text-[clamp(10px,0.8vw+2px,12px)] tracking-widest uppercase font-[200] w-full">
+              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> Motion Website</p>
+              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> Cinematic Web</p>
+              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> Next.js Dev</p>
+              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> GSAP Animations</p>
+              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> Responsive Web</p>
+              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> Digital Exp</p>
             </div>
           </div>
 
@@ -273,8 +266,7 @@ export default function CineArteryProjectPage() {
 
       {/* Phone Showcase Section */}
       <section 
-        className="relative w-full py-12 lg:py-0 bg-[#0c0c0c] overflow-hidden flex items-center justify-center"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+        className="relative w-full py-16 md:py-20 lg:py-0 bg-[#0c0c0c] overflow-hidden flex items-center justify-center min-h-screen lg:h-[calc(100vh/var(--desktop-scale,1))]"
       >
         {/* Ambient radial glow centered behind the middle column */}
         <div 
@@ -284,15 +276,15 @@ export default function CineArteryProjectPage() {
           }}
         />
 
-        <div className="w-full max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10 h-full max-h-[850px] flex items-center">
+        <div className="w-full max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10 h-full max-h-none lg:max-h-[850px] flex items-center">
           
-          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_minmax(280px,380px)_1.1fr] xl:grid-cols-[1.15fr_minmax(320px,400px)_1.15fr] gap-12 lg:gap-8 xl:gap-14 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_minmax(280px,380px)_1.1fr] xl:grid-cols-[1.15fr_minmax(320px,400px)_1.15fr] gap-12 lg:gap-8 xl:gap-14 items-stretch w-full">
             
             {/* Left Column */}
             <div className="flex flex-col justify-between h-full order-1 lg:order-1 py-2 sm:py-4">
               {/* Top Title */}
-              <div className="mb-10 lg:mb-0 ml-20">
-                <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,4.625rem)] uppercase leading-[1em] tracking-tight">
+              <div className="mb-8 lg:mb-0 ml-0 lg:ml-20 text-center lg:text-left">
+                <h2 className="text-[clamp(1.75rem,2.5vw+0.25rem,4.625rem)] uppercase leading-[1em] tracking-tight">
                   <span className="font-[200] text-white/80 block">Building</span>
                   <span className="font-[200] text-white/80 block">Foundation</span>
                   <span className="font-[200] text-white/80 block mb-1">With</span>
@@ -302,7 +294,7 @@ export default function CineArteryProjectPage() {
               </div>
               
               {/* Bottom Copy */}
-              <div className="flex flex-col items-start lg:items-end text-left lg:text-right mt-auto pt-8 lg:pt-16">
+              <div className="flex flex-col items-center lg:items-end text-center lg:text-right mt-auto pt-6 lg:pt-16">
                 <p className="text-[#8e8e8e] text-[clamp(0.75rem,0.7vw+0.25rem,0.75rem)] max-w-[320px] leading-[1.65] mb-8 font-light">
                   Cineartery now has a scalable architecture, intuitive user experience, and a premium digital presence designed to increase engagement, encourage loyalty, and adapt as the platform expands.
                 </p>
@@ -330,14 +322,14 @@ export default function CineArteryProjectPage() {
                 <img 
                   src="/images/projects/cineartery/phone.png" 
                   alt="Cineartery Mobile App / Web Experience" 
-                  className="relative z-10 w-full h-[600px] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)]"
+                  className="relative z-10 w-full h-[480px] sm:h-[600px] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)]"
                 />
 
                 {/* Movie Clapperboard - positioned at bottom right of phone */}
                 <img 
                   src="/images/projects/cineartery/clapperboard.png" 
                   alt="Movie Clapperboard" 
-                  className="absolute -bottom-15 -right-6 sm:-bottom-8 sm:-right-6 lg:-bottom-25 lg:-right-14 w-[500px] h-auto object-contain z-20 pointer-events-none drop-shadow-[0_20px_35px_rgba(0,0,0,0.9)]"
+                  className="absolute -bottom-8 -right-4 sm:-bottom-8 sm:-right-6 lg:-bottom-25 lg:-right-14 w-[240px] sm:w-[320px] lg:w-[500px] h-auto object-contain z-20 pointer-events-none drop-shadow-[0_20px_35px_rgba(0,0,0,0.9)]"
                 />
               </div>
             </div>
@@ -445,8 +437,7 @@ export default function CineArteryProjectPage() {
 
       {/* Cave / Final Section */}
       <section 
-        className="relative w-full py-16 flex flex-col justify-center items-center bg-[#0a0a0a] overflow-hidden"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+        className="relative w-full py-16 md:py-24 flex flex-col justify-center items-center bg-[#0a0a0a] overflow-hidden min-h-screen md:h-[calc(100vh/var(--desktop-scale,1))]"
       >
         
         {/* Background Cave Image with Fade */}
@@ -461,7 +452,7 @@ export default function CineArteryProjectPage() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center mt-32 md:mt-48">
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center mt-12 sm:mt-24 md:mt-48">
           
           <h2 className="text-[clamp(2.25rem,4vw+0.5rem,4rem)] font-thin uppercase tracking-wide text-white leading-[1.2] mb-12">
             A Foundation<br/>

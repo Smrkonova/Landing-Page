@@ -5,7 +5,7 @@ import WhatMakesUsDifferentSlider from "@/components/services/Branding/WhatMakes
 import ModernExperiencesSection from "@/components/services/Branding/ModernExperiencesSection";
 import TechnologySection from "@/components/services/Branding/TechnologySection";
 import FeaturesSliderSection from "@/components/services/Branding/FeaturesSliderSection";
-import ProcessScroll from "@/components/services/Branding/ProcessScroll";
+import StoryExperience from "@/components/animations/StoryExperience";
 import EngagementSliderSection from "@/components/services/Branding/EngagementSliderSection";
 import FaqSection from '@/components/services/Branding/FaqSection';
 
@@ -131,7 +131,9 @@ export default function BrandingPage() {
             <ModernExperiencesSection />
             <TechnologySection />
             <FeaturesSliderSection />
-            <ProcessScroll />
+            <div id="process" className="w-full relative">
+                <StoryExperience />
+            </div>
             <EngagementSliderSection />
             <FaqSection />
         </div>

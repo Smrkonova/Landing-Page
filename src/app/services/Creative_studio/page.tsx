@@ -5,7 +5,7 @@ import WhatMakesUsDifferentSlider from "@/components/services/Creative_studio/Wh
 import ModernExperiencesSection from "@/components/services/Creative_studio/ModernExperiencesSection"
 import TechnologySection from "@/components/services/Creative_studio/TechnologySection"
 import FeaturesSliderSection from "@/components/services/Creative_studio/FeaturesSliderSection"
-import ProcessScroll from "@/components/services/Creative_studio/ProcessScroll"
+import StoryExperience from "@/components/animations/StoryExperience"
 import EngagementSliderSection from "@/components/services/Creative_studio/EngagementSliderSection"
 import FaqSection from "@/components/services/Creative_studio/FaqSection"
 
@@ -131,7 +131,9 @@ export default function CreativeStudioPage() {
                     <ModernExperiencesSection />
                     <TechnologySection />
                     <FeaturesSliderSection />
-                    <ProcessScroll />
+                    <div id="process" className="w-full relative">
+                        <StoryExperience />
+                    </div>
                     <EngagementSliderSection />
                     <FaqSection />
                 </div>

@@ -8,10 +8,9 @@ export default function HiroGuildProjectPage() {
     <main className="min-h-screen bg-[#111111] text-white">
       {/* Hero Section */}
       <section 
-        className="w-full flex items-center justify-center pt-24 pb-8 overflow-hidden"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+        className="w-full flex items-center justify-center pt-24 md:pt-20 pb-12 md:pb-8 min-h-screen xl:h-[calc(100vh/var(--desktop-scale,1))] overflow-hidden"
       >
-        <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 h-full max-h-[820px] flex flex-col xl:flex-row items-center gap-6 xl:gap-8">
+        <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 h-full max-h-none xl:max-h-[820px] flex flex-col xl:flex-row items-center gap-6 xl:gap-8">
         
         {/* Left Sidebar */}
         <div className="hidden xl:flex flex-col w-[220px] shrink-0 justify-between py-12">
@@ -665,10 +664,9 @@ export default function HiroGuildProjectPage() {
 
       
       </HiroHorizontalSlider>
-{/* Final CTA Section */}
+      {/* Final CTA Section */}
       <section 
-        className="relative w-full bg-[#0a0a0a] overflow-hidden flex items-center pt-10 pb-10 md:pt-14 md:pb-14 border-t border-white/5"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+        className="relative w-full bg-[#0a0a0a] overflow-hidden flex items-center py-16 md:py-20 lg:py-0 border-t border-white/5 min-h-screen lg:h-[calc(100vh/var(--desktop-scale,1))]"
       >
         
         {/* Full Section Background Image */}

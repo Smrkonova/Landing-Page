@@ -9,42 +9,48 @@ const slides = [
         type: 'text', 
         title: "User Friendly\nExperience",   
         subtitle: "Simple navigation that helps users complete tasks quickly.", 
-        bg: "bg-[linear-gradient(150deg,#D8CFBE_22.55%,#E9AB39_87.59%)]"
+        bg: "bg-[linear-gradient(150deg,#D8CFBE_22.55%,#E9AB39_87.59%)]",
+        image: "/images/services/website/mobile/image 94.png"
     },
     { 
         id: 2,
         type: 'text', 
         title: "Fast\nPerformance", 
         subtitle: "Apps designed to load quickly and run smoothly across devices.", 
-        bg: "bg-[linear-gradient(150deg,#435975_22.55%,#2A3B4C_87.59%)]" 
+        bg: "bg-[linear-gradient(150deg,#435975_22.55%,#2A3B4C_87.59%)]",
+        image: "/images/services/website/mobile/image 95.png"
     },
     { 
         id: 3, 
         type: 'text', 
         title: "Secure\nAuthentication", 
         subtitle: "Safe login systems with modern security standards.", 
-        bg: "bg-[#BFD4FF]" 
+        bg: "bg-[#BFD4FF]",
+        image: "/images/services/website/mobile/image 96.png"
     },
     { 
         id: 4, 
         type: 'text', 
         title: "Built To\nScale", 
         subtitle: "Whether you have 500 users or 5 million, your application can grow with your business.", 
-        bg: "bg-[#E6D6B8]" 
+        bg: "bg-[#E6D6B8]",
+        image: "/images/services/website/mobile/image 97.png"
     },
     { 
         id: 5, 
         type: 'text', 
         title: "Easy Content\nManagement", 
         subtitle: "Manage users, products and content from an admin dashboard.", 
-        bg: "bg-[#DFE8B4]" 
+        bg: "bg-[#DFE8B4]",
+        image: "/images/services/website/mobile/image 98.png"
     },
     { 
         id: 6, 
         type: 'text', 
         title: "Reliable &\nSecure", 
         subtitle: "Built using modern development standards with regular updates and maintenance.", 
-        bg: "bg-[#EED3D9]" 
+        bg: "bg-[#EED3D9]",
+        image: "/images/services/website/mobile/image 99.png"
     },
 ];
 
@@ -137,13 +143,21 @@ export default function WhatMakesUsDifferentSlider() {
                                     opacity: opacity,
                                 }}
                             >
+                                {slide.image && (
+                                    <img 
+                                        src={slide.image} 
+                                        alt="" 
+                                        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                                    />
+                                )}
+
                                 {/* Slide Content */}
                                 {slide.type === 'text' && (
-                                    <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/10 to-black/10">
-                                        <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line">
+                                    <div className={`relative z-10 w-full h-full p-8 md:p-12 flex flex-col justify-between ${slide.image ? 'bg-gradient-to-t from-black/85 via-black/25 to-black/45' : 'bg-gradient-to-br from-white/10 to-black/10'}`}>
+                                        <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line drop-shadow-md">
                                             {slide.title}
                                         </h3>
-                                        <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed">
+                                        <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed drop-shadow-md">
                                             {slide.subtitle}
                                         </p>
                                     </div>

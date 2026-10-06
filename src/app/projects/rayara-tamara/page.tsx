@@ -88,8 +88,7 @@ export default function RayaraTamaraProject() {
   return (
     <main>
       <section 
-        className="bg-[#E3D6CA] relative overflow-hidden font-sans flex items-center pt-16 pb-4"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+        className="bg-[#E3D6CA] relative overflow-hidden font-sans flex items-center pt-24 md:pt-16 pb-12 md:pb-4 min-h-screen md:h-[calc(100vh/var(--desktop-scale,1))]"
       >
         {/* Background Side Abstract Image - Desktop Only */}
         <div className="hidden md:flex absolute right-0 top-0 bottom-0 h-[532px] w-[533px] pointer-events-none justify-end">
@@ -101,7 +100,7 @@ export default function RayaraTamaraProject() {
         </div>
 
         {/* MOBILE VIEW (matches exact mobile design) */}
-        <div className="block md:hidden w-full px-5 py-10 relative z-10 mt-18">
+        <div className="block md:hidden w-full px-5 py-6 sm:py-10 relative z-10">
           {/* 1. Header / Case Study Title */}
           <div className="block md:hidden absolute flex right-0  bottom-0 h-[370px] w-[372px] pointer-events-none justify-end">
             <img
@@ -288,9 +287,8 @@ export default function RayaraTamaraProject() {
 
       {/* Story Worth Preserving Section */}
       <section 
-        className="relative flex flex-col items-center justify-center font-sans px-4 py-16"
+        className="relative flex flex-col items-center justify-center font-sans px-4 py-16 min-h-screen md:h-[calc(100vh/var(--desktop-scale,1))]"
         style={{
-          height: "calc(100vh / var(--desktop-scale, 1))",
           backgroundColor: '#2B2D16AD',
           backgroundImage: 'url("/images/projects/rayara-tamara/story-worth.png")',
           backgroundSize: 'cover',

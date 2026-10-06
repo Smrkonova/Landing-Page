@@ -1,9 +1,10 @@
 import EducationHero from "@/components/industries/Education/EducationHero";
 import EducationSystems from "@/components/industries/Education/EducationSystems";
 import EducationEcosystems from "@/components/industries/Education/EducationEcosystems";
+import ServicesScroll from "@/components/industries/ServicesScroll";
 import EducationSolutions from "@/components/industries/Education/EducationSolutions";
 import EducationVerticals from "@/components/industries/Education/EducationVerticals";
-import Educationscroll from "@/components/industries/Education/Educationscroll";
+import StoryExperience from "@/components/animations/StoryExperience";
 import EducationLocationsMarquee from "@/components/industries/Education/EducationLocationsMarquee";
 import EducationSystemCTA from "@/components/industries/Education/EducationSystemCTA";
 import EducationCaseStudiesSlider from "@/components/industries/Education/EducationCaseStudiesSlider";
@@ -21,9 +22,12 @@ export default function EducationIndustriesPage() {
       <EducationHero />
       <EducationSystems />
       <EducationEcosystems />
+      <ServicesScroll />
       <EducationSolutions />
       <EducationVerticals />
-      <Educationscroll />
+      <div id="process" className="w-full relative">
+        <StoryExperience />
+      </div>
       <EducationLocationsMarquee />
       <EducationSystemCTA />
       <EducationCaseStudiesSlider />

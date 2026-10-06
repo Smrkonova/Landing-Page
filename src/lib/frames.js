@@ -1,42 +1,9 @@
-export const FRAME_SECTIONS = [
-  { folder: "contact-7", count: 50, filePrefix: "frame-", ext: ".webp", fileStart: 1 },
-  { folder: "contact-7", count: 55, filePrefix: "frame-", ext: ".webp", fileStart: 51 },
-  { folder: "contact-7", count: 50, filePrefix: "frame-", ext: ".webp", fileStart: 106 },
-  { folder: "contact-7", count: 50, filePrefix: "frame-", ext: ".webp", fileStart: 156 },
-  { folder: "contact-7", count: 50, filePrefix: "frame-", ext: ".webp", fileStart: 206 },
-  { folder: "contact-7", count: 50, filePrefix: "frame-", ext: ".webp", fileStart: 256 },
-  { folder: "contact-7", count: 50, filePrefix: "frame-", ext: ".webp", fileStart: 306 },
-  { folder: "contact-7", count: 55, filePrefix: "frame-", ext: ".webp", fileStart: 356 },
-  { folder: "contact-7", count: 39, filePrefix: "frame-", ext: ".webp", fileStart: 411 },
-];
-
-let currentStart = 1;
-export const COMPUTED_SECTIONS = FRAME_SECTIONS.map(section => {
-  const start = currentStart;
-  const end = currentStart + section.count - 1;
-  currentStart = end + 1;
-  return { ...section, start, end };
-});
-
-export const TOTAL_FRAMES = COMPUTED_SECTIONS.reduce(
-  (sum, section) => sum + section.count,
-  0
-);
+export const TOTAL_FRAMES = 449;
 
 export function getFramePath(frameNumber) {
-  const section = COMPUTED_SECTIONS.find(
-    (entry) => frameNumber >= entry.start && frameNumber <= entry.end
-  );
-
-  if (!section) {
-    throw new RangeError(`Frame number ${frameNumber} is out of range.`);
-  }
-
-  const indexInSection = frameNumber - section.start;
-  const fileNumber = section.fileStart + indexInSection;
-
-  const padded = String(fileNumber).padStart(4, "0");
-  return `/frames/${section.folder}/${section.filePrefix}${padded}${section.ext}`;
+  const clamped = Math.max(1, Math.min(TOTAL_FRAMES, Math.round(frameNumber)));
+  const padded = String(clamped).padStart(4, "0");
+  return `/frames/contact-7/frame-${padded}.webp`;
 }
 
 export function getAllFramePaths() {
@@ -45,11 +12,22 @@ export function getAllFramePaths() {
   );
 }
 
+export const FRAME_SECTIONS = [
+  { folder: "contact-7", count: 48, filePrefix: "frame-", ext: ".webp", fileStart: 1, start: 1, end: 48 },
+  { folder: "contact-7", count: 49, filePrefix: "frame-", ext: ".webp", fileStart: 49, start: 49, end: 97 },
+  { folder: "contact-7", count: 36, filePrefix: "frame-", ext: ".webp", fileStart: 98, start: 98, end: 133 },
+  { folder: "contact-7", count: 121, filePrefix: "frame-", ext: ".webp", fileStart: 134, start: 134, end: 254 },
+  { folder: "contact-7", count: 89, filePrefix: "frame-", ext: ".webp", fileStart: 255, start: 255, end: 343 },
+  { folder: "contact-7", count: 37, filePrefix: "frame-", ext: ".webp", fileStart: 344, start: 344, end: 380 },
+  { folder: "contact-7", count: 69, filePrefix: "frame-", ext: ".webp", fileStart: 381, start: 381, end: 449 },
+];
+
+export const COMPUTED_SECTIONS = FRAME_SECTIONS;
+
 export function getSectionIndexFromFrame(frameIndex) {
   const frameNumber = frameIndex + 1;
   const index = COMPUTED_SECTIONS.findIndex(
     (section) => frameNumber >= section.start && frameNumber <= section.end
   );
-
   return index === -1 ? 0 : index;
 }

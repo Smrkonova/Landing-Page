@@ -7,37 +7,29 @@ const slides = [
         id: 1,
         title: "Product\nLaunches",   
         subtitle: "Introduce new products with engaging visuals and promotional content.", 
-        bg: "bg-[linear-gradient(150deg,#004496_22.55%,#FF8B61_87.59%)]"
+        bg: "bg-[linear-gradient(150deg,#004496_22.55%,#FF8B61_87.59%)]",
+        image: "/images/services/website/Creative_studio/image 121.png"
     },
     { 
         id: 2,
         title: "Marketing\nCampaigns", 
         subtitle: "Support digital campaigns with high-quality graphics, animations and videos.", 
-        bg: "bg-[linear-gradient(150deg,#435975_22.55%,#2A3B4C_87.59%)]" 
+        bg: "bg-[linear-gradient(150deg,#435975_22.55%,#2A3B4C_87.59%)]",
+        image: "/images/services/website/Creative_studio/image 122.png"
     },
     { 
         id: 3, 
         title: "Sales\nPresentations", 
         subtitle: "Create professional visuals that help teams communicate ideas effectively.", 
-        bg: "bg-[linear-gradient(150deg,#3B7FBF_22.55%,#004496_87.59%)]" 
+        bg: "bg-[linear-gradient(150deg,#3B7FBF_22.55%,#004496_87.59%)]",
+        image: "/images/services/website/Creative_studio/image 123.png"
     },
     { 
         id: 4, 
         title: "Interactive\nWebsites", 
         subtitle: "Improve user engagement with interactive animations and storytelling experiences.", 
-        bg: "bg-[linear-gradient(150deg,#C85A32_22.55%,#7A2E1E_87.59%)]" 
-    },
-    { 
-        id: 5, 
-        title: "Events &\nExhibitions", 
-        subtitle: "Design visuals for trade shows, product launches and corporate events.", 
-        bg: "bg-[linear-gradient(150deg,#5B5F97_22.55%,#2C3066_87.59%)]" 
-    },
-    { 
-        id: 6, 
-        title: "Investor\nPresentations", 
-        subtitle: "Present ideas clearly through motion graphics, product visualisations and branded presentations.", 
-        bg: "bg-[linear-gradient(150deg,#007ACC_22.55%,#004496_87.59%)]" 
+        bg: "bg-[linear-gradient(150deg,#C85A32_22.55%,#7A2E1E_87.59%)]",
+        image: "/images/services/website/Creative_studio/image 124.png"
     },
 ];
 
@@ -82,8 +74,8 @@ export default function WhatMakesUsDifferentSlider() {
                             scale = 1;
                             opacity = 1;
                         } else if (distance > 0) {
-                            const translationSteps = [0, 45, 80, 105, 120, 130];
-                            translateX = `${translationSteps[Math.min(distance, 5)]}%`;
+                            const translationSteps = [0, 45, 80, 105];
+                            translateX = `${translationSteps[Math.min(distance, 3)]}%`;
                             scale = 1 - (distance * 0.1);
                             opacity = 1;
                         } else {
@@ -102,12 +94,12 @@ export default function WhatMakesUsDifferentSlider() {
                             scale = 1;
                             opacity = 1;
                             zIndex = 50;
-                        } else if (wrappedDistance > 0 && wrappedDistance < 6) {
-                            const translationSteps = [0, 110, 150, 185, 215, 240];
-                            const scaleSteps = [1, 0.95, 0.86, 0.76, 0.65, 0.53];
+                        } else if (wrappedDistance > 0 && wrappedDistance < 4) {
+                            const translationSteps = [0, 110, 150, 185];
+                            const scaleSteps = [1, 0.95, 0.86, 0.76];
                             
-                            translateX = `${translationSteps[Math.min(wrappedDistance, 5)]}%`;
-                            scale = scaleSteps[Math.min(wrappedDistance, 5)];
+                            translateX = `${translationSteps[wrappedDistance]}%`;
+                            scale = scaleSteps[wrappedDistance];
                             opacity = 1;
                             zIndex = 50 - wrappedDistance;
                         }
@@ -123,11 +115,19 @@ export default function WhatMakesUsDifferentSlider() {
                                     opacity: opacity,
                                 }}
                             >
-                                <div className="w-full h-full p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-white/15 to-black/30">
-                                    <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line">
+                                {slide.image && (
+                                    <img 
+                                        src={slide.image} 
+                                        alt="" 
+                                        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                                    />
+                                )}
+
+                                <div className={`relative z-10 w-full h-full p-8 md:p-12 flex flex-col justify-between ${slide.image ? 'bg-gradient-to-t from-black/85 via-black/25 to-black/45' : 'bg-gradient-to-br from-white/15 to-black/30'}`}>
+                                    <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line drop-shadow-md">
                                         {slide.title}
                                     </h3>
-                                    <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed">
+                                    <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed drop-shadow-md">
                                         {slide.subtitle}
                                     </p>
                                 </div>

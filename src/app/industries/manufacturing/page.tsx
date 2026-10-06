@@ -4,7 +4,7 @@ import AutomationCarousel from "@/components/industries/AutomationCarousel";
 import ServicesScroll from "@/components/industries/ServicesScroll";
 import SolutionsGrid from "@/components/industries/SolutionsGrid";
 import SliderSection from "@/components/industries/SliderSection";
-import ProcessScroll from "@/components/industries/ProcessScroll";
+import StoryExperience from "@/components/animations/StoryExperience";
 import LocationsMarquee from "@/components/industries/LocationsMarquee";
 import SystemCTA from "@/components/industries/SystemCTA";
 import CaseStudiesSlider from "@/components/industries/CaseStudiesSlider";
@@ -117,7 +117,9 @@ export default function Page() {
             <ServicesScroll />
             <SolutionsGrid />
             <SliderSection />
-            <ProcessScroll />
+            <div id="process" className="w-full relative">
+                <StoryExperience />
+            </div>
             <LocationsMarquee />
             <SystemCTA />
             <CaseStudiesSlider />

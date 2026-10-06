@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-white text-black pt-50 pb-24 px-6 md:px-12">
+    <main className="min-h-screen bg-white text-black pt-28 md:pt-40 pb-24 px-4 sm:px-6 md:px-12">
       <div className="max-w-[1400px] mx-auto">
 
         {/* Header Section */}

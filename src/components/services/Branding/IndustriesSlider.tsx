@@ -9,38 +9,38 @@ const slides = [
     {
         title: "Brand Identity",
         description: "Create a consistent identity that reflects your business values and positioning.",
-        image: "/images/services/website/image32.png",
-        bg: "linear-gradient(139.7deg, #004496 22.55%, #FF8B61 87.59%)"
+        image: "/images/services/website/Branding/image 63.png",
+        bg: "linear-gradient(139.7deg, #EF7151 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Logo Design",
         description: "Unique, scalable logos designed for both digital and print.",
-        image: "/images/services/website/yre1.png",
-        bg: "linear-gradient(139.7deg, #FF6B4A 22.55%, #BED6E1 87.59%)"
+        image: "/images/services/website/Branding/image 64.png",
+        bg: "linear-gradient(139.7deg, #435975 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Brand Guidelines",
         description: "A complete guide covering colours, typography, spacing, iconography and logo usage.",
-        image: "/images/services/website/manufacturing.png",
+        image: "/images/services/website/Branding/image 65.png",
         bg: "linear-gradient(139.7deg, #3B7FBF 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Marketing Assets",
         description: "Designs that keep your brand consistent across campaigns.",
-        image: "/images/services/website/healthcare.png",
-        bg: "linear-gradient(139.7deg, #5B5F97 22.55%, #FF8B61 87.59%)"
+        image: "/images/services/website/Branding/image 66.png",
+        bg: "linear-gradient(139.7deg, #EF7151 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Print Collateral",
         description: "Professional printed materials that strengthen your offline presence.",
-        image: "/images/services/website/shopify1.png",
+        image: "/images/services/website/Branding/image 67.png",
         bg: "linear-gradient(139.7deg, #435975 22.55%, #BED6E1 87.59%)"
     },
     {
         title: "Digital Brand Assets",
         description: "Everything needed for websites, social media and mobile applications.",
-        image: "/images/services/website/mobile1.png",
-        bg: "linear-gradient(139.7deg, #009BFB 22.55%, #FF8B61 87.59%)"
+        image: "/images/services/website/Branding/image 68.png",
+        bg: "linear-gradient(139.7deg, #3B7FBF 22.55%, #BED6E1 87.59%)"
     }
 ];
 

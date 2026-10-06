@@ -1,44 +1,54 @@
 "use client";
 
-import React from "react";
+import React, { useCallback } from "react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
+import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const caseStudies = [
+export interface CaseStudyItem {
+  id: number;
+  title: string;
+  desc: string;
+  img: string;
+  imgStyle: string;
+}
+
+const defaultCaseStudies: CaseStudyItem[] = [
   {
     id: 1,
-    title: "WING",
-    desc: "India's manufacturing sector is expanding rapidly through",
-    img: "/images/industries/case-studies/nazr.png",
-    imgStyle: "absolute -left-8 -top-8 w-[180px] h-[240px] object-contain z-10",
+    title: "SKYLINE TOWERS",
+    desc: "End-to-end buyer journeys, immersive virtual show-flats, and real-time inventory reservation portals.",
+    img: "/images/industries/case-studies/wing.png",
+    imgStyle: "absolute left-1/2 -top-8 w-[180px] h-[230px] object-contain z-10",
   },
   {
     id: 2,
-    title: "NAZR",
-    desc: "India's manufacturing sector is expanding rapidly through",
+    title: "AURUM RESIDENCES",
+    desc: "Targeted digital acquisition engine and high-intent lead acceleration driving 3.4x qualified site visits.",
     img: "/images/industries/case-studies/nazr.png",
-    imgStyle: "absolute -right-1 -top-6 w-[160px] h-[220px] object-contain z-10 rotate-[15deg]",
+    imgStyle: "absolute right-2 top-4 w-[170px] h-[220px] object-contain z-10 rotate-[12deg]",
   },
   {
     id: 3,
-    title: "NEELACHANDRA",
-    desc: "India's manufacturing sector is expanding rapidly through",
-    img: "/images/industries/case-studies/neelachandra.png ",
-    imgStyle: "absolute -top-16 -right-4 w-[200px] h-[240px] object-contain z-10",
+    title: "NEELACHANDRA ESTATES",
+    desc: "Interactive 3D master plans, unit availability matrix, and seamless digital booking workflows.",
+    img: "/images/industries/case-studies/neelachandra.png",
+    imgStyle: "absolute -top-14 -right-4 w-[190px] h-[230px] object-contain z-10",
   },
   {
     id: 4,
-    title: "NAZR",
-    desc: "India's manufacturing sector is expanding rapidly through",
+    title: "VERDANT HEIGHTS",
+    desc: "Architectural storytelling, lifestyle branding narratives, and automated channel partner portals.",
     img: "/images/industries/case-studies/nazr.png",
-    imgStyle: "absolute -right-8 bottom-12 w-[160px] h-[220px] object-contain z-10 rotate-[15deg]",
+    imgStyle: "absolute right-2 top-4 w-[170px] h-[220px] object-contain z-10 rotate-[10deg]",
   },
   {
     id: 5,
-    title: "NEELACHANDRA",
-    desc: "India's manufacturing sector is expanding rapidly through",
-    img: "/images/industries/case-studies/neelachandra.png ",
-    imgStyle: "absolute -top-16 -right-4 w-[200px] h-[240px] object-contain z-10",
+    title: "METROPOLIS ONE",
+    desc: "Enterprise real estate CRM synchronization, sales intelligence dashboards, and post-sales tracking.",
+    img: "/images/industries/case-studies/neelachandra.png",
+    imgStyle: "absolute -top-14 -right-2 w-[190px] h-[230px] object-contain z-10",
   },
 ];
 
@@ -47,68 +57,130 @@ interface CaseStudiesSliderProps {
   tagClassName?: string;
   title?: string;
   titleClassName?: string;
+  items?: CaseStudyItem[];
 }
 
 export default function CaseStudiesSlider({
-  tag = "Built for the long run",
+  tag = "BUILT TO BECOME A LANDMARK",
   tagClassName,
-  title = "Case Studies",
+  title = "CASE STUDIES",
   titleClassName,
+  items = defaultCaseStudies,
 }: CaseStudiesSliderProps = {}) {
-  const [emblaRef] = useEmblaCarousel({
+  const [emblaRef, emblaApi] = useEmblaCarousel({
     dragFree: true,
-    containScroll: "trimSnaps"
+    containScroll: "trimSnaps",
   });
 
-  return (
-    <section className="relative w-full bg-white py-24 md:py-32 overflow-hidden">
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
 
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  return (
+    <section className="relative w-full bg-white py-20 md:py-28 lg:py-36 overflow-hidden">
       {/* Header Container */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 mb-20 text-center md:text-left">
-        <p className={tagClassName || "text-gray-500 uppercase tracking-widest text-[clamp(12px,0.5vw+6px,14px)] mb-2 font-medium"}>
-          {tag}
-        </p>
-        <h2 className={titleClassName || "text-[clamp(2.25rem,4.5vw+0.5rem,4.5rem)] font-black text-[#111] tracking-tight uppercase"}>
-          {title}
-        </h2>
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 mb-14 sm:mb-18 md:mb-20">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center md:text-left"
+          >
+            {/* Subtitle: Extra Light 200, 32px, leading 136%, uppercase */}
+            <p
+              className={
+                tagClassName ||
+                "text-[#111] uppercase tracking-[0] text-[clamp(1.25rem,2.22vw,2rem)] leading-[1.36] mb-1 font-[200] text-center md:text-left"
+              }
+              style={{ fontFamily: "var(--font-inter), 'Inter', sans-serif" }}
+            >
+              {tag}
+            </p>
+
+            {/* Main Title: Extra Bold 800, 64px, leading 136%, uppercase */}
+            <h2
+              className={
+                titleClassName ||
+                "text-[clamp(2.25rem,4.44vw,4rem)] font-[800] text-[#111] leading-[1.36] tracking-[0] uppercase text-center md:text-left"
+              }
+              style={{ fontFamily: "var(--font-inter), 'Inter', sans-serif" }}
+            >
+              {title}
+            </h2>
+          </motion.div>
+
+          {/* Navigation Controls */}
+          <div className="flex items-center justify-center md:justify-start gap-3 self-center md:self-end">
+            <button
+              onClick={scrollPrev}
+              aria-label="Previous case study"
+              className="w-11 h-11 rounded-full border border-black/20 flex items-center justify-center text-black/70 hover:text-black hover:border-black/60 transition-colors cursor-pointer"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={scrollNext}
+              aria-label="Next case study"
+              className="w-11 h-11 rounded-full border border-black/20 flex items-center justify-center text-black/70 hover:text-black hover:border-black/60 transition-colors cursor-pointer"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Slider Container powered by Embla */}
       <div className="w-full relative pl-6 md:pl-12 lg:pl-16">
         <div className="overflow-visible" ref={emblaRef}>
-          <div className="flex gap-6 pt-16 pb-20 pr-[10vw]">
-            {caseStudies.map((study) => (
-              <div
+          <div className="flex gap-6 sm:gap-8 pt-12 pb-16 pr-[10vw]">
+            {items.map((study) => (
+              <motion.div
                 key={study.id}
-                className="relative flex-none w-[300px] md:w-[350px] h-[350px] md:h-[400px] bg-white border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] rounded-3xl p-8 flex flex-col justify-end"
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.3 }}
+                className="relative flex-none w-[300px] sm:w-[360px] md:w-[424px] h-[320px] sm:h-[353px] bg-white border border-gray-200/90 rounded-[19px] shadow-[0_6px_30px_rgba(0,0,0,0.04)] p-8 flex flex-col justify-end overflow-visible select-none cursor-grab active:cursor-grabbing"
               >
-
                 {/* Floating Image (overflows the card) */}
                 <div className={study.imgStyle}>
                   <Image
                     src={study.img}
                     alt={study.title}
                     fill
-                    className="object-contain pointer-events-none"
+                    className="object-contain pointer-events-none drop-shadow-md"
+                    sizes="(max-width: 768px) 180px, 220px"
                   />
                 </div>
 
-                {/* Card Text */}
+                {/* Card Text Content */}
                 <div className="relative z-20">
-                  <h3 className="text-[clamp(1.25rem,1.8vw+0.5rem,1.875rem)] font-black text-[#111] uppercase tracking-tight mb-3">
+                  <h3
+                    className="text-[clamp(1.25rem,1.8vw+0.5rem,1.75rem)] font-[800] text-[#111] uppercase tracking-[0] mb-3"
+                    style={{
+                      fontFamily: "var(--font-inter), 'Inter', sans-serif",
+                    }}
+                  >
                     {study.title}
                   </h3>
-                  <p className="text-[clamp(11px,0.4vw+6px,13px)] text-gray-400 font-medium leading-relaxed max-w-[200px]">
+                  <p
+                    className="text-[12px] text-gray-500 font-[300] leading-[1.39] tracking-[0.05em] max-w-[280px]"
+                    style={{
+                      fontFamily: "var(--font-inter), 'Inter', sans-serif",
+                    }}
+                  >
                     {study.desc}
                   </p>
                 </div>
-
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </div>
-
     </section>
   );
 }

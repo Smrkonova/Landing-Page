@@ -4,11 +4,12 @@ import ManufacturingScrollCanvas from "@/components/industries/ManufacturingScro
 import IndustryExtendedSection from "@/components/industries/IndustryExtendedSection";
 import HealthcareCarousel from "@/components/industries/HealthcareCarousel";
 import SolutionsGrid from "@/components/industries/SolutionsGrid";
-import SliderSection from "@/components/industries/SliderSection";
-import ProcessScroll from "@/components/industries/ProcessScroll";
+import ServicesScroll from "@/components/industries/ServicesScroll";
+import HealthcareVerticals from "@/components/industries/Healthcare/HealthcareVerticals";
+import StoryExperience from "@/components/animations/StoryExperience";
 import LocationsMarquee from "@/components/industries/LocationsMarquee";
 import SystemCTA from "@/components/industries/SystemCTA";
-import CaseStudiesSlider from "@/components/industries/CaseStudiesSlider";
+import HealthcareCaseStudiesSlider from "@/components/industries/Healthcare/HealthcareCaseStudiesSlider";
 import FaqSection from "@/components/industries/FaqSection";
 
 export const metadata = {
@@ -33,16 +34,6 @@ const healthcareSolutions = [
   { id: 14, number: "14", title: "Healthcare Analytics" },
   { id: 15, number: "15", title: "Multi-Chain Clinic ERP" },
   { id: 16, number: "16", title: "HIPAA Compliant Infrastructure" },
-];
-
-const healthcareSliders = [
-  { id: 1, img: "/images/industries/healthcare/1.png", title: "MULTI-SPECIALTY\nHOSPITALS" },
-  { id: 2, img: "/images/industries/healthcare/2.png", title: "DIAGNOSTIC &\nPATHOLOGY CHAINS" },
-  { id: 3, img: "/images/industries/healthcare/3.png", title: "TELEHEALTH &\nVIRTUAL CARE" },
-  { id: 4, img: "/images/industries/healthcare/4.png", title: "DENTAL & SPECIALTY\nCLINICS" },
-  { id: 5, img: "/images/industries/healthcare/5.png", title: "PHARMACEUTICALS &\nBIOTECH" },
-  { id: 6, img: "/images/industries/healthcare/6.png", title: "AYURVEDA & WELLNESS\nINSTITUTIONS" },
-  { id: 7, img: "/images/industries/healthcare/7.png", title: "MEDICAL DEVICES &\nHEALTH-TECH APPS" },
 ];
 
 const healthcareProcesses = [
@@ -176,6 +167,9 @@ export default function HealthcareIndustryPage() {
         carousel={<HealthcareCarousel />}
       />
 
+      {/* What We Do Sticky Scroll */}
+      <ServicesScroll />
+
       {/* Solutions Grid */}
       <div id="solutions">
         <SolutionsGrid
@@ -190,22 +184,13 @@ export default function HealthcareIndustryPage() {
         />
       </div>
 
-      {/* Slider Section */}
-      <SliderSection
-        headerContainerClassName="mb-14 md:mb-20 text-center flex flex-col items-center justify-center space-y-3"
-        headerTag="INDUSTRIES WITHIN HEALTHCARE"
-        headerTagClassName="font-sans font-semibold text-[clamp(1.75rem,3.2vw+0.5rem,52.58px)] leading-[1.22] tracking-[0em] text-center uppercase text-[#111]"
-        title="20+ HEALTHCARE SECTORS WE HELP TRANSFORM"
-        titleClassName="font-sans font-extralight text-[clamp(2rem,3.8vw+0.5rem,64px)] leading-[1.22] tracking-[0em] text-center uppercase text-[#111]"
-        borderBox={true}
-        items={healthcareSliders}
-      />
+      {/* Healthcare Verticals Slider Section */}
+      <HealthcareVerticals />
 
-      {/* Process Scroll */}
-      <ProcessScroll
-        headline="PATIENT JOURNEY"
-        processes={healthcareProcesses}
-      />
+      {/* Process / Story Animation */}
+      <div id="process" className="w-full relative">
+        <StoryExperience />
+      </div>
 
       {/* Locations Marquee */}
       <LocationsMarquee
@@ -237,12 +222,7 @@ export default function HealthcareIndustryPage() {
       />
 
       {/* Case Studies Slider */}
-      <CaseStudiesSlider
-        tag="Built to become a landmark"
-        tagClassName="font-sans font-extralight text-[clamp(1.25rem,2vw+0.5rem,32px)] leading-[1.36] tracking-[0em] uppercase text-[#666] mb-2"
-        title="CASE STUDIES"
-        titleClassName="font-sans font-extrabold text-[clamp(2.25rem,4vw+0.5rem,64px)] leading-[1.36] tracking-[0em] uppercase text-[#111]"
-      />
+      <HealthcareCaseStudiesSlider />
 
       {/* FAQ Section */}
       <FaqSection
