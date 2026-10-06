@@ -9,10 +9,9 @@ export default function ReadingElfProjectPage() {
     <main className="min-h-screen bg-[#FDFCEE] text-black">
       {/* Hero Section */}
       <section 
-        className="w-full flex items-center justify-center pt-24 pb-8 overflow-hidden"
-        style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+        className="w-full flex items-center justify-center pt-24 md:pt-20 pb-12 md:pb-8 min-h-screen xl:h-[calc(100vh/var(--desktop-scale,1))] overflow-hidden"
       >
-        <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 h-full max-h-[820px] flex flex-col xl:flex-row items-center gap-6 xl:gap-8">
+        <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 h-full max-h-none xl:max-h-[820px] flex flex-col xl:flex-row items-center gap-6 xl:gap-8">
 
         {/* Left Sidebar */}
         <div className="hidden xl:flex flex-col w-[220px] shrink-0 justify-between py-12">

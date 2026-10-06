@@ -5,7 +5,7 @@ import WhatMakesUsDifferentSlider from "@/components/services/UI_UX_Design/WhatM
 import ModernExperiencesSection from "@/components/services/UI_UX_Design/ModernExperiencesSection"
 import TechnologySection from "@/components/services/UI_UX_Design/TechnologySection"
 import FeaturesSliderSection from "@/components/services/UI_UX_Design/FeaturesSliderSection"
-import ProcessScroll from "@/components/services/UI_UX_Design/ProcessScroll"
+import StoryExperience from "@/components/animations/StoryExperience"
 import EngagementSliderSection from "@/components/services/UI_UX_Design/EngagementSliderSection"
 import FaqSection from "@/components/services/UI_UX_Design/FaqSection"
 
@@ -138,7 +138,9 @@ export default function UIUXDesignPage() {
                 <ModernExperiencesSection />
                 <TechnologySection />
                 <FeaturesSliderSection />
-                <ProcessScroll />
+                <div id="process" className="w-full relative">
+                    <StoryExperience />
+                </div>
                 <EngagementSliderSection />
                 <FaqSection />
                 </div>

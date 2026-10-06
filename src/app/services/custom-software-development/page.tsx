@@ -5,7 +5,7 @@ import WhatMakesUsDifferentSlider from "@/components/services/custom-software-de
 import ModernExperiencesSection from "@/components/services/custom-software-development/ModernExperiencesSection";
 import TechnologySection from "@/components/services/custom-software-development/TechnologySection";
 import FeaturesSliderSection from "@/components/services/custom-software-development/FeaturesSliderSection";
-import ProcessScroll from "@/components/services/custom-software-development/ProcessScroll";
+import StoryExperience from "@/components/animations/StoryExperience";
 import EngagementSliderSection from "@/components/services/custom-software-development/EngagementSliderSection";
 import FaqSection from '@/components/services/custom-software-development/FaqSection';
 
@@ -138,7 +138,9 @@ export default function customsoftwaredevelopment() {
             <ModernExperiencesSection />
             <TechnologySection />
             <FeaturesSliderSection />
-            <ProcessScroll />
+            <div id="process" className="w-full relative">
+                <StoryExperience />
+            </div>
             <EngagementSliderSection />
             <FaqSection/>
             </div>

@@ -6,7 +6,7 @@ import ModernExperiencesSection from '@/components/services/ModernExperiencesSec
 import TechnologySection from '@/components/services/TechnologySection';
 import FeaturesSliderSection from '@/components/services/FeaturesSliderSection';
 import EngagementSliderSection from '@/components/services/EngagementSliderSection';
-import ProcessScroll from '@/components/services/ProcessScroll';
+import StoryExperience from '@/components/animations/StoryExperience';
 import FaqSection from '@/components/services/FaqSection';
 
 export default function CustomWebDevelopmentPage() {
@@ -371,7 +371,9 @@ export default function CustomWebDevelopmentPage() {
             <ModernExperiencesSection />
             <TechnologySection />
             <FeaturesSliderSection />
-            <ProcessScroll />
+            <div id="process" className="w-full relative">
+                <StoryExperience />
+            </div>
             <EngagementSliderSection />
             <FaqSection />
         </div>

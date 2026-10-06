@@ -15,7 +15,9 @@ export default function Header() {
   const isIndustryPage = pathname?.startsWith('/industries/');
   const isServiceDetailPage = pathname?.startsWith('/services/') && pathname !== '/services';
   const isAboutPage = pathname === '/about';
-  const isDarkPage = isNazrPage || isCineArteryPage || isHiroGuildPage || isIndustryPage || isServiceDetailPage || isAboutPage;
+  const isTermsPage = pathname === '/terms';
+  const isPrivacyPage = pathname === '/privacy';
+  const isDarkPage = isNazrPage || isCineArteryPage || isHiroGuildPage || isIndustryPage || isServiceDetailPage || isAboutPage || isTermsPage || isPrivacyPage;
 
   let logoFilter = 'none';
   if (isNazrPage) {
@@ -23,7 +25,7 @@ export default function Header() {
   } else if (isCineArteryPage) {
     // Filter to turn black logo into yellow (#EAB308)
     logoFilter = 'brightness(0) saturate(100%) invert(73%) sepia(61%) saturate(541%) hue-rotate(352deg) brightness(102%) contrast(101%)';
-  } else if (isHiroGuildPage || isIndustryPage || isServiceDetailPage || isAboutPage) {
+  } else if (isHiroGuildPage || isIndustryPage || isServiceDetailPage || isAboutPage || isTermsPage || isPrivacyPage) {
     // Filter to turn black logo into white
     logoFilter = 'brightness(0) invert(1)';
   }
@@ -108,7 +110,18 @@ export default function Header() {
           </Link>
 
           {/* Right: Audio & Menu Buttons */}
-          <div className="flex items-center gap-4 pointer-events-auto">
+          <div className="flex items-center gap-3 sm:gap-4 pointer-events-auto">
+            <Link
+              href="/contact"
+              className={`hidden sm:inline-flex items-center justify-center px-4 md:px-5 py-2.5 text-[10px] md:text-[11px] font-mono tracking-widest uppercase border transition-all duration-300 ${
+                isDarkPage
+                  ? "text-white border-white/20 hover:border-white/50 hover:bg-white/10"
+                  : "text-[#212121] border-[#212121]/30 hover:border-[#212121] hover:bg-[#212121]/5"
+              }`}
+            >
+              CONTACT US
+            </Link>
+
             {/* Audio Equalizer Button */}
             <button
               suppressHydrationWarning
@@ -213,8 +226,8 @@ export default function Header() {
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-between text-[8px] md:text-[9px]  uppercase tracking-[0.1em] text-gray-400 mt-16 gap-4">
                   <div className="flex flex-wrap gap-4 md:gap-6">
                     <span>© 2026 SMRKONOVA.COM</span>
-                    <Link href="#" className="hover:text-black transition-colors">Terms & Conditions</Link>
-                    <Link href="#" className="hover:text-black transition-colors">Privacy Policy</Link>
+                    <Link href="/terms" onClick={() => setIsOpen(false)} className="hover:text-black transition-colors">Terms & Conditions</Link>
+                    <Link href="/privacy" onClick={() => setIsOpen(false)} className="hover:text-black transition-colors">Privacy Policy</Link>
                     <Link href="#" className="hover:text-black transition-colors">Cookies</Link>
                   </div>
                   <span>Site by SMRKONOVA.</span>

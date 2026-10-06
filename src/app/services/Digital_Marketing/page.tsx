@@ -5,7 +5,7 @@ import WhatMakesUsDifferentSlider from "@/components/services/Digital_Marketing/
 import ModernExperiencesSection from "@/components/services/Digital_Marketing/ModernExperiencesSection";
 import TechnologySection from "@/components/services/Digital_Marketing/TechnologySection";
 import FeaturesSliderSection from "@/components/services/Digital_Marketing/FeaturesSliderSection";
-import ProcessScroll from "@/components/services/Digital_Marketing/ProcessScroll";
+import StoryExperience from "@/components/animations/StoryExperience";
 import EngagementSliderSection from "@/components/services/Digital_Marketing/EngagementSliderSection";
 import FaqSection from '@/components/services/Digital_Marketing/FaqSection';
 
@@ -131,7 +131,9 @@ export default function DigitalMarketingPage() {
                 <ModernExperiencesSection />
                 <TechnologySection />
                 <FeaturesSliderSection />
-                <ProcessScroll />
+                <div id="process" className="w-full relative">
+                    <StoryExperience />
+                </div>
                 <EngagementSliderSection />
                 <FaqSection />
             </div>

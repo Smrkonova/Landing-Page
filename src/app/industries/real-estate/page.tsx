@@ -1,9 +1,10 @@
 import RealEstateHero from "@/components/industries/RealEstate/RealEstateHero";
 import RealEstateSystems from "@/components/industries/RealEstate/RealEstateSystems";
 import RealEstateEcosystems from "@/components/industries/RealEstate/RealEstateEcosystems";
+import ServicesScroll from "@/components/industries/ServicesScroll";
 import RealEstateSolutions from "@/components/industries/RealEstate/RealEstateSolutions";
 import RealEstateVerticals from "@/components/industries/RealEstate/RealEstateVerticals";
-import RealEstateProcessScroll from "@/components/industries/RealEstate/RealEstateProcessScroll";
+import StoryExperience from "@/components/animations/StoryExperience";
 import RealEstateLocationsMarquee from "@/components/industries/RealEstate/RealEstateLocationsMarquee";
 import RealEstateSystemCTA from "@/components/industries/RealEstate/RealEstateSystemCTA";
 import RealEstateCaseStudiesSlider from "@/components/industries/RealEstate/RealEstateCaseStudiesSlider";
@@ -21,9 +22,12 @@ export default function RealEstateIndustriesPage() {
       <RealEstateHero />
       <RealEstateSystems />
       <RealEstateEcosystems />
+      <ServicesScroll />
       <RealEstateSolutions />
       <RealEstateVerticals />
-      <RealEstateProcessScroll />
+      <div id="process" className="w-full relative">
+        <StoryExperience />
+      </div>
       <RealEstateLocationsMarquee />
       <RealEstateSystemCTA />
       <RealEstateCaseStudiesSlider />

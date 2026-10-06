@@ -4,11 +4,12 @@ import ManufacturingScrollCanvas from "@/components/industries/ManufacturingScro
 import IndustryExtendedSection from "@/components/industries/IndustryExtendedSection";
 import EcommerceCarousel from "@/components/industries/EcommerceCarousel";
 import SolutionsGrid from "@/components/industries/SolutionsGrid";
-import SliderSection from "@/components/industries/SliderSection";
-import ProcessScroll from "@/components/industries/ProcessScroll";
+import ServicesScroll from "@/components/industries/ServicesScroll";
+import EcommerceVerticals from "@/components/industries/Ecommerce/EcommerceVerticals";
+import StoryExperience from "@/components/animations/StoryExperience";
 import LocationsMarquee from "@/components/industries/LocationsMarquee";
 import SystemCTA from "@/components/industries/SystemCTA";
-import CaseStudiesSlider from "@/components/industries/CaseStudiesSlider";
+import EcommerceCaseStudiesSlider from "@/components/industries/Ecommerce/EcommerceCaseStudiesSlider";
 import FaqSection from "@/components/industries/FaqSection";
 
 export const metadata = {
@@ -32,16 +33,6 @@ const ecommerceSolutions = [
   { id: 13, number: "13", title: "Payment Gateway Integrations" },
   { id: 14, number: "14", title: "Razorpay Integration" },
   { id: 15, number: "15", title: "Stripe Integration" },
-];
-
-const ecommerceSliders = [
-  { id: 1, img: "/images/industries/manufacturing/slider/1.png", title: "DIRECT-TO-CONSUMER\n(D2C) BRANDS" },
-  { id: 2, img: "/images/industries/manufacturing/slider/2.png", title: "B2B WHOLESALE &\nDISTRIBUTION" },
-  { id: 3, img: "/images/industries/manufacturing/slider/3.png", title: "INDUSTRIAL PRODUCT\nCATALOGUES" },
-  { id: 4, img: "/images/industries/manufacturing/slider/4.png", title: "LUXURY & APPAREL\nFASHION HOUSES" },
-  { id: 5, img: "/images/industries/manufacturing/slider/1.png", title: "SUBSCRIPTION &\nMEMBERSHIP COMMERCE" },
-  { id: 6, img: "/images/industries/manufacturing/slider/2.png", title: "MULTI-VENDOR\nMARKETPLACES" },
-  { id: 7, img: "/images/industries/manufacturing/slider/3.png", title: "DIGITAL PRODUCTS &\nSOFTWARE COMMERCE" },
 ];
 
 const ecommerceProcesses = [
@@ -168,6 +159,9 @@ export default function EcommerceIndustryPage() {
         carousel={<EcommerceCarousel />}
       />
 
+      {/* What We Do Sticky Scroll */}
+      <ServicesScroll />
+
       {/* Solutions Grid */}
       <div id="solutions">
         <SolutionsGrid
@@ -182,22 +176,13 @@ export default function EcommerceIndustryPage() {
         />
       </div>
 
-      {/* Slider Section */}
-      <SliderSection
-        headerContainerClassName="mb-14 md:mb-20 text-center flex flex-col items-center justify-center space-y-3"
-        headerTag="Businesses within e-Commerce"
-        headerTagClassName="font-sans font-semibold text-[clamp(1.75rem,3.2vw+0.5rem,52.58px)] leading-[1.22] tracking-[0em] text-center uppercase text-[#111]"
-        title="Built for every kind of online seller"
-        titleClassName="font-sans font-extralight text-[clamp(2rem,3.8vw+0.5rem,64px)] leading-[1.22] tracking-[0em] text-center uppercase text-[#111]"
-        borderBox={true}
-        items={ecommerceSliders}
-      />
+      {/* Ecommerce Verticals Slider Section */}
+      <EcommerceVerticals />
 
-      {/* Process Scroll */}
-      <ProcessScroll
-        headline="OUR PROCESS"
-        processes={ecommerceProcesses}
-      />
+      {/* Process / Story Animation */}
+      <div id="process" className="w-full relative">
+        <StoryExperience />
+      </div>
 
       {/* Locations Marquee */}
       <LocationsMarquee
@@ -222,12 +207,7 @@ export default function EcommerceIndustryPage() {
       />
 
       {/* Case Studies Slider */}
-      <CaseStudiesSlider
-        tag="Built to become a landmark"
-        tagClassName="font-sans font-extralight text-[clamp(1.25rem,2vw+0.5rem,32px)] leading-[1.36] tracking-[0em] uppercase text-[#666] mb-2"
-        title="CASE STUDIES"
-        titleClassName="font-sans font-extrabold text-[clamp(2.25rem,4vw+0.5rem,64px)] leading-[1.36] tracking-[0em] uppercase text-[#111]"
-      />
+      <EcommerceCaseStudiesSlider />
 
       {/* FAQ Section */}
       <FaqSection

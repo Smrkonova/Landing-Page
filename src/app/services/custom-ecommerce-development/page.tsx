@@ -6,7 +6,7 @@ import WhatMakesUsDifferentSlider from "@/components/services/custom-ecommerce-d
 import ModernExperiencesSection from "@/components/services/custom-ecommerce-development/ModernExperiencesSection";
 import TechnologySection from "@/components/services/custom-ecommerce-development/TechnologySection";
 import FeaturesSliderSection from "@/components/services/custom-ecommerce-development/FeaturesSliderSection";
-import ProcessScroll from "@/components/services/custom-ecommerce-development/ProcessScroll";
+import StoryExperience from "@/components/animations/StoryExperience";
 import EngagementSliderSection from "@/components/services/custom-ecommerce-development/EngagementSliderSection";
 import FaqSection from '@/components/services/custom-ecommerce-development/FaqSection';
 
@@ -134,7 +134,9 @@ export default function customecommercedevelopment() {
             <ModernExperiencesSection />
             <TechnologySection />
             <FeaturesSliderSection />
-            <ProcessScroll />
+            <div id="process" className="w-full relative">
+                <StoryExperience />
+            </div>
             <EngagementSliderSection />
             <FaqSection />
         </div>

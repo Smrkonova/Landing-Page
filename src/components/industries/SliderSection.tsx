@@ -79,7 +79,7 @@ export default function SliderSection({
         </div>
 
         {/* Outer Frame Wrapper */}
-        <div className={borderBox ? "relative p-4 md:p-8 rounded-2xl md:rounded-3xl border-[2.5px] border-[#0091ff] shadow-[0_0_40px_rgba(0,145,255,0.15)] bg-white" : ""}>
+        <div className="relative">
           {/* Slider Container */}
           <motion.div 
             className="relative w-full h-[450px] md:h-[500px] flex justify-center items-center perspective-[1000px] cursor-grab active:cursor-grabbing"

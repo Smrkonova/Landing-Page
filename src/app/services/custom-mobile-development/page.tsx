@@ -6,7 +6,7 @@ import ModernExperiencesSection from '@/components/services/custom-mobile-develo
 import TechnologySection from '@/components/services/custom-mobile-development/TechnologySection';
 import FeaturesSliderSection from '@/components/services/custom-mobile-development/FeaturesSliderSection';
 import EngagementSliderSection from '@/components/services/custom-mobile-development/EngagementSliderSection';
-import ProcessScroll from '@/components/services/custom-mobile-development/ProcessScroll';
+import StoryExperience from '@/components/animations/StoryExperience';
 import FaqSection from '@/components/services/custom-mobile-development/FaqSection';
 
 export default function CustommobileDevelopmentPage() {
@@ -137,7 +137,9 @@ export default function CustommobileDevelopmentPage() {
             <ModernExperiencesSection />
             <TechnologySection />
             <FeaturesSliderSection />
-            <ProcessScroll />
+            <div id="process" className="w-full relative">
+                <StoryExperience />
+            </div>
             <EngagementSliderSection />
             <FaqSection />
             </div>

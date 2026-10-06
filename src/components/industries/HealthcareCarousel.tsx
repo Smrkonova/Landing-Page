@@ -106,7 +106,7 @@ export default function HealthcareCarousel() {
   return (
     <div className="relative w-full max-w-[100vw] lg:max-w-[550px] xl:max-w-[620px] perspective-[1000px]">
       {/* Background Circular Ambient Glow matching screenshot */}
-      <div className="absolute top-1/2 left-[40%] -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] lg:w-[560px] lg:h-[560px] bg-gradient-to-tr from-[#ff9a44] via-[#ff6a00] to-[#ffd074] rounded-full blur-[100px] opacity-40 pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-[40%] -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] lg:w-[560px] lg:h-[560px] bg-gradient-to-tr from-[#ff9a44] via-[#ff6a00] to-[#ffd074] rounded-full blur-[100px] opacity-55 pointer-events-none z-0" />
 
       {/* Navigation Arrow Controls */}
       <div className="flex items-center justify-between mb-4 px-2 relative z-20">
@@ -116,14 +116,14 @@ export default function HealthcareCarousel() {
         <div className="flex items-center gap-2">
           <button
             onClick={scrollPrev}
-            className="w-9 h-9 rounded-full border border-neutral-300 bg-white/80 backdrop-blur-sm flex items-center justify-center text-neutral-800 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all shadow-sm cursor-pointer"
+            className="w-9 h-9 rounded-full border border-white/60 bg-white/60 backdrop-blur-md flex items-center justify-center text-neutral-800 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all shadow-sm cursor-pointer"
             aria-label="Previous slide"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
           </button>
           <button
             onClick={scrollNext}
-            className="w-9 h-9 rounded-full border border-neutral-300 bg-white/80 backdrop-blur-sm flex items-center justify-center text-neutral-800 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all shadow-sm cursor-pointer"
+            className="w-9 h-9 rounded-full border border-white/60 bg-white/60 backdrop-blur-md flex items-center justify-center text-neutral-800 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all shadow-sm cursor-pointer"
             aria-label="Next slide"
           >
             <ArrowRight className="w-3.5 h-3.5" />
@@ -149,8 +149,11 @@ export default function HealthcareCarousel() {
                       : "rotate-y-[-20deg] scale-[0.88] opacity-50 z-0 translate-x-3"
                   }`}
                 >
-                  {/* Clean White Card matching screenshot exactly without shadow */}
-                  <div className="bg-white border border-neutral-100/90 rounded-[2rem] p-7 sm:p-9 flex flex-col h-[480px] sm:h-[530px] justify-between relative group transition-all overflow-hidden">
+                  {/* Ultra-Premium Glassmorphic Translucent Card */}
+                  <div className="bg-white/40 hover:bg-white/50 backdrop-blur-2xl border border-white/60 shadow-[0_20px_50px_rgba(0,0,0,0.06),inset_0_1px_1px_0_rgba(255,255,255,0.85)] rounded-[2rem] p-7 sm:p-9 flex flex-col h-[480px] sm:h-[530px] justify-between relative group transition-all duration-500 overflow-hidden">
+                    {/* Subtle Glass Diagonal Specular Sheen */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/15 to-white/40 pointer-events-none rounded-[2rem]" />
+
                     {/* 3D Floating Image Container */}
                     <div className="relative w-full h-[270px] sm:h-[310px] my-auto flex items-center justify-center z-20">
                       <motion.div
@@ -167,7 +170,7 @@ export default function HealthcareCarousel() {
                           alt={item.title}
                           fill
                           priority={index < 3}
-                          className="object-contain p-2 group-hover:scale-105 transition-transform duration-500 ease-out"
+                          className="object-contain p-2 drop-shadow-[0_18px_24px_rgba(0,0,0,0.10)] group-hover:scale-105 transition-transform duration-500 ease-out"
                         />
                       </motion.div>
                     </div>
@@ -177,7 +180,7 @@ export default function HealthcareCarousel() {
                       <h3 className="text-[13px] sm:text-[14px] font-bold text-[#111] leading-snug uppercase tracking-wide">
                         {item.title}
                       </h3>
-                      <p className="text-[#666] text-[11px] sm:text-[12px] font-normal leading-relaxed mt-1.5 line-clamp-2">
+                      <p className="text-[#555] text-[11px] sm:text-[12px] font-normal leading-relaxed mt-1.5 line-clamp-2">
                         {item.description}
                       </p>
                     </div>

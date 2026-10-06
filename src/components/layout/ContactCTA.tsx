@@ -10,11 +10,18 @@ export default function ContactCTA() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const pathname = usePathname();
 
-  if (pathname === '/') {
+  const pathLower = pathname?.toLowerCase() || '';
+
+  if (
+    pathname === '/' ||
+    pathLower.includes('/industries') ||
+    pathLower.includes('/services') ||
+    pathLower.includes('/projects') ||
+    pathname === '/privacy' ||
+    pathname === '/terms'
+  ) {
     return null;
   }
-
-  const pathLower = pathname?.toLowerCase() || '';
   const isEcommerce = pathLower.includes('/industries/ecommerce') || pathLower.includes('/industries/e-commerce');
   const isHealthcare = pathLower.includes('/industries/healthcare');
   const isEducation = pathLower.includes('/industries/education');

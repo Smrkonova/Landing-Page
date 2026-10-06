@@ -24,6 +24,16 @@ const slides = [
 
 export default function CrewSlider() {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -52,7 +62,7 @@ export default function CrewSlider() {
                 </div>
 
                 {/* Slider Container */}
-                <div className="relative w-full h-[450px] md:h-[600px] flex items-center justify-center mt-16 max-w-7xl mx-auto overflow-visible">
+                <div className="relative w-full h-[430px] sm:h-[480px] md:h-[600px] flex items-center justify-center mt-12 md:mt-16 max-w-7xl mx-auto overflow-visible">
                     
                     {/* Glow Effect behind Active Card */}
                     <div className="absolute left-[20%] top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#d3bca8]/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
@@ -69,14 +79,18 @@ export default function CrewSlider() {
                         if (wrappedDistance < 0) wrappedDistance += slides.length;
                         
                         if (wrappedDistance === 0) {
-                            translateX = "-35%"; // shift active card to the left slightly
+                            translateX = isMobile ? "-4%" : "-35%"; // shift active card cleanly
                             scale = 1;
                             opacity = 1;
                             zIndex = 50;
                         } else if (wrappedDistance > 0 && wrappedDistance < slides.length) {
                             // Wider spacing for the stacked cards to utilize increased width
-                            const translationSteps = [0, 55, 95, 125, 145];
-                            const scaleSteps = [1, 0.9, 0.8, 0.7, 0.6];
+                            const translationSteps = isMobile 
+                                ? [0, 22, 40, 56, 70] 
+                                : [0, 55, 95, 125, 145];
+                            const scaleSteps = isMobile 
+                                ? [1, 0.94, 0.88, 0.82, 0.76] 
+                                : [1, 0.9, 0.8, 0.7, 0.6];
                             
                             translateX = `${translationSteps[Math.min(wrappedDistance, 4)]}%`;
                             scale = scaleSteps[Math.min(wrappedDistance, 4)];
@@ -87,7 +101,7 @@ export default function CrewSlider() {
                         return (
                             <div 
                                 key={slide.id}
-                                className={`absolute left-[5%] md:left-[15%] lg:left-[25%] top-0 w-[300px] md:w-[420px] lg:w-[480px] h-[400px] md:h-[550px] rounded-[24px] md:rounded-[32px] overflow-hidden transition-all duration-[1500ms] ease-in-out shadow-2xl ${slide.bg}`}
+                                className={`absolute left-[6%] sm:left-[10%] md:left-[15%] lg:left-[25%] top-0 w-[270px] sm:w-[320px] md:w-[420px] lg:w-[480px] h-[390px] sm:h-[440px] md:h-[550px] rounded-[20px] sm:rounded-[24px] md:rounded-[32px] overflow-hidden transition-all duration-[1500ms] ease-in-out shadow-2xl ${slide.bg}`}
                                 style={{
                                     transform: `translateX(${translateX}) scale(${scale})`,
                                     transformOrigin: 'center left',

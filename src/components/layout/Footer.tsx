@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const TwitterIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" /></svg>
@@ -44,13 +45,13 @@ export default function Footer() {
 
                     {/* Links */}
                     <div className="flex flex-wrap justify-center gap-6 md:gap-10 text-[#cccccc] font-sans font-semibold tracking-wider text-[10px] md:text-xs mt-4">
-                        <a href="#" className="hover:text-white transition-colors">PROJECTS</a>
-                        <a href="#" className="hover:text-white transition-colors">PROJECT SINGLE</a>
-                        <a href="#" className="hover:text-white transition-colors">BLOG</a>
-                        <a href="#" className="hover:text-white transition-colors">BLOG SINGLE</a>
-                        <a href="#" className="hover:text-white transition-colors">CONTACT</a>
-                        <a href="#" className="hover:text-white transition-colors">ABOUT US</a>
-                        <a href="#" className="hover:text-white transition-colors">404 PAGE</a>
+                        <Link href="/projects" className="hover:text-white transition-colors">PROJECTS</Link>
+                        <Link href="/services" className="hover:text-white transition-colors">SERVICES</Link>
+                        <Link href="/industries" className="hover:text-white transition-colors">INDUSTRIES</Link>
+                        <Link href="/about" className="hover:text-white transition-colors">ABOUT US</Link>
+                        <Link href="/terms" className="hover:text-white transition-colors">TERMS & CONDITIONS</Link>
+                        <Link href="/privacy" className="hover:text-white transition-colors">PRIVACY POLICY</Link>
+                        <Link href="/contact" className="hover:text-white transition-colors">CONTACT</Link>
                     </div>
 
                     {/* Social Icons */}
