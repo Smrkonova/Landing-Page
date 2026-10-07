@@ -7,6 +7,7 @@ import Banner from "@/components/home/Banner";
 import Manifesto from "@/components/home/Manifesto";
 import Projects from "@/components/home/Projects";
 import StoryExperience from "@/components/animations/StoryExperience";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -40,6 +41,7 @@ export default function Home() {
         </div>
         <StoryExperience />
       </div>
+      <WhatsAppButton phoneNumber="+919740662046" />
     </main>
   );
 }

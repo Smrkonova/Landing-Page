@@ -2,6 +2,8 @@
 
 import React, { useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { trackContactButtonClick } from "@/lib/analytics";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -823,9 +825,13 @@ export default function AboutPage() {
                             Share your vision, your challenge, or your next ambition. Smrkonova helps explore what's possible and engineers the smartest path to the top.
                         </p>
 
-                        <button className="px-8 py-3 md:px-10 md:py-4 bg-transparent border border-white/30 text-white text-[clamp(9px,0.6vw+4px,12px)] tracking-[0.2em] uppercase hover:bg-white/10 transition-colors">
+                        <Link
+                            href="/contact"
+                            onClick={() => trackContactButtonClick("Get in touch", "about_page_footer")}
+                            className="inline-block px-8 py-3 md:px-10 md:py-4 bg-transparent border border-white/30 text-white text-[clamp(9px,0.6vw+4px,12px)] tracking-[0.2em] uppercase hover:bg-white/10 transition-colors"
+                        >
                             Get in touch
-                        </button>
+                        </Link>
                     </div>
                 </section>
             </div>
