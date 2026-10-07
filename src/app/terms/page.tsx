@@ -1,5 +1,5 @@
 import React from "react";
-import { TermsTOC } from "@/components/legal/TermsTOC";
+import LegalTopTOC from "@/components/legal/LegalTopTOC";
 
 export const metadata = {
   title: "Terms & Conditions | Smrkonova",
@@ -8,20 +8,20 @@ export const metadata = {
 };
 
 const sections = [
-  { id: "acceptance-framework", title: "1. Acceptance & Regulatory Framework" },
-  { id: "scope-services", title: "2. Scope of Services & Deployments" },
-  { id: "accounts-security", title: "3. Client Accounts & Access Controls" },
-  { id: "intellectual-property", title: "4. Intellectual Property Rights" },
-  { id: "fees-invoicing", title: "5. Fees, Invoicing & GST Compliance" },
-  { id: "client-obligations", title: "6. Client Obligations & Acceptable Use" },
-  { id: "confidentiality", title: "7. Confidentiality & Trade Secrets" },
-  { id: "warranties-slas", title: "8. Warranties, Disclaimers & SLAs" },
-  { id: "liability-limitation", title: "9. Limitation of Liability" },
-  { id: "term-termination", title: "10. Term, Termination & Suspension" },
-  { id: "grievance-redressal", title: "11. Grievance Redressal (IT Rules 2021)" },
-  { id: "governing-law", title: "12. Governing Law & Arbitration" },
-  { id: "amendments", title: "13. Amendments to Terms" },
-  { id: "contact-notices", title: "14. Contact & Legal Notices" },
+  { id: "acceptance-framework", title: "1. Acceptance & Regulatory Framework", shortTitle: "1. Acceptance Framework" },
+  { id: "scope-services", title: "2. Scope of Services & Deployments", shortTitle: "2. Scope of Services" },
+  { id: "accounts-security", title: "3. Client Accounts & Access Controls", shortTitle: "3. Accounts & Security" },
+  { id: "intellectual-property", title: "4. Intellectual Property Rights", shortTitle: "4. Intellectual Property" },
+  { id: "fees-invoicing", title: "5. Fees, Invoicing & GST Compliance", shortTitle: "5. Fees & Invoicing" },
+  { id: "client-obligations", title: "6. Client Obligations & Acceptable Use", shortTitle: "6. Client Obligations" },
+  { id: "confidentiality", title: "7. Confidentiality & Trade Secrets", shortTitle: "7. Confidentiality" },
+  { id: "warranties-slas", title: "8. Warranties, Disclaimers & SLAs", shortTitle: "8. Warranties & SLAs" },
+  { id: "liability-limitation", title: "9. Limitation of Liability", shortTitle: "9. Liability Limits" },
+  { id: "term-termination", title: "10. Term, Termination & Suspension", shortTitle: "10. Term & Termination" },
+  { id: "grievance-redressal", title: "11. Grievance Redressal (IT Rules 2021)", shortTitle: "11. Grievance Redressal" },
+  { id: "governing-law", title: "12. Governing Law & Arbitration", shortTitle: "12. Governing Law" },
+  { id: "amendments", title: "13. Amendments to Terms", shortTitle: "13. Amendments" },
+  { id: "contact-notices", title: "14. Contact & Legal Notices", shortTitle: "14. Contact & Notices" },
 ];
 
 export default function TermsAndConditionsPage() {
@@ -50,15 +50,13 @@ export default function TermsAndConditionsPage() {
         </div>
       </section>
 
-      {/* MainContentLayout: 1344px max-width */}
-      <div className="max-w-[1344px] mx-auto px-6 lg:px-8 py-16 md:py-24">
-        {/* 2-Column Layout: 272px Aside + 80px Gap + 992px DocumentBody = 1344px */}
-        <div className="flex flex-col lg:flex-row items-start lg:gap-20 relative">
-          {/* Aside - StickyTableOfContents */}
-          <TermsTOC sections={sections} />
+      {/* Sticky Top Horizontal Table of Contents Tab Bar */}
+      <LegalTopTOC sections={sections} />
 
-          {/* Article - DocumentBody (992px) */}
-          <article className="w-full max-w-[992px] flex-1 space-y-16">
+      {/* MainContentLayout: Centered clean readable width */}
+      <div className="max-w-[1024px] mx-auto px-6 lg:px-8 py-16 md:py-24">
+        {/* Article - DocumentBody */}
+        <article className="w-full space-y-16">
             {/* Preamble Section */}
             <div className="pb-12 border-b border-[#E5E5E5] space-y-4">
               <p className="font-sans font-normal text-[15px] leading-6 text-[#4B5563]">
@@ -371,7 +369,6 @@ export default function TermsAndConditionsPage() {
               </div>
             </section>
           </article>
-        </div>
       </div>
     </main>
   );

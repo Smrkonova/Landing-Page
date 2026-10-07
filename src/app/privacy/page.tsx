@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import LegalTopTOC from "@/components/legal/LegalTopTOC";
 
 export const metadata = {
   title: "Privacy Policy | Smrkonova",
@@ -8,20 +9,20 @@ export const metadata = {
 };
 
 const sections = [
-  { id: "service-provider", title: "1. SMRKONOVA as a Service Provider and Sub-Processor" },
-  { id: "personal-information", title: "2. Personal Information We Collect" },
-  { id: "collection-methods", title: "3. How We Collect Personal Information" },
-  { id: "cookies-tracking", title: "4. Cookies and Tracking Technology" },
-  { id: "how-we-use", title: "5. How We Use the Personal Information We Collect" },
-  { id: "how-we-share", title: "6. How We Share Personal Information" },
-  { id: "european-rights", title: "7. European Data Privacy Rights" },
-  { id: "us-privacy-rights", title: "8. U.S. Privacy Rights" },
-  { id: "control-information", title: "9. Control Over Your Information" },
-  { id: "retention-security", title: "10. Data Retention and Data Security" },
-  { id: "children-privacy", title: "11. Children's Privacy" },
-  { id: "policy-changes", title: "12. Changes to Privacy Policy" },
-  { id: "european-rep", title: "13. European Representative and Data Protection Officer Details" },
-  { id: "contact-us", title: "14. Contact Us" },
+  { id: "service-provider", title: "1. SMRKONOVA as a Service Provider and Sub-Processor", shortTitle: "1. Sub-Processor" },
+  { id: "personal-information", title: "2. Personal Information We Collect", shortTitle: "2. Data Collected" },
+  { id: "collection-methods", title: "3. How We Collect Personal Information", shortTitle: "3. How Collected" },
+  { id: "cookies-tracking", title: "4. Cookies and Tracking Technology", shortTitle: "4. Cookies & Tracking" },
+  { id: "how-we-use", title: "5. How We Use the Personal Information We Collect", shortTitle: "5. How We Use Data" },
+  { id: "how-we-share", title: "6. How We Share Personal Information", shortTitle: "6. How We Share" },
+  { id: "european-rights", title: "7. European Data Privacy Rights", shortTitle: "7. European Rights" },
+  { id: "us-privacy-rights", title: "8. U.S. Privacy Rights", shortTitle: "8. U.S. Privacy Rights" },
+  { id: "control-information", title: "9. Control Over Your Information", shortTitle: "9. Control Over Data" },
+  { id: "retention-security", title: "10. Data Retention and Data Security", shortTitle: "10. Retention & Security" },
+  { id: "children-privacy", title: "11. Children's Privacy", shortTitle: "11. Children's Privacy" },
+  { id: "policy-changes", title: "12. Changes to Privacy Policy", shortTitle: "12. Policy Changes" },
+  { id: "european-rep", title: "13. European Representative and Data Protection Officer Details", shortTitle: "13. DPO & EU Rep" },
+  { id: "contact-us", title: "14. Contact Us", shortTitle: "14. Contact Us" },
 ];
 
 export default function PrivacyPolicyPage() {
@@ -50,30 +51,13 @@ export default function PrivacyPolicyPage() {
         </div>
       </section>
 
-      {/* Container - matching exact 1280px Figma Layout */}
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-8 py-16 md:py-24">
-        {/* 2-Column Layout */}
-        <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-14 relative">
-          {/* Aside - LEFT COLUMN: Sticky Table of Contents */}
-          <aside className="w-full lg:w-[278px] shrink-0 lg:sticky lg:top-12 max-h-[calc(100vh-80px)] overflow-y-auto pr-4 border-r border-[#F3F4F6]">
-            <h2 className="font-sans font-bold text-[12px] leading-4 tracking-[2.16px] uppercase text-[#94A3B8] mb-4">
-              TABLE OF CONTENT
-            </h2>
-            <nav className="flex flex-col space-y-1">
-              {sections.map((section) => (
-                <a
-                  key={section.id}
-                  href={`#${section.id}`}
-                  className="font-sans text-[13px] leading-[18px] text-[#475569] hover:text-[#020617] hover:font-semibold transition-colors py-1 block"
-                >
-                  {section.title}
-                </a>
-              ))}
-            </nav>
-          </aside>
+      {/* Sticky Top Horizontal Table of Contents Tab Bar */}
+      <LegalTopTOC sections={sections} />
 
-          {/* Main - RIGHT COLUMN: Detailed Legal Document Content */}
-          <article className="w-full max-w-[896px] flex-1 space-y-12">
+      {/* Container - Document Content */}
+      <div className="max-w-[1024px] mx-auto px-6 lg:px-8 py-16 md:py-24">
+        {/* Main Detailed Legal Document Content */}
+        <article className="w-full space-y-12">
             {/* Section - Intro Preamble */}
             <div className="space-y-4">
               <p className="font-sans font-normal text-[20px] leading-[28px] text-[#020617]">
@@ -556,7 +540,6 @@ export default function PrivacyPolicyPage() {
               </div>
             </section>
           </article>
-        </div>
       </div>
     </main>
   );
