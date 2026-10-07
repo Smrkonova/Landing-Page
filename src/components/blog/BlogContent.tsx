@@ -57,7 +57,7 @@ const FEATURED_ARTICLE: Article = {
   author: {
     name: "Mohit Ravindran",
     role: "Lead Engineering Architect",
-    avatar: "/images/about/people/people-1.png",
+    avatar: "/team/Mohith_U_Ravindran_Front_photo.png",
   },
   date: "14 FEB 2026",
   image: "/images/industries/healthcare/banner.jpg",
@@ -80,8 +80,9 @@ const ARTICLES: Article[] = [
       "Dual-write replication, automated reconciliation jobs, and zero-downtime database cutovers ensured that not a single payment record was dropped or duplicated throughout the 90-day deployment window."
     ],
     author: {
-      name: "Elena Vance",
+      name: "Ananya Sen",
       role: "Principal Systems Engineer",
+      avatar: "/team/Sahana_Patil_Front_photo.png",
     },
     date: "28 JAN 2026",
     image: "/images/industries/system.png",
@@ -101,8 +102,9 @@ const ARTICLES: Article[] = [
       "A triple-click mechanical switch dispatches geolocation telemetry, triggers silent audio streaming, and notifies primary emergency contacts within 1.2 seconds of actuation."
     ],
     author: {
-      name: "Aarav Mehta",
+      name: "Siddharth Rao",
       role: "Senior IoT Product Designer",
+      avatar: "/team/Harshit_R_Front_photo.png",
     },
     date: "22 JAN 2026",
     image: "/images/projects/nazr.png",
@@ -122,8 +124,9 @@ const ARTICLES: Article[] = [
       "By isolating design tokens and automating end-to-end visual regression in CI/CD pipelines, release cycles decreased from bi-weekly releases to continuous, multi-deploy daily cadences."
     ],
     author: {
-      name: "Devon Vance",
+      name: "Tanvi Mehta",
       role: "Frontend Platform Lead",
+      avatar: "/team/shruti.png",
     },
     date: "19 JAN 2026",
     image: "/images/industries/manufacturing/banner.png",
@@ -143,8 +146,9 @@ const ARTICLES: Article[] = [
       "The resulting brand ecosystem marries centuries of South Indian heritage with international typographic elegance, captivating both global connoisseurs and local patrons."
     ],
     author: {
-      name: "Priya Nair",
+      name: "V. Hegde",
       role: "Creative Director, Brand",
+      avatar: "/team/Hrishikesh_Romesh_Front_photo.png",
     },
     date: "15 JAN 2026",
     image: "/images/projects/rayara-tamara/Rectangle 44.png",
@@ -164,8 +168,9 @@ const ARTICLES: Article[] = [
       "We restructured the admission workflow into an adaptive single-screen pane that autocompletes insurance records, flags critical allergies instantly, and cuts triage intake time from 6 minutes down to 90 seconds."
     ],
     author: {
-      name: "Rohan Sen",
+      name: "Dr. Priya N.",
       role: "Senior Healthcare UX Researcher",
+      avatar: "/team/3rdperson.png",
     },
     date: "11 JAN 2026",
     image: "/images/industries/healthcare/1.png",
@@ -185,8 +190,9 @@ const ARTICLES: Article[] = [
       "Learn how we achieved console-fidelity interactive fidelity on the HiroGuild platform while keeping the initial bundle payload under 3.5 MB."
     ],
     author: {
-      name: "Kavita Iyer",
+      name: "A. Smirnov",
       role: "WebGL & Spatial Graphics Engineer",
+      avatar: "/team/Jismon_J_Chacko_Front_photo.png",
     },
     date: "06 JAN 2026",
     image: "/images/projects/heroguild.png",
@@ -268,24 +274,13 @@ export default function BlogContent() {
       */}
       <section className="w-full border-b border-[#F3F4F6] bg-white">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 pt-12 md:pt-16 pb-12 flex flex-col items-start gap-8">
-          {/* Metadata tag */}
-          <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono uppercase tracking-wider bg-[#F3F4F6] text-[#4B5563] border border-[#E5E7EB]">
-              <Sparkles className="w-3 h-3 text-[#111827]" />
-              SMRKONOVA JOURNAL
-            </span>
-            <span className="text-[12px] font-mono text-[#9CA3AF] uppercase">
-              • PERSPECTIVES &amp; DISPATCHES
-            </span>
-          </div>
-
           {/* Main Headline & Description */}
           <div className="flex flex-col items-start gap-4 max-w-[896px]">
-            <h1 className="font-sans font-normal text-[42px] sm:text-[52px] lg:text-[60px] leading-[1] tracking-[-1.5px] text-[#111827]">
+            <h1 className="font-sans font-normal text-[48px] sm:text-[54px] lg:text-[60px] leading-[1] tracking-[-1.5px] text-[#111827]">
               Blogs
             </h1>
             <p className="font-sans font-normal text-[17px] sm:text-[20px] leading-[28px] text-[#6B7280] max-w-[672px]">
-              Engineering dispatches, architectural insights, and strategic perspectives from the Smrkonova engineering &amp; design studios.
+              Clear case studies, real-world lessons, and practical design ideas from our product teams across Bangalore, Mumbai, and Hyderabad.
             </p>
           </div>
 
@@ -388,8 +383,13 @@ export default function BlogContent() {
               {/* Author & Action Link Bar */}
               <div className="pt-6 border-t border-[#F3F4F6] flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-[36px] h-[36px] rounded-full bg-[#F3F4F6] border border-[#E5E7EB] overflow-hidden flex items-center justify-center relative shrink-0">
-                    <span className="font-mono font-bold text-[12px] text-[#111827]">MR</span>
+                  <div className="relative w-[36px] h-[36px] rounded-full bg-[#F3F4F6] border border-[#E5E7EB] overflow-hidden shrink-0">
+                    <Image
+                      src={FEATURED_ARTICLE.author.avatar || "/team/Mohith_U_Ravindran_Front_photo.png"}
+                      alt={FEATURED_ARTICLE.author.name}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <div className="flex flex-col">
                     <span className="font-sans font-medium text-[14px] leading-[14px] text-[#111827]">
@@ -401,21 +401,8 @@ export default function BlogContent() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={(e) => handleShare(FEATURED_ARTICLE, e)}
-                    className="w-[32px] h-[32px] rounded-full border border-[#E5E7EB] flex items-center justify-center text-[#6B7280] hover:border-[#111827] hover:text-[#111827] transition-all"
-                    title="Share link"
-                  >
-                    {copiedId === FEATURED_ARTICLE.id ? (
-                      <Check className="w-3.5 h-3.5 text-emerald-600" />
-                    ) : (
-                      <Share2 className="w-3.5 h-3.5" />
-                    )}
-                  </button>
-                  <div className="w-[32px] h-[32px] rounded-full border border-[#D1D5DB] flex items-center justify-center text-[#1F2937] group-hover:bg-[#111827] group-hover:text-white group-hover:border-[#111827] transition-all duration-300">
-                    <ArrowUpRight className="w-[14px] h-[14px]" />
-                  </div>
+                <div className="w-[32px] h-[32px] rounded-full border border-[#D1D5DB] flex items-center justify-center text-[#1F2937] group-hover:bg-[#111827] group-hover:text-white group-hover:border-[#111827] transition-all duration-300">
+                  <ArrowUpRight className="w-[14px] h-[14px]" />
                 </div>
               </div>
             </div>
@@ -433,10 +420,7 @@ export default function BlogContent() {
           {/* Section Header */}
           <div className="w-full pb-3 border-b border-[#E5E7EB] flex items-center justify-between">
             <h3 className="font-sans font-normal text-[20px] sm:text-[24px] leading-[32px] text-[#111827]">
-              {selectedCategory === "ALL MANUSCRIPTS" ? "All Articles" : selectedCategory}
-              <span className="ml-2 text-xs font-mono text-[#9CA3AF]">
-                ({filteredArticles.length})
-              </span>
+              Latest Articles &amp; Case Studies
             </h3>
 
             <div className="flex items-center gap-2 text-[12px] leading-[16px]">
@@ -498,7 +482,7 @@ export default function BlogContent() {
                         <span className="font-sans font-normal uppercase tracking-wide">
                           {article.subCategory}
                         </span>
-                        <div className="w-[8.67px] h-[8.67px] rounded-full bg-[#9CA3AF]/60" />
+                        <ArrowUpRight className="w-3.5 h-3.5 text-[#9CA3AF] group-hover:text-[#111827] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                       </div>
 
                       {/* Title */}
@@ -516,11 +500,22 @@ export default function BlogContent() {
                   {/* Bottom Portion: Author & Date Footer */}
                   <div className="px-5 py-3 border-t border-[#F3F4F6] flex items-center justify-between bg-white">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-[24px] h-[24px] rounded-full bg-[#F3F4F6] border border-[#E5E7EB] flex items-center justify-center font-mono text-[10px] font-bold text-[#111827] overflow-hidden">
-                        {article.author.name
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")}
+                      <div className="relative w-[24px] h-[24px] rounded-full bg-[#F3F4F6] border border-[#E5E7EB] overflow-hidden shrink-0">
+                        {article.author.avatar ? (
+                          <Image
+                            src={article.author.avatar}
+                            alt={article.author.name}
+                            fill
+                            className="object-cover"
+                          />
+                        ) : (
+                          <span className="font-mono text-[10px] font-bold text-[#111827] flex items-center justify-center w-full h-full">
+                            {article.author.name
+                              .split(" ")
+                              .map((n) => n[0])
+                              .join("")}
+                          </span>
+                        )}
                       </div>
                       <div className="flex flex-col">
                         <span className="font-sans font-normal text-[12px] leading-[12px] text-[#111827]">
@@ -531,18 +526,6 @@ export default function BlogContent() {
                         </span>
                       </div>
                     </div>
-
-                    <button
-                      onClick={(e) => handleShare(article, e)}
-                      className="text-[#9CA3AF] hover:text-[#111827] p-1 transition-colors"
-                      title="Share link"
-                    >
-                      {copiedId === article.id ? (
-                        <Check className="w-3.5 h-3.5 text-emerald-600" />
-                      ) : (
-                        <Share2 className="w-3.5 h-3.5" />
-                      )}
-                    </button>
                   </div>
                 </article>
               ))}
@@ -565,7 +548,7 @@ export default function BlogContent() {
                 Subscribe to our blog
               </h3>
               <p className="font-sans font-normal text-[15px] sm:text-[16px] leading-[24px] text-[#4B5563]">
-                Get our latest architectural breakdowns, engineering postmortems, and digital design insights delivered straight to your inbox every two weeks.
+                Strictly architectural breakdowns, peer-reviewed engineering postmortems, and design system tokens delivered directly to your engineering lead&apos;s terminal once per quarter.
               </p>
             </div>
 
@@ -641,7 +624,7 @@ export default function BlogContent() {
                 ...
               </span>
 
-              {[8, 9, 14].map((page) => (
+              {[7, 8].map((page) => (
                 <button
                   key={page}
                   onClick={() => setCurrentPage(page)}
@@ -684,13 +667,13 @@ export default function BlogContent() {
             </div>
 
             {/* Heading 2 */}
-            <h2 className="font-sans font-normal text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.05] tracking-[-1.2px] text-[#111827] max-w-[818px]">
-              Let&apos;s engineer your next digital breakthrough.
+            <h2 className="font-sans font-normal text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.05] tracking-[-1.2px] text-[#111827] max-w-[896px]">
+              Build a future-ready digital ecosystem<br className="hidden sm:inline" />with our engineers.
             </h2>
 
             {/* Text */}
             <p className="font-sans font-normal text-[16px] sm:text-[18px] leading-[28px] text-[#6B7280] max-w-[672px]">
-              From high-reliability enterprise platforms to immersive consumer experiences, our cross-disciplinary studios turn complex technical challenges into competitive advantages.
+              Whether you are engineering a mission-critical hospital operating platform, an IoT sensor grid, or high-throughput financial core, we deliver deterministic digital execution.
             </p>
 
             {/* Links / Buttons */}

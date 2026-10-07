@@ -27,7 +27,7 @@ export default function CineArteryProjectPage() {
 
               <div>
                 <h4 className="text-[clamp(0.75rem,2.5vw+0.25rem,0.75rem)] font-[300] tracking-[0.2em] mb-2 md:mb-3 text-[#FFFFFF] capitalize">Industry</h4>
-                <span className="inline-block bg-[#222222] px-3 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-sm text-white">Women safety</span>
+                <span className="inline-block bg-[#222222] px-3 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-sm text-white">Media & Entertainment</span>
               </div>
 
               <div>
@@ -39,37 +39,37 @@ export default function CineArteryProjectPage() {
                 <h4 className="text-[clamp(0.75rem,2.5vw+0.25rem,0.75rem)] font-[300] tracking-[0.2em] mb-2 md:mb-3 text-[#FFFFFF] capitalize">Platforms</h4>
                 <div className="flex flex-wrap md:flex-col gap-2 items-start">
                   <span className="inline-block bg-[#222222] px-3 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-sm text-white">Website</span>
-                  <span className="inline-block bg-[#222222] px-3 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-sm text-white">Shopify</span>
-                  <span className="inline-block bg-[#222222] px-3 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-sm text-white">Flutter</span>
-                  <span className="inline-block bg-[#222222] px-3 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-sm text-white">Backend</span>
+                  <span className="inline-block bg-[#222222] px-3 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-sm text-white">Next.js</span>
+                  <span className="inline-block bg-[#222222] px-3 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-sm text-white">GSAP</span>
+                  <span className="inline-block bg-[#222222] px-3 py-1.5 text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-sm text-white">Web Experience</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Center Column - Banner Image */}
-          <div className="w-full md:w-3/5 flex justify-center py-4 relative px-0 sm:px-4">
+          <div className="w-full md:w-3/5 flex justify-center items-center py-4 relative px-0 sm:px-4">
             {/* The outer container with the blue border */}
-            <div className="relative rounded-[1.5rem] border-[1.5px] border-[#3a5a7b] w-full min-h-[360px] sm:min-h-[440px] md:min-h-[480px] max-h-[600px] aspect-[16/11] md:aspect-auto md:h-full p-[2px] shadow-sm overflow-hidden">
+            <div className="relative rounded-[1.5rem] md:rounded-[2rem] border-[1.5px] border-[#3a5a7b] w-full max-w-[850px] aspect-[16/11] md:aspect-[16/10] min-h-[340px] sm:min-h-[420px] md:max-h-[580px] p-[4px] sm:p-[6px] shadow-[0_0_40px_rgba(58,90,123,0.25)] flex flex-col overflow-hidden">
               {/* Inner container for image */}
-              <div className="relative rounded-[1.4rem] overflow-hidden w-full h-full bg-[#0a0a0a]">
+              <div className="relative rounded-[1.25rem] md:rounded-[1.65rem] overflow-hidden w-full h-full shadow-md bg-[#0a0a0a] flex flex-col justify-end">
                 <img
                   src="/images/projects/cineartery/banner.png"
                   alt="CineArtery Banner"
-                  className="absolute inset-0 w-full h-full object-cover opacity-80"
+                  className="absolute inset-0 w-full h-full object-cover opacity-90"
                 />
                 
                 {/* Dark overlay for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none"></div>
 
-                <div className="absolute inset-0 flex flex-col items-start justify-end text-white px-6 sm:px-8 md:px-12 pb-8 sm:pb-12 md:pb-16 lg:pb-20">
-                  <h1 className="text-[clamp(1.5rem,3.5vw+0.5rem,2.75rem)] font-[100] uppercase tracking-wide leading-tight drop-shadow-lg text-white/80">
+                <div className="relative z-10 flex flex-col items-start justify-end text-white px-6 sm:px-8 md:px-12 pb-8 sm:pb-10 md:pb-14">
+                  <h1 className="text-[clamp(1.5rem,3.2vw+0.5rem,2.75rem)] font-[100] uppercase tracking-wide leading-tight drop-shadow-lg text-white/80">
                     The Heartbeat
                   </h1>
-                  <h1 className="text-[clamp(1.5rem,3.5vw+0.5rem,2.75rem)] font-[100] uppercase tracking-wide leading-tight drop-shadow-lg text-white/80">
+                  <h1 className="text-[clamp(1.5rem,3.2vw+0.5rem,2.75rem)] font-[100] uppercase tracking-wide leading-tight drop-shadow-lg text-white/80">
                     Of <span className="font-[700] text-white">Creative</span>
                   </h1>
-                  <h1 className="text-[clamp(1.5rem,3.5vw+0.5rem,2.75rem)] font-[700] uppercase tracking-wide leading-tight drop-shadow-lg text-white">
+                  <h1 className="text-[clamp(1.5rem,3.2vw+0.5rem,2.75rem)] font-[700] uppercase tracking-wide leading-tight drop-shadow-lg text-white">
                     Collaboration
                   </h1>
                 </div>
