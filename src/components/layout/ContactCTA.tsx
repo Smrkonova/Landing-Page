@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Send } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import ContactDrawer from './ContactDrawer';
+import { trackContactButtonClick } from '@/lib/analytics';
 
 export default function ContactCTA() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -17,6 +18,7 @@ export default function ContactCTA() {
     pathLower.includes('/industries') ||
     pathLower.includes('/services') ||
     pathLower.includes('/projects') ||
+    pathLower.includes('/blog') ||
     pathname === '/privacy' ||
     pathname === '/terms'
   ) {
@@ -133,6 +135,7 @@ export default function ContactCTA() {
           {isIndustryPill ? (
             <Link
               href="/contact"
+              onClick={() => trackContactButtonClick(buttonText, "contact_cta_industry")}
               className="flex items-center gap-2.5 px-8 md:px-10 py-3.5 md:py-4 bg-[#1e2329]/80 hover:bg-[#2a3038] text-white/95 rounded-full border border-white/20 backdrop-blur-md shadow-lg transition-all duration-300 text-xs sm:text-sm font-medium tracking-wide group cursor-pointer"
             >
               <span className="text-base select-none">📅</span>
@@ -143,7 +146,10 @@ export default function ContactCTA() {
           ) : (
             <button
               suppressHydrationWarning
-              onClick={() => setIsDrawerOpen(true)}
+              onClick={() => {
+                trackContactButtonClick(buttonText, "contact_cta_section");
+                setIsDrawerOpen(true);
+              }}
               className="flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-black/30 backdrop-blur-md border border-[#4ea2f5]/60 hover:bg-[#4ea2f5]/20 hover:border-[#4ea2f5] transition-all duration-300 rounded-[2px] shadow-[0_0_20px_rgba(78,162,245,0.4)] hover:shadow-[0_0_30px_rgba(78,162,245,0.6)] group cursor-pointer"
             >
               <Send className="w-4 h-4 md:w-5 md:h-5 text-white group-hover:translate-x-1 transition-transform" />

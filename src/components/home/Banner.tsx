@@ -296,12 +296,12 @@ export default function Banner() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            className="absolute top-[55%] w-full max-w-[60rem] px-8 flex justify-between items-center pointer-events-none"
+            className="absolute top-[50%] md:top-[52%] -translate-y-1/2 w-full max-w-[60rem] px-6 md:px-8 flex justify-between items-center pointer-events-none z-10"
           >
-            <h2 className="text-sm md:text-lg lg:text-xl font-sans font-light text-[#212121] uppercase tracking-[0.15em]">
+            <h2 className="text-xs sm:text-sm md:text-lg lg:text-xl font-sans font-light text-[#212121] uppercase tracking-[0.12em] md:tracking-[0.15em]">
               ISN'T FOUND
             </h2>
-            <h2 className="text-sm md:text-lg lg:text-xl font-sans font-light text-[#212121] uppercase tracking-[0.15em]">
+            <h2 className="text-xs sm:text-sm md:text-lg lg:text-xl font-sans font-light text-[#212121] uppercase tracking-[0.12em] md:tracking-[0.15em]">
               IT'S ENGINEERED
             </h2>
           </motion.div>
@@ -311,11 +311,11 @@ export default function Banner() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="absolute top-[65%] -translate-y-1/2 mt-12"
+            className="absolute top-[50%] md:top-[52%] -translate-y-1/2 pointer-events-auto z-10"
           >
-            <div className="relative w-32 h-32 flex items-center justify-center">
+            <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 flex items-center justify-center">
               {/* Center Logo */}
-              <img src="/images/small-logo.svg" alt="Small Logo" className="w-8 h-8 object-contain" />
+              <img src="/images/small-logo.svg" alt="Small Logo" className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain" />
 
               {/* Circular Text SVG */}
               <motion.div
@@ -344,18 +344,18 @@ export default function Banner() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-            className="absolute bottom-8 flex flex-col items-center"
+            className="absolute bottom-6 md:bottom-8 flex flex-col items-center px-4 z-10"
           >
             <p className="text-xs md:text-sm font-sans font-medium text-[#212121]/80 text-center leading-relaxed max-w-md">
               We Build Full-Scale Digital Products. Designed.<br />
               Developed. Engineered to Scale Modern Businesses.
             </p>
 
-            <div className="mt-8 flex flex-col items-center gap-4">
+            <div className="mt-6 md:mt-8 flex flex-col items-center gap-3 md:gap-4">
               <span className="text-[10px] md:text-xs uppercase tracking-[0.1em] font-semibold text-[#212121]/80">
                 SEE HOW IT WORKS
               </span>
-              <div className="relative h-10 w-px flex flex-col items-center justify-start overflow-hidden">
+              <div className="relative h-8 md:h-10 w-px flex flex-col items-center justify-start overflow-hidden">
                 <motion.div
                   animate={{ y: ["-100%", "100%"] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
