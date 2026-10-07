@@ -17,6 +17,7 @@ export default function ContactCTA() {
     pathLower.includes('/industries') ||
     pathLower.includes('/services') ||
     pathLower.includes('/projects') ||
+    pathLower.includes('/blog') ||
     pathname === '/privacy' ||
     pathname === '/terms'
   ) {

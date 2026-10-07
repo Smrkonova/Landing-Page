@@ -23,92 +23,65 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
     {
         id: 1,
-        name: "Mohit Ravindran",
-        role: "Founder & Product Designer",
-        image: "/images/about/people/people-1.png",
+        name: "Sahana Patil",
+        role: "Brand & Visual Designer",
+        image: "/team/Sahana_Patil_Front_photo.png",
         x: 61,
-        y: 33,
+        y: 32,
         align: "center"
     },
     {
         id: 2,
-        name: "Shruti",
-        role: "Chief Technology Officer",
-        image: "/team/shruti.png",
+        name: "Jismon J Chacko",
+        role: "Frontend Engineer",
+        image: "/team/Jismon_J_Chacko_Front_photo.png",
         x: 35.5,
-        y: 39,
+        y: 38,
         align: "center"
     },
     {
         id: 3,
-        name: "U. Ravindran",
-        role: "Senior Advisor & Director",
-        image: "/team/3rdperson.png",
-        x: 54,
-        y: 57.5,
-        align: "center"
-    },
-    {
-        id: 4,
         name: "Harshit R",
         role: "Full-Stack Engineer",
         image: "/team/Harshit_R_Front_photo.png",
-        x: 18,
-        y: 59,
+        x: 23,
+        y: 48,
         align: "left"
     },
     {
-        id: 5,
-        name: "Hrishikesh Romesh",
-        role: "Design Systems & UI Engineer",
-        image: "/team/Hrishikesh_Romesh_Front_photo.png",
-        x: 83.5,
-        y: 50.5,
-        align: "right"
-    },
-    {
-        id: 6,
-        name: "Jismon J Chacko",
-        role: "Frontend Engineer",
-        image: "/team/Jismon_J_Chacko_Front_photo.png",
-        x: 27,
-        y: 74,
-        align: "left"
-    },
-    {
-        id: 7,
-        name: "Manideep Chilukuri",
-        role: "Systems & Cloud Engineer",
-        image: "/team/Manideep_Chilukuri_Front_photo.png",
-        x: 74,
-        y: 38,
-        align: "right"
-    },
-    {
-        id: 8,
+        id: 4,
         name: "Rohith E",
         role: "Software Engineer",
         image: "/team/Rohith_E_Front_photo.png",
-        x: 43,
-        y: 69,
+        x: 48,
+        y: 46,
         align: "center"
     },
     {
-        id: 9,
-        name: "Sahana Patil",
-        role: "Brand & Visual Designer",
-        image: "/team/Sahana_Patil_Front_photo.png",
-        x: 68,
-        y: 64,
+        id: 5,
+        name: "Manideep Chilukuri",
+        role: "Systems & Cloud Engineer",
+        image: "/team/Manideep_Chilukuri_Front_photo.png",
+        x: 73,
+        y: 38,
         align: "center"
     },
     {
-        id: 10,
+        id: 6,
+        name: "Hrishikesh Romesh",
+        role: "Design Systems & UI Engineer",
+        image: "/team/Hrishikesh_Romesh_Front_photo.png",
+        x: 82,
+        y: 34,
+        align: "right"
+    },
+    {
+        id: 7,
         name: "Sreesobh",
         role: "Technology Specialist",
         image: "/team/Sreesobh_Front_photo.png",
-        x: 82,
-        y: 75,
+        x: 86,
+        y: 48,
         align: "right"
     }
 ];
@@ -552,12 +525,12 @@ export default function AboutPage() {
                                 </p>
                             </div>
 
-                            {/* Interactive Campsite Stage: 10 People Circle Hover Pop */}
+                            {/* Interactive Campsite Stage: 7 People Circle Hover Pop */}
                             <div
                                 className="absolute inset-0 w-full h-full z-20 pointer-events-auto"
                                 onMouseLeave={() => setActiveMemberId(1)}
                             >
-                                {/* 10 Circular Hotspots scattered across campsite landscape */}
+                                {/* 7 Circular Hotspots scattered across campsite landscape */}
                                 {teamMembers.map((member) => {
                                     const isActive = member.id === activeMemberId;
                                     return (
@@ -582,7 +555,7 @@ export default function AboutPage() {
                                     );
                                 })}
 
-                                {/* Active Popped Card (Default Active: Mohit Ravindran, Hover Pop for all 10) */}
+                                {/* Active Popped Card (Default Active: Sahana Patil, Hover Pop for all 7) */}
                                 {activeMember && (
                                     <div
                                         key={activeMember.id}

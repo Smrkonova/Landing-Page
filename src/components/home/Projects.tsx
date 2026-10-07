@@ -47,9 +47,27 @@ const Projects = () => {
     }
   });
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
-    <div ref={containerRef} className="w-full relative" style={{ height: "calc(700vh / var(--desktop-scale, 1))" }}>
-      <div className="sticky top-0 w-full overflow-hidden" style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}>
+    <div
+      ref={containerRef}
+      className="w-full relative"
+      style={{ height: isMobile ? "1400vh" : "calc(700vh / var(--desktop-scale, 1))" }}
+    >
+      <div
+        className="sticky top-0 w-full overflow-hidden"
+        style={{ height: isMobile ? "100dvh" : "calc(100vh / var(--desktop-scale, 1))" }}
+      >
         <AnimatePresence>
           {activeIndex === 0 && (
             <motion.div
@@ -76,42 +94,42 @@ const Projects = () => {
               </div>
 
               {/* Main Content Container */}
-              <div className="relative z-10 w-full max-w-7xl mx-auto px-8 py-24 flex flex-col md:flex-row items-center justify-center h-full">
+              <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 pt-8 pb-32 md:py-24 flex flex-col md:flex-row items-center justify-center h-full">
 
                 {/* Left Side: Product Images */}
-                <div className="relative w-full md:w-1/2 h-[500px] md:h-[700px] flex items-center justify-center mb-12 md:mb-0">
+                <div className="relative w-full md:w-1/2 h-[180px] sm:h-[240px] md:h-[700px] flex items-center justify-center mb-3 md:mb-0">
                   <motion.div
                     initial={{ opacity: 0, y: 50, rotate: -15 }}
                     animate={{ opacity: 1, y: 0, rotate: -5 }}
                     transition={{ duration: 1, type: "spring", delay: 0.3 }}
-                    className="absolute w-[70%] md:w-[60%] left-0 md:left-[5%] z-30 drop-shadow-2xl"
+                    className="absolute w-[45%] sm:w-[50%] md:w-[60%] left-[10%] md:left-[5%] z-30 drop-shadow-2xl"
                   >
                     <Image
                       src="/images/project/nazr/left.png"
                       alt="Nazr Mobile App"
                       width={600}
                       height={800}
-                      className="w-full h-auto object-contain"
+                      className="w-full h-auto max-h-[160px] sm:max-h-[220px] md:max-h-none object-contain"
                     />
                   </motion.div>
                   <motion.div
                     initial={{ opacity: 0, y: 50, rotate: 15 }}
                     animate={{ opacity: 1, y: 0, rotate: 5 }}
                     transition={{ duration: 1, delay: 0.5, type: "spring" }}
-                    className="absolute w-[60%] md:w-[70%] right-[-5%] md:-right-[10%] z-40 drop-shadow-2xl"
+                    className="absolute w-[40%] sm:w-[45%] md:w-[70%] right-[10%] md:-right-[10%] z-40 drop-shadow-2xl"
                   >
                     <Image
                       src="/images/project/nazr/right.png"
                       alt="Nazr Pepper Spray"
                       width={600}
                       height={700}
-                      className=" object-contain"
+                      className="w-full h-auto max-h-[160px] sm:max-h-[220px] md:max-h-none object-contain"
                     />
                   </motion.div>
                 </div>
 
                 {/* Right Side: Description */}
-                <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-16">
+                <div className="w-full md:w-1/2 flex flex-col justify-center pt-0 md:pl-16">
                   <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -119,19 +137,18 @@ const Projects = () => {
                     className="flex flex-col"
                   >
                     {/* Logo */}
-                    <div className=" mb-6">
+                    <div className="mb-2 md:mb-6">
                       <Image
                         src="/images/projects/logo-nazr.svg"
                         alt="NAZR"
                         width={140}
                         height={40}
-                        className=" object-contain brightness-0 invert"
-
+                        className="w-[110px] md:w-[140px] h-auto object-contain brightness-0 invert"
                       />
                     </div>
 
                     {/* Paragraph */}
-                    <p className="text-sm  font-medium leading-relaxed text-white/90 max-w-md">
+                    <p className="text-xs sm:text-sm font-medium leading-relaxed text-white/90 max-w-md">
                       A custom-built platform designed with dual-user architecture, gamification logic, and reward-driven engagement systems to increase user retention and activity.
                     </p>
                   </motion.div>
@@ -143,21 +160,21 @@ const Projects = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
-                className="absolute bottom-10 left-8 right-8 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end z-20 gap-8"
+                className="absolute bottom-4 md:bottom-10 left-6 right-6 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end z-20 gap-3 md:gap-8"
               >
-                <div className="text-[10px] md:text-xs tracking-widest text-white/70 uppercase font-bold">
+                <div className="text-[9px] md:text-xs tracking-widest text-white/70 uppercase font-bold">
                   CONSTRUCTION COMPANY IN BENGALURU
                 </div>
 
-                <div className="flex gap-8 md:gap-16">
+                <div className="flex gap-6 md:gap-16">
                   {[
                     { value: "72%", label: "higher\nengagement" },
                     { value: "4X", label: "higher\nengagement" },
                     { value: "60%", label: "higher\nengagement" }
                   ].map((stat, i) => (
                     <div key={i} className="flex flex-col">
-                      <span className="text-xl md:text-2xl font-bold text-white mb-1 leading-none">{stat.value}</span>
-                      <span className="text-[10px] md:text-xs text-white/60 whitespace-pre-line leading-tight">{stat.label}</span>
+                      <span className="text-lg md:text-2xl font-bold text-white mb-0.5 md:mb-1 leading-none">{stat.value}</span>
+                      <span className="text-[9px] md:text-xs text-white/60 whitespace-pre-line leading-tight">{stat.label}</span>
                     </div>
                   ))}
                 </div>
@@ -257,21 +274,21 @@ const Projects = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
-                className="absolute bottom-10 left-8 right-8 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end z-20 gap-8"
+                className="absolute bottom-4 md:bottom-10 left-6 right-6 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end z-20 gap-3 md:gap-8"
               >
-                <div className="text-[10px] md:text-xs tracking-widest text-white/70 uppercase font-bold">
+                <div className="text-[9px] md:text-xs tracking-widest text-white/70 uppercase font-bold">
                   CONSTRUCTION COMPANY IN BENGALURU
                 </div>
 
-                <div className="flex gap-8 md:gap-16">
+                <div className="flex gap-6 md:gap-16">
                   {[
                     { value: "72%", label: "higher\nengagement" },
                     { value: "4X", label: "higher\nengagement" },
                     { value: "60%", label: "higher\nengagement" }
                   ].map((stat, i) => (
                     <div key={i} className="flex flex-col">
-                      <span className="text-xl md:text-2xl font-bold text-white mb-1 leading-none">{stat.value}</span>
-                      <span className="text-[10px] md:text-xs text-white/60 whitespace-pre-line leading-tight">{stat.label}</span>
+                      <span className="text-lg md:text-2xl font-bold text-white mb-0.5 md:mb-1 leading-none">{stat.value}</span>
+                      <span className="text-[9px] md:text-xs text-white/60 whitespace-pre-line leading-tight">{stat.label}</span>
                     </div>
                   ))}
                 </div>
@@ -320,41 +337,41 @@ const Projects = () => {
               </div>
 
               {/* Main Content Container */}
-              <div className="relative z-10 w-full max-w-7xl mx-auto px-8 py-24 flex flex-col md:flex-row items-center justify-center h-full">
+              <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 pt-8 pb-32 md:py-24 flex flex-col md:flex-row items-center justify-center h-full">
                 {/* Left Side: Product Images */}
-                <div className="relative w-full md:w-1/2 h-[500px] md:h-[700px] flex items-center justify-center mb-12 md:mb-0">
+                <div className="relative w-full md:w-1/2 h-[180px] sm:h-[240px] md:h-[700px] flex items-center justify-center mb-3 md:mb-0">
                   <motion.div
                     initial={{ opacity: 0, y: 50, rotate: -15 }}
                     animate={{ opacity: 1, y: 0, rotate: -5 }}
                     transition={{ duration: 1, type: "spring", delay: 0.3 }}
-                    className="absolute w-[70%] md:w-[60%] left-0 md:left-[5%] z-40 drop-shadow-2xl"
+                    className="absolute w-[48%] sm:w-[52%] md:w-[60%] left-[8%] md:left-[5%] z-40 drop-shadow-2xl"
                   >
                     <Image
                       src="/images/project/hiro/left.png"
                       alt="Hiro Mobile App"
                       width={600}
                       height={800}
-                      className="w-full h-auto object-contain"
+                      className="w-full h-auto max-h-[160px] sm:max-h-[220px] md:max-h-none object-contain"
                     />
                   </motion.div>
                   <motion.div
                     initial={{ opacity: 0, y: 50, rotate: 15 }}
                     animate={{ opacity: 1, y: 0, rotate: 5 }}
                     transition={{ duration: 1, delay: 0.5, type: "spring" }}
-                    className="absolute w-[60%] md:w-[50%] right-[-5%] md:right-[5%] z-30 drop-shadow-2xl"
+                    className="absolute w-[42%] sm:w-[46%] md:w-[50%] right-[8%] md:right-[5%] z-30 drop-shadow-2xl"
                   >
                     <Image
                       src="/images/project/hiro/right.png"
                       alt="Hiro App Screen"
                       width={500}
                       height={700}
-                      className="w-full h-auto object-contain"
+                      className="w-full h-auto max-h-[160px] sm:max-h-[220px] md:max-h-none object-contain"
                     />
                   </motion.div>
                 </div>
 
                 {/* Right Side: Description */}
-                <div className="w-full md:w-1/2 flex flex-col justify-center pt-12 md:pl-16">
+                <div className="w-full md:w-1/2 flex flex-col justify-center pt-0 md:pl-16">
                   <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -362,18 +379,18 @@ const Projects = () => {
                     className="flex flex-col"
                   >
                     {/* Logo */}
-                    <div className="mb-6">
+                    <div className="mb-2 md:mb-6">
                       <Image
                         src="/images/projects/logo-hero.svg"
                         alt="HiroGuild"
                         width={180}
                         height={60}
-                        className="object-contain"
+                        className="w-[130px] md:w-[180px] h-auto object-contain"
                       />
                     </div>
 
                     {/* Paragraph */}
-                    <p className="text-sm font-medium leading-relaxed text-white/90 max-w-md">
+                    <p className="text-xs sm:text-sm font-medium leading-relaxed text-white/90 max-w-md">
                       A custom-built platform designed with dual-user architecture, gamification logic, and reward-driven engagement systems to increase user retention and activity.
                     </p>
                   </motion.div>
@@ -385,21 +402,21 @@ const Projects = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
-                className="absolute bottom-10 left-8 right-8 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end z-20 gap-8"
+                className="absolute bottom-4 md:bottom-10 left-6 right-6 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end z-20 gap-3 md:gap-8"
               >
-                <div className="text-[10px] md:text-xs tracking-widest text-white/70 uppercase font-bold">
+                <div className="text-[9px] md:text-xs tracking-widest text-white/70 uppercase font-bold">
                   CONSTRUCTION COMPANY IN BENGALURU
                 </div>
 
-                <div className="flex gap-8 md:gap-16">
+                <div className="flex gap-6 md:gap-16">
                   {[
                     { value: "72%", label: "higher\nengagement" },
                     { value: "4X", label: "higher\nengagement" },
                     { value: "60%", label: "higher\nengagement" }
                   ].map((stat, i) => (
                     <div key={i} className="flex flex-col">
-                      <span className="text-xl md:text-2xl font-bold text-white mb-1 leading-none">{stat.value}</span>
-                      <span className="text-[10px] md:text-xs text-white/60 whitespace-pre-line leading-tight">{stat.label}</span>
+                      <span className="text-lg md:text-2xl font-bold text-white mb-0.5 md:mb-1 leading-none">{stat.value}</span>
+                      <span className="text-[9px] md:text-xs text-white/60 whitespace-pre-line leading-tight">{stat.label}</span>
                     </div>
                   ))}
                 </div>
@@ -448,41 +465,41 @@ const Projects = () => {
               </div>
 
               {/* Main Content Container */}
-              <div className="relative z-10 w-full max-w-7xl mx-auto px-8 py-24 flex flex-col md:flex-row items-center justify-center h-full">
+              <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 pt-8 pb-32 md:py-24 flex flex-col md:flex-row items-center justify-center h-full">
                 {/* Left Side: Product Images */}
-                <div className="relative w-full md:w-1/2 h-[500px] md:h-[700px] flex items-center justify-center mb-12 md:mb-0">
+                <div className="relative w-full md:w-1/2 h-[180px] sm:h-[240px] md:h-[700px] flex items-center justify-center mb-3 md:mb-0">
                   <motion.div
                     initial={{ opacity: 0, y: 50, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ duration: 1, type: "spring", delay: 0.3 }}
-                    className="absolute w-[75%] md:w-[70%] left-[0%] md:left-[-5%] top-[15%] md:top-[15%] z-30 drop-shadow-2xl"
+                    className="absolute w-[50%] sm:w-[55%] md:w-[70%] left-[5%] md:left-[-5%] top-[5%] md:top-[15%] z-30 drop-shadow-2xl"
                   >
                     <Image
                       src="/images/project/rayara/left.png"
                       alt="Rayara Left"
                       width={800}
                       height={800}
-                      className="w-full h-auto object-contain"
+                      className="w-full h-auto max-h-[140px] sm:max-h-[200px] md:max-h-none object-contain"
                     />
                   </motion.div>
                   <motion.div
                     initial={{ opacity: 0, y: 50, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ duration: 1, delay: 0.5, type: "spring" }}
-                    className="absolute w-[85%] md:w-[95%] right-[-5%] md:-right-[5%] top-[45%] md:top-[45%] z-40 drop-shadow-2xl"
+                    className="absolute w-[55%] sm:w-[60%] md:w-[95%] right-[5%] md:-right-[5%] top-[25%] md:top-[45%] z-40 drop-shadow-2xl"
                   >
                     <Image
                       src="/images/project/rayara/right.png"
                       alt="Rayara Right"
                       width={900}
                       height={800}
-                      className="w-full h-auto object-contain"
+                      className="w-full h-auto max-h-[140px] sm:max-h-[200px] md:max-h-none object-contain"
                     />
                   </motion.div>
                 </div>
 
                 {/* Right Side: Description */}
-                <div className="w-full md:w-1/2 flex flex-col justify-center pt-24 md:pt-48 md:pl-16">
+                <div className="w-full md:w-1/2 flex flex-col justify-center pt-0 md:pt-48 md:pl-16">
                   <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -490,18 +507,18 @@ const Projects = () => {
                     className="flex flex-col"
                   >
                     {/* Logo */}
-                    <div className="mb-6">
+                    <div className="mb-2 md:mb-6">
                       <Image
                         src="/images/project/rayara/logo.svg"
                         alt="RAYARA TAMARA"
                         width={240}
                         height={60}
-                        className="object-contain"
+                        className="w-[160px] md:w-[240px] h-auto object-contain"
                       />
                     </div>
 
                     {/* Paragraph */}
-                    <p className="text-sm font-medium leading-relaxed text-white/90 max-w-md">
+                    <p className="text-xs sm:text-sm font-medium leading-relaxed text-white/90 max-w-md">
                       A custom-built platform designed with dual-user architecture, gamification logic, and reward-driven engagement systems to increase user retention and activity.
                     </p>
                   </motion.div>
@@ -513,21 +530,21 @@ const Projects = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
-                className="absolute bottom-10 left-8 right-8 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end z-20 gap-8"
+                className="absolute bottom-4 md:bottom-10 left-6 right-6 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end z-20 gap-3 md:gap-8"
               >
-                <div className="text-[10px] md:text-xs tracking-widest text-white/70 uppercase font-bold">
+                <div className="text-[9px] md:text-xs tracking-widest text-white/70 uppercase font-bold">
                   CONSTRUCTION COMPANY IN BENGALURU
                 </div>
 
-                <div className="flex gap-8 md:gap-16">
+                <div className="flex gap-6 md:gap-16">
                   {[
                     { value: "72%", label: "higher\nengagement" },
                     { value: "4X", label: "higher\nengagement" },
                     { value: "60%", label: "higher\nengagement" }
                   ].map((stat, i) => (
                     <div key={i} className="flex flex-col">
-                      <span className="text-xl md:text-2xl font-bold text-white mb-1 leading-none">{stat.value}</span>
-                      <span className="text-[10px] md:text-xs text-white/60 whitespace-pre-line leading-tight">{stat.label}</span>
+                      <span className="text-lg md:text-2xl font-bold text-white mb-0.5 md:mb-1 leading-none">{stat.value}</span>
+                      <span className="text-[9px] md:text-xs text-white/60 whitespace-pre-line leading-tight">{stat.label}</span>
                     </div>
                   ))}
                 </div>
@@ -576,22 +593,22 @@ const Projects = () => {
               </div>
 
               {/* Main Content Container */}
-              <div className="relative z-10 w-full max-w-7xl mx-auto px-8 py-24 flex flex-col md:flex-row items-center justify-center h-full">
+              <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 pt-8 pb-32 md:py-24 flex flex-col md:flex-row items-center justify-center h-full">
                 {/* Left Side: Product Images */}
-                <div className="relative w-full md:w-1/2 h-[500px] md:h-[700px] flex items-center justify-center mb-12 md:mb-0">
+                <div className="relative w-full md:w-1/2 h-[180px] sm:h-[240px] md:h-[700px] flex items-center justify-center mb-3 md:mb-0">
                   {/* Clapperboard (take.png) */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
                     animate={{ opacity: 1, scale: 1, rotate: 0 }}
                     transition={{ duration: 1, type: "spring", delay: 0.3 }}
-                    className="absolute w-[95%] md:w-[90%] z-20 drop-shadow-2xl"
+                    className="absolute w-[65%] sm:w-[70%] md:w-[90%] z-20 drop-shadow-2xl"
                   >
                     <Image
                       src="/images/project/cine/take.png"
                       alt="Cine Take"
                       width={800}
                       height={800}
-                      className="w-full h-auto object-contain"
+                      className="w-full h-auto max-h-[160px] sm:max-h-[220px] md:max-h-none object-contain"
                     />
                   </motion.div>
 
@@ -600,7 +617,7 @@ const Projects = () => {
                     initial={{ opacity: 0, y: 50, scale: 0 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ duration: 0.6, type: "spring", delay: 0.5 }}
-                    className="absolute w-[20%] md:w-[18%] left-[-5%] md:left-[5%] top-[20%] md:top-[25%] z-10 drop-shadow-xl"
+                    className="absolute w-[16%] md:w-[18%] left-[2%] md:left-[5%] top-[15%] md:top-[25%] z-10 drop-shadow-xl"
                   >
                     <Image src="/images/project/cine/gallery.png" alt="Gallery" width={200} height={200} className="w-full h-auto" />
                   </motion.div>
@@ -610,7 +627,7 @@ const Projects = () => {
                     initial={{ opacity: 0, x: -50, scale: 0 }}
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     transition={{ duration: 0.6, type: "spring", delay: 0.6 }}
-                    className="absolute w-[22%] md:w-[20%] left-[0%] md:left-[10%] top-[45%] md:top-[45%] z-[15] drop-shadow-xl"
+                    className="absolute w-[18%] md:w-[20%] left-[5%] md:left-[10%] top-[40%] md:top-[45%] z-[15] drop-shadow-xl"
                   >
                     <Image src="/images/project/cine/book.png" alt="Book" width={200} height={200} className="w-full h-auto" />
                   </motion.div>
@@ -620,7 +637,7 @@ const Projects = () => {
                     initial={{ opacity: 0, y: 50, scale: 0 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ duration: 0.6, type: "spring", delay: 0.7 }}
-                    className="absolute w-[25%] md:w-[22%] left-[25%] md:left-[30%] bottom-[15%] md:bottom-[15%] z-30 drop-shadow-xl"
+                    className="absolute w-[20%] md:w-[22%] left-[25%] md:left-[30%] bottom-[10%] md:bottom-[15%] z-30 drop-shadow-xl"
                   >
                     <Image src="/images/project/cine/camera.png" alt="Camera" width={200} height={200} className="w-full h-auto" />
                   </motion.div>
@@ -630,14 +647,14 @@ const Projects = () => {
                     initial={{ opacity: 0, x: 50, scale: 0 }}
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     transition={{ duration: 0.6, type: "spring", delay: 0.8 }}
-                    className="absolute w-[25%] md:w-[22%] right-[10%] md:right-[20%] bottom-[20%] md:bottom-[20%] z-10 drop-shadow-xl"
+                    className="absolute w-[20%] md:w-[22%] right-[10%] md:right-[20%] bottom-[12%] md:bottom-[20%] z-10 drop-shadow-xl"
                   >
                     <Image src="/images/project/cine/video.png" alt="Video" width={200} height={200} className="w-full h-auto" />
                   </motion.div>
                 </div>
 
                 {/* Right Side: Description */}
-                <div className="w-full md:w-1/2 flex flex-col justify-center pt-24 md:pt-48 md:pl-16">
+                <div className="w-full md:w-1/2 flex flex-col justify-center pt-0 md:pt-48 md:pl-16">
                   <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -645,18 +662,18 @@ const Projects = () => {
                     className="flex flex-col"
                   >
                     {/* Logo */}
-                    <div className="mb-6">
+                    <div className="mb-2 md:mb-6">
                       <Image
                         src="/images/project/cine/logo.png"
                         alt="CineArtery"
                         width={240}
                         height={60}
-                        className="object-contain"
+                        className="w-[150px] md:w-[240px] h-auto object-contain"
                       />
                     </div>
 
                     {/* Paragraph */}
-                    <p className="text-sm font-medium leading-relaxed text-white/90 max-w-md">
+                    <p className="text-xs sm:text-sm font-medium leading-relaxed text-white/90 max-w-md">
                       A custom-built platform designed with dual-user architecture, gamification logic, and reward-driven engagement systems to increase user retention and activity.
                     </p>
                   </motion.div>
@@ -668,21 +685,21 @@ const Projects = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
-                className="absolute bottom-10 left-8 right-8 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end z-20 gap-8"
+                className="absolute bottom-4 md:bottom-10 left-6 right-6 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end z-20 gap-3 md:gap-8"
               >
-                <div className="text-[10px] md:text-xs tracking-widest text-white/70 uppercase font-bold">
+                <div className="text-[9px] md:text-xs tracking-widest text-white/70 uppercase font-bold">
                   CONSTRUCTION COMPANY IN BENGALURU
                 </div>
 
-                <div className="flex gap-8 md:gap-16">
+                <div className="flex gap-6 md:gap-16">
                   {[
                     { value: "72%", label: "higher\nengagement" },
                     { value: "4X", label: "higher\nengagement" },
                     { value: "60%", label: "higher\nengagement" }
                   ].map((stat, i) => (
                     <div key={i} className="flex flex-col">
-                      <span className="text-xl md:text-2xl font-bold text-white mb-1 leading-none">{stat.value}</span>
-                      <span className="text-[10px] md:text-xs text-white/60 whitespace-pre-line leading-tight">{stat.label}</span>
+                      <span className="text-lg md:text-2xl font-bold text-white mb-0.5 md:mb-1 leading-none">{stat.value}</span>
+                      <span className="text-[9px] md:text-xs text-white/60 whitespace-pre-line leading-tight">{stat.label}</span>
                     </div>
                   ))}
                 </div>
@@ -731,22 +748,22 @@ const Projects = () => {
               </div>
 
               {/* Main Content Container */}
-              <div className="relative z-10 w-full max-w-7xl mx-auto px-8 py-24 flex flex-col md:flex-row items-center justify-center h-full">
+              <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 pt-8 pb-32 md:py-24 flex flex-col md:flex-row items-center justify-center h-full">
                 {/* Left Side: Product Images */}
-                <div className="relative w-full md:w-1/2 h-[500px] md:h-[700px] flex items-center justify-center mb-12 md:mb-0">
+                <div className="relative w-full md:w-1/2 h-[180px] sm:h-[240px] md:h-[700px] flex items-center justify-center mb-3 md:mb-0">
                   {/* Desktop Image */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8, rotate: 10 }}
                     animate={{ opacity: 1, scale: 1, rotate: 0 }}
                     transition={{ duration: 1, type: "spring", delay: 0.3 }}
-                    className="absolute w-[95%] md:w-[90%] right-[0%] md:right-[-5%] top-[10%] md:top-[15%] z-20 drop-shadow-2xl"
+                    className="absolute w-[70%] sm:w-[75%] md:w-[90%] right-[2%] md:right-[-5%] top-[5%] md:top-[15%] z-20 drop-shadow-2xl"
                   >
                     <Image
                       src="/images/project/reading/desktop.png"
                       alt="Reading Desktop"
                       width={800}
                       height={800}
-                      className="w-full h-auto object-contain"
+                      className="w-full h-auto max-h-[150px] sm:max-h-[210px] md:max-h-none object-contain"
                     />
                   </motion.div>
 
@@ -755,20 +772,20 @@ const Projects = () => {
                     initial={{ opacity: 0, x: -50, y: 50, rotate: -15 }}
                     animate={{ opacity: 1, x: 0, y: 0, rotate: -5 }}
                     transition={{ duration: 1, delay: 0.5, type: "spring" }}
-                    className="absolute w-[45%] md:w-[40%] left-[-5%] md:left-[0%] bottom-[10%] md:bottom-[5%] z-30 drop-shadow-2xl"
+                    className="absolute w-[30%] sm:w-[34%] md:w-[40%] left-[5%] md:left-[0%] bottom-[5%] md:bottom-[5%] z-30 drop-shadow-2xl"
                   >
                     <Image
                       src="/images/project/reading/mobile.png"
                       alt="Reading Mobile"
                       width={400}
                       height={700}
-                      className="w-full h-auto object-contain"
+                      className="w-full h-auto max-h-[140px] sm:max-h-[190px] md:max-h-none object-contain"
                     />
                   </motion.div>
                 </div>
 
                 {/* Right Side: Description */}
-                <div className="w-full md:w-1/2 flex flex-col justify-center pt-24 md:pt-48 md:pl-16">
+                <div className="w-full md:w-1/2 flex flex-col justify-center pt-0 md:pt-48 md:pl-16">
                   <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -776,18 +793,18 @@ const Projects = () => {
                     className="flex flex-col"
                   >
                     {/* Logo */}
-                    <div className="mb-6">
+                    <div className="mb-2 md:mb-6">
                       <Image
                         src="/images/project/reading/logo.png"
                         alt="The Reading Elf"
                         width={120}
                         height={120}
-                        className="object-contain"
+                        className="w-[60px] h-[60px] md:w-[120px] md:h-[120px] object-contain"
                       />
                     </div>
 
                     {/* Paragraph */}
-                    <p className="text-sm font-medium leading-relaxed text-white/90 max-w-md">
+                    <p className="text-xs sm:text-sm font-medium leading-relaxed text-white/90 max-w-md">
                       A custom-built platform designed with dual-user architecture, gamification logic, and reward-driven engagement systems to increase user retention and activity.
                     </p>
                   </motion.div>
@@ -799,26 +816,25 @@ const Projects = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
-                className="absolute bottom-10 left-8 right-8 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end z-20 gap-8"
+                className="absolute bottom-4 md:bottom-10 left-6 right-6 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end z-20 gap-3 md:gap-8"
               >
-                <div className="text-[10px] md:text-xs tracking-widest text-white/70 uppercase font-bold">
+                <div className="text-[9px] md:text-xs tracking-widest text-white/70 uppercase font-bold">
                   CONSTRUCTION COMPANY IN BENGALURU
                 </div>
 
-                <div className="flex gap-8 md:gap-16">
+                <div className="flex gap-6 md:gap-16">
                   {[
                     { value: "72%", label: "higher\nengagement" },
                     { value: "4X", label: "higher\nengagement" },
                     { value: "60%", label: "higher\nengagement" }
                   ].map((stat, i) => (
                     <div key={i} className="flex flex-col">
-                      <span className="text-xl md:text-2xl font-bold text-white mb-1 leading-none">{stat.value}</span>
-                      <span className="text-[10px] md:text-xs text-white/60 whitespace-pre-line leading-tight">{stat.label}</span>
+                      <span className="text-lg md:text-2xl font-bold text-white mb-0.5 md:mb-1 leading-none">{stat.value}</span>
+                      <span className="text-[9px] md:text-xs text-white/60 whitespace-pre-line leading-tight">{stat.label}</span>
                     </div>
                   ))}
                 </div>
               </motion.div>
-
               {/* Bottom Curve Image */}
               <motion.div
                 initial={{ y: "100%", opacity: 0 }}
@@ -850,7 +866,7 @@ const Projects = () => {
             x: springX,
             y: springY,
           }}
-          className="fixed top-0 left-0 w-32 h-32 rounded-full border border-white/40 bg-white/10 backdrop-blur-md shadow-[0_8px_32px_0_rgba(255,255,255,0.15)] pointer-events-none z-[100] flex items-center justify-center text-white z-[200]"
+          className="fixed top-0 left-0 w-32 h-32 rounded-full border border-white/40 bg-white/10 backdrop-blur-md shadow-[0_8px_32px_0_rgba(255,255,255,0.15)] pointer-events-none z-[100] hidden md:flex items-center justify-center text-white"
         >
           <span className="text-[12px] font-bold tracking-widest text-center uppercase leading-tight">
             See<br />More

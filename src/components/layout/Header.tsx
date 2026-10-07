@@ -216,6 +216,7 @@ export default function Header() {
                   <MenuLink href="/services" title="SERVICES" active={pathname?.startsWith("/services")} onClick={() => setIsOpen(false)} />
                   <MenuLink href="/industries" title="INDUSTRIES" active={pathname?.startsWith("/industries")} onClick={() => setIsOpen(false)} />
                   <MenuLink href="/projects" title="PROJECTS" active={pathname?.startsWith("/projects")} onClick={() => setIsOpen(false)} />
+                  <MenuLink href="/blog" title="BLOGS" active={pathname?.startsWith("/blog")} onClick={() => setIsOpen(false)} />
 
                   <div className="mt-8">
                     <MenuLink href="/contact" title="JOIN US" active={pathname === "/contact"} onClick={() => setIsOpen(false)} />
