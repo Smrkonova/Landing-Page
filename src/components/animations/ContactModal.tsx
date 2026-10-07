@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { trackFormSubmission } from "@/lib/analytics";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -34,13 +35,30 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
     setLoading(true);
 
     try {
-      await fetch('/api/contact', {
+      const res = await fetch('https://formsubmit.co/ajax/marketing@smrkonova.com', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Lead: ${formData.name.trim()} (Story Experience Modal)`,
+          _template: 'table',
+          _captcha: 'false',
+          'Full Name': formData.name.trim(),
+          'Email': formData.email.trim(),
+          'Project Brief': formData.message.trim(),
+        }),
       });
+      const result = await res.json().catch(() => ({}));
+      if (res.ok || result.success === 'true' || result.success === true) {
+        trackFormSubmission("contact_modal", "success");
+      } else {
+        trackFormSubmission("contact_modal", "error");
+      }
     } catch {
       // Gracefully continue even if local dev mock
+      trackFormSubmission("contact_modal", "error");
     }
 
     setLoading(false);

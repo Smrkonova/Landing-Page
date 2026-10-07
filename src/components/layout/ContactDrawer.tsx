@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { X, User, Mail, MessageSquare, Phone } from 'lucide-react';
+import { trackFormSubmission } from '@/lib/analytics';
 
 export default function ContactDrawer({ isOpen, onClose }) {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -11,19 +12,34 @@ export default function ContactDrawer({ isOpen, onClose }) {
     e.preventDefault();
     setStatus('loading');
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://formsubmit.co/ajax/marketing@smrkonova.com', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Lead: ${formData.name.trim()} (Contact Drawer)`,
+          _template: 'table',
+          _captcha: 'false',
+          'Full Name': formData.name.trim(),
+          'Email': formData.email.trim(),
+          'Phone Number': formData.phone.trim() || 'Not provided',
+          'Message': formData.message.trim(),
+        })
       });
-      if (res.ok) {
+      const result = await res.json().catch(() => ({}));
+      if (res.ok || result.success === 'true' || result.success === true) {
         setStatus('success');
+        trackFormSubmission('contact_drawer', 'success');
         setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
         setStatus('error');
+        trackFormSubmission('contact_drawer', 'error');
       }
     } catch (err) {
       setStatus('error');
+      trackFormSubmission('contact_drawer', 'error');
     }
   };
 

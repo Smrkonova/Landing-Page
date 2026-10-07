@@ -2,6 +2,7 @@
 
 import React, { useMemo } from "react";
 import { getSceneTransitionState } from "@/data/scenes";
+import { trackContactButtonClick } from "@/lib/analytics";
 
 interface CinematicOverlayProps {
   progress: number; // 0 to 1
@@ -91,7 +92,10 @@ export const CinematicOverlay: React.FC<CinematicOverlayProps> = ({
               <button
                 type="button"
                 className="cinematic-cta-btn"
-                onClick={onContactClick}
+                onClick={() => {
+                  trackContactButtonClick(currentScene.ctaText || "CONTACT US NOW", "cinematic_story_overlay");
+                  onContactClick?.();
+                }}
                 id="contact-us-btn"
               >
                 <span>{currentScene.ctaText || "CONTACT US NOW"}</span>
