@@ -121,6 +121,34 @@ body {
   animation: float-subtle-4 4.8s ease-in-out infinite;
 }
 
+@keyframes mobileVerticalScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes verticalScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-mobile-vertical-scroll {
+  animation: mobileVerticalScroll 16s linear infinite !important;
+  will-change: transform;
+}
+
+.animate-desktop-vertical-scroll {
+  animation: verticalScroll 20s linear infinite !important;
+  will-change: transform;
+}
+
 @keyframes pop-in-bubble {
   0% {
     opacity: 0;

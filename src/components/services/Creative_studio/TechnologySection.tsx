@@ -2,11 +2,14 @@
 
 import React from 'react';
 
+import Image from 'next/image';
+
 const checkIcon = (
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-0.5 shrink-0">
-        <circle cx="7" cy="7" r="7" fill="#1a1a1a" />
-        <path d="M4 7L6 9L10 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <span className="flex-shrink-0 w-[15px] h-[15px] rounded-full bg-black flex items-center justify-center">
+        <svg width="8" height="6" viewBox="0 0 8 6" fill="none">
+            <path d="M1 3L3 5L7 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+    </span>
 );
 
 const softwareCategories = [
@@ -28,6 +31,9 @@ const softwareCategories = [
     }
 ];
 
+const mobileList1 = ["Blender", "After Effects", "Lottie"];
+const mobileList2 = ["Figma", "Premiere Pro", "Photoshop", "Illustrator"];
+
 const scrollWords = [
     "BLENDER",
     "AFTER EFFECTS",
@@ -47,43 +53,184 @@ export default function TechnologySection() {
             id="technology-section"
             className="relative w-full h-auto md:h-[1540px] bg-white overflow-hidden flex justify-center py-6 md:py-0"
         >
+            {/* ===== MOBILE LAYOUT (<md, 390px base in DesktopScaler) ===== */}
+            <div className="md:hidden flex flex-col w-full max-w-[390px] mx-auto px-2 pt-4 pb-8 bg-white font-sans">
+                {/* Header */}
+                <div className="mb-7">
+                    <h2 
+                        className="uppercase leading-[1.05] tracking-tight"
+                        style={{ fontFamily: "'Inter', sans-serif", fontSize: '42px' }}
+                    >
+                        <span className="block font-[200] text-black">SOFTWARE</span>
+                        <span className="block font-[900] text-black">WE WORK WITH</span>
+                    </h2>
+                </div>
 
-            {/* Main Full-Width Container */}
-            <div className="relative w-full h-full bg-white overflow-hidden flex flex-col justify-between">
+                {/* Tech Columns (2-column layout - only 2 important lists) */}
+                <div className="grid grid-cols-2 gap-x-6 gap-y-4 mb-8">
+                    {/* 3D & Motion */}
+                    <div>
+                        <h4 
+                            className="text-[13px] font-[900] tracking-wider uppercase text-black mb-3"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                            3D & MOTION
+                        </h4>
+                        <ul className="space-y-2.5">
+                            {mobileList1.map((item, idx) => (
+                                <li key={`m-list1-${idx}`} className="flex items-center gap-2.5 text-[14px] text-gray-800 font-medium">
+                                    {checkIcon}
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Design & Video */}
+                    <div>
+                        <h4 
+                            className="text-[13px] font-[900] tracking-wider uppercase text-black mb-3"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                            DESIGN & VIDEO
+                        </h4>
+                        <ul className="space-y-2.5">
+                            {mobileList2.map((item, idx) => (
+                                <li key={`m-list2-${idx}`} className="flex items-center gap-2.5 text-[14px] text-gray-800 font-medium">
+                                    {checkIcon}
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                {/* CREATIVE WORKFLOW Heading & Subtext */}
+                <div className="mb-6">
+                    <h3 
+                        className="text-[20px] font-[900] tracking-tight text-black uppercase mb-1.5"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                        CREATIVE PRODUCTION
+                    </h3>
+                    <p 
+                        className="text-[14px] text-[#555] leading-relaxed font-normal"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                        We translate brand stories into high-impact visual media across digital touchpoints:
+                    </p>
+                </div>
+
+                {/* ASSET SUITE */}
+                <div className="mb-4">
+                    <h4 
+                        className="text-[13px] font-[900] tracking-wider text-black uppercase mb-1.5"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                        CINEMATIC ASSETS
+                    </h4>
+                    <p 
+                        className="text-[13px] text-[#666] leading-relaxed font-normal"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                        From photorealistic 3D product renders to interactive web animations, we produce assets engineered to stop the scroll.
+                    </p>
+                </div>
+
+                {/* Bottom Graphic & Vertical Tags Area */}
+                <div className="relative w-full h-[470px] overflow-hidden rounded-2xl mt-2 flex items-end justify-center">
+                    {/* Image */}
+                    <div className="absolute inset-0 pointer-events-none flex items-end justify-start">
+                        <Image
+                            src="/images/services/website/Creative_studio/djcnasd;v 1.png"
+                            alt="Creative Production"
+                            width={420}
+                            height={460}
+                            className="object-contain object-bottom w-[340px] h-[440px] -translate-x-6 translate-y-3"
+                            priority
+                        />
+                    </div>
+
+                    {/* Misty atmospheric gradient overlay */}
+                    <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                            background: 'linear-gradient(to bottom, transparent 30%, rgba(180, 200, 220, 0.4) 55%, rgba(195, 215, 235, 0.75) 75%, rgba(255, 255, 255, 0.95) 100%)',
+                        }}
+                    />
+
+                    {/* Soft blur */}
+                    <div
+                        className="absolute right-0 bottom-0 w-[60%] h-[65%] pointer-events-none"
+                        style={{
+                            backdropFilter: 'blur(8px)',
+                            WebkitBackdropFilter: 'blur(8px)',
+                            maskImage: 'linear-gradient(to top, black 40%, transparent 100%)',
+                            WebkitMaskImage: 'linear-gradient(to top, black 40%, transparent 100%)',
+                        }}
+                    />
+
+                    {/* Continuous Vertical Scrolling Keywords */}
+                    <div 
+                        className="absolute right-2 sm:right-3 bottom-4 top-10 w-[210px] z-20 overflow-hidden flex flex-col justify-center text-right pointer-events-none"
+                        style={{
+                            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)',
+                            maskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)'
+                        }}
+                    >
+                        <div 
+                            className="flex flex-col animate-mobile-vertical-scroll gap-4 items-end pr-1"
+                            style={{ animation: 'mobileVerticalScroll 16s linear infinite' }}
+                        >
+                            {[...Array(2)].map((_, i) => (
+                                <React.Fragment key={i}>
+                                    {scrollWords.map((word, j) => (
+                                        <span
+                                            key={`${i}-${j}`}
+                                            className="tracking-widest uppercase text-right font-black text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+                                            style={{
+                                                fontFamily: "'Inter', sans-serif",
+                                                fontSize: '16px',
+                                                lineHeight: '1.2',
+                                            }}
+                                        >
+                                            {word}
+                                        </span>
+                                    ))}
+                                </React.Fragment>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* ===== DESKTOP LAYOUT (>=md) ===== */}
+            <div className="hidden md:flex relative w-full h-full bg-white overflow-hidden flex-col justify-between">
 
                 {/* --- BACKGROUND GRAPHICS & GLOWS --- */}
                 <div className="absolute w-full inset-0 z-0 flex items-center justify-center pointer-events-none">
                     <img
                         src="/images/services/website/Creative_studio/djcnasd;v 1.png"
                         alt="Creative Software Showcase"
-                        className="w-full h-full object-cover md:object-contain opacity-90 scale-110 md:scale-100"
+                        className="w-full h-full object-contain opacity-90 scale-100"
                     />
                 </div>
 
-                {/* Mobile overlay to ensure readability */}
-                <div className="absolute inset-0 bg-white/40 md:hidden pointer-events-none z-0"></div>
-
                 {/* Violet/Purple Ambient Glows */}
-                <div className="absolute bottom-[10%] right-[10%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-purple-100/40 rounded-full blur-[100px] sm:blur-[160px] pointer-events-none z-0"></div>
-                <div className="absolute bottom-[5%] left-[20%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-blue-100/30 rounded-full blur-[100px] sm:blur-[170px] pointer-events-none z-0"></div>
+                <div className="absolute bottom-[10%] right-[10%] w-[500px] h-[500px] bg-purple-100/40 rounded-full blur-[160px] pointer-events-none z-0"></div>
+                <div className="absolute bottom-[5%] left-[20%] w-[400px] h-[400px] bg-blue-100/30 rounded-full blur-[170px] pointer-events-none z-0"></div>
 
                 {/* Glass Circle Effect */}
                 <style>{`
                     .tech-glass-circle {
                         position: absolute;
                         width: 100%;
-                        height: 140px;
+                        height: 350px;
                         left: 0;
                         bottom: 0;
                         background: rgba(0, 0, 0, 0);
                         pointer-events: none;
                         z-index: 10;
-                    }
-
-                    @media (min-width: 768px) {
-                        .tech-glass-circle {
-                            height: 350px;
-                        }
                     }
 
                     .tech-glass-circle__frost {
@@ -101,7 +248,7 @@ export default function TechnologySection() {
                 </div>
 
                 {/* --- FOREGROUND CONTENT --- */}
-                <div className="relative z-10 w-full flex-grow flex flex-col justify-between p-5 sm:p-10 md:p-14 lg:p-16">
+                <div className="relative z-10 w-full flex-grow flex flex-col justify-between p-10 md:p-14 lg:p-16">
 
                     {/* Top Heading */}
                     <div>
@@ -133,8 +280,8 @@ export default function TechnologySection() {
                         ))}
                     </div>
 
-                    {/* Bottom Section: Text & Typography Block (Hidden on mobile) */}
-                    <div className="hidden md:flex w-full max-w-full overflow-hidden flex-col lg:flex-row justify-between items-start mt-16 sm:mt-20 lg:mt-auto relative z-20">
+                    {/* Bottom Section: Text & Typography Block */}
+                    <div className="w-full max-w-full overflow-hidden flex flex-col lg:flex-row justify-between items-start mt-16 sm:mt-20 lg:mt-auto relative z-20">
 
                         {/* Bottom Left Text */}
                         <div className="max-w-[340px] mb-12 lg:mb-0">
@@ -156,7 +303,10 @@ export default function TechnologySection() {
                                 maskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)'
                             }}
                         >
-                            <div className="flex flex-col animate-[verticalScroll_20s_linear_infinite]">
+                            <div 
+                                className="flex flex-col animate-desktop-vertical-scroll"
+                                style={{ animation: 'verticalScroll 20s linear infinite' }}
+                            >
                                 {[...Array(2)].map((_, i) => (
                                     <React.Fragment key={i}>
                                         {scrollWords.map((word, j) => (
@@ -171,14 +321,18 @@ export default function TechnologySection() {
                     </div>
                 </div>
 
-                <style>{`
-                    @keyframes verticalScroll {
-                        0% { transform: translateY(0); }
-                        100% { transform: translateY(-50%); }
-                    }
-                `}</style>
-
             </div>
+
+            <style>{`
+                @keyframes mobileVerticalScroll {
+                    0% { transform: translateY(0); }
+                    100% { transform: translateY(-50%); }
+                }
+                @keyframes verticalScroll {
+                    0% { transform: translateY(0); }
+                    100% { transform: translateY(-50%); }
+                }
+            `}</style>
         </section>
     );
 }

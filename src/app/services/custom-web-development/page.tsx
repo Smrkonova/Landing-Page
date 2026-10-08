@@ -30,7 +30,7 @@ export default function CustomWebDevelopmentPage() {
                 </svg>
 
                 {/* Mobile Layout (<md, 390px base in DesktopScaler) */}
-                <div className="md:hidden flex flex-col items-center w-full max-w-[390px] mx-auto px-[17px] pt-20 pb-8 z-30">
+                <div className="md:hidden flex flex-col items-center w-full max-w-[390px] mx-auto px-[17px] pt-24 pb-8 z-30">
                     {/* Header Title */}
                     <div className="w-[356px] text-left mb-2">
                         <h1
@@ -45,6 +45,9 @@ export default function CustomWebDevelopmentPage() {
                         >
                             CUSTOM WEB<br />DEVELOPMENT
                         </h1>
+                        <p className="text-white/80 uppercase text-[11px] font-medium tracking-[0.1em] mt-2">
+                            FOR PEOPLE, ENGINEERED FOR BUSINESSES.
+                        </p>
                     </div>
 
                     {/* Graphic Image Showcase (width: 356px, height: 201px) */}

@@ -163,7 +163,10 @@ export default function TechnologySection() {
                             maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)'
                         }}
                     >
-                        <div className="flex flex-col animate-[mobileVerticalScroll_16s_linear_infinite] gap-4 items-end pr-1">
+                        <div 
+                            className="flex flex-col animate-mobile-vertical-scroll gap-4 items-end pr-1"
+                            style={{ animation: 'mobileVerticalScroll 16s linear infinite' }}
+                        >
                             {[...Array(2)].map((_, i) => (
                                 <React.Fragment key={i}>
                                     {mobileTags.map((tag, j) => (
@@ -301,7 +304,10 @@ export default function TechnologySection() {
                                 maskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)'
                             }}
                         >
-                            <div className="flex flex-col animate-[verticalScroll_20s_linear_infinite]">
+                            <div 
+                                className="flex flex-col animate-desktop-vertical-scroll"
+                                style={{ animation: 'verticalScroll 20s linear infinite' }}
+                            >
                                 {[...Array(2)].map((_, i) => (
                                     <React.Fragment key={i}>
                                         {[
@@ -342,18 +348,18 @@ export default function TechnologySection() {
                     </div>
                 </div>
 
-                <style>{`
-                    @keyframes mobileVerticalScroll {
-                        0% { transform: translateY(0); }
-                        100% { transform: translateY(-50%); }
-                    }
-                    @keyframes verticalScroll {
-                        0% { transform: translateY(0); }
-                        100% { transform: translateY(-50%); }
-                    }
-                `}</style>
-
             </div>
+
+            <style>{`
+                @keyframes mobileVerticalScroll {
+                    0% { transform: translateY(0); }
+                    100% { transform: translateY(-50%); }
+                }
+                @keyframes verticalScroll {
+                    0% { transform: translateY(0); }
+                    100% { transform: translateY(-50%); }
+                }
+            `}</style>
         </section>
     );
 }

@@ -56,8 +56,8 @@ export default function TechnologySection() {
                     </h2>
                 </div>
 
-                {/* Tech Columns (2-column layout to prevent cramped text) */}
-                <div className="grid grid-cols-2 gap-x-6 gap-y-7 mb-8">
+                {/* Tech Columns (2-column layout - only 2 important lists) */}
+                <div className="grid grid-cols-2 gap-x-6 gap-y-4 mb-8">
                     {/* Frontend */}
                     <div>
                         <h4 
@@ -93,24 +93,6 @@ export default function TechnologySection() {
                             ))}
                         </ul>
                     </div>
-
-                    {/* CMS */}
-                    <div className="col-span-2 pt-1 border-t border-gray-100">
-                        <h4 
-                            className="text-[13px] font-[900] tracking-wider uppercase text-black mb-3"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                            CMS
-                        </h4>
-                        <div className="grid grid-cols-2 gap-x-6 gap-y-2">
-                            {cmstechList.map((item, idx) => (
-                                <div key={`m-cms-${idx}`} className="flex items-center gap-2.5 text-[14px] text-gray-800 font-medium">
-                                    {checkIcon}
-                                    <span>{item}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
                 </div>
 
                 {/* CONNECT EVERYTHING TOGETHER Heading & Subtext */}
@@ -125,7 +107,23 @@ export default function TechnologySection() {
                         className="text-[14px] text-[#555] leading-relaxed font-normal"
                         style={{ fontFamily: "'Inter', sans-serif" }}
                     >
-                        Your website shouldn't work alone. We connect it with the tools your business already uses.
+                        Your website shouldn&apos;t work alone. We connect it with the tools your business already uses.
+                    </p>
+                </div>
+
+                {/* ADMIN DASHBOARDS */}
+                <div className="mb-4">
+                    <h4 
+                        className="text-[13px] font-[900] tracking-wider text-black uppercase mb-1.5"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                        ADMIN DASHBOARDS
+                    </h4>
+                    <p 
+                        className="text-[13px] text-[#666] leading-relaxed font-normal"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                        Every website needs a control centre. We develop custom admin panels to manage users, content, products, reports and business operations.
                     </p>
                 </div>
 
@@ -170,7 +168,10 @@ export default function TechnologySection() {
                             maskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)'
                         }}
                     >
-                        <div className="flex flex-col animate-[mobileVerticalScroll_16s_linear_infinite] gap-4 items-end pr-1">
+                        <div 
+                            className="flex flex-col animate-mobile-vertical-scroll gap-4 items-end pr-1"
+                            style={{ animation: 'mobileVerticalScroll 16s linear infinite' }}
+                        >
                             {[...Array(2)].map((_, i) => (
                                 <React.Fragment key={i}>
                                     {scrollWords.map((word, j) => (
@@ -321,7 +322,10 @@ export default function TechnologySection() {
                                 maskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)'
                             }}
                         >
-                            <div className="flex flex-col animate-[verticalScroll_20s_linear_infinite]">
+                            <div 
+                                className="flex flex-col animate-desktop-vertical-scroll"
+                                style={{ animation: 'verticalScroll 20s linear infinite' }}
+                            >
                                 {[...Array(2)].map((_, i) => (
                                     <React.Fragment key={i}>
                                         {scrollWords.map((word, j) => (
@@ -336,18 +340,18 @@ export default function TechnologySection() {
                     </div>
                 </div>
 
-                <style>{`
-                    @keyframes mobileVerticalScroll {
-                        0% { transform: translateY(0); }
-                        100% { transform: translateY(-50%); }
-                    }
-                    @keyframes verticalScroll {
-                        0% { transform: translateY(0); }
-                        100% { transform: translateY(-50%); }
-                    }
-                `}</style>
-
             </div>
+
+            <style>{`
+                @keyframes mobileVerticalScroll {
+                    0% { transform: translateY(0); }
+                    100% { transform: translateY(-50%); }
+                }
+                @keyframes verticalScroll {
+                    0% { transform: translateY(0); }
+                    100% { transform: translateY(-50%); }
+                }
+            `}</style>
         </section>
     );
 }

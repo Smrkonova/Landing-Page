@@ -24,8 +24,115 @@ export default function DigitalMarketingPage() {
                         </defs>
                     </svg>
     
-                    {/* Background SVG Images and Effects */}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 overflow-hidden">
+                    {/* Mobile Layout (<md, 390px base matching user specification) */}
+                    <div className="md:hidden flex flex-col items-center w-full max-w-[390px] mx-auto px-[17px] pt-24 pb-8 z-30">
+                        {/* 1. Header Title & Subtitle */}
+                        <div className="w-[356px] text-left mb-2">
+                            <h1 
+                                className="text-white text-left uppercase"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 200,
+                                    fontSize: '34px',
+                                    lineHeight: '36.72px',
+                                    letterSpacing: '-0.85px',
+                                }}
+                            >
+                                DIGITAL<br />MARKETING<br />& ACQUISITION
+                            </h1>
+                            <p className="text-white/80 uppercase text-[11px] font-medium tracking-[0.1em] mt-2">
+                                DATA-DRIVEN GROWTH, ENGINEERED FOR ROI.
+                            </p>
+                        </div>
+
+                        {/* 2. 3D Graphic Showcase In-Flow */}
+                        <div 
+                            className="relative my-4 flex items-center justify-center overflow-hidden"
+                            style={{
+                                width: '356px',
+                                height: '210px',
+                            }}
+                        >
+                            <Image
+                                src="/images/services/website/image32.png"
+                                alt="Digital marketing showcase"
+                                width={356}
+                                height={210}
+                                className="w-full h-full object-contain"
+                                priority
+                            />
+                        </div>
+
+                        {/* 3. Description Narrative */}
+                        <div className="w-[350px] text-left mb-6">
+                            <p 
+                                className="text-white/90 text-left"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: '13px',
+                                    lineHeight: '21px',
+                                }}
+                            >
+                                Data-driven performance campaigns, organic search growth, and conversion funnels engineered to scale high-intent customer acquisition.
+                            </p>
+                        </div>
+
+                        {/* 4. Stacked Action Buttons */}
+                        <div className="flex flex-col gap-3 items-center w-[350px] mb-7">
+                            <button 
+                                suppressHydrationWarning 
+                                className="bg-white text-black text-[12px] font-semibold tracking-[0.1em] uppercase rounded-md flex items-center justify-center transition-opacity hover:opacity-90 cursor-pointer w-[350px] h-[45px]"
+                            >
+                                GROW YOUR BUSINESS
+                            </button>
+                            <button 
+                                suppressHydrationWarning 
+                                className="border border-white/60 bg-white/10 backdrop-blur-sm text-white text-[12px] font-semibold tracking-[0.1em] uppercase rounded-md flex items-center justify-center transition-colors hover:bg-white/20 cursor-pointer w-[350px] h-[45px]"
+                            >
+                                SCHEDULE A STRATEGY CALL
+                            </button>
+                        </div>
+
+                        {/* 5. Trusted By Teams */}
+                        <div className="w-[350px] text-left mb-7">
+                            <h3 className="uppercase tracking-[0.08em] text-white/80 font-medium mb-2.5 text-[11px] leading-[14px]">
+                                TRUSTED BY TEAMS ACROSS 4 CONTINENTS
+                            </h3>
+                            <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-white/75 text-[13px] font-normal">
+                                <span>Healthcare</span>
+                                <span>Real Estate</span>
+                                <span>SaaS</span>
+                                <span>Ecommerce</span>
+                                <span>Enterprise</span>
+                            </div>
+                        </div>
+
+                        {/* 6. Stats Container (Glassmorphism rounded-20px container) */}
+                        <div className="w-[350px] border border-white/20 rounded-[20px] p-6 backdrop-blur-md bg-white/5">
+                            <div className="grid grid-cols-2 gap-y-6 gap-x-4">
+                                <div className="flex flex-col items-start">
+                                    <span className="text-[32px] font-[200] text-white leading-none mb-1 tracking-tight">120+</span>
+                                    <span className="text-white/60 text-[12px] font-medium tracking-wide">Campaigns Scaled</span>
+                                </div>
+                                <div className="flex flex-col items-start">
+                                    <span className="text-[32px] font-[200] text-white leading-none mb-1 tracking-tight">9yrs</span>
+                                    <span className="text-white/60 text-[12px] font-medium tracking-wide">Growth Marketing</span>
+                                </div>
+                                <div className="flex flex-col items-start">
+                                    <span className="text-[32px] font-[200] text-white leading-none mb-1 tracking-tight">24/7</span>
+                                    <span className="text-white/60 text-[12px] font-medium tracking-wide">Performance Tracking</span>
+                                </div>
+                                <div className="flex flex-col items-start">
+                                    <span className="text-[32px] font-[200] text-white leading-none mb-1 tracking-tight">0</span>
+                                    <span className="text-white/60 text-[12px] font-medium tracking-wide">Wasted Ad Spend</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Desktop Background SVG Images and Effects */}
+                    <div className="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none z-20 overflow-hidden">
                         {/* Glow behind eagle */}
                         <div className="relative w-full max-w-[800px] translate-x-4 sm:translate-x-8 translate-y-12 lg:translate-x-30 lg:translate-y-16 z-10 Luminosity">
                             {/* Base Image */}
@@ -49,8 +156,8 @@ export default function DigitalMarketingPage() {
                         </div>
                     </div>
     
-                    {/* Main Content Area */}
-                    <div className="relative z-40 w-full max-w-7xl mx-auto px-4 md:px-0 pt-36 sm:pt-44 md:pt-32 flex justify-between flex-grow">
+                    {/* Desktop Main Content Area */}
+                    <div className="hidden md:flex relative z-40 w-full max-w-7xl mx-auto px-4 md:px-0 pt-36 sm:pt-44 md:pt-32 justify-between flex-grow">
                         {/* Left Column */}
                         <div className="flex flex-col justify-end md:justify-start text-white max-w-3xl h-full pb-2 md:pb-0 text-center md:text-left items-center md:items-start w-full">
                             <div className="mt-auto md:mt-0 w-full flex flex-col items-center md:items-start">
@@ -89,8 +196,8 @@ export default function DigitalMarketingPage() {
                             </ul>
                         </div>
                     </div>
-                    {/* Bottom Stats Bar */}
-                    <div className="relative z-20 w-full max-w-7xl mx-auto px-4 md:px-0 mt-6 sm:mt-0 pb-8 lg:pb-12 flex flex-col lg:flex-row items-end justify-between gap-4 lg:gap-8">
+                    {/* Desktop Bottom Stats Bar */}
+                    <div className="hidden md:flex relative z-20 w-full max-w-7xl mx-auto px-4 md:px-0 mt-6 sm:mt-0 pb-8 lg:pb-12 flex-col lg:flex-row items-end justify-between gap-4 lg:gap-8">
                         {/* Bottom Left Text */}
                         <div className="hidden lg:block lg:w-[35%] mb-4 lg:mb-0">
                             <p className="text-[clamp(0.8125rem,0.6vw+0.65rem,1.125rem)] font-[400] leading-[1.8] max-w-[450px] uppercase tracking-[0.05em] text-white">
