@@ -115,7 +115,7 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={() => trackContactButtonClick("CONTACT US", "header_nav")}
-              className={`hidden sm:inline-flex items-center justify-center px-4 md:px-5 py-2.5 text-[10px] md:text-[11px] font-mono tracking-widest uppercase border transition-all duration-300 ${
+              className={`hidden sm:inline-flex items-center justify-center h-12 px-5 md:px-6 text-[10px] md:text-[11px] font-mono tracking-widest uppercase border transition-all duration-300 ${
                 isDarkPage
                   ? "text-white border-white/20 hover:border-white/50 hover:bg-white/10"
                   : "text-[#212121] border-[#212121]/30 hover:border-[#212121] hover:bg-[#212121]/5"
@@ -180,7 +180,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-              className="fixed top-0 right-0 w-full md:w-[55vw] lg:w-[45vw] z-[1010]"
+              className="fixed top-0 right-0 w-full sm:w-[360px] md:w-[390px] lg:w-[420px] z-[1010]"
               style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
             >
               {/* Floating Close Button (Matches ContactDrawer entrance) */}
@@ -200,7 +200,7 @@ export default function Header() {
               </motion.div>
 
               {/* Inner Scrolling Content Area */}
-              <div className="w-full h-full bg-[#ffffff] flex flex-col justify-between p-8 md:p-12 text-black overflow-y-auto relative">
+              <div className="w-full h-full bg-[#ffffff] flex flex-col justify-between p-6 sm:p-8 md:p-8 text-black overflow-y-auto relative">
                 {/* Mobile Close Button (Inside) */}
                 <div className="flex sm:hidden justify-end w-full">
                   <button
@@ -212,36 +212,14 @@ export default function Header() {
                 </div>
 
                 {/* Menu Links */}
-                <div className="flex flex-col gap-4 mt-16 mb-auto">
+                <div className="flex flex-col gap-4 sm:gap-5 my-auto">
                   <MenuLink href="/" title="HOME" active={pathname === "/"} onClick={() => setIsOpen(false)} />
                   <MenuLink href="/about" title="ABOUT US" active={pathname === "/about"} onClick={() => setIsOpen(false)} />
                   <MenuLink href="/services" title="SERVICES" active={pathname?.startsWith("/services")} onClick={() => setIsOpen(false)} />
                   <MenuLink href="/industries" title="INDUSTRIES" active={pathname?.startsWith("/industries")} onClick={() => setIsOpen(false)} />
                   <MenuLink href="/projects" title="PROJECTS" active={pathname?.startsWith("/projects")} onClick={() => setIsOpen(false)} />
-                  <MenuLink href="/blog" title="BLOGS" active={pathname?.startsWith("/blog")} onClick={() => setIsOpen(false)} />
-
-                  <div className="mt-8">
-                    <MenuLink
-                      href="/contact"
-                      title="JOIN US"
-                      active={pathname === "/contact"}
-                      onClick={() => {
-                        trackContactButtonClick("JOIN US", "header_overlay_menu");
-                        setIsOpen(false);
-                      }}
-                    />
-                  </div>
-                </div>
-
-                {/* Overlay Footer */}
-                <div className="flex flex-col md:flex-row items-start md:items-center justify-between text-[8px] md:text-[9px]  uppercase tracking-[0.1em] text-gray-400 mt-16 gap-4">
-                  <div className="flex flex-wrap gap-4 md:gap-6">
-                    <span>© 2026 SMRKONOVA.COM</span>
-                    <Link href="/terms" onClick={() => setIsOpen(false)} className="hover:text-black transition-colors">Terms & Conditions</Link>
-                    <Link href="/privacy" onClick={() => setIsOpen(false)} className="hover:text-black transition-colors">Privacy Policy</Link>
-                    <Link href="#" className="hover:text-black transition-colors">Cookies</Link>
-                  </div>
-                  <span>Site by SMRKONOVA.</span>
+                  <MenuLink href="/blog" title="BLOGS" active={pathname?.startsWith("/blog") || pathname?.startsWith("/blogs")} onClick={() => setIsOpen(false)} />
+                  <MenuLink href="/events" title="EVENTS" active={pathname?.startsWith("/events")} onClick={() => setIsOpen(false)} />
                 </div>
               </div>
             </motion.div>

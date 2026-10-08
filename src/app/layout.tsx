@@ -7,6 +7,7 @@ import ContactCTA from "@/components/layout/ContactCTA";
 import GlobalAudio from "@/components/layout/GlobalAudio";
 import DesktopScaler from "@/components/DesktopScaler";
 import SmoothScroll from "@/components/SmoothScroll";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
 import { PostHogProvider } from "./providers";
 
 const inter = Inter({
@@ -20,6 +21,7 @@ export const metadata = {
 };
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-MPDD8LTC";
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-W4QRF4VH4L";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -36,6 +38,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
               })(window,document,'script','dataLayer','${GTM_ID}');
+            `,
+          }}
+        />
+
+        {/* Google Analytics 4 (GA4) */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              window.gtag = gtag;
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}', {
+                send_page_view: false
+              });
             `,
           }}
         />
@@ -58,6 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <main className="w-full max-w-full overflow-x-clip flex-grow">{children}</main>
               <ContactCTA />
               <Footer />
+              <WhatsAppButton phoneNumber="+919740662046" />
             </DesktopScaler>
           </SmoothScroll>
         </PostHogProvider>
