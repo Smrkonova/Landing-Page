@@ -7,6 +7,7 @@ import ContactCTA from "@/components/layout/ContactCTA";
 import GlobalAudio from "@/components/layout/GlobalAudio";
 import DesktopScaler from "@/components/DesktopScaler";
 import SmoothScroll from "@/components/SmoothScroll";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
 import { PostHogProvider } from "./providers";
 
 const inter = Inter({
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <main className="w-full max-w-full overflow-x-clip flex-grow">{children}</main>
               <ContactCTA />
               <Footer />
+              <WhatsAppButton phoneNumber="+919740662046" />
             </DesktopScaler>
           </SmoothScroll>
         </PostHogProvider>
