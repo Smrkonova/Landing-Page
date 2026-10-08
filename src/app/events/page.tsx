@@ -228,14 +228,13 @@ export default function EventsPage() {
 
               {/* Action Buttons Styled in SMRKONOVA Aesthetic */}
               <div className="pt-6 mt-6 border-t border-[#F5F5F5] flex items-center justify-between">
-                <button
-                  type="button"
-                  onClick={() => setIsDrawerOpen(true)}
+                <Link
+                  href="/events/hospex-2026"
                   className="inline-flex items-center gap-2 px-5 py-3 bg-[#000000] text-[#FFFFFF] rounded-[4px] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] hover:bg-[#222222] transition-colors font-sans font-medium text-[12px] leading-[16px] tracking-[0.3px]"
                 >
                   <span>View details</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-[#FFFFFF]" />
-                </button>
+                </Link>
 
                 <span className="text-[11px] font-mono text-[#A3A3A3] uppercase tracking-wider">
                   Kochi, Kerala
