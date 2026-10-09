@@ -34,21 +34,24 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="relative w-full py-24 md:py-32 bg-[#fafafa] overflow-hidden">
+    <section className="relative w-full max-w-full py-[56px] px-4 md:py-32 md:px-6 bg-[#fafafa] min-h-[730px] md:min-h-0 overflow-hidden">
 
       {/* Background Colorful Blurs */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px]  bg-[#0011FF] rounded-full mix-blend-multiply filter blur-[120px] opacity-40 pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#00CCFF00] rounded-full mix-blend-multiply filter blur-[120px] opacity-50 pointer-events-none translate-x-1/4"></div>
 
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
+      <div className="w-full max-w-[390px] md:max-w-4xl mx-auto relative z-10">
 
         {/* Title */}
-        <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3rem)] font-[200] text-[#111] text-center mb-16 uppercase tracking-wide">
+        <h2 
+          className="font-[300] md:font-[200] text-[#111] text-center mb-8 md:mb-16 uppercase align-middle text-[21px] md:text-[48px] leading-[31.5px] md:leading-[136%] tracking-[2.94px] md:tracking-[0px]"
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
           Answers Before You Ask
         </h2>
 
         {/* Accordion List */}
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col space-y-3 md:space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
@@ -60,17 +63,20 @@ export default function FaqSection() {
                   boxShadow: isOpen ? "0 10px 30px rgba(0,0,0,0.06)" : "0 0px 0px rgba(0,0,0,0)",
                 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className={`bg-[#69696900] border border-[#e2e2e2] rounded-[20px] overflow-hidden transition-colors ${isOpen ? 'bg-white/80' : ''}`}
+                className={`bg-[#69696900] border border-[#e2e2e2] rounded-[16px] md:rounded-[20px] overflow-hidden transition-colors ${isOpen ? 'bg-white/80' : ''}`}
               >
                 <button
                   suppressHydrationWarning
                   onClick={() => toggleFaq(index)}
-                  className="w-full flex justify-between items-center p-6 md:px-10 text-left focus:outline-none"
+                  className="w-full flex justify-between items-center p-4 md:py-6 md:px-10 text-left focus:outline-none"
                 >
-                  <span className="text-[#333] font-medium text-[17px] md:text-[19px]">
+                  <span 
+                    className="text-[#333] align-middle font-[400] md:font-[300] text-[13.5px] md:text-[14px] leading-[20.25px] md:leading-[139%] tracking-[-0.34px] md:tracking-[0.05em]"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
                     {faq.question}
                   </span>
-                  <span className="text-[#333] text-[clamp(1.25rem,1.5vw+0.5rem,1.5rem)] font-light leading-none ml-6">
+                  <span className="text-[#333] text-lg md:text-2xl font-light leading-none ml-4 md:ml-6 shrink-0">
                     {isOpen ? "−" : "+"}
                   </span>
                 </button>
@@ -83,7 +89,10 @@ export default function FaqSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <div className="px-6 md:px-10 pb-8 text-[#555] text-[14px] md:text-[15px] font-normal leading-relaxed max-w-3xl whitespace-pre-line">
+                      <div 
+                        className="px-4 pb-4 md:px-10 md:pb-8 text-[#555] align-middle font-[400] md:font-[300] text-[12.5px] md:text-[12px] leading-[20.63px] md:leading-[139%] tracking-[0px] md:tracking-[0.05em] max-w-3xl whitespace-pre-line"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                      >
                         {faq.answer}
                       </div>
                     </motion.div>

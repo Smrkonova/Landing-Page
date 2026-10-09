@@ -33,6 +33,44 @@ const slides = [
     },
 ];
 
+const renderCardTitle = (title: string, isMobile = false) => {
+    const newlineIndex = title.indexOf('\n');
+    let firstPart = title;
+    let secondPart = '';
+    if (newlineIndex !== -1) {
+        firstPart = title.slice(0, newlineIndex);
+        secondPart = title.slice(newlineIndex + 1);
+    } else {
+        const spaceIndex = title.indexOf(' ');
+        if (spaceIndex !== -1) {
+            firstPart = title.slice(0, spaceIndex);
+            secondPart = title.slice(spaceIndex + 1);
+        }
+    }
+
+    if (isMobile) {
+        return (
+            <h3
+                className="text-[32.31px] leading-[34.84px] tracking-[1.01px] text-white break-words drop-shadow-md whitespace-pre-line"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+            >
+                <span className="font-[500] block">{firstPart}</span>
+                {secondPart && <span className="font-[100] block">{secondPart}</span>}
+            </h3>
+        );
+    }
+
+    return (
+        <h3
+            className="text-[64px] leading-[69px] tracking-[2px] text-white break-words drop-shadow-md whitespace-pre-line"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+        >
+            <span className="font-[500] block">{firstPart}</span>
+            {secondPart && <span className="font-[100] block">{secondPart}</span>}
+        </h3>
+    );
+};
+
 export default function WhatMakesUsDifferentSlider() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [mobileIndex, setMobileIndex] = useState(0);
@@ -87,12 +125,15 @@ export default function WhatMakesUsDifferentSlider() {
     };
 
     return (
-        <section className="w-full max-w-full bg-white text-black py-12 md:py-20 overflow-hidden relative">
-            <div className="w-full max-w-8xl mx-auto px-6 md:px-12 flex flex-col gap-8 overflow-hidden">
+        <section className="w-full max-w-full bg-white text-black py-8 md:py-20 min-h-[527px] md:min-h-0 overflow-hidden relative">
+            <div className="w-full max-w-[390px] md:max-w-8xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col gap-6 md:gap-8 overflow-hidden">
                 
                 {/* Section Header */}
                 <div>
-                    <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,2rem)] font-[300] text-gray-800 tracking-wide uppercase">
+                    <h2
+                        className="uppercase font-[300] text-gray-800 text-[16px] md:text-[32px] leading-[77px] tracking-[0px]"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
                         WHAT MAKES OUR CREATIVE WORK DIFFERENT.
                     </h2>
                 </div>
@@ -167,10 +208,11 @@ export default function WhatMakesUsDifferentSlider() {
                                 )}
 
                                 <div className={`relative z-10 w-full h-full p-12 flex flex-col justify-between ${slide.image ? 'bg-gradient-to-t from-black/85 via-black/25 to-black/45' : 'bg-gradient-to-br from-white/15 to-black/30'}`}>
-                                    <h3 className="text-[clamp(1.5rem,2.2vw+0.25rem,2.5rem)] leading-[1.12] font-light text-white tracking-tight break-words whitespace-pre-line drop-shadow-md">
-                                        {slide.title}
-                                    </h3>
-                                    <p className="text-white/80 text-[clamp(0.875rem,0.5vw+0.65rem,1rem)] font-light max-w-[250px] leading-relaxed drop-shadow-md">
+                                    {renderCardTitle(slide.title, false)}
+                                    <p
+                                        className="text-white/85 text-[14px] leading-[27px] tracking-[0px] font-[400] max-w-[280px] drop-shadow-md"
+                                        style={{ fontFamily: "'Inter', sans-serif" }}
+                                    >
                                         {slide.subtitle}
                                     </p>
                                 </div>
@@ -181,16 +223,16 @@ export default function WhatMakesUsDifferentSlider() {
                 </div>
 
                 {/* Mobile Slide Carousel (< md) */}
-                <div className="flex md:hidden flex-col gap-4 mt-6">
+                <div className="flex md:hidden flex-col gap-4 mt-2">
                     <div
                         ref={mobileTrackRef}
                         onScroll={handleMobileScroll}
-                        className="flex overflow-x-auto snap-x snap-mandatory gap-4 py-4 px-1 no-scrollbar scroll-smooth -mx-6 px-6"
+                        className="flex overflow-x-auto snap-x snap-mandatory gap-4 py-2 px-1 no-scrollbar scroll-smooth -mx-4 px-4"
                     >
                         {slides.map((slide) => (
                             <div
                                 key={slide.id}
-                                className={`shrink-0 w-[80vw] max-w-[320px] h-[460px] snap-center rounded-[32px] overflow-hidden relative shadow-xl ${slide.bg}`}
+                                className={`shrink-0 w-[240px] h-[340px] sm:w-[260px] sm:h-[360px] snap-center rounded-[24px] overflow-hidden relative shadow-xl ${slide.bg}`}
                             >
                                 {slide.image && (
                                     <img
@@ -200,11 +242,12 @@ export default function WhatMakesUsDifferentSlider() {
                                     />
                                 )}
 
-                                <div className={`relative z-10 w-full h-full p-8 flex flex-col justify-between ${slide.image ? 'bg-gradient-to-t from-black/85 via-black/25 to-black/45' : 'bg-gradient-to-br from-white/15 to-black/30'}`}>
-                                    <h3 className="text-[28px] leading-[1.15] font-light text-white tracking-tight break-words whitespace-pre-line drop-shadow-md">
-                                        {slide.title}
-                                    </h3>
-                                    <p className="text-white/85 text-[14px] font-light max-w-[260px] leading-relaxed drop-shadow-md">
+                                <div className={`relative z-10 w-full h-full p-6 flex flex-col justify-between ${slide.image ? 'bg-gradient-to-t from-black/85 via-black/25 to-black/45' : 'bg-gradient-to-br from-white/15 to-black/30'}`}>
+                                    {renderCardTitle(slide.title, true)}
+                                    <p
+                                        className="text-white/85 text-[7.07px] leading-[13.63px] tracking-[0px] font-[400] max-w-[180px] drop-shadow-md"
+                                        style={{ fontFamily: "'Inter', sans-serif" }}
+                                    >
                                         {slide.subtitle}
                                     </p>
                                 </div>

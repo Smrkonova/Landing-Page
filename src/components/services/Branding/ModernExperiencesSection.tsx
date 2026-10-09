@@ -5,10 +5,10 @@ import Image from 'next/image';
 
 export default function ModernExperiencesSection() {
     return (
-        <section className="w-full bg-[#f8f9fa] py-12 sm:py-16 md:py-24 lg:py-32 px-3 sm:px-6 md:px-12 flex justify-center overflow-hidden">
+        <section className="w-full max-w-full bg-[#f8f9fa] py-8 sm:py-16 md:py-24 lg:py-32 px-4 md:px-12 flex justify-center overflow-hidden">
 
             {/* Main Rounded Card Container */}
-            <div className="relative w-full max-w-7xl bg-white rounded-[28px] sm:rounded-[40px] md:rounded-[50px] lg:rounded-[60px] shadow-[0_20px_80px_rgba(0,0,0,0.05)] overflow-hidden">
+            <div className="relative w-full max-w-[390px] lg:max-w-7xl min-h-[553px] lg:min-h-[629px] bg-white rounded-[40px] md:rounded-[60px] shadow-[0_20px_80px_rgba(0,0,0,0.05)] overflow-hidden">
 
                 {/* --- BACKGROUND GLOWS & MESH GRADIENTS --- */}
                 {/* Large soft coral glow in top-center */}
@@ -16,22 +16,29 @@ export default function ModernExperiencesSection() {
                 {/* Blue glow on far right */}
                 <div className="absolute bottom-1/4 right-0 w-[300px] sm:w-[450px] lg:w-[500px] h-[300px] sm:h-[450px] lg:h-[500px] bg-blue-300/60 rounded-full blur-[90px] sm:blur-[120px] pointer-events-none translate-x-1/4" />
 
-                <div className="relative z-10 flex flex-col lg:flex-row p-6 sm:p-10 md:p-16 lg:p-24 min-h-0 lg:min-h-[600px] items-center lg:items-stretch">
+                <div className="relative z-10 flex flex-col lg:flex-row p-6 sm:p-10 md:p-16 lg:p-20 min-h-[553px] lg:min-h-[629px] items-center justify-between">
 
                     {/* Left Content Area */}
-                    <div className="flex-1 flex flex-col justify-start z-20">
-                        <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3.75rem)] leading-[1.2em] tracking-tight text-[#212121] mb-8">
-                            <span className="block font-[900] uppercase">PRINT & DIGITAL</span>
-                            <span className="block font-[200] text-gray-500 uppercase">BRAND ASSETS.</span>
+                    <div className="w-full lg:w-[716px] lg:min-h-[629px] flex flex-col justify-center z-20">
+                        <h2 className="mb-6 md:mb-8" style={{ fontFamily: "'Inter', sans-serif" }}>
+                            <span className="block font-[700] md:font-[900] text-[42px] md:text-[60px] leading-[48px] md:leading-[75px] tracking-[-1.2px] text-[#212121] uppercase">
+                                PRINT & DIGITAL
+                            </span>
+                            <span className="block font-[200] text-[42px] md:text-[60px] leading-[48px] md:leading-[75px] tracking-[-1.2px] text-gray-500 uppercase">
+                                BRAND ASSETS.
+                            </span>
                         </h2>
 
-                        <p className="text-[#5A5E63] text-[15px] md:text-[16px] font-[400] leading-[1.6em] max-w-[380px]">
+                        <p
+                            className="text-[#212121] text-[12px] md:text-[14px] leading-[16px] md:leading-[25px] font-[400] tracking-[0px] max-w-[380px] md:max-w-[420px]"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
                             We don't just design visual marks. We deliver complete, production-ready brand assets engineered for flawless print and digital execution.
                         </p>
                     </div>
 
                     {/* Right Graphics Area */}
-                    <div className="flex-1 relative flex items-center justify-center w-full z-10">
+                    <div className="flex-1 relative flex items-center justify-center w-full z-10 mt-6 lg:mt-0">
 
                         {/* Graphic Canvas Container (Responsive) */}
                         <div className="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[490px] lg:max-w-[540px] aspect-[1.12/1] sm:aspect-[1.15/1] rounded-[28px] sm:rounded-[36px] md:rounded-[44px] overflow-hidden flex items-center justify-center p-4 sm:p-6 md:p-8">
