@@ -17,6 +17,7 @@ interface SolutionItem {
 }
 
 interface SolutionsGridProps {
+  id?: string;
   tag?: string;
   tagClassName?: string;
   title?: React.ReactNode;
@@ -28,6 +29,7 @@ interface SolutionsGridProps {
 }
 
 export default function SolutionsGrid({
+  id = "solutions",
   tag = "SOLUTIONS WE BUILD",
   tagClassName,
   title = (
@@ -43,7 +45,7 @@ export default function SolutionsGrid({
   itemTitleClassName,
 }: SolutionsGridProps) {
   return (
-    <section className="relative w-full bg-[#fcfcfc] text-black py-24 md:py-32 overflow-hidden">
+    <section id={id} className="relative w-full bg-[#fcfcfc] text-black py-24 md:py-32 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
 
         {/* Header Content */}

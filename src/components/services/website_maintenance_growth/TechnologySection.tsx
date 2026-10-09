@@ -72,11 +72,35 @@ export default function TechnologySection() {
                 {/* Header */}
                 <div className="mb-7">
                     <h2 
-                        className="uppercase leading-[1.05] tracking-tight"
-                        style={{ fontFamily: "'Inter', sans-serif", fontSize: '42px' }}
+                        className="uppercase"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
                     >
-                        <span className="block font-[200] text-black">ONGOING</span>
-                        <span className="block font-[900] text-black">SUPPORT SERVICES</span>
+                        <span 
+                            className="block text-black uppercase"
+                            style={{
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 900,
+                                fontSize: '34px',
+                                lineHeight: '42.5px',
+                                letterSpacing: '-0.85px',
+                                verticalAlign: 'middle',
+                            }}
+                        >
+                            ONGOING
+                        </span>
+                        <span 
+                            className="block text-black uppercase"
+                            style={{
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 300,
+                                fontSize: '26px',
+                                lineHeight: '26px',
+                                letterSpacing: '1.56px',
+                                verticalAlign: 'middle',
+                            }}
+                        >
+                            SUPPORT SERVICES
+                        </span>
                     </h2>
                 </div>
 
@@ -85,14 +109,32 @@ export default function TechnologySection() {
                     {/* Marketing Support */}
                     <div>
                         <h4 
-                            className="text-[13px] font-[900] tracking-wider uppercase text-black mb-3"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
+                            className="uppercase text-black mb-3"
+                            style={{ 
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 800,
+                                fontSize: '13px',
+                                lineHeight: '19.5px',
+                                letterSpacing: '0.65px',
+                                verticalAlign: 'middle',
+                            }}
                         >
                             MARKETING
                         </h4>
                         <ul className="space-y-2.5">
                             {mobileMarketing.map((item, idx) => (
-                                <li key={`m-mkt-${idx}`} className="flex items-center gap-2.5 text-[14px] text-gray-800 font-medium">
+                                <li 
+                                    key={`m-mkt-${idx}`} 
+                                    className="flex items-center gap-2.5 text-gray-800"
+                                    style={{
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontWeight: 500,
+                                        fontSize: '12px',
+                                        lineHeight: '18px',
+                                        letterSpacing: '0px',
+                                        verticalAlign: 'middle',
+                                    }}
+                                >
                                     {checkIcon}
                                     <span>{item}</span>
                                 </li>
@@ -103,14 +145,32 @@ export default function TechnologySection() {
                     {/* Technical Support */}
                     <div>
                         <h4 
-                            className="text-[13px] font-[900] tracking-wider uppercase text-black mb-3"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
+                            className="uppercase text-black mb-3"
+                            style={{ 
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 800,
+                                fontSize: '13px',
+                                lineHeight: '19.5px',
+                                letterSpacing: '0.65px',
+                                verticalAlign: 'middle',
+                            }}
                         >
                             TECHNICAL
                         </h4>
                         <ul className="space-y-2.5">
                             {mobileTechnical.map((item, idx) => (
-                                <li key={`m-tech-${idx}`} className="flex items-center gap-2.5 text-[14px] text-gray-800 font-medium">
+                                <li 
+                                    key={`m-tech-${idx}`} 
+                                    className="flex items-center gap-2.5 text-gray-800"
+                                    style={{
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontWeight: 500,
+                                        fontSize: '12px',
+                                        lineHeight: '18px',
+                                        letterSpacing: '0px',
+                                        verticalAlign: 'middle',
+                                    }}
+                                >
                                     {checkIcon}
                                     <span>{item}</span>
                                 </li>
@@ -122,14 +182,28 @@ export default function TechnologySection() {
                 {/* PROACTIVE CARE Heading & Subtext */}
                 <div className="mb-6">
                     <h3 
-                        className="text-[20px] font-[900] tracking-tight text-black uppercase mb-1.5"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
+                        className="text-black uppercase mb-1.5"
+                        style={{ 
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 900,
+                            fontSize: '22px',
+                            lineHeight: '33px',
+                            letterSpacing: '-0.55px',
+                            verticalAlign: 'middle',
+                        }}
                     >
                         PROACTIVE SUPPORT
                     </h3>
                     <p 
-                        className="text-[14px] text-[#555] leading-relaxed font-normal"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
+                        className="text-[#555] font-normal"
+                        style={{ 
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 400,
+                            fontSize: '12px',
+                            lineHeight: '16px',
+                            letterSpacing: '0px',
+                            verticalAlign: 'middle',
+                        }}
                     >
                         Your website shouldn&apos;t degrade over time. We proactively optimize performance, security and stability:
                     </p>
@@ -138,14 +212,28 @@ export default function TechnologySection() {
                 {/* ADMIN DASHBOARDS */}
                 <div className="mb-4">
                     <h4 
-                        className="text-[13px] font-[900] tracking-wider text-black uppercase mb-1.5"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
+                        className="text-black uppercase mb-1.5"
+                        style={{ 
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 900,
+                            fontSize: '22px',
+                            lineHeight: '33px',
+                            letterSpacing: '-0.55px',
+                            verticalAlign: 'middle',
+                        }}
                     >
                         ADMIN DASHBOARDS
                     </h4>
                     <p 
-                        className="text-[13px] text-[#666] leading-relaxed font-normal"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
+                        className="text-[#666] font-normal"
+                        style={{ 
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 400,
+                            fontSize: '12px',
+                            lineHeight: '16px',
+                            letterSpacing: '0px',
+                            verticalAlign: 'middle',
+                        }}
                     >
                         Every client gets continuous visibility. We provide real-time uptime reports, speed benchmarks, and dedicated ticket management.
                     </p>
@@ -201,11 +289,15 @@ export default function TechnologySection() {
                                     {scrollWords.map((word, j) => (
                                         <span
                                             key={`${i}-${j}`}
-                                            className="tracking-widest uppercase text-right font-black text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+                                            className="uppercase text-right text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
                                             style={{
                                                 fontFamily: "'Inter', sans-serif",
+                                                fontWeight: 800,
                                                 fontSize: '16px',
-                                                lineHeight: '1.2',
+                                                lineHeight: '18px',
+                                                letterSpacing: '1.05px',
+                                                textAlign: 'right',
+                                                verticalAlign: 'middle',
                                             }}
                                         >
                                             {word}
@@ -267,11 +359,33 @@ export default function TechnologySection() {
                     {/* Top Heading */}
                     <div>
                         <h2 
-                            className="leading-[1.15] tracking-tight uppercase"
-                            style={{ fontFamily: "'Inter', sans-serif", fontSize: '42px' }}
+                            className="uppercase"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
                         >
-                            <span className="font-[200] text-gray-800">ONGOING </span><br />
-                            <span className="font-[900] text-black">SUPPORT SERVICES</span>
+                            <span 
+                                className="block text-[#1a1a1a] uppercase"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 200,
+                                    fontSize: '60px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '-1.2px',
+                                }}
+                            >
+                                ONGOING
+                            </span>
+                            <span 
+                                className="block text-[#1a1a1a] uppercase"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 900,
+                                    fontSize: '60px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '1px',
+                                }}
+                            >
+                                SUPPORT SERVICES
+                            </span>
                         </h2>
                     </div>
 
@@ -279,13 +393,32 @@ export default function TechnologySection() {
                     <div className="flex flex-row justify-start gap-12 md:gap-20 lg:gap-24 mt-12 md:mt-24 lg:mt-32">
                         {/* Marketing Support */}
                         <div className="flex-1 max-w-sm">
-                            <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121] flex items-center gap-2">
+                            <h4 
+                                className="uppercase mb-4 text-[#212121] flex items-center gap-2"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: '24px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '3px',
+                                }}
+                            >
                                 <span className="w-2 h-2 rounded-full bg-[#53A18B]"></span>
                                 MARKETING SUPPORT
                             </h4>
                             <ul className="space-y-3">
                                 {marketingSupport.map((item, idx) => (
-                                    <li key={`marketing-${idx}`} className="flex items-start gap-3 text-[14px] text-[#5A5E63] font-[400]">
+                                    <li 
+                                        key={`marketing-${idx}`} 
+                                        className="flex items-start gap-3 text-[#5A5E63]"
+                                        style={{
+                                            fontFamily: "'Inter', sans-serif",
+                                            fontWeight: 400,
+                                            fontSize: '16px',
+                                            lineHeight: '24px',
+                                            letterSpacing: '0px',
+                                        }}
+                                    >
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -295,13 +428,32 @@ export default function TechnologySection() {
 
                         {/* Technical Support */}
                         <div className="flex-1 max-w-sm">
-                            <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121] flex items-center gap-2">
+                            <h4 
+                                className="uppercase mb-4 text-[#212121] flex items-center gap-2"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: '24px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '3px',
+                                }}
+                            >
                                 <span className="w-2 h-2 rounded-full bg-[#0060FB]"></span>
                                 TECHNICAL SUPPORT
                             </h4>
                             <ul className="space-y-3">
                                 {technicalSupport.map((item, idx) => (
-                                    <li key={`technical-${idx}`} className="flex items-start gap-3 text-[14px] text-[#5A5E63] font-[400]">
+                                    <li 
+                                        key={`technical-${idx}`} 
+                                        className="flex items-start gap-3 text-[#5A5E63]"
+                                        style={{
+                                            fontFamily: "'Inter', sans-serif",
+                                            fontWeight: 400,
+                                            fontSize: '16px',
+                                            lineHeight: '24px',
+                                            letterSpacing: '0px',
+                                        }}
+                                    >
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -315,12 +467,30 @@ export default function TechnologySection() {
 
                         {/* Bottom Left Text */}
                         <div className="max-w-[340px] mb-12 lg:mb-0">
-                            <h3 className="text-[clamp(1.75rem,3.2vw+0.5rem,3.4375rem)] leading-[1.05] tracking-tight uppercase mb-6 text-[#212121]">
+                            <h3 
+                                className="uppercase mb-6 text-[#212121]"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 900,
+                                    fontSize: '48.24px',
+                                    lineHeight: '60.3px',
+                                    letterSpacing: '-0.96px',
+                                }}
+                            >
                                 <span className="block font-[900]">COMPLETE</span>
                                 <span className="block font-[900]">GROWTH </span>
                                 <span className="block font-[200] text-gray-500">PARTNERSHIP</span>
                             </h3>
-                            <p className="text-[#5A5E63] text-[16px] font-[400] leading-relaxed">
+                            <p 
+                                className="text-[#5A5E63] leading-relaxed"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: '16px',
+                                    lineHeight: '24px',
+                                    letterSpacing: '0px',
+                                }}
+                            >
                                 We manage continuous improvements, routine updates, marketing adjustments, and emergency technical troubleshooting so you can focus on scaling your business.
                             </p>
                         </div>
@@ -340,7 +510,17 @@ export default function TechnologySection() {
                                 {[...Array(2)].map((_, i) => (
                                     <React.Fragment key={i}>
                                         {["SUPPORT", "SECURITY", "UPDATES", "SPEED", "BACKUPS", "GROWTH", "OPTIMISE", "SCALING", "MONITORING"].map((word, j) => (
-                                            <span key={`${i}-${j}`} className="text-[clamp(1.75rem,5.5vw+0.5rem,5.5rem)] font-black leading-[0.95] uppercase text-white drop-shadow-md">
+                                            <span 
+                                                key={`${i}-${j}`} 
+                                                className="uppercase text-white drop-shadow-md"
+                                                style={{
+                                                    fontFamily: "'Inter', sans-serif",
+                                                    fontWeight: 900,
+                                                    fontSize: '96px',
+                                                    lineHeight: '122%',
+                                                    letterSpacing: '0%',
+                                                }}
+                                            >
                                                 {word}
                                             </span>
                                         ))}

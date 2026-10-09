@@ -67,11 +67,14 @@ export default function FeaturesSliderSection() {
     }, [emblaApi]);
 
     return (
-        <section className="w-full max-w-full bg-white py-16 md:py-24 overflow-hidden">
+        <section className="w-full max-w-full bg-white py-8 md:py-24 min-h-[541px] md:min-h-0 overflow-hidden">
             {/* Header with Title and Prev/Next arrows */}
-            <div className="max-w-[1400px] mx-auto px-4 md:px-12 flex items-center justify-between mb-12">
+            <div className="w-full max-w-[390px] md:max-w-[1400px] mx-auto px-4 md:px-12 flex items-center justify-between mb-8 md:mb-12">
                 <div>
-                    <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,2rem)] font-[300] tracking-wide text-[#1a1a1a] uppercase ml-4 md:ml-0">
+                    <h2 
+                        className="uppercase text-[#1a1a1a] font-[200] md:font-[300] text-[24px] md:text-[32px] leading-[26px] md:leading-[77px] tracking-[-1.2px] md:tracking-[0px] ml-4 md:ml-0"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
                         What We Can Help With
                     </h2>
                     <p className="text-gray-500 text-[clamp(11px,0.4vw+6px,13px)] font-light ml-4 md:ml-0 mt-1">
@@ -117,7 +120,10 @@ export default function FeaturesSliderSection() {
 
                                 {/* Bottom Feature Details */}
                                 <div className="w-full flex flex-col items-center gap-6 mb-4">
-                                    <h3 className="text-black font-semibold text-[clamp(1.125rem,1.4vw+0.5rem,1.25rem)] text-center tracking-tight">
+                                    <h3 
+                                        className="text-black font-[500] text-center text-[22px] md:text-[32px] leading-[26.33px] md:leading-[37px] tracking-[0px] max-w-[260px]"
+                                        style={{ fontFamily: "'Inter', sans-serif" }}
+                                    >
                                         {feature.title}
                                     </h3>
 

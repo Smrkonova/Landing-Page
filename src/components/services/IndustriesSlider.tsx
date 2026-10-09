@@ -62,7 +62,7 @@ export default function IndustriesSlider() {
               }}
             >
               <span
-                className="block text-[32px] sm:text-[44px] md:text-[60px] leading-[40px] sm:leading-[54px] md:leading-[75px]"
+                className="block text-[42px] leading-[48px] md:text-[60px] md:leading-[75px]"
                 style={{
                   fontFamily: "'Inter', sans-serif",
                   fontWeight: 200,
@@ -73,7 +73,7 @@ export default function IndustriesSlider() {
                 EVERY BUSINESS NEEDS
               </span>
               <span
-                className="block text-[32px] sm:text-[44px] md:text-[60px] leading-[40px] sm:leading-[54px] md:leading-[75px]"
+                className="block text-[42px] leading-[48px] md:text-[60px] md:leading-[75px]"
                 style={{
                   fontFamily: "'Inter', sans-serif",
                   fontWeight: 700,
@@ -87,12 +87,10 @@ export default function IndustriesSlider() {
           </div>
           <div className="max-w-[560px]">
             <p
-              className="text-[#4B5563]"
+              className="text-[#4B5563] text-[14px] md:text-[16px] leading-[28px] tracking-[0px]"
               style={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 400,
-                fontSize: '16px',
-                lineHeight: '28px',
                 letterSpacing: '0px',
               }}
             >

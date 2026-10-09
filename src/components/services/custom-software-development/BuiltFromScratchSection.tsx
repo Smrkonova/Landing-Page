@@ -24,27 +24,44 @@ export default function BuiltFromScratchSection() {
     }, [cards.length]);
 
     return (
-        <section className="w-full bg-white text-black pt-24 md:pt-32 pb-40 md:pb-56 lg:pb-64 overflow-hidden relative">
-            <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-0 flex flex-col lg:flex-row items-center justify-between gap-16">
+        <section className="w-full max-w-full bg-white text-black py-10 md:pt-32 md:pb-56 lg:pb-64 min-h-[622px] md:min-h-0 overflow-hidden relative">
+            <div className="w-full max-w-[390px] md:max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-0 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
 
                 {/* Left Side: Text */}
                 <div className="flex-1 w-full flex flex-col justify-center">
                     <h2 
-                        className="font-[200] text-gray-800 tracking-tight mb-6 md:mb-8 uppercase leading-[1.08]"
+                        className="uppercase text-[42px] leading-[48px] tracking-[-1.2px] md:text-[64px] md:leading-[70.83px] md:tracking-[2.06px] mb-4 md:mb-8"
                         style={{
                             fontFamily: "'Inter', sans-serif",
-                            fontSize: '42px',
                         }}
                     >
-                        EVERY PLATFORM IS DESIGNED<br />
-                        <span className="font-[900] text-black tracking-normal">AROUND YOUR WORKFLOW.</span>
+                        <span
+                            className="block font-[200] text-gray-800 tracking-[-1.2px] md:tracking-[2.06px]"
+                            style={{
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 200,
+                                textTransform: 'uppercase',
+                            }}
+                        >
+                            EVERY PLATFORM IS DESIGNED
+                        </span>
+                        <span
+                            className="block font-[700] md:font-[900] text-black tracking-[-1.2px] md:tracking-[2.06px]"
+                            style={{
+                                fontFamily: "'Inter', sans-serif",
+                                textTransform: 'uppercase',
+                            }}
+                        >
+                            AROUND YOUR WORKFLOW.
+                        </span>
                     </h2>
 
                     <p 
-                        className="text-gray-500 max-w-sm mb-8 md:mb-10 leading-relaxed font-normal"
+                        className="text-[#4B5563] max-w-md mb-6 md:mb-10 font-[400] text-[14px] leading-[28px] md:leading-[25px] tracking-[0px]"
                         style={{
                             fontFamily: "'Inter', sans-serif",
-                            fontSize: '14px',
+                            fontWeight: 400,
+                            letterSpacing: '0px',
                         }}
                     >
                         Before development begins, we understand how your business operates and identify opportunities to simplify repetitive tasks and improve efficiency.
@@ -53,7 +70,7 @@ export default function BuiltFromScratchSection() {
                 </div>
 
                 {/* Right Side: Rebuilt UI Graphic */}
-                <div className="flex-1 w-full relative flex justify-center lg:justify-end items-center min-h-[500px]">
+                <div className="flex-1 w-full relative flex justify-center lg:justify-end items-center min-h-[340px] md:min-h-[500px]">
                     <style>{`
                         @keyframes pulseScale {
                             0% { transform: scale(1.1); }
@@ -66,11 +83,11 @@ export default function BuiltFromScratchSection() {
                     `}</style>
 
 
-                    {/* Graphic & Hand Wrapper */}
-                    <div className="relative w-full max-w-[600px] h-[450px] flex items-center justify-center">
+                    {/* Graphic & Hand Wrapper (width: 316px, height: 317px on mobile) */}
+                    <div className="relative w-[316px] h-[317px] md:w-full md:max-w-[600px] md:h-[450px] flex items-center justify-center">
 
                         {/* UI Element Graphic (with built.svg background) */}
-                        <div className="relative w-full h-full z-10 flex flex-col items-center justify-center overflow-hidden rounded-3xl">
+                        <div className="relative w-full h-full z-10 flex flex-col items-center justify-center overflow-hidden rounded-[24px] md:rounded-3xl">
 
                             {/* Background SVG Window */}
                             <Image
@@ -91,11 +108,11 @@ export default function BuiltFromScratchSection() {
                             ></div>
 
                             {/* Cards Container */}
-                            <div className="absolute inset-0 top-[-10%] bottom-[-10%] flex items-center justify-center overflow-hidden z-20">
+                            <div className="absolute inset-0 top-[-10%] bottom-[-10%] flex items-center justify-center overflow-hidden z-20 [--card-step:86px] md:[--card-step:141px]">
                                 {/* Top Fade Overlay */}
-                                <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white via-white/80 to-transparent z-40 pointer-events-none"></div>
+                                <div className="absolute top-0 left-0 w-full h-16 md:h-32 bg-gradient-to-b from-white via-white/80 to-transparent z-40 pointer-events-none"></div>
                                 {/* Bottom Fade Overlay */}
-                                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white via-white/80 to-transparent z-40 pointer-events-none"></div>
+                                <div className="absolute bottom-0 left-0 w-full h-16 md:h-32 bg-gradient-to-t from-white via-white/80 to-transparent z-40 pointer-events-none"></div>
 
                                 {/* Cards List (React State Driven Infinite Carousel) */}
                                 <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
@@ -107,22 +124,21 @@ export default function BuiltFromScratchSection() {
 
                                         const isActive = distance === 0;
                                         const isVisible = Math.abs(distance) <= 1;
-                                        const translateY = distance * 141;
 
                                         return (
                                             <div
                                                 key={text}
-                                                className={`absolute flex items-center justify-center w-[80%] max-w-[335px] h-[100px] md:h-[129px] rounded-[24px] backdrop-blur-md transition-all duration-[1000ms] border ${isActive
+                                                className={`absolute flex items-center justify-center w-[82%] max-w-[240px] md:max-w-[335px] h-[72px] md:h-[129px] rounded-[18px] md:rounded-[24px] backdrop-blur-md transition-all duration-[1000ms] border ${isActive
                                                     ? 'bg-white/60 border-white/80 shadow-[0_24px_48px_rgba(0,0,0,0.08)] scale-100 z-30 opacity-100'
                                                     : 'bg-white/30 border-white/40 shadow-sm opacity-80 scale-95 z-20'
                                                     }`}
                                                 style={{
-                                                    transform: `translateY(${translateY}px) scale(${isActive ? 1 : 0.95})`,
+                                                    transform: `translateY(calc(${distance} * var(--card-step, 141px))) scale(${isActive ? 1 : 0.95})`,
                                                     opacity: isVisible ? (isActive ? 1 : 0.8) : 0,
                                                     zIndex: isVisible ? (isActive ? 30 : 20) : 10,
                                                 }}
                                             >
-                                                <span className={`text-[clamp(11px,0.4vw+7px,14px)] font-medium tracking-[0.2em] uppercase transition-colors duration-[1000ms] ${isActive ? 'text-black' : 'text-gray-700'}`}>
+                                                <span className={`text-[12px] md:text-[clamp(11px,0.4vw+7px,14px)] font-medium tracking-[0.2em] uppercase transition-colors duration-[1000ms] ${isActive ? 'text-black' : 'text-gray-700'}`}>
                                                     {text}
                                                 </span>
                                             </div>
@@ -133,7 +149,7 @@ export default function BuiltFromScratchSection() {
                         </div>
 
                         {/* Hand Image Overlay */}
-                        <div className="absolute z-30 left-1/2 top-[44%] sm:top-[46%] -translate-x-[92%] w-[360px] sm:w-[420px] md:w-[460px] lg:w-[480px] aspect-square pointer-events-none">
+                        <div className="absolute z-30 left-1/2 top-[44%] sm:top-[46%] -translate-x-[92%] w-[250px] sm:w-[340px] md:w-[460px] lg:w-[480px] aspect-square pointer-events-none">
                             <Image
                                 src="/images/services/website/hand.png"
                                 alt="Hand interacting with UI"
