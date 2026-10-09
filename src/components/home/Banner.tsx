@@ -14,12 +14,19 @@ const SNOWFLAKES = Array.from({ length: 50 }).map((_, i) => ({
 export default function Banner() {
   const bannerRef = useRef(null);
   const [isMounted, setIsMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Mouse tracking for background parallax effect
+  // Mouse tracking for background parallax effect (desktop only)
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -28,27 +35,27 @@ export default function Banner() {
   const springY = useSpring(mouseY, { stiffness: 40, damping: 30 });
 
   useEffect(() => {
+    if (isMobile) return;
     const handleMouseMove = (e) => {
       const x = (e.clientX / window.innerWidth) * 2 - 1;
       const y = (e.clientY / window.innerHeight) * 2 - 1;
-      // Gentle displacement
       mouseX.set(x * 20);
       mouseY.set(y * 15);
     };
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
+  }, [mouseX, mouseY, isMobile]);
 
-  // Background parallax layers
-  const bgX = useTransform(springX, v => v * -1);
-  const bgY = useTransform(springY, v => v * -1);
-  const eagleX = useTransform(springX, v => v * 1.5);
-  const eagleY = useTransform(springY, v => v * 1.5);
+  // Background parallax layers (desktop only)
+  const bgX = useTransform(springX, (v) => v * -1);
+  const bgY = useTransform(springY, (v) => v * -1);
+  const eagleX = useTransform(springX, (v) => v * 1.5);
+  const eagleY = useTransform(springY, (v) => v * 1.5);
 
-  // Track scroll progress within the banner
+  // Track scroll progress within the banner (desktop only)
   const { scrollYProgress } = useScroll({
     target: bannerRef,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
 
   // Fade out elements as you scroll down (from 1 to 0)
@@ -56,173 +63,198 @@ export default function Banner() {
   const slideUpY = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
 
   return (
-    <motion.div
+    <div
       ref={bannerRef}
-      onViewportEnter={() => {
-        if (typeof document !== "undefined") {
-          document.body.style.backgroundColor = "#ffffff";
-        }
-      }}
-      viewport={{ amount: 0.1 }}
-      className="relative w-full bg-transparent text-[#212121] overflow-hidden font-mono selection:bg-[#212121]/20"
-      style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
+      className="relative w-full bg-transparent text-[#212121] overflow-hidden font-mono selection:bg-[#212121]/20 h-screen md:h-[calc(100vh/var(--desktop-scale,1))]"
     >
-      {/* Noir Noise Overlay */}
-      <style>{`
-        @keyframes noise-anim {
-          0%, 100% { transform: translate(0, 0); }
-          10% { transform: translate(-5%, -5%); }
-          20% { transform: translate(-10%, 5%); }
-          30% { transform: translate(5%, -10%); }
-          40% { transform: translate(-5%, 15%); }
-          50% { transform: translate(-10%, 5%); }
-          60% { transform: translate(15%, 0); }
-          70% { transform: translate(0, 15%); }
-          80% { transform: translate(5%, 5%); }
-          90% { transform: translate(-10%, 10%); }
-        }
-        .animate-noise {
-          animation: noise-anim 0.4s infinite steps(1);
-        }
-        @keyframes snow-fall {
-          0% { transform: translateY(-10vh) translateX(0px); opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { transform: translateY(110vh) translateX(20px); opacity: 0; }
-        }
-        .animate-snow {
-          animation: snow-fall linear infinite;
-        }
-      `}</style>
-      <motion.div style={isMounted ? { opacity: fadeOutOpacity } : { opacity: 1 }} className="absolute inset-0 z-[100] pointer-events-none overflow-hidden">
-        <div
-          className="absolute -inset-[150%] animate-noise opacity-[0.07] mix-blend-difference"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
-          }}
-        />
-      </motion.div>
+      {/* Noir Noise Overlay - Desktop Only */}
+      {!isMobile && (
+        <>
+          <style>{`
+            @keyframes noise-anim {
+              0%, 100% { transform: translate(0, 0); }
+              10% { transform: translate(-5%, -5%); }
+              20% { transform: translate(-10%, 5%); }
+              30% { transform: translate(5%, -10%); }
+              40% { transform: translate(-5%, 15%); }
+              50% { transform: translate(-10%, 5%); }
+              60% { transform: translate(15%, 0); }
+              70% { transform: translate(0, 15%); }
+              80% { transform: translate(5%, 5%); }
+              90% { transform: translate(-10%, 10%); }
+            }
+            .animate-noise {
+              animation: noise-anim 0.4s infinite steps(1);
+            }
+            @keyframes snow-fall {
+              0% { transform: translateY(-10vh) translateX(0px); opacity: 0; }
+              10% { opacity: 1; }
+              90% { opacity: 1; }
+              100% { transform: translateY(110vh) translateX(20px); opacity: 0; }
+            }
+            .animate-snow {
+              animation: snow-fall linear infinite;
+            }
+          `}</style>
+          <motion.div
+            style={isMounted ? { opacity: fadeOutOpacity } : { opacity: 1 }}
+            className="hidden md:block absolute inset-0 z-[100] pointer-events-none overflow-hidden"
+          >
+            <div
+              className="absolute -inset-[150%] animate-noise opacity-[0.07] mix-blend-difference"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+              }}
+            />
+          </motion.div>
+        </>
+      )}
 
       {/* Background Text: THE PEAK */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        style={isMounted ? { opacity: fadeOutOpacity } : { opacity: 1 }}
-        className="absolute top-[30%] left-0 w-full flex justify-center pointer-events-none z-[-1]"
+      <div
+        className="absolute top-[28%] md:top-[30%] left-0 w-full flex justify-center pointer-events-none z-[-1]"
+        style={!isMobile && isMounted ? ({ opacity: fadeOutOpacity } as any) : { opacity: 1 }}
       >
-        <h1 className="text-[6rem] md:text-[12rem] lg:text-[8rem] xl:text-[10rem] font-good-times font-black text-[#a8a8a8] text-center uppercase tracking-wider leading-none">
+        <h1 className="text-[5.5rem] sm:text-[8rem] md:text-[12rem] lg:text-[8rem] xl:text-[10rem] font-good-times font-black text-[#a8a8a8] text-center uppercase tracking-wider leading-none select-none">
           THE PEAK
         </h1>
-      </motion.div>
+      </div>
 
-      {/* Bottom Banner Image - Noir Effect */}
-      <motion.div style={isMounted ? { opacity: fadeOutOpacity } : { opacity: 1 }} className="absolute bottom-0 left-0 w-full pointer-events-none z-0 flex items-end justify-center">
-        <motion.img
-          style={isMounted ? { x: bgX, y: bgY, scale: 1.05 } : { scale: 1.05 }}
-          src="/images/home/bg.png"
-          alt=""
-          className="w-full h-auto object-cover origin-bottom"
-        />
-      </motion.div>
+      {/* Bottom Banner Image */}
+      <div
+        style={!isMobile && isMounted ? ({ opacity: fadeOutOpacity } as any) : { opacity: 1 }}
+        className="absolute bottom-0 left-0 w-full pointer-events-none z-0 flex items-end justify-center"
+      >
+        {isMobile ? (
+          <img
+            src="/images/home/bg.png"
+            alt=""
+            className="w-full h-auto object-cover origin-bottom max-h-[55vh]"
+          />
+        ) : (
+          <motion.img
+            style={isMounted ? { x: bgX, y: bgY, scale: 1.05 } : { scale: 1.05 }}
+            src="/images/home/bg.png"
+            alt=""
+            className="w-full h-auto object-cover origin-bottom"
+          />
+        )}
+      </div>
 
-      {/* Eagle Flying GIF */}
-      <motion.div style={isMounted ? { opacity: fadeOutOpacity, x: eagleX, y: eagleY } : { opacity: 1 }} className="absolute inset-0 pointer-events-none overflow-hidden z-[110]">
-        <motion.img
-          src="/images/home/eagle.gif"
-          alt="Eagle"
-          className="absolute top-[65%] left-0 w-24 md:w-32 h-auto opacity-100"
-          animate={{
-            x: ["-20vw", "120vw"],
-            y: [0, -40, 10, -30, 0],
-          }}
-          transition={{
-            x: { duration: 40, repeat: Infinity, ease: "linear" },
-            y: { duration: 40, repeat: Infinity, ease: "easeInOut" },
-          }}
-        />
-      </motion.div>
-
-      {/* Interactive Cloud Smoke Layers - Noir Effect */}
-      <motion.div style={isMounted ? { opacity: fadeOutOpacity } : { opacity: 1 }} className="absolute inset-0 pointer-events-none overflow-hidden z-10 opacity-80 grayscale contrast-[1.1]">
-
-        {/* Cloud 1 */}
+      {/* Eagle Flying GIF - Desktop Only */}
+      {!isMobile && (
         <motion.div
-          animate={{ x: ["-50%", "0%"] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[60%] -translate-y-1/2 left-0 w-[200%] h-[25vh] flex"
+          style={isMounted ? { opacity: fadeOutOpacity, x: eagleX, y: eagleY } : { opacity: 1 }}
+          className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden z-[110]"
         >
-          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-70 blur-[1px]" />
-          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-70 blur-[1px]" />
-        </motion.div>
-
-        {/* Cloud 2 */}
-        <motion.div
-          animate={{ x: ["-50%", "0%"] }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[60%] -translate-y-1/2 left-0 w-[240%] h-[30vh] flex"
-        >
-          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-80 blur-[2px] scale-x-[-1]" />
-          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-80 blur-[2px] scale-x-[-1]" />
-        </motion.div>
-
-        {/* Cloud 3 */}
-        <motion.div
-          animate={{ x: ["-50%", "0%"] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[60%] -translate-y-1/2 left-0 w-[180%] h-[20vh] flex"
-        >
-          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-60" />
-          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-60" />
-        </motion.div>
-
-        {/* Bottom Cloud 1 */}
-        <motion.div
-          animate={{ x: ["-50%", "0%"] }}
-          transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-10 left-0 w-[220%] h-[25vh] flex"
-        >
-          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-90 blur-[1px]" />
-          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-90 blur-[1px]" />
-        </motion.div>
-
-        {/* Bottom Cloud 2 */}
-        <motion.div
-          animate={{ x: ["-50%", "0%"] }}
-          transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-5 left-0 w-[200%] h-[20vh] flex"
-        >
-          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-70 blur-[2px] scale-x-[-1]" />
-          <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-70 blur-[2px] scale-x-[-1]" />
-        </motion.div>
-
-      </motion.div>
-
-      {/* Snow Falling Animation */}
-      <motion.div style={isMounted ? { opacity: fadeOutOpacity } : { opacity: 1 }} className="absolute inset-0 z-[15] pointer-events-none overflow-hidden">
-        {SNOWFLAKES.map((flake) => (
-          <div
-            key={flake.id}
-            className="absolute -top-10 rounded-full bg-white animate-snow"
-            style={{
-              left: flake.left,
-              width: flake.size,
-              height: flake.size,
-              opacity: flake.opacity,
-              animationDuration: flake.animationDuration,
-              animationDelay: flake.animationDelay,
+          <motion.img
+            src="/images/home/eagle.gif"
+            alt="Eagle"
+            className="absolute top-[65%] left-0 w-24 md:w-32 h-auto opacity-100"
+            animate={{
+              x: ["-20vw", "120vw"],
+              y: [0, -40, 10, -30, 0],
+            }}
+            transition={{
+              x: { duration: 40, repeat: Infinity, ease: "linear" },
+              y: { duration: 40, repeat: Infinity, ease: "easeInOut" },
             }}
           />
-        ))}
-      </motion.div>
+        </motion.div>
+      )}
 
-      <motion.div
-        style={isMounted ? { opacity: fadeOutOpacity, y: slideUpY } : { opacity: 1 }}
+      {/* Cloud Smoke Layers - Animated on Desktop, Static on Mobile */}
+      {isMobile ? (
+        <div className="md:hidden absolute bottom-0 left-0 w-full h-[22vh] pointer-events-none z-10 opacity-70">
+          <img src="/images/home/cloud.png" alt="" className="w-full h-full object-cover object-bottom" />
+        </div>
+      ) : (
+        <motion.div
+          style={isMounted ? { opacity: fadeOutOpacity } : { opacity: 1 }}
+          className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden z-10 opacity-80 grayscale contrast-[1.1]"
+        >
+          {/* Cloud 1 */}
+          <motion.div
+            animate={{ x: ["-50%", "0%"] }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[60%] -translate-y-1/2 left-0 w-[200%] h-[25vh] flex"
+          >
+            <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-70 blur-[1px]" />
+            <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-70 blur-[1px]" />
+          </motion.div>
+
+          {/* Cloud 2 */}
+          <motion.div
+            animate={{ x: ["-50%", "0%"] }}
+            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[60%] -translate-y-1/2 left-0 w-[240%] h-[30vh] flex"
+          >
+            <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-80 blur-[2px] scale-x-[-1]" />
+            <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-80 blur-[2px] scale-x-[-1]" />
+          </motion.div>
+
+          {/* Cloud 3 */}
+          <motion.div
+            animate={{ x: ["-50%", "0%"] }}
+            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[60%] -translate-y-1/2 left-0 w-[180%] h-[20vh] flex"
+          >
+            <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-60" />
+            <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-60" />
+          </motion.div>
+
+          {/* Bottom Cloud 1 */}
+          <motion.div
+            animate={{ x: ["-50%", "0%"] }}
+            transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+            className="absolute -bottom-10 left-0 w-[220%] h-[25vh] flex"
+          >
+            <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-90 blur-[1px]" />
+            <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-90 blur-[1px]" />
+          </motion.div>
+
+          {/* Bottom Cloud 2 */}
+          <motion.div
+            animate={{ x: ["-50%", "0%"] }}
+            transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+            className="absolute -bottom-5 left-0 w-[200%] h-[20vh] flex"
+          >
+            <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-70 blur-[2px] scale-x-[-1]" />
+            <img src="/images/home/cloud.png" alt="" className="w-1/2 h-full opacity-70 blur-[2px] scale-x-[-1]" />
+          </motion.div>
+        </motion.div>
+      )}
+
+      {/* Snow Falling Animation - Desktop Only */}
+      {!isMobile && (
+        <motion.div
+          style={isMounted ? { opacity: fadeOutOpacity } : { opacity: 1 }}
+          className="hidden md:block absolute inset-0 z-[15] pointer-events-none overflow-hidden"
+        >
+          {SNOWFLAKES.map((flake) => (
+            <div
+              key={flake.id}
+              className="absolute -top-10 rounded-full bg-white animate-snow"
+              style={{
+                left: flake.left,
+                width: flake.size,
+                height: flake.size,
+                opacity: flake.opacity,
+                animationDuration: flake.animationDuration,
+                animationDelay: flake.animationDelay,
+              }}
+            />
+          ))}
+        </motion.div>
+      )}
+
+      {/* Foreground Content Wrapper */}
+      <div
+        style={!isMobile && isMounted ? ({ opacity: fadeOutOpacity, y: slideUpY } as any) : { opacity: 1 }}
         className="w-full h-full relative z-20"
       >
-        {/* Decorative Corners */}
-        {/* Top Left */}
-        <div className="absolute top-24 left-12 flex flex-col gap-10 opacity-60 text-xs z-0">
+        {/* Decorative Corners - Desktop Only */}
+        <div className="hidden sm:flex absolute top-24 left-12 flex-col gap-10 opacity-60 text-xs z-0">
           <div className="w-2 h-2 border border-[#212121]" />
           <div className="flex text-[#212121] tracking-widest">
             <span className="text-[14px]">79</span>
@@ -230,8 +262,7 @@ export default function Banner() {
           </div>
         </div>
 
-        {/* Top Right */}
-        <div className="absolute top-24 right-12 flex flex-col items-end gap-10 opacity-60 text-xs z-0">
+        <div className="hidden sm:flex absolute top-24 right-12 flex-col items-end gap-10 opacity-60 text-xs z-0">
           <div className="w-2 h-2 border border-[#212121]" />
           <div className="flex text-[#212121] tracking-widest">
             <span className="text-[14px]">19</span>
@@ -239,25 +270,22 @@ export default function Banner() {
           </div>
         </div>
 
-        {/* Bottom Left */}
-        <div className="absolute bottom-24 left-12 flex text-xs opacity-60 z-0">
+        <div className="hidden sm:flex absolute bottom-24 left-12 text-xs opacity-60 z-0">
           <div className="flex text-[#212121] tracking-widest">
             <span className="text-[20px] leading-none">32</span>
             <span className="text-[10px] leading-none pt-1">75</span>
           </div>
         </div>
 
-        {/* Bottom Right */}
-        <div className="absolute bottom-24 right-12 flex text-xs opacity-60 z-0">
+        <div className="hidden sm:flex absolute bottom-24 right-12 text-xs opacity-60 z-0">
           <div className="flex text-[#212121] tracking-widest">
             <span className="text-[20px] leading-none">14</span>
             <span className="text-[10px] leading-none pt-1">36</span>
           </div>
         </div>
 
-        {/* Vertical Side Rulers */}
-        {/* Left Ruler */}
-        <div className="absolute left-12 top-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5 opacity-40 text-[8px] text-[#212121] z-0">
+        {/* Vertical Side Rulers - Desktop Only */}
+        <div className="hidden md:flex absolute left-12 top-1/2 -translate-y-1/2 flex-col items-center gap-1.5 opacity-40 text-[8px] text-[#212121] z-0">
           <div className="text-[#212121]">┌</div>
           {Array.from({ length: 15 }).map((_, i) => (
             <div key={`l-${i}`} className="relative flex items-center justify-center w-4 h-2">
@@ -272,8 +300,7 @@ export default function Banner() {
           <div className="text-[#212121]">└</div>
         </div>
 
-        {/* Right Ruler */}
-        <div className="absolute right-12 top-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5 opacity-40 text-[8px] text-[#212121] z-0">
+        <div className="hidden md:flex absolute right-12 top-1/2 -translate-y-1/2 flex-col items-center gap-1.5 opacity-40 text-[8px] text-[#212121] z-0">
           <div className="text-[#212121]">┐</div>
           {Array.from({ length: 15 }).map((_, i) => (
             <div key={`r-${i}`} className="relative flex items-center justify-center w-4 h-2">
@@ -290,62 +317,73 @@ export default function Banner() {
 
         {/* Center Content */}
         <div className="relative z-10 w-full h-full flex flex-col items-center justify-center">
-
           {/* Subheading Split */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            className="absolute top-[50%] md:top-[52%] -translate-y-1/2 w-full max-w-[60rem] px-6 md:px-8 flex justify-between items-center pointer-events-none z-10"
-          >
+          <div className="absolute top-[50%] md:top-[52%] -translate-y-1/2 w-full max-w-[60rem] px-6 md:px-8 flex justify-between items-center pointer-events-none z-10">
             <h2 className="text-xs sm:text-sm md:text-lg lg:text-xl font-sans font-light text-[#212121] uppercase tracking-[0.12em] md:tracking-[0.15em]">
               ISN'T FOUND
             </h2>
             <h2 className="text-xs sm:text-sm md:text-lg lg:text-xl font-sans font-light text-[#212121] uppercase tracking-[0.12em] md:tracking-[0.15em]">
               IT'S ENGINEERED
             </h2>
-          </motion.div>
+          </div>
 
-          {/* Scroll to discover - Circular Text */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="absolute top-[50%] md:top-[52%] -translate-y-1/2 pointer-events-auto z-10"
-          >
+          {/* Scroll to discover - Circular Badge */}
+          <div className="absolute top-[50%] md:top-[52%] -translate-y-1/2 pointer-events-auto z-10">
             <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 flex items-center justify-center">
               {/* Center Logo */}
-              <img src="/images/small-logo.svg" alt="Small Logo" className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain" />
+              <img
+                src="/images/small-logo.svg"
+                alt="Small Logo"
+                className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain"
+              />
 
               {/* Circular Text SVG */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
-                className="absolute inset-0"
-              >
-                <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible opacity-80">
-                  <path
-                    id="circlePath"
-                    d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
-                    fill="transparent"
-                  />
-                  <text className="text-[8.5px] tracking-[0.2em] font-semibold uppercase font-sans" fill="#212121">
-                    <textPath href="#circlePath" startOffset="0%">
-                      • START YOUR SYSTEM • START YOUR SYSTEM •
-                    </textPath>
-                  </text>
-                </svg>
-              </motion.div>
+              {isMobile ? (
+                <div className="absolute inset-0">
+                  <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible opacity-80">
+                    <path
+                      id="circlePathMobile"
+                      d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
+                      fill="transparent"
+                    />
+                    <text
+                      className="text-[8.5px] tracking-[0.2em] font-semibold uppercase font-sans"
+                      fill="#212121"
+                    >
+                      <textPath href="#circlePathMobile" startOffset="0%">
+                        • START YOUR SYSTEM • START YOUR SYSTEM •
+                      </textPath>
+                    </text>
+                  </svg>
+                </div>
+              ) : (
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
+                  className="absolute inset-0"
+                >
+                  <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible opacity-80">
+                    <path
+                      id="circlePath"
+                      d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
+                      fill="transparent"
+                    />
+                    <text
+                      className="text-[8.5px] tracking-[0.2em] font-semibold uppercase font-sans"
+                      fill="#212121"
+                    >
+                      <textPath href="#circlePath" startOffset="0%">
+                        • START YOUR SYSTEM • START YOUR SYSTEM •
+                      </textPath>
+                    </text>
+                  </svg>
+                </motion.div>
+              )}
             </div>
-          </motion.div>
+          </div>
 
-          {/* Bottom Texts and Animation */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-            className="absolute bottom-6 md:bottom-8 flex flex-col items-center px-4 z-10"
-          >
+          {/* Bottom Texts and Scroll Indicator */}
+          <div className="absolute bottom-6 md:bottom-8 flex flex-col items-center px-4 z-10">
             <p className="text-xs md:text-sm font-sans font-medium text-[#212121]/80 text-center leading-relaxed max-w-md">
               We Build Full-Scale Digital Products. Designed.<br />
               Developed. Engineered to Scale Modern Businesses.
@@ -356,17 +394,20 @@ export default function Banner() {
                 SEE HOW IT WORKS
               </span>
               <div className="relative h-8 md:h-10 w-px flex flex-col items-center justify-start overflow-hidden">
-                <motion.div
-                  animate={{ y: ["-100%", "100%"] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-                  className="w-px h-full bg-[#212121]"
-                />
+                {isMobile ? (
+                  <div className="w-px h-full bg-[#212121]/60" />
+                ) : (
+                  <motion.div
+                    animate={{ y: ["-100%", "100%"] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                    className="w-px h-full bg-[#212121]"
+                  />
+                )}
               </div>
             </div>
-          </motion.div>
-
+          </div>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
