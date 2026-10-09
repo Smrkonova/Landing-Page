@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { trackContactButtonClick } from "@/lib/analytics";
+import { useContactModal } from "@/context/ContactModalContext";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -124,7 +125,7 @@ const guideMembers: GuideMember[] = [
         headline: ["Wisdom", "forged in", "decades of", "business", "mastery."],
         desc1: "Bringing seasoned strategic perspective to Smrkonova, U. Ravindran guides enterprise governance, financial discipline, and long-term organizational value. With extensive executive leadership across traditional industries and emerging markets, his stewardship anchors our high-growth initiatives.",
         desc2: "Serving as a trusted counsel to the leadership team, he instills the foundational rigor required to build enduring businesses. His insights ensure that every strategic leap is backed by sound principles, sustainable unit economics, and lasting institutional trust.",
-        image: "/team/3rdperson.png"
+        image: "/team/u ravindra.png"
     }
 ];
 
@@ -212,10 +213,13 @@ function Vector2GlassCard({
 export default function AboutPage() {
     const wrapperRef = useRef<HTMLDivElement | null>(null);
     const pinnedViewportRef = useRef<HTMLDivElement | null>(null);
+    const { openContactModal } = useContactModal();
 
     const [activeSlide, setActiveSlide] = useState(0);
     const [activeGuideMemberIdx, setActiveGuideMemberIdx] = useState(0);
     const [activeMemberId, setActiveMemberId] = useState<number>(1);
+    const [mobileTeamIdx, setMobileTeamIdx] = useState(0);
+    const touchStartX = useRef<number | null>(null);
     const activeMember = teamMembers.find((m) => m.id === activeMemberId) || teamMembers[0];
 
     useGSAP(() => {
@@ -1203,17 +1207,118 @@ export default function AboutPage() {
                                 </p>
                             </div>
 
-                            {/* Mobile fallback title */}
-                            <div className="md:hidden absolute left-6 top-14 z-20 max-w-xs text-left pointer-events-none">
-                                <h2 className="text-[1.75rem] uppercase mb-2 font-light text-white">Our Team</h2>
-                                <p className="text-[11px] leading-relaxed font-light text-gray-300 opacity-75">
-                                    Curiosity drives us. Problem-solving defines us. Every person at Smrkonova brings a unique perspective.
-                                </p>
+                            {/* Mobile Screen Layout: Exact Match to Figma Screenshot */}
+                            <div className="md:hidden relative z-20 flex flex-col justify-between h-full w-full px-6 pt-10 pb-20 select-none">
+                                {/* Top Content: Heading and 2 paragraphs */}
+                                <div className="w-full text-left">
+                                    <h2
+                                        className="text-white uppercase font-light mb-3"
+                                        style={{
+                                            fontFamily: "'Inter', sans-serif",
+                                            fontSize: "24px",
+                                            lineHeight: "120%",
+                                            letterSpacing: "0.05em",
+                                        }}
+                                    >
+                                        OUR TEAM
+                                    </h2>
+                                    <p
+                                        className="text-white/80 font-light mb-3"
+                                        style={{
+                                            fontFamily: "'Inter', sans-serif",
+                                            fontSize: "11px",
+                                            lineHeight: "155%",
+                                            letterSpacing: "0.02em",
+                                        }}
+                                    >
+                                        Curiosity drives us. Problem-solving defines us. Every person at Smrkonova brings a unique perspective, united by one belief: exceptional work comes from empowered people working together to solve meaningful challenges.
+                                    </p>
+                                    <p
+                                        className="text-white/80 font-light"
+                                        style={{
+                                            fontFamily: "'Inter', sans-serif",
+                                            fontSize: "11px",
+                                            lineHeight: "155%",
+                                            letterSpacing: "0.02em",
+                                        }}
+                                    >
+                                        It&apos;s this mindset that enables us to create thoughtful products, enduring systems, and work that makes a lasting impact.
+                                    </p>
+                                </div>
+
+                                {/* Center & Bottom: Member Card + Name + Role + 7 Pagination Dots */}
+                                <div
+                                    className="flex flex-col items-center justify-center w-full my-auto py-2"
+                                    onTouchStart={(e) => {
+                                        touchStartX.current = e.touches[0].clientX;
+                                    }}
+                                    onTouchEnd={(e) => {
+                                        if (touchStartX.current === null) return;
+                                        const diff = touchStartX.current - e.changedTouches[0].clientX;
+                                        if (diff > 40) {
+                                            setMobileTeamIdx((prev) => (prev + 1) % teamMembers.length);
+                                        } else if (diff < -40) {
+                                            setMobileTeamIdx((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
+                                        }
+                                        touchStartX.current = null;
+                                    }}
+                                >
+                                    <Vector2GlassCard width={190} height={230} className="mb-3.5 shadow-2xl">
+                                        <Image
+                                            src={teamMembers[mobileTeamIdx].image}
+                                            alt={teamMembers[mobileTeamIdx].name}
+                                            fill
+                                            className="object-contain object-bottom scale-95 transition-all duration-300"
+                                            sizes="220px"
+                                            priority
+                                        />
+                                        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none" />
+                                    </Vector2GlassCard>
+
+                                    <h3
+                                        className="text-white uppercase font-light text-center mb-1 whitespace-nowrap"
+                                        style={{
+                                            fontFamily: "'Inter', sans-serif",
+                                            fontSize: "15px",
+                                            letterSpacing: "0.12em",
+                                        }}
+                                    >
+                                        {teamMembers[mobileTeamIdx].name}
+                                    </h3>
+
+                                    <p
+                                        className="text-white/70 font-light text-center mb-4 whitespace-nowrap"
+                                        style={{
+                                            fontFamily: "'Inter', sans-serif",
+                                            fontSize: "11px",
+                                            letterSpacing: "0.04em",
+                                        }}
+                                    >
+                                        {teamMembers[mobileTeamIdx].role}
+                                    </p>
+
+                                    {/* 7 Team Pagination Dots */}
+                                    <div className="flex items-center gap-2">
+                                        {teamMembers.map((_, dotIdx) => (
+                                            <button
+                                                key={dotIdx}
+                                                type="button"
+                                                aria-label={`Show ${teamMembers[dotIdx].name}`}
+                                                onClick={() => setMobileTeamIdx(dotIdx)}
+                                                className={`rounded-full transition-all duration-300 cursor-pointer ${
+                                                    mobileTeamIdx === dotIdx
+                                                        ? "w-2.5 h-2.5 bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)] scale-110"
+                                                        : "w-2 h-2 bg-black/70 border border-white/50 hover:bg-white/40"
+                                                }`}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
 
-                            {/* Interactive Campsite Stage: 7 People Circle Hover Pop */}
+                            {/* Interactive Campsite Stage: 7 People Circle Hover Pop (Desktop Only) */}
                             <div
-                                className="slide5-stage absolute inset-0 w-full h-full z-20 pointer-events-auto will-change-transform"
+                                className="slide5-stage hidden md:block absolute inset-0 w-full h-full z-20 pointer-events-auto will-change-transform"
                                 onMouseLeave={() => setActiveMemberId(1)}
                             >
                                 {teamMembers.map((member) => {
@@ -1485,13 +1590,16 @@ export default function AboutPage() {
                             Share your vision, your challenge, or your next ambition. Smrkonova helps explore what&apos;s possible and engineers the smartest path to the top.
                         </p>
 
-                        <Link
-                            href="/contact"
-                            onClick={() => trackContactButtonClick("Get in touch", "about_page_footer")}
-                            className="inline-block px-8 py-3 md:px-10 md:py-4 bg-transparent border border-white/30 text-white text-[clamp(9px,0.6vw+4px,12px)] tracking-[0.2em] uppercase hover:bg-white/10 transition-colors"
+                        <button
+                            type="button"
+                            onClick={() => {
+                                trackContactButtonClick("Get in touch", "about_page_footer");
+                                openContactModal();
+                            }}
+                            className="inline-block px-8 py-3 md:px-10 md:py-4 bg-transparent border border-white/30 text-white text-[clamp(9px,0.6vw+4px,12px)] tracking-[0.2em] uppercase hover:bg-white/10 transition-colors cursor-pointer"
                         >
                             Get in touch
-                        </Link>
+                        </button>
                     </div>
                 </section>
             </div>

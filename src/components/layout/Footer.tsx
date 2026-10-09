@@ -1,6 +1,10 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useContactModal } from '@/context/ContactModalContext';
+import { trackContactButtonClick } from '@/lib/analytics';
 
 const FacebookIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
@@ -15,6 +19,7 @@ const LinkedinIcon = () => (
 );
 
 export default function Footer() {
+    const { openContactModal } = useContactModal();
     return (
         <footer className="relative z-10 w-full max-w-full overflow-hidden bg-[#111111] text-[#888888] py-8 px-4 sm:px-6 md:px-12 flex flex-col font-mono uppercase text-[10px] md:text-xs" style={{ minHeight: "calc(100vh / var(--desktop-scale, 1))" }}>
             <div className="max-w-7xl mx-auto w-full flex flex-col justify-between flex-1">
@@ -54,7 +59,16 @@ export default function Footer() {
                         <Link href="/terms" className="hover:text-white transition-colors">TERMS & CONDITIONS</Link>
                         <Link href="/privacy" className="hover:text-white transition-colors">PRIVACY POLICY</Link>
                         <Link href="#" className="hover:text-white transition-colors">COOKIES</Link>
-                        <Link href="/contact" className="hover:text-white transition-colors">CONTACT</Link>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                trackContactButtonClick("CONTACT", "footer_nav");
+                                openContactModal();
+                            }}
+                            className="hover:text-white transition-colors cursor-pointer uppercase"
+                        >
+                            CONTACT
+                        </button>
                     </div>
 
                     {/* Social Icons */}

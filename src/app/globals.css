@@ -268,6 +268,9 @@ button {
   display: block;
   object-fit: cover;
   pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
 /* Pure Black & White Vignette overlay */
@@ -277,6 +280,8 @@ button {
   pointer-events: none;
   background: radial-gradient(circle at center, transparent 35%, rgba(0, 0, 0, 0.8) 100%);
   z-index: 5;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 /* Monochrome Scanlines overlay */
@@ -291,6 +296,8 @@ button {
   background-size: 100% 3px;
   opacity: 0.3;
   z-index: 6;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 /* Pure Black Cinematic Transition Layer */
@@ -519,7 +526,7 @@ button {
   background: rgba(0, 0, 0, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  z-index: 100;
+  z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;

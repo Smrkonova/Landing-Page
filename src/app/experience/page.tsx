@@ -9,8 +9,6 @@ import { soundManager } from "@/utils/audio";
 
 export default function ExperiencePage() {
   const [scrollProgress, setScrollProgress] = useState<number>(0);
-  const [currentFrame, setCurrentFrame] = useState<number>(1);
-  const [loadedPercent, setLoadedPercent] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isContactOpen, setIsContactOpen] = useState<boolean>(false);
 
@@ -139,8 +137,6 @@ export default function ExperiencePage() {
       {/* HTML5 Canvas Frame Renderer */}
       <ScrollCanvas
         progress={scrollProgress}
-        onFrameUpdate={setCurrentFrame}
-        onLoadedPercent={setLoadedPercent}
       />
 
       {/* Cinematic Vignette */}

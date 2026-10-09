@@ -9,9 +9,14 @@ import { SCENES } from "@/data/scenes";
 export default function StoryExperience() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [scrollProgress, setScrollProgress] = useState<number>(0);
-  const [currentFrame, setCurrentFrame] = useState<number>(1);
-  const [loadedPercent, setLoadedPercent] = useState<number>(0);
   const [isContactOpen, setIsContactOpen] = useState<boolean>(false);
+  const hudFrameRef = useRef<HTMLSpanElement | null>(null);
+
+  const handleFrameUpdate = useCallback((frame: number) => {
+    if (hudFrameRef.current) {
+      hudFrameRef.current.textContent = String(frame).padStart(4, "0");
+    }
+  }, []);
 
   useEffect(() => {
     let animId: number | null = null;
@@ -75,8 +80,7 @@ export default function StoryExperience() {
         {/* HTML5 Canvas Frame Renderer (loads /frames/contact-7/frame-XXXX.webp) */}
         <ScrollCanvas
           progress={scrollProgress}
-          onFrameUpdate={setCurrentFrame}
-          onLoadedPercent={setLoadedPercent}
+          onFrameUpdate={handleFrameUpdate}
         />
 
         {/* Cinematic Vignette */}
@@ -95,7 +99,7 @@ export default function StoryExperience() {
         <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-30 pointer-events-none hidden sm:flex items-center gap-3 text-[10px] md:text-[11px] tracking-[0.2em] uppercase font-mono text-white/40">
           <span className="w-1.5 h-1.5 rounded-full bg-white/70 animate-pulse" />
           <span>
-            STEP {String(Math.min(7, Math.floor(scrollProgress * 7) + 1)).padStart(2, "0")} / 07 • FRAME {String(currentFrame).padStart(4, "0")}
+            STEP {String(Math.min(7, Math.floor(scrollProgress * 7) + 1)).padStart(2, "0")} / 07 • FRAME <span ref={hudFrameRef}>0001</span>
           </span>
         </div>
       </div>

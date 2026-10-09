@@ -9,6 +9,7 @@ import DesktopScaler from "@/components/DesktopScaler";
 import SmoothScroll from "@/components/SmoothScroll";
 import WhatsAppButton from "@/components/common/WhatsAppButton";
 import { PostHogProvider } from "./providers";
+import { ContactModalProvider } from "@/context/ContactModalContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -74,16 +75,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         </noscript>
         <PostHogProvider>
-          <SmoothScroll>
-            <DesktopScaler>
-              <GlobalAudio />
-              <Header />
-              <main className="w-full max-w-full overflow-x-clip flex-grow">{children}</main>
-              <ContactCTA />
-              <Footer />
-              <WhatsAppButton phoneNumber="+919740662046" />
-            </DesktopScaler>
-          </SmoothScroll>
+          <ContactModalProvider>
+            <SmoothScroll>
+              <DesktopScaler>
+                <GlobalAudio />
+                <Header />
+                <main className="w-full max-w-full overflow-x-clip flex-grow">{children}</main>
+                <ContactCTA />
+                <Footer />
+                <WhatsAppButton phoneNumber="+919740662046" />
+              </DesktopScaler>
+            </SmoothScroll>
+          </ContactModalProvider>
         </PostHogProvider>
       </body>
     </html>

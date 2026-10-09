@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Send } from 'lucide-react';
 import { usePathname } from 'next/navigation';
-import ContactDrawer from './ContactDrawer';
 import { trackContactButtonClick } from '@/lib/analytics';
+import { useContactModal } from '@/context/ContactModalContext';
 
 export default function ContactCTA() {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const { openContactModal } = useContactModal();
   const pathname = usePathname();
 
   const pathLower = pathname?.toLowerCase() || '';
@@ -134,22 +134,26 @@ export default function ContactCTA() {
 
           {/* Action Button */}
           {isIndustryPill ? (
-            <Link
-              href="/contact"
-              onClick={() => trackContactButtonClick(buttonText, "contact_cta_industry")}
+            <button
+              type="button"
+              onClick={() => {
+                trackContactButtonClick(buttonText, "contact_cta_industry");
+                openContactModal();
+              }}
               className="flex items-center gap-2.5 px-8 md:px-10 py-3.5 md:py-4 bg-[#1e2329]/80 hover:bg-[#2a3038] text-white/95 rounded-full border border-white/20 backdrop-blur-md shadow-lg transition-all duration-300 text-xs sm:text-sm font-medium tracking-wide group cursor-pointer"
             >
               <span className="text-base select-none">📅</span>
               <span className="text-white text-xs sm:text-sm font-medium tracking-wide">
                 {buttonText}
               </span>
-            </Link>
+            </button>
           ) : (
             <button
+              type="button"
               suppressHydrationWarning
               onClick={() => {
                 trackContactButtonClick(buttonText, "contact_cta_section");
-                setIsDrawerOpen(true);
+                openContactModal();
               }}
               className="flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-black/30 backdrop-blur-md border border-[#4ea2f5]/60 hover:bg-[#4ea2f5]/20 hover:border-[#4ea2f5] transition-all duration-300 rounded-[2px] shadow-[0_0_20px_rgba(78,162,245,0.4)] hover:shadow-[0_0_30px_rgba(78,162,245,0.6)] group cursor-pointer"
             >
@@ -163,9 +167,6 @@ export default function ContactCTA() {
 
       {/* Spacer to delay the footer by 100vh (1 scroll), creating the '2 scroll stay' effect */}
       <div className="w-full pointer-events-none" style={{ height: "calc(100vh / var(--desktop-scale, 1))" }} />
-
-      {/* Slide-out Drawer */}
-      <ContactDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
     </>
   );
 }

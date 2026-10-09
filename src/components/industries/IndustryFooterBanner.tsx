@@ -3,6 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useContactModal } from "@/context/ContactModalContext";
+import { trackContactButtonClick } from "@/lib/analytics";
 
 interface IndustryFooterBannerProps {
   title?: string;
@@ -15,6 +17,7 @@ export default function IndustryFooterBanner({
   subtext = "Partner with Smrkonova to architect high-performance digital ecosystems that elevate operations and convert at scale.",
   buttonText = "Start Your Project",
 }: IndustryFooterBannerProps) {
+  const { openContactModal } = useContactModal();
   return (
     <footer className="relative w-full bg-black text-white overflow-hidden pt-28 pb-12">
       {/* Background Eagle Image */}
@@ -41,12 +44,16 @@ export default function IndustryFooterBanner({
             {subtext}
           </p>
           <div className="pt-4">
-            <Link
-              href="/contact"
-              className="inline-block px-10 py-4 bg-white text-black text-[clamp(11px,0.4vw+6px,13px)] font-bold tracking-widest uppercase hover:bg-neutral-200 transition-all rounded shadow-lg hover:scale-105"
+            <button
+              type="button"
+              onClick={() => {
+                trackContactButtonClick(buttonText, "industry_footer_banner");
+                openContactModal();
+              }}
+              className="inline-block px-10 py-4 bg-white text-black text-[clamp(11px,0.4vw+6px,13px)] font-bold tracking-widest uppercase hover:bg-neutral-200 transition-all rounded shadow-lg hover:scale-105 cursor-pointer"
             >
               {buttonText}
-            </Link>
+            </button>
           </div>
         </div>
 
@@ -56,7 +63,13 @@ export default function IndustryFooterBanner({
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <Link href="/about" className="hover:text-white transition-colors">About</Link>
             <Link href="/industries" className="hover:text-white transition-colors">Industries</Link>
-            <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+            <button
+              type="button"
+              onClick={() => openContactModal()}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Contact
+            </button>
           </div>
           <p>© {new Date().getFullYear()} Smrkonova. All rights reserved.</p>
         </div>

@@ -4,8 +4,11 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useContactModal } from "@/context/ContactModalContext";
+import { trackContactButtonClick } from "@/lib/analytics";
 
 export default function EcommerceHero() {
+  const { openContactModal } = useContactModal();
   return (
     <section
       className="relative w-full overflow-hidden bg-black text-white flex items-center pt-24 pb-14 md:py-0"
@@ -102,15 +105,19 @@ export default function EcommerceHero() {
 
           {/* Action Buttons: Stacked full-width on mobile */}
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center bg-white text-black font-bold text-[clamp(11px,0.76vw,12px)] tracking-[0.08em] uppercase w-full sm:w-[167px] h-[46px] sm:h-[39px] px-2 py-3.5 transition-all duration-300 hover:bg-neutral-200 select-none text-center"
+            <button
+              type="button"
+              onClick={() => {
+                trackContactButtonClick("START YOUR PROJECT", "ecommerce_hero");
+                openContactModal();
+              }}
+              className="inline-flex items-center justify-center bg-white text-black font-bold text-[clamp(11px,0.76vw,12px)] tracking-[0.08em] uppercase w-full sm:w-[167px] h-[46px] sm:h-[39px] px-2 py-3.5 transition-all duration-300 hover:bg-neutral-200 select-none text-center cursor-pointer"
               style={{
                 fontFamily: "var(--font-inter), 'Inter', sans-serif",
               }}
             >
               START YOUR PROJECT
-            </Link>
+            </button>
 
             <Link
               href="#solutions"
