@@ -86,16 +86,19 @@ export default function EngagementSliderSection() {
     }, [emblaApi]);
 
     return (
-        <section className="w-full max-w-full bg-white py-16 md:py-24 overflow-hidden relative">
+        <section className="w-full max-w-full bg-white py-6 md:py-24 min-h-[413px] md:min-h-0 overflow-hidden relative">
             {/* Ambient Background Glow Aura */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-gradient-to-r from-[#6B86DF]/15 via-[#F55779]/20 to-[#7A8EC7]/15 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
             {/* Title Container */}
-            <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 mb-8 md:mb-12 flex items-end justify-between">
+            <div className="relative z-10 w-full max-w-[390px] md:max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 mb-6 md:mb-12 flex items-end justify-between">
                 <div>
-                    <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,3.75rem)] leading-[1.1] tracking-tight uppercase">
-                        <span className="font-[900] text-[#212121]">WHAT'S </span>
-                        <span className="font-[200] text-[#212121]">INCLUDED</span>
+                    <h2 
+                        className="uppercase text-[#212121] font-[700] md:font-[800] text-[24px] md:text-[60px] leading-[26px] md:leading-[75px] tracking-[-1.2px]"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                        <span className="text-[#212121]">WHAT&apos;S </span>
+                        <span className="text-[#212121]">INCLUDED</span>
                     </h2>
                 </div>
 
@@ -119,15 +122,15 @@ export default function EngagementSliderSection() {
             </div>
 
             {/* Embla Carousel Viewport */}
-            <div className="w-full overflow-hidden cursor-grab active:cursor-grabbing py-4 md:py-8" ref={emblaRef}>
-                <div className="flex gap-4 md:gap-6 px-6 md:px-12 items-center">
+            <div className="w-full overflow-hidden cursor-grab active:cursor-grabbing py-2 md:py-8" ref={emblaRef}>
+                <div className="flex gap-4 md:gap-6 px-4 md:px-12 items-center">
                     {slideCards.map((card, idx) => (
                         <div
                             key={`${card.id}-${idx}`}
-                            className="flex-[0_0_240px] sm:flex-[0_0_260px] md:flex-[0_0_280px] lg:flex-[0_0_300px] min-w-0 py-8 px-2"
+                            className="flex-[0_0_130px] sm:flex-[0_0_180px] md:flex-[0_0_280px] lg:flex-[0_0_300px] min-w-0 py-3 md:py-8 px-1 md:px-2"
                         >
                             <div
-                                className={`group relative w-full h-[340px] md:h-[380px] lg:h-[400px] rounded-3xl p-7 flex flex-col items-center justify-center transition-all duration-500 ease-out 
+                                className={`group relative w-full h-[190px] sm:h-[260px] md:h-[380px] lg:h-[400px] rounded-2xl md:rounded-3xl p-3 md:p-7 flex flex-col items-center justify-center transition-all duration-500 ease-out 
                                 hover:rotate-0 hover:-translate-y-5 hover:scale-105 hover:z-30 
                                 shadow-[0_15px_35px_rgba(0,0,0,0.08),0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.15)] border border-gray-200 hover:border-gray-300 backdrop-blur-2xl 
                                 ${card.gradient} ${idx % 2 === 0 ? "-rotate-[6deg] translate-y-2 md:translate-y-3" : "rotate-[6deg] -translate-y-1 md:-translate-y-2"}`}
@@ -136,17 +139,20 @@ export default function EngagementSliderSection() {
                                 <div className={`absolute inset-0 -z-10 ${card.gradient} scale-[1.15] blur-[30px] opacity-70 rounded-3xl group-hover:opacity-100 group-hover:scale-[1.25] transition-all duration-500`}></div>
 
                                 {/* Inner Glass Highlight */}
-                                <div className="absolute inset-0 rounded-3xl border-[1.5px] border-white/30 pointer-events-none mix-blend-overlay"></div>
+                                <div className="absolute inset-0 rounded-2xl md:rounded-3xl border-[1.5px] border-white/30 pointer-events-none mix-blend-overlay"></div>
 
                                 {/* Card Content */}
-                                <div className="flex flex-col items-center gap-5 my-auto">
-                                    <h3 className="text-black font-[600] text-[clamp(1.125rem,2.5vw+0.25rem,1.1875rem)] text-center tracking-widest leading-relaxed whitespace-pre-line">
+                                <div className="flex flex-col items-center gap-2 md:gap-5 my-auto">
+                                    <h3 
+                                        className="text-black font-[600] uppercase text-center text-[9.03px] md:text-[19.26px] leading-[128%] tracking-[0.05em] whitespace-pre-line"
+                                        style={{ fontFamily: "'Inter', sans-serif" }}
+                                    >
                                         {card.title}
                                     </h3>
 
                                     {/* White Checkmark Icon */}
-                                    <div className="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(0,0,0,0.08)] mt-2 transition-transform duration-300 group-hover:scale-110">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <div className="w-7 h-7 md:w-11 md:h-11 bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(0,0,0,0.08)] mt-1 md:mt-2 transition-transform duration-300 group-hover:scale-110">
+                                        <svg className="w-3.5 h-3.5 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M20 6L9 17L4 12" stroke={card.iconColor} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                     </div>

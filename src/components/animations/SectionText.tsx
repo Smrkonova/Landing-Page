@@ -2,8 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { useContactModal } from "@/context/ContactModalContext";
+import { trackContactButtonClick } from "@/lib/analytics";
 
 export default function SectionText({ sections, activeIndex }) {
+  const { openContactModal } = useContactModal();
   const contentRef = useRef(null);
   const [displayedIndex, setDisplayedIndex] = useState(activeIndex);
   const isFirstRender = useRef(true);
@@ -84,7 +87,14 @@ export default function SectionText({ sections, activeIndex }) {
             <p className="text-[clamp(10px,1vw+4px,14px)] font-medium text-white/90 uppercase tracking-[0.3em] mb-10 md:mb-14">
               Let's engineer your next peak together
             </p>
-            <button className="group relative overflow-hidden flex items-center gap-3 px-8 md:px-10 py-3.5 md:py-4 bg-[#1f2329]/80 backdrop-blur-md border border-white/20 text-white font-semibold text-[clamp(10px,0.8vw+4px,12px)] uppercase tracking-widest transition-all hover:bg-[#2a2f38]/90 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+            <button
+              type="button"
+              onClick={() => {
+                trackContactButtonClick("Get in Touch", "story_section_text");
+                openContactModal();
+              }}
+              className="group relative overflow-hidden flex items-center gap-3 px-8 md:px-10 py-3.5 md:py-4 bg-[#1f2329]/80 backdrop-blur-md border border-white/20 text-white font-semibold text-[clamp(10px,0.8vw+4px,12px)] uppercase tracking-widest transition-all hover:bg-[#2a2f38]/90 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] cursor-pointer"
+            >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
                 <line x1="22" y1="2" x2="11" y2="13"></line>
                 <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>

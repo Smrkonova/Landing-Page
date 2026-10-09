@@ -7,9 +7,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
 import { trackContactButtonClick } from "@/lib/analytics";
+import { useContactModal } from "@/context/ContactModalContext";
 
 export default function Header() {
   const pathname = usePathname();
+  const { openContactModal } = useContactModal();
   const isNazrPage = pathname === '/projects/nazr';
   const isCineArteryPage = pathname === '/projects/cineartery';
   const isHiroGuildPage = pathname === '/projects/hiro-guild';
@@ -112,17 +114,20 @@ export default function Header() {
 
           {/* Right: Audio & Menu Buttons */}
           <div className="flex items-center gap-3 sm:gap-4 pointer-events-auto">
-            <Link
-              href="/contact"
-              onClick={() => trackContactButtonClick("CONTACT US", "header_nav")}
-              className={`hidden sm:inline-flex items-center justify-center h-12 px-5 md:px-6 text-[10px] md:text-[11px] font-mono tracking-widest uppercase border transition-all duration-300 ${
+            <button
+              type="button"
+              onClick={() => {
+                trackContactButtonClick("CONTACT US", "header_nav");
+                openContactModal();
+              }}
+              className={`hidden sm:inline-flex items-center justify-center h-12 px-5 md:px-6 text-[10px] md:text-[11px] font-mono tracking-widest uppercase border transition-all duration-300 cursor-pointer ${
                 isDarkPage
                   ? "text-white border-white/20 hover:border-white/50 hover:bg-white/10"
                   : "text-[#212121] border-[#212121]/30 hover:border-[#212121] hover:bg-[#212121]/5"
               }`}
             >
               CONTACT US
-            </Link>
+            </button>
 
             {/* Audio Equalizer Button */}
             <button
@@ -220,6 +225,20 @@ export default function Header() {
                   <MenuLink href="/projects" title="PROJECTS" active={pathname?.startsWith("/projects")} onClick={() => setIsOpen(false)} />
                   <MenuLink href="/blog" title="BLOGS" active={pathname?.startsWith("/blog") || pathname?.startsWith("/blogs")} onClick={() => setIsOpen(false)} />
                   <MenuLink href="/events" title="EVENTS" active={pathname?.startsWith("/events")} onClick={() => setIsOpen(false)} />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsOpen(false);
+                      trackContactButtonClick("CONTACT US", "header_mobile_menu");
+                      openContactModal();
+                    }}
+                    className="group flex items-center gap-6 w-fit text-left cursor-pointer"
+                  >
+                    <span className="text-[10px] text-black/50">( ○ )</span>
+                    <span className="text-3xl md:text-5xl font-black uppercase tracking-tighter transition-colors duration-400 font-sans text-black/30 group-hover:text-black/60">
+                      CONTACT US
+                    </span>
+                  </button>
                 </div>
               </div>
             </motion.div>

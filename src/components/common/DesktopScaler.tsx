@@ -45,7 +45,7 @@ export function DesktopScaler({
   const [isDesktopSiteMobile, setIsDesktopSiteMobile] = useState(false);
   const [useTransformFallback, setUseTransformFallback] = useState(false);
 
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof document !== "undefined") {
@@ -62,8 +62,14 @@ export function DesktopScaler({
     const checkScale = () => {
       if (typeof window === "undefined") return;
 
-      const windowWidth = window.innerWidth;
-      const mobile = windowWidth < 768;
+      const windowWidth =
+        window.visualViewport?.width ||
+        document.documentElement.clientWidth ||
+        window.innerWidth;
+      const mobile =
+        windowWidth < 768 ||
+        (typeof window.matchMedia === "function" &&
+          window.matchMedia("(max-width: 767px)").matches);
 
       // Detect "Request Desktop Site" on mobile phone/tablet:
       // Viewport reports wide (>=768px), but physical screen is small (<768px)
@@ -79,7 +85,7 @@ export function DesktopScaler({
       setIsDesktopSiteMobile(desktopSiteMobile);
 
       if (mobile) {
-        setScale(windowWidth / 390);
+        setScale(1);
         return;
       }
 
@@ -98,7 +104,7 @@ export function DesktopScaler({
       window.visualViewport.addEventListener("resize", checkScale);
     }
 
-    let resizeObserver = null;
+    let resizeObserver: ResizeObserver | null = null;
     if (typeof ResizeObserver !== "undefined") {
       resizeObserver = new ResizeObserver((entries) => {
         if (entries[0]) {
@@ -139,8 +145,6 @@ export function DesktopScaler({
     };
   }, [isDesktopSiteMobile]);
 
-  const targetWidth = isMobile ? 390 : desktopWidth;
-
   const parentStyle: React.CSSProperties = {
     backgroundColor: bgColor,
     width: "100%",
@@ -157,20 +161,23 @@ export function DesktopScaler({
   };
 
   const innerStyle: React.CSSProperties & Record<string, any> = {
-    width: `${targetWidth}px`,
-    margin: "0 auto",
+    width: isMobile ? "100%" : `${desktopWidth}px`,
+    maxWidth: isMobile ? "100%" : undefined,
+    margin: isMobile ? "0" : "0 auto",
     transformOrigin: "top center" as const,
     // When desktop-site-on-mobile, decouple --desktop-scale from the actual zoom.
     // Set it to 9999 so calc(100vh/9999) ≈ 0, making max(750px, ~0) = 750px.
     // The CSS zoom still applies normally (content renders at 1440px, zoomed to fit).
-    "--desktop-scale": isDesktopSiteMobile ? 9999 : scale,
-    ...(useTransformFallback
-      ? {
-          transform: `scale(${scale})`,
-        }
-      : {
-          zoom: scale,
-        }),
+    "--desktop-scale": isDesktopSiteMobile ? 9999 : (isMobile ? 1 : scale),
+    ...(isMobile
+      ? {}
+      : useTransformFallback
+        ? {
+            transform: `scale(${scale})`,
+          }
+        : {
+            zoom: scale,
+          }),
   };
 
   return (
@@ -181,7 +188,7 @@ export function DesktopScaler({
       >
         <div
           ref={containerRef}
-          className="relative flex shrink-0 flex-col min-h-screen w-[390px] md:w-[1440px]"
+          className="relative flex shrink-0 flex-col min-h-screen w-full md:w-[1440px]"
           style={innerStyle}
         >
           {children}

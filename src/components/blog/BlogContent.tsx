@@ -16,7 +16,7 @@ import {
   Send,
   Sparkles
 } from "lucide-react";
-import ContactDrawer from "@/components/layout/ContactDrawer";
+import { useContactModal } from "@/context/ContactModalContext";
 
 // Types
 export interface Article {
@@ -170,7 +170,7 @@ const ARTICLES: Article[] = [
     author: {
       name: "Dr. Priya N.",
       role: "Senior Healthcare UX Researcher",
-      avatar: "/team/3rdperson.png",
+      avatar: "/team/u ravindra.png",
     },
     date: "11 JAN 2026",
     image: "/images/industries/healthcare/1.png",
@@ -213,7 +213,7 @@ export default function BlogContent() {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState<"latest" | "readTime">("latest");
   const [currentPage, setCurrentPage] = useState(1);
-  const [isContactDrawerOpen, setIsContactDrawerOpen] = useState(false);
+  const { openContactModal } = useContactModal();
   const [readingArticle, setReadingArticle] = useState<Article | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
@@ -679,7 +679,7 @@ export default function BlogContent() {
             {/* Links / Buttons */}
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
               <button
-                onClick={() => setIsContactDrawerOpen(true)}
+                onClick={() => openContactModal()}
                 className="w-full sm:w-auto h-[38px] px-6 bg-[#111827] hover:bg-black text-white rounded-[4px] text-[12px] leading-[16px] font-medium uppercase tracking-[0.6px] flex items-center justify-center transition-colors shadow-xs cursor-pointer"
               >
                 SCHEDULE STUDIO DISCOVERY
@@ -817,7 +817,7 @@ export default function BlogContent() {
                   <button
                     onClick={() => {
                       setReadingArticle(null);
-                      setIsContactDrawerOpen(true);
+                      openContactModal();
                     }}
                     className="px-4 py-2 bg-[#111827] text-white rounded-[4px] text-xs font-medium uppercase tracking-wider hover:bg-black whitespace-nowrap cursor-pointer"
                   >
@@ -829,12 +829,6 @@ export default function BlogContent() {
           </div>
         )}
       </AnimatePresence>
-
-      {/* Global Contact Drawer */}
-      <ContactDrawer
-        isOpen={isContactDrawerOpen}
-        onClose={() => setIsContactDrawerOpen(false)}
-      />
     </div>
   );
 }

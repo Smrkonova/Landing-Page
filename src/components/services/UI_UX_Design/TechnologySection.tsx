@@ -43,27 +43,69 @@ export default function TechnologySection() {
                 {/* Header */}
                 <div className="mb-7">
                     <h2 
-                        className="uppercase leading-[1.05] tracking-tight"
-                        style={{ fontFamily: "'Inter', sans-serif", fontSize: '42px' }}
+                        className="uppercase"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
                     >
-                        <span className="block font-[200] text-black">TECHNOLOGY</span>
-                        <span className="block font-[900] text-black">WE WORK WITH</span>
+                        <span 
+                            className="block text-black uppercase"
+                            style={{
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 900,
+                                fontSize: '34px',
+                                lineHeight: '42.5px',
+                                letterSpacing: '-0.85px',
+                                verticalAlign: 'middle',
+                            }}
+                        >
+                            TECHNOLOGY
+                        </span>
+                        <span 
+                            className="block text-black uppercase"
+                            style={{
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 300,
+                                fontSize: '26px',
+                                lineHeight: '26px',
+                                letterSpacing: '1.56px',
+                                verticalAlign: 'middle',
+                            }}
+                        >
+                            WE WORK WITH
+                        </span>
                     </h2>
                 </div>
 
-                {/* Tech Columns (2-column layout to prevent cramped text) */}
-                <div className="grid grid-cols-2 gap-x-6 gap-y-7 mb-8">
+                {/* Tech Columns (2-column layout - only 2 lists) */}
+                <div className="grid grid-cols-2 gap-x-6 gap-y-4 mb-8">
                     {/* Column 1: Mobile Dev */}
                     <div>
                         <h4 
-                            className="text-[13px] font-[900] tracking-wider uppercase text-black mb-3"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
+                            className="uppercase text-black mb-3"
+                            style={{ 
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 800,
+                                fontSize: '13px',
+                                lineHeight: '19.5px',
+                                letterSpacing: '0.65px',
+                                verticalAlign: 'middle',
+                            }}
                         >
                             MOBILE DEV
                         </h4>
                         <ul className="space-y-2.5">
                             {mobileDevList.map((item, idx) => (
-                                <li key={`m-mob-${idx}`} className="flex items-center gap-2.5 text-[14px] text-gray-800 font-medium">
+                                <li 
+                                    key={`m-mob-${idx}`} 
+                                    className="flex items-center gap-2.5 text-gray-800"
+                                    style={{
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontWeight: 500,
+                                        fontSize: '12px',
+                                        lineHeight: '18px',
+                                        letterSpacing: '0px',
+                                        verticalAlign: 'middle',
+                                    }}
+                                >
                                     {checkIcon}
                                     <span>{item}</span>
                                 </li>
@@ -74,51 +116,97 @@ export default function TechnologySection() {
                     {/* Column 2: Backend */}
                     <div>
                         <h4 
-                            className="text-[13px] font-[900] tracking-wider uppercase text-black mb-3"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
+                            className="uppercase text-black mb-3"
+                            style={{ 
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 800,
+                                fontSize: '13px',
+                                lineHeight: '19.5px',
+                                letterSpacing: '0.65px',
+                                verticalAlign: 'middle',
+                            }}
                         >
                             BACKEND
                         </h4>
                         <ul className="space-y-2.5">
                             {backendList.map((item, idx) => (
-                                <li key={`m-back-${idx}`} className="flex items-center gap-2.5 text-[14px] text-gray-800 font-medium">
+                                <li 
+                                    key={`m-back-${idx}`} 
+                                    className="flex items-center gap-2.5 text-gray-800"
+                                    style={{
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontWeight: 500,
+                                        fontSize: '12px',
+                                        lineHeight: '18px',
+                                        letterSpacing: '0px',
+                                        verticalAlign: 'middle',
+                                    }}
+                                >
                                     {checkIcon}
                                     <span>{item}</span>
                                 </li>
                             ))}
                         </ul>
                     </div>
-
-                    {/* Column 3: Admin Dashboards */}
-                    <div className="col-span-2 pt-1 border-t border-gray-100">
-                        <h4 
-                            className="text-[13px] font-[900] tracking-wider uppercase text-black mb-2"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                            ADMIN DASHBOARDS
-                        </h4>
-                        <p 
-                            className="text-[13px] text-[#555] leading-relaxed font-normal"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                            Every app needs a control centre. We develop custom admin panels to manage users, content, products, reports and business operations.
-                        </p>
-                    </div>
                 </div>
 
-                {/* Integrations Heading & Subtext */}
+                {/* INTEGRATIONS Heading & Subtext */}
                 <div className="mb-6">
                     <h3 
-                        className="text-[20px] font-[900] tracking-tight text-black uppercase mb-1.5"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
+                        className="text-black uppercase mb-1.5"
+                        style={{ 
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 900,
+                            fontSize: '22px',
+                            lineHeight: '33px',
+                            letterSpacing: '-0.55px',
+                            verticalAlign: 'middle',
+                        }}
                     >
                         INTEGRATIONS
                     </h3>
                     <p 
-                        className="text-[14px] text-[#555] leading-relaxed font-normal"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
+                        className="text-[#555] font-normal"
+                        style={{ 
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 400,
+                            fontSize: '12px',
+                            lineHeight: '16px',
+                            letterSpacing: '0px',
+                            verticalAlign: 'middle',
+                        }}
                     >
                         Modern mobile apps need to work with other systems. We integrate applications with:
+                    </p>
+                </div>
+
+                {/* ADMIN DASHBOARDS */}
+                <div className="mb-4">
+                    <h4 
+                        className="text-black uppercase mb-1.5"
+                        style={{ 
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 900,
+                            fontSize: '22px',
+                            lineHeight: '33px',
+                            letterSpacing: '-0.55px',
+                            verticalAlign: 'middle',
+                        }}
+                    >
+                        ADMIN DASHBOARDS
+                    </h4>
+                    <p 
+                        className="text-[#666] font-normal"
+                        style={{ 
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 400,
+                            fontSize: '12px',
+                            lineHeight: '16px',
+                            letterSpacing: '0px',
+                            verticalAlign: 'middle',
+                        }}
+                    >
+                        Every app needs a control centre. We develop custom admin panels to manage users, content, products, reports and business operations.
                     </p>
                 </div>
 
@@ -163,17 +251,24 @@ export default function TechnologySection() {
                             maskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)'
                         }}
                     >
-                        <div className="flex flex-col animate-[mobileVerticalScroll_16s_linear_infinite] gap-4 items-end pr-1">
+                        <div 
+                            className="flex flex-col animate-mobile-vertical-scroll gap-4 items-end pr-1"
+                            style={{ animation: 'mobileVerticalScroll 16s linear infinite' }}
+                        >
                             {[...Array(2)].map((_, i) => (
                                 <React.Fragment key={i}>
                                     {scrollWords.map((word, j) => (
                                         <span
                                             key={`${i}-${j}`}
-                                            className="tracking-widest uppercase text-right font-black text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+                                            className="uppercase text-right text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
                                             style={{
                                                 fontFamily: "'Inter', sans-serif",
+                                                fontWeight: 800,
                                                 fontSize: '16px',
-                                                lineHeight: '1.2',
+                                                lineHeight: '18px',
+                                                letterSpacing: '1.05px',
+                                                textAlign: 'right',
+                                                verticalAlign: 'middle',
                                             }}
                                         >
                                             {word}
@@ -236,11 +331,33 @@ export default function TechnologySection() {
                     {/* Top Heading */}
                     <div>
                         <h2 
-                            className="leading-[1.05em] tracking-tight text-[#1a1a1a] uppercase"
-                            style={{ fontFamily: "'Inter', sans-serif", fontSize: '42px' }}
+                            className="uppercase"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
                         >
-                            <span className="block font-[200]">TECHNOLOGY</span>
-                            <span className="block font-[900]">WE WORK WITH</span>
+                            <span 
+                                className="block text-[#1a1a1a] uppercase"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 200,
+                                    fontSize: '60px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '-1.2px',
+                                }}
+                            >
+                                TECHNOLOGY
+                            </span>
+                            <span 
+                                className="block text-[#1a1a1a] uppercase"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 900,
+                                    fontSize: '60px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '1px',
+                                }}
+                            >
+                                WE WORK WITH
+                            </span>
                         </h2>
                     </div>
 
@@ -250,13 +367,32 @@ export default function TechnologySection() {
                         <div className="flex flex-row justify-start gap-10 md:gap-20 lg:gap-24">
                             {/* Mobile Dev */}
                             <div>
-                                <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121]" style={{ fontFamily: "'Inter', sans-serif" }}>
+                                <h4 
+                                    className="uppercase mb-4 text-[#212121]"
+                                    style={{
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontWeight: 600,
+                                        fontSize: '24px',
+                                        lineHeight: '75px',
+                                        letterSpacing: '3px',
+                                    }}
+                                >
                                     MOBILE DEV
                                 </h4>
 
                                 <ul className="space-y-3">
                                     {mobileDevList.map((item, idx) => (
-                                        <li key={`frontend-${idx}`} className="flex items-start gap-3 text-[14px] text-[#5A5E63] font-[400]">
+                                        <li 
+                                            key={`frontend-${idx}`} 
+                                            className="flex items-start gap-3 text-[#5A5E63]"
+                                            style={{
+                                                fontFamily: "'Inter', sans-serif",
+                                                fontWeight: 400,
+                                                fontSize: '16px',
+                                                lineHeight: '24px',
+                                                letterSpacing: '0px',
+                                            }}
+                                        >
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
@@ -266,13 +402,32 @@ export default function TechnologySection() {
 
                             {/* Backend */}
                             <div>
-                                <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-gray-900" style={{ fontFamily: "'Inter', sans-serif" }}>
+                                <h4 
+                                    className="uppercase mb-4 text-[#212121]"
+                                    style={{
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontWeight: 600,
+                                        fontSize: '24px',
+                                        lineHeight: '75px',
+                                        letterSpacing: '3px',
+                                    }}
+                                >
                                     BACKEND
                                 </h4>
 
                                 <ul className="space-y-3">
                                     {backendList.map((item, idx) => (
-                                        <li key={`backend-${idx}`} className="flex items-start gap-3 text-[14px] text-gray-500 font-medium">
+                                        <li 
+                                            key={`backend-${idx}`} 
+                                            className="flex items-start gap-3 text-[#5A5E63]"
+                                            style={{
+                                                fontFamily: "'Inter', sans-serif",
+                                                fontWeight: 400,
+                                                fontSize: '16px',
+                                                lineHeight: '24px',
+                                                letterSpacing: '0px',
+                                            }}
+                                        >
                                             {checkIcon}
                                             <span>{item}</span>
                                         </li>
@@ -283,10 +438,28 @@ export default function TechnologySection() {
 
                         {/* Right Block (Admin Dashboards) */}
                         <div className="mt-8 lg:mt-0 lg:mr-20 max-w-[290px]">
-                            <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-gray-900" style={{ fontFamily: "'Inter', sans-serif" }}>
+                            <h4 
+                                className="uppercase mb-4 text-[#212121]"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: '24px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '3px',
+                                }}
+                            >
                                 ADMIN DASHBOARDS
                             </h4>
-                            <p className="text-[14px] text-gray-500 font-medium leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
+                            <p 
+                                className="text-[#5A5E63] leading-relaxed"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: '16px',
+                                    lineHeight: '24px',
+                                    letterSpacing: '0px',
+                                }}
+                            >
                                 Every app needs a control centre. We develop custom admin panels to manage users, content, products, reports and business operations.
                             </p>
                         </div>
@@ -297,10 +470,28 @@ export default function TechnologySection() {
 
                         {/* Bottom Left Text */}
                         <div className="max-w-[320px] mb-12 lg:mb-0">
-                            <h3 className="text-[clamp(1.75rem,3.2vw+0.5rem,3.4375rem)] leading-[1.05] tracking-tight text-[#1a1a1a] uppercase mb-6" style={{ fontFamily: "'Inter', sans-serif" }}>
+                            <h3 
+                                className="uppercase mb-6 text-[#1a1a1a]"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 900,
+                                    fontSize: '48.24px',
+                                    lineHeight: '60.3px',
+                                    letterSpacing: '-0.96px',
+                                }}
+                            >
                                 <span className="block font-[900]">INTEGRATIONS</span>
                             </h3>
-                            <p className="text-[#5A5E63] text-[16px] font-[400] leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
+                            <p 
+                                className="text-[#5A5E63] leading-relaxed"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: '16px',
+                                    lineHeight: '24px',
+                                    letterSpacing: '0px',
+                                }}
+                            >
                                 Modern mobile apps need to work with other systems. We integrate applications with:
                             </p>
                         </div>
@@ -313,11 +504,24 @@ export default function TechnologySection() {
                                 maskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)'
                             }}
                         >
-                            <div className="flex flex-col animate-[verticalScroll_20s_linear_infinite]">
+                            <div 
+                                className="flex flex-col animate-desktop-vertical-scroll"
+                                style={{ animation: 'verticalScroll 20s linear infinite' }}
+                            >
                                 {[...Array(2)].map((_, i) => (
                                     <React.Fragment key={i}>
                                         {scrollWords.map((word, j) => (
-                                            <span key={`${i}-${j}`} className="text-[clamp(1.75rem,5.5vw+0.5rem,5.5rem)] font-black leading-[0.95] uppercase text-white drop-shadow-md">
+                                            <span 
+                                                key={`${i}-${j}`} 
+                                                className="uppercase text-white drop-shadow-md"
+                                                style={{
+                                                    fontFamily: "'Inter', sans-serif",
+                                                    fontWeight: 900,
+                                                    fontSize: '96px',
+                                                    lineHeight: '122%',
+                                                    letterSpacing: '0%',
+                                                }}
+                                            >
                                                 {word}
                                             </span>
                                         ))}
@@ -328,18 +532,18 @@ export default function TechnologySection() {
                     </div>
                 </div>
 
-                <style>{`
-                    @keyframes mobileVerticalScroll {
-                        0% { transform: translateY(0); }
-                        100% { transform: translateY(-50%); }
-                    }
-                    @keyframes verticalScroll {
-                        0% { transform: translateY(0); }
-                        100% { transform: translateY(-50%); }
-                    }
-                `}</style>
-
             </div>
+
+            <style>{`
+                @keyframes mobileVerticalScroll {
+                    0% { transform: translateY(0); }
+                    100% { transform: translateY(-50%); }
+                }
+                @keyframes verticalScroll {
+                    0% { transform: translateY(0); }
+                    100% { transform: translateY(-50%); }
+                }
+            `}</style>
         </section>
     );
 }

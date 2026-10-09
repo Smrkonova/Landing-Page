@@ -25,11 +25,120 @@ export default function CustommobileDevelopmentPage() {
                         </defs>
                     </svg>
 
-                    {/* Background SVG Images and Effects */}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 overflow-hidden">
-                        {/* Glow behind text */}
+                    {/* Mobile Layout (<md, 390px base matching user specification) */}
+                    <div className="md:hidden flex flex-col items-center w-full max-w-[390px] mx-auto px-[17px] pt-24 pb-8 z-30">
+                        {/* Header Title & Subtitle */}
+                        <div className="w-[356px] text-left mb-2">
+                            <h1
+                                className="text-white text-left uppercase"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 200,
+                                    fontSize: '34px',
+                                    lineHeight: '36.72px',
+                                    letterSpacing: '-0.85px',
+                                }}
+                            >
+                                MOBILE<br />APPLICATIONS<br />DESIGNED
+                            </h1>
+                            <p className="text-white/80 uppercase text-[11px] font-medium tracking-[0.1em] mt-2">
+                                FOR PEOPLE, ENGINEERED FOR BUSINESSES.
+                            </p>
+                        </div>
 
-                        {/* Glow behind eagle */}
+                        {/* Graphic Image Showcase */}
+                        <div
+                            className="relative my-4 flex items-center justify-center overflow-hidden"
+                            style={{
+                                width: '356px',
+                                height: '210px',
+                            }}
+                        >
+                            <Image
+                                src="/images/services/website/mobile1.png"
+                                alt="Mobile applications designed showcase"
+                                width={356}
+                                height={210}
+                                className="w-full h-full object-contain"
+                                priority
+                            />
+                        </div>
+
+                        {/* Description Paragraph */}
+                        <div className="w-[350px] text-left mb-6">
+                            <p
+                                className="text-white/90 text-left"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: '13px',
+                                    lineHeight: '21px',
+                                }}
+                            >
+                                From startup MVPs to enterprise platforms, we design and develop mobile applications that are intuitive, scalable and built to solve real business problems
+                            </p>
+                        </div>
+
+                        {/* Buttons Stacked */}
+                        <div className="flex flex-col gap-3 items-center w-[350px] mb-7">
+                            <button
+                                suppressHydrationWarning
+                                className="bg-white text-black text-[12px] font-semibold tracking-[0.1em] uppercase rounded-md flex items-center justify-center transition-opacity hover:opacity-90 cursor-pointer w-[350px] h-[45px]"
+                            >
+                                START YOUR APP PROJECT
+                            </button>
+                            <button
+                                suppressHydrationWarning
+                                className="border border-white/60 bg-white/10 backdrop-blur-sm text-white text-[12px] font-semibold tracking-[0.1em] uppercase rounded-md flex items-center justify-center transition-colors hover:bg-white/20 cursor-pointer w-[350px] h-[45px]"
+                            >
+                                VIEW OUR WORK
+                            </button>
+                        </div>
+
+                        {/* Trusted by teams across 4 continents */}
+                        <div className="w-[350px] text-left mb-7">
+                            <h3
+                                className="uppercase tracking-[0.08em] text-white/80 font-medium mb-2.5 text-[11px] leading-[14px]"
+                            >
+                                TRUSTED BY TEAMS ACROSS 4 CONTINENTS
+                            </h3>
+                            <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-white/75 text-[13px] font-normal">
+                                <span>Healthcare</span>
+                                <span>Real Estate</span>
+                                <span>SaaS</span>
+                                <span>Ecommerce</span>
+                                <span>Enterprise</span>
+                            </div>
+                        </div>
+
+                        {/* Stats Box (2x2 grid, width: 350px) */}
+                        <div className="w-[350px] border border-white/20 rounded-[20px] p-6 backdrop-blur-md bg-white/5">
+                            <div className="grid grid-cols-2 gap-y-6 gap-x-4">
+                                <div className="flex flex-col items-start">
+                                    <span className="text-[32px] font-[200] text-white leading-none mb-1 tracking-tight">120+</span>
+                                    <span className="text-white/60 text-[12px] font-medium tracking-wide">Projects</span>
+                                </div>
+
+                                <div className="flex flex-col items-start">
+                                    <span className="text-[32px] font-[200] text-white leading-none mb-1 tracking-tight">9yrs</span>
+                                    <span className="text-white/60 text-[12px] font-medium tracking-wide">Building the web</span>
+                                </div>
+
+                                <div className="flex flex-col items-start">
+                                    <span className="text-[32px] font-[200] text-white leading-none mb-1 tracking-tight">24/7</span>
+                                    <span className="text-white/60 text-[12px] font-medium tracking-wide">Support</span>
+                                </div>
+
+                                <div className="flex flex-col items-start">
+                                    <span className="text-[32px] font-[200] text-white leading-none mb-1 tracking-tight">0</span>
+                                    <span className="text-white/60 text-[12px] font-[300] tracking-wide">Templates used</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Desktop Background SVG Images and Effects (>=md) */}
+                    <div className="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none z-20 overflow-hidden">
                         <div className="relative w-full max-w-[800px] translate-x-4 sm:translate-x-8 translate-y-12 lg:translate-x-30 lg:translate-y-16 z-10 Luminosity">
                             {/* Base Image */}
                             <Image
@@ -50,11 +159,10 @@ export default function CustommobileDevelopmentPage() {
                                 }}
                             />
                         </div>
-
                     </div>
 
-                {/* Main Content Area */}
-                <div className="relative z-40 w-full max-w-7xl mx-auto px-4 md:px-0 pt-36 sm:pt-44 md:pt-28 flex justify-between flex-grow">
+                {/* Main Content Area (Desktop >=md) */}
+                <div className="hidden md:flex relative z-40 w-full max-w-7xl mx-auto px-4 md:px-0 pt-36 sm:pt-44 md:pt-28 justify-between flex-grow">
                     {/* Left Column */}
                     <div className="flex flex-col justify-start text-white max-w-3xl h-full text-left items-start w-full">
                         <div className="w-full flex flex-col items-start">
@@ -92,8 +200,8 @@ export default function CustommobileDevelopmentPage() {
                     </div>
                 </div>
 
-                {/* Bottom Row Area */}
-                <div className="relative z-20 w-full max-w-7xl mx-auto px-4 md:px-0 pb-8 flex flex-col md:flex-row items-end justify-between gap-8">
+                {/* Bottom Row Area (Desktop >=md) */}
+                <div className="hidden md:flex relative z-20 w-full max-w-7xl mx-auto px-4 md:px-0 pb-8 flex-col md:flex-row items-end justify-between gap-8">
                     {/* Bottom Left Text */}
                     <div className="w-full md:w-[35%]">
                         <p className="text-[clamp(0.8125rem,0.6vw+0.65rem,1.125rem)] font-[400] leading-[1.8] max-w-[450px] uppercase tracking-[0.05em] text-white mb-2 text-left">

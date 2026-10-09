@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { trackFormSubmission } from "@/lib/analytics";
 
 interface ContactModalProps {
@@ -9,6 +10,7 @@ interface ContactModalProps {
 }
 
 export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
+  const [mounted, setMounted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -17,18 +19,30 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
     message: "",
   });
 
-  // Close on Escape key
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Close on Escape key and handle scroll lock
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
         onClose();
       }
     };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,7 +56,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          _subject: `New Lead: ${formData.name.trim()} (Story Experience Modal)`,
+          _subject: `New Lead: ${formData.name.trim()} (Direct Transmission)`,
           _template: 'table',
           _captcha: 'false',
           'Full Name': formData.name.trim(),
@@ -72,7 +86,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
     }, 400);
   };
 
-  return (
+  const modalContent = (
     <div
       className="contact-modal-backdrop"
       onClick={onClose}
@@ -177,6 +191,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 };
 
 export default ContactModal;
+

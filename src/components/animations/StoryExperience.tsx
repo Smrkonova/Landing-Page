@@ -1,38 +1,71 @@
 "use client";
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollCanvas } from "./ScrollCanvas";
 import { CinematicOverlay } from "./CinematicOverlay";
 import { ContactModal } from "./ContactModal";
 import { SCENES } from "@/data/scenes";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function StoryExperience() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [scrollProgress, setScrollProgress] = useState<number>(0);
-  const [currentFrame, setCurrentFrame] = useState<number>(1);
-  const [loadedPercent, setLoadedPercent] = useState<number>(0);
   const [isContactOpen, setIsContactOpen] = useState<boolean>(false);
+  const hudFrameRef = useRef<HTMLSpanElement | null>(null);
+
+  const handleFrameUpdate = useCallback((frame: number) => {
+    if (hudFrameRef.current) {
+      hudFrameRef.current.textContent = String(frame).padStart(4, "0");
+    }
+  }, []);
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+    let animId: number | null = null;
 
-    const st = ScrollTrigger.create({
-      trigger: container,
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 1.2,
-      onUpdate: (self) => {
-        setScrollProgress(self.progress);
-      },
-    });
+    const updateProgress = () => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Section top has not reached top of viewport yet -> strictly 0 progress (Step 01 static)
+      if (rect.top > 0) {
+        setScrollProgress(0);
+        return;
+      }
+
+      const scrollableDistance = rect.height - viewportHeight;
+      if (scrollableDistance <= 0) {
+        setScrollProgress(0);
+        return;
+      }
+
+      // Progress is strictly measured once the section is pinned at top: 0
+      const scrolled = -rect.top;
+      const p = Math.min(1, Math.max(0, scrolled / scrollableDistance));
+      setScrollProgress(p);
+    };
+
+    const onScroll = () => {
+      if (animId) cancelAnimationFrame(animId);
+      animId = requestAnimationFrame(updateProgress);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", updateProgress);
+
+    const lenis = typeof window !== "undefined" && (window as any).__lenis;
+    if (lenis) {
+      lenis.on("scroll", onScroll);
+    }
+
+    updateProgress();
 
     return () => {
-      st?.kill();
+      if (animId) cancelAnimationFrame(animId);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", updateProgress);
+      if (lenis) {
+        lenis.off("scroll", onScroll);
+      }
     };
   }, []);
 
@@ -47,8 +80,7 @@ export default function StoryExperience() {
         {/* HTML5 Canvas Frame Renderer (loads /frames/contact-7/frame-XXXX.webp) */}
         <ScrollCanvas
           progress={scrollProgress}
-          onFrameUpdate={setCurrentFrame}
-          onLoadedPercent={setLoadedPercent}
+          onFrameUpdate={handleFrameUpdate}
         />
 
         {/* Cinematic Vignette */}
@@ -67,7 +99,7 @@ export default function StoryExperience() {
         <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-30 pointer-events-none hidden sm:flex items-center gap-3 text-[10px] md:text-[11px] tracking-[0.2em] uppercase font-mono text-white/40">
           <span className="w-1.5 h-1.5 rounded-full bg-white/70 animate-pulse" />
           <span>
-            STEP {String(Math.min(7, Math.floor(scrollProgress * 7) + 1)).padStart(2, "0")} / 07 • FRAME {String(currentFrame).padStart(4, "0")}
+            STEP {String(Math.min(7, Math.floor(scrollProgress * 7) + 1)).padStart(2, "0")} / 07 • FRAME <span ref={hudFrameRef}>0001</span>
           </span>
         </div>
       </div>

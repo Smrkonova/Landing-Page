@@ -41,8 +41,8 @@ export default function ReadingElfProjectPage() {
         </div>
 
         {/* Center Image */}
-        <div className="flex-1 w-full border-[1.5px] border-[#F29F58] rounded-[30px] md:rounded-[40px] p-1.5 relative overflow-hidden flex items-stretch">
-          <div className="w-full relative rounded-[26px] md:rounded-[34px] overflow-hidden aspect-[4/3] md:aspect-[16/10] xl:aspect-auto xl:h-full max-h-[580px]">
+        <div className="flex-1 w-full max-w-[1000px] max-h-[580px] aspect-[4/3] md:aspect-[16/10] border-[1.5px] border-[#F29F58] rounded-[30px] md:rounded-[40px] p-1.5 relative overflow-hidden flex shadow-sm">
+          <div className="w-full h-full relative rounded-[26px] md:rounded-[34px] overflow-hidden">
             {/* Background Image */}
             <img
               src="/images/projects/reading-elf/banner.png"
@@ -51,8 +51,8 @@ export default function ReadingElfProjectPage() {
             />
 
             {/* Overlay Text */}
-            <div className="absolute inset-0 flex flex-col justify-end items-center pb-16 md:pb-24 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
-              <p className="text-white/90 text-[clamp(9px,0.6vw+4px,12px)] tracking-[0.2em] uppercase mb-1">TURNING A MOTHER & SON'S</p>
+            <div className="absolute inset-0 flex flex-col justify-end items-center pb-12 md:pb-16 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+              <p className="text-white/90 text-[clamp(9px,0.6vw+4px,12px)] tracking-[0.2em] uppercase mb-1">TURNING A MOTHER & SON&apos;S</p>
               <p className="text-white/90 text-[clamp(9px,0.6vw+4px,12px)] tracking-[0.2em] uppercase mb-3">DREAM INTO A</p>
               <h1 className="text-[clamp(2.25rem,4.5vw+0.5rem,4.5rem)] font-bold text-white tracking-widest mt-1">MAGICAL DEN</h1>
             </div>

@@ -1,12 +1,14 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 
 const checkIcon = (
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-0.5 shrink-0">
-        <circle cx="7" cy="7" r="7" fill="#1a1a1a" />
-        <path d="M4 7L6 9L10 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <span className="flex-shrink-0 w-[15px] h-[15px] rounded-full bg-black flex items-center justify-center">
+        <svg width="8" height="6" viewBox="0 0 8 6" fill="none">
+            <path d="M1 3L3 5L7 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+    </span>
 );
 
 const googleSetup = [
@@ -58,22 +60,278 @@ const scrollWords = [
     "AUTOMATION"
 ];
 
+const mobileList1 = [
+    "Google Analytics 4",
+    "Search Console",
+    "Tag Manager",
+    "Google Ads"
+];
+
+const mobileList2 = [
+    "Meta Pixel",
+    "Conversion API",
+    "HubSpot CRM",
+    "Lead Automation"
+];
+
 export default function TechnologySection() {
     return (
         <section
             id="technology-section"
             className="relative w-full h-auto md:h-[1540px] bg-white overflow-hidden flex justify-center py-6 md:py-0"
         >
+            {/* ===== MOBILE LAYOUT (<md, 390px base in DesktopScaler) ===== */}
+            <div className="md:hidden flex flex-col w-full max-w-[390px] mx-auto px-2 pt-4 pb-8 bg-white font-sans">
+                {/* Header */}
+                <div className="mb-7">
+                    <h2 
+                        className="uppercase"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                        <span 
+                            className="block text-black uppercase"
+                            style={{
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 900,
+                                fontSize: '34px',
+                                lineHeight: '42.5px',
+                                letterSpacing: '-0.85px',
+                                verticalAlign: 'middle',
+                            }}
+                        >
+                            MARKETING
+                        </span>
+                        <span 
+                            className="block text-black uppercase"
+                            style={{
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 300,
+                                fontSize: '26px',
+                                lineHeight: '26px',
+                                letterSpacing: '1.56px',
+                                verticalAlign: 'middle',
+                            }}
+                        >
+                            INFRASTRUCTURE
+                        </span>
+                    </h2>
+                </div>
 
-            {/* Main Full-Width Container */}
-            <div className="relative w-full h-full bg-white overflow-hidden flex flex-col justify-between">
+                {/* Tech Columns (2-column layout - only 2 important lists) */}
+                <div className="grid grid-cols-2 gap-x-6 gap-y-4 mb-8">
+                    {/* Google & Ads */}
+                    <div>
+                        <h4 
+                            className="uppercase text-black mb-3"
+                            style={{ 
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 800,
+                                fontSize: '13px',
+                                lineHeight: '19.5px',
+                                letterSpacing: '0.65px',
+                                verticalAlign: 'middle',
+                            }}
+                        >
+                            GOOGLE & ADS
+                        </h4>
+                        <ul className="space-y-2.5">
+                            {mobileList1.map((item, idx) => (
+                                <li 
+                                    key={`m-list1-${idx}`} 
+                                    className="flex items-center gap-2.5 text-gray-800"
+                                    style={{
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontWeight: 500,
+                                        fontSize: '12px',
+                                        lineHeight: '18px',
+                                        letterSpacing: '0px',
+                                        verticalAlign: 'middle',
+                                    }}
+                                >
+                                    {checkIcon}
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Meta & CRM */}
+                    <div>
+                        <h4 
+                            className="uppercase text-black mb-3"
+                            style={{ 
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 800,
+                                fontSize: '13px',
+                                lineHeight: '19.5px',
+                                letterSpacing: '0.65px',
+                                verticalAlign: 'middle',
+                            }}
+                        >
+                            META & CRM
+                        </h4>
+                        <ul className="space-y-2.5">
+                            {mobileList2.map((item, idx) => (
+                                <li 
+                                    key={`m-list2-${idx}`} 
+                                    className="flex items-center gap-2.5 text-gray-800"
+                                    style={{
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontWeight: 500,
+                                        fontSize: '12px',
+                                        lineHeight: '18px',
+                                        letterSpacing: '0px',
+                                        verticalAlign: 'middle',
+                                    }}
+                                >
+                                    {checkIcon}
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                {/* CONNECTED ECOSYSTEM Heading & Subtext */}
+                <div className="mb-6">
+                    <h3 
+                        className="text-black uppercase mb-1.5"
+                        style={{ 
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 900,
+                            fontSize: '22px',
+                            lineHeight: '33px',
+                            letterSpacing: '-0.55px',
+                            verticalAlign: 'middle',
+                        }}
+                    >
+                        CONNECTED ECOSYSTEM
+                    </h3>
+                    <p 
+                        className="text-[#555] font-normal"
+                        style={{ 
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 400,
+                            fontSize: '12px',
+                            lineHeight: '16px',
+                            letterSpacing: '0px',
+                            verticalAlign: 'middle',
+                        }}
+                    >
+                        We configure tracking pixels, conversion APIs, CRMs, and attribution modeling to measure true customer acquisition:
+                    </p>
+                </div>
+
+                {/* ANALYTICS DASHBOARDS */}
+                <div className="mb-4">
+                    <h4 
+                        className="text-black uppercase mb-1.5"
+                        style={{ 
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 900,
+                            fontSize: '22px',
+                            lineHeight: '33px',
+                            letterSpacing: '-0.55px',
+                            verticalAlign: 'middle',
+                        }}
+                    >
+                        ADMIN DASHBOARDS
+                    </h4>
+                    <p 
+                        className="text-[#666] font-normal"
+                        style={{ 
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 400,
+                            fontSize: '12px',
+                            lineHeight: '16px',
+                            letterSpacing: '0px',
+                            verticalAlign: 'middle',
+                        }}
+                    >
+                        Every growth engine needs clarity. We build centralized marketing dashboards to monitor spend, leads, and conversion funnels in real time.
+                    </p>
+                </div>
+
+                {/* Bottom Graphic & Vertical Tags Area */}
+                <div className="relative w-full h-[470px] overflow-hidden rounded-2xl mt-2 flex items-end justify-center">
+                    {/* Image */}
+                    <div className="absolute inset-0 pointer-events-none flex items-end justify-start">
+                        <Image
+                            src="/images/services/website/woman-holding-shopping-bags-looking-phone 1.png"
+                            alt="Marketing Specialist"
+                            width={420}
+                            height={460}
+                            className="object-contain object-bottom w-[340px] h-[440px] -translate-x-6 translate-y-3"
+                            priority
+                        />
+                    </div>
+
+                    {/* Misty atmospheric gradient overlay */}
+                    <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                            background: 'linear-gradient(to bottom, transparent 30%, rgba(180, 200, 220, 0.4) 55%, rgba(195, 215, 235, 0.75) 75%, rgba(255, 255, 255, 0.95) 100%)',
+                        }}
+                    />
+
+                    {/* Soft blur */}
+                    <div
+                        className="absolute right-0 bottom-0 w-[60%] h-[65%] pointer-events-none"
+                        style={{
+                            backdropFilter: 'blur(8px)',
+                            WebkitBackdropFilter: 'blur(8px)',
+                            maskImage: 'linear-gradient(to top, black 40%, transparent 100%)',
+                            WebkitMaskImage: 'linear-gradient(to top, black 40%, transparent 100%)',
+                        }}
+                    />
+
+                    {/* Continuous Vertical Scrolling Keywords */}
+                    <div 
+                        className="absolute right-2 sm:right-3 bottom-4 top-10 w-[210px] z-20 overflow-hidden flex flex-col justify-center text-right pointer-events-none"
+                        style={{
+                            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)',
+                            maskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)'
+                        }}
+                    >
+                        <div 
+                            className="flex flex-col animate-mobile-vertical-scroll gap-4 items-end pr-1"
+                            style={{ animation: 'mobileVerticalScroll 16s linear infinite' }}
+                        >
+                            {[...Array(2)].map((_, i) => (
+                                <React.Fragment key={i}>
+                                    {scrollWords.map((word, j) => (
+                                        <span
+                                            key={`${i}-${j}`}
+                                            className="uppercase text-right text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+                                            style={{
+                                                fontFamily: "'Inter', sans-serif",
+                                                fontWeight: 800,
+                                                fontSize: '16px',
+                                                lineHeight: '18px',
+                                                letterSpacing: '1.05px',
+                                                textAlign: 'right',
+                                                verticalAlign: 'middle',
+                                            }}
+                                        >
+                                            {word}
+                                        </span>
+                                    ))}
+                                </React.Fragment>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* ===== DESKTOP LAYOUT (>=md) ===== */}
+            <div className="hidden md:flex relative w-full h-full bg-white overflow-hidden flex-col justify-between">
 
                 {/* --- BACKGROUND GRAPHICS & GLOWS --- */}
                 <div className="absolute w-full inset-0 z-0 flex items-center justify-center pointer-events-none">
                     <img
                         src="/images/services/website/woman-holding-shopping-bags-looking-phone 1.png"
                         alt="Marketing Infrastructure"
-                        className="w-full h-full object-cover md:object-contain opacity-90 scale-110 md:scale-100"
+                        className="w-full h-full object-contain opacity-90 scale-100"
                     />
                 </div>
 
@@ -123,11 +381,33 @@ export default function TechnologySection() {
                     {/* Top Heading */}
                     <div>
                         <h2 
-                            className="leading-[1.05] tracking-tight text-[#1a1a1a] uppercase"
-                            style={{ fontFamily: "'Inter', sans-serif", fontSize: '42px' }}
+                            className="uppercase"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
                         >
-                            <span className="block font-[200]">MARKETING</span>
-                            <span className="block font-[900]">INFRASTRUCTURE</span>
+                            <span 
+                                className="block text-[#1a1a1a] uppercase"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 200,
+                                    fontSize: '60px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '-1.2px',
+                                }}
+                            >
+                                MARKETING
+                            </span>
+                            <span 
+                                className="block text-[#1a1a1a] uppercase"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 900,
+                                    fontSize: '60px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '1px',
+                                }}
+                            >
+                                INFRASTRUCTURE
+                            </span>
                         </h2>
                     </div>
 
@@ -135,12 +415,31 @@ export default function TechnologySection() {
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 md:gap-10 lg:gap-8 mt-6 sm:mt-12 md:mt-20 lg:mt-28">
                         {/* Google Setup */}
                         <div>
-                            <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121]">
+                            <h4 
+                                className="uppercase mb-4 text-[#212121]"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: '24px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '3px',
+                                }}
+                            >
                                 GOOGLE SETUP
                             </h4>
                             <ul className="space-y-3">
                                 {googleSetup.map((item, idx) => (
-                                    <li key={`google-${idx}`} className="flex items-center gap-3 text-[14px] text-[#5A5E63] font-[400]">
+                                    <li 
+                                        key={`google-${idx}`} 
+                                        className="flex items-center gap-3 text-[#5A5E63]"
+                                        style={{
+                                            fontFamily: "'Inter', sans-serif",
+                                            fontWeight: 400,
+                                            fontSize: '16px',
+                                            lineHeight: '24px',
+                                            letterSpacing: '0px',
+                                        }}
+                                    >
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -150,12 +449,31 @@ export default function TechnologySection() {
 
                         {/* Meta Setup */}
                         <div>
-                            <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121]">
+                            <h4 
+                                className="uppercase mb-4 text-[#212121]"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: '24px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '3px',
+                                }}
+                            >
                                 META SETUP
                             </h4>
                             <ul className="space-y-3">
                                 {metaSetup.map((item, idx) => (
-                                    <li key={`meta-${idx}`} className="flex items-center gap-3 text-[14px] text-[#5A5E63] font-[400]">
+                                    <li 
+                                        key={`meta-${idx}`} 
+                                        className="flex items-center gap-3 text-[#5A5E63]"
+                                        style={{
+                                            fontFamily: "'Inter', sans-serif",
+                                            fontWeight: 400,
+                                            fontSize: '16px',
+                                            lineHeight: '24px',
+                                            letterSpacing: '0px',
+                                        }}
+                                    >
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -165,12 +483,31 @@ export default function TechnologySection() {
 
                         {/* Tracking & Reporting */}
                         <div>
-                            <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121]">
+                            <h4 
+                                className="uppercase mb-4 text-[#212121]"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: '24px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '3px',
+                                }}
+                            >
                                 TRACKING
                             </h4>
                             <ul className="space-y-3">
                                 {trackingReporting.map((item, idx) => (
-                                    <li key={`tracking-${idx}`} className="flex items-center gap-3 text-[14px] text-[#5A5E63] font-[400]">
+                                    <li 
+                                        key={`tracking-${idx}`} 
+                                        className="flex items-center gap-3 text-[#5A5E63]"
+                                        style={{
+                                            fontFamily: "'Inter', sans-serif",
+                                            fontWeight: 400,
+                                            fontSize: '16px',
+                                            lineHeight: '24px',
+                                            letterSpacing: '0px',
+                                        }}
+                                    >
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -180,12 +517,31 @@ export default function TechnologySection() {
 
                         {/* Email & CRM */}
                         <div>
-                            <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121]">
+                            <h4 
+                                className="uppercase mb-4 text-[#212121]"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: '24px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '3px',
+                                }}
+                            >
                                 EMAIL & CRM
                             </h4>
                             <ul className="space-y-3">
                                 {emailCrm.map((item, idx) => (
-                                    <li key={`crm-${idx}`} className="flex items-center gap-3 text-[14px] text-[#5A5E63] font-[400]">
+                                    <li 
+                                        key={`crm-${idx}`} 
+                                        className="flex items-center gap-3 text-[#5A5E63]"
+                                        style={{
+                                            fontFamily: "'Inter', sans-serif",
+                                            fontWeight: 400,
+                                            fontSize: '16px',
+                                            lineHeight: '24px',
+                                            letterSpacing: '0px',
+                                        }}
+                                    >
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -199,11 +555,29 @@ export default function TechnologySection() {
 
                         {/* Bottom Left Text */}
                         <div className="max-w-[420px] mb-12 lg:mb-0">
-                            <h3 className="text-[clamp(1.75rem,3.2vw+0.5rem,3.4375rem)] leading-[1.05] tracking-tight uppercase mb-6">
+                            <h3 
+                                className="uppercase mb-6 text-[#1a1a1a]"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 900,
+                                    fontSize: '48.24px',
+                                    lineHeight: '60.3px',
+                                    letterSpacing: '-0.96px',
+                                }}
+                            >
                                 <span className="block font-[900] text-[#212121]">CONNECTED</span>
                                 <span className="block font-[200] text-gray-500">ECOSYSTEM</span>
                             </h3>
-                            <p className="text-[#5A5E63] text-[16px] font-[400] leading-relaxed">
+                            <p 
+                                className="text-[#5A5E63] leading-relaxed"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: '16px',
+                                    lineHeight: '24px',
+                                    letterSpacing: '0px',
+                                }}
+                            >
                                 A successful campaign begins with solid foundations. We configure and synchronize tracking pixels, conversion APIs, CRMs, and attribution modeling to measure true customer acquisition cost.
                             </p>
                         </div>
@@ -216,11 +590,24 @@ export default function TechnologySection() {
                                 maskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)'
                             }}
                         >
-                            <div className="flex flex-col animate-[verticalScroll_20s_linear_infinite]">
+                            <div 
+                                className="flex flex-col animate-desktop-vertical-scroll"
+                                style={{ animation: 'verticalScroll 20s linear infinite' }}
+                            >
                                 {[...Array(2)].map((_, i) => (
                                     <React.Fragment key={i}>
                                         {scrollWords.map((word, j) => (
-                                            <span key={`${i}-${j}`} className="text-[clamp(1.75rem,5.5vw+0.5rem,5.5rem)] font-black leading-[0.95] uppercase text-white drop-shadow-md">
+                                            <span 
+                                                key={`${i}-${j}`} 
+                                                className="uppercase text-white drop-shadow-md"
+                                                style={{
+                                                    fontFamily: "'Inter', sans-serif",
+                                                    fontWeight: 900,
+                                                    fontSize: '96px',
+                                                    lineHeight: '122%',
+                                                    letterSpacing: '0%',
+                                                }}
+                                            >
                                                 {word}
                                             </span>
                                         ))}
@@ -231,14 +618,18 @@ export default function TechnologySection() {
                     </div>
                 </div>
 
-                <style>{`
-                    @keyframes verticalScroll {
-                        0% { transform: translateY(0); }
-                        100% { transform: translateY(-50%); }
-                    }
-                `}</style>
-
             </div>
+
+            <style>{`
+                @keyframes mobileVerticalScroll {
+                    0% { transform: translateY(0); }
+                    100% { transform: translateY(-50%); }
+                }
+                @keyframes verticalScroll {
+                    0% { transform: translateY(0); }
+                    100% { transform: translateY(-50%); }
+                }
+            `}</style>
         </section>
     );
 }

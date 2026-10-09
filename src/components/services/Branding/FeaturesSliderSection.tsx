@@ -97,11 +97,14 @@ export default function FeaturesSliderSection() {
     }, [emblaApi]);
 
     return (
-        <section className="w-full max-w-full bg-white py-16 md:py-20 overflow-hidden">
+        <section className="w-full max-w-full bg-white py-8 md:py-20 min-h-[541px] md:min-h-0 overflow-hidden">
             {/* Title Container - Constrained Width */}
-            <div className="max-w-[1400px] mx-auto px-4 md:px-12 flex flex-col sm:flex-row sm:items-end justify-between mb-8 md:mb-12 gap-6">
+            <div className="w-full max-w-[390px] md:max-w-[1400px] mx-auto px-4 md:px-12 flex flex-col sm:flex-row sm:items-end justify-between mb-8 md:mb-12 gap-6">
                 <div>
-                    <h2 className="text-[clamp(1.125rem,2.5vw+0.25rem,2rem)] font-[300] tracking-wide text-[#1a1a1a] uppercase ml-4 md:ml-0">
+                    <h2 
+                        className="uppercase text-[#1a1a1a] font-[200] md:font-[300] text-[24px] md:text-[32px] leading-[26px] md:leading-[77px] tracking-[-1.2px] md:tracking-[0px] ml-4 md:ml-0"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
                         BRAND GUIDELINES SYSTEM
                     </h2>
                     <p className="text-gray-500 text-[14px] font-normal max-w-xl leading-relaxed mt-2 ml-4 md:ml-0">
@@ -146,7 +149,10 @@ export default function FeaturesSliderSection() {
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="text-[clamp(1.125rem,1.4vw+0.5rem,1.625rem)] font-medium text-center text-black leading-tight max-w-[200px]">
+                                <h3 
+                                    className="text-black font-[500] text-center text-[22px] md:text-[32px] leading-[26.33px] md:leading-[37px] tracking-[0px] max-w-[260px]"
+                                    style={{ fontFamily: "'Inter', sans-serif" }}
+                                >
                                     {feature.title.split(' ').map((word, i) => (
                                         <React.Fragment key={i}>
                                             {word}

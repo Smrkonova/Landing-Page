@@ -4,10 +4,11 @@ import React from 'react';
 import Image from 'next/image';
 
 const checkIcon = (
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-0.5 shrink-0">
-        <circle cx="7" cy="7" r="7" fill="#53A18B" />
-        <path d="M4 7L6 9L10 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <span className="flex-shrink-0 w-[15px] h-[15px] rounded-full bg-black flex items-center justify-center">
+        <svg width="8" height="6" viewBox="0 0 8 6" fill="none">
+            <path d="M1 3L3 5L7 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+    </span>
 );
 
 const marketingSupport = [
@@ -34,49 +35,308 @@ const technicalSupport = [
     "Emergency Fixes"
 ];
 
+const mobileMarketing = [
+    "Landing Page Updates",
+    "Campaign Pages",
+    "SEO Improvements",
+    "Conversion Optimization"
+];
+
+const mobileTechnical = [
+    "Bug Fixes",
+    "Emergency Fixes",
+    "Performance Updates",
+    "Backup Recovery"
+];
+
+const scrollWords = [
+    "SUPPORT",
+    "SECURITY",
+    "UPDATES",
+    "SPEED",
+    "BACKUPS",
+    "GROWTH",
+    "OPTIMISE",
+    "SCALING",
+    "MONITORING"
+];
+
 export default function TechnologySection() {
     return (
         <section
             id="technology-section"
             className="relative w-full h-auto md:h-[1540px] bg-white overflow-hidden flex justify-center py-6 md:py-0"
         >
+            {/* ===== MOBILE LAYOUT (<md, 390px base in DesktopScaler) ===== */}
+            <div className="md:hidden flex flex-col w-full max-w-[390px] mx-auto px-2 pt-4 pb-8 bg-white font-sans">
+                {/* Header */}
+                <div className="mb-7">
+                    <h2 
+                        className="uppercase"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
+                        <span 
+                            className="block text-black uppercase"
+                            style={{
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 900,
+                                fontSize: '34px',
+                                lineHeight: '42.5px',
+                                letterSpacing: '-0.85px',
+                                verticalAlign: 'middle',
+                            }}
+                        >
+                            ONGOING
+                        </span>
+                        <span 
+                            className="block text-black uppercase"
+                            style={{
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 300,
+                                fontSize: '26px',
+                                lineHeight: '26px',
+                                letterSpacing: '1.56px',
+                                verticalAlign: 'middle',
+                            }}
+                        >
+                            SUPPORT SERVICES
+                        </span>
+                    </h2>
+                </div>
 
-            {/* Main Full-Width Container */}
-            <div className="relative w-full h-full bg-white overflow-hidden flex flex-col justify-between">
+                {/* Tech Columns (2-column layout - only 2 important lists) */}
+                <div className="grid grid-cols-2 gap-x-6 gap-y-4 mb-8">
+                    {/* Marketing Support */}
+                    <div>
+                        <h4 
+                            className="uppercase text-black mb-3"
+                            style={{ 
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 800,
+                                fontSize: '13px',
+                                lineHeight: '19.5px',
+                                letterSpacing: '0.65px',
+                                verticalAlign: 'middle',
+                            }}
+                        >
+                            MARKETING
+                        </h4>
+                        <ul className="space-y-2.5">
+                            {mobileMarketing.map((item, idx) => (
+                                <li 
+                                    key={`m-mkt-${idx}`} 
+                                    className="flex items-center gap-2.5 text-gray-800"
+                                    style={{
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontWeight: 500,
+                                        fontSize: '12px',
+                                        lineHeight: '18px',
+                                        letterSpacing: '0px',
+                                        verticalAlign: 'middle',
+                                    }}
+                                >
+                                    {checkIcon}
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Technical Support */}
+                    <div>
+                        <h4 
+                            className="uppercase text-black mb-3"
+                            style={{ 
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 800,
+                                fontSize: '13px',
+                                lineHeight: '19.5px',
+                                letterSpacing: '0.65px',
+                                verticalAlign: 'middle',
+                            }}
+                        >
+                            TECHNICAL
+                        </h4>
+                        <ul className="space-y-2.5">
+                            {mobileTechnical.map((item, idx) => (
+                                <li 
+                                    key={`m-tech-${idx}`} 
+                                    className="flex items-center gap-2.5 text-gray-800"
+                                    style={{
+                                        fontFamily: "'Inter', sans-serif",
+                                        fontWeight: 500,
+                                        fontSize: '12px',
+                                        lineHeight: '18px',
+                                        letterSpacing: '0px',
+                                        verticalAlign: 'middle',
+                                    }}
+                                >
+                                    {checkIcon}
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                {/* PROACTIVE CARE Heading & Subtext */}
+                <div className="mb-6">
+                    <h3 
+                        className="text-black uppercase mb-1.5"
+                        style={{ 
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 900,
+                            fontSize: '22px',
+                            lineHeight: '33px',
+                            letterSpacing: '-0.55px',
+                            verticalAlign: 'middle',
+                        }}
+                    >
+                        PROACTIVE SUPPORT
+                    </h3>
+                    <p 
+                        className="text-[#555] font-normal"
+                        style={{ 
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 400,
+                            fontSize: '12px',
+                            lineHeight: '16px',
+                            letterSpacing: '0px',
+                            verticalAlign: 'middle',
+                        }}
+                    >
+                        Your website shouldn&apos;t degrade over time. We proactively optimize performance, security and stability:
+                    </p>
+                </div>
+
+                {/* ADMIN DASHBOARDS */}
+                <div className="mb-4">
+                    <h4 
+                        className="text-black uppercase mb-1.5"
+                        style={{ 
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 900,
+                            fontSize: '22px',
+                            lineHeight: '33px',
+                            letterSpacing: '-0.55px',
+                            verticalAlign: 'middle',
+                        }}
+                    >
+                        ADMIN DASHBOARDS
+                    </h4>
+                    <p 
+                        className="text-[#666] font-normal"
+                        style={{ 
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 400,
+                            fontSize: '12px',
+                            lineHeight: '16px',
+                            letterSpacing: '0px',
+                            verticalAlign: 'middle',
+                        }}
+                    >
+                        Every client gets continuous visibility. We provide real-time uptime reports, speed benchmarks, and dedicated ticket management.
+                    </p>
+                </div>
+
+                {/* Bottom Graphic & Vertical Tags Area */}
+                <div className="relative w-full h-[470px] overflow-hidden rounded-2xl mt-2 flex items-end justify-center">
+                    {/* Person Image */}
+                    <div className="absolute inset-0 pointer-events-none flex items-end justify-start">
+                        <Image
+                            src="/images/services/website/website_maintanenece/woman-repairer-isolated-with-laptop 1.png"
+                            alt="Support Specialist"
+                            width={420}
+                            height={460}
+                            className="object-contain object-bottom w-[340px] h-[440px] -translate-x-6 translate-y-3"
+                            priority
+                        />
+                    </div>
+
+                    {/* Misty atmospheric gradient overlay */}
+                    <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                            background: 'linear-gradient(to bottom, transparent 30%, rgba(180, 200, 220, 0.4) 55%, rgba(195, 215, 235, 0.75) 75%, rgba(255, 255, 255, 0.95) 100%)',
+                        }}
+                    />
+
+                    {/* Soft blur */}
+                    <div
+                        className="absolute right-0 bottom-0 w-[60%] h-[65%] pointer-events-none"
+                        style={{
+                            backdropFilter: 'blur(8px)',
+                            WebkitBackdropFilter: 'blur(8px)',
+                            maskImage: 'linear-gradient(to top, black 40%, transparent 100%)',
+                            WebkitMaskImage: 'linear-gradient(to top, black 40%, transparent 100%)',
+                        }}
+                    />
+
+                    {/* Continuous Vertical Scrolling Keywords */}
+                    <div 
+                        className="absolute right-2 sm:right-3 bottom-4 top-10 w-[210px] z-20 overflow-hidden flex flex-col justify-center text-right pointer-events-none"
+                        style={{
+                            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)',
+                            maskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)'
+                        }}
+                    >
+                        <div 
+                            className="flex flex-col animate-mobile-vertical-scroll gap-4 items-end pr-1"
+                            style={{ animation: 'mobileVerticalScroll 16s linear infinite' }}
+                        >
+                            {[...Array(2)].map((_, i) => (
+                                <React.Fragment key={i}>
+                                    {scrollWords.map((word, j) => (
+                                        <span
+                                            key={`${i}-${j}`}
+                                            className="uppercase text-right text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+                                            style={{
+                                                fontFamily: "'Inter', sans-serif",
+                                                fontWeight: 800,
+                                                fontSize: '16px',
+                                                lineHeight: '18px',
+                                                letterSpacing: '1.05px',
+                                                textAlign: 'right',
+                                                verticalAlign: 'middle',
+                                            }}
+                                        >
+                                            {word}
+                                        </span>
+                                    ))}
+                                </React.Fragment>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* ===== DESKTOP LAYOUT (>=md) ===== */}
+            <div className="hidden md:flex relative w-full h-full bg-white overflow-hidden flex-col justify-between">
 
                 {/* --- BACKGROUND GRAPHICS & GLOWS --- */}
                 <div className="absolute w-full inset-0 z-0 flex items-center justify-center pointer-events-none">
                     <img
                         src="/images/services/website/website_maintanenece/woman-repairer-isolated-with-laptop 1.png"
                         alt="Support Specialist"
-                        className="w-full h-full object-cover md:object-contain opacity-90 scale-110 md:scale-100"
+                        className="w-full h-full object-contain opacity-90 scale-100"
                     />
                 </div>
 
-                {/* Mobile overlay to ensure readability */}
-                <div className="absolute inset-0 bg-white/40 md:hidden pointer-events-none z-0"></div>
-
                 {/* Ambient Glows over the image */}
-                <div className="absolute bottom-[10%] right-[10%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-emerald-100/40 rounded-full blur-[100px] sm:blur-[160px] pointer-events-none z-0"></div>
-                <div className="absolute bottom-[5%] left-[20%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-blue-100/30 rounded-full blur-[100px] sm:blur-[170px] pointer-events-none z-0"></div>
+                <div className="absolute bottom-[10%] right-[10%] w-[500px] h-[500px] bg-emerald-100/40 rounded-full blur-[160px] pointer-events-none z-0"></div>
+                <div className="absolute bottom-[5%] left-[20%] w-[400px] h-[400px] bg-blue-100/30 rounded-full blur-[170px] pointer-events-none z-0"></div>
 
                 {/* Glass Circle Effect at bottom */}
                 <style>{`
                     .tech-glass-circle {
                         position: absolute;
                         width: 100%;
-                        height: 140px;
+                        height: 350px;
                         left: 0;
                         bottom: 0;
                         background: rgba(0, 0, 0, 0);
                         pointer-events: none;
                         z-index: 10;
-                    }
-
-                    @media (min-width: 768px) {
-                        .tech-glass-circle {
-                            height: 350px;
-                        }
                     }
 
                     .tech-glass-circle__frost {
@@ -94,30 +354,71 @@ export default function TechnologySection() {
                 </div>
 
                 {/* --- FOREGROUND CONTENT --- */}
-                <div className="relative z-10 w-full flex-grow flex flex-col justify-between p-5 sm:p-10 md:p-14 lg:p-16">
+                <div className="relative z-10 w-full flex-grow flex flex-col justify-between p-10 md:p-14 lg:p-16">
 
                     {/* Top Heading */}
                     <div>
                         <h2 
-                            className="leading-[1.15] tracking-tight uppercase"
-                            style={{ fontFamily: "'Inter', sans-serif", fontSize: '42px' }}
+                            className="uppercase"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
                         >
-                            <span className="font-[200] text-gray-800">ONGOING </span><br />
-                            <span className="font-[900] text-black">SUPPORT SERVICES</span>
+                            <span 
+                                className="block text-[#1a1a1a] uppercase"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 200,
+                                    fontSize: '60px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '-1.2px',
+                                }}
+                            >
+                                ONGOING
+                            </span>
+                            <span 
+                                className="block text-[#1a1a1a] uppercase"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 900,
+                                    fontSize: '60px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '1px',
+                                }}
+                            >
+                                SUPPORT SERVICES
+                            </span>
                         </h2>
                     </div>
 
                     {/* Middle Section: Support Lists */}
-                    <div className="grid grid-cols-2 sm:flex sm:flex-row justify-start gap-4 sm:gap-12 md:gap-20 lg:gap-24 mt-6 sm:mt-12 md:mt-24 lg:mt-32">
+                    <div className="flex flex-row justify-start gap-12 md:gap-20 lg:gap-24 mt-12 md:mt-24 lg:mt-32">
                         {/* Marketing Support */}
                         <div className="flex-1 max-w-sm">
-                            <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121] flex items-center gap-1.5 sm:gap-2">
-                                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#53A18B]"></span>
+                            <h4 
+                                className="uppercase mb-4 text-[#212121] flex items-center gap-2"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: '24px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '3px',
+                                }}
+                            >
+                                <span className="w-2 h-2 rounded-full bg-[#53A18B]"></span>
                                 MARKETING SUPPORT
                             </h4>
-                            <ul className="space-y-1.5 sm:space-y-3">
+                            <ul className="space-y-3">
                                 {marketingSupport.map((item, idx) => (
-                                    <li key={`marketing-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[14px] text-[#5A5E63] font-[400]">
+                                    <li 
+                                        key={`marketing-${idx}`} 
+                                        className="flex items-start gap-3 text-[#5A5E63]"
+                                        style={{
+                                            fontFamily: "'Inter', sans-serif",
+                                            fontWeight: 400,
+                                            fontSize: '16px',
+                                            lineHeight: '24px',
+                                            letterSpacing: '0px',
+                                        }}
+                                    >
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -127,13 +428,32 @@ export default function TechnologySection() {
 
                         {/* Technical Support */}
                         <div className="flex-1 max-w-sm">
-                            <h4 className="text-[1.5rem] font-[600] tracking-widest uppercase mb-4 text-[#212121] flex items-center gap-1.5 sm:gap-2">
-                                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#0060FB]"></span>
+                            <h4 
+                                className="uppercase mb-4 text-[#212121] flex items-center gap-2"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: '24px',
+                                    lineHeight: '75px',
+                                    letterSpacing: '3px',
+                                }}
+                            >
+                                <span className="w-2 h-2 rounded-full bg-[#0060FB]"></span>
                                 TECHNICAL SUPPORT
                             </h4>
-                            <ul className="space-y-1.5 sm:space-y-3">
+                            <ul className="space-y-3">
                                 {technicalSupport.map((item, idx) => (
-                                    <li key={`technical-${idx}`} className="flex items-start gap-2 sm:gap-3 text-[14px] text-[#5A5E63] font-[400]">
+                                    <li 
+                                        key={`technical-${idx}`} 
+                                        className="flex items-start gap-3 text-[#5A5E63]"
+                                        style={{
+                                            fontFamily: "'Inter', sans-serif",
+                                            fontWeight: 400,
+                                            fontSize: '16px',
+                                            lineHeight: '24px',
+                                            letterSpacing: '0px',
+                                        }}
+                                    >
                                         {checkIcon}
                                         <span>{item}</span>
                                     </li>
@@ -142,17 +462,35 @@ export default function TechnologySection() {
                         </div>
                     </div>
 
-                    {/* Bottom Section: Text & Typography Block (Hidden on mobile) */}
-                    <div className="hidden md:flex w-full max-w-full overflow-hidden flex-col lg:flex-row justify-between items-start mt-16 sm:mt-20 lg:mt-auto relative z-20">
+                    {/* Bottom Section: Text & Typography Block */}
+                    <div className="w-full max-w-full overflow-hidden flex flex-col lg:flex-row justify-between items-start mt-16 sm:mt-20 lg:mt-auto relative z-20">
 
                         {/* Bottom Left Text */}
                         <div className="max-w-[340px] mb-12 lg:mb-0">
-                            <h3 className="text-[clamp(1.75rem,3.2vw+0.5rem,3.4375rem)] leading-[1.05] tracking-tight uppercase mb-6 text-[#212121]">
+                            <h3 
+                                className="uppercase mb-6 text-[#212121]"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 900,
+                                    fontSize: '48.24px',
+                                    lineHeight: '60.3px',
+                                    letterSpacing: '-0.96px',
+                                }}
+                            >
                                 <span className="block font-[900]">COMPLETE</span>
                                 <span className="block font-[900]">GROWTH </span>
                                 <span className="block font-[200] text-gray-500">PARTNERSHIP</span>
                             </h3>
-                            <p className="text-[#5A5E63] text-[16px] font-[400] leading-relaxed">
+                            <p 
+                                className="text-[#5A5E63] leading-relaxed"
+                                style={{
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: '16px',
+                                    lineHeight: '24px',
+                                    letterSpacing: '0px',
+                                }}
+                            >
                                 We manage continuous improvements, routine updates, marketing adjustments, and emergency technical troubleshooting so you can focus on scaling your business.
                             </p>
                         </div>
@@ -165,11 +503,24 @@ export default function TechnologySection() {
                                 maskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)'
                             }}
                         >
-                            <div className="flex flex-col animate-[verticalScroll_20s_linear_infinite]">
+                            <div 
+                                className="flex flex-col animate-desktop-vertical-scroll"
+                                style={{ animation: 'verticalScroll 20s linear infinite' }}
+                            >
                                 {[...Array(2)].map((_, i) => (
                                     <React.Fragment key={i}>
                                         {["SUPPORT", "SECURITY", "UPDATES", "SPEED", "BACKUPS", "GROWTH", "OPTIMISE", "SCALING", "MONITORING"].map((word, j) => (
-                                            <span key={`${i}-${j}`} className="text-[clamp(1.75rem,5.5vw+0.5rem,5.5rem)] font-black leading-[0.95] uppercase text-white drop-shadow-md">
+                                            <span 
+                                                key={`${i}-${j}`} 
+                                                className="uppercase text-white drop-shadow-md"
+                                                style={{
+                                                    fontFamily: "'Inter', sans-serif",
+                                                    fontWeight: 900,
+                                                    fontSize: '96px',
+                                                    lineHeight: '122%',
+                                                    letterSpacing: '0%',
+                                                }}
+                                            >
                                                 {word}
                                             </span>
                                         ))}
@@ -180,14 +531,18 @@ export default function TechnologySection() {
                     </div>
                 </div>
 
-                <style>{`
-                    @keyframes verticalScroll {
-                        0% { transform: translateY(0); }
-                        100% { transform: translateY(-50%); }
-                    }
-                `}</style>
-
             </div>
+
+            <style>{`
+                @keyframes mobileVerticalScroll {
+                    0% { transform: translateY(0); }
+                    100% { transform: translateY(-50%); }
+                }
+                @keyframes verticalScroll {
+                    0% { transform: translateY(0); }
+                    100% { transform: translateY(-50%); }
+                }
+            `}</style>
         </section>
     );
 }

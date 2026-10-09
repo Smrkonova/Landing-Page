@@ -30,7 +30,7 @@ export default function CustomWebDevelopmentPage() {
                 </svg>
 
                 {/* Mobile Layout (<md, 390px base in DesktopScaler) */}
-                <div className="md:hidden flex flex-col items-center w-full max-w-[390px] mx-auto px-[17px] pt-20 pb-8 z-30">
+                <div className="md:hidden flex flex-col items-center w-full max-w-[390px] mx-auto px-[17px] pt-24 pb-8 z-30">
                     {/* Header Title */}
                     <div className="w-[356px] text-left mb-2">
                         <h1
@@ -45,6 +45,9 @@ export default function CustomWebDevelopmentPage() {
                         >
                             CUSTOM WEB<br />DEVELOPMENT
                         </h1>
+                        <p className="text-white/80 uppercase text-[11px] font-medium tracking-[0.1em] mt-2">
+                            FOR PEOPLE, ENGINEERED FOR BUSINESSES.
+                        </p>
                     </div>
 
                     {/* Graphic Image Showcase (width: 356px, height: 201px) */}
@@ -229,10 +232,10 @@ export default function CustomWebDevelopmentPage() {
                     <div
                         className="absolute pointer-events-none"
                         style={{
-                            top: '88px',
-                            left: '495px',
-                            width: '688px',
-                            height: '582px',
+                            top: '180px',
+                            left: '595px',
+                            width: '588px',
+                            height: '482px',
                             opacity: 1,
                             zIndex: 10,
                         }}
@@ -240,8 +243,8 @@ export default function CustomWebDevelopmentPage() {
                         <Image
                             src="/images/services/website/banner.svg"
                             alt="Custom web development showcase"
-                            width={688}
-                            height={582}
+                            width={588}
+                            height={482}
                             className="w-full h-full object-contain"
                             priority
                         />
@@ -294,7 +297,7 @@ export default function CustomWebDevelopmentPage() {
                     <div className="flex flex-col justify-start text-[#FFFFFF] max-w-3xl h-full text-left items-start w-full">
                         <div className="w-full flex flex-col items-start">
                             <h1 className="text-[clamp(2.75rem,5.5vw+1rem,5.5rem)] font-[100] leading-[0.95] tracking-[0] mb-4 sm:mb-6 text-left">
-                                Custom Web <br />Development
+                                Custom <br/> Website <br />Development
                             </h1>
                             <div className="flex flex-row items-start justify-start gap-4 mt-6">
                                 <button suppressHydrationWarning className="w-auto bg-[#f0f0f0] text-black px-6 py-3.5 text-[clamp(10px,0.4vw+4px,12px)] font-[500] uppercase tracking-[0.15em] hover:bg-white transition-colors text-center whitespace-nowrap cursor-pointer">
