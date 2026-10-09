@@ -7,42 +7,50 @@ const slides = [
   {
     num: "01",
     title: "DISCOVERY",
-    text: "Before designing anything, we understood the business behind the buildings—their experience, reputation, customers, and ambitions."
+    text: "Before designing anything, we understood the business behind the buildings—their experience, reputation, customers, and ambitions.",
+    image: "/images/projects/neelachandra/process/discovery.png"
   },
   {
     num: "02",
     title: "DIRECTION",
-    text: "We translated that understanding into a new brand direction, creating an identity that felt as established and credible as the work Neelachandra was already known for."
+    text: "We translated that understanding into a new brand direction, creating an identity that felt as established and credible as the work Neelachandra was already known for.",
+    image: "/images/projects/neelachandra/process/direction.png"
   },
   {
     num: "03",
     title: "SYSTEM",
-    text: "The identity expanded beyond the logo into a complete system—business cards, brochures, company profiles, stationery, signage, glass branding, and more."
+    text: "The identity expanded beyond the logo into a complete system—business cards, brochures, company profiles, stationery, signage, glass branding, and more.",
+    image: "/images/projects/neelachandra/process/system.png"
   },
   {
     num: "04",
     title: "IDENTITY",
-    text: "We explored hundreds of sketches, concepts, colours, and type combinations before arriving at an identity that felt distinctly Neelachandra."
+    text: "We explored hundreds of sketches, concepts, colours, and type combinations before arriving at an identity that felt distinctly Neelachandra.",
+    image: "/images/projects/neelachandra/process/identity.png"
   },
   {
     num: "05",
     title: "EXECUTION",
-    text: "We took the brand into the real world, working directly at their office to plan, measure, and execute physical brand applications."
+    text: "We took the brand into the real world, working directly at their office to plan, measure, and execute physical brand applications.",
+    image: "/images/projects/neelachandra/process/execution.png"
   },
   {
     num: "06",
     title: "EXPERIENCE",
-    text: "We designed and developed a new Webflow website to showcase their projects, services, story, and credibility—while laying the foundations for SEO and lead generation."
+    text: "We designed and developed a new Webflow website to showcase their projects, services, story, and credibility—while laying the foundations for SEO and lead generation.",
+    image: "/images/projects/neelachandra/process/experience.png"
   },
   {
     num: "07",
     title: "VISIBILITY",
-    text: "We tackled the visibility gaps, restoring and optimizing their Google Business Profile so potential customers could finally discover the business online."
+    text: "We tackled the visibility gaps, restoring and optimizing their Google Business Profile so potential customers could finally discover the business online.",
+    image: "/images/projects/neelachandra/process/visibility.png"
   },
   {
     num: "08",
     title: "ACTIVATION",
-    text: "With the foundations in place, every touchpoint—from Google Search to the office walls—began speaking the same visual language."
+    text: "With the foundations in place, every touchpoint—from Google Search to the office walls—began speaking the same visual language.",
+    image: "/images/projects/neelachandra/process/activation.png"
   }
 ];
 
@@ -109,10 +117,10 @@ export default function HorizontalScrollSection() {
           {slides.map((slide, index) => (
             <div key={index} className="relative h-full w-[100vw] flex-shrink-0 flex items-center justify-center">
 
-              {/* Background Image - Original Blueprint image for all slides */}
+              {/* Background Image - Unique for each step */}
               <div className="absolute inset-0 z-0">
                 <img
-                  src="/images/projects/neelachandra/slide-1.png"
+                  src={slide.image}
                   alt={slide.title}
                   className="w-full h-full object-cover"
                 />

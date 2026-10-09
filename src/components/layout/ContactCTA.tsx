@@ -15,6 +15,8 @@ export default function ContactCTA() {
 
   if (
     pathname === '/' ||
+    pathname === '/about' ||
+    pathLower.includes('/about') ||
     pathLower.includes('/industries') ||
     pathLower.includes('/services') ||
     pathLower.includes('/projects') ||
@@ -107,11 +109,10 @@ export default function ContactCTA() {
             {pretitle}
           </p>
 
-          <h2 className={`text-white break-words max-w-full leading-[1.08] mb-6 drop-shadow-[0_10px_25px_rgba(0,0,0,0.6)] ${
-            isIndustryPill 
-              ? "font-sans font-normal text-3xl sm:text-5xl md:text-6xl lg:text-[76px] tracking-tight" 
+          <h2 className={`text-white break-words max-w-full leading-[1.08] mb-6 drop-shadow-[0_10px_25px_rgba(0,0,0,0.6)] ${isIndustryPill
+              ? "font-sans font-normal text-3xl sm:text-5xl md:text-6xl lg:text-[76px] tracking-tight"
               : "font-good-times font-black uppercase text-2xl sm:text-4xl md:text-6xl lg:text-[76px] tracking-tight"
-          }`}>
+            }`}>
             {title}
           </h2>
 

@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+import HealthcareHero from "@/components/industries/Healthcare/HealthcareHero";
 import ManufacturingScrollCanvas from "@/components/industries/ManufacturingScrollCanvas";
 import IndustryExtendedSection from "@/components/industries/IndustryExtendedSection";
 import HealthcareCarousel from "@/components/industries/HealthcareCarousel";
@@ -78,61 +77,8 @@ const healthcareFaqs = [
 export default function HealthcareIndustryPage() {
   return (
     <main className="w-full">
-      {/* Banner / Hero Section */}
-      <div 
-        className="relative bg-black text-white flex items-center pt-32 md:pt-0 pb-16 md:pb-0 overflow-hidden" 
-        style={{ minHeight: "calc(100vh / var(--desktop-scale, 1))" }}
-      >
-        {/* Full Hero Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/industries/healthcare/banner.png"
-            alt="Futuristic Healthcare Digital System"
-            fill
-            priority
-            className="object-cover object-center"
-          />
-          {/* Gradient overlays to blend smoothly and keep text legible on the left */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 md:via-black/75 to-transparent w-full md:w-[65%]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
-        </div>
-
-        <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 relative z-10">
-          {/* Hero Content */}
-          <div className="flex flex-col items-start text-left space-y-6 md:space-y-8 max-w-2xl">
-            <div className="space-y-3 md:space-y-4">
-              <h1 className="font-good-times font-bold text-[clamp(2.75rem,5.8vw+1rem,96px)] leading-[0.91] tracking-[0.05em] uppercase text-white break-words">
-                PATIENTS<br />
-                EXPECT<br />
-                CLARITY
-              </h1>
-              <h2 className="font-sans font-light text-[clamp(1.1rem,1.8vw+0.2rem,1.75rem)] tracking-[0.1em] text-white/90 uppercase leading-snug">
-                SPEED AND TRUST AT<br />
-                EVERY INTERACTION.
-              </h2>
-            </div>
-
-            <p className="font-sans font-light text-[12px] leading-[1.55] tracking-[0.05em] text-[#ccc] max-w-xl">
-              Help your patients choose your practice with confidence through healthcare marketing that builds trust, simplifies the patient journey, and strengthens every digital touchpoint.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-2 w-full sm:w-auto">
-              <Link
-                href="/contact"
-                className="px-8 py-4 bg-white text-black text-[clamp(10px,0.4vw+4px,12px)] font-bold tracking-widest uppercase hover:bg-neutral-200 transition-colors text-center w-full sm:w-auto shadow-lg"
-              >
-                START YOUR PROJECT
-              </Link>
-              <Link
-                href="#solutions"
-                className="px-8 py-4 bg-transparent border border-white text-white text-[clamp(10px,0.4vw+4px,12px)] font-bold tracking-widest uppercase hover:bg-white/10 transition-colors text-center w-full sm:w-auto"
-              >
-                SEE WHAT WE BUILD
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Hero Section */}
+      <HealthcareHero />
 
       {/* Exploded Architecture Animation Section ("MAKE THE SHIFT") */}
       <div className="w-full bg-white relative">

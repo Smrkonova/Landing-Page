@@ -1,14 +1,10 @@
 "use client";
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollCanvas } from "./ScrollCanvas";
 import { CinematicOverlay } from "./CinematicOverlay";
 import { ContactModal } from "./ContactModal";
 import { SCENES } from "@/data/scenes";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function StoryExperience() {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -18,21 +14,53 @@ export default function StoryExperience() {
   const [isContactOpen, setIsContactOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+    let animId: number | null = null;
 
-    const st = ScrollTrigger.create({
-      trigger: container,
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 1.2,
-      onUpdate: (self) => {
-        setScrollProgress(self.progress);
-      },
-    });
+    const updateProgress = () => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Section top has not reached top of viewport yet -> strictly 0 progress (Step 01 static)
+      if (rect.top > 0) {
+        setScrollProgress(0);
+        return;
+      }
+
+      const scrollableDistance = rect.height - viewportHeight;
+      if (scrollableDistance <= 0) {
+        setScrollProgress(0);
+        return;
+      }
+
+      // Progress is strictly measured once the section is pinned at top: 0
+      const scrolled = -rect.top;
+      const p = Math.min(1, Math.max(0, scrolled / scrollableDistance));
+      setScrollProgress(p);
+    };
+
+    const onScroll = () => {
+      if (animId) cancelAnimationFrame(animId);
+      animId = requestAnimationFrame(updateProgress);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", updateProgress);
+
+    const lenis = typeof window !== "undefined" && (window as any).__lenis;
+    if (lenis) {
+      lenis.on("scroll", onScroll);
+    }
+
+    updateProgress();
 
     return () => {
-      st?.kill();
+      if (animId) cancelAnimationFrame(animId);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", updateProgress);
+      if (lenis) {
+        lenis.off("scroll", onScroll);
+      }
     };
   }, []);
 

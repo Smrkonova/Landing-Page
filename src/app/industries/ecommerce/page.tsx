@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+import EcommerceHero from "@/components/industries/Ecommerce/EcommerceHero";
 import ManufacturingScrollCanvas from "@/components/industries/ManufacturingScrollCanvas";
 import IndustryExtendedSection from "@/components/industries/IndustryExtendedSection";
 import EcommerceCarousel from "@/components/industries/EcommerceCarousel";
@@ -71,59 +70,8 @@ const ecommerceFaqs = [
 export default function EcommerceIndustryPage() {
   return (
     <main className="w-full">
-      {/* Banner / Hero Section */}
-      <div 
-        className="relative bg-black text-white flex items-center pt-32 md:pt-0 pb-16 md:pb-0 overflow-hidden" 
-        style={{ minHeight: "calc(100vh / var(--desktop-scale, 1))" }}
-      >
-        {/* Full Hero Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/industries/ecommerce/banner.png"
-            alt="Futuristic eCommerce Experience"
-            fill
-            priority
-            className="object-cover object-center"
-          />
-          {/* Gradient overlays to blend smoothly and keep text legible on the left */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 md:via-black/75 to-transparent w-full md:w-[65%]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
-        </div>
-
-        <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 relative z-10">
-          {/* Hero Content */}
-          <div className="flex flex-col items-start text-left space-y-6 md:space-y-8 max-w-2xl">
-            <div className="space-y-3 md:space-y-4">
-              <span className="font-sans font-extralight text-[clamp(1.5rem,2.4vw+0.5rem,36px)] leading-[1.22] tracking-[0.05em] uppercase text-white/90 block">
-                BEAUTIFUL STORES
-              </span>
-              <h1 className="font-good-times font-bold text-[clamp(2.75rem,5.8vw+1rem,96px)] leading-[0.91] tracking-[0.05em] uppercase text-white break-words">
-                DON&apos;T WIN<br />
-                ANYMORE.
-              </h1>
-            </div>
-
-            <p className="font-sans font-light text-[12px] leading-[1.55] tracking-[0.05em] text-[#ccc] max-w-xl">
-              Create a connected eCommerce experience that takes customers from discovery to repeat purchase. From high-performance eCommerce website development and product discovery to checkout, payments, fulfilment, and retention, Smrkonova builds digital commerce experiences designed around how modern customers shop.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-2 w-full sm:w-auto">
-              <Link
-                href="/contact"
-                className="px-8 py-4 bg-white text-black text-[clamp(10px,0.4vw+4px,12px)] font-bold tracking-widest uppercase hover:bg-neutral-200 transition-colors text-center w-full sm:w-auto shadow-lg"
-              >
-                Start Your Project
-              </Link>
-              <Link
-                href="#solutions"
-                className="px-8 py-4 bg-transparent border border-white text-white text-[clamp(10px,0.4vw+4px,12px)] font-bold tracking-widest uppercase hover:bg-white/10 transition-colors text-center w-full sm:w-auto"
-              >
-                See What We Build
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Hero Section */}
+      <EcommerceHero />
 
       {/* Exploded Architecture Animation Section ("MAKE THE SHIFT") */}
       <div className="w-full bg-white relative">
