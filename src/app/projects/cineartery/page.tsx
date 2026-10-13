@@ -1,15 +1,169 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import CrewSlider from './CrewSlider';
 import DisplayScaler from '@/components/DisplayScaler';
 
+const CINE_NODES = [
+  {
+    id: 1,
+    domeX: 49,
+    domeY: 18,
+    text: "The brand is already\nestablished.",
+    size: "w-11 h-5.5 sm:w-13 sm:h-6.5 md:w-16 md:h-8",
+  },
+  {
+    id: 2,
+    domeX: 54,
+    domeY: 48,
+    text: "It has to work beautifully\nacross every screen.",
+    size: "w-8 h-4 sm:w-9 sm:h-4.5 md:w-11 md:h-5.5",
+  },
+  {
+    id: 3,
+    domeX: 69,
+    domeY: 55,
+    text: "Motion should tell the\nstory, not distract from it.",
+    size: "w-7 h-3.5 sm:w-8 sm:h-4 md:w-9 md:h-4.5",
+  },
+  {
+    id: 4,
+    domeX: 72,
+    domeY: 33,
+    text: "The website should be\nsimple yet cinematic.",
+    size: "w-9 h-4.5 sm:w-11 sm:h-5.5 md:w-13 md:h-6.5",
+  },
+  {
+    id: 5,
+    domeX: 85,
+    domeY: 38,
+    text: "Can we make it feel\ncinematic without\nslowing it down?",
+    size: "w-7 h-3.5 sm:w-8 sm:h-4 md:w-9 md:h-4.5",
+  },
+  {
+    id: 6,
+    domeX: 87,
+    domeY: 64,
+    text: "Build something\ncinematic, tell the story\nwe're proud to grow on.",
+    size: "w-5 h-2.5 sm:w-6 sm:h-3 md:w-7 md:h-3.5",
+  },
+];
+
+const SHOWCASE_SERVICES = [
+  'Digital Transformation', 
+  'Website Redesign', 
+  'Website Modernization', 
+  'Brand Enhancement', 
+  'Technology Partner', 
+  'Digital Product Design', 
+  'Interactive Web Experiences', 
+  'Enterprise Web Development', 
+  'Digital Innovation'
+];
+
 export default function CineArteryProjectPage() {
+  const [activeNodeId, setActiveNodeId] = useState<number | null>(1);
+  const [hoveredNodeId, setHoveredNodeId] = useState<number | null>(null);
+
   return (
     <main className="min-h-screen bg-[#111111] text-white">
       <section 
-        className="relative font-sans flex items-center pt-24 md:pt-16 pb-12 md:pb-4 min-h-screen md:h-[calc(100vh/var(--desktop-scale,1))] overflow-hidden"
+        className="relative font-sans flex items-center pt-20 md:pt-16 pb-12 md:pb-4 min-h-screen md:h-[calc(100vh/var(--desktop-scale,1))] overflow-hidden"
       >
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center w-full md:h-full md:max-h-[820px] gap-8 md:gap-0">
+        {/* Mobile Layout (< md) */}
+        <div className="block md:hidden w-full max-w-md mx-auto px-5 pt-2 pb-8">
+          {/* Top Header: Case Study & Logo */}
+          <div className="mb-5">
+            <h4 className="text-xs font-[300] tracking-[0.2em] uppercase text-white/80 mb-2">Case Study 1</h4>
+            <div className="relative w-36 h-9">
+              <img 
+                src="/images/projects/cineartery/logo.png" 
+                alt="CineArtery Logo" 
+                className="object-contain object-left w-full h-full"
+              />
+            </div>
+          </div>
+
+          {/* Banner Image Card */}
+          <div className="relative rounded-[1.75rem] overflow-hidden w-full aspect-[4/5] min-h-[430px] shadow-2xl bg-[#0a0a0a] flex flex-col justify-end mb-6">
+            <img
+              src="/images/projects/cineartery/banner.png"
+              alt="CineArtery Banner"
+              className="absolute inset-0 w-full h-full object-cover opacity-95"
+            />
+            {/* Dark gradient overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent pointer-events-none" />
+            
+            <div className="relative z-10 flex flex-col items-start justify-end text-white p-6">
+              <h1 className="text-[clamp(1.5rem,6.5vw,2rem)] font-[200] uppercase tracking-wide leading-tight drop-shadow-md text-white/90">
+                The Heartbeat
+              </h1>
+              <h1 className="text-[clamp(1.5rem,6.5vw,2rem)] uppercase tracking-wide leading-tight drop-shadow-md">
+                <span className="font-[200] text-white/90">Of </span>
+                <span className="font-[800] text-white">Creative</span>
+              </h1>
+              <h1 className="text-[clamp(1.5rem,6.5vw,2rem)] font-[800] uppercase tracking-wide leading-tight drop-shadow-md text-white">
+                Collaboration
+              </h1>
+            </div>
+          </div>
+
+          {/* Horizontal Divider Line */}
+          <div className="w-full border-t border-[#333333] mb-6" />
+
+          {/* Metadata Grid: Industry & Duration */}
+          <div className="grid grid-cols-2 gap-4 mb-5">
+            <div>
+              <h4 className="text-xs font-normal text-[#888888] mb-2">Industry</h4>
+              <div className="border border-[#444444] rounded-[10px] px-3 py-2 text-xs text-[#a3a3a3] font-normal text-center truncate">
+                Media & Entertainment
+              </div>
+            </div>
+            <div>
+              <h4 className="text-xs font-normal text-[#888888] mb-2">Duration</h4>
+              <div className="border border-[#444444] rounded-[10px] px-3 py-2 text-xs text-[#a3a3a3] font-normal text-center">
+                Ongoing
+              </div>
+            </div>
+          </div>
+
+          {/* Platforms */}
+          <div className="mb-8">
+            <h4 className="text-xs font-normal text-[#888888] mb-2">Platforms</h4>
+            <div className="grid grid-cols-4 gap-2">
+              {['Website', 'Shopify', 'Flutter', 'Backend'].map((platform, idx) => (
+                <span
+                  key={idx}
+                  className="border border-[#444444] rounded-[10px] py-2 text-xs text-[#a3a3a3] font-normal text-center"
+                >
+                  {platform}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Bulleted Services List */}
+          <div className="flex flex-col space-y-3.5 text-[13px] text-[#999999] font-[300]">
+            {[
+              'Motion Website Development',
+              'Cinematic Web Design',
+              'Next.js Development',
+              'GSAP Animations',
+              'Responsive Website Design',
+              'Interactive Digital Experiences',
+              'Film Industry Platform',
+            ].map((service, idx) => (
+              <div key={idx} className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#666666] shrink-0" />
+                <span>{service}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Layout (>= md) */}
+        <div className="hidden md:flex max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex-col md:flex-row items-center w-full md:h-full md:max-h-[820px] gap-8 md:gap-0">
           
           {/* Left Column - Details */}
           <div className="w-full md:w-1/5 pr-0 md:pr-8 flex flex-col justify-center py-4 md:py-10">
@@ -80,12 +234,13 @@ export default function CineArteryProjectPage() {
           {/* Right Column - Navigation/Services list */}
           <div className="w-full md:w-1/5 pl-0 md:pl-8 flex flex-col justify-center items-start text-[#FFFFFF] pt-4 md:pt-[6rem]">
             <div className="grid grid-cols-2 md:flex md:flex-col gap-3 md:space-y-4 text-[clamp(10px,0.8vw+2px,12px)] tracking-widest uppercase font-[200] w-full">
-              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> Motion Website</p>
-              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> Cinematic Web</p>
-              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> Next.js Dev</p>
+              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> Motion Website Development</p>
+              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> Cinematic Web Design</p>
+              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> Next.js Development</p>
               <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> GSAP Animations</p>
-              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> Responsive Web</p>
-              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> Digital Exp</p>
+              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> Responsive Website Design</p>
+              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> Interactive Digital Experiences</p>
+              <p className="flex items-center gap-2"><span className="w-1 h-1 bg-[#a3a3a3] rounded-full shrink-0"></span> Film Industry Platform</p>
             </div>
           </div>
 
@@ -133,30 +288,46 @@ export default function CineArteryProjectPage() {
       </section>
 
       {/* Hand Section */}
-      <section className="relative w-full min-h-[100vh] lg:min-h-[120vh] flex flex-col justify-center items-center bg-[#0a0a0a] overflow-hidden">
-        {/* Background Hand Image */}
-        <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center">
+      <section className="relative w-full py-16 md:py-0 min-h-0 md:min-h-[100vh] lg:min-h-[120vh] flex flex-col justify-center items-center bg-[#0a0a0a] overflow-hidden">
+        {/* Hand Container */}
+        <div className="relative md:absolute md:inset-0 w-full max-w-[390px] h-[225px] md:max-w-none md:w-full md:h-full z-0 flex items-center justify-center">
           <img 
             src="/images/projects/cineartery/hand.png" 
             alt="Hands Framing" 
-            className="w-[120%] md:w-[110%] lg:w-full h-full object-contain object-center opacity-90 scale-110 md:scale-105"
+            className="w-[390px] h-[225px] max-w-full object-contain object-center rotate-0 opacity-100 md:w-[110%] lg:w-full md:h-full md:opacity-90 md:scale-105"
           />
-          {/* Subtle gradient to blend edges into background */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#111111] via-transparent to-[#0a0a0a]"></div>
+          {/* Subtle gradient to blend edges into background on desktop */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#111111] via-transparent to-[#0a0a0a] pointer-events-none hidden md:block"></div>
+
+          {/* Text Overlay centered between hands (Mobile: exactly 148x96 framed between index fingers and thumbs) */}
+          <div className="absolute top-[16px] left-1/2 -translate-x-1/2 w-[148px] h-[96px] rotate-0 opacity-100 flex md:hidden flex-col justify-between items-center text-center z-10 pointer-events-none">
+            <h3 className="text-[#7E7E7E] text-[12px] leading-[16px] tracking-[2.59px] font-[700] uppercase drop-shadow-md">
+              CREATIVITY
+            </h3>
+            <p className="text-[#7E7E7E] text-[12px] leading-[16px] tracking-[2.59px] font-[300] uppercase">
+              SET THE<br />DIRECTION.
+            </p>
+            <h3 className="text-[#7E7E7E] text-[12px] leading-[16px] tracking-[2.59px] font-[700] uppercase drop-shadow-md">
+              TECHNOLOGY
+            </h3>
+            <p className="text-[#7E7E7E] text-[12px] leading-[16px] tracking-[2.59px] font-[300] uppercase">
+              BROUGHT IT TO<br />LIFE.
+            </p>
+          </div>
         </div>
 
-        {/* Text Overlay centered between hands */}
-        <div className="relative z-10 w-full max-w-lg mx-auto flex flex-col items-center text-center px-4 -mt-[20%]">
-          <h3 className="text-[#7E7E7E] text-[clamp(0.875rem,0.6vw+0.65rem,1.125rem)] font-[700] tracking-[0.25em] uppercase mb-2 drop-shadow-md">
+        {/* Text Overlay centered between hands (Desktop) */}
+        <div className="relative z-10 w-full max-w-lg mx-auto hidden md:flex flex-col items-center text-center px-4 -mt-[20%]">
+          <h3 className="text-[#7E7E7E] text-[clamp(0.8125rem,0.6vw+0.65rem,1.125rem)] font-[700] tracking-[0.25em] uppercase mb-1 md:mb-2 drop-shadow-md">
             CREATIVITY
           </h3>
-          <p className="text-[#7E7E7E] text-[clamp(0.75rem,0.5vw+0.55rem,1rem)] font-[300] tracking-[0.2em] uppercase mb-6">
+          <p className="text-[#7E7E7E] text-[clamp(0.6875rem,0.5vw+0.55rem,1rem)] font-[300] tracking-[0.2em] uppercase mb-4 md:mb-6">
             SET THE DIRECTION.
           </p>
-          <h3 className="text-[#7E7E7E] text-[clamp(0.875rem,0.6vw+0.65rem,1.125rem)] font-[700] tracking-[0.25em] uppercase mb-2 drop-shadow-md">
+          <h3 className="text-[#7E7E7E] text-[clamp(0.8125rem,0.6vw+0.65rem,1.125rem)] font-[700] tracking-[0.25em] uppercase mb-1 md:mb-2 drop-shadow-md">
             TECHNOLOGY
           </h3>
-          <p className="text-[#7E7E7E] text-[clamp(0.75rem,0.5vw+0.55rem,1rem)] font-[300] tracking-[0.2em] uppercase">
+          <p className="text-[#7E7E7E] text-[clamp(0.6875rem,0.5vw+0.55rem,1rem)] font-[300] tracking-[0.2em] uppercase">
             BROUGHT IT TO LIFE.
           </p>
         </div>
@@ -173,56 +344,55 @@ export default function CineArteryProjectPage() {
             />
             
             {/* Overlays Container */}
-            <div className="absolute inset-0 w-full h-full text-[clamp(8px,0.6vw+4px,12px)] font-[200] text-[#F7F3EB]">
-              
-              {/* Node 1 */}
-              <div className="absolute bottom-[15%] md:bottom-[20%] left-[10%] md:left-[18%] flex items-end gap-3">
-                <div className="text-right leading-tight">
-                  <span className="font-bold text-white text-[clamp(10px,0.7vw+4px,21px)]">The brand is already<br/>established.</span>
-                </div>
-                <div className="w-10 h-5 md:w-16 md:h-8 rounded-t-full bg-white/20 backdrop-blur-sm border-t border-white/10 shadow-lg mb-1"></div>
-              </div>
+            <div className="absolute inset-0 w-full h-full text-[clamp(9px,0.7vw+4px,14px)] text-[#F7F3EB] select-none pointer-events-none">
+              {CINE_NODES.map((node) => {
+                const isHovered = hoveredNodeId === node.id;
+                const isActive = hoveredNodeId !== null ? isHovered : activeNodeId === node.id;
 
-              {/* Node 2 */}
-              <div className="absolute bottom-[38%] md:bottom-[45%] left-[20%] md:left-[30%] flex items-end gap-3">
-                <div className="text-right leading-tight blur-[1px] ">
-                  It has to work beautifully<br/>across every screen.
-                </div>
-                <div className="w-6 h-3 md:w-10 md:h-5 rounded-t-full bg-white/20 backdrop-blur-sm border-t border-white/10 shadow-lg mb-1"></div>
-              </div>
+                return (
+                  <div
+                    key={node.id}
+                    style={{ left: `${node.domeX}%`, bottom: `${node.domeY}%` }}
+                    className="absolute z-20 pointer-events-auto group cursor-pointer"
+                    onMouseEnter={() => setHoveredNodeId(node.id)}
+                    onMouseLeave={() => setHoveredNodeId(null)}
+                    onClick={() => setActiveNodeId(node.id)}
+                  >
+                    {/* White Dome Button */}
+                    <button
+                      type="button"
+                      aria-label={node.text.replace(/\n/g, ' ')}
+                      onFocus={() => setHoveredNodeId(node.id)}
+                      onBlur={() => setHoveredNodeId(null)}
+                      className={`relative ${node.size} rounded-t-full rounded-b-none border-t border-x cursor-pointer backdrop-blur-xs transition-all duration-300 ease-out focus:outline-none flex items-center justify-center ${
+                        isActive
+                          ? "bg-gradient-to-t from-white/70 to-white/95 border-white shadow-[0_0_24px_rgba(255,255,255,0.95)] scale-115 opacity-100"
+                          : "bg-gradient-to-t from-white/20 to-white/40 border-white/40 opacity-60 shadow-[0_2px_8px_rgba(0,0,0,0.4)] group-hover:bg-gradient-to-t group-hover:from-white/60 group-hover:to-white/85 group-hover:border-white group-hover:scale-110 group-hover:opacity-100 group-hover:shadow-[0_0_18px_rgba(255,255,255,0.7)]"
+                      }`}
+                    >
+                      {/* Ambient beacon pulse */}
+                      <span
+                        className={`absolute inset-0 rounded-t-full bg-white/50 pointer-events-none transition-all duration-300 ${
+                          isActive
+                            ? "animate-ping opacity-60"
+                            : "opacity-0 group-hover:animate-ping group-hover:opacity-40"
+                        }`}
+                      />
+                    </button>
 
-              {/* Node 3 */}
-              <div className="absolute top-[40%] md:top-[38%] left-[38%] md:left-[45%] flex items-end gap-3">
-                <div className="text-right leading-tight blur-[1px]">
-                  Motion should tell the<br/>story, not distract from it.
-                </div>
-                <div className="w-7 h-3.5 md:w-10 md:h-5 rounded-t-full bg-white/20 backdrop-blur-sm border-t border-white/10 shadow-lg mb-1"></div>
-              </div>
-
-              {/* Node 4 */}
-              <div className="absolute bottom-[28%] md:bottom-[32%] left-[40%] md:left-[48%] flex items-end gap-3">
-                <div className="text-right leading-tight blur-[1px]">
-                  The website should be<br/>simple yet cinematic.
-                </div>
-                <div className="w-8 h-4 md:w-12 md:h-6 rounded-t-full bg-white/20 backdrop-blur-sm border-t border-white/10 shadow-lg mb-1"></div>
-              </div>
-
-              {/* Node 5 */}
-              <div className="absolute top-[48%] md:top-[50%] left-[58%] md:left-[62%] flex items-end gap-3">
-                <div className="text-right leading-tight blur-[1px]">
-                  Can we make it feel<br/>cinematic without<br/>slowing it down?
-                </div>
-                <div className="w-7 h-3.5 md:w-10 md:h-5 rounded-t-full bg-white/20 backdrop-blur-sm border-t border-white/10 shadow-lg mb-1"></div>
-              </div>
-
-              {/* Node 6 */}
-              <div className="absolute top-[28%] md:top-[30%] left-[62%] md:left-[68%] flex items-end gap-3">
-                <div className="text-right leading-tight blur-[1px]">
-                  Build something<br/>cinematic, tell the story<br/>we're proud to grow on.
-                </div>
-                <div className="w-6 h-3 md:w-8 md:h-4 rounded-t-full bg-white/20 backdrop-blur-sm border-t border-white/10 shadow-lg mb-1"></div>
-              </div>
-
+                    {/* Text Beside Button */}
+                    <div
+                      className={`absolute right-full mr-2.5 sm:mr-3.5 bottom-0 w-max max-w-[170px] sm:max-w-[220px] md:max-w-[280px] text-right leading-snug whitespace-pre-line text-[clamp(9px,0.75vw+2px,13px)] sm:text-[clamp(11px,0.8vw+2px,14px)] transition-all duration-300 ease-out select-none ${
+                        isActive
+                          ? "opacity-100 blur-0 font-bold md:font-semibold text-white scale-100 md:scale-105 drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]"
+                          : "opacity-45 blur-[2.5px] font-normal text-white/75 scale-95 drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)] group-hover:opacity-100 group-hover:blur-0 group-hover:text-white group-hover:scale-100"
+                      }`}
+                    >
+                      {node.text}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -266,7 +436,7 @@ export default function CineArteryProjectPage() {
 
       {/* Phone Showcase Section */}
       <section 
-        className="relative w-full py-16 md:py-20 lg:py-0 bg-[#0c0c0c] overflow-hidden flex items-center justify-center min-h-screen lg:h-[calc(100vh/var(--desktop-scale,1))]"
+        className="relative w-full py-16 md:py-20 lg:py-0 bg-[#0c0c0c] overflow-hidden flex items-center justify-center min-h-screen lg:h-[calc(150vh/var(--desktop-scale,1))]"
       >
         {/* Ambient radial glow centered behind the middle column */}
         <div 
@@ -276,9 +446,72 @@ export default function CineArteryProjectPage() {
           }}
         />
 
-        <div className="w-full max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10 h-full max-h-none lg:max-h-[850px] flex items-center">
+        {/* Mobile View (< lg): Title -> Phone + Clapperboard -> Numbered List -> Bottom Copy */}
+        <div className="flex lg:hidden flex-col w-full max-w-md mx-auto px-6 py-8 relative z-10 text-white">
+          {/* 1. Top Title */}
+          <div className="mb-6 text-left">
+            <h2 className="text-[clamp(2.1rem,8vw,2.75rem)] uppercase leading-[1em] tracking-tight">
+              <span className="font-[200] text-white/80 block">Building</span>
+              <span className="font-[200] text-white/80 block">Foundation</span>
+              <span className="font-[200] text-white/80 block mb-1">With</span>
+              <span className="font-[900] text-white block">High-Quality</span>
+              <span className="font-[900] text-white block">Output</span>
+            </h2>
+          </div>
+
+          {/* 2. Center Phone + Clapperboard */}
+          <div className="relative w-full flex justify-center items-center my-8">
+            <div className="relative w-[clamp(240px,72vw,320px)] max-w-[90vw]">
+              <img 
+                src="/images/projects/cineartery/glow.svg" 
+                alt="" 
+                aria-hidden="true" 
+                className="absolute -top-[25%] left-1/2 -translate-x-1/2 w-[220%] max-w-[850px] object-contain pointer-events-none z-0 opacity-85"
+              />
+              <img 
+                src="/images/projects/cineartery/phone.png" 
+                alt="Cineartery Mobile App / Web Experience" 
+                className="relative z-10 w-full h-auto object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)]"
+              />
+              <img 
+                src="/images/projects/cineartery/clapperboard.png" 
+                alt="Movie Clapperboard" 
+                className="absolute top-[42%] left-[-2%] w-[198%] max-w-none h-auto object-contain z-20 pointer-events-none"
+              />
+            </div>
+          </div>
+
+          {/* 3. Numbered List (01 to 09) */}
+          <div className="flex flex-col space-y-4 my-10 text-left">
+            {SHOWCASE_SERVICES.map((item, i) => (
+              <div key={i} className="flex items-center gap-4">
+                <span className="text-white/40 font-mono text-[11px] w-5 shrink-0">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="text-white/80 uppercase tracking-[0.14em] font-[200] text-xs">
+                  {item}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* 4. Bottom Copy */}
+          <div className="flex flex-col text-left pt-6 border-t border-white/10">
+            <p className="text-[#8e8e8e] text-xs leading-[1.75] mb-8 font-light">
+              CineArtery now has a scalable architecture, intuitive user experience, and a premium digital presence designed to increase engagement, encourage loyalty, and adapt as the platform expands.
+            </p>
+            <div className="text-xs font-light tracking-[0.2em] text-white/90 uppercase leading-[1.6]">
+              Creative<br />
+              Technology<br />
+              For Entertainment
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop View (>= lg) */}
+        <div className="hidden lg:flex max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10 h-full max-h-none lg:max-h-[850px] items-center w-full">
           
-          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_minmax(280px,380px)_1.1fr] xl:grid-cols-[1.15fr_minmax(320px,400px)_1.15fr] gap-12 lg:gap-8 xl:gap-14 items-stretch w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_minmax(280px,380px)_1.1fr] xl:grid-cols-[1.15fr_minmax(320px,400px)_1.15fr] gap-20 lg:gap-12 xl:gap-22 items-stretch w-full">
             
             {/* Left Column */}
             <div className="flex flex-col justify-between h-full order-1 lg:order-1 py-2 sm:py-4">
@@ -307,9 +540,9 @@ export default function CineArteryProjectPage() {
             </div>
 
             {/* Center Column - Phone + Clapperboard + Glow */}
-            <div className="relative w-full flex justify-center items-center order-2 lg:order-2 my-6 lg:my-0">
+            <div className="relative w-full flex justify-center md:translate-y-30 items-center order-2 lg:order-2 my-6 lg:my-0">
               {/* Phone Wrapper with fluid clamp width that scales according to display scaler */}
-              <div className="relative w-[clamp(260px,26vw,380px)] max-w-[90vw]">
+              <div className="relative w-[clamp(240px,24vw,360px)] max-w-[90vw]">
                 {/* SVG Background Glow */}
                 <img 
                   src="/images/projects/cineartery/glow.svg" 
@@ -322,31 +555,21 @@ export default function CineArteryProjectPage() {
                 <img 
                   src="/images/projects/cineartery/phone.png" 
                   alt="Cineartery Mobile App / Web Experience" 
-                  className="relative z-10 w-full h-[480px] sm:h-[600px] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)]"
+                  className="relative z-10 w-full h-auto object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)]"
                 />
 
-                {/* Movie Clapperboard - positioned at bottom right of phone */}
+                {/* Movie Clapperboard - positioned overlapping bottom right of phone */}
                 <img 
                   src="/images/projects/cineartery/clapperboard.png" 
                   alt="Movie Clapperboard" 
-                  className="absolute -bottom-8 -right-4 sm:-bottom-8 sm:-right-6 lg:-bottom-25 lg:-right-14 w-[240px] sm:w-[320px] lg:w-[500px] h-auto object-contain z-20 pointer-events-none drop-shadow-[0_20px_35px_rgba(0,0,0,0.9)]"
+                  className="absolute top-[42%] left-[-2%] w-[198%] max-w-none h-auto object-contain z-20 pointer-events-none"
                 />
               </div>
             </div>
 
             {/* Right Column - Numbered List */}
             <div className="flex flex-col justify-between h-full order-3 lg:order-3 py-2 sm:py-4 lg:pl-4 xl:pl-8 space-y-4 sm:space-y-5 lg:space-y-0">
-              {[
-                'Digital Transformation', 
-                'Website Redesign', 
-                'Website Modernization', 
-                'Brand Enhancement', 
-                'Technology Partner', 
-                'Digital Product Design', 
-                'Interactive Web Experiences', 
-                'Enterprise Web Development', 
-                'Digital Innovation'
-              ].map((item, i) => (
+              {SHOWCASE_SERVICES.map((item, i) => (
                 <div key={i} className="flex items-center gap-4 sm:gap-5 group">
                   <span className="flex flex-shrink-0 items-center justify-center w-[clamp(28px,1.8vw+14px,36px)] h-[clamp(28px,1.8vw+14px,36px)] rounded-full bg-white/[0.06] border border-white/10 text-white/50 text-[clamp(10px,0.4vw+5px,12px)] font-mono font-medium shadow-inner group-hover:border-white/30 group-hover:text-white/80 transition-colors">
                     {String(i + 1).padStart(2, '0')}

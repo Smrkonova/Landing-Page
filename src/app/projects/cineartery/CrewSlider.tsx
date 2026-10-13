@@ -43,26 +43,71 @@ export default function CrewSlider() {
     }, []);
 
     return (
-        <section className="w-full bg-[#111111] text-white py-24 md:py-32 overflow-hidden relative">
-            <div className="w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center">
+        <section className="w-full bg-[#111111] text-white py-16 md:py-32 overflow-hidden relative">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col items-center">
                 
                 {/* Section Header */}
-                <div className="text-center mb-16 flex flex-col items-center">
-                    <h2 className="text-[clamp(1.85rem,4vw+0.5rem,6rem)] font-[100] uppercase tracking-[0.0625rem] leading-[1.2em] mb-8">
-                        <span className="text-[#F7F3EB]">Every great<br/>production</span><br/>
-                        <span className="font-[700] text-[#F7F3EB]">Has the best<br/>crew</span>
+                <div className="text-center mb-10 md:mb-16 flex flex-col items-center px-2">
+                    <h2 className="text-[clamp(1.5rem,5.5vw,2.5rem)] md:text-[clamp(1.85rem,4vw+0.5rem,6rem)] uppercase tracking-tight md:tracking-[0.0625rem] leading-[1.15em] mb-4 md:mb-8 text-center">
+                        <span className="font-[200] text-[#F7F3EB] block">EVERY GREAT PRODUCTION</span>
+                        <span className="font-[800] text-white block">HAS THE BEST CREW</span>
                     </h2>
-                    <p className="text-[#8C8C8C] text-[clamp(10px,0.7vw+4px,16px)] font-[400] max-w-md leading-relaxed text-center">
-                        We knew the target audience, after numerous<br/>
-                        market studies, analysis of an ideal user of<br/>
-                        Cineartery, every design decision was focused on<br/>
-                        making that vision clear, memorable, and easy to<br/>
-                        trust from the very first interaction.
+                    <p className="text-[#8C8C8C] text-[clamp(12px,0.7vw+4px,16px)] font-[400] max-w-md leading-relaxed text-center">
+                        We knew the target audience, after numerous market studies, analysis of an ideal user of Cineartery, every design decision was focused on making that vision clear, memorable, and easy to trust from the very first interaction.
                     </p>
                 </div>
 
-                {/* Slider Container */}
-                <div className="relative w-full h-[430px] sm:h-[480px] md:h-[600px] flex items-center justify-center mt-12 md:mt-16 max-w-7xl mx-auto overflow-visible">
+                {/* Mobile Slider: Auto-scrolling Cards (< md) */}
+                <div className="block md:hidden w-full mt-[51.4px] overflow-hidden">
+                    <style>{`
+                        @keyframes crew-slide-mobile {
+                            0% { transform: translateX(0); }
+                            100% { transform: translateX(-50%); }
+                        }
+                        .animate-crew-mobile {
+                            animation: crew-slide-mobile 16s linear infinite;
+                        }
+                        .animate-crew-mobile:hover,
+                        .animate-crew-mobile:active {
+                            animation-play-state: paused;
+                        }
+                    `}</style>
+                    <div className="flex w-max animate-crew-mobile gap-3.5 pb-2">
+                        {[...slides, ...slides].map((slide, idx) => (
+                            <div 
+                                key={`${slide.id}-${idx}`}
+                                className={`shrink-0 w-[149.6px] h-[228px] rounded-[14.6px] overflow-hidden shadow-xl relative rotate-0 opacity-100 ${slide.bg}`}
+                            >
+                                {slide.type === 'text' && (
+                                    <div className="w-full h-full p-4 flex flex-col justify-between text-left">
+                                        <div>
+                                            <h3 className="text-base font-[200] text-[#e0e0e0] tracking-wide uppercase leading-tight">
+                                                {slide.title}
+                                            </h3>
+                                            <h4 className="text-[10px] font-bold text-white tracking-widest uppercase mt-1">
+                                                {slide.subtitle}
+                                            </h4>
+                                        </div>
+                                        <p className="text-white/80 text-[10px] font-light leading-relaxed">
+                                            {slide.description}
+                                        </p>
+                                    </div>
+                                )}
+
+                                {slide.type === 'image' && (
+                                    <img 
+                                        src={slide.src} 
+                                        alt="Crew action" 
+                                        className="w-full h-full object-cover"
+                                    />
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Desktop Slider Container (>= md) */}
+                <div className="hidden md:flex relative w-full h-[480px] md:h-[600px] items-center justify-center mt-12 md:mt-16 max-w-7xl mx-auto overflow-visible">
                     
                     {/* Glow Effect behind Active Card */}
                     <div className="absolute left-[20%] top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#d3bca8]/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
@@ -79,18 +124,13 @@ export default function CrewSlider() {
                         if (wrappedDistance < 0) wrappedDistance += slides.length;
                         
                         if (wrappedDistance === 0) {
-                            translateX = isMobile ? "-4%" : "-35%"; // shift active card cleanly
+                            translateX = "-35%"; // shift active card cleanly
                             scale = 1;
                             opacity = 1;
                             zIndex = 50;
                         } else if (wrappedDistance > 0 && wrappedDistance < slides.length) {
-                            // Wider spacing for the stacked cards to utilize increased width
-                            const translationSteps = isMobile 
-                                ? [0, 22, 40, 56, 70] 
-                                : [0, 55, 95, 125, 145];
-                            const scaleSteps = isMobile 
-                                ? [1, 0.94, 0.88, 0.82, 0.76] 
-                                : [1, 0.9, 0.8, 0.7, 0.6];
+                            const translationSteps = [0, 55, 95, 125, 145];
+                            const scaleSteps = [1, 0.9, 0.8, 0.7, 0.6];
                             
                             translateX = `${translationSteps[Math.min(wrappedDistance, 4)]}%`;
                             scale = scaleSteps[Math.min(wrappedDistance, 4)];
@@ -101,7 +141,7 @@ export default function CrewSlider() {
                         return (
                             <div 
                                 key={slide.id}
-                                className={`absolute left-[6%] sm:left-[10%] md:left-[15%] lg:left-[25%] top-0 w-[270px] sm:w-[320px] md:w-[420px] lg:w-[480px] h-[390px] sm:h-[440px] md:h-[550px] rounded-[20px] sm:rounded-[24px] md:rounded-[32px] overflow-hidden transition-all duration-[1500ms] ease-in-out shadow-2xl ${slide.bg}`}
+                                className={`absolute left-[15%] lg:left-[25%] top-0 w-[320px] md:w-[420px] lg:w-[480px] h-[440px] md:h-[550px] rounded-[24px] md:rounded-[32px] overflow-hidden transition-all duration-[1500ms] ease-in-out shadow-2xl ${slide.bg}`}
                                 style={{
                                     transform: `translateX(${translateX}) scale(${scale})`,
                                     transformOrigin: 'center left',

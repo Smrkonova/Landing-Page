@@ -1,18 +1,112 @@
-import React from 'react';
+"use client";
+
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import DisplayScaler from '@/components/DisplayScaler';
 
 export default function NazrProjectPage() {
+  const alreadyExistedRef = useRef<HTMLDivElement>(null);
+  const isAlreadyExistedInView = useInView(alreadyExistedRef, { once: true, amount: 0.2 });
+
+  const protectSectionRef = useRef<HTMLDivElement>(null);
+  const isProtectInView = useInView(protectSectionRef, { once: true, amount: 0.2 });
   return (
     <main className="min-h-screen bg-[#111111] text-white selection:bg-[#F80090]/20 flex flex-col font-sans">
       {/* Hero Section */}
       <section 
-        className="relative w-full pt-24 md:pt-20 pb-12 md:pb-8 px-4 sm:px-6 md:px-12 flex justify-center items-center overflow-hidden min-h-screen lg:h-[calc(100vh/var(--desktop-scale,1))]"
+        className="relative w-full pt-24 pb-16 px-5 sm:px-6 md:px-12 flex justify-center items-start lg:items-center overflow-hidden min-h-screen lg:h-[calc(100vh/var(--desktop-scale,1))]"
       >
-        <div className="w-full max-w-[1440px] grid grid-cols-1 lg:grid-cols-[1fr_3fr_1fr] gap-8 xl:gap-12 h-full max-h-none lg:max-h-[850px] items-center">
+        {/* Mobile View (< lg) */}
+        <div className="block lg:hidden w-full max-w-[420px] mx-auto">
+          {/* Header */}
+          <div className="mb-6 text-left">
+            <p className="text-[11px] text-gray-500 uppercase tracking-widest mb-1.5 font-normal">CASE STUDY 1</p>
+            <h2 className="text-base font-bold uppercase tracking-wider text-gray-100">NAZR</h2>
+            <p className="text-xs text-gray-400 font-normal">Women safety Ecosystem</p>
+          </div>
+
+          {/* Banner Card */}
+          <div className="w-full aspect-[16/10] min-h-[220px] relative rounded-2xl overflow-hidden shadow-2xl bg-[#0a0a0a] flex flex-col justify-end mb-6">
+            <img
+              src="/images/projects/nazr/banner.png"
+              alt="Nazr Banner"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            {/* Dark gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none" />
+
+            <div className="relative z-10 w-full flex justify-between items-end gap-3 p-4">
+              {/* Left Headline */}
+              <h1 className="w-[58%] text-[clamp(1.1rem,4.5vw,1.35rem)] font-black text-white uppercase leading-[0.95] tracking-tight">
+                IT IS A LONG<br />ESTABLISHED FACT<br />THAT A READER
+              </h1>
+
+              {/* Right Text & Button */}
+              <div className="w-[42%] flex flex-col items-start gap-2">
+                <p className="text-[clamp(9px,2.4vw,10.5px)] font-semibold text-white leading-tight">
+                  It is a long established<br />
+                  fact that a reader will<br />
+                  be distracted
+                </p>
+                <button className="inline-flex items-center gap-1.5 bg-white hover:bg-gray-100 transition-colors text-black px-2.5 py-1.5 rounded-md text-[9.5px] font-bold whitespace-nowrap shadow-sm">
+                  <img src="/images/projects/nazr/owl.svg" alt="Owl Icon" className="w-3.5 h-3.5 object-contain" />
+                  Join Ecosystem
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider Line */}
+          <div className="w-full border-t border-[#222222] my-6" />
+
+          {/* Metadata: Industry & Duration */}
+          <div className="grid grid-cols-2 gap-4 mb-5">
+            <div>
+              <p className="text-xs text-gray-400 font-normal mb-2.5">Industry</p>
+              <div className="inline-flex px-4 py-2.5 bg-[#222222] text-xs font-semibold rounded-lg text-gray-300">
+                Women safety
+              </div>
+            </div>
+            <div>
+              <p className="text-xs text-gray-400 font-normal mb-2.5">Duration</p>
+              <div className="inline-flex px-4 py-2.5 bg-[#222222] text-xs font-semibold rounded-lg text-gray-300">
+                Ongoing
+              </div>
+            </div>
+          </div>
+
+          {/* Platforms */}
+          <div className="mb-8">
+            <p className="text-xs text-gray-400 font-normal mb-2.5">Platforms</p>
+            <div className="flex flex-wrap items-center gap-2">
+              {['Website', 'Shopify', 'Flutter', 'Backend'].map((platform, idx) => (
+                <span
+                  key={idx}
+                  className="inline-flex px-3.5 py-2.5 bg-[#222222] text-xs font-semibold rounded-lg text-gray-300"
+                >
+                  {platform}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Services List with Bullets */}
+          <div className="flex flex-col space-y-4 text-sm text-gray-400 font-normal">
+            {['Strategy', 'UX/UI', 'Development', 'Brand'].map((service, idx) => (
+              <div key={idx} className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-500 shrink-0" />
+                <span>{service}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop View (>= lg) */}
+        <div className="hidden lg:grid w-full max-w-[1440px] grid-cols-[1fr_3fr_1fr] gap-8 xl:gap-12 h-full max-h-[850px] items-center">
 
           {/* Left Column - Metadata */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-col gap-6 lg:gap-10 pt-2 lg:pt-4 xl:pt-12">
-            <div className="col-span-2 sm:col-span-1">
+          <div className="flex flex-col gap-6 lg:gap-10 pt-2 lg:pt-4 xl:pt-12">
+            <div>
               <p className="text-[clamp(10px,0.8vw+2px,12px)] text-gray-500 uppercase tracking-widest mb-2 lg:mb-4">CASE STUDY 1</p>
               <h2 className="text-[clamp(13px,0.8vw+3px,16px)] font-bold uppercase tracking-wide text-gray-200">NAZR</h2>
               <p className="text-[clamp(11px,0.6vw+4px,13px)] text-gray-400">Women safety Ecosystem</p>
@@ -34,7 +128,7 @@ export default function NazrProjectPage() {
 
             <div className="flex flex-col gap-2 lg:gap-3">
               <p className="text-[clamp(10px,0.8vw+2px,12px)] text-gray-500 uppercase tracking-widest">Platforms</p>
-              <div className="flex flex-wrap lg:flex-col items-start gap-2">
+              <div className="flex flex-col items-start gap-2">
                 <span className="px-3 py-1.5 bg-[#222] text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-md text-gray-300">Website</span>
                 <span className="px-3 py-1.5 bg-[#222] text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-md text-gray-300">Shopify</span>
                 <span className="px-3 py-1.5 bg-[#222] text-[clamp(10px,0.6vw+4px,12px)] font-semibold rounded-md text-gray-300">Flutter</span>
@@ -44,23 +138,23 @@ export default function NazrProjectPage() {
           </div>
 
           {/* Center Column - Banner */}
-          <div className="w-full min-h-[380px] sm:min-h-[440px] lg:max-h-[580px] aspect-auto lg:aspect-[904/587] relative rounded-[1.5rem] lg:rounded-[2rem] border-[1.5px] border-[#3b82f6]/40 overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.15)] flex flex-col justify-end">
+          <div className="w-full min-h-[380px] sm:min-h-[440px] lg:max-h-[580px] aspect-[904/587] relative rounded-[1.5rem] lg:rounded-[2rem] border-[1.5px] border-[#3b82f6]/40 overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.15)] flex flex-col justify-end">
             <img
               src="/images/projects/nazr/banner.png"
               alt="Nazr Banner"
               className="absolute inset-0 w-full h-full object-cover"
             />
             {/* Gradient Overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none"></div>
 
-            <div className="relative z-10 w-full flex flex-col md:flex-row justify-between items-start md:items-end gap-6 p-6 sm:p-8 md:p-12 xl:p-16">
+            <div className="relative z-10 w-full flex flex-row justify-between items-end gap-6 p-6 sm:p-8 md:p-12 xl:p-16">
               {/* Left Text */}
-              <h1 className="w-full md:w-[55%] text-[clamp(1.75rem,4vw+0.5rem,4rem)] font-black text-white uppercase leading-[0.95] tracking-tighter">
+              <h1 className="w-[55%] text-[clamp(1.75rem,4vw+0.5rem,4rem)] font-black text-white uppercase leading-[0.95] tracking-tighter">
                 IT IS A LONG<br />ESTABLISHED FACT<br />THAT A READER
               </h1>
 
               {/* Right Text & Button */}
-              <div className="w-full md:w-[40%] flex flex-col items-start gap-4 sm:gap-6">
+              <div className="w-[40%] flex flex-col items-start gap-4 sm:gap-6">
                 <p className="text-[clamp(1rem,1.3vw+0.4rem,1.5rem)] font-semibold text-white leading-tight">
                   It is a long established<br />
                   fact that a reader will<br />
@@ -75,12 +169,12 @@ export default function NazrProjectPage() {
           </div>
 
           {/* Right Column - Services */}
-          <div className="flex flex-row flex-wrap lg:flex-col justify-start lg:justify-end pb-2 lg:pb-8 xl:pb-16 pl-0 lg:pl-12 gap-3 lg:gap-4">
-            <ul className="flex flex-row flex-wrap lg:flex-col gap-3 lg:gap-4 text-[clamp(11px,0.6vw+4px,13px)] tracking-widest text-gray-500 font-medium uppercase">
-              <li className="hover:text-white transition-colors cursor-default bg-[#1a1a1a] lg:bg-transparent px-3 py-1 lg:px-0 lg:py-0 rounded-sm">Strategy</li>
-              <li className="hover:text-white transition-colors cursor-default bg-[#1a1a1a] lg:bg-transparent px-3 py-1 lg:px-0 lg:py-0 rounded-sm">UX/UI</li>
-              <li className="hover:text-white transition-colors cursor-default bg-[#1a1a1a] lg:bg-transparent px-3 py-1 lg:px-0 lg:py-0 rounded-sm">Development</li>
-              <li className="hover:text-white transition-colors cursor-default bg-[#1a1a1a] lg:bg-transparent px-3 py-1 lg:px-0 lg:py-0 rounded-sm">Brand</li>
+          <div className="flex flex-col justify-end pb-2 lg:pb-8 xl:pb-16 pl-0 lg:pl-12 gap-3 lg:gap-4">
+            <ul className="flex flex-col gap-3 lg:gap-4 text-[clamp(11px,0.6vw+4px,13px)] tracking-widest text-gray-500 font-medium uppercase">
+              <li className="hover:text-white transition-colors cursor-default">Strategy</li>
+              <li className="hover:text-white transition-colors cursor-default">UX/UI</li>
+              <li className="hover:text-white transition-colors cursor-default">Development</li>
+              <li className="hover:text-white transition-colors cursor-default">Brand</li>
             </ul>
           </div>
 
@@ -89,6 +183,7 @@ export default function NazrProjectPage() {
 
       {/* Already Existed Section */}
       <section 
+        ref={alreadyExistedRef}
         className="relative w-full flex justify-center items-center overflow-hidden min-h-screen md:h-[calc(100vh/var(--desktop-scale,1))] py-16 md:py-0"
       >
         {/* Background Image */}
@@ -107,34 +202,64 @@ export default function NazrProjectPage() {
 
           {/* Left Column */}
           <div className="flex flex-col gap-8 sm:gap-16 md:gap-24 text-right w-[47%] sm:w-[42%] md:w-[35%] lg:w-[30%]">
-            <div className="flex flex-col gap-1">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.6, y: 15 }}
+              animate={isAlreadyExistedInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.6, y: 15 }}
+              transition={{ type: "spring", stiffness: 300, damping: 22, delay: 0.1 }}
+              className="flex flex-col gap-1 origin-right"
+            >
               <span className="text-[clamp(9px,0.6vw+4px,13px)] font-semibold text-gray-300">Pepper sprays</span>
               <span className="text-[clamp(0.85rem,2vw+0.3rem,1.875rem)] font-bold uppercase tracking-wide text-pink-200 drop-shadow-lg leading-tight">ALREADY EXISTED</span>
-            </div>
-            <div className="flex flex-col gap-1">
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.6, y: 15 }}
+              animate={isAlreadyExistedInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.6, y: 15 }}
+              transition={{ type: "spring", stiffness: 300, damping: 22, delay: 1.1 }}
+              className="flex flex-col gap-1 origin-right"
+            >
               <span className="text-[clamp(9px,0.6vw+4px,13px)] font-semibold text-gray-300">Emergency helplines</span>
               <span className="text-[clamp(0.85rem,2vw+0.3rem,1.875rem)] font-bold uppercase tracking-wide text-pink-200 drop-shadow-lg leading-tight">ALREADY EXISTED</span>
-            </div>
-            <div className="flex flex-col gap-1">
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.6, y: 15 }}
+              animate={isAlreadyExistedInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.6, y: 15 }}
+              transition={{ type: "spring", stiffness: 300, damping: 22, delay: 2.1 }}
+              className="flex flex-col gap-1 origin-right"
+            >
               <span className="text-[clamp(9px,0.6vw+4px,13px)] font-semibold text-gray-300">Safety apps</span>
               <span className="text-[clamp(0.85rem,2vw+0.3rem,1.875rem)] font-bold uppercase tracking-wide text-pink-200 drop-shadow-lg leading-tight">ALREADY EXISTED</span>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Column */}
           <div className="flex flex-col gap-8 sm:gap-16 md:gap-24 text-left w-[47%] sm:w-[42%] md:w-[35%] lg:w-[30%]">
-            <div className="flex flex-col gap-1">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.6, y: 15 }}
+              animate={isAlreadyExistedInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.6, y: 15 }}
+              transition={{ type: "spring", stiffness: 300, damping: 22, delay: 0.6 }}
+              className="flex flex-col gap-1 origin-left"
+            >
               <span className="text-[clamp(9px,0.6vw+4px,13px)] font-semibold text-gray-300">Self-defence classes</span>
               <span className="text-[clamp(0.85rem,2vw+0.3rem,1.875rem)] font-bold uppercase tracking-wide text-pink-100 lg:text-pink-200 drop-shadow-lg leading-tight">ALREADY EXISTED</span>
-            </div>
-            <div className="flex flex-col gap-1">
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.6, y: 15 }}
+              animate={isAlreadyExistedInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.6, y: 15 }}
+              transition={{ type: "spring", stiffness: 300, damping: 22, delay: 1.6 }}
+              className="flex flex-col gap-1 origin-left"
+            >
               <span className="text-[clamp(9px,0.6vw+4px,13px)] font-semibold text-gray-300">CCTV</span>
               <span className="text-[clamp(0.85rem,2vw+0.3rem,1.875rem)] font-bold uppercase tracking-wide text-pink-100 lg:text-pink-200 drop-shadow-lg leading-tight">ALREADY EXISTED</span>
-            </div>
-            <div className="flex flex-col gap-1">
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.6, y: 15 }}
+              animate={isAlreadyExistedInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.6, y: 15 }}
+              transition={{ type: "spring", stiffness: 300, damping: 22, delay: 2.6 }}
+              className="flex flex-col gap-1 origin-left"
+            >
               <span className="text-[clamp(9px,0.6vw+4px,13px)] font-semibold text-gray-300">Laws</span>
               <span className="text-[clamp(0.85rem,2vw+0.3rem,1.875rem)] font-bold uppercase tracking-wide text-pink-100 lg:text-pink-200 drop-shadow-lg leading-tight">ALREADY EXISTED</span>
-            </div>
+            </motion.div>
           </div>
 
         </div>
@@ -265,7 +390,10 @@ export default function NazrProjectPage() {
       </section>
 
       {/* Protection Connected System Section */}
-      <section className="relative w-full bg-[#111111] flex flex-col items-center pt-16 pb-24 overflow-hidden">
+      <section 
+        ref={protectSectionRef}
+        className="relative w-full bg-[#111111] flex flex-col items-center pt-16 pb-24 overflow-hidden"
+      >
         
         {/* Title */}
         <div className="text-center z-20 px-4 mb-8">
@@ -299,7 +427,7 @@ export default function NazrProjectPage() {
           <img 
             src="/images/projects/nazr/protect/sos-mobile.png" 
             alt="Mobile App" 
-            className="absolute top-[18%] left-[14%] w-[22%] object-contain z-30 rotate-[8deg] drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+            className="absolute top-[18%] left-[14%] w-[22%] object-contain z-30 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
           />
 
           {/* Pink Box */}
@@ -326,72 +454,263 @@ export default function NazrProjectPage() {
           {/* --- Text Labels & Connecting Lines --- */}
           
           {/* Software */}
-          <div className="absolute top-[22%] left-[4%] z-40">
-            <div className="flex items-start gap-2">
-              <div className="flex flex-col text-left">
-                <h4 className="text-[#F80090] font-bold text-[clamp(12px,1.1vw,18px)] tracking-widest uppercase mb-1">Software</h4>
-                <p className="text-gray-300 text-[clamp(10px,0.75vw,13px)] leading-relaxed">
-                  Intelligent app that<br/>anticipates, alerts<br/>and protects.
-                </p>
-              </div>
-              <div className="relative mt-1">
-                <div className="w-1.5 h-1.5 bg-[#F80090] rounded-full shadow-[0_0_10px_#F80090]" />
-                {/* Connecting Line (Right then Down) */}
-                <div className="absolute top-[3px] left-[3px] w-[5vw] h-[4vw] border-t border-r border-[#F80090] rounded-tr-xl opacity-60 pointer-events-none" />
-              </div>
-            </div>
+          <div className="absolute top-[22%] left-[4%] z-40 flex items-start gap-2">
+            <motion.div 
+              initial={{ opacity: 0, x: -12 }}
+              animate={isProtectInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -12 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 2.1 }}
+              className="flex flex-col text-left"
+            >
+              <h4 className="text-[#F80090] font-bold text-[clamp(12px,1.1vw,18px)] tracking-widest uppercase mb-1">Software</h4>
+              <p className="text-gray-300 text-[clamp(10px,0.75vw,13px)] leading-relaxed">
+                Intelligent app that<br/>anticipates, alerts<br/>and protects.
+              </p>
+            </motion.div>
+            <svg className="w-[5vw] h-[4vw] overflow-visible pointer-events-none shrink-0 mt-1" viewBox="0 0 70 55" fill="none">
+              <motion.path
+                d="M 6 6 L 50 6 Q 68 6 68 24 L 68 55"
+                stroke="#F80090"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                className="drop-shadow-[0_0_6px_#F80090]"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={isProtectInView ? { pathLength: 1, opacity: 0.8 } : { pathLength: 0, opacity: 0 }}
+                transition={{ duration: 0.6, ease: "easeInOut", delay: 1.5 }}
+              />
+              <motion.circle
+                cx="6"
+                cy="6"
+                r="3.5"
+                fill="#F80090"
+                className="drop-shadow-[0_0_8px_#F80090]"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20, delay: 1.4 }}
+                style={{ transformOrigin: "6px 6px" }}
+              />
+            </svg>
           </div>
 
-          {/* Features list next to mobile */}
-          <div className="absolute top-[55%] left-[6%] z-40 flex flex-col gap-[2vw] text-right text-[clamp(10px,0.8vw,13px)] text-gray-300">
-            {['Real time\nLocation', 'Smart\nAlerts', 'Voice\nDetection', 'Trusted\nCircle', 'One-tap\nEmergency'].map((text, i) => (
-              <div key={i} className="flex items-center justify-end gap-2">
-                <span className="whitespace-pre-line leading-tight">{text}</span>
-                <div className="relative flex items-center">
-                  <div className="w-1.5 h-1.5 bg-[#F80090] rounded-full shadow-[0_0_10px_#F80090] z-10" />
-                  {/* Horizontal Connecting Line */}
-                  <div className="absolute top-[3px] left-[3px] w-[2.5vw] border-t border-[#F80090] opacity-60 pointer-events-none" />
-                </div>
-              </div>
+          {/* Features Connecting Lines on Desktop (viewBox 0 0 1440 850) */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none z-35 overflow-visible" viewBox="0 0 1440 850" fill="none">
+            {/* Feature 1 Line & Dot */}
+            <motion.path
+              d="M 155 305 L 185 305 Q 215 305 232 315"
+              stroke="#F80090"
+              strokeWidth="2"
+              strokeLinecap="round"
+              className="drop-shadow-[0_0_8px_#F80090]"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
+              transition={{ duration: 0.5, delay: 2.8 }}
+            />
+            <motion.circle
+              cx="155"
+              cy="305"
+              r="4.5"
+              fill="#F80090"
+              className="drop-shadow-[0_0_10px_#F80090]"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 350, damping: 20, delay: 2.7 }}
+            />
+
+            {/* Feature 2 Line & Dot */}
+            <motion.path
+              d="M 155 375 L 195 375 Q 230 375 251 387"
+              stroke="#F80090"
+              strokeWidth="2"
+              strokeLinecap="round"
+              className="drop-shadow-[0_0_8px_#F80090]"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
+              transition={{ duration: 0.5, delay: 3.0 }}
+            />
+            <motion.circle
+              cx="155"
+              cy="375"
+              r="4.5"
+              fill="#F80090"
+              className="drop-shadow-[0_0_10px_#F80090]"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 350, damping: 20, delay: 2.9 }}
+            />
+
+            {/* Feature 3 Line & Dot */}
+            <motion.path
+              d="M 155 440 L 205 440 Q 245 440 268 453"
+              stroke="#F80090"
+              strokeWidth="2"
+              strokeLinecap="round"
+              className="drop-shadow-[0_0_8px_#F80090]"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
+              transition={{ duration: 0.5, delay: 3.2 }}
+            />
+            <motion.circle
+              cx="155"
+              cy="440"
+              r="4.5"
+              fill="#F80090"
+              className="drop-shadow-[0_0_10px_#F80090]"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 350, damping: 20, delay: 3.1 }}
+            />
+
+            {/* Feature 4 Line & Dot */}
+            <motion.path
+              d="M 155 510 L 215 510 Q 260 510 287 525"
+              stroke="#F80090"
+              strokeWidth="2"
+              strokeLinecap="round"
+              className="drop-shadow-[0_0_8px_#F80090]"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
+              transition={{ duration: 0.5, delay: 3.4 }}
+            />
+            <motion.circle
+              cx="155"
+              cy="510"
+              r="4.5"
+              fill="#F80090"
+              className="drop-shadow-[0_0_10px_#F80090]"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 350, damping: 20, delay: 3.3 }}
+            />
+
+            {/* Feature 5 Line & Dot */}
+            <motion.path
+              d="M 155 575 L 225 575 Q 275 575 304 591"
+              stroke="#F80090"
+              strokeWidth="2"
+              strokeLinecap="round"
+              className="drop-shadow-[0_0_8px_#F80090]"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
+              transition={{ duration: 0.5, delay: 3.6 }}
+            />
+            <motion.circle
+              cx="155"
+              cy="575"
+              r="4.5"
+              fill="#F80090"
+              className="drop-shadow-[0_0_10px_#F80090]"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 350, damping: 20, delay: 3.5 }}
+            />
+          </svg>
+
+          {/* Features Labels on Desktop */}
+          <div className="absolute inset-0 pointer-events-none z-40">
+            {[
+              { title: 'Real time\nLocation', top: '34%' },
+              { title: 'Smart\nAlerts', top: '42%' },
+              { title: 'Voice\nDetection', top: '50%' },
+              { title: 'Trusted\nCircle', top: '58%' },
+              { title: 'One-tap\nEmergency', top: '66%' }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                style={{ position: 'absolute', top: item.top, left: '2.5%', width: '7%' }}
+                className="text-right"
+                initial={{ opacity: 0, x: -8 }}
+                animate={isProtectInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }}
+                transition={{ duration: 0.35, ease: 'easeOut', delay: 2.8 + i * 0.2 }}
+              >
+                <span className="text-[clamp(10px,0.8vw,13px)] text-gray-300 whitespace-pre-line leading-tight block">
+                  {item.title}
+                </span>
+              </motion.div>
             ))}
           </div>
 
           {/* Hardware */}
-          <div className="absolute top-[8%] left-[40%] z-40">
-            <div className="flex items-start gap-2">
-              <div className="flex flex-col text-left">
-                <h4 className="text-[#F80090] font-bold text-[clamp(12px,1.1vw,18px)] tracking-widest uppercase mb-1">Hardware</h4>
-                <p className="text-gray-300 text-[clamp(10px,0.75vw,13px)] leading-relaxed">
-                  Intelligent app that<br/>anticipates, alerts<br/>and protects.
-                </p>
-              </div>
-              <div className="relative mt-1">
-                <div className="w-1.5 h-1.5 bg-[#F80090] rounded-full shadow-[0_0_10px_#F80090]" />
-                {/* Connecting Line (Right then Down) */}
-                <div className="absolute top-[3px] left-[3px] w-[8vw] h-[5vw] border-t border-r border-[#F80090] rounded-tr-xl opacity-60 pointer-events-none" />
-              </div>
-            </div>
+          <div className="absolute top-[8%] left-[40%] z-40 flex items-start gap-2">
+            <motion.div 
+              initial={{ opacity: 0, x: -12 }}
+              animate={isProtectInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -12 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.8 }}
+              className="flex flex-col text-left"
+            >
+              <h4 className="text-[#F80090] font-bold text-[clamp(12px,1.1vw,18px)] tracking-widest uppercase mb-1">Hardware</h4>
+              <p className="text-gray-300 text-[clamp(10px,0.75vw,13px)] leading-relaxed">
+                Intelligent app that<br/>anticipates, alerts<br/>and protects.
+              </p>
+            </motion.div>
+            <svg className="w-[8vw] h-[5vw] overflow-visible pointer-events-none shrink-0 mt-1" viewBox="0 0 100 65" fill="none">
+              <motion.path
+                d="M 6 6 L 80 6 Q 98 6 98 24 L 98 65"
+                stroke="#F80090"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                className="drop-shadow-[0_0_6px_#F80090]"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={isProtectInView ? { pathLength: 1, opacity: 0.8 } : { pathLength: 0, opacity: 0 }}
+                transition={{ duration: 0.6, ease: "easeInOut", delay: 0.2 }}
+              />
+              <motion.circle
+                cx="6"
+                cy="6"
+                r="3.5"
+                fill="#F80090"
+                className="drop-shadow-[0_0_8px_#F80090]"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.1 }}
+                style={{ transformOrigin: "6px 6px" }}
+              />
+            </svg>
           </div>
 
           {/* Trusted Circle (Pointing to bottom of phone) */}
-          <div className="absolute top-[85%] left-[28%] z-40">
-            <div className="flex items-start gap-2">
-              <div className="relative mt-1">
-                <div className="w-1.5 h-1.5 bg-[#F80090] rounded-full shadow-[0_0_10px_#F80090]" />
-                {/* Connecting Line (Left then Up) */}
-                <div className="absolute bottom-[3px] right-[3px] w-[3vw] h-[5vw] border-b border-l border-[#F80090] rounded-bl-xl opacity-60 pointer-events-none" />
-              </div>
-              <div className="flex flex-col text-left">
-                <h4 className="text-[#F80090] font-bold text-[clamp(12px,1.1vw,18px)] tracking-widest uppercase mb-1">Trusted Circle</h4>
-                <p className="text-gray-300 text-[clamp(10px,0.75vw,13px)] leading-relaxed">
-                  Intelligent app that<br/>anticipates, alerts<br/>and protects.
-                </p>
-              </div>
-            </div>
+          <div className="absolute top-[85%] left-[24.5%] z-40 flex items-start">
+            <svg className="w-[3.5vw] h-[5vw] -mt-[3.5vw] overflow-visible pointer-events-none shrink-0" viewBox="0 0 52 60" fill="none">
+              <motion.path
+                d="M 2 0 L 2 45 Q 2 57 14 57 L 48 57"
+                stroke="#F80090"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                className="drop-shadow-[0_0_6px_#F80090]"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={isProtectInView ? { pathLength: 1, opacity: 0.8 } : { pathLength: 0, opacity: 0 }}
+                transition={{ duration: 0.6, ease: "easeInOut", delay: 4.1 }}
+              />
+              <motion.circle
+                cx="48"
+                cy="57"
+                r="3.5"
+                fill="#F80090"
+                className="drop-shadow-[0_0_8px_#F80090]"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20, delay: 4.0 }}
+                style={{ transformOrigin: "48px 57px" }}
+              />
+            </svg>
+            <motion.div 
+              initial={{ opacity: 0, x: -12 }}
+              animate={isProtectInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -12 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 4.6 }}
+              className="flex flex-col text-left pl-2 pt-[0.2vw]"
+            >
+              <h4 className="text-[#F80090] font-bold text-[clamp(12px,1.1vw,18px)] tracking-widest uppercase mb-1">Trusted Circle</h4>
+              <p className="text-gray-300 text-[clamp(10px,0.75vw,13px)] leading-relaxed">
+                Intelligent app that<br/>anticipates, alerts<br/>and protects.
+              </p>
+            </motion.div>
           </div>
 
           {/* Right Text Block */}
-          <div className="absolute top-[50%] right-[8%] w-[25%] z-40 flex flex-col gap-6 text-left">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={isProtectInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 4.9 }}
+            className="absolute top-[50%] right-[8%] w-[25%] z-40 flex flex-col gap-6 text-left"
+          >
             <h3 className="text-[clamp(1rem,1.5vw,1.75rem)] text-gray-300 leading-snug tracking-wide">
               Hardware<br/>
               Software<br/>
@@ -402,41 +721,329 @@ export default function NazrProjectPage() {
             <p className="text-[clamp(11px,0.85vw,14px)] text-gray-400 leading-loose">
               The founders approached Smrkonova with one ambitious idea. The goal wasn't another eCommerce site. It wasn't another mobile app. The goal was to engineer India's next women's safety ecosystem — where hardware, software, emergency communication, technology and trust all work together.
             </p>
-          </div>
+          </motion.div>
 
         </div>
 
-        {/* Mobile Fallback - Stacks neatly on small screens */}
-        <div className="w-full flex flex-col items-center gap-12 mt-8 px-6 md:hidden">
-          <img src="/images/projects/nazr/protect/sos-mobile.png" className="w-[60%] rotate-6 drop-shadow-2xl" />
-          <div className="text-center">
-            <h4 className="text-[#F80090] font-bold text-[clamp(14px,1vw+10px,18px)] mb-2">Software</h4>
-            <p className="text-gray-300 text-[clamp(12px,0.6vw+6px,14px)]">Intelligent app that anticipates,<br/>alerts and protects.</p>
-          </div>
+        {/* Mobile View (< md) - Matching Figma Design */}
+        <div className="w-full max-w-[420px] mx-auto flex flex-col items-center relative text-white px-2 mt-4 md:hidden overflow-hidden">
           
-          <div className="flex gap-4">
-            <img src="/images/projects/nazr/protect/pink.png" className="w-[45%] -rotate-6 drop-shadow-xl" />
-            <img src="/images/projects/nazr/protect/blue.png" className="w-[45%] rotate-6 drop-shadow-xl" />
-          </div>
-          <div className="text-center">
-            <h4 className="text-[#F80090] font-bold text-[clamp(14px,1vw+10px,18px)] mb-2">Hardware</h4>
-            <p className="text-gray-300 text-[clamp(12px,0.6vw+6px,14px)]">Intelligent app that anticipates,<br/>alerts and protects.</p>
+          {/* Upper Composite Section: Girl + NAZR Script */}
+          <div className="relative w-full flex flex-col items-center pt-2">
+            
+            {/* Girl Image with subtle blend */}
+            <div className="relative w-full max-w-[340px] flex justify-center">
+              <motion.img 
+                src="/images/projects/nazr/protect/girl.png" 
+                alt="Girl" 
+                className="w-[88%] object-cover grayscale contrast-125 opacity-80 pointer-events-none"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={isProtectInView ? { opacity: 0.8, scale: 1 } : { opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              />
+              {/* Dark Vignette / Blend Overlays */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-[#111111]/70 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#111111] via-transparent to-transparent pointer-events-none" />
+            </div>
+
+            {/* Vibrant Blue NAZR Script across the girl */}
+            <motion.div 
+              className="absolute top-[130px] sm:top-[150px] left-1/2 -translate-x-1/2 z-20 pointer-events-none w-full text-center"
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={isProtectInView ? { opacity: 0.9, scale: 1 } : { opacity: 0, scale: 0.85 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              <span 
+                className="text-[clamp(4.5rem,19vw,5.75rem)] font-black italic text-[#2563eb] drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)] tracking-tighter" 
+                style={{ fontFamily: 'cursive' }}
+              >
+                NAZR
+              </span>
+            </motion.div>
+
           </div>
 
-          <img src="/images/projects/nazr/protect/spray.png" className="w-[20%] rotate-12 drop-shadow-2xl" />
-          <div className="text-center">
-            <h4 className="text-[#F80090] font-bold text-[clamp(14px,1vw+10px,18px)] mb-2">Trusted Circle</h4>
-            <p className="text-gray-300 text-[clamp(12px,0.6vw+6px,14px)]">Intelligent app that anticipates,<br/>alerts and protects.</p>
+          {/* Unified Phone & Annotations Stage - Exact Figma Coordinates */}
+          <div className="relative w-[360px] max-w-full h-[540px] mx-auto mt-[-30px] mb-4">
+            
+            {/* SVG Connecting Lines & Glowing Dots Overlay */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none z-30 overflow-visible" viewBox="0 0 360 540" fill="none">
+              
+              {/* 1. Software Connecting Line & Dot */}
+              <motion.path
+                d="M 105 38 L 158 38 Q 168 38 168 48 L 168 95"
+                stroke="#F80090"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                className="drop-shadow-[0_0_6px_#F80090]"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              />
+              <motion.circle
+                cx="105"
+                cy="38"
+                r="3.5"
+                fill="#F80090"
+                className="drop-shadow-[0_0_8px_#F80090]"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.4 }}
+              />
+
+              {/* 2. Feature 1 Line & Dot (Real time Location) */}
+              <motion.path
+                d="M 56 195 L 68 195 Q 80 195 86 208"
+                stroke="#F80090"
+                strokeWidth="1.3"
+                strokeLinecap="round"
+                className="drop-shadow-[0_0_5px_#F80090]"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
+                transition={{ duration: 0.4, delay: 1.2 }}
+              />
+              <motion.circle
+                cx="56"
+                cy="195"
+                r="3"
+                fill="#F80090"
+                className="drop-shadow-[0_0_6px_#F80090]"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 350, damping: 20, delay: 1.1 }}
+              />
+
+              {/* 3. Feature 2 Line & Dot (Smart Alerts) */}
+              <motion.path
+                d="M 56 248 L 74 248 Q 92 248 100 259"
+                stroke="#F80090"
+                strokeWidth="1.3"
+                strokeLinecap="round"
+                className="drop-shadow-[0_0_5px_#F80090]"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
+                transition={{ duration: 0.4, delay: 1.4 }}
+              />
+              <motion.circle
+                cx="56"
+                cy="248"
+                r="3"
+                fill="#F80090"
+                className="drop-shadow-[0_0_6px_#F80090]"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 350, damping: 20, delay: 1.3 }}
+              />
+
+              {/* 4. Feature 3 Line & Dot (Voice Detection) */}
+              <motion.path
+                d="M 56 300 L 80 300 Q 104 300 112 306"
+                stroke="#F80090"
+                strokeWidth="1.3"
+                strokeLinecap="round"
+                className="drop-shadow-[0_0_5px_#F80090]"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
+                transition={{ duration: 0.4, delay: 1.6 }}
+              />
+              <motion.circle
+                cx="56"
+                cy="300"
+                r="3"
+                fill="#F80090"
+                className="drop-shadow-[0_0_6px_#F80090]"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 350, damping: 20, delay: 1.5 }}
+              />
+
+              {/* 5. Feature 4 Line & Dot (Trusted Circle) */}
+              <motion.path
+                d="M 56 352 L 86 352 Q 118 352 126 357"
+                stroke="#F80090"
+                strokeWidth="1.3"
+                strokeLinecap="round"
+                className="drop-shadow-[0_0_5px_#F80090]"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
+                transition={{ duration: 0.4, delay: 1.8 }}
+              />
+              <motion.circle
+                cx="56"
+                cy="352"
+                r="3"
+                fill="#F80090"
+                className="drop-shadow-[0_0_6px_#F80090]"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 350, damping: 20, delay: 1.7 }}
+              />
+
+              {/* 6. Feature 5 Line & Dot (One-tap Emergency) */}
+              <motion.path
+                d="M 56 404 L 92 404 Q 130 404 138 404"
+                stroke="#F80090"
+                strokeWidth="1.3"
+                strokeLinecap="round"
+                className="drop-shadow-[0_0_5px_#F80090]"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
+                transition={{ duration: 0.4, delay: 2.0 }}
+              />
+              <motion.circle
+                cx="56"
+                cy="404"
+                r="3"
+                fill="#F80090"
+                className="drop-shadow-[0_0_6px_#F80090]"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 350, damping: 20, delay: 1.9 }}
+              />
+
+              {/* 7. Trusted Circle Bottom-Right Line & Dot */}
+              <motion.path
+                d="M 248 416 L 248 454"
+                stroke="#F80090"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                className="drop-shadow-[0_0_6px_#F80090]"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
+                transition={{ duration: 0.5, delay: 2.3 }}
+              />
+              <motion.circle
+                cx="248"
+                cy="416"
+                r="3.5"
+                fill="#F80090"
+                className="drop-shadow-[0_0_8px_#F80090]"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20, delay: 2.2 }}
+              />
+            </svg>
+
+            {/* Software Callout (Top-Left) */}
+            <motion.div 
+              className="absolute left-[16px] top-[15px] z-30 flex flex-col text-left max-w-[125px]"
+              initial={{ opacity: 0, x: -12 }}
+              animate={isProtectInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -12 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              <h4 className="text-[#F80090] font-bold text-[13px] tracking-widest uppercase mb-1">
+                SOFTWARE
+              </h4>
+              <p className="text-gray-300 text-[10px] leading-tight">
+                Intelligent app that<br/>anticipates, alerts<br/>and protects.
+              </p>
+            </motion.div>
+
+            {/* Phone Mockup - Exact Figma Properties */}
+            <motion.img 
+              src="/images/projects/nazr/protect/sos-mobile.png" 
+              alt="Mobile App" 
+              style={{
+                position: 'absolute',
+                width: '225px',
+                height: '342.60px',
+                top: '92.46px',
+                left: '65.02px',
+                opacity: 1
+              }}
+              className="object-contain z-20 pointer-events-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.85)]"
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={isProtectInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
+            />
+
+            {/* 5 Feature Labels on the Left */}
+            <div className="absolute left-[4px] top-0 z-30 flex flex-col pointer-events-none">
+              {[
+                { title: 'Real time\nLocation', top: 185 },
+                { title: 'Smart\nAlerts', top: 238 },
+                { title: 'Voice\nDetection', top: 290 },
+                { title: 'Trusted\nCircle', top: 342 },
+                { title: 'One-tap\nEmergency', top: 394 }
+              ].map((item, i) => (
+                <motion.div 
+                  key={i} 
+                  style={{ position: 'absolute', top: `${item.top}px`, left: 0, width: '50px' }}
+                  className="text-right"
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={isProtectInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }}
+                  transition={{ duration: 0.4, delay: 1.2 + i * 0.18 }}
+                >
+                  <span className="text-[9.5px] font-medium text-gray-300 leading-tight whitespace-pre-line block">
+                    {item.title}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Trusted Circle Callout (Bottom-Right) */}
+            <motion.div 
+              className="absolute left-[195px] top-[458px] z-30 flex flex-col text-left max-w-[145px]"
+              initial={{ opacity: 0, y: 8 }}
+              animate={isProtectInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+              transition={{ duration: 0.5, delay: 2.5 }}
+            >
+              <h4 className="text-[#F80090] font-bold text-[13px] tracking-widest uppercase mb-1">
+                TRUSTED CIRCLE
+              </h4>
+              <p className="text-gray-300 text-[10px] leading-tight">
+                Intelligent app that<br/>anticipates, alerts<br/>and protects.
+              </p>
+            </motion.div>
+
           </div>
 
-          <div className="text-center mt-10">
-            <h3 className="text-[clamp(1.25rem,2vw+0.5rem,1.5rem)] text-gray-300 leading-snug tracking-wide mb-6">
-              Hardware<br/>Software<br/>Network<br/>All working as <span className="text-[#F80090] font-bold">ONE</span>
+          {/* Hardware Row: Pink Spray + Pink Box + Blue Box */}
+          <motion.div 
+            className="flex items-center justify-center gap-2.5 w-full max-w-[360px] my-8 px-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isProtectInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.7, delay: 2.7 }}
+          >
+            {/* Pepper Spray */}
+            <img 
+              src="/images/projects/nazr/protect/spray.png" 
+              alt="Pepper Spray" 
+              className="w-[22%] max-w-[75px] object-contain rotate-[12deg] drop-shadow-2xl hover:scale-105 transition-transform"
+            />
+            {/* Pink Box */}
+            <img 
+              src="/images/projects/nazr/protect/pink.png" 
+              alt="Pink Box" 
+              className="w-[38%] max-w-[130px] object-contain -rotate-[8deg] drop-shadow-2xl hover:scale-105 transition-transform"
+            />
+            {/* Blue Box */}
+            <img 
+              src="/images/projects/nazr/protect/blue.png" 
+              alt="Blue Box" 
+              className="w-[38%] max-w-[130px] object-contain rotate-[10deg] drop-shadow-2xl hover:scale-105 transition-transform"
+            />
+          </motion.div>
+
+          {/* Bottom Headline & Narrative Text Block (Left-Aligned) */}
+          <motion.div 
+            className="w-full max-w-[360px] flex flex-col text-left px-3 pt-4 pb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isProtectInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.7, delay: 3.0 }}
+          >
+            <h3 className="text-[20px] font-normal text-gray-200 leading-[1.3] tracking-wide mb-5">
+              Hardware<br/>
+              Software<br/>
+              Network<br/>
+              All working as<br/>
+              <span className="text-[#F80090] font-bold">ONE</span>
             </h3>
-            <p className="text-[clamp(11px,0.6vw+5px,13px)] text-gray-400 leading-loose">
-              The founders approached Smrkonova with one ambitious idea...
+            <p className="text-[12px] text-gray-400 leading-relaxed font-normal">
+              The founders approached Smrkonova with one ambitious idea. The goal wasn&apos;t another eCommerce site. It wasn&apos;t another mobile app. The goal was to engineer India&apos;s next women&apos;s safety ecosystem — where hardware, software, emergency communication, technology and trust all work together.
             </p>
-          </div>
+          </motion.div>
+
         </div>
 
       </section>
@@ -576,15 +1183,95 @@ export default function NazrProjectPage() {
       <section className="relative w-full bg-[#111111] pt-32 pb-40 px-4 md:px-8 overflow-visible">
         
         {/* Title */}
-        <div className="text-center mb-24 relative z-10">
-          <h2 className="text-[clamp(1.85rem,4vw+0.5rem,4rem)] font-thin text-gray-300 tracking-widest uppercase leading-[1.2]">
-            FEATURES DESIGNED AROUND<br/>
-            <span className="font-black text-[#F80090]">REAL SITUATIONS</span>
+        <div className="text-center mb-16 md:mb-24 relative z-10 px-4">
+          <h2 className="text-center uppercase font-sans">
+            <span className="block font-thin text-[24px] leading-[28px] tracking-[0%] md:text-[clamp(1.85rem,4vw+0.5rem,4rem)] md:leading-[1.2] md:tracking-widest text-gray-300">
+              FEATURES DESIGNED AROUND
+            </span>
+            <span className="block font-black text-[#F80090] text-[24px] leading-[28px] tracking-[0%] md:text-[clamp(1.85rem,4vw+0.5rem,4rem)] md:leading-[1.2] md:tracking-widest">
+              REAL SITUATIONS
+            </span>
           </h2>
         </div>
 
-        {/* Sticky Cards Container */}
-        <div className="relative w-full max-w-[1200px] mx-auto flex flex-col">
+        {/* Mobile Cards Container (block md:hidden with sticky stacking animation) */}
+        <div className="relative w-full flex flex-col items-center md:hidden pb-16">
+          {[
+            {
+              num: 1,
+              title: "A WOMAN IS WALKING\nHOME AFTER WORK.",
+              desc: "Shield Mode continuously checks whether she is safe. If she doesn't respond, guardians are automatically alerted."
+            },
+            {
+              num: 2,
+              title: "TRAVELLING\nALONE IN A CAB",
+              desc: "Shield Mode continuously checks whether she is safe. If she doesn't respond, guardians are automatically alerted."
+            },
+            {
+              num: 3,
+              title: "UNABLE TO\nUNLOCK THE PHONE",
+              desc: "Shield Mode continuously checks whether she is safe. If she doesn't respond, guardians are automatically alerted."
+            },
+            {
+              num: 4,
+              title: "DON'T KNOW\nWHAT'S HAPPENING",
+              desc: "Shield Mode continuously checks whether she is safe. If she doesn't respond, guardians are automatically alerted."
+            }
+          ].map((card, i) => (
+            <div 
+              key={card.num}
+              className="sticky w-[358px] max-w-[calc(100vw-32px)] h-[539px] rounded-[32px] overflow-hidden bg-black flex flex-col justify-between shadow-[0_-10px_40px_rgba(0,0,0,0.8)] border border-neutral-800/80 shrink-0 transition-all duration-500"
+              style={{ 
+                top: `${8 + i * 2}vh`,
+                marginBottom: i === 3 ? '55vh' : '40vh',
+                zIndex: 20 + i,
+                opacity: 1, 
+                transform: 'rotate(0deg)' 
+              }}
+            >
+              {/* Top Text Area */}
+              <div className="px-6 pt-7 pb-3 flex flex-col text-left">
+                {/* Title */}
+                <h3 className="text-[17px] sm:text-[18px] font-bold text-white uppercase leading-[1.25] tracking-tight whitespace-pre-line">
+                  {card.title}
+                </h3>
+                
+                {/* Description */}
+                <p className="text-[11px] text-neutral-400 leading-relaxed mt-2.5 mb-4 font-normal">
+                  {card.desc}
+                </p>
+
+                {/* 3 Status Items */}
+                <div className="grid grid-cols-3 gap-2 pt-1">
+                  <div className="flex flex-col text-left">
+                    <span className="text-[9.5px] text-neutral-400 font-semibold tracking-wider uppercase leading-tight">CHECKING</span>
+                    <span className="text-[9.5px] text-neutral-400 font-semibold tracking-wider uppercase leading-tight">SAFETY</span>
+                  </div>
+                  <div className="flex flex-col text-left">
+                    <span className="text-[9.5px] text-neutral-400 font-semibold tracking-wider uppercase leading-tight">NO RESPONSE</span>
+                    <span className="text-[9.5px] text-neutral-400 font-semibold tracking-wider uppercase leading-tight">DETECTED</span>
+                  </div>
+                  <div className="flex flex-col text-left">
+                    <span className="text-[9.5px] text-neutral-400 font-semibold tracking-wider uppercase leading-tight">GUARDIANS</span>
+                    <span className="text-[9.5px] text-neutral-400 font-semibold tracking-wider uppercase leading-tight">ALERTED</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Image Area */}
+              <div className="w-full h-[335px] relative overflow-hidden shrink-0 mt-auto">
+                <img 
+                  src={`/images/projects/nazr/features/${card.num}.png`}
+                  alt={card.title.replace('\n', ' ')}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Sticky Cards Container (hidden md:flex) */}
+        <div className="relative w-full max-w-[1200px] mx-auto hidden md:flex flex-col">
           {[
             {
               num: 1,
@@ -668,8 +1355,8 @@ export default function NazrProjectPage() {
       </section>
 
       {/* Connected Ecosystem Section */}
-      <section className="relative w-full bg-[#111111] px-4 md:px-8 py-10 pb-32">
-        <div className="w-full max-w-[1440px] mx-auto bg-[#e2e3e5] rounded-[40px] md:rounded-[60px] p-8 md:p-16 lg:p-24 overflow-hidden flex flex-col items-center">
+      <section className="relative w-full bg-[#111111] px-2.5 sm:px-4 md:px-8 py-8 md:py-10 pb-20 md:pb-32">
+        <div className="w-full max-w-[1440px] mx-auto bg-[#e2e3e5] rounded-[24px] sm:rounded-[40px] md:rounded-[60px] px-3 py-8 sm:p-8 md:p-16 lg:p-24 overflow-hidden flex flex-col items-center">
           
           {/* Header */}
           <div className="text-center mb-16 relative z-30">
@@ -754,63 +1441,103 @@ export default function NazrProjectPage() {
           </div>
 
           {/* Center Graphic Layout - Mobile */}
-          <div className="flex lg:hidden flex-col items-center gap-8 w-full mb-16 mt-6 px-2">
-            <div className="relative w-full max-w-[320px] h-[340px] flex justify-center items-center mx-auto">
+          <div className="flex lg:hidden flex-col items-center gap-7 w-full mb-16 mt-2 px-2">
+            
+            {/* Phone & Pepper Sprays Mockup */}
+            <div className="relative w-full max-w-[280px] h-[330px] flex justify-center items-center mx-auto">
               <img 
                 src="/images/projects/nazr/ecosystem/sos.png" 
-                className="w-[60%] z-20 drop-shadow-2xl" 
+                className="w-[58%] max-w-[165px] z-20 drop-shadow-[0_20px_35px_rgba(0,0,0,0.5)]" 
                 alt="Mobile SOS App" 
               />
               <img 
                 src="/images/projects/nazr/ecosystem/pink.png" 
-                className="w-[28%] absolute left-[6%] bottom-[12%] z-30 drop-shadow-xl -rotate-12" 
+                className="w-[28%] max-w-[82px] absolute left-[4%] bottom-[8%] z-30 drop-shadow-xl -rotate-12" 
                 alt="Pink Pepper Spray" 
               />
               <img 
                 src="/images/projects/nazr/ecosystem/white.png" 
-                className="w-[26%] absolute right-[6%] bottom-[8%] z-30 drop-shadow-xl rotate-12" 
+                className="w-[27%] max-w-[78px] absolute right-[4%] bottom-[5%] z-30 drop-shadow-xl rotate-12" 
                 alt="White Pepper Spray" 
               />
             </div>
 
-            <div className="flex flex-col gap-4 w-full max-w-md">
-              <div className="flex items-start gap-3 bg-white/70 backdrop-blur-sm p-4 rounded-2xl border border-gray-300 shadow-sm">
-                <div className="bg-[#F80090] text-white rounded-full w-7 h-7 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</div>
-                <div>
-                  <h4 className="font-bold text-gray-800 text-xs sm:text-sm mb-1">Volume Button SOS</h4>
-                  <p className="text-[11px] sm:text-xs text-gray-600 leading-tight">Press your volume button three times to instantly trigger SOS.</p>
+            {/* 3 Dashed Oval Annotations */}
+            <div className="flex flex-col items-center gap-5 w-full max-w-[340px]">
+              
+              {/* 1. Volume Button SOS */}
+              <div className="relative w-full max-w-[310px] h-[112px] border-[1.5px] border-dashed border-neutral-600/70 rounded-[50%] flex flex-col justify-center items-center text-center px-8 z-10">
+                <div className="absolute -top-2 left-[15%] bg-[#F80090] text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs shadow-md">
+                  1
                 </div>
+                <h4 className="font-bold text-gray-900 text-[13px] mb-1 leading-snug">
+                  Volume Button SOS
+                </h4>
+                <p className="text-[10.5px] text-gray-700 leading-tight">
+                  Press your volume button three times to instantly trigger SOS.
+                </p>
               </div>
-              <div className="flex items-start gap-3 bg-white/70 backdrop-blur-sm p-4 rounded-2xl border border-gray-300 shadow-sm">
-                <div className="bg-[#F80090] text-white rounded-full w-7 h-7 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</div>
-                <div>
-                  <h4 className="font-bold text-gray-800 text-xs sm:text-sm mb-1">In-App SOS Button</h4>
-                  <p className="text-[11px] sm:text-xs text-gray-600 leading-tight">Tap the SOS button in the NAZR app to alert your support network.</p>
+
+              {/* 2. In-App SOS Button */}
+              <div className="relative w-full max-w-[310px] h-[112px] border-[1.5px] border-dashed border-neutral-600/70 rounded-[50%] flex flex-col justify-center items-center text-center px-8 z-10">
+                <div className="absolute -top-2 left-[15%] bg-[#F80090] text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs shadow-md">
+                  2
                 </div>
+                <h4 className="font-bold text-gray-900 text-[13px] mb-1 leading-snug">
+                  In-App SOS Button
+                </h4>
+                <p className="text-[10.5px] text-gray-700 leading-tight">
+                  Tap the SOS button in the NAZR app to alert your support network.
+                </p>
               </div>
-              <div className="flex items-start gap-3 bg-white/70 backdrop-blur-sm p-4 rounded-2xl border border-gray-300 shadow-sm">
-                <div className="bg-[#F80090] text-white rounded-full w-7 h-7 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</div>
-                <div>
-                  <h4 className="font-bold text-gray-800 text-xs sm:text-sm mb-1">Home Screen SOS Widget</h4>
-                  <p className="text-[11px] sm:text-xs text-gray-600 leading-tight">Trigger SOS directly from your home screen without opening the app.</p>
+
+              {/* 3. Home Screen SOS Widget */}
+              <div className="relative w-full max-w-[310px] h-[112px] border-[1.5px] border-dashed border-neutral-600/70 rounded-[50%] flex flex-col justify-center items-center text-center px-8 z-10">
+                <div className="absolute -top-2 left-[15%] bg-[#F80090] text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs shadow-md">
+                  3
                 </div>
+                <h4 className="font-bold text-gray-900 text-[13px] mb-1 leading-snug">
+                  Home Screen SOS Widget
+                </h4>
+                <p className="text-[10.5px] text-gray-700 leading-tight">
+                  Trigger SOS directly from your home screen without opening the app.
+                </p>
+              </div>
+
+            </div>
+
+            {/* Bottom 2-Column Checklists */}
+            <div className="flex justify-between items-start w-full max-w-[340px] px-2 pt-3 mx-auto">
+              <div className="flex flex-col gap-2.5">
+                {["LARGE TOUCH TARGETS", "MINIMAL DISTRACTIONS", "RELIABLE NAVIGATION"].map((text, i) => (
+                  <div key={i} className="flex items-center gap-1.5">
+                    <svg className="w-3.5 h-3.5 text-[#F80090] shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-extrabold text-gray-900 text-[9px] sm:text-[9.5px] tracking-wide uppercase whitespace-nowrap">
+                      {text}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col gap-2.5">
+                {["HIGH CONTRAST", "FAST INTERACTION", "SIMPLE LANGUAGE"].map((text, i) => (
+                  <div key={i} className="flex items-center gap-1.5">
+                    <svg className="w-3.5 h-3.5 text-[#F80090] shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-extrabold text-gray-900 text-[9px] sm:text-[9.5px] tracking-wide uppercase whitespace-nowrap">
+                      {text}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 w-full max-w-md pt-2">
-              {["LARGE TOUCH TARGETS", "MINIMAL DISTRACTIONS", "RELIABLE NAVIGATION", "HIGH CONTRAST", "FAST INTERACTION", "SIMPLE LANGUAGE"].map((text, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-[#F80090] shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-bold text-gray-900 text-[10px] sm:text-[11px] tracking-wider">{text}</span>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Iframe to NAZR website */}
-          <div className="w-full max-w-[1000px] aspect-video border-[6px] md:border-[10px] border-gray-400 rounded-2xl md:rounded-[40px] overflow-hidden shadow-2xl mb-24 relative bg-black">
+          <div className="w-full max-w-[348px] aspect-[348.14/194.55] md:max-w-[1000px] md:aspect-video border-[2.5px] md:border-[10px] border-gray-400 rounded-[7.21px] md:rounded-[40px] overflow-hidden shadow-2xl mb-16 md:mb-24 relative bg-black mx-auto">
             <DisplayScaler
               src="https://www.nazrco.in/"
               title="NAZR Website"

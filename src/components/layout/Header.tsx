@@ -23,12 +23,10 @@ export default function Header() {
   const isDarkPage = isNazrPage || isCineArteryPage || isHiroGuildPage || isIndustryPage || isServiceDetailPage || isAboutPage || isTermsPage || isPrivacyPage;
 
   let logoFilter = 'none';
-  if (isNazrPage) {
-    logoFilter = 'brightness(0) saturate(100%) invert(23%) sepia(91%) saturate(7355%) hue-rotate(320deg) brightness(98%) contrast(109%)';
-  } else if (isCineArteryPage) {
+  if (isCineArteryPage) {
     // Filter to turn black logo into yellow (#EAB308)
     logoFilter = 'brightness(0) saturate(100%) invert(73%) sepia(61%) saturate(541%) hue-rotate(352deg) brightness(102%) contrast(101%)';
-  } else if (isHiroGuildPage || isIndustryPage || isServiceDetailPage || isAboutPage || isTermsPage || isPrivacyPage) {
+  } else if (isNazrPage || isHiroGuildPage || isIndustryPage || isServiceDetailPage || isAboutPage || isTermsPage || isPrivacyPage) {
     // Filter to turn black logo into white
     logoFilter = 'brightness(0) invert(1)';
   }
@@ -97,11 +95,11 @@ export default function Header() {
         <source src="/audio/background.mpeg" type="audio/mpeg" />
       </audio>
 
-      <header className="absolute top-0 left-0 w-full z-[900] px-6 py-4 md:px-12 flex justify-center pointer-events-none">
+      <header className="absolute top-0 left-0 w-full z-[900] px-4 py-3 sm:px-6 sm:py-4 md:px-12 flex justify-center pointer-events-none">
         <div className={`w-full max-w-[1400px] mx-auto flex items-center justify-between border-b ${bottomBorder} pb-3 transition-colors duration-300`}>
           {/* Left: Logo */}
-          <Link href="/" className="pointer-events-auto hover:opacity-70 transition-opacity">
-            <div className="relative w-48 h-10 md:w-56 md:h-12">
+          <Link href="/" className="pointer-events-auto hover:opacity-70 transition-opacity shrink-0">
+            <div className="relative w-36 h-8 sm:w-44 sm:h-9 md:w-56 md:h-12">
               <Image
                 src="/images/logo.svg"
                 alt="SMRKONOVA"
@@ -113,14 +111,14 @@ export default function Header() {
           </Link>
 
           {/* Right: Audio & Menu Buttons */}
-          <div className="flex items-center gap-3 sm:gap-4 pointer-events-auto">
+          <div className="flex items-center gap-2 sm:gap-3 md:gap-4 pointer-events-auto shrink-0">
             <button
               type="button"
               onClick={() => {
                 trackContactButtonClick("CONTACT US", "header_nav");
                 openContactModal();
               }}
-              className={`hidden sm:inline-flex items-center justify-center h-12 px-5 md:px-6 text-[10px] md:text-[11px] font-mono tracking-widest uppercase border transition-all duration-300 cursor-pointer ${
+              className={`inline-flex items-center justify-center h-9 sm:h-10 md:h-12 px-3 sm:px-4 md:px-6 text-[10px] sm:text-[10px] md:text-[11px] font-mono tracking-wider sm:tracking-widest uppercase border rounded-md sm:rounded-none whitespace-nowrap shrink-0 transition-all duration-300 cursor-pointer ${
                 isDarkPage
                   ? "text-white border-white/20 hover:border-white/50 hover:bg-white/10"
                   : "text-[#212121] border-[#212121]/30 hover:border-[#212121] hover:bg-[#212121]/5"
@@ -133,7 +131,7 @@ export default function Header() {
             <button
               suppressHydrationWarning
               onClick={() => setIsAudioPlaying(!isAudioPlaying)}
-              className={`w-12 h-12 border flex items-center justify-center gap-[3px] transition-colors duration-300 ${borderColor}`}
+              className={`hidden sm:flex w-12 h-12 border items-center justify-center gap-[3px] transition-colors duration-300 ${borderColor}`}
             >
               {[...Array(5)].map((_, i) => (
                 <motion.div
@@ -155,11 +153,11 @@ export default function Header() {
             <button
               suppressHydrationWarning
               onClick={() => setIsOpen(true)}
-              className={`w-12 h-12 border flex flex-col items-center justify-center gap-1.5 transition-colors duration-300 ${borderColor}`}
+              className={`w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 border rounded-md sm:rounded-none flex flex-col items-center justify-center gap-1 sm:gap-1.5 shrink-0 transition-colors duration-300 ${borderColor}`}
             >
-              <div className={`w-5 h-px transition-colors duration-300 ${iconColor}`} />
-              <div className={`w-5 h-px transition-colors duration-300 ${iconColor}`} />
-              <div className={`w-5 h-px transition-colors duration-300 ${iconColor}`} />
+              <div className={`w-3.5 sm:w-4 md:w-5 h-px transition-colors duration-300 ${iconColor}`} />
+              <div className={`w-3.5 sm:w-4 md:w-5 h-px transition-colors duration-300 ${iconColor}`} />
+              <div className={`w-3.5 sm:w-4 md:w-5 h-px transition-colors duration-300 ${iconColor}`} />
             </button>
           </div>
         </div>

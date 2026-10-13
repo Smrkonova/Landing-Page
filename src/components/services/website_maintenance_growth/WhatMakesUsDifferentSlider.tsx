@@ -140,12 +140,12 @@ export default function WhatMakesUsDifferentSlider() {
 
     return (
         <section className="w-full max-w-full bg-white text-black py-8 md:py-20 min-h-[527px] md:min-h-0 overflow-hidden relative">
-            <div className="w-full max-w-[390px] md:max-w-8xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col gap-6 md:gap-8 overflow-hidden">
+            <div className="w-full max-w-[390px] md:max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-0 flex flex-col gap-6 md:gap-8">
                 
                 {/* Section Header */}
                 <div className="flex flex-col gap-1">
                     <h2
-                        className="uppercase font-[300] text-gray-800 text-[16px] md:text-[32px] leading-[77px] tracking-[0px]"
+                        className="uppercase font-[300] text-gray-800 text-[16px] md:text-[32px] leading-snug md:leading-[77px] tracking-[0px]"
                         style={{ fontFamily: "'Inter', sans-serif" }}
                     >
                         What We Can Help With
@@ -156,7 +156,7 @@ export default function WhatMakesUsDifferentSlider() {
                 </div>
 
                 {/* Desktop Slider Container (Stacked 3D Animation) */}
-                <div className="hidden md:flex relative w-full max-w-full h-[600px] items-center mt-12 overflow-hidden">
+                <div className="hidden md:flex relative w-full max-w-full h-[600px] items-center mt-12">
                     <div className="absolute left-[10%] top-1/2 -translate-y-1/2 w-[240px] md:w-[400px] h-[240px] md:h-[400px] bg-black/30 rounded-full blur-[60px] md:blur-[120px] pointer-events-none z-0"></div>
 
                     {slides.map((slide, index) => {
