@@ -1200,10 +1200,10 @@ export default function NazrProjectPage() {
       </section>
 
       {/* Features Real Situations Section (Sticky Cards) */}
-      <section className="relative w-full bg-[#111111] pt-32 pb-40 px-4 md:px-8 overflow-visible">
+      <section className="relative w-full bg-[#111111] pt-20 md:pt-32 pb-0 md:pb-40 px-4 md:px-8 overflow-visible z-20">
         
         {/* Title */}
-        <div className="text-center mb-16 md:mb-24 relative z-10 px-4">
+        <div className="text-center mb-12 md:mb-24 relative z-10 px-4">
           <h2 className="text-center uppercase font-sans">
             <span className="block font-thin text-[24px] leading-[28px] tracking-[0%] md:text-[clamp(1.85rem,4vw+0.5rem,4rem)] md:leading-[1.2] md:tracking-widest text-gray-300">
               FEATURES DESIGNED AROUND
@@ -1215,7 +1215,7 @@ export default function NazrProjectPage() {
         </div>
 
         {/* Mobile Cards Container (block md:hidden with sticky stacking animation) */}
-        <div className="relative w-full flex flex-col items-center md:hidden pb-16">
+        <div className="relative w-full flex flex-col items-center md:hidden pb-0">
           {[
             {
               num: 1,
@@ -1239,25 +1239,23 @@ export default function NazrProjectPage() {
             }
           ].map((card, i) => (
             <div 
-              key={card.num}
-              className="sticky w-[358px] max-w-[calc(100vw-32px)] h-[539px] rounded-[32px] overflow-hidden bg-black flex flex-col justify-between shadow-[0_-10px_40px_rgba(0,0,0,0.8)] border border-neutral-800/80 shrink-0 transition-all duration-500"
+              key={card.num} 
+              className="sticky w-[358px] max-w-[calc(100vw-32px)] h-[500px] sm:h-[525px] rounded-[32px] overflow-hidden bg-black flex flex-col justify-between shadow-[0_-12px_40px_rgba(0,0,0,0.9)] border border-neutral-800/80 shrink-0"
               style={{ 
-                top: `${8 + i * 2}vh`,
-                marginBottom: i === 3 ? '55vh' : '40vh',
+                top: '72px',
+                marginBottom: i === 3 ? '60vh' : '35vh',
                 zIndex: 20 + i,
-                opacity: 1, 
-                transform: 'rotate(0deg)' 
               }}
             >
               {/* Top Text Area */}
-              <div className="px-6 pt-7 pb-3 flex flex-col text-left">
+              <div className="px-6 pt-6 sm:pt-7 pb-2.5 sm:pb-3 flex flex-col text-left">
                 {/* Title */}
                 <h3 className="text-[17px] sm:text-[18px] font-bold text-white uppercase leading-[1.25] tracking-tight whitespace-pre-line">
                   {card.title}
                 </h3>
                 
                 {/* Description */}
-                <p className="text-[11px] text-neutral-400 leading-relaxed mt-2.5 mb-4 font-normal">
+                <p className="text-[11px] text-neutral-400 leading-relaxed mt-2 sm:mt-2.5 mb-3 sm:mb-4 font-normal">
                   {card.desc}
                 </p>
 
@@ -1279,7 +1277,7 @@ export default function NazrProjectPage() {
               </div>
 
               {/* Bottom Image Area */}
-              <div className="w-full h-[335px] relative overflow-hidden shrink-0 mt-auto">
+              <div className="w-full h-[300px] sm:h-[325px] relative overflow-hidden shrink-0 mt-auto">
                 <img 
                   src={`/images/projects/nazr/features/${card.num}.png`}
                   alt={card.title.replace('\n', ' ')}
@@ -1375,12 +1373,12 @@ export default function NazrProjectPage() {
       </section>
 
       {/* Connected Ecosystem Section */}
-      <section className="relative w-full bg-[#111111] px-2.5 sm:px-4 md:px-8 py-8 md:py-10 pb-20 md:pb-32">
+      <section className="relative z-30 -mt-[60vh] md:mt-0 w-full bg-[#111111] px-2.5 sm:px-4 md:px-8 py-8 md:py-10 pb-20 md:pb-32">
         <div className="w-full max-w-[1440px] mx-auto bg-[#e2e3e5] rounded-[24px] sm:rounded-[40px] md:rounded-[60px] px-3 py-8 sm:p-8 md:p-16 lg:p-24 overflow-hidden flex flex-col items-center">
           
           {/* Header */}
-          <div className="text-center mb-16 relative z-30">
-            <h2 className="text-[clamp(2.5rem,6vw+0.5rem,5.625rem)] font-black text-gray-800 tracking-tighter uppercase leading-[0.9]">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16 relative z-30">
+            <h2 className="text-[32px] sm:text-[42px] md:text-[clamp(2.5rem,6vw+0.5rem,5.625rem)] font-black text-gray-800 tracking-tight md:tracking-tighter uppercase leading-[0.95] md:leading-[0.9]">
               CONNECTED<br/>
               <span className="text-[#F80090]">ECOSYSTEM</span>
             </h2>
@@ -1461,10 +1459,10 @@ export default function NazrProjectPage() {
           </div>
 
           {/* Center Graphic Layout - Mobile */}
-          <div className="flex lg:hidden flex-col items-center gap-7 w-full mb-16 mt-2 px-2">
+          <div className="flex lg:hidden flex-col items-center w-full mb-12 sm:mb-16 mt-1 px-2">
             
             {/* Phone & Pepper Sprays Mockup */}
-            <div className="relative w-full max-w-[280px] h-[330px] flex justify-center items-center mx-auto">
+            <div className="relative w-full max-w-[280px] h-[330px] flex justify-center items-center mx-auto mb-8">
               <img 
                 src="/images/projects/nazr/ecosystem/sos.png" 
                 className="w-[58%] max-w-[165px] z-20 drop-shadow-[0_20px_35px_rgba(0,0,0,0.5)]" 
@@ -1472,54 +1470,54 @@ export default function NazrProjectPage() {
               />
               <img 
                 src="/images/projects/nazr/ecosystem/pink.png" 
-                className="w-[28%] max-w-[82px] absolute left-[4%] bottom-[8%] z-30 drop-shadow-xl -rotate-12" 
+                className="w-[30%] max-w-[86px] absolute left-[3%] bottom-[8%] z-30 drop-shadow-xl -rotate-12" 
                 alt="Pink Pepper Spray" 
               />
               <img 
                 src="/images/projects/nazr/ecosystem/white.png" 
-                className="w-[27%] max-w-[78px] absolute right-[4%] bottom-[5%] z-30 drop-shadow-xl rotate-12" 
+                className="w-[29%] max-w-[82px] absolute right-[2%] -bottom-[2%] z-30 drop-shadow-xl rotate-[14deg]" 
                 alt="White Pepper Spray" 
               />
             </div>
 
             {/* 3 Dashed Oval Annotations */}
-            <div className="flex flex-col items-center gap-5 w-full max-w-[340px]">
+            <div className="flex flex-col items-center gap-6 w-full max-w-[340px]">
               
               {/* 1. Volume Button SOS */}
-              <div className="relative w-full max-w-[310px] h-[112px] border-[1.5px] border-dashed border-neutral-600/70 rounded-[50%] flex flex-col justify-center items-center text-center px-8 z-10">
-                <div className="absolute -top-2 left-[15%] bg-[#F80090] text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs shadow-md">
+              <div className="relative w-full max-w-[310px] sm:max-w-[325px] h-[112px] border-[1.5px] border-dashed border-neutral-600/70 rounded-[50%] flex flex-col justify-center items-center text-center px-8 z-10">
+                <div className="absolute -top-3 left-[18%] bg-[#F80090] text-white rounded-full w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center font-bold text-xs shadow-md">
                   1
                 </div>
-                <h4 className="font-bold text-gray-900 text-[13px] mb-1 leading-snug">
+                <h4 className="font-bold text-gray-900 text-[13px] sm:text-[14px] mb-1 leading-snug">
                   Volume Button SOS
                 </h4>
-                <p className="text-[10.5px] text-gray-700 leading-tight">
+                <p className="text-[10px] sm:text-[10.5px] text-gray-700 leading-tight max-w-[220px]">
                   Press your volume button three times to instantly trigger SOS.
                 </p>
               </div>
 
               {/* 2. In-App SOS Button */}
-              <div className="relative w-full max-w-[310px] h-[112px] border-[1.5px] border-dashed border-neutral-600/70 rounded-[50%] flex flex-col justify-center items-center text-center px-8 z-10">
-                <div className="absolute -top-2 left-[15%] bg-[#F80090] text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs shadow-md">
+              <div className="relative w-full max-w-[310px] sm:max-w-[325px] h-[112px] border-[1.5px] border-dashed border-neutral-600/70 rounded-[50%] flex flex-col justify-center items-center text-center px-8 z-10">
+                <div className="absolute -top-3 left-[18%] bg-[#F80090] text-white rounded-full w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center font-bold text-xs shadow-md">
                   2
                 </div>
-                <h4 className="font-bold text-gray-900 text-[13px] mb-1 leading-snug">
+                <h4 className="font-bold text-gray-900 text-[13px] sm:text-[14px] mb-1 leading-snug">
                   In-App SOS Button
                 </h4>
-                <p className="text-[10.5px] text-gray-700 leading-tight">
+                <p className="text-[10px] sm:text-[10.5px] text-gray-700 leading-tight max-w-[220px]">
                   Tap the SOS button in the NAZR app to alert your support network.
                 </p>
               </div>
 
               {/* 3. Home Screen SOS Widget */}
-              <div className="relative w-full max-w-[310px] h-[112px] border-[1.5px] border-dashed border-neutral-600/70 rounded-[50%] flex flex-col justify-center items-center text-center px-8 z-10">
-                <div className="absolute -top-2 left-[15%] bg-[#F80090] text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs shadow-md">
+              <div className="relative w-full max-w-[310px] sm:max-w-[325px] h-[112px] border-[1.5px] border-dashed border-neutral-600/70 rounded-[50%] flex flex-col justify-center items-center text-center px-8 z-10">
+                <div className="absolute -top-3 left-[18%] bg-[#F80090] text-white rounded-full w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center font-bold text-xs shadow-md">
                   3
                 </div>
-                <h4 className="font-bold text-gray-900 text-[13px] mb-1 leading-snug">
+                <h4 className="font-bold text-gray-900 text-[13px] sm:text-[14px] mb-1 leading-snug">
                   Home Screen SOS Widget
                 </h4>
-                <p className="text-[10.5px] text-gray-700 leading-tight">
+                <p className="text-[10px] sm:text-[10.5px] text-gray-700 leading-tight max-w-[220px]">
                   Trigger SOS directly from your home screen without opening the app.
                 </p>
               </div>
@@ -1527,7 +1525,7 @@ export default function NazrProjectPage() {
             </div>
 
             {/* Bottom 2-Column Checklists */}
-            <div className="flex justify-between items-start w-full max-w-[340px] px-2 pt-3 mx-auto">
+            <div className="flex justify-between items-start w-full max-w-[340px] px-2 pt-6 pb-2 mx-auto">
               <div className="flex flex-col gap-2.5">
                 {["LARGE TOUCH TARGETS", "MINIMAL DISTRACTIONS", "RELIABLE NAVIGATION"].map((text, i) => (
                   <div key={i} className="flex items-center gap-1.5">
@@ -1557,7 +1555,7 @@ export default function NazrProjectPage() {
           </div>
 
           {/* Iframe to NAZR website */}
-          <div className="w-full max-w-[348px] aspect-[348.14/194.55] md:max-w-[1000px] md:aspect-video border-[2.5px] md:border-[10px] border-gray-400 rounded-[7.21px] md:rounded-[40px] overflow-hidden shadow-2xl mb-16 md:mb-24 relative bg-black mx-auto">
+          <div className="w-full max-w-[348px] aspect-[348.14/194.55] md:max-w-[1000px] md:aspect-video border-[2.5px] md:border-[10px] border-gray-400 rounded-[10px] md:rounded-[40px] overflow-hidden shadow-2xl mb-12 sm:mb-16 md:mb-24 relative bg-black mx-auto">
             <DisplayScaler
               src="https://www.nazrco.in/"
               title="NAZR Website"
@@ -1567,19 +1565,86 @@ export default function NazrProjectPage() {
             />
           </div>
 
-          {/* Footer Typography */}
-          <div className="text-center max-w-[800px] mb-20 relative">
-             <p className="text-[clamp(1.25rem,2vw+0.5rem,2.25rem)] font-bold text-gray-800 leading-tight">
-               <span className="text-[#F80090]">Launching NAZR wasn&apos;t limited to<br/>publishing an application.</span> Smrkonova<br/>supported the complete technical<br/>launch, ensuring every moving part<br/>worked together.
-             </p>
+          {/* Footer Typography & Decorative Icons */}
+          <div className="text-center w-full max-w-[360px] md:max-w-[800px] mb-12 sm:mb-16 md:mb-20 relative mx-auto px-4 sm:px-6">
+            
+            {/* Top-Left Pink Round Badge (Mobile only) */}
+            <div className="absolute -top-7 sm:-top-9 left-1 sm:left-2 md:hidden w-11 h-11 pointer-events-none select-none">
+              <svg viewBox="0 0 54 54" fill="none" className="w-full h-full drop-shadow-md">
+                <circle cx="27" cy="27" r="26" fill="#F80090" />
+                <circle cx="27" cy="27" r="22" stroke="white" strokeWidth="0.8" strokeDasharray="2 1.5" opacity="0.6" />
+                {/* 8-pointed flower / star */}
+                <g transform="translate(27,27)">
+                  {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, idx) => (
+                    <ellipse
+                      key={idx}
+                      cx="0"
+                      cy="-7.5"
+                      rx="2.4"
+                      ry="5"
+                      fill="white"
+                      transform={`rotate(${angle})`}
+                    />
+                  ))}
+                  <circle cx="0" cy="0" r="3.2" fill="white" />
+                </g>
+                <path id="badge-circle-mobile" d="M 27,27 m -19,0 a 19,19 0 1,1 38,0 a 19,19 0 1,1 -38,0" fill="none" />
+                <text fill="white" fontSize="4.2" fontWeight="bold" letterSpacing="1.2">
+                  <textPath href="#badge-circle-mobile" startOffset="0%">
+                    FOUNDED IN 2021 • NAZR •
+                  </textPath>
+                </text>
+              </svg>
+            </div>
+
+            {/* Top-Right Pink Wireframe Globe (Mobile only) */}
+            <div className="absolute -top-7 sm:-top-9 right-1 sm:right-2 md:hidden w-11 h-11 pointer-events-none select-none">
+              <svg viewBox="0 0 54 54" fill="none" className="w-full h-full text-[#F80090] drop-shadow-sm" stroke="currentColor" strokeWidth="1.2">
+                <circle cx="27" cy="27" r="23" />
+                <ellipse cx="27" cy="27" rx="23" ry="11.5" />
+                <line x1="4" y1="27" x2="50" y2="27" />
+                <ellipse cx="27" cy="27" rx="11.5" ry="23" />
+                <line x1="27" y1="4" x2="27" y2="50" />
+              </svg>
+            </div>
+
+            {/* Bottom-Left Pink Smrkonova Logo (Mobile only) */}
+            <div className="absolute -bottom-7 sm:-bottom-8 left-1 sm:left-2 md:hidden w-11 h-7 pointer-events-none select-none">
+              <svg viewBox="0 0 176 106" fill="none" className="w-full h-full text-[#F80090] drop-shadow-sm">
+                <path d="M36.2487 38.1664C36.2487 38.1664 36.2095 38.2193 36.1965 38.2458L0.787645 97.448C-1.41807 101.221 1.27055 106 5.60366 106H24.4762C24.6067 106 24.7503 105.987 24.8808 105.974L50.5532 62.4986L36.2487 38.1664Z" fill="currentColor"/>
+                <path d="M80.2585 34.3537C78.0528 30.5807 80.7414 25.8017 85.0615 25.8017H94.302C96.1944 25.8017 97.9564 24.8353 98.9875 23.2202L108.267 8.76383C110.682 4.99088 108.019 0 103.582 0H60.7204C58.7757 0 56.9746 1.01936 55.9696 2.70064L44.3668 21.8037C43.2835 23.5909 43.2574 25.8414 44.3146 27.6551L68.982 70.1504C71.1746 73.9233 68.486 78.6891 64.166 78.6891H58.2014C55.8652 78.6891 53.6986 79.96 52.537 82.012L38.8851 106H86.706C88.6637 106 90.4648 104.967 91.4828 103.273L104.443 81.5884C105.513 79.8012 105.526 77.5639 104.469 75.7635L80.2716 34.3537H80.2585Z" fill="currentColor"/>
+                <path d="M175.195 97.4082L124.934 12.5897C123.655 10.4186 120.575 10.3524 119.204 12.4705L101.311 40.0594C99.8097 42.3629 99.7444 45.3415 101.141 47.7112L113.188 66.6686C113.109 66.6686 113.266 66.6686 113.188 66.6686L114.832 63.9945C116.933 60.1686 122.337 60.1024 124.529 63.8753L146.43 103.207C147.435 104.941 149.262 106 151.246 106H170.405C174.752 106 177.427 101.194 175.195 97.4082Z" fill="currentColor"/>
+              </svg>
+            </div>
+
+            {/* Bottom-Right Teal Owl Goggles Icon (Mobile only) */}
+            <div className="absolute -bottom-7 sm:-bottom-8 right-1 sm:right-2 md:hidden w-10 h-7 pointer-events-none select-none">
+              <svg viewBox="0 0 48 34" fill="none" className="w-full h-full text-[#00b894] drop-shadow-sm">
+                <rect x="2" y="4" width="19" height="26" rx="6" stroke="currentColor" strokeWidth="2.5" fill="none" />
+                <rect x="27" y="4" width="19" height="26" rx="6" stroke="currentColor" strokeWidth="2.5" fill="none" />
+                <path d="M21 16 H27" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                <circle cx="11.5" cy="17" r="4.5" fill="currentColor" />
+                <circle cx="36.5" cy="17" r="4.5" fill="currentColor" />
+              </svg>
+            </div>
+
+            {/* Editorial Paragraph */}
+            <p className="text-[15px] sm:text-[17px] md:text-[clamp(1.25rem,2vw+0.5rem,2.25rem)] font-bold text-gray-800 leading-tight py-2">
+              <span className="text-[#F80090] font-black">Launching NAZR wasn&apos;t limited to<br className="hidden md:inline"/>publishing an application.</span>{" "}
+              Smrkonova<br className="hidden md:inline"/>supported the complete technical<br className="hidden md:inline"/>launch, ensuring every moving part<br className="hidden md:inline"/>worked together.
+            </p>
           </div>
 
           {/* Grid of 15 Flutter Applications */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-10 gap-x-6 w-full max-w-[1200px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-7 sm:gap-y-8 md:gap-y-10 gap-x-6 w-full max-w-[340px] sm:max-w-none md:max-w-[1200px] px-2 sm:px-0">
              {[...Array(15)].map((_, i) => (
-                <div key={i} className="border-l-[3px] border-[#F80090] pl-3 py-1">
-                  <h4 className="font-bold text-gray-900 text-[clamp(9px,0.5vw+3px,10px)] tracking-widest uppercase mb-1.5 leading-tight">FLUTTER<br/>APPLICATION</h4>
-                  <p className="text-[clamp(8px,0.4vw+3px,9px)] text-gray-600 leading-tight">Multiple strategy sessions with<br/>founders to understand vision</p>
+                <div key={i} className="border-l-[3.5px] border-[#F80090] pl-3.5 py-1 text-left">
+                  <h4 className="font-bold text-gray-900 text-[11px] sm:text-[10px] md:text-[clamp(9px,0.5vw+3px,10px)] tracking-widest uppercase mb-1 leading-tight">
+                    FLUTTER<br className="hidden md:inline"/> APPLICATION
+                  </h4>
+                  <p className="text-[10px] sm:text-[9px] md:text-[clamp(8px,0.4vw+3px,9px)] text-gray-600 leading-snug">
+                    Multiple strategy sessions with<br className="hidden sm:inline"/>founders to understand vision
+                  </p>
                 </div>
              ))}
           </div>

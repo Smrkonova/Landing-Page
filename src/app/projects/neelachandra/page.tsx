@@ -10,7 +10,89 @@ export default function NeelachandraProjectPage() {
       <section 
         className="relative overflow-hidden font-sans flex items-center pt-24 md:pt-16 pb-12 md:pb-4 min-h-screen md:h-[calc(100vh/var(--desktop-scale,1))]"
       >
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center w-full md:h-full md:max-h-[820px] gap-8 md:gap-0">
+        {/* Mobile View (< md) */}
+        <div className="block md:hidden w-full max-w-[420px] mx-auto px-4">
+          {/* Header */}
+          <div className="mb-5 text-left">
+            <h4 className="text-[11px] font-bold tracking-[0.2em] uppercase mb-1.5 text-[#a3a3a3]">
+              Case Study 1
+            </h4>
+            <h2 className="text-[18px] font-black tracking-wider uppercase text-[#212121] mb-1">
+              NEELACHANDRA
+            </h2>
+            <p className="text-[13px] text-[#777777] font-medium">
+              construction company in &apos;luru
+            </p>
+          </div>
+
+          {/* Banner Card */}
+          <div className="w-full relative rounded-[1.25rem] border-[1.5px] border-[#f98845] p-[5px] shadow-sm mb-6">
+            <div className="relative rounded-[1rem] overflow-hidden w-full aspect-[16/10] bg-[#111] flex flex-col justify-end shadow-md">
+              <img
+                src="/images/projects/neelachandra/banner.png"
+                alt="Neelachandra Banner"
+                className="absolute inset-0 w-full h-full object-cover opacity-90"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
+              <div className="relative z-10 flex flex-col items-center justify-end text-white px-4 pb-6 text-center">
+                <p className="text-[9.5px] font-light tracking-[0.15em] uppercase mb-1.5 text-white/80 leading-tight">
+                  The company trusted to<br />build lasting structures
+                </p>
+                <h1 className="text-[20px] font-bold uppercase tracking-wider mb-1 drop-shadow-md leading-tight">
+                  Chose us to build
+                </h1>
+                <p className="text-[11px] font-light tracking-[0.15em] uppercase text-white/90 drop-shadow-sm leading-tight">
+                  Their digital<br />foundation.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider Line */}
+          <div className="w-full border-t border-[#ececec] my-6" />
+
+          {/* Industry */}
+          <div className="mb-5 text-left">
+            <h4 className="text-[11px] font-medium text-[#a3a3a3] mb-2">Industry</h4>
+            <span className="inline-block px-3.5 py-2 bg-[#f0f0f2] text-[12px] font-bold rounded-lg text-[#212121]">
+              real estate construction
+            </span>
+          </div>
+
+          {/* Duration */}
+          <div className="mb-5 text-left">
+            <h4 className="text-[11px] font-medium text-[#a3a3a3] mb-2">Duration</h4>
+            <span className="inline-block px-3.5 py-2 bg-[#f0f0f2] text-[12px] font-bold rounded-lg text-[#212121]">
+              Ongoing
+            </span>
+          </div>
+
+          {/* Platforms */}
+          <div className="mb-7 text-left">
+            <h4 className="text-[11px] font-medium text-[#a3a3a3] mb-2">Platforms</h4>
+            <div className="flex flex-wrap gap-2 items-center">
+              {['Branding', 'Website', 'GMB Optimisation', 'Backend'].map((platform, idx) => (
+                <span
+                  key={idx}
+                  className="inline-block px-3.5 py-2 bg-[#f0f0f2] text-[12px] font-bold rounded-lg text-[#212121]"
+                >
+                  {platform}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Services List */}
+          <div className="flex flex-col space-y-2 text-left text-[13px] font-medium text-[#777777] pb-4">
+            <p className="w-fit">Strategy</p>
+            <p className="w-fit">UX/UI</p>
+            <p className="w-fit leading-tight">Develop<br />ment</p>
+            <p className="w-fit">Brand</p>
+          </div>
+        </div>
+
+        {/* Desktop View (>= md) */}
+        <div className="hidden md:flex max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex-row items-center w-full h-full max-h-[820px] gap-8 md:gap-0">
 
           {/* Left Column - Details */}
           <div className="w-full md:w-1/5 pr-0 md:pr-8 flex flex-col justify-between py-4 md:py-10">
