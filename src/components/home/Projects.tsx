@@ -78,13 +78,13 @@ const Projects = () => {
               transition={{ duration: 0.8 }}
               className="absolute inset-0 flex items-center justify-center font-sans"
               style={{
-                background: 'radial-gradient(104.83% 101.86% at 51.9% 100%, #FF3EAE 0%, #FF1D9D 82.43%, #CD0074 100%)'
+                background: 'radial-gradient(104.83% 101.86% at 51.9% 100%, #FE1B97 0%, #FE1B97 60%, #E6007E 100%)'
               }}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
               {/* Giant Background Text */}
-              <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
+              <div className="absolute top-[25%] sm:top-[28%] md:top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
                 <h1
                   className="text-center text-[18vw] md:text-[10vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
                   style={{ color: '#FFFFFF4D' }}
@@ -94,42 +94,29 @@ const Projects = () => {
               </div>
 
               {/* Main Content Container */}
-              <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 pt-8 pb-32 md:py-24 flex flex-col md:flex-row items-center justify-center h-full">
+              <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 pt-10 sm:pt-12 md:py-24 pb-28 sm:pb-32 flex flex-col md:flex-row items-center justify-center h-full">
 
                 {/* Left Side: Product Images */}
-                <div className="relative w-full md:w-1/2 h-[180px] sm:h-[240px] md:h-[700px] flex items-center justify-center mb-3 md:mb-0">
+
+                <div className="relative w-full md:w-1/2 flex items-center justify-center mt-2 sm:mt-4 md:mt-0 mb-4 sm:mb-6 md:mb-0">
                   <motion.div
-                    initial={{ opacity: 0, y: 50, rotate: -15 }}
-                    animate={{ opacity: 1, y: 0, rotate: -5 }}
+                    initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ duration: 1, type: "spring", delay: 0.3 }}
-                    className="absolute w-[45%] sm:w-[50%] md:w-[60%] left-[10%] md:left-[5%] z-30 drop-shadow-2xl"
+                    className="relative w-[96%] sm:w-[100%] md:w-[110%] z-30 drop-shadow-2xl md:-ml-[10%]"
                   >
                     <Image
-                      src="/images/project/nazr/left.png"
+                      src="/images/project/nazr/nazrhome.PNG"
                       alt="Nazr Mobile App"
-                      width={600}
+                      width={1000}
                       height={800}
-                      className="w-full h-auto max-h-[160px] sm:max-h-[220px] md:max-h-none object-contain"
-                    />
-                  </motion.div>
-                  <motion.div
-                    initial={{ opacity: 0, y: 50, rotate: 15 }}
-                    animate={{ opacity: 1, y: 0, rotate: 5 }}
-                    transition={{ duration: 1, delay: 0.5, type: "spring" }}
-                    className="absolute w-[40%] sm:w-[45%] md:w-[70%] right-[10%] md:-right-[10%] z-40 drop-shadow-2xl"
-                  >
-                    <Image
-                      src="/images/project/nazr/right.png"
-                      alt="Nazr Pepper Spray"
-                      width={600}
-                      height={700}
-                      className="w-full h-auto max-h-[160px] sm:max-h-[220px] md:max-h-none object-contain"
+                      className="w-full h-auto object-contain"
                     />
                   </motion.div>
                 </div>
 
                 {/* Right Side: Description */}
-                <div className="w-full md:w-1/2 flex flex-col justify-center pt-0 md:pl-16">
+                <div className="w-full md:w-1/2 flex flex-col justify-center pt-0 md:pt-45  md:pl-16">
                   <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -147,9 +134,10 @@ const Projects = () => {
                       />
                     </div>
 
+
                     {/* Paragraph */}
                     <p className="text-xs sm:text-sm font-medium leading-relaxed text-white/90 max-w-md">
-                      A custom-built platform designed with dual-user architecture, gamification logic, and reward-driven engagement systems to increase user retention and activity.
+                      Nazr is India’s first women’s safety ecosystem, bringing together safety tools, technology and community. We designed and built its website and app: an online store for its safety products and community, and an app with one-tap SOS that alerts your Trusted Circle with live location, plus Shield Mode, which tracks your journey and raises the alarm if you miss a check-in.
                     </p>
                   </motion.div>
                 </div>
@@ -163,17 +151,17 @@ const Projects = () => {
                 className="absolute bottom-4 md:bottom-10 left-6 right-6 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end z-20 gap-3 md:gap-8"
               >
                 <div className="text-[9px] md:text-xs tracking-widest text-white/70 uppercase font-bold">
-                  CONSTRUCTION COMPANY IN BENGALURU
+                  INDIA'S FIRST WOMEN’S SAFETY ECOSYSTEM | MUMBAI
                 </div>
 
-                <div className="flex gap-6 md:gap-16">
+                <div className="flex gap-3.5 sm:gap-6 md:gap-16">
                   {[
-                    { value: "72%", label: "higher\nengagement" },
-                    { value: "4X", label: "higher\nengagement" },
-                    { value: "60%", label: "higher\nengagement" }
+                    { value: "1-TAP SOS", label: "built with live \n location sharing" },
+                    { value: "5-MIN CHECK-IN", label: "Shield Mode \n check-in alerts" },
+                    { value: "2 PLATFORMS", label: "Website \n and App" }
                   ].map((stat, i) => (
                     <div key={i} className="flex flex-col">
-                      <span className="text-lg md:text-2xl font-bold text-white mb-0.5 md:mb-1 leading-none">{stat.value}</span>
+                      <span className="text-[14px] sm:text-[15px] md:text-2xl font-bold text-white mb-1.5 md:mb-1 leading-none">{stat.value}</span>
                       <span className="text-[9px] md:text-xs text-white/60 whitespace-pre-line leading-tight">{stat.label}</span>
                     </div>
                   ))}

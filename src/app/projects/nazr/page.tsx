@@ -415,45 +415,42 @@ export default function NazrProjectPage() {
             />
           </div>
 
-          {/* NAZR Text Behind Everything */}
-          <div className="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none w-full text-center">
+          
+          <div className="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none w-full text-center">
             <span className="text-[clamp(6rem,14vw,13.75rem)] font-black italic text-[#2563eb] opacity-80 drop-shadow-2xl tracking-tighter" style={{ fontFamily: 'cursive' }}>
               NAZR
             </span>
           </div>
 
-          {/* --- Images --- */}
-          {/* Mobile Phone */}
+         
           <img 
             src="/images/projects/nazr/protect/sos-mobile.png" 
             alt="Mobile App" 
             className="absolute top-[18%] left-[14%] w-[22%] object-contain z-30 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
           />
 
-          {/* Pink Box */}
+         
           <img 
             src="/images/projects/nazr/protect/pink.png" 
             alt="Pink Box" 
             className="absolute top-[8%] left-[54%] w-[18%] object-contain z-20 -rotate-[12deg] drop-shadow-2xl"
           />
 
-          {/* Blue Box */}
+       
           <img 
             src="/images/projects/nazr/protect/blue.png" 
             alt="Blue Box" 
             className="absolute top-[20%] left-[68%] w-[18%] object-contain z-20 rotate-[14deg] drop-shadow-2xl"
           />
 
-          {/* Spray */}
+         
           <img 
             src="/images/projects/nazr/protect/spray.png" 
             alt="Pepper Spray" 
             className="absolute top-[45%] left-[48%] w-[10%] object-contain z-30 rotate-[12deg] drop-shadow-2xl"
           />
 
-          {/* --- Text Labels & Connecting Lines --- */}
-          
-          {/* Software */}
+      
           <div className="absolute top-[22%] left-[4%] z-40 flex items-start gap-2">
             <motion.div 
               initial={{ opacity: 0, x: -12 }}
@@ -491,18 +488,30 @@ export default function NazrProjectPage() {
             </svg>
           </div>
 
-          {/* Features Connecting Lines on Desktop (viewBox 0 0 1440 850) */}
+         
           <svg className="absolute inset-0 w-full h-full pointer-events-none z-35 overflow-visible" viewBox="0 0 1440 850" fill="none">
-            {/* Feature 1 Line & Dot */}
+            
+            <motion.circle
+              cx="268"
+              cy="455"
+              r="3.5"
+              fill="#F80090"
+              className="drop-shadow-[0_0_8px_#F80090]"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 350, damping: 20, delay: 2.5 }}
+            />
+
+            {/* Feature 1 Line & Dot (Real time Location) */}
             <motion.path
-              d="M 155 305 L 185 305 Q 215 305 232 315"
+              d="M 268 455 C 245 411, 225 305, 195 305 L 155 305"
               stroke="#F80090"
               strokeWidth="2"
               strokeLinecap="round"
               className="drop-shadow-[0_0_8px_#F80090]"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
-              transition={{ duration: 0.5, delay: 2.8 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 2.6 }}
             />
             <motion.circle
               cx="155"
@@ -512,19 +521,19 @@ export default function NazrProjectPage() {
               className="drop-shadow-[0_0_10px_#F80090]"
               initial={{ scale: 0, opacity: 0 }}
               animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 350, damping: 20, delay: 2.7 }}
+              transition={{ type: "spring", stiffness: 350, damping: 20, delay: 3.1 }}
             />
 
-            {/* Feature 2 Line & Dot */}
+            {/* Feature 2 Line & Dot (Smart Alerts) */}
             <motion.path
-              d="M 155 375 L 195 375 Q 230 375 251 387"
+              d="M 268 455 C 238 428, 230 375, 205 375 L 155 375"
               stroke="#F80090"
               strokeWidth="2"
               strokeLinecap="round"
               className="drop-shadow-[0_0_8px_#F80090]"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
-              transition={{ duration: 0.5, delay: 3.0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 2.7 }}
             />
             <motion.circle
               cx="155"
@@ -534,19 +543,19 @@ export default function NazrProjectPage() {
               className="drop-shadow-[0_0_10px_#F80090]"
               initial={{ scale: 0, opacity: 0 }}
               animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 350, damping: 20, delay: 2.9 }}
+              transition={{ type: "spring", stiffness: 350, damping: 20, delay: 3.2 }}
             />
 
-            {/* Feature 3 Line & Dot */}
+            {/* Feature 3 Line & Dot (Voice Detection) */}
             <motion.path
-              d="M 155 440 L 205 440 Q 245 440 268 453"
+              d="M 268 455 C 244 449, 235 440, 215 440 L 155 440"
               stroke="#F80090"
               strokeWidth="2"
               strokeLinecap="round"
               className="drop-shadow-[0_0_8px_#F80090]"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
-              transition={{ duration: 0.5, delay: 3.2 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 2.8 }}
             />
             <motion.circle
               cx="155"
@@ -556,19 +565,19 @@ export default function NazrProjectPage() {
               className="drop-shadow-[0_0_10px_#F80090]"
               initial={{ scale: 0, opacity: 0 }}
               animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 350, damping: 20, delay: 3.1 }}
+              transition={{ type: "spring", stiffness: 350, damping: 20, delay: 3.3 }}
             />
 
-            {/* Feature 4 Line & Dot */}
+            {/* Feature 4 Line & Dot (Trusted Circle) */}
             <motion.path
-              d="M 155 510 L 215 510 Q 260 510 287 525"
+              d="M 268 455 C 241 477, 230 510, 205 510 L 155 510"
               stroke="#F80090"
               strokeWidth="2"
               strokeLinecap="round"
               className="drop-shadow-[0_0_8px_#F80090]"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
-              transition={{ duration: 0.5, delay: 3.4 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 2.9 }}
             />
             <motion.circle
               cx="155"
@@ -578,19 +587,19 @@ export default function NazrProjectPage() {
               className="drop-shadow-[0_0_10px_#F80090]"
               initial={{ scale: 0, opacity: 0 }}
               animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 350, damping: 20, delay: 3.3 }}
+              transition={{ type: "spring", stiffness: 350, damping: 20, delay: 3.4 }}
             />
 
-            {/* Feature 5 Line & Dot */}
+            {/* Feature 5 Line & Dot (One-tap Emergency) */}
             <motion.path
-              d="M 155 575 L 225 575 Q 275 575 304 591"
+              d="M 268 455 C 241 503, 220 575, 190 575 L 155 575"
               stroke="#F80090"
               strokeWidth="2"
               strokeLinecap="round"
               className="drop-shadow-[0_0_8px_#F80090]"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
-              transition={{ duration: 0.5, delay: 3.6 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 3.0 }}
             />
             <motion.circle
               cx="155"
@@ -619,7 +628,7 @@ export default function NazrProjectPage() {
                 className="text-right"
                 initial={{ opacity: 0, x: -8 }}
                 animate={isProtectInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }}
-                transition={{ duration: 0.35, ease: 'easeOut', delay: 2.8 + i * 0.2 }}
+                transition={{ duration: 0.35, ease: 'easeOut', delay: 3.0 + i * 0.1 }}
               >
                 <span className="text-[clamp(10px,0.8vw,13px)] text-gray-300 whitespace-pre-line leading-tight block">
                   {item.title}
@@ -704,7 +713,6 @@ export default function NazrProjectPage() {
             </motion.div>
           </div>
 
-          {/* Right Text Block */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={isProtectInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -725,13 +733,13 @@ export default function NazrProjectPage() {
 
         </div>
 
-        {/* Mobile View (< md) - Matching Figma Design */}
+        
         <div className="w-full max-w-[420px] mx-auto flex flex-col items-center relative text-white px-2 mt-4 md:hidden overflow-hidden">
           
-          {/* Upper Composite Section: Girl + NAZR Script */}
+         
           <div className="relative w-full flex flex-col items-center pt-2">
             
-            {/* Girl Image with subtle blend */}
+    
             <div className="relative w-full max-w-[340px] flex justify-center">
               <motion.img 
                 src="/images/projects/nazr/protect/girl.png" 
@@ -741,12 +749,12 @@ export default function NazrProjectPage() {
                 animate={isProtectInView ? { opacity: 0.8, scale: 1 } : { opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               />
-              {/* Dark Vignette / Blend Overlays */}
+        
               <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-[#111111]/70 pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-b from-[#111111] via-transparent to-transparent pointer-events-none" />
             </div>
 
-            {/* Vibrant Blue NAZR Script across the girl */}
+    
             <motion.div 
               className="absolute top-[130px] sm:top-[150px] left-1/2 -translate-x-1/2 z-20 pointer-events-none w-full text-center"
               initial={{ opacity: 0, scale: 0.85 }}
@@ -763,13 +771,13 @@ export default function NazrProjectPage() {
 
           </div>
 
-          {/* Unified Phone & Annotations Stage - Exact Figma Coordinates */}
+     
           <div className="relative w-[360px] max-w-full h-[540px] mx-auto mt-[-30px] mb-4">
             
-            {/* SVG Connecting Lines & Glowing Dots Overlay */}
+           
             <svg className="absolute inset-0 w-full h-full pointer-events-none z-30 overflow-visible" viewBox="0 0 360 540" fill="none">
               
-              {/* 1. Software Connecting Line & Dot */}
+          
               <motion.path
                 d="M 105 38 L 158 38 Q 168 38 168 48 L 168 95"
                 stroke="#F80090"
@@ -791,16 +799,28 @@ export default function NazrProjectPage() {
                 transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.4 }}
               />
 
+              
+              <motion.circle
+                cx="110"
+                cy="298"
+                r="2.5"
+                fill="#F80090"
+                className="drop-shadow-[0_0_6px_#F80090]"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 350, damping: 20, delay: 1.1 }}
+              />
+
               {/* 2. Feature 1 Line & Dot (Real time Location) */}
               <motion.path
-                d="M 56 195 L 68 195 Q 80 195 86 208"
+                d="M 110 298 C 99 277, 84 195, 72 195 L 56 195"
                 stroke="#F80090"
                 strokeWidth="1.3"
                 strokeLinecap="round"
                 className="drop-shadow-[0_0_5px_#F80090]"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
-                transition={{ duration: 0.4, delay: 1.2 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 1.2 }}
               />
               <motion.circle
                 cx="56"
@@ -810,19 +830,19 @@ export default function NazrProjectPage() {
                 className="drop-shadow-[0_0_6px_#F80090]"
                 initial={{ scale: 0, opacity: 0 }}
                 animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-                transition={{ type: "spring", stiffness: 350, damping: 20, delay: 1.1 }}
+                transition={{ type: "spring", stiffness: 350, damping: 20, delay: 1.6 }}
               />
 
               {/* 3. Feature 2 Line & Dot (Smart Alerts) */}
               <motion.path
-                d="M 56 248 L 74 248 Q 92 248 100 259"
+                d="M 110 298 C 97 286, 88 248, 78 248 L 56 248"
                 stroke="#F80090"
                 strokeWidth="1.3"
                 strokeLinecap="round"
                 className="drop-shadow-[0_0_5px_#F80090]"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
-                transition={{ duration: 0.4, delay: 1.4 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 1.3 }}
               />
               <motion.circle
                 cx="56"
@@ -832,19 +852,19 @@ export default function NazrProjectPage() {
                 className="drop-shadow-[0_0_6px_#F80090]"
                 initial={{ scale: 0, opacity: 0 }}
                 animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-                transition={{ type: "spring", stiffness: 350, damping: 20, delay: 1.3 }}
+                transition={{ type: "spring", stiffness: 350, damping: 20, delay: 1.7 }}
               />
 
               {/* 4. Feature 3 Line & Dot (Voice Detection) */}
               <motion.path
-                d="M 56 300 L 80 300 Q 104 300 112 306"
+                d="M 110 298 C 98 296, 90 300, 82 300 L 56 300"
                 stroke="#F80090"
                 strokeWidth="1.3"
                 strokeLinecap="round"
                 className="drop-shadow-[0_0_5px_#F80090]"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
-                transition={{ duration: 0.4, delay: 1.6 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 1.4 }}
               />
               <motion.circle
                 cx="56"
@@ -854,19 +874,19 @@ export default function NazrProjectPage() {
                 className="drop-shadow-[0_0_6px_#F80090]"
                 initial={{ scale: 0, opacity: 0 }}
                 animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-                transition={{ type: "spring", stiffness: 350, damping: 20, delay: 1.5 }}
+                transition={{ type: "spring", stiffness: 350, damping: 20, delay: 1.8 }}
               />
 
               {/* 5. Feature 4 Line & Dot (Trusted Circle) */}
               <motion.path
-                d="M 56 352 L 86 352 Q 118 352 126 357"
+                d="M 110 298 C 98 308, 88 352, 78 352 L 56 352"
                 stroke="#F80090"
                 strokeWidth="1.3"
                 strokeLinecap="round"
                 className="drop-shadow-[0_0_5px_#F80090]"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
-                transition={{ duration: 0.4, delay: 1.8 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 1.5 }}
               />
               <motion.circle
                 cx="56"
@@ -876,19 +896,19 @@ export default function NazrProjectPage() {
                 className="drop-shadow-[0_0_6px_#F80090]"
                 initial={{ scale: 0, opacity: 0 }}
                 animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-                transition={{ type: "spring", stiffness: 350, damping: 20, delay: 1.7 }}
+                transition={{ type: "spring", stiffness: 350, damping: 20, delay: 1.9 }}
               />
 
               {/* 6. Feature 5 Line & Dot (One-tap Emergency) */}
               <motion.path
-                d="M 56 404 L 92 404 Q 130 404 138 404"
+                d="M 110 298 C 98 319, 82 404, 70 404 L 56 404"
                 stroke="#F80090"
                 strokeWidth="1.3"
                 strokeLinecap="round"
                 className="drop-shadow-[0_0_5px_#F80090]"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={isProtectInView ? { pathLength: 1, opacity: 0.85 } : { pathLength: 0, opacity: 0 }}
-                transition={{ duration: 0.4, delay: 2.0 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 1.6 }}
               />
               <motion.circle
                 cx="56"
@@ -898,7 +918,7 @@ export default function NazrProjectPage() {
                 className="drop-shadow-[0_0_6px_#F80090]"
                 initial={{ scale: 0, opacity: 0 }}
                 animate={isProtectInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-                transition={{ type: "spring", stiffness: 350, damping: 20, delay: 1.9 }}
+                transition={{ type: "spring", stiffness: 350, damping: 20, delay: 2.0 }}
               />
 
               {/* 7. Trusted Circle Bottom-Right Line & Dot */}
@@ -972,7 +992,7 @@ export default function NazrProjectPage() {
                   className="text-right"
                   initial={{ opacity: 0, x: -8 }}
                   animate={isProtectInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }}
-                  transition={{ duration: 0.4, delay: 1.2 + i * 0.18 }}
+                  transition={{ duration: 0.4, delay: 1.5 + i * 0.1 }}
                 >
                   <span className="text-[9.5px] font-medium text-gray-300 leading-tight whitespace-pre-line block">
                     {item.title}
