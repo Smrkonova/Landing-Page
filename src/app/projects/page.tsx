@@ -99,7 +99,7 @@ export default function ProjectsPage() {
               </div>
             </div>
 
-            {/* Title (Bottom-Right over the jacket: 2 Lines) */}
+          
             <div className="absolute bottom-[30px] right-[28px] z-20 pointer-events-none">
               <h2 className="text-white text-[35px] font-extrabold leading-[40px] font-sans tracking-tight text-right drop-shadow-md">
                 Hiro<br />Guild
@@ -107,12 +107,12 @@ export default function ProjectsPage() {
             </div>
           </Link>
 
-          {/* CARD 3: Nazar (3D Overlapping Box breakout - enlarged to match reference) */}
+        
           <Link
             href="/projects/nazr"
             className="group relative block w-full max-w-[345px] h-[374px] mx-auto transition-transform duration-300 hover:-translate-y-1 overflow-visible"
           >
-            {/* Pink Gradient Background Box */}
+         
             <div
               className="absolute inset-0 w-full h-full shadow-sm"
               style={{
@@ -120,40 +120,18 @@ export default function ProjectsPage() {
               }}
             />
 
-            {/* 3D Overlapping Boxes (Blue & Pink enlarged with dramatic breakout) */}
-            <div className="absolute inset-0 pointer-events-none z-10 overflow-visible">
-              {/* Pink Box (Behind/Left, tilted ~15deg, sticking slightly out the left edge) */}
-              <div
-                className="absolute -left-[12px] top-[70px] w-[215px] h-[225px] z-10 transition-transform duration-500 group-hover:rotate-[17deg]"
-                style={{
-                  transform: 'rotate(15deg)',
-                  filter: 'drop-shadow(0px 24px 34px rgba(0, 0, 0, 0.22))',
-                }}
-              >
+           
+            <div className="absolute inset-0 flex items-start justify-center pointer-events-none z-10 pb-0">
+              <div className="relative w-[312px] h-[280px] transition-transform duration-500 group-hover:scale-105">
                 <Image
-                  src="/pink.png"
-                  alt="Nazar Pink"
+                  src="images/project/nazr/nazrhome.PNG"
+                  alt="Hiro Guild"
                   fill
                   unoptimized
-                  className="object-contain"
+                  className="object-contain object-bottom"
                 />
-              </div>
-
-              {/* Blue Box (Front/Right, tilted ~15deg, breaking out high above top edge) */}
-              <div
-                className="absolute right-[12px] -top-[48px] w-[245px] h-[255px] z-20 transition-transform duration-500 group-hover:-translate-y-2 group-hover:rotate-[17deg]"
-                style={{
-                  transform: 'rotate(15deg)',
-                  filter: 'drop-shadow(0px 28px 38px rgba(0, 0, 0, 0.28))',
-                }}
-              >
-                <Image
-                  src="/blue.png"
-                  alt="Nazar Blue"
-                  fill
-                  unoptimized
-                  className="object-contain"
-                />
+                {/* Soft dark shadow blur at bottom */}
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[240px] h-[45px] bg-black/40 blur-[26px] pointer-events-none rounded-full" />
               </div>
             </div>
 
@@ -163,7 +141,7 @@ export default function ProjectsPage() {
                 Be confident<br />Everywhere
               </p>
               <h2 className="text-[#000000] text-[40px] font-bold leading-[48px] font-sans tracking-tight">
-                Nazar
+                Nazr
               </h2>
             </div>
           </Link>

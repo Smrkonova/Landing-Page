@@ -62,7 +62,7 @@ const Projects = () => {
     <div
       ref={containerRef}
       className="w-full relative"
-      style={{ height: isMobile ? "1400vh" : "calc(700vh / var(--desktop-scale, 1))" }}
+      style={{ height: isMobile ? "1400vh" : "calc(1000vh / var(--desktop-scale, 1))" }}
     >
       <div
         className="sticky top-0 w-full overflow-hidden"
@@ -86,10 +86,11 @@ const Projects = () => {
               {/* Giant Background Text */}
               <div className="absolute top-[25%] sm:top-[28%] md:top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
                 <h1
-                  className="text-center text-[18vw] md:text-[10vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
+                  className="text-center text-[18vw] md:text-[10vw] font-black font-good-times leading-none m-0 p-0 sm:tracking-tighter md:tracking-[1rem]"
                   style={{ color: '#FFFFFF4D' }}
                 >
                   YOU ARE<br />SAFE
+                  
                 </h1>
               </div>
 
@@ -98,7 +99,7 @@ const Projects = () => {
 
                 {/* Left Side: Product Images */}
 
-                <div className="relative w-full md:w-1/2 flex items-center justify-center mt-2 sm:mt-4 md:mt-0 mb-4 sm:mb-6 md:mb-0">
+                <div className="relative w-full md:w-1/2 flex items-center justify-center mt-2 sm:mt-4 md:mt-8 mb-4 sm:mb-6 md:mb-0">
                   <motion.div
                     initial={{ opacity: 0, y: 50, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -203,7 +204,7 @@ const Projects = () => {
               {/* Giant Background Text */}
               <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
                 <h1
-                  className="text-center text-[18vw] md:text-[9vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
+                  className="text-center text-[18vw] md:text-[9vw] font-black font-good-times leading-none m-0 p-0 sm:tracking-tighter md:tracking-[1rem]"
                   style={{ color: '#FFFFFF4D' }}
                 >
                   BUILDING<br />TRUST
@@ -315,9 +316,9 @@ const Projects = () => {
               onMouseLeave={() => setIsHovering(false)}
             >
               {/* Giant Background Text */}
-              <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
+              <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/1 w-full flex items-center justify-center pointer-events-none select-none z-0">
                 <h1
-                  className="text-center text-[18vw] md:text-[10vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
+                  className="text-center text-[18vw] md:text-[10vw] font-black font-good-times leading-none m-0 p-0 sm:tracking-tighter md:tracking-[1rem]"
                   style={{ color: '#FFFFFF4D' }}
                 >
                   GAMIFIED
@@ -327,35 +328,41 @@ const Projects = () => {
               {/* Main Content Container */}
               <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 pt-8 pb-32 md:py-24 flex flex-col md:flex-row items-center justify-center h-full">
                 {/* Left Side: Product Images */}
-                <div className="relative w-full md:w-1/2 h-[180px] sm:h-[240px] md:h-[700px] flex items-center justify-center mb-3 md:mb-0">
-                  <motion.div
-                    initial={{ opacity: 0, y: 50, rotate: -15 }}
-                    animate={{ opacity: 1, y: 0, rotate: -5 }}
-                    transition={{ duration: 1, type: "spring", delay: 0.3 }}
-                    className="absolute w-[48%] sm:w-[52%] md:w-[60%] left-[8%] md:left-[5%] z-40 drop-shadow-2xl"
-                  >
-                    <Image
-                      src="/images/project/hiro/left.png"
-                      alt="Hiro Mobile App"
-                      width={600}
-                      height={800}
-                      className="w-full h-auto max-h-[160px] sm:max-h-[220px] md:max-h-none object-contain"
-                    />
-                  </motion.div>
-                  <motion.div
-                    initial={{ opacity: 0, y: 50, rotate: 15 }}
-                    animate={{ opacity: 1, y: 0, rotate: 5 }}
-                    transition={{ duration: 1, delay: 0.5, type: "spring" }}
-                    className="absolute w-[42%] sm:w-[46%] md:w-[50%] right-[8%] md:right-[5%] z-30 drop-shadow-2xl"
-                  >
-                    <Image
-                      src="/images/project/hiro/right.png"
-                      alt="Hiro App Screen"
-                      width={500}
-                      height={700}
-                      className="w-full h-auto max-h-[160px] sm:max-h-[220px] md:max-h-none object-contain"
-                    />
-                  </motion.div>
+                <div className="relative w-full md:w-1/2 flex items-center justify-center mb-6 md:mb-0">
+                  <div className="relative flex items-center justify-center">
+                    {/* Mobile Phones */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.9, type: "spring", delay: 0.3 }}
+                      className="relative z-30 drop-shadow-2xl"
+                    >
+                      <Image
+                        src="/images/project/hiro/left.png"
+                        alt="Hiro Mobile App"
+                        width={434}
+                        height={531}
+                        className="w-[220px] sm:w-[280px] md:w-[360px] lg:w-[420px] h-auto object-contain"
+                        priority
+                      />
+                    </motion.div>
+
+                    {/* Route Line */}
+                    <motion.div
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.9, delay: 0.5, type: "spring" }}
+                      className="absolute left-[91%] top-[16%] w-[45.6%] z-20 pointer-events-none"
+                    >
+                      <Image
+                        src="/images/project/hiro/right.png"
+                        alt="Hiro Route Line"
+                        width={198}
+                        height={493}
+                        className="w-full h-auto object-contain"
+                      />
+                    </motion.div>
+                  </div>
                 </div>
 
                 {/* Right Side: Description */}
@@ -445,7 +452,7 @@ const Projects = () => {
               {/* Giant Background Text */}
               <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
                 <h1
-                  className="text-center text-[18vw] md:text-[9vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
+                  className="text-center text-[18vw] md:text-[9vw] font-black font-good-times leading-none m-0 p-0 sm:tracking-tighter md:tracking-[1rem]"
                   style={{ color: '#FFFFFF4D' }}
                 >
                   TIMELESS<br />TASTE
@@ -455,35 +462,41 @@ const Projects = () => {
               {/* Main Content Container */}
               <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 pt-8 pb-32 md:py-24 flex flex-col md:flex-row items-center justify-center h-full">
                 {/* Left Side: Product Images */}
-                <div className="relative w-full md:w-1/2 h-[180px] sm:h-[240px] md:h-[700px] flex items-center justify-center mb-3 md:mb-0">
-                  <motion.div
-                    initial={{ opacity: 0, y: 50, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 1, type: "spring", delay: 0.3 }}
-                    className="absolute w-[50%] sm:w-[55%] md:w-[70%] left-[5%] md:left-[-5%] top-[5%] md:top-[15%] z-30 drop-shadow-2xl"
-                  >
-                    <Image
-                      src="/images/project/rayara/left.png"
-                      alt="Rayara Left"
-                      width={800}
-                      height={800}
-                      className="w-full h-auto max-h-[140px] sm:max-h-[200px] md:max-h-none object-contain"
-                    />
-                  </motion.div>
-                  <motion.div
-                    initial={{ opacity: 0, y: 50, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 1, delay: 0.5, type: "spring" }}
-                    className="absolute w-[55%] sm:w-[60%] md:w-[95%] right-[5%] md:-right-[5%] top-[25%] md:top-[45%] z-40 drop-shadow-2xl"
-                  >
-                    <Image
-                      src="/images/project/rayara/right.png"
-                      alt="Rayara Right"
-                      width={900}
-                      height={800}
-                      className="w-full h-auto max-h-[140px] sm:max-h-[200px] md:max-h-none object-contain"
-                    />
-                  </motion.div>
+                <div className="relative w-full md:w-1/2 flex items-center justify-center mt-2 sm:mt-4 md:mt-12 mb-4 sm:mb-6 md:mb-0">
+                  <div className="relative w-full max-w-[320px] sm:max-w-[400px] md:max-w-[480px] lg:max-w-[521px] aspect-[521/495]">
+                    
+                    <motion.div
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.9, type: "spring", delay: 0.3 }}
+                      className="absolute left-0 top-0 w-[67.75%] h-[70.71%] z-20 drop-shadow-2xl"
+                    >
+                      <Image
+                        src="/images/project/rayara/left.png"
+                        alt="Rayara Tamara Plate"
+                        width={353}
+                        height={350}
+                        className="w-full h-full object-contain"
+                        priority
+                      />
+                    </motion.div>
+
+                   
+                    <motion.div
+                      initial={{ opacity: 0, y: 50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.9, delay: 0.5, type: "spring" }}
+                      className="absolute left-[7.49%] top-[37.37%] w-[92.51%] h-[62.63%] z-30 drop-shadow-2xl"
+                    >
+                      <Image
+                        src="/images/project/rayara/right.png"
+                        alt="Rayara Tamara Box"
+                        width={482}
+                        height={310}
+                        className="w-full h-full object-contain"
+                      />
+                    </motion.div>
+                  </div>
                 </div>
 
                 {/* Right Side: Description */}
@@ -573,7 +586,7 @@ const Projects = () => {
               {/* Giant Background Text */}
               <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
                 <h1
-                  className="text-center text-[18vw] md:text-[9vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
+                  className="text-center text-[18vw] md:text-[9vw] font-black font-good-times leading-none m-0 p-0 sm:tracking-tighter md:tracking-[1rem]"
                   style={{ color: '#FFFFFF1A' }}
                 >
                   READY<br />FOR FILMS
@@ -728,7 +741,7 @@ const Projects = () => {
               {/* Giant Background Text */}
               <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
                 <h1
-                  className="text-center text-[18vw] md:text-[9vw] font-black font-good-times leading-none m-0 p-0 tracking-tighter"
+                  className="text-center text-[18vw] md:text-[9vw] font-black font-good-times leading-none m-0 p-0 sm:tracking-tighter md:tracking-[1rem]"
                   style={{ color: '#FFFFFF33' }}
                 >
                   READING<br />SIMPLIFIED
@@ -738,38 +751,41 @@ const Projects = () => {
               {/* Main Content Container */}
               <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 pt-8 pb-32 md:py-24 flex flex-col md:flex-row items-center justify-center h-full">
                 {/* Left Side: Product Images */}
-                <div className="relative w-full md:w-1/2 h-[180px] sm:h-[240px] md:h-[700px] flex items-center justify-center mb-3 md:mb-0">
-                  {/* Desktop Image */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8, rotate: 10 }}
-                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                    transition={{ duration: 1, type: "spring", delay: 0.3 }}
-                    className="absolute w-[70%] sm:w-[75%] md:w-[90%] right-[2%] md:right-[-5%] top-[5%] md:top-[15%] z-20 drop-shadow-2xl"
-                  >
-                    <Image
-                      src="/images/project/reading/desktop.png"
-                      alt="Reading Desktop"
-                      width={800}
-                      height={800}
-                      className="w-full h-auto max-h-[150px] sm:max-h-[210px] md:max-h-none object-contain"
-                    />
-                  </motion.div>
+                <div className="relative w-full md:w-1/2 flex items-center justify-center mt-2 sm:mt-4 md:mt-0 mb-4 sm:mb-6 md:mb-0">
+                  <div className="relative w-full max-w-[320px] sm:max-w-[400px] md:max-w-[480px] lg:max-w-[517px] aspect-[517/454.4]">
+                    {/* Desktop Image: 500x454 at top: 0, left: 17px (3.29%) */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.9, type: "spring", delay: 0.3 }}
+                      className="absolute left-[3.29%] top-0 w-[96.71%] h-[99.91%] z-20 drop-shadow-2xl"
+                    >
+                      <Image
+                        src="/images/project/reading/desktop.png"
+                        alt="Reading Desktop"
+                        width={500}
+                        height={454}
+                        className="w-full h-full object-contain"
+                        priority
+                      />
+                    </motion.div>
 
-                  {/* Mobile Image */}
-                  <motion.div
-                    initial={{ opacity: 0, x: -50, y: 50, rotate: -15 }}
-                    animate={{ opacity: 1, x: 0, y: 0, rotate: -5 }}
-                    transition={{ duration: 1, delay: 0.5, type: "spring" }}
-                    className="absolute w-[30%] sm:w-[34%] md:w-[40%] left-[5%] md:left-[0%] bottom-[5%] md:bottom-[5%] z-30 drop-shadow-2xl"
-                  >
-                    <Image
-                      src="/images/project/reading/mobile.png"
-                      alt="Reading Mobile"
-                      width={400}
-                      height={700}
-                      className="w-full h-auto max-h-[140px] sm:max-h-[190px] md:max-h-none object-contain"
-                    />
-                  </motion.div>
+                    {/* Mobile Image: 141.67x263.60 (12.32 deg baked into PNG) at top: 166.63px (36.67%), left: 0 */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.9, delay: 0.5, type: "spring" }}
+                      className="absolute left-0 top-[36.67%] w-[37.65%] h-[63.33%] z-30 drop-shadow-2xl"
+                    >
+                      <Image
+                        src="/images/project/reading/mobile.png"
+                        alt="Reading Mobile"
+                        width={195}
+                        height={288}
+                        className="w-full h-full object-contain"
+                      />
+                    </motion.div>
+                  </div>
                 </div>
 
                 {/* Right Side: Description */}

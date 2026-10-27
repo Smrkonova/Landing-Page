@@ -129,16 +129,17 @@ const guideMembers: GuideMember[] = [
     }
 ];
 
-// Roadmap nodes anchored reliably at the bottom of the viewport
-const roadmapNodes = [
-    { label: "WHY WE CLIMB", index: 0, xPct: 17, yPct: 68, pos: "top" },
-    { label: "THE WAY", index: 1, xPct: 39, yPct: 74, pos: "bottom" },
-    { label: "THE VIEW", index: 2, xPct: 61, yPct: 50, pos: "top" },
-    { label: "THE GUIDE", index: 3, xPct: 76, yPct: 50, pos: "bottom" },
-    { label: "PEOPLE BEHIND", index: 4, xPct: 94, yPct: 21, pos: "top" }
+
+// Roadmap items anchored reliably at the bottom of the viewport
+const roadmapItems = [
+    { label: "WHY WE CLIMB", index: 0, x: 20, y: 65, pos: "top" },
+    { label: "THE WAY", index: 1, x: 40, y: 75, pos: "bottom" },
+    { label: "THE VIEW", index: 2, x: 60, y: 50, pos: "top" },
+    { label: "THE GUIDE", index: 3, x: 75, y: 50, pos: "bottom" },
+    { label: "PEOPLE BEHIND", index: 4, x: 90, y: 20, pos: "top" }
 ];
 
-// Vector 2: Exact Figma glass frame with 9.12px corner radius and diagonal chamfer cut
+
 function Vector2GlassCard({
     children,
     className = "",
@@ -233,51 +234,41 @@ export default function AboutPage() {
             typeof window !== "undefined" &&
             window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        // Total timeline units = 6.4
-        // Unit 0 -> 1.0: Slide 1 (Mission) -> Slide 2 (The Peak)
-        // Unit 1.0 -> 2.0: Slide 2 (The Peak) -> Slide 3 (The View)
-        // Unit 2.0 -> 3.0: Slide 3 (The View) -> Slide 4 (The Guide: Member 1 Mohit enters)
-        // Unit 3.0 -> 3.5: Slide 4: Member 1 (Mohit) remains stationary & visible
-        // Unit 3.5 -> 3.9: Slide 4: Member 1 -> Member 2 (Shruti)
-        // Unit 3.9 -> 4.5: Slide 4: Member 2 (Shruti) remains stationary & visible
-        // Unit 4.5 -> 4.9: Slide 4: Member 2 -> Member 3 (U. Ravindran)
-        // Unit 4.9 -> 5.4: Slide 4: Member 3 (U. Ravindran) remains stationary & visible
-        // Unit 5.4 -> 6.4: Slide 4 -> Slide 5 (People Behind)
+        // 3 units to slide 4, 2 units for guide members, 1 unit to slide 5, 2 units hold = 8 units
+        const totalUnits = 8;
+
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: wrapperRef.current,
                 start: "top top",
                 end: "bottom bottom",
-                scrub: 1.1,
+                scrub: 1,
                 onUpdate: (self) => {
-                    const p = self.progress;
-                    if (p < 0.20) {
-                        setActiveSlide(0);
-                    } else if (p < 0.36) {
-                        setActiveSlide(1);
-                    } else if (p < 0.50) {
-                        setActiveSlide(2);
-                    } else if (p < 0.86) {
-                        setActiveSlide(3);
-                        if (p < 0.62) {
-                            setActiveGuideMemberIdx(0);
-                        } else if (p < 0.76) {
-                            setActiveGuideMemberIdx(1);
-                        } else {
-                            setActiveGuideMemberIdx(2);
-                        }
-                    } else {
-                        setActiveSlide(4);
+                    const p = self.progress * totalUnits;
+                    let slideIndex = 0;
+                    if (p < 0.7) slideIndex = 0;
+                    else if (p < 1.7) slideIndex = 1;
+                    else if (p < 2.7) slideIndex = 2;
+                    else if (p < 5.3) slideIndex = 3; // covers units 3 to 5 (The Guide & person transitions)
+                    else slideIndex = 4; // People Behind
+
+                    setActiveSlide(slideIndex);
+
+                    if (slideIndex === 3) {
+                        if (p < 3.7) setActiveGuideMemberIdx(0);
+                        else if (p < 4.4) setActiveGuideMemberIdx(1);
+                        else setActiveGuideMemberIdx(2);
                     }
                 }
             }
         });
 
         if (prefersReducedMotion) {
-            tl.to(slides, { xPercent: -100, ease: "none", duration: 1 }, 0)
-                .to(slides, { xPercent: -200, ease: "none", duration: 1 }, 1)
-                .to(slides, { xPercent: -300, ease: "none", duration: 1 }, 2)
-                .to(slides, { xPercent: -400, ease: "none", duration: 1 }, 4.2);
+            tl.to(slides, { xPercent: -100 * 3, ease: "none", duration: 3 }, 0)
+                .to(slides, { xPercent: -100 * 4, ease: "none", duration: 1 }, 5);
+            tl.to(".panorama-bg", { xPercent: -60, ease: "none", duration: 3 }, 0)
+                .to(".panorama-bg", { xPercent: -80, ease: "none", duration: 1 }, 5);
+            tl.to({}, { duration: 2 });
             return () => {
                 tl.kill();
             };
@@ -286,25 +277,19 @@ export default function AboutPage() {
         gsap.set(".person-2, .person-3", { opacity: 0, x: 60 });
         gsap.set(".person-1", { opacity: 1, x: 0 });
 
-        // =========================================================================
-        // TRANSITION 1: SLIDE 1 (MISSION) -> SLIDE 2 (THE PEAK) [0 -> 1]
-        // =========================================================================
+        // 1. Move horizontally to Slide 4 (THE GUIDE) over 3 units
         tl.to(slides, {
-            xPercent: -100,
-            ease: "power2.inOut",
-            duration: 1
+            xPercent: -100 * 3,
+            ease: "none",
+            duration: 3
+        }, 0);
+        tl.to(".panorama-bg", {
+            xPercent: -60,
+            ease: "none",
+            duration: 3
         }, 0);
 
         // Slide 1 Exits:
-        tl.to(".slide1-bg", {
-            xPercent: 16,
-            scale: 1.05,
-            filter: "blur(12px)",
-            opacity: 0.3,
-            ease: "power2.inOut",
-            duration: 1
-        }, 0);
-
         tl.to(".slide1-content", {
             x: -120,
             opacity: 0,
@@ -314,12 +299,6 @@ export default function AboutPage() {
         }, 0);
 
         // Slide 2 Enters:
-        tl.fromTo(".slide2-bg",
-            { xPercent: -16, opacity: 0.5 },
-            { xPercent: 0, opacity: 1, ease: "power2.inOut", duration: 1 },
-            0
-        );
-
         tl.fromTo(".slide2-mount",
             { x: -140, scale: 0.88, opacity: 0.2 },
             { x: 0, scale: 1.0, opacity: 1, ease: "power2.out", duration: 0.95 },
@@ -338,15 +317,7 @@ export default function AboutPage() {
             0.1
         );
 
-        // =========================================================================
-        // TRANSITION 2: SLIDE 2 (THE PEAK) -> SLIDE 3 (THE VIEW) [1 -> 2]
-        // =========================================================================
-        tl.to(slides, {
-            xPercent: -200,
-            ease: "power2.inOut",
-            duration: 1
-        }, 1);
-
+        // Slide 2 Exits:
         tl.to(".slide2-mount", {
             x: -120,
             scale: 0.92,
@@ -355,7 +326,6 @@ export default function AboutPage() {
             duration: 1
         }, 1);
 
-        // Slide 2 exiting continues:
         tl.to(".slide2-cloud-golden", {
             x: -120,
             opacity: 0,
@@ -371,46 +341,13 @@ export default function AboutPage() {
         }, 1);
 
         // Slide 3 Enters:
-        tl.fromTo(".slide3-bg",
-            { xPercent: -16, opacity: 0.5 },
-            { xPercent: 0, opacity: 1, ease: "power2.inOut", duration: 1 },
-            1
-        );
-
-        tl.fromTo(".slide3-cloud-left",
-            { x: -120, opacity: 0.2 },
-            { x: 0, opacity: 0.9, ease: "power2.out", duration: 0.95 },
-            1.08
-        );
-
-        tl.fromTo(".slide3-cloud-right",
-            { x: 120, opacity: 0.2 },
-            { x: 0, opacity: 0.9, ease: "power2.out", duration: 0.95 },
-            1.08
-        );
-
         tl.fromTo(".slide3-heading, .slide3-desc",
             { y: 60, opacity: 0 },
             { y: 0, opacity: 1, ease: "power2.out", duration: 0.9 },
             1.1
         );
 
-        // =========================================================================
-        // TRANSITION 3: SLIDE 3 (THE VIEW) -> SLIDE 4 (THE GUIDE) [2 -> 3]
-        // =========================================================================
-        tl.to(slides, {
-            xPercent: -300,
-            ease: "power2.inOut",
-            duration: 1
-        }, 2);
-
-        tl.to(".slide3-cloud-left, .slide3-cloud-right", {
-            opacity: 0,
-            scale: 1.1,
-            ease: "power2.inOut",
-            duration: 0.9
-        }, 2);
-
+        // Slide 3 Exits:
         tl.to(".slide3-heading, .slide3-desc", {
             y: -60,
             opacity: 0,
@@ -419,76 +356,76 @@ export default function AboutPage() {
         }, 2);
 
         // Slide 4 Enters:
-        tl.fromTo(".slide4-bg",
-            { xPercent: -16, opacity: 0.5 },
-            { xPercent: 0, opacity: 1, ease: "power2.inOut", duration: 1 },
-            2
-        );
-
         tl.fromTo(".person-1",
             { x: 80, opacity: 0 },
             { x: 0, opacity: 1, ease: "power2.out", duration: 0.8 },
             2.2
         );
 
-        // Within Slide 4: person-1 stays visible (3.0 -> 3.5), then transitions to person-2
+        // 2. Guide member transitions within Slide 4 (Units 3 to 5)
+        // Person 1 -> Person 2 (Unit 3.5 to 3.9)
         tl.to(".person-1", { opacity: 0, x: -60, ease: "power2.inOut", duration: 0.4 }, 3.5);
         tl.fromTo(".person-2", { opacity: 0, x: 60 }, { opacity: 1, x: 0, ease: "power2.out", duration: 0.4 }, 3.7);
 
-        // Within Slide 4: person-2 stays visible (3.9 -> 4.5), then transitions to person-3
-        tl.to(".person-2", { opacity: 0, x: -60, ease: "power2.inOut", duration: 0.4 }, 4.5);
-        tl.fromTo(".person-3", { opacity: 0, x: 60 }, { opacity: 1, x: 0, ease: "power2.out", duration: 0.4 }, 4.7);
+        // Person 2 -> Person 3 (Unit 4.3 to 4.7)
+        tl.to(".person-2", { opacity: 0, x: -60, ease: "power2.inOut", duration: 0.4 }, 4.3);
+        tl.fromTo(".person-3", { opacity: 0, x: 60 }, { opacity: 1, x: 0, ease: "power2.out", duration: 0.4 }, 4.5);
 
-        // =========================================================================
-        // TRANSITION 4: SLIDE 4 (THE GUIDE) -> SLIDE 5 (PEOPLE BEHIND) [3 -> 4]
-        // =========================================================================
+        // 3. Move horizontally to Slide 5 (PEOPLE BEHIND) over 1 unit (Unit 5 to 6)
         tl.to(slides, {
-            xPercent: -400,
-            ease: "power2.inOut",
+            xPercent: -100 * 4,
+            ease: "none",
             duration: 1
-        }, 5.4);
+        }, 5);
+        tl.to(".panorama-bg", {
+            xPercent: -80,
+            ease: "none",
+            duration: 1
+        }, 5);
 
         tl.to(".person-3", {
             opacity: 0,
             x: -80,
             ease: "power2.inOut",
             duration: 0.6
-        }, 5.4);
+        }, 5);
 
         // Slide 5 Enters:
-        tl.fromTo(".slide5-bg",
-            { xPercent: -16, opacity: 0.5 },
-            { xPercent: 0, opacity: 1, ease: "power2.inOut", duration: 0.8 },
-            5.4
-        );
-
         tl.fromTo(".slide5-title, .slide5-desc",
             { x: -100, opacity: 0 },
             { x: 0, opacity: 1, ease: "power2.out", duration: 0.75 },
-            5.5
+            5.2
         );
 
         tl.fromTo(".slide5-stage",
             { x: 90, opacity: 0.3 },
             { x: 0, opacity: 1, ease: "power2.out", duration: 0.75 },
-            5.5
+            5.2
         );
+
+        // 4. Hold Slide 5 for 2 extra units so it doesn't suddenly scroll away (Unit 6 to 8)
+        tl.to({}, { duration: 2 });
 
         return () => {
             tl.kill();
         };
     }, { scope: wrapperRef });
 
-    // Click roadmap node to jump smoothly to that slide
+    // Click roadmap node to jump smoothly to that slide (mapped across 8 totalUnits)
     const scrollToSlide = (index: number) => {
         const wrapper = wrapperRef.current;
         if (!wrapper) return;
 
-        // Progress targets for each slide beat:
-        const targetMap = [0.0, 0.22, 0.40, 0.53, 0.96];
+        const totalUnits = 8;
+        // Map 5 roadmap steps to the timeline units:
+        // Slide 0: 0, Slide 1: 1, Slide 2: 2, Slide 3: 3, Slide 4: 6
+        const targetMap = [0, 1, 2, 3, 6];
+
         const containerTop = wrapper.getBoundingClientRect().top + window.scrollY;
-        const maxScroll = wrapper.offsetHeight - window.innerHeight;
-        const targetScroll = containerTop + (maxScroll * targetMap[index]);
+        const sticky = wrapper.querySelector(".sticky") as HTMLElement | null;
+        const stickyHeight = sticky ? sticky.offsetHeight : window.innerHeight;
+        const maxScroll = wrapper.offsetHeight - stickyHeight;
+        const targetScroll = containerTop + (maxScroll * (targetMap[index] / totalUnits));
 
         const lenis = (typeof window !== "undefined" && (window as any).__lenis);
         if (lenis) {
@@ -507,7 +444,7 @@ export default function AboutPage() {
             <section
                 ref={wrapperRef}
                 className="relative w-full bg-black select-none"
-                style={{ height: "calc(650vh / var(--desktop-scale, 1))" }}
+                style={{ height: "calc(800vh / var(--desktop-scale, 1))" }}
             >
                 {/* Pinned Sticky Viewport pinned top-0 */}
                 <div
@@ -515,33 +452,28 @@ export default function AboutPage() {
                     className="sticky top-0 w-full overflow-hidden flex flex-col justify-between bg-black"
                     style={{ height: "calc(100vh / var(--desktop-scale, 1))" }}
                 >
+                    {/* SINGLE CONTINUOUS SEAMLESS PANORAMA BACKGROUND */}
+                    <div className="panorama-bg-layer absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+                        <div
+                            className="panorama-bg absolute top-0 left-0 h-full w-[500%] will-change-transform"
+                        >
+                            <Image
+                                src="/images/about/about-panorama.webp"
+                                alt="Mountain Panorama"
+                                fill
+                                priority
+                                unoptimized
+                                className="object-cover object-left"
+                            />
+                        </div>
+                    </div>
+
                     {/* Slides Track */}
-                    <div className="flex w-max h-full">
+                    <div className="flex w-max h-full relative z-10">
                         {/* ========================================================================= */}
                         {/* SLIDE 1: WHY WE CLIMB (MISSION)                                           */}
                         {/* ========================================================================= */}
-                        <div className="slide-panel relative w-[390px] md:w-[1440px] shrink-0 h-full overflow-hidden">
-                            {/* Slide 1 Background */}
-                            <div className="slide1-bg absolute inset-0 -left-[10%] w-[120%] h-full z-0 will-change-transform pointer-events-none">
-                                <Image
-                                    src="/images/about/mission1st.png"
-                                    alt="Mission Background"
-                                    fill
-                                    className="object-cover object-center"
-                                    priority
-                                />
-                            </div>
-
-                            {/* Topographic Lines Overlay */}
-                            <div className="absolute inset-0 w-full h-full z-[2] pointer-events-none opacity-20">
-                                <Image
-                                    src="/images/about/way/abstract.png"
-                                    alt="Topographic lines"
-                                    fill
-                                    className="object-cover object-center"
-                                />
-                            </div>
-
+                        <div className="slide-panel relative w-[390px] md:w-[1440px] shrink-0 h-full overflow-hidden bg-transparent">
                             {/* Content Container positioned to exact Figma coordinates */}
                             <div className="slide1-content relative z-10 w-full h-full will-change-transform">
                                 {/* It is our */}
@@ -624,17 +556,7 @@ export default function AboutPage() {
                         {/* ========================================================================= */}
                         {/* SLIDE 2: THE WAY (THE PEAK)                                               */}
                         {/* ========================================================================= */}
-                        <div className="slide-panel relative w-[390px] md:w-[1440px] shrink-0 h-full overflow-hidden">
-                            {/* Background Image */}
-                            <div className="slide2-bg absolute inset-0 -left-[10%] w-[120%] h-full z-0 will-change-transform">
-                                <Image
-                                    src="/images/about/thepeak2nd.png"
-                                    alt="The Way Background"
-                                    fill
-                                    className="object-cover object-center"
-                                />
-                            </div>
-
+                        <div className="slide-panel relative w-[390px] md:w-[1440px] shrink-0 h-full overflow-hidden bg-transparent">
                             {/* Desktop Layout - Exact Figma Specifications */}
                             <div className="hidden md:block">
                                 {/* Mountain Peak: Crisp, High-Clarity */}
@@ -779,39 +701,7 @@ export default function AboutPage() {
                         {/* ========================================================================= */}
                         {/* SLIDE 3: THE VIEW                                                         */}
                         {/* ========================================================================= */}
-                        <div className="slide-panel relative w-[390px] md:w-[1440px] shrink-0 h-full overflow-hidden">
-                            {/* Background Image */}
-                            <div className="slide3-bg absolute inset-0 -left-[10%] w-[120%] h-full z-0 will-change-transform">
-                                <Image
-                                    src="/images/about/aboutus3rd.png"
-                                    alt="The View Background"
-                                    fill
-                                    className="object-cover object-center"
-                                />
-                            </div>
-
-                            {/* Left Cloud */}
-                            <div className="slide3-cloud-left absolute left-0 bottom-0 w-full md:w-1/2 h-[60%] z-[5] pointer-events-none opacity-80 will-change-transform">
-                                <Image
-                                    src="/images/about/view/left-cloud.png"
-                                    alt="Left Cloud Overlay"
-                                    fill
-                                    className="object-contain object-bottom left-0"
-                                />
-                            </div>
-
-                            {/* Right Cloud - Scaled big near right bottom edge corner */}
-                            <div className="slide3-cloud-right absolute -right-4 md:-right-8 lg:-right-12 bottom-0 w-[550px] md:w-[750px] lg:w-[960px] xl:w-[1100px] h-[360px] md:h-[500px] lg:h-[620px] z-[8] pointer-events-none opacity-95 will-change-transform">
-                                <Image
-                                    src="/images/about/view/right-cloud.png"
-                                    alt="Right Cloud Overlay"
-                                    fill
-                                    className="object-contain"
-                                    style={{ objectPosition: "right bottom" }}
-                                    priority
-                                />
-                            </div>
-
+                        <div className="slide-panel relative w-[390px] md:w-[1440px] shrink-0 h-full overflow-hidden bg-transparent">
                             {/* Content Container according to Figma specs */}
                             <div className="relative z-10 w-full h-full">
                                 {/* We are a business-forward growth studio creating long-term value */}
@@ -984,29 +874,7 @@ export default function AboutPage() {
                         {/* ========================================================================= */}
                         {/* SLIDE 4: THE GUIDE (STICKY SCROLL FOR 3 MEMBERS)                          */}
                         {/* ========================================================================= */}
-                        <div className="slide-panel relative w-[390px] md:w-[1440px] shrink-0 h-full overflow-hidden">
-                            {/* Background Image */}
-                            <div className="slide4-bg absolute inset-0 -left-[10%] w-[120%] h-full z-0 will-change-transform">
-                                <Image
-                                    src="/images/about/aboutus4th.png"
-                                    alt="The Guide Background"
-                                    fill
-                                    className="object-cover object-center"
-                                />
-                            </div>
-
-                            {/* Topographic Lines Overlay */}
-                            <div className="slide4-topo absolute inset-0 w-full h-full z-[2] pointer-events-none opacity-25 will-change-transform">
-                                <Image
-                                    src="/images/about/way/abstract.png"
-                                    alt="Topographic lines"
-                                    fill
-                                    className="object-cover object-center"
-                                />
-                            </div>
-
-
-
+                        <div className="slide-panel relative w-[390px] md:w-[1440px] shrink-0 h-full overflow-hidden bg-transparent">
                             {/* 3 Members Navigation at Top Right of Slide 4 (Clean Text, No Capsule Pill) */}
                             <div className="hidden md:flex absolute right-16 top-16 z-30 items-center gap-6">
                                 {guideMembers.map((member, idx) => {
@@ -1164,17 +1032,7 @@ export default function AboutPage() {
                         {/* ========================================================================= */}
                         {/* SLIDE 5: PEOPLE BEHIND / OUR TEAM                                         */}
                         {/* ========================================================================= */}
-                        <div className="slide-panel relative w-[390px] md:w-[1440px] shrink-0 h-full overflow-hidden">
-                            {/* Background Campsite Image */}
-                            <div className="slide5-bg absolute inset-0 -left-[10%] w-[120%] h-full z-0 will-change-transform">
-                                <Image
-                                    src="/images/about/aboutus5th.png"
-                                    alt="People Behind Background"
-                                    fill
-                                    className="object-cover object-center"
-                                />
-                            </div>
-
+                        <div className="slide-panel relative w-[390px] md:w-[1440px] shrink-0 h-full overflow-hidden bg-transparent">
                             {/* Left Side: Headline & Copy unified container */}
                             <div
                                 className="hidden md:flex flex-col absolute z-20 pointer-events-none will-change-transform"
@@ -1388,86 +1246,72 @@ export default function AboutPage() {
                         </div>
                     </div>
 
-                    {/* ROADMAP NAVIGATION SLIDER ANCHORED AT BOTTOM (NEVER CUT OFF REGARDLESS OF SCREEN HEIGHT) */}
-                    <div className="hidden md:block absolute bottom-6 lg:bottom-8 left-1/2 -translate-x-1/2 z-40 w-[640px] max-w-[90%] h-[95px] pointer-events-auto">
-                        {/* Connecting Polyline SVG */}
-                        <svg
-                            viewBox="0 0 640 95"
-                            className="absolute inset-0 w-full h-full pointer-events-none"
-                            preserveAspectRatio="none"
-                        >
-                            <path
-                                d="M 20 85 L 110 65 L 250 70 L 390 48 L 490 48 L 600 20"
-                                fill="none"
-                                stroke="rgba(255, 255, 255, 0.35)"
-                                strokeWidth="1.5"
-                            />
-                            <path
-                                d="M 20 85 L 110 65 L 250 70 L 390 48 L 490 48 L 600 20"
-                                fill="none"
-                                stroke="#ffffff"
-                                strokeWidth="2.5"
-                                strokeDasharray="640"
-                                strokeDashoffset={640 - (activeSlide / 4) * 640}
-                                className="transition-all duration-500 ease-out"
-                            />
-                        </svg>
+                    {/* Roadmap Navigation Slider - Anchored inside sticky viewport, scrolls away after slide 5 */}
+                    <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-0 w-full z-40 px-4 md:px-12 pointer-events-none">
+                        <div className="relative w-full max-w-2xl lg:max-w-3xl mx-auto h-[90px] md:h-[110px] pointer-events-auto">
+                            {/* SVG Line connecting the nodes */}
+                            <svg viewBox="0 0 1000 200" className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+                                {/* Dimmed background line */}
+                                <path
+                                    d="M 50 180 L 200 130 L 400 150 L 600 100 L 750 100 L 900 40"
+                                    fill="none"
+                                    stroke="rgba(255,255,255,0.3)"
+                                    strokeWidth="3"
+                                />
+                                {/* Active progress line */}
+                                <path
+                                    d="M 50 180 L 200 130 L 400 150 L 600 100 L 750 100 L 900 40"
+                                    fill="none"
+                                    stroke="#ffffff"
+                                    strokeWidth="3"
+                                    className="transition-all duration-500 ease-out"
+                                    style={{
+                                        strokeDasharray: 1000,
+                                        strokeDashoffset: 1000 - (activeSlide / 4) * 1000
+                                    }}
+                                />
+                            </svg>
 
-                        {/* Interactive Nodes and Labels */}
-                        {roadmapNodes.map((item) => {
-                            const isCurrent = activeSlide === item.index;
-                            const isPassed = activeSlide >= item.index;
-                            return (
+                            {/* Nodes placed over the SVG coordinates */}
+                            {roadmapItems.map((item, index) => (
                                 <div
-                                    key={item.index}
-                                    className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center cursor-pointer group"
-                                    style={{ left: `${item.xPct}%`, top: `${item.yPct}%` }}
-                                    onClick={() => scrollToSlide(item.index)}
+                                    key={index}
+                                    className="absolute flex flex-col items-center cursor-pointer group"
+                                    style={{
+                                        left: `${item.x}%`,
+                                        top: `${item.y}%`,
+                                        transform: 'translate(-50%, -50%)'
+                                    }}
+                                    onClick={() => scrollToSlide(index)}
                                 >
-                                    {/* Top Label */}
+                                    {/* Label Top */}
                                     {item.pos === "top" && (
-                                        <span className={`absolute bottom-full mb-2.5 text-[11px] tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isCurrent
-                                            ? "text-white font-medium drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]"
-                                            : "text-white/60 group-hover:text-white"
-                                            }`}>
+                                        <span className={`absolute bottom-full mb-3 text-[clamp(9px,0.6vw+4px,12px)] tracking-widest uppercase transition-colors duration-300 whitespace-nowrap ${activeSlide === index ? 'text-white font-medium drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'text-white/60 group-hover:text-white'}`}>
                                             {item.label}
                                         </span>
                                     )}
 
-                                    {/* Pulse ring on active node */}
-                                    {isCurrent && (
-                                        <span className="absolute inset-0 m-auto w-6 h-6 rounded-full bg-white/20 animate-ping" />
-                                    )}
-
-                                    {/* Node Orb */}
-                                    <div className={`relative w-4 h-4 rounded-full border transition-all duration-300 flex items-center justify-center backdrop-blur-md ${isCurrent
-                                        ? "border-white bg-white/35 shadow-[0_0_14px_rgba(255,255,255,0.9)] scale-110"
-                                        : isPassed
-                                            ? "border-white/70 bg-white/15"
-                                            : "border-white/30 bg-white/5 group-hover:border-white/60"
-                                        }`}>
-                                        <div className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${isCurrent ? "bg-white shadow-[0_0_6px_white]" : "bg-white/70"
-                                            }`} />
+                                    {/* Glass Node */}
+                                    <div className={`relative w-7 h-7 md:w-9 md:h-9 rounded-full border transition-all duration-300 flex items-center justify-center backdrop-blur-md ${activeSlide >= index ? 'border-white/80 bg-white/20' : 'border-white/40 bg-white/5 group-hover:bg-white/10'}`}>
+                                        {/* Inner dot */}
+                                        <div className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full transition-all duration-300 ${activeSlide >= index ? 'bg-white shadow-[0_0_10px_rgba(255,255,255,1)]' : 'bg-white/50'}`} />
                                     </div>
 
-                                    {/* Bottom Label */}
+                                    {/* Label Bottom */}
                                     {item.pos === "bottom" && (
-                                        <span className={`absolute top-full mt-2.5 text-[10px] tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${isCurrent
-                                            ? "text-white font-medium drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]"
-                                            : "text-white/60 group-hover:text-white"
-                                            }`}>
+                                        <span className={`absolute top-full mt-3 text-[clamp(9px,0.6vw+4px,12px)] tracking-widest uppercase transition-colors duration-300 whitespace-nowrap ${activeSlide === index ? 'text-white font-medium drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'text-white/60 group-hover:text-white'}`}>
                                             {item.label}
                                         </span>
                                     )}
                                 </div>
-                            );
-                        })}
+                            ))}
+                        </div>
                     </div>
 
                     {/* Mobile Roadmap Bar */}
                     <div className="md:hidden absolute bottom-6 inset-x-0 z-40 px-4 flex justify-center pointer-events-auto">
                         <div className="flex items-center gap-3 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
-                            {roadmapNodes.map((item) => (
+                            {roadmapItems.map((item) => (
                                 <button
                                     key={item.index}
                                     type="button"
@@ -1482,112 +1326,210 @@ export default function AboutPage() {
             </section>
 
             {/* NORMAL VERTICAL SCROLL SECTIONS BELOW */}
-            <div id="about-content" className="relative w-full z-10 bg-black">
-                {/* Background banner */}
-                <div className="absolute top-0 left-0 w-full h-full z-0 opacity-40 pointer-events-none">
+            <div id="about-content" className="relative w-full z-10 bg-black overflow-hidden">
+                {/* Background atmospheric landscape banner with exact Figma specs: width 2252px, height 1436px, top -101px, left -316px */}
+                <div
+                    className="absolute pointer-events-none overflow-hidden z-0"
+                    style={{
+                        width: "2252px",
+                        height: "1436px",
+                        top: "-101px",
+                        left: "-316px",
+                        border: "1px solid #000000",
+                        backdropFilter: "blur(100px)",
+                        WebkitBackdropFilter: "blur(100px)",
+                        opacity: 1,
+                    }}
+                >
                     <Image
                         src="/images/about/banner.jpg"
                         alt="Background Banner"
                         fill
+                        priority
                         className="object-cover object-top"
                     />
+                    {/* Subtle soft gradient fade into the lower ambient glow */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/15 to-black/85" />
                 </div>
 
-                {/* Eagle Section */}
+                {/* 1. Eagle Section */}
                 <section
-                    className="relative z-10 w-full flex items-center pt-28 pb-20"
-                    style={{ minHeight: "calc(100vh / var(--desktop-scale, 1))" }}
+                    className="relative z-10 w-full flex items-center pt-16 sm:pt-24 md:pt-32 pb-16 md:pb-24"
+                    style={{ minHeight: "calc(95vh / var(--desktop-scale, 1))" }}
                 >
-                    <div className="absolute top-0 left-0 w-full md:w-[60%] h-[500px] md:h-[850px] z-0 pointer-events-none -mt-16 md:-mt-24">
+                    {/* Bionic Eagle with exact Figma specs: width 1271px, height 910px, top -49px, left -386px */}
+                    <div
+                        className="absolute z-0 pointer-events-none"
+                        style={{
+                            width: "1271px",
+                            height: "910px",
+                            top: "-49px",
+                            left: "-386px",
+                            opacity: 1,
+                        }}
+                    >
                         <Image
                             src="/images/about/eagle.png"
-                            alt="Eagle"
+                            alt="Cybernetic Eagle"
                             fill
-                            className="object-contain object-left-top md:object-left"
+                            priority
+                            className="object-contain object-left-top drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
                         />
                     </div>
 
-                    <div className="relative z-10 w-full max-w-7xl mx-auto px-8 md:px-20 flex justify-end">
-                        <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left mt-[350px] md:mt-0">
-                            <h2 className="text-[clamp(1.75rem,3.5vw+0.5rem,3.5rem)] font-light tracking-[0.1em] uppercase leading-[1.2] mb-8">
+                    {/* Headline and CTA on the Right */}
+                    <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20 flex justify-end">
+                        <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left mt-[380px] sm:mt-[440px] md:mt-0">
+                            <h2 className="text-[32px] sm:text-[42px] md:text-[50px] lg:text-[60px] xl:text-[66px] font-light tracking-[0.08em] uppercase leading-[1.12] mb-6 md:mb-8 text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
                                 Each<br />Challenge<br />Sharpens Our<br />Thinking.
                             </h2>
-                            <p className="text-[clamp(11px,0.6vw+5px,14px)] text-gray-300 font-light leading-[1.8] max-w-sm mb-12">
-                                Every solution expands our understanding revealing a better path forward. Get to the vantage point for your next climb.
+                            <p className="text-[12px] sm:text-[13px] md:text-[14px] text-gray-200/90 font-light leading-[1.8] max-w-[420px] mb-8 md:mb-10 drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                Every solution expands our understanding, revealing a better path forward. Get to the vantage point for your next climb.
                             </p>
-                            <div className="flex gap-4">
-                                <button className="px-6 py-3 md:px-8 md:py-4 bg-white text-black text-[clamp(9px,0.6vw+4px,12px)] tracking-[0.2em] uppercase font-medium hover:bg-gray-200 transition-colors">
+                            <div className="flex flex-wrap gap-4 items-center justify-center md:justify-start">
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        trackContactButtonClick("Talk to the team", "about_eagle_section");
+                                        openContactModal();
+                                    }}
+                                    className="px-7 py-3.5 md:px-8 md:py-4 bg-white text-black text-[10px] md:text-[11px] tracking-[0.2em] uppercase font-medium hover:bg-gray-100 transition-all cursor-pointer shadow-md"
+                                >
                                     Talk to the team
                                 </button>
-                                <button className="px-6 py-3 md:px-8 md:py-4 bg-transparent border border-white/40 text-white text-[clamp(9px,0.6vw+4px,12px)] tracking-[0.2em] uppercase font-medium hover:bg-white/10 transition-colors">
+                                <Link
+                                    href="/projects"
+                                    className="px-7 py-3.5 md:px-8 md:py-4 bg-transparent border border-white/50 text-white text-[10px] md:text-[11px] tracking-[0.2em] uppercase font-medium hover:bg-white/10 hover:border-white transition-all cursor-pointer"
+                                >
                                     See our work
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                {/* Journey Continues / Clouds Section */}
-                <section
-                    className="relative z-10 w-full flex flex-col items-center justify-center py-20"
-                    style={{ minHeight: "calc(50vh / var(--desktop-scale, 1))" }}
-                >
-                    <h3 className="text-[clamp(0.875rem,1.5vw+0.4rem,1.25rem)] tracking-[0.3em] font-light uppercase mb-12 md:mb-16 text-center">
-                        The Journey Continues
-                    </h3>
-
-                    <div className="relative w-full max-w-5xl h-[260px] md:h-[400px] flex items-center justify-center px-4">
-                        <Image
-                            src="/images/about/center-cloud.png"
-                            alt="Clouds"
-                            fill
-                            className="object-contain object-center z-10"
-                        />
-                        <Image
-                            src="/images/about/birds.png"
-                            alt="Birds"
-                            fill
-                            className="object-contain object-center z-20 scale-100 md:scale-110"
-                        />
-                    </div>
-                </section>
-
-                {/* Summit / View Section (Circles) */}
-                <section className="relative z-0 w-full flex flex-col items-center pt-20 pb-0 overflow-hidden">
-                    <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-[#eb9d73] to-[#eb9d73] opacity-50 pointer-events-none"></div>
-
-                    {/* Top Arc */}
+                {/* 2. Summit & The View Section with Clouds, Birds, and Dual Spherical Arcs (Exact Figma Image 1) */}
+                <section className="relative z-0 w-full flex flex-col items-center pt-16 md:pt-24 pb-0 overflow-hidden">
+                    {/* Background color layer after the cloud with exact Figma specs:
+                        width: 1385.6px; height: 1492px; angle: -17.67deg; top: 1254.08px; left: -176.74px; mix-blend-mode: darken */}
                     <div
-                        className="relative z-10 w-full h-[320px] md:h-[440px] flex items-end justify-center pb-16 md:pb-24"
+                        className="absolute pointer-events-none z-0"
                         style={{
-                            background: 'linear-gradient(180deg, rgba(48, 44, 28, 0.94) 61.22%, rgba(36, 42, 33, 0.94) 100%)',
+                            width: "1385.6px",
+                            height: "1492px",
+                            transform: "rotate(-17.67deg)",
+                            opacity: 1,
+                            top: "1254.08px",
+                            left: "-176.74px",
+                            mixBlendMode: "darken",
+                            background: "radial-gradient(ellipse at center, rgba(52, 54, 34, 0.98) 0%, rgba(36, 42, 28, 0.98) 60%, rgba(18, 22, 14, 1) 100%)",
+                            borderRadius: "50%",
+                            filter: "blur(20px)",
+                            WebkitFilter: "blur(20px)",
+                        }}
+                    />
+
+                    {/* Sunset Peach/Coral Glow radiating from behind the hourglass pinch */}
+                    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center">
+                        <div className="absolute top-[38%] md:top-[42%] w-full h-[400px] md:h-[550px] bg-gradient-to-r from-[#d87c52]/80 via-[#f8af8a]/95 to-[#d87c52]/80 blur-[90px] md:blur-[120px] opacity-90" />
+                        <div className="absolute top-[42%] md:top-[46%] w-[500px] md:w-[850px] h-[260px] md:h-[380px] bg-[#eb9d73] rounded-full blur-[100px] md:blur-[140px] opacity-85" />
+                    </div>
+
+                    {/* Clouds & Birds formation arranged directly above and into the Top Arc */}
+                    <div
+                        className="relative w-full max-w-[1126px] h-[340px] sm:h-[420px] md:h-[533px] flex items-center justify-center px-4 z-40 -mb-16 md:-mb-24"
+                        style={{
+                            opacity: 1,
+                        }}
+                    >
+                        {/* Downloaded cloud backdrop image (cloud-back.png) with exact Figma specs:
+                            width: 1126; height: 533; angle: 0 deg; opacity: 1; top: 1112px; left: 101.42px; backdrop-filter: blur(99.4000015258789px) */}
+                        <div
+                            className="absolute inset-0 flex items-center justify-center pointer-events-none z-30"
+                            style={{
+                                width: "1126px",
+                                maxWidth: "100%",
+                                height: "533px",
+                                maxHeight: "100%",
+                                transform: "rotate(0deg)",
+                                opacity: 1,
+                                backdropFilter: "blur(99.4000015258789px)",
+                                WebkitBackdropFilter: "blur(99.4000015258789px)",
+                            }}
+                        >
+                            <div
+                                className="relative w-full h-full flex items-center justify-center"
+                                style={{
+                                    filter: "blur(10.299948692321777px)",
+                                    WebkitFilter: "blur(10.299948692321777px)",
+                                }}
+                            >
+                                <Image
+                                    src="/images/about/cloud-back.png"
+                                    alt="Cloud Backdrop"
+                                    fill
+                                    className="object-contain object-center opacity-90 scale-100 md:scale-105"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Center cloud soft atmospheric mist */}
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-30">
+                            <div className="relative w-[92%] sm:w-[88%] md:w-[82%] h-full flex items-center justify-center">
+                                <Image
+                                    src="/images/about/center-cloud.png"
+                                    alt="Clouds"
+                                    fill
+                                    className="object-contain object-center opacity-70 mix-blend-screen scale-95 md:scale-90"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Flock of birds flying through the clouds exactly as arranged in Image 1 */}
+                        <div className="relative w-full h-full max-w-4xl z-40 pointer-events-none flex items-center justify-center">
+                            <Image
+                                src="/images/about/birds.png"
+                                alt="Flock of Birds"
+                                fill
+                                className="object-contain object-center scale-100 md:scale-80 drop-shadow-[0_4px_12px_rgba(0,0,0,0.7)]"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Top Arc (Convex dome curving downward with "WHEN YOUR BRAND REACHES THE SUMMIT,") */}
+                    <div
+                        className="relative z-10 w-full min-h-[380px] sm:min-h-[440px] md:min-h-[520px] lg:min-h-[580px] flex items-end justify-center pb-16 sm:pb-20 md:pb-28 lg:pb-32 px-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                        style={{
+                            background: 'radial-gradient(120% 120% at 50% 15%, rgba(48, 52, 36, 0.98) 0%, rgba(35, 41, 28, 0.98) 70%, rgba(20, 26, 18, 1) 100%)',
                             borderBottomLeftRadius: '50% 100%',
                             borderBottomRightRadius: '50% 100%'
                         }}
                     >
-                        <h2 className="text-[clamp(1.25rem,2.2vw+0.5rem,2.25rem)] tracking-[0.2em] font-light uppercase text-center leading-[1.6]">
+                        <h2 className="text-[26px] sm:text-[34px] md:text-[42px] lg:text-[48px] tracking-[0.24em] font-extralight uppercase text-center text-white leading-[1.5] drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
                             When your<br />brand reaches<br />the summit,
                         </h2>
                     </div>
 
-                    {/* Bottom Arc */}
+                  
+
+                    {/* Bottom Arc (Concave dome curving upward with "THE VIEW SPEAKS FOR ITSELF") */}
                     <div
-                        className="relative z-10 w-full min-h-[500px] md:min-h-[700px] flex flex-col items-center justify-start pt-20 md:pt-32 mt-8 md:mt-20"
+                        className="relative z-10 mt-10 w-full min-h-[580px] sm:min-h-[660px] md:min-h-[760px] lg:min-h-[850px] flex flex-col items-center justify-start pt-24 sm:pt-32 md:pt-40 lg:pt-48 pb-24 md:pb-36 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]"
                         style={{
-                            background: 'linear-gradient(180deg, rgba(48, 44, 28, 0.94) 61.22%, rgba(36, 42, 33, 0.94) 100%)',
+                            background: 'radial-gradient(120% 120% at 50% 0%, rgba(48, 52, 36, 0.98) 0%, rgba(35, 41, 28, 0.98) 60%, rgba(18, 22, 16, 1) 100%)',
                             borderTopLeftRadius: '50% 100%',
                             borderTopRightRadius: '50% 100%'
                         }}
                     >
-                        <h1 className="text-[clamp(2.25rem,5vw+0.5rem,5rem)] tracking-[0.2em] font-light uppercase text-center mb-4">
+                        <h1 className="text-[52px] sm:text-[72px] md:text-[96px] lg:text-[116px] xl:text-[124px] font-thin tracking-[0.18em] uppercase text-center text-white mb-3 md:mb-4 leading-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.7)]">
                             The View
                         </h1>
-                        <h3 className="text-[clamp(0.875rem,1.8vw+0.4rem,1.5rem)] tracking-[0.2em] font-light uppercase text-center text-white/80 mb-10">
+                        <h3 className="text-[14px] sm:text-[18px] md:text-[22px] lg:text-[24px] tracking-[0.3em] font-light uppercase text-center text-white/90 mb-8 md:mb-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
                             Speaks for itself
                         </h3>
 
-                        <p className="text-[clamp(10px,0.6vw+4px,12px)] text-center text-gray-300 font-light max-w-[320px] md:max-w-md leading-[2] mb-12 px-6">
-                            Share your vision, your challenge, or your next ambition. Smrkonova helps explore what&apos;s possible and engineers the smartest path to the top.
+                        <p className="text-[11px] sm:text-[12px] md:text-[13.5px] text-center text-gray-300 font-light max-w-[340px] md:max-w-md mx-auto leading-[1.9] mb-10 md:mb-12 px-6 drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
+                            Share your vision, your challenge, or your next ambition. Smrkonova helps explore what&apos;s possible and engineer the smartest path to the top.
                         </p>
 
                         <button
@@ -1596,7 +1538,7 @@ export default function AboutPage() {
                                 trackContactButtonClick("Get in touch", "about_page_footer");
                                 openContactModal();
                             }}
-                            className="inline-block px-8 py-3 md:px-10 md:py-4 bg-transparent border border-white/30 text-white text-[clamp(9px,0.6vw+4px,12px)] tracking-[0.2em] uppercase hover:bg-white/10 transition-colors cursor-pointer"
+                            className="inline-block px-8 py-3.5 md:px-11 md:py-4 bg-transparent border border-white/40 hover:border-white text-white text-[10px] md:text-[11.5px] tracking-[0.25em] uppercase font-light hover:bg-white/10 transition-all cursor-pointer shadow-sm"
                         >
                             Get in touch
                         </button>
