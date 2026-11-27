@@ -220,6 +220,7 @@ export default function Header() {
                   <MenuLink href="/about" title="ABOUT US" active={pathname === "/about"} onClick={() => setIsOpen(false)} />
                   <MenuLink href="/services" title="SERVICES" active={pathname?.startsWith("/services")} onClick={() => setIsOpen(false)} />
                   <MenuLink href="/industries" title="INDUSTRIES" active={pathname?.startsWith("/industries")} onClick={() => setIsOpen(false)} />
+                  <MenuLink href="/Product" title="PRODUCTS" active={pathname?.toLowerCase() === "/product" || pathname?.toLowerCase().startsWith("/product")} onClick={() => setIsOpen(false)} />
                   <MenuLink href="/projects" title="PROJECTS" active={pathname?.startsWith("/projects")} onClick={() => setIsOpen(false)} />
                   <MenuLink href="/blog" title="BLOGS" active={pathname?.startsWith("/blog") || pathname?.startsWith("/blogs")} onClick={() => setIsOpen(false)} />
                   <MenuLink href="/events" title="EVENTS" active={pathname?.startsWith("/events")} onClick={() => setIsOpen(false)} />

@@ -51,6 +51,7 @@ export default function Footer() {
                     {/* Links */}
                     <div className="flex flex-wrap justify-center gap-6 md:gap-10 text-[#cccccc] font-sans font-semibold tracking-wider text-[10px] md:text-xs mt-4">
                         <Link href="/projects" className="hover:text-white transition-colors">PROJECTS</Link>
+                        <Link href="/Product" className="hover:text-white transition-colors">PRODUCTS</Link>
                         <Link href="/services" className="hover:text-white transition-colors">SERVICES</Link>
                         <Link href="/industries" className="hover:text-white transition-colors">INDUSTRIES</Link>
                         <Link href="/about" className="hover:text-white transition-colors">ABOUT US</Link>
